@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حساب المثلثات</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:760px;
+  margin:auto;
+  padding:22px 18px 36px;
+  font-size:17px;
+  line-height:2.3;
+  box-sizing:border-box;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:12px;
+}
+
+.header-title{
+  font-size:16px;
+}
+
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:22px;
+}
+
+p{
+  margin:16px 0;
+}
+
+.eq{
+  margin:18px 0;
+}
+
+.frac{
+  display:inline-block;
+  text-align:center;
+  vertical-align:middle;
+  margin:0 6px;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:4px;
+  padding:0 6px;
+}
+
+.box{
+  display:inline-block;
+  background:#9eddf8;
+  border:2px solid #333;
+  border-radius:12px;
+  padding:10px 22px;
+  margin:18px 0;
+  font-size:18px;
+}
+
+.example{
+  display:inline-block;
+  border:2px solid #333;
+  border-radius:12px;
+  padding:4px 14px;
+  font-weight:bold;
+  margin-right:6px;
+}
+
+.footer{
+  margin-top:40px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+@media(max-width:480px){
+  .page{
+    font-size:16px;
+    padding:18px 14px 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-title">حساب المثلثات</div>
+</div>
+
+<div class="top-line"></div>
+
+<div class="eq">
+( جا ج )<sup>2</sup> + ( جتا ج )<sup>2</sup> =
+<span class="frac">
+  <span class="top">| أ ب |<sup>2</sup> + | ب ج |<sup>2</sup></span>
+  <span class="bottom">| أ ج |<sup>2</sup></span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ج |<sup>2</sup></span>
+  <span class="bottom">| أ ج |<sup>2</sup></span>
+</span>
+= ١ ( لماذا ؟ )
+</div>
+
+<div class="box">
+جا<sup>2</sup> ج + جتا<sup>2</sup> ج = ١
+</div>
+
+<p>
+ونكتب عادة : ( جا ج )<sup>2</sup> على الشكل جا<sup>2</sup> ج ، وكذلك نكتب ( جتا ج )<sup>2</sup> على الشكل جتا<sup>2</sup> ج .
+</p>
+
+<div class="eq">
+∴ جا ج =
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+، جتا ج =
+<span class="frac">
+  <span class="top">| ب ج |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+</div>
+
+<div class="eq">
+∴
+<span class="frac">
+  <span class="top">جا ج</span>
+  <span class="bottom">جتا ج</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| ب ج |</span>
+</span>
+= ظا ج
+</div>
+
+<div class="box">
+ظا ج =
+<span class="frac">
+  <span class="top">جا ج</span>
+  <span class="bottom">جتا ج</span>
+</span>
+</div>
+
+<p>
+<span class="example">(٥)</span>
+إذا كان جتا هـ = ٠٫٨ ، حيث هـ زاوية حادة ، فأوجد جاهـ ، ثم استنتج ظاهـ .
+</p>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٨١</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٩ - الأسئلة الوزارية للزاوية المحيطية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --alt-bg: #f2f2f2;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ministerial-header {
+            background-color: #8faadc;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: -1px;
+        }
+
+        .sub-header {
+            background-color: #fce4d6;
+            border: 1.5px solid #000;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        /* MCQ Container */
+        .mcq-item {
+            border: 1.5px solid #000;
+            margin-bottom: 5px;
+        }
+
+        .question-text {
+            background-color: var(--alt-bg);
+            padding: 4px 10px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .opt-box {
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            padding: 4px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+
+        .opt-box:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-box:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1.2px solid #000;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .opt-box.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-box.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opt-box {
+                border-left: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="ministerial-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <!-- Q1 -->
+            <div class="mcq-item">
+                <div class="question-text">١. درجة قياس القوس تساوي درجة ضعف قياس:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>الوتر المناظر له.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>الزاوية المحيطية المقابلة له.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>الزاوية المركزية المقابلة له.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>الزاوية المركزية المنعكسة.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="mcq-item">
+                <div class="question-text">٢. الزاوية المحيطية هي زاوية رأسها يقع على:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>محيط الدائرة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>وتر الدائرة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>مركز الدائرة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>منتصف نق.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="mcq-item">
+                <div class="question-text">٣. درجة قياس الزاوية المحيطية المرسومة في سدس دائرة تساوي:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٣٠°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٣٠٠°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>١٥٠°.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="mcq-item">
+                <div class="question-text">٤. درجة قياس القوس المنعكس لزاوية محيطية مرسومة في ثلاثة أرباع دائرة يساوي:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٩٠°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>١٣٥°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٢٧٠°.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١٨٠°.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="mcq-item">
+                <div class="question-text">٥. الزوايا المحيطية المشتركة في نفس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>متباينة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>متساوية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>مختلفة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>متناظرة.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 & Q7 -->
+            <div class="mcq-item">
+                <div class="question-text">
+                    <span>٦. من خلال الشكل المجاور: إذا كان | جـ ب | = | د أ | فإن △ جـ هـ د مثلث:</span>
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="1.2" />
+                        <!-- Chords -->
+                        <line x1="20" y1="20" x2="80" y2="80" stroke="black" stroke-width="1" />
+                        <line x1="80" y1="20" x2="20" y2="80" stroke="black" stroke-width="1" />
+                        <text x="15" y="15" font-family="Amiri" font-size="10">أ</text>
+                        <text x="80" y="15" font-family="Amiri" font-size="10">ب</text>
+                        <text x="80" y="90" font-family="Amiri" font-size="10">جـ</text>
+                        <text x="15" y="90" font-family="Amiri" font-size="10">د</text>
+                        <text x="48" y="55" font-family="Amiri" font-size="10">هـ</text>
+                    </svg>
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>متساوي الساقين.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>مختلف الأضلاع.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>متساوي الأضلاع.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>متطابق الأضلاع.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٧. من خلال الفقرة السابقة: إذا كان ق(⦣ ب د أ) = ٣٠ فإن ق(⦣ أ جـ ب) =
+                    ........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q8 to Q11 -->
+            <div class="mcq-item">
+                <div class="question-text">
+                    <div>٨. من خلال الشكل المجاور: م مركز الدائرة، <br>فإن قيمة س = ........:</div>
+                    <svg width="100" height="100" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="black" stroke-width="1.2" />
+                        <line x1="20" y1="90" x2="100" y2="30" stroke="black" stroke-width="1.2" />
+                        <line x1="100" y1="30" x2="80" y2="105" stroke="black" stroke-width="1.2" />
+                        <line x1="20" y1="90" x2="80" y2="105" stroke="black" stroke-width="1.2" />
+                        <text x="95" y="25" font-family="Amiri" font-size="10">أ</text>
+                        <text x="10" y="95" font-family="Amiri" font-size="10">ب</text>
+                        <text x="80" y="115" font-family="Amiri" font-size="10">جـ</text>
+                        <text x="35" y="85" font-family="Amiri" font-size="10">١٢٠°</text>
+                        <text x="75" y="95" font-family="Amiri" font-size="10">س</text>
+                    </svg>
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٩. من خلال الشكل في الفقرة السابقة: قياس القوس (ب جـ) = ........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١٠. من خلال الشكل في الفقرة (٨): قيمة ص = ........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١١. من خلال الشكل في الفقرة (٨): ق(⦣ ب م جـ) = ........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>١٢٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٨ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-box').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

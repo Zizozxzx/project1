@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - صفحة 6</title>
+    <style>
+        :root { --line-color: #000; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #444;
+            margin: 0;
+            padding: 10px;
+            direction: rtl;
+            color: #000;
+        }
+        .page-sheet {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            min-height: 100vh;
+        }
+        .page-num {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        /* نظام الأعمدة المتجاوب */
+        .main-container {
+            display: flex;
+            gap: 15px;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+        }
+        .column { flex: 1; }
+        .right-col { border-left: 2px solid #000; padding-left: 15px; }
+        
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; }
+            .right-col { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+
+        /* تنسيق العناوين والمربعات */
+        .title-box {
+            border: 4px double #000;
+            background: #f0f0f0;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+            margin: 15px 0;
+        }
+        .important-q {
+            border: 2px solid #000;
+            border-radius: 25px;
+            padding: 8px 15px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .math-statement { margin: 10px 0; line-height: 1.6; }
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .svg-container { border: 1px solid #ccc; background: #fff; padding: 5px; }
+        .property-icon { vertical-align: middle; margin: 0 5px; }
+        
+        /* تنسيق حل الأمثلة */
+        .example-res { font-size: 0.95em; border: 1px solid #000; padding: 8px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+<div class="page-sheet">
+    <div class="page-num">- ٦ -</div>
+
+    <div class="main-container">
+        <div class="column right-col">
+            <p><strong>* حل المثال السابق: *</strong></p>
+            <p class="math-statement">س × ص = { (١, ٢) ، (٢, ١) } X { -١, ٢ } <br>
+            = { (١, -١) ، (١, ٢) ، (٢, -١) ، (٢, ٢) ، (٣, -١) ، (٣, ٢) } <br>
+            = ٦ أزواج مرتبة ناتجة من ضرب عناصر س في عناصر ص = ٣ × ٢ = ٦.</p>
+
+            <p><strong>١) ع₁ علاقة أصغر من وتعني (( مجموعة كل الأزواج المرتبة التي مسقطها الأول أصغر من مسقطها الثاني )) ونكتب ع₁ كأزواج مرتبة كالتالي :-</strong></p>
+            <p>ع₁ = { (١, ٢) }</p>
+            
+            <div class="diagram-grid">
+                <div class="svg-container">
+                    <svg viewBox="0 0 100 80">
+                        <ellipse cx="25" cy="40" rx="12" ry="35" fill="none" stroke="black"/>
+                        <ellipse cx="75" cy="40" rx="12" ry="25" fill="none" stroke="black"/>
+                        <text x="22" y="25" font-size="8">١</text><text x="22" y="45" font-size="8">٢</text><text x="22" y="65" font-size="8">٣</text>
+                        <text x="72" y="35" font-size="8">-١</text><text x="72" y="55" font-size="8">٢</text>
+                        <line x1="35" y1="25" x2="65" y2="52" stroke="black" marker-end="url(#arr)"/>
+                        <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z"/></marker></defs>
+                    </svg>
+                    <div style="font-size: 10px;">شكل (١) تمثيل سهمي</div>
+                </div>
+                <div class="svg-container">
+                    <svg viewBox="0 0 100 80">
+                        <line x1="20" y1="10" x2="20" y2="70" stroke="black"/><line x1="20" y1="70" x2="90" y2="70" stroke="black"/>
+                        <circle cx="80" cy="20" r="2"/><text x="12" y="75" font-size="8">٠</text>
+                    </svg>
+                    <div style="font-size: 10px;">شكل (٢) تمثيل جدولي (بياني)</div>
+                </div>
+            </div>
+
+            <p><strong>ب) ع₂ علاقة أكبر من وتعني (( مجموعة كل الأزواج المرتبة التي مسقطها الأول أكبر من مسقطها الثاني )) ونكتب ع₂ كأزواج مرتبة كالتالي :-</strong></p>
+            <p>ع₂ = { (١, -١) ، (٢, -١) ، (٣, -١) ، (٣, ٢) }</p>
+
+            <div class="diagram-grid">
+                <div class="svg-container">
+                    <svg viewBox="0 0 100 80">
+                        <ellipse cx="25" cy="40" rx="12" ry="35" fill="none" stroke="black"/>
+                        <ellipse cx="75" cy="40" rx="12" ry="25" fill="none" stroke="black"/>
+                        <line x1="35" y1="25" x2="65" y2="35" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="35" y1="45" x2="65" y2="35" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="35" y1="65" x2="65" y2="35" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="35" y1="65" x2="65" y2="55" stroke="black" marker-end="url(#arr)"/>
+                    </svg>
+                    <div style="font-size: 10px;">شكل (٣) تمثيل سهمي</div>
+                </div>
+                <div class="svg-container">
+                    <svg viewBox="0 0 100 80">
+                        <line x1="20" y1="10" x2="20" y2="70" stroke="black"/><line x1="20" y1="70" x2="90" y2="70" stroke="black"/>
+                        <circle cx="35" cy="55" r="1.5"/><circle cx="55" cy="55" r="1.5"/><circle cx="75" cy="55" r="1.5"/><circle cx="75" cy="35" r="1.5"/>
+                    </svg>
+                    <div style="font-size: 10px;">شكل (٤) تمثيل جدولي (بياني)</div>
+                </div>
+            </div>
+
+            <div class="title-box">بعض خواص (أنواع) العلاقات</div>
+            
+            <p><strong>(١) العلاقة الانعكاسية:</strong> إذا كانت س مجموعة غير خالية وكانت ع علاقة على س تسمى انعكاسية إذا كان:<br>
+            <strong>( أ ، أ ) ∈ ع لكل أ ∈ س</strong><br>
+            أي أن كل عنصر مرتبط مع نفسه بعلاقة.</p>
+
+            <p><strong>(٢) العلاقة المتناظرة (المتماثلة):</strong> تسمى متناظرة إذا كان:<br>
+            إذا كان (أ ، ب) ∈ ع فإن (ب ، أ) ∈ ع لكل أ، ب ∈ س.</p>
+
+            <p><strong>(٣) العلاقة المتعدية:</strong> تسمى متعدية إذا كان:<br>
+            إذا كان (أ ، ب) ∈ ع ، (ب ، جـ) ∈ ع فإن (أ ، جـ) ∈ ع.</p>
+        </div>
+
+        <div class="column">
+            <div class="important-q">سؤال هام</div>
+            <p><strong>متى تكون العلاقة ع المعرفة على مجموعة غير خالية س غير انعكاسية وغير متناظرة وغير متعدية ؟</strong></p>
+            
+            <div class="example-res">
+                <strong>الجواب:</strong><br>
+                ١) تكون ع <strong>غير انعكاسية</strong> إذا وجد عنصر واحد على الأقل أ ∈ س لا يرتبط مع نفسه، أي (أ ، أ) ∉ ع.<br>
+                ٢) تكون ع <strong>غير متناظرة</strong> إذا توفر زوج مرتب (أ ، ب) ∈ ع ولم يتوفر معه (ب ، أ) ∈ ع.<br>
+                ٣) تكون ع <strong>غير متعدية</strong> في حالة واحدة: أن يتوفر (أ ، ب) ∈ ع و (ب ، جـ) ∈ ع وعدم توفر (أ ، جـ) ∈ ع.
+            </div>
+
+            <div class="title-box">علاقة التكافؤ</div>
+            <p><strong>تعريف علاقة التكافؤ:</strong> تكون ع علاقة تكافؤ إذا كانت انعكاسية ومتناظرة ومتعدية على س.</p>
+
+            <p><strong>مثال:</strong> إذا كانت س = { ٢ ، ٤ ، ٦ } بيّن أي العلاقات الآتية انعكاسية - متناظرة - متعدية - علاقة تكافؤ:</p>
+            <p>أ) ع₁ = { (٢, ٢) ، (٤, ٤) ، (٦, ٦) ، (٢, ٦) ، (٦, ٢) }<br>
+               ب) ع₂ = { (٢, ٢) ، (٤, ٤) ، (٦, ٦) }<br>
+               جـ) ع₃ = { (٢, ٢) ، (٤, ٤) ، (٦, ٦) ، (٤, ٢) ، (٢, ٤) ، (٤, ٦) ، (٦, ٤) }</p>
+
+            <div class="example-res">
+                <strong>الحل أ) ع₁:</strong><br>
+                (١) انعكاسية لتوفر (٢,٢)، (٤,٤)، (٦,٦).<br>
+                (٢) متناظرة لتوفر (٢,٦) و (٦,٢).<br>
+                (٣) متعدية لتحقق الشروط لجميع الحالات.<br>
+                <strong>∴ ع₁ علاقة تكافؤ.</strong>
+            </div>
+
+            <div class="svg-container" style="width: 120px; margin: 10px auto; border:none;">
+                <svg viewBox="0 0 100 60">
+                    <circle cx="20" cy="40" r="3"/><circle cx="50" cy="40" r="3"/><circle cx="80" cy="40" r="3"/>
+                    <path d="M20 35 Q20 15 25 35" fill="none" stroke="black" marker-end="url(#arr)"/>
+                    <path d="M50 35 Q50 15 55 35" fill="none" stroke="black" marker-end="url(#arr)"/>
+                    <path d="M80 35 Q80 15 85 35" fill="none" stroke="black" marker-end="url(#arr)"/>
+                    <path d="M25 45 Q50 55 75 45" fill="none" stroke="black" marker-end="url(#arr)"/>
+                    <path d="M75 35 Q50 25 25 35" fill="none" stroke="black" marker-end="url(#arr)"/>
+                </svg>
+            </div>
+
+            <div class="example-res">
+                <strong>الحل جـ) ع₃:</strong><br>
+                (١) انعكاسية (محققة).<br>
+                (٢) متناظرة (محققة).<br>
+                (٣) غير متعدية لأن (٢, ٤) ∈ ع₃ و (٤, ٦) ∈ ع₃ ولكن (٢, ٦) ∉ ع₃.<br>
+                <strong>∴ ع₃ ليست علاقة تكافؤ.</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

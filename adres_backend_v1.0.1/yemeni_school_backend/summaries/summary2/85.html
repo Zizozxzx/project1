@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غلاف الوحدة الرابعة - حساب المثلثات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Amiri', serif;
+        }
+
+        .cover-page {
+            width: 850px;
+            height: 1100px;
+            background-color: #fff;
+            border: 2px solid #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Decorative leaves (Placeholder simulation) */
+        .leaf {
+            position: absolute;
+            width: 300px;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .leaf-top-right {
+            top: -50px;
+            right: -50px;
+            transform: rotate(15deg);
+            color: #8e44ad;
+        }
+
+        .leaf-bottom-left {
+            bottom: -50px;
+            left: -50px;
+            transform: rotate(-165deg);
+            color: #8e44ad;
+        }
+
+        /* Background texture simulation */
+        .texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(200, 230, 201, 0.2) 0%, transparent 80%);
+            z-index: 0;
+        }
+
+        .main-frame {
+            position: relative;
+            z-index: 5;
+            border: 10px solid rgba(139, 195, 74, 0.4);
+            width: 700px;
+            height: 950px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .title-box {
+            background-color: #dcedc8;
+            border: 2px solid #8bc34a;
+            border-radius: 50% / 10%;
+            padding: 60px 80px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .title-box::before,
+        .title-box::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #8bc34a;
+        }
+
+        .title-box::before {
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            background-color: #dcedc8;
+        }
+
+        .title-box::after {
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            background-color: #dcedc8;
+        }
+
+        .unit-num {
+            font-size: 3.5em;
+            color: #9b59b6;
+            margin: 0;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .unit-title {
+            font-size: 3em;
+            color: #000;
+            margin: 10px 0;
+        }
+
+        .subject-info {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .author-tag {
+            background-color: #f1f8e9;
+            padding: 10px 40px;
+            border-radius: 5px;
+            border: 1px solid #c5e1a5;
+            margin-top: 100px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #9b59b6;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Leaf SVG simulation */
+        .leaf svg {
+            width: 100%;
+            height: auto;
+            fill: currentColor;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="cover-page">
+        <div class="texture"></div>
+
+        <!-- Decorative SVGs (Leaves) -->
+        <div class="leaf leaf-top-right">
+            <svg viewBox="0 0 200 200">
+                <path
+                    d="M100,20 C120,50 180,60 180,100 C180,140 120,150 100,180 C80,150 20,140 20,100 C20,60 80,50 100,20" />
+                <path d="M100,20 L100,180 M100,50 L150,70 M100,80 L160,100 M100,110 L150,130" stroke="white"
+                    stroke-width="2" fill="none" />
+            </svg>
+        </div>
+        <div class="leaf leaf-bottom-left">
+            <svg viewBox="0 0 200 200">
+                <path
+                    d="M100,20 C120,50 180,60 180,100 C180,140 120,150 100,180 C80,150 20,140 20,100 C20,60 80,50 100,20" />
+                <path d="M100,20 L100,180 M100,50 L50,70 M100,80 L40,100 M100,110 L50,130" stroke="white"
+                    stroke-width="2" fill="none" />
+            </svg>
+        </div>
+
+        <div class="main-frame">
+            <div class="title-box">
+                <h1 class="unit-num">الوحدة الرابعة</h1>
+                <h2 class="unit-title">حساب المثلثات</h2>
+                <div class="subject-info">رياضيات - الصف التاسع</div>
+            </div>
+
+            <div class="author-tag">إعداد: هلا المولجي</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

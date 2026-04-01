@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>صفحة ٣٩ - الرياضيات</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --border-color: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Same font size as p38 for consistency */
+            font-size: 1.35vmin;
+        }
+
+        .page-container {
+            width: 90%;
+            max-width: 650px;
+            height: 98%;
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+            border: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: #fff;
+            padding: 5px;
+        }
+
+        /* --- Common Styles --- */
+        .section-box {
+            border: 1px solid #000;
+            margin-bottom: 0.3em;
+            padding: 0.5em;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .section-header-centered {
+            display: block;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            /* Space below title */
+            font-weight: bold;
+            text-decoration: underline;
+            /* Double underline effect simulation if needed, but standard underline per image mostly */
+            text-decoration-style: double;
+        }
+
+        .content-list {
+            list-style-type: none;
+            padding-right: 1.5em;
+            margin: 0;
+        }
+
+        .content-list li {
+            position: relative;
+            margin-bottom: 0.3em;
+            line-height: 1.3;
+        }
+
+        .content-list li::before {
+            content: "•";
+            position: absolute;
+            right: -1em;
+            font-weight: bold;
+        }
+
+        .numbered-list {
+            list-style-type: none;
+            padding-right: 1.5em;
+            margin: 0;
+        }
+
+        .numbered-list li {
+            position: relative;
+            margin-bottom: 0.4em;
+            padding-right: 0.5em;
+        }
+
+        .numbered-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            right: -1.3em;
+            font-weight: bold;
+        }
+
+        /* --- Math --- */
+        .ar-math {
+            direction: rtl;
+            unicode-bidi: embed;
+            display: inline-block;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: top;
+            position: relative;
+            top: -0.4em;
+        }
+
+        /* --- Scissors Diagram (Method 2) --- */
+        .diagram-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5em 0;
+            gap: 2em;
+        }
+
+        .scissors-box {
+            position: relative;
+            width: 10em;
+            height: 6em;
+            margin: 0 1em;
+        }
+
+        .x-label {
+            position: absolute;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* --- Training Items --- */
+        .question-row {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 0.6em;
+            gap: 0.5em;
+            flex-wrap: nowrap;
+        }
+
+        .q-num {
+            font-weight: bold;
+            min-width: 1.5em;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            min-width: 50px;
+            margin: 0 3px;
+        }
+
+        /* --- Footer & Watermark --- */
+        .watermark-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.08;
+            text-align: center;
+        }
+
+        .wm-text-large {
+            font-size: 15vmin;
+            font-family: 'DecoType Naskh', Tahoma, sans-serif;
+            color: #000;
+        }
+
+        .footer {
+            margin-top: auto;
+            border-top: 2px solid #000;
+            padding-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Top Section: Finishing previous exercise -->
+        <div class="section-box">
+            <b>ج. حدد الحد الأوسط والحد الثالث للمقادير التالية:</b>
+            <div style="margin-top: 0.5em; padding-right: 1em;">
+                <div class="question-row">
+                    <span class="q-num">١)</span>
+                    <span class="ar-math">( س - ٤ ) ( س + ١٠ )</span>.
+                    <span style="margin-right: 1em;">( الحد الأوسط = <span class="dotted-line"
+                            style="width: 80px;"></span> ، الحد الثالث = <span class="dotted-line"
+                            style="width: 80px;"></span> ).</span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٢)</span>
+                    <span class="ar-math">( ص ل - ١١ ) ( ص ل - ٢ )</span>.
+                    <span style="margin-right: 1em;">( الحد الأوسط = <span class="dotted-line"
+                            style="width: 80px;"></span> ، الحد الثالث = <span class="dotted-line"
+                            style="width: 80px;"></span> ).</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Non-Simple Trinomial -->
+        <div class="section-box">
+            <div class="section-header-centered">ثانياً: تحليل المقدار الثلاثي غير البسيط</div>
+
+            <p style="margin: 0.3em 0;">
+                <span style="text-decoration: underline;">الصورة العامة للمقدار الثلاثي:</span>
+                <span class="ar-math">أ س<sup>٢</sup> + ب س + جـ</span> ، حيث
+                <span class="ar-math">أ ، ب ، جـ ∊ ح</span> ، <span class="ar-math">أ ≠ صفر</span>.
+            </p>
+            <p style="margin: 0.3em 0;">
+                <span style="text-decoration: underline;">شرط المقدار الثلاثي البسيط:</span>
+                معامل <span class="ar-math">س<sup>٢</sup></span> لا يساوي الواحد الصحيح، أي أن أ ≠ ١.
+            </p>
+
+            <div style="margin-top: 0.5em;">
+                <span style="text-decoration: underline; display:block; margin-bottom:0.3em;">قاعدة التحليل: لدينا
+                    طريقتين للتحليل:</span>
+                <ol class="numbered-list">
+                    <li data-num="١)">
+                        نضرب معامل <span class="ar-math">س<sup>٢</sup></span> ( أ ) في الحد الثالث ( جـ ) ثم نحلل الناتج
+                        إلى عاملين ( ل ، ع ) مجموعهما الحد الأوسط
+                        ونستخدم نفس قاعدة الإشارات في المقدار الثلاثي البسيط ثم نكتب المقدار بهذه الطريقة:<br>
+                        ( <span class="ar-math">أ س<sup>٢</sup> + ل س + ع س + جـ</span> ) ثم نأخذ العامل المشترك الأكبر
+                        من كل حدين متتاليين فيظهر لنا قوس مشترك
+                        ثم نأخذه كعامل مشترك أكبر وبذلك نحصل على تحليل المقدار الثلاثي غير البسيط.
+                    </li>
+                    <li data-num="٢)">
+                        <b>طريقة المقص:</b>
+                        <div class="diagram-container">
+                            <ul class="content-list" style="flex:1;">
+                                <li><span class="ar-math">جـ = م × ن</span> ، حيث م ، ن ∊ ح.</li>
+                                <li><span class="ar-math">أ = ل × ع</span>.</li>
+                                <li>الحد الأوسط = <span class="ar-math">( ل × ن + ع × م ) س</span>.</li>
+                                <li>إشارة الأقواس كما في المقدار الثلاثي البسيط.</li>
+                            </ul>
+
+                            <!-- Scissors Diagram -->
+                            <div class="scissors-box">
+                                <!-- SVG Lines first for z-ordering -->
+                                <svg width="100%" height="100%"
+                                    style="position: absolute; top:0; left:0; pointer-events:none;">
+                                    <!-- Top-Right to Bottom-Left -->
+                                    <line x1="75%" y1="25%" x2="25%" y2="75%" stroke="black" stroke-width="2" />
+                                    <!-- Top-Left to Bottom-Right -->
+                                    <line x1="25%" y1="25%" x2="75%" y2="75%" stroke="black" stroke-width="2" />
+                                </svg>
+
+                                <!-- Labels -->
+                                <!-- Right Side -->
+                                <div class="x-label" style="top:0; right:0;">ل س</div>
+                                <div class="x-label" style="bottom:0; right:0;">ع س</div>
+
+                                <!-- Left Side -->
+                                <div class="x-label" style="top:0; left:0;">م</div>
+                                <div class="x-label" style="bottom:0; left:0;">ن</div>
+
+                                <!-- Center math operators ? Image usually just shows lines for "cross multiplication" -->
+                                <!-- Adding small signs near ends if typical, but standard scissors is just lines -->
+                                <div style="position:absolute; top:15%; right:22%; font-size:0.8em;">+</div>
+                                <div style="position:absolute; bottom:15%; right:22%; font-size:0.8em;">+</div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 3: Notes -->
+        <div class="section-box">
+            <div class="section-title">ملاحظات هامة:</div>
+            <ul class="content-list">
+                <li>أثناء تحليل المقدار الثلاثي غير البسيط فلا بد أن نراعي ترتيب الحدود.</li>
+                <li>قبل البدء بتحليل المقدار الثلاثي غير البسيط، البحث عن العامل المشترك الأكبر " إن وجد " ، وإذا كان
+                    معامل <span class="ar-math">س<sup>٢</sup></span>، فنأخذه عامل مشترك ثم نحلل المقدار، مثلاً: <span
+                        class="ar-math">- ٤ س<sup>٢</sup> + ١٦ س + ٢٠ = - ٤ ( س<sup>٢</sup> - ٤ س - ٥ ) = - ٤ ( س - ٥ )
+                        ( س + ١ ).</span></li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Training 2 -->
+        <div class="section-box" style="flex-grow: 1;">
+            <div class="section-title">تدريب (٢):</div>
+            <b>أ. حدد أياً مما يلي يمثل مقدار ثلاثي غير بسيط مع ذكر السبب:</b>
+            <div style="margin-top:0.3em; padding-right:1em;">
+                <div class="question-row">
+                    <span class="q-num">١)</span>
+                    <span class="ar-math">٥ ص<sup>٢</sup> - ٢ ص - ٣</span>
+                    <span>................................( <span class="dotted-line" style="width:120px;"></span>
+                        ).</span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٢)</span>
+                    <span class="ar-math">س<sup>٢</sup> + ٤ س + ٤</span>
+                    <span>................................( <span class="dotted-line" style="width:120px;"></span>
+                        ).</span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٣)</span>
+                    <span class="ar-math">- س<sup>٢</sup> - ٦ س + ٧</span>
+                    <span>................................( <span class="dotted-line" style="width:120px;"></span>
+                        ).</span>
+                </div>
+            </div>
+
+            <b style="display:block; margin-top:0.5em;">ب. حلل المقادير التالية:</b>
+            <div style="margin-top:0.3em; padding-right:1em;">
+                <div class="question-row">
+                    <span class="q-num">١)</span>
+                    <span class="ar-math">٧ م<sup>٢</sup> - ١٦ م + ٤</span>
+                    <span class="dotted-line" style="flex-grow:1;"></span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٢)</span>
+                    <span class="ar-math">٢ أ<sup>٢</sup> + ١٦ أ + ١٠</span>
+                    <span class="dotted-line" style="flex-grow:1;"></span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٣)</span>
+                    <span class="ar-math">٢ س<sup>٤</sup> - ٥ س<sup>٢</sup> - ٧</span>
+                    <span class="dotted-line" style="flex-grow:1;"></span>
+                </div>
+            </div>
+
+            <b style="display:block; margin-top:0.5em;">ج. حدد الحد الأوسط والحد الثالث للمقادير التالية:</b>
+            <div style="margin-top:0.3em; padding-right:1em;">
+                <div class="question-row">
+                    <span class="q-num">١)</span>
+                    <span class="ar-math">( ٣ س - ٤ ) ( س + ٣ )</span>.
+                    <span>( الحد الأوسط = <span class="dotted-line" style="width:50px;"></span> ، الحد الثالث = <span
+                            class="dotted-line" style="width:50px;"></span> ).</span>
+                </div>
+                <div class="question-row">
+                    <span class="q-num">٢)</span>
+                    <span class="ar-math">( ٤ ص - ٢ ) ( ٣ ص - ١ )</span>.
+                    <span>( الحد الأوسط = <span class="dotted-line" style="width:50px;"></span> ، الحد الثالث = <span
+                            class="dotted-line" style="width:50px;"></span> ).</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watermark -->
+        <div class="watermark-area">
+            <div class="wm-text-large">هلا المولجي</div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٣٩ -</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

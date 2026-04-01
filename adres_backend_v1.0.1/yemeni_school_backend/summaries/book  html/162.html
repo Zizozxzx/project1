@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حساب المثلثات – العلاقات العددية في مثلث قائم الزاوية</title>
+
+<style>
+body{
+  margin:0;
+  background:#fff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:900px;
+  min-height:1250px;
+  margin:0 auto;
+  padding:0 48px 130px;
+  box-sizing:border-box;
+  position:relative;
+  font-size:20px;
+  line-height:2.1;
+}
+
+/* الهيدر الأزرق */
+.header-bg{
+  background:#bfe9fb;
+  padding:28px 40px 34px;
+  position:relative;
+}
+.header-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+}
+.unit-badge{
+  position:absolute;
+  left:40px;
+  top:22px;
+  border:2px solid #00a6df;
+  border-radius:16px;
+  padding:14px 22px;
+  font-size:22px;
+  font-weight:bold;
+  background:#fff;
+}
+
+/* شريط العنوان */
+.title-bar{
+  margin:28px 0 26px;
+  border:3px solid #000;
+  border-radius:30px;
+  display:flex;
+  overflow:hidden;
+}
+.title-num{
+  padding:12px 20px;
+  border-left:3px solid #000;
+  font-size:22px;
+}
+.title-text{
+  flex:1;
+  padding:12px 26px;
+  color:#00a6df;
+  font-size:24px;
+  font-weight:bold;
+}
+
+/* زر تدريب */
+.badge{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:18px;
+  padding:6px 18px;
+  font-size:20px;
+  margin:10px 0;
+}
+
+/* الرسم */
+.diagram{
+  margin:24px 0 10px;
+  text-align:center;
+}
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* التذييل */
+.footer{
+  position:absolute;
+  bottom:20px;
+  left:48px;
+  right:48px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-num{
+  position:absolute;
+  right:0;
+  top:-28px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:6px 18px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  margin-top:18px;
+  font-size:15px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{padding:0 18px 120px;font-size:18px;line-height:2;}
+  .footer{left:18px;right:18px;}
+  .header-title{font-size:24px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header-bg">
+  <div class="header-title">حساب المثلثات</div>
+  <div class="unit-badge">الوحدة الرابعة</div>
+</div>
+
+<div class="page">
+
+<div class="title-bar">
+  <div class="title-num">٤ : ١</div>
+  <div class="title-text">العلاقات العددية في مثلث قائم الزاوية</div>
+</div>
+
+<p>
+تذكر أن ( مجموع طولي أي ضلعين في مثلث أكبر من طول الضلع الثالث )، وتعد هذه المتباينة شرطًا أساسيًا لرسم أي مثلث مهما كان نوعه.
+</p>
+
+<span class="badge">تدريب</span>
+
+<p>
+حدد أيًّا من الثلاثيات التالية يمكن أن تشكل أطوال مثلث:
+</p>
+
+<p>
+(أ) ٢ سم ، ٣ سم ، ٤ سم &nbsp;&nbsp;
+(ب) ١٢ سم ، ٦ سم ، ١٩ سم &nbsp;&nbsp;
+(ج) ٤٫٣ سم ، ٤٫٧ سم ، ٩ سم
+</p>
+
+<p>
+تأمل المثلث أ ب ج القائم الزاوية في أ.
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 420 220">
+  <!-- القاعدة -->
+  <line x1="40" y1="180" x2="380" y2="180" stroke="#000" stroke-width="2"/>
+  <!-- الضلعين -->
+  <line x1="40" y1="180" x2="210" y2="40" stroke="#000" stroke-width="2"/>
+  <line x1="210" y1="40" x2="380" y2="180" stroke="#000" stroke-width="2"/>
+  <!-- العمود -->
+  <line x1="210" y1="40" x2="210" y2="180" stroke="#000" stroke-width="2"/>
+  <!-- الزوايا القائمة -->
+  <rect x="196" y="40" width="14" height="14" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <rect x="196" y="166" width="14" height="14" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <!-- الحروف -->
+  <text x="200" y="30" font-size="18">أ</text>
+  <text x="30" y="190" font-size="18">ج</text>
+  <text x="385" y="190" font-size="18">ب</text>
+  <text x="200" y="200" font-size="18">س</text>
+</svg>
+</div>
+
+<p style="text-align:center;">شكل (٤ – ١)</p>
+
+<p>
+تسمى النقطة س مسقط الرأس أ على الوتر ب ج.
+</p>
+
+<p>
+القطعة المستقيمة ب س تسمى مسقط الضلع أ ب على الوتر ب ج.
+</p>
+
+<p>
+وبالمثل تسمى القطعة المستقيمة س ج مسقط الضلع أ ج على الوتر ب ج.
+</p>
+
+<p>
+توجد علاقات عددية في المثلث قائم الزاوية، يمكننا أن نستنتجها ونبرهن عليها في البرهنات التالية:
+</p>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-num">١٦٥</div>
+  </div>
+  <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

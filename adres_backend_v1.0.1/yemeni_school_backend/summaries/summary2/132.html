@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٣٢ - المماسات المشتركة وملخص العلاقات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --sub-bg: #f2f2f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-header {
+            background-color: #fff;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            box-shadow: 2px 2px 0px #000;
+            font-family: var(--font-calligraphy);
+        }
+
+        /* Common Tangents Grid */
+        .tangents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tangent-item {
+            border: 1.2px solid #000;
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.8em;
+            background-color: #fff;
+        }
+
+        .memo-box {
+            border: 1.5px dashed #000;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            background-color: var(--alt-bg);
+        }
+
+        /* Summary Table */
+        table.summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table.summary-table th,
+        table.summary-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            font-size: 0.88em;
+        }
+
+        table.summary-table th {
+            background-color: #fce4d6;
+        }
+
+        /* Drill Matching */
+        .drill-matching {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1.5px solid #000;
+            background-color: #fff;
+        }
+
+        .drill-col {
+            padding: 10px;
+        }
+
+        .drill-col:first-child {
+            border-left: 1.5px solid #000;
+        }
+
+        .match-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+
+        .match-input {
+            border: none;
+            border-bottom: 1px dotted #000;
+            width: 80px;
+            text-align: center;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .tangents-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .drill-matching {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-header">عدد المماسات المشتركة لدائرتين</div>
+
+            <div class="tangents-grid">
+                <div class="tangent-item">
+                    <svg width="80" height="60" viewBox="0 0 100 80">
+                        <circle cx="25" cy="40" r="20" fill="none" stroke="black" stroke-width="1" />
+                        <circle cx="75" cy="40" r="20" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="5" y1="20" x2="95" y2="20" stroke="black" stroke-width="0.8" />
+                        <line x1="5" y1="60" x2="95" y2="60" stroke="black" stroke-width="0.8" />
+                        <line x1="10" y1="5" x2="90" y2="75" stroke="black" stroke-width="0.8" />
+                        <line x1="10" y1="75" x2="90" y2="5" stroke="black" stroke-width="0.8" />
+                    </svg>
+                    <div style="margin-top: 5px; font-weight: bold;">دائرتان متباعدتان<br>عدد المماسات المشتركة = ٤
+                    </div>
+                </div>
+                <div class="tangent-item">
+                    <svg width="80" height="60" viewBox="0 0 100 80">
+                        <circle cx="30" cy="40" r="20" fill="none" stroke="black" stroke-width="1" />
+                        <circle cx="70" cy="40" r="20" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="50" y1="5" x2="50" y2="75" stroke="black" stroke-width="0.8" />
+                        <line x1="10" y1="20" x2="90" y2="20" stroke="black" stroke-width="0.8" />
+                        <line x1="10" y1="60" x2="90" y2="60" stroke="black" stroke-width="0.8" />
+                    </svg>
+                    <div style="margin-top: 5px; font-weight: bold;">دائرتان متماستان من الخارج<br>عدد المماسات المشتركة
+                        = ٣</div>
+                </div>
+                <div class="tangent-item">
+                    <svg width="80" height="60" viewBox="0 0 100 80">
+                        <circle cx="40" cy="40" r="25" fill="none" stroke="black" stroke-width="1" />
+                        <circle cx="53" cy="40" r="12" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="65" y1="5" x2="65" y2="75" stroke="black" stroke-width="0.8" />
+                    </svg>
+                    <div style="margin-top: 5px; font-weight: bold;">دائرتان متماستان من الداخل<br>عدد المماسات المشتركة
+                        = ١</div>
+                </div>
+                <div class="tangent-item">
+                    <svg width="80" height="60" viewBox="0 0 100 80">
+                        <circle cx="35" cy="40" r="25" fill="none" stroke="black" stroke-width="1" />
+                        <circle cx="65" cy="40" r="25" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="10" y1="18" x2="90" y2="18" stroke="black" stroke-width="0.8" />
+                        <line x1="10" y1="62" x2="90" y2="62" stroke="black" stroke-width="0.8" />
+                    </svg>
+                    <div style="margin-top: 5px; font-weight: bold;">دائرتان متقاطعتان<br>عدد المماسات المشتركة = ٢
+                    </div>
+                </div>
+            </div>
+
+            <div class="memo-box">
+                <span style="font-weight: bold; text-decoration: underline;">ملاحظة:</span>
+                ١. الدائرتان المتداخلتان ( المنفصلتان من الداخل ) عدد مماساتها المشتركة = ٠.
+                <br>٢. الدائرتان المنطبقتان عدد مماساتها المشتركة عدد لا نهائي.
+            </div>
+
+            <div class="section-header" style="font-size: 1em; padding: 3px; border-radius: 5px;">ملخص للقواعد العامة
+                للعلاقة بين دائرتين</div>
+
+            <table class="summary-table">
+                <tr>
+                    <th>نوع العلاقة بين دائرتين</th>
+                    <th>القاعدة</th>
+                </tr>
+                <tr>
+                    <td>١. المتباعدتان (منفصلتان).</td>
+                    <td>١. | م١ م٢ | > نق١ + نق٢.</td>
+                </tr>
+                <tr>
+                    <td>٢. المتداخلتان (منفصلتان).</td>
+                    <td>٢. | م١ م٢ | < | نق١ - نق٢ |.</td>
+                </tr>
+                <tr>
+                    <td>٣. متحدتا المركز ( مشتركي المركز ) بحيث نق١ ≠ نق٢ (منفصلتان).</td>
+                    <td>٣. | م١ م٢ | = ٠.</td>
+                </tr>
+                <tr>
+                    <td>٤. المتماستان من الداخل.</td>
+                    <td>٤. | م١ م٢ | = | نق١ - نق٢ |.</td>
+                </tr>
+                <tr>
+                    <td>٥. المتماستان من الخارج.</td>
+                    <td>٥. | م١ م٢ | = نق١ + نق٢.</td>
+                </tr>
+                <tr>
+                    <td>٦. المتقاطعتان في نقطتين.</td>
+                    <td>٦. | نق١ - نق٢ | < | م١ م٢ | < نق١ + نق٢.</td>
+                </tr>
+                <tr>
+                    <td>٧. المتقاطعتان في أكثر من نقطتين ( منطبقتان ) بحيث نق١ = نق٢.</td>
+                    <td>٧. | م١ م٢ | = ٠.</td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #8faadc; border: 1.5px solid #000; padding: 5px 15px; font-weight: bold; font-size: 0.95em;">
+                تدريب ١: اكتب الرقم من العمود (ب) في المكان المناسب من العمود (أ)، حيث نق١ = ٣ سم، نق٢ = ٥ سم:</div>
+
+            <div class="drill-matching">
+                <div class="drill-col">
+                    <div
+                        style="font-weight: bold; text-align: center; border-bottom: 1.5px solid #000; margin-bottom: 8px;">
+                        (أ)</div>
+                    <div class="match-row">٨. إذا كان | م١ م٢ | = ٨ سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                    <div class="match-row">٩. إذا كان | م١ م٢ | = ٩ سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                    <div class="match-row">١٠. إذا كان | م١ م٢ | = ٢ سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                    <div class="match-row">١١. إذا كان | م١ م٢ | = ١ سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                    <div class="match-row">١٢. إذا كان | م١ م٢ | = ٦ سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                    <div class="match-row">١٣. إذا كان | م١ م٢ | = صفر سم، فإن الدائرتين م١، م٢ <input type="text"
+                            class="match-input"></div>
+                </div>
+                <div class="drill-col" style="background-color: var(--alt-bg);">
+                    <div
+                        style="font-weight: bold; text-align: center; border-bottom: 1.5px solid #000; margin-bottom: 8px;">
+                        (ب)</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                        <div>١. متباعدتان</div>
+                        <div>٢. متداخلتان</div>
+                        <div>٣. متحدتا المركز</div>
+                        <div>٤. متماستان من الداخل</div>
+                        <div>٥. متماستان من الخارج</div>
+                        <div>٦. متقاطعتان</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٣١ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

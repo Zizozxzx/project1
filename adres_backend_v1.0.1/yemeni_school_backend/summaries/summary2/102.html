@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٢ - أتمتة مبرهنات الدائرة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -1px;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 5px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .opt-item {
+            padding: 6px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: 0.2s;
+        }
+
+        .opt-item:last-child {
+            border-left: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-item:nth-child(even) {
+                border-left: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-header">أتمتة الدرس الثاني</div>
+
+            <div class="sub-header">
+                <span>أولاً: ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">١</td>
+                    <td>م د قطعة عمودية من المركز على وتر فهي تنصفه.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>م د قطعة تمر بالمركز وبمنتصف الوتر فهي عمودية عليه.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٣</td>
+                    <td>الوتران اللذان يبعدان ببعدين متساويين عن مركز الدائرة متساويان في الطول.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>القوسان المحصوران بين وتر ومماس يوازيه متساويان في القياس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٥</td>
+                    <td>القوسان المحصوران بين وترين متوازيين في الدائرة الواحدة متساويان في القياس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٦</td>
+                    <td>إذا كان الوتر س ص يبعد عن المركز ٤ سم والوتر أ ب يبعد ٤ سم فإن س ص = أ ب.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٧</td>
+                    <td>إذا كان م د ⊥ أ ب فإن د منتصف أ ب .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٨</td>
+                    <td>م د قطعة مستقيمة تمر بمنتصف الوتر د ب فهي عمودية عليه.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٩</td>
+                    <td>م د تنصف أ ب وم د غير مارة بالمركز فإنها لا تعامد أ ب.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٠</td>
+                    <td>الوتران المتساويان في دائرة واحدة يبعدان عن مركزها ببعدين متساويين.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١١</td>
+                    <td>طول الوتر الذي يبعد عن المركز ٥ سم في دائرة نق لها ١٣ سم هو ٢٤ سم.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٢</td>
+                    <td>في الدائرة م إذا كان أ ب = جـ د فإن القوس أ ب = القوس جـ د.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٣</td>
+                    <td>إذا كان م ن ⊥ أ ب وم جـ ⊥ س ص وكان م ن = م جـ فإن أ ب = س ص.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 6px 15px; font-weight: bold; margin-bottom: 10px;">
+                ثانياً: ظلل الإجابة الصحيحة:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١ . م د قطعة واصلة بين مركز الدائرة ومنتصف الوتر فإنها:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. توازيه</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">ب. تعامده</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. تطابقه</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. تمسكه</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٢ . م د قطعة واصلة بين مركز الدائرة وعمودية على الوتر فإنها:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. تنصفه</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. توازيه</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. تطابقه</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. تتجاوزه</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٣ . إذا كان طول قطر الدائرة ٢٦ سم وطول الوتر فيها ٢٤ سم فإن بعد الوتر عن
+                    المركز يساوي:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. ٥ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٦ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ١٠ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. ١٢ سم</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٤ . إذا كان الوتر أ ب = جـ د وم ن بعد أ ب وم جـ بعد جـ د فإن:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. م ن = م جـ</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. م ن > م جـ</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. م ن < م جـ</div>
+                            <div class="opt-item" onclick="checkMCQ(this, false)">د. م ن // م جـ</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">٥ . وتر طوله ٦ سم في دائرة نصف قطرها ٥ سم فإن بعده عن المركز:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, true)">أ. ٤ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٣ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ٥ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. ٢ سم</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">٦ . وتر طوله ٨ سم يبعد عن المركز ٣ سم فإن طول نصف القطر يساوي:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, true)">أ. ٥ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٤ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ٣ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. ٢ سم</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">٧ . وتر يبعد عن المركز ٨ سم وطول نصف قطر الدائرة ١٠ سم فإن طول الوتر
+                        يساوي:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, true)">أ. ١٢ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٦ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ١٦ سم</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. ٤ سم</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">٨ . م د واصلة بين المركز والوتر فإن:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, false)">أ. م د ⊥ أ ب</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. د منتصف أ ب</div>
+                        <div class="opt-item" onclick="checkMCQ(this, true)">جـ. م د تنصف أ ب وتعامده</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. لا شيء مما سبق</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">٩ . الوتران المتوازيان في الدائرة يحصران بينهما قوسين:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, true)">أ. متساويين</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. مختلفين</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">جـ. متباينين</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. متقابلين</div>
+                    </div>
+                </div>
+
+                <div class="mcq-container">
+                    <div class="mcq-question">١٠ . إذا كان الوتران متساويان فإن القوسان المقابلان لهما:</div>
+                    <div class="options-grid">
+                        <div class="opt-item" onclick="checkMCQ(this, true)">أ. متساويان</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">ب. مختلفان</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">جـ. متباينان</div>
+                        <div class="opt-item" onclick="checkMCQ(this, false)">د. لا شيء مما سبق</div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <span>إعداد: هلا المولجي</span>
+                    <span>- ١٠٢ -</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function checkTF(el, userClick) {
+                const row = el.closest('tr');
+                const answer = row.getAttribute('data-answer') === 'true';
+                const circles = row.querySelectorAll('.circle');
+
+                circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+                el.classList.add('active');
+
+                if (userClick === answer) el.classList.add('correct');
+                else el.classList.add('wrong');
+            }
+
+            function checkMCQ(el, isCorrect) {
+                const grid = el.parentElement;
+                grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+                if (isCorrect) el.classList.add('correct');
+                else el.classList.add('wrong');
+            }
+        </script>
+
+</body>
+
+</html>

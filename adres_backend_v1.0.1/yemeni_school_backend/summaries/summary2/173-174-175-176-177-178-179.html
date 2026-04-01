@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٧٣ - ١٧٩</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --header-bg: #d9e1f2;
+            --table-header: #f4b084;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .page-header {
+            background-color: var(--header-bg);
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        /* Lists */
+        .guide-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .li-num {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Rows */
+        .layout-row {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+            align-items: flex-start;
+        }
+
+        .diagram-side {
+            flex: 0 0 150px;
+            text-align: center;
+        }
+
+        .text-side {
+            flex: 1;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1.5px solid #000;
+            padding: 6px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: var(--table-header);
+            font-weight: bold;
+        }
+
+        .sub-header {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1em;
+        }
+
+        /* Fraction styling */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        /* Boxes */
+        .note-box {
+            border: 1.5px solid #000;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .training-input {
+            width: 100%;
+            height: 30px;
+            border: none;
+            outline: none;
+            background: transparent;
+            text-align: center;
+            font-family: var(--font-main);
+            font-size: 1.1em;
+        }
+
+        .drawing-box {
+            border: 1.5px solid #000;
+            border-radius: 15px;
+            height: 150px;
+            width: 120px;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .layout-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .inner-content {
+                padding: 8px;
+            }
+
+            th,
+            td {
+                padding: 3px;
+                font-size: 0.85em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Header -->
+            <div class="page-header">الدرس الثاني: النسب المثلثية للزاوية الحادة</div>
+
+            <!-- Section 1 -->
+            <div class="layout-row">
+                <div class="diagram-side">
+                    <svg width="150" height="120" viewBox="0 0 150 120">
+                        <path d="M20,100 L130,100 L20,30 Z" fill="none" stroke="black" stroke-width="1.8" />
+                        <path d="M20,90 L30,90 L30,100" fill="none" stroke="black" stroke-width="1" />
+                        <text x="5" y="105" font-family="Amiri" font-size="18">ب</text>
+                        <text x="135" y="105" font-family="Amiri" font-size="18">جـ</text>
+                        <text x="15" y="25" font-family="Amiri" font-size="18">أ</text>
+                    </svg>
+                </div>
+                <div class="text-side">
+                    <ul class="guide-list">
+                        <li>• سنتعرف في البداية على بعض المسميات ثم ننتقل إلى محتوى الدرس:</li>
+                        <li>من خلال الشكل المقابل:</li>
+                        <li>١. | أ جـ | وتر المثلث.</li>
+                        <li>٢. ∠ أ زاوية حادة، ∠ جـ زاوية حادة، ∠ ب زاوية قائمة.</li>
+                        <li>٣. | أ ب | ضلع مجاور للزاوية أ .</li>
+                        <li>٤. | جـ ب | ضلع مقابل للزاوية أ .</li>
+                        <li>٥. | أ ب | ضلع مقابل للزاوية جـ .</li>
+                        <li>٦. | جـ ب | ضلع مجاور للزاوية جـ .</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Observation box -->
+            <div style="margin-top: 10px; font-size: 0.95em;">
+                <span style="font-weight: bold; text-decoration: underline;">ملاحظة:</span>
+                <ul class="guide-list" style="margin-right: 20px; margin-top: 5px;">
+                    <li>• المجاور للزاوية جـ هو المقابل للزاوية أ ، والمقابل للزاوية جـ هو المجاور للزاوية أ .</li>
+                    <li>• سنستخدم كثيراً مبرهنة فيثاغورث في هذا الدرس.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2: Trigonometric Ratios -->
+            <div style="margin-top: 15px;">
+                <span class="sub-header" style="text-align: center; display: block;">عن النسب المثلثية لزاوية حادة التي
+                    سيتم أخذها في الصف التاسع</span>
+                <div style="font-weight: bold; margin-bottom: 5px;">النسب المثلثية لزاوية حادة (ھـ):</div>
+                <table>
+                    <tr>
+                        <th>النسبة المثلثية</th>
+                        <th>جيب الزاوية</th>
+                        <th>جيب تمام الزاوية</th>
+                        <th>ظـل الزاوية</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; background-color: #f9f9f9;">المفهوم</td>
+                        <td>النسبة بين طول المقابل لزاوية حادة إلى طول الوتر في مثلث قائم</td>
+                        <td>النسبة بين طول المجاور لزاوية حادة إلى طول الوتر في مثلث قائم</td>
+                        <td>النسبة بين طول المقابل لزاوية حادة إلى طول المجاور لزاوية حادة في مثلث قائم</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; background-color: #f9f9f9;">الرمز</td>
+                        <td>جا ھـ</td>
+                        <td>جتا ھـ</td>
+                        <td>ظا ھـ</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; background-color: #f9f9f9;">القانون العام لها</td>
+                        <td>جا ھـ = <span class="fraction"><span class="top">المقابل</span><span
+                                    class="bottom">الوتر</span></span></td>
+                        <td>جتا ھـ = <span class="fraction"><span class="top">المجاور</span><span
+                                    class="bottom">الوتر</span></span></td>
+                        <td>ظا ھـ = <span class="fraction"><span class="top">المقابل</span><span
+                                    class="bottom">المجاور</span></span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Section 3: More Notes -->
+            <div class="note-box">
+                <span style="font-weight: bold; text-decoration: underline;">ملاحظات هامة:</span>
+                <ul class="guide-list" style="margin-top: 10px;">
+                    <li>• إذا لم يعطى لنا طول الوتر أو أي ضلع آخر، نستخدم مبرهنة فيثاغورث لإيجاده.</li>
+                    <li>• تظل النسبة المثلثية ثابتة لأي زاوية حادة مهما تغير طول المقابل والمجاور والوتر.</li>
+                    <li>• في بعض الأحيان يفضل رسم المثلث لمعرفة المجاور والمقابل لأي زاوية مطلوب إيجاد نسبها المثلثية.
+                    </li>
+                    <li>• إذا أعطانا قيمة الـ ( ظا ھـ = <span class="fraction"><span class="top">٥</span><span
+                                class="bottom">٢</span></span> ) فإن المقابل = ٥ والمجاور = ٢ فنوجد الوتر بمبرهنة
+                        فيثاغورث.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Training -->
+            <div style="margin-top: 10px;">
+                <div style="font-weight: bold; text-decoration: underline; margin-bottom: 8px;">تدريب:</div>
+                <div>س ص ع مثلث قائم في س ، فيه | س ص | = ٣ سم ، | س ع | = ٤ سم ، ارسم المثلث، ثم أوجد ما يلي:</div>
+                <div style="display: flex; gap: 40px; margin-top: 10px; flex-wrap: wrap;">
+                    <span>١. جا ص .</span>
+                    <span>٢. جتا ص .</span>
+                    <span>٣. ظا ص .</span>
+                    <span>٤. جا ع .</span>
+                    <span>٥. جتا ع .</span>
+                    <span>٦. ظا ع .</span>
+                </div>
+
+                <div class="layout-row" style="margin-top: 15px;">
+                    <div class="drawing-box"></div>
+                    <div style="flex: 1;">
+                        <table style="margin-top: 0;">
+                            <tr>
+                                <td style="width: 100px; font-weight: bold; background-color: #f9f9f9;">جا ص</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; background-color: #f9f9f9;">جتا ص</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; background-color: #f9f9f9;">ظا ص</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; background-color: #f9f9f9;">جا ع</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; background-color: #f9f9f9;">جتا ع</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; background-color: #f9f9f9;">ظا ع</td>
+                                <td><input type="text" class="training-input"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٩١ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

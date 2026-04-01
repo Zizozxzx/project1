@@ -1,0 +1,26 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+<h2>🔥 تعبئة الصفحات الناقصة</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>اختر نوع الملخص:</label>
+
+    <select name="summary_type" style="padding:10px; margin:10px;">
+        <option value="1">الملخص الأول</option>
+        <option value="2">الملخص الثاني</option>
+        <option value="3">الملخص الثالث</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit" class="default">
+        🚀 تنفيذ
+    </button>
+
+</form>
+
+{% endblock %}

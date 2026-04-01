@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حساب المثلثات – صفحة 175</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:720px;
+  margin:auto;
+  padding:18px 18px 22px;
+  font-size:17px;
+  line-height:2.05;
+  box-sizing:border-box;
+}
+
+/* الخط العلوي */
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:14px;
+}
+
+/* الفقرات */
+p{
+  margin:10px 0;
+}
+
+/* العناوين */
+.section-title{
+  font-weight:bold;
+  margin:18px 0 10px;
+}
+
+/* الكسور */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  margin:0 4px;
+}
+.frac .top{
+  display:block;
+  padding:0 5px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:3px;
+  padding:0 5px;
+}
+
+/* معادلات */
+.eq{
+  text-align:center;
+  margin:18px 0;
+}
+
+/* صندوق التعريف */
+.box{
+  background:#dff2fb;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:14px 16px;
+  margin:22px 0;
+  font-weight:bold;
+}
+
+/* الرسم */
+.diagram{
+  margin:18px 0 12px;
+  display:flex;
+  justify-content:center;
+}
+
+/* التذييل */
+.footer{
+  margin-top:18px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{
+    font-size:16px;
+    padding:16px 14px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<p>
+في المثلث القائم أ ب ج (شكل ٤–٧) ، نسمي أ ب الضلع المقابل للزاوية ج ،
+و ب ج الضلع المجاور للزاوية ج .
+وبالمثل يسمى ب ج الضلع المقابل للزاوية أ ،
+و أ ب الضلع المجاور للزاوية أ .
+</p>
+
+<p class="section-title">جيب الزاوية :</p>
+
+<p>
+في الشكل (٤–٨) لاحظت من تشابه المثلثات :
+أ ب ج ، س هـ ج ، م هـ ج ، أن :
+</p>
+
+<div class="eq">
+<span class="frac">
+  <span class="top">| م هـ |</span>
+  <span class="bottom">| م ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| س هـ |</span>
+  <span class="bottom">| س ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+</div>
+
+<div class="diagram">
+<svg width="300" height="160" viewBox="0 0 300 160">
+  <!-- القاعدة -->
+  <line x1="30" y1="130" x2="270" y2="130" stroke="#000" stroke-width="2"/>
+  <!-- الوتر -->
+  <line x1="30" y1="130" x2="240" y2="30" stroke="#000" stroke-width="2"/>
+  <!-- الأعمدة -->
+  <line x1="120" y1="130" x2="120" y2="80" stroke="#000" stroke-width="2"/>
+  <line x1="180" y1="130" x2="180" y2="55" stroke="#000" stroke-width="2"/>
+  <!-- زوايا قائمة -->
+  <rect x="115" y="125" width="10" height="10" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <rect x="175" y="125" width="10" height="10" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <!-- التسميات -->
+  <text x="20" y="140" font-size="14">ج</text>
+  <text x="275" y="140" font-size="14">ب</text>
+  <text x="245" y="28" font-size="14">أ</text>
+  <text x="112" y="145" font-size="14">هـ</text>
+  <text x="172" y="145" font-size="14">د</text>
+  <text x="140" y="78" font-size="14">س</text>
+  <text x="200" y="55" font-size="14">م</text>
+</svg>
+</div>
+
+<p>
+وهذا يعني أن نسبة طول الضلع المقابل للزاوية ج في مثلث قائم الزاوية
+إلى طول الوتر في المثلث نفسه هي نسبة ثابتة .
+</p>
+
+<p>
+نسمي هذه النسبة جيب الزاوية ج .
+</p>
+
+<div class="box">
+جيب الزاوية الحادة ج في مثلث قائم الزاوية هو نسبة طول الضلع المقابل
+للزاوية إلى طول وتر المثلث ، ونرمز له بالرمز ( جا ج ) .
+</div>
+
+<p>
+لاحظ في المثلث أ ب ج القائم الزاوية في ب أن :
+</p>
+
+<div class="eq">
+جا ج =
+<span class="frac">
+  <span class="top">المقابل</span>
+  <span class="bottom">الوتر</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+،
+جا أ =
+<span class="frac">
+  <span class="top">……</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+( أكمل )
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٧٥</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

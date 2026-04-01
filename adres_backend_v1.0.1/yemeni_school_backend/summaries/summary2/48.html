@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - الصف التاسع (تفاعلية مطورة)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+        :root {
+            --border-color: #000;
+            --header-bg: #dce6f1;
+            --correct-color: #28a745;
+            --wrong-color: #dc3545;
+        }
+
+        body {
+            font-family: 'Cairo', 'Amiri', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تكبير الأصفار والأرقام الرياضية */
+        .math-text,
+        .math-content,
+        td.col-question {
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* تنسيق خاص لجعل الصفر والفاصلة العشرية أوضح */
+        .math-item,
+        td.col-question {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .question-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* العناصر الرياضية */
+        .math-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .math-number {
+            font-weight: bold;
+            margin-left: 10px;
+            width: 20px;
+        }
+
+        .math-content {
+            flex-grow: 1;
+        }
+
+        .dotted-line {
+            display: block;
+            width: 100%;
+            border-bottom: 2px dotted #000;
+            margin-top: 30px;
+            height: 1px;
+        }
+
+        .dotted-line-short {
+            display: block;
+            width: 100%;
+            border-bottom: 2px dotted #000;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 1px;
+        }
+
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 5px;
+        }
+
+        .fraction .bottom {
+            display: block;
+            padding: 0 5px;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+        }
+
+        /* الجدول التفاعلي */
+        .table-section-title {
+            text-align: center;
+            background-color: #dce6f1;
+            font-weight: 900;
+            font-size: 1.4rem;
+            padding: 8px;
+            border: 2px solid #000;
+            border-bottom: none;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+        }
+
+        th {
+            background-color: #eef3f8;
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 10px 12px;
+            vertical-align: middle;
+        }
+
+        .col-question {
+            text-align: right;
+            direction: rtl;
+        }
+
+        .col-check {
+            width: 50px;
+            text-align: center;
+        }
+
+        .circle {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.correct-answer {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle.wrong-answer {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        .footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <div class="section">
+            <div class="question-title">تدريب (١): حدد نوع التحليل في المقادير التالية ثم حلها:</div>
+
+            <div class="math-item">
+                <div class="math-number">٥.</div>
+                <div class="math-content">
+                    <b>٠</b>,١٢٥ ل<sup>٣</sup> - ٨ .
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+
+            <div class="math-item">
+                <div class="math-number">٦.</div>
+                <div class="math-content">
+                    ٢٤ س<sup>٣</sup> + ٣ .
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+
+            <div class="math-item">
+                <div class="math-number">٧.</div>
+                <div class="math-content">
+                    <div class="fraction"><span class="top">٢٧</span><span class="bottom">٨</span></div> - ص<sup>٣</sup>
+                    .
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+
+            <div class="math-item">
+                <div class="math-number">٨.</div>
+                <div class="math-content">
+                    ( أ - ١ )<sup>٣</sup> - ١ .
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="question-title">تدريب (٢):</div>
+            <div>حلل المقدار التالي بطريقتين ثم قارن النتيجة: &nbsp;&nbsp; ( ١ - ل )<sup>٦</sup> - ١ .</div>
+            <div class="dotted-line-short"></div>
+            <div class="dotted-line-short"></div>
+            <div class="dotted-line-short"></div>
+        </div>
+
+        <div class="section">
+            <div class="question-title">تدريب (٣):</div>
+            <div style="line-height: 1.8;">خزانا ماء مكعبي الشكل، حجم الأول ( س + ٣ )<sup>٣</sup> متراً مكعباً ، وحجم
+                الآخر ( س - ٣ )<sup>٣</sup> متراً مكعباً. أوجد مجموعهما والفرق بينهما كحاصل ضرب.</div>
+            <div class="dotted-line-short"></div>
+            <div class="dotted-line-short"></div>
+        </div>
+
+        <div class="table-section-title">أسئلة على الدرس بطريقة الأتمتة</div>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="col-question">ظلل الإجابة الصحيحة فيما يلي:</th>
+                    <th class="col-check">صح</th>
+                    <th class="col-check">خطأ</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-answer="false">
+                    <td class="col-question">١. ف<sup>٣</sup> + ١ = ( ف + ١ ) ( ف<sup>٢</sup> + ف + ١ ).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-question">٢. أحد عوامل المقدار س<sup>٣</sup>ص<sup>٣</sup>ع<sup>٣</sup> + ٣٤٣ هو ( س ص
+                        ع - ٧ ).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-question">٣. يعتبر المقدار ٨ م<sup>٣</sup> - ( م + ن )<sup>٣</sup> يعتبر فرق بين
+                        مكعبين.</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-question">٤. ١<b>٠</b><b>٠</b><b>٠</b> ص<sup>٣</sup> - ١ = ( ١<b>٠</b> ص - ١ ) (
+                        ١<b>٠</b><b>٠</b> ص<sup>٢</sup> + ١<b>٠</b> ص + ١ ).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-question">٥. المقدار <b>٠</b>,<b>٠</b>٦٤ أ<sup>٣</sup> - <b>٠</b>,<b>٠</b><b>٠</b>٨
+                        ص<sup>٣</sup> يحلل إلى ( <b>٠</b>,٤ أ - <b>٠</b>,٢ ص ) ( <b>٠</b>,١٦ أ<sup>٢</sup> +
+                        <b>٠</b>,<b>٠</b>٨ أ ص + <b>٠</b>,<b>٠</b>٤ ص<sup>٢</sup>).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-question">٦. [ ٢ - ٢ ( س - ١ )<sup>٣</sup> ] = ( ٢ + س ) ( س<sup>٢</sup> - س + ١ ).
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-question">٧. إذا كان ( س - ١ ) أحد عوامل المقدار ( س<sup>٣</sup> - ١ )، فإن العامل
+                        الآخر هو ( س<sup>٢</sup> - س + ١ ).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-question">٨. ( س<sup>٦</sup> + ٨ ) ÷ ( س<sup>٤</sup> - ٢ س<sup>٢</sup> + ٤ ) = (
+                        س<sup>٢</sup> + ٢ ).</td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, true)"></div>
+                    </td>
+                    <td class="col-check">
+                        <div class="circle" onclick="checkAnswer(this, false)"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٤٨ -</div>
+            <div style="width: 100px;"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(el, isTrueCol) {
+            const row = el.closest('tr');
+            const correctIsRight = row.getAttribute('data-answer') === 'true';
+            row.querySelectorAll('.circle').forEach(c => c.classList.remove('correct-answer', 'wrong-answer'));
+            if (isTrueCol === correctIsRight) el.classList.add('correct-answer');
+            else el.classList.add('wrong-answer');
+        }
+    </script>
+</body>
+
+</html>

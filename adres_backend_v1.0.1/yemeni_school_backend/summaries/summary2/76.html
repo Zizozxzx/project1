@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إهداء - ملزمة الرياضيات</title>
+    <style>
+        body {
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            font-size: 18px;
+        }
+
+        .page-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 40px;
+            border: 2px solid #000;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 1000px;
+            /* Ensure A4 feel */
+        }
+
+        h1 {
+            font-family: 'Diwani', 'Traditional Arabic', serif;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .dedication-section {
+            margin-bottom: 50px;
+        }
+
+        .section-separator {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 6em;
+            color: rgba(0, 0, 0, 0.05);
+            /* Faint watermark */
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        .quote-center {
+            text-align: center;
+            font-weight: bold;
+            margin: 50px 0;
+        }
+
+        .warning-box {
+            margin-top: 50px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 2;
+        }
+
+        .author-signature {
+            margin-top: 20px;
+            text-align: left;
+            font-weight: bold;
+            padding-left: 50px;
+        }
+
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .footer-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.8em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Watermark simulation -->
+        <div class="watermark">هلا المولجي</div>
+
+        <div class="dedication-section">
+            <h1>إهداء</h1>
+            <p>
+                أهدي هذا العمل إلى كل شخص يسعى دائماً ليحقق مراده وأمانيه، لكل شخص تعثر ونهض من جديد أكثر قوة من ذي قبل،
+                لكل شخص يثق بالله بأنه سيصل مهما لاحت الأمور بعدم الوصول.
+            </p>
+            <p>
+                أيضاً أهدي هذا العمل لأبنائي الطلاب الذين هم ثمرة الجهود وأمل النهوض بهذا الوطن، من سنحقق فيهم أحلامنا
+                التي عجزنا أن نحققها، لأبناء لم تثنيهم الظروف ولم تعجزهم الصعوبات، لأولئك الأبناء الذين لمحنا فيهم شعلة
+                العلم المتقدة.
+            </p>
+        </div>
+
+        <div class="dedication-section">
+            <h1>كلمة شكر</h1>
+            <p>
+                أتقدم بالشكر الكبير الأستاذ الفاضل / منير حمدي لإسهامه المميز في مراجعة الملزمة وإضافاته المعلومات
+                المهمة لإثراء الطلاب وكسبه أكبر قدر من الأشياء المهمة في مادة الرياضيات.
+            </p>
+        </div>
+
+        <div class="quote-center">
+            وفي الأخير، ما أتمناه منكم هو الدعاء لي في ظهر الغيب.
+        </div>
+
+        <div class="warning-box">
+            تنبيه هام: لا أسمح ولن أسامح أي أحد استخدم هذه الملزمة لاستغلال الطلاب لأجل الكسب المادي، فهي مهداة للطلاب
+            وليس لاستغلالهم، وشكراً.
+            <div class="author-signature">هلا المولجي</div>
+        </div>
+
+        <div class="footer">
+            - ١ -
+        </div>
+
+        <div class="footer-left">
+            إعداد: هلا المولجي
+        </div>
+    </div>
+</body>
+
+</html>

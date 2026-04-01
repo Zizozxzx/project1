@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١١ - الأسئلة الوزارية والأتمتة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* MCQ Table */
+        .mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            border: 1.5px solid #000;
+            margin-bottom: 10px;
+        }
+
+        .mcq-table td {
+            border: 1.5px solid #000;
+            padding: 6px 12px;
+        }
+
+        .mcq-num {
+            background-color: #d9e1f2;
+            font-weight: bold;
+            width: 30px;
+            text-align: center;
+        }
+
+        .mcq-opt {
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mcq-opt.correct {
+            background-color: #d4edda;
+        }
+
+        .mcq-opt.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Ministerial Header */
+        .ministerial-header {
+            background-color: #8faadc;
+            border: 2.5px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 1.3em;
+            font-family: 'Aref Ruqaa', serif;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        /* T/F Table */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            border: 1.5px solid #000;
+        }
+
+        .tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <table class="mcq-table">
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">٣. درجة قياس القوس المرسوم في
+                        سدس دائرة تساوي:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٣٠°</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">٦٠°</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">١٠°</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٢٠°</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">٤. درجة قياس القوس الكبير
+                        لزاوية مركزية مرسومة في ربع دائرة:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٩٠°</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٦٠°</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">٢٧٠°</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٣٠٠°</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">٥. الزوايا المركزية المتساوية
+                        تقابل أقواس لها درجة قياس:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">متباينة.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">متساوية.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">مختلفة.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">متناظرة.</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">
+                        ٦. من خلال الشكل المجاور: إذا كان | جـ أ | = | د ب |<br>
+                        فإن قياس القوس (جـ أ) = قياس القوس ( ............ ):
+                        <div style="text-align: center; margin-top: 5px;">
+                            <svg width="100" height="100" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                                <circle cx="50" cy="50" r="1.5" fill="black" />
+                                <text x="48" y="58" font-family="Amiri" font-size="10">م</text>
+                                <path d="M20,20 L80,20 L50,85 Z" fill="none" stroke="black" stroke-width="1" />
+                                <text x="12" y="18" font-family="Amiri" font-size="12">جـ</text>
+                                <text x="82" y="18" font-family="Amiri" font-size="12">د</text>
+                                <text x="48" y="96" font-family="Amiri" font-size="12">أ</text>
+                                <text x="52" y="78" font-family="Amiri" font-size="12">ب</text>
+                            </svg>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">جـ د.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">د ب.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">ب أ.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">أ ب د.</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">٧. من خلال الفقرة السابقة: | ب
+                        جـ | = ............. :</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">| أ جـ |.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">| ب د |.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">| أ د |.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">| أ ب |.</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">
+                        ٨. من خلال الشكل المجاور: ق ⦣ (جـ م د) = ............. :
+                        <div style="text-align: center; margin-top: 5px;">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="35" fill="none" stroke="black" stroke-width="1.2" />
+                                <circle cx="40" cy="40" r="1.5" fill="black" />
+                                <line x1="10" y1="55" x2="70" y2="25" stroke="black" stroke-width="1" />
+                                <line x1="40" y1="40" x2="10" y2="55" stroke="black" stroke-width="0.8"
+                                    stroke-dasharray="2" />
+                                <line x1="40" y1="40" x2="70" y2="25" stroke="black" stroke-width="0.8"
+                                    stroke-dasharray="2" />
+                                <text x="38" y="38" font-family="Amiri" font-size="10">م</text>
+                                <text x="3" y="65" font-family="Amiri" font-size="10">جـ</text>
+                                <text x="72" y="25" font-family="Amiri" font-size="10">د</text>
+                                <text x="35" y="10" font-family="Amiri" font-size="12">أ</text>
+                                <text x="42" y="70" font-family="Amiri" font-size="12">ب</text>
+                            </svg>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">ق ⦣ (أ م ب).</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">ق ⦣ (ب جـ م).</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">ق ⦣ (ب أ م).</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">١ + ٢ معاً.</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">٩. من خلال الشكل في الفقرة
+                        السابقة: قياس القوس (أ جـ) = قياس القوس ............. :</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">ب أ.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">ب د.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">جـ د.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">١ + ٢ معاً.</td>
+                </tr>
+            </table>
+
+            <div class="ministerial-header">أسئلة وزارية</div>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+            <table class="tf-table">
+                <tr data-answer="false">
+                    <td class="col-num">١</td>
+                    <td>الزاوية المركزية يقع رأسها على محيط الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>درجة قياس القوس المقابل لنصف دائرة يساوي ١٨٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٣</td>
+                    <td>درجة قياس القوس المرسوم في نصف دائرة يساوي ٣٦٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>إذا تم تقسيم دائرة إلى أربعة أجزاء متساوية، فإن درجة قياس كل قوس منها = ٩٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٥</td>
+                    <td>درجة قياس القوس في دائرة تساوي نصف قياس زاويته المركزية المقابلة له.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+            <table class="mcq-table">
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">أ. إذا كانت درجة قياس القوس في
+                        دائرة = ١٨٠°، فإن قياس الزاوية المركزية المقابلة له يساوي:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٩٠°</td>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">١٨٠°</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٣٠°</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٦٠°</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">ب. الزاوية المركزية المقابلة
+                        لقوس درجة قياسه = ٨٠° ، نوعها ....... :</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">منفرجة.</td>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">مستقيمة.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">قائمة.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">حادة.</td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١١ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const row = el.closest('tr');
+            const siblings = row.querySelectorAll('.mcq-opt');
+            siblings.forEach(s => s.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

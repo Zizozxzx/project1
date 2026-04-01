@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>اختبار الرياضيات التفاعلي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* تنسيق الكسور الرياضية */
+        .math-expr {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            font-family: "Times New Roman", serif;
+            font-size: 1.15rem;
+            margin: 0 5px;
+            flex-wrap: nowrap;
+            /* Prevent wrapping of equations */
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 5px;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            text-align: center;
+            margin: 0 5px;
+            flex-shrink: 0;
+            /* Prevent fractions from shrinking */
+        }
+
+        .numerator {
+            border-bottom: 1px solid black;
+            padding: 0 5px;
+            line-height: 1.2;
+        }
+
+        .denominator {
+            padding: 0 5px;
+            line-height: 1.2;
+        }
+
+        .sup {
+            vertical-align: super;
+            font-size: 0.75rem;
+            margin-right: 1px;
+        }
+
+        .op {
+            font-weight: bold;
+            padding: 0 8px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .training-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 20px 0 10px 0;
+            display: block;
+        }
+
+        .exercise-row {
+            margin: 30px 0;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Allow the row to wrap, but the equation itself stays inline */
+        }
+
+        .dots-line {
+            border-bottom: 1px dotted #888;
+            height: 30px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* قسم الأتمتة */
+        .auto-section {
+            background-color: #d9e2f3;
+            padding: 5px 15px;
+            border: 1px solid var(--border-col);
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tf-table td {
+            border: 1px solid var(--border-col);
+            padding: 10px;
+        }
+
+        /* الدوائر التفاعلية */
+        .bubble {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .bubble.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .bubble.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        .footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-expr,
+            .exercise-row {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .page,
+            .a4-page,
+            .page-container,
+            .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+            }
+
+            .inner-content {
+                padding: 10px !important;
+                min-height: auto !important;
+            }
+
+            .inner-border,
+            .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            .math-expr {
+                font-size: 1rem;
+                display: flex;
+                /* Switch to flex on mobile for better scroll behavior */
+            }
+
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important;
+            }
+
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: fixed;
+                /* Force fixed layout for better control */
+            }
+
+            .tf-table td:first-child {
+                width: auto;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="inner-content">
+
+            <span class="training-title">تدريب (٢): أوجد حاصل ضرب ما يلي في أبسط صورة:</span>
+            <div class="exercise-row">
+                <div class="math-expr">
+                    <div class="fraction"><span class="numerator">٢٥ س<span class="sup">٣</span> ص م</span><span
+                            class="denominator">٤ ص<span class="sup">٢</span> س<span class="sup">٣</span></span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">٨ س ص ع</span><span class="denominator">٥ س<span
+                                class="sup">٤</span></span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">٣٦ س ص</span><span class="denominator">٤ ع م<span
+                                class="sup">٢</span></span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">٢ س</span><span class="denominator">٦ ل س<span
+                                class="sup">٢</span></span></div>
+                    <span class="op">=</span>
+                </div>
+                <div class="dots-line"></div>
+            </div>
+
+            <span class="training-title">تدريب (٣): ضع حاصل الضرب لما يلي في أبسط صورة:</span>
+            <div class="exercise-row">
+                <span>١)</span>
+                <div class="math-expr">
+                    <div class="fraction"><span class="numerator">س - ٢</span><span class="denominator">س<span
+                                class="sup">٢</span> - ٩</span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">س<span class="sup">٢</span> - س - ٦</span><span
+                            class="denominator">س<span class="sup">٢</span> - ٤</span></div>
+                    <span class="op">=</span>
+                </div>
+                <div class="dots-line"></div>
+            </div>
+
+            <div class="exercise-row">
+                <span>٢)</span>
+                <div class="math-expr">
+                    <div class="fraction"><span class="numerator">٣ س + ٣</span><span class="denominator">س<span
+                                class="sup">٢</span> + س + ١</span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">س<span class="sup">٣</span> - ١</span><span
+                            class="denominator">س<span class="sup">٢</span> - س - ٢</span></div>
+                    <span class="op">×</span>
+                    <div class="fraction"><span class="numerator">٢ س - ٢</span><span class="denominator">٣ س<span
+                                class="sup">٢</span> - ٣ س - ٦</span></div>
+                    <span class="op">=</span>
+                </div>
+                <div class="dots-line"></div>
+            </div>
+
+            <span class="training-title">تدريب (٤): أوجد خارج القسمة في كل مما يأتي في أبسط صورة:</span>
+            <div class="exercise-row">
+                <span>١)</span>
+                <div class="math-expr">
+                    <div class="fraction"><span class="numerator">٣٥ س<span class="sup">٦</span> ص<span
+                                class="sup">٣</span></span><span class="denominator">٨ أ ب<span
+                                class="sup">٢</span></span></div>
+                    <span class="op">÷</span>
+                    <div class="fraction"><span class="numerator">٥ س<span class="sup">٢</span> ص<span
+                                class="sup">٢</span></span><span class="denominator">٨ ب</span></div>
+                    <span class="op">=</span>
+                </div>
+                <div class="dots-line"></div>
+            </div>
+
+            <div class="exercise-row">
+                <span>٢)</span>
+                <div class="math-expr">
+                    <div class="fraction"><span class="numerator">س<span class="sup">٢</span> + ٤ س + ٤</span><span
+                            class="denominator">س<span class="sup">٢</span> - ٤</span></div>
+                    <span class="op">÷</span>
+                    <div class="fraction"><span class="numerator">س<span class="sup">٢</span> + س</span><span
+                            class="denominator">س<span class="sup">٢</span> - س - ٢</span></div>
+                    <span class="op">÷</span>
+                    <div class="fraction"><span class="numerator">س + ٢</span><span class="denominator">س</span></div>
+                    <span class="op">=</span>
+                </div>
+                <div class="dots-line"></div>
+            </div>
+
+            <div class="auto-section">
+                <span>أسئلة على الدرس بطريقة الأتمتة</span>
+            </div>
+            <div class="auto-section" style="background-color: #fff; font-size: 0.9rem;">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <span>صح&nbsp;&nbsp;&nbsp;&nbsp;خطأ</span>
+            </div>
+
+            <table class="tf-table">
+                <tr>
+                    <td>١. <div class="math-expr">
+                            <div class="fraction"><span class="numerator">٤ س + ١٦ ص</span><span
+                                    class="denominator">س<span class="sup">٣</span> + ٦٤ ص<span
+                                        class="sup">٣</span></span></div> = <div class="fraction"><span
+                                    class="numerator">١</span><span class="denominator">س<span class="sup">٢</span> - ٤
+                                    س ص + ١٦ ص<span class="sup">٢</span></span></div>
+                        </div>
+                    </td>
+                    <td style="width:45px; text-align:center;">
+                        <div class="bubble" onclick="check(this, true, 1)"></div>
+                    </td>
+                    <td style="width:45px; text-align:center;">
+                        <div class="bubble" onclick="check(this, false, 1)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>٢. اختصار الكسر <div class="math-expr">
+                            <div class="fraction"><span class="numerator">س ( س - ٥ ) + ٢٥</span><span
+                                    class="denominator">س<span class="sup">٣</span> + ١٢٥</span></div>
+                        </div> إلى أبسط صورة هو ( س + ٥ ).</td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, true, 2)"></div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, false, 2)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>٣. <div class="math-expr">
+                            <div class="fraction"><span class="numerator">س<span class="sup">٢</span> ص</span><span
+                                    class="denominator">ن ل ع</span></div> <span class="op">×</span>
+                            <div class="fraction"><span class="numerator">٢ ن ل ع<span class="sup">٢</span></span><span
+                                    class="denominator">ص س<span class="sup">٣</span></span></div> <span
+                                class="op">×</span>
+                            <div class="fraction"><span class="numerator">١</span><span class="denominator">٢</span>
+                            </div> = ع س.
+                        </div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, true, 3)"></div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, false, 3)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>٤. <div class="math-expr">
+                            <div class="fraction"><span class="numerator">٢ ص<span class="sup">٢</span> - ٣٢</span><span
+                                    class="denominator">ص<span class="sup">٣</span> - ٢٧</span></div> <span
+                                class="op">×</span>
+                            <div class="fraction"><span class="numerator">ص<span class="sup">٢</span> + ٣ ص +
+                                    ٩</span><span class="denominator">ص<span class="sup">٢</span> - ص - ٢٠</span></div>
+                            = <div class="fraction"><span class="numerator">٢ ( ص + ٤ )</span><span
+                                    class="denominator">( ص - ٣ ) ( ص - ٥ )</span></div>
+                        </div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, true, 4)"></div>
+                    </td>
+                    <td style="text-align:center;">
+                        <div class="bubble" onclick="check(this, false, 4)"></div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٥٤ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // مصفوفة الإجابات الصحيحة للأسئلة بالترتيب (true = صح، false = خطأ)
+        const answers = {
+            1: true,
+            2: false,
+            3: true,
+            4: true
+        };
+
+        function check(el, userChoice, qId) {
+            // العثور على الصف الحالي لإعادة ضبط الدوائر الأخرى
+            const parentRow = el.closest('tr');
+            const bubbles = parentRow.querySelectorAll('.bubble');
+
+            // إزالة الألوان من جميع دوائر هذا السؤال أولاً
+            bubbles.forEach(b => b.classList.remove('correct', 'wrong'));
+
+            // مقارنة اختيار المستخدم بالحل الصحيح
+            if (userChoice === answers[qId]) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٤٠ - الرياضيات</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --orange-box-bg: #f4b084;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            /* تم التعديل: السماح بالتمرير إذا كانت الشاشة صغيرة */
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+            /* لون خلفية خفيف للتمييز بين الصفحة والشاشة */
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            /* تم التعديل: إزالة align-items center للسماح للصفحة بالتمدد من الأعلى */
+            padding: 20px 0;
+            font-size: 1.35vmin;
+            /* حجم الخط نسبي للشاشة */
+        }
+
+        /* تعديل حجم الخط للشاشات الصغيرة جداً لضمان القراءة */
+        @media (max-width: 600px) {
+            body {
+                font-size: 2.5vmin;
+            }
+        }
+
+        .page-container {
+            width: 90%;
+            max-width: 650px;
+            /* تم التعديل: جعل الارتفاع تلقائي ليتسع للمحتوى */
+            height: auto;
+            min-height: 95vh;
+            /* أقل ارتفاع هو 95% من الشاشة */
+            background: #fff;
+            border: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 10px;
+            /* زيادة الهامش الداخلي قليلاً */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-box {
+            border: 1px solid #000;
+            margin-bottom: 0.5em;
+            padding: 0.5em;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .section-header-centered {
+            display: block;
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .content-list,
+        .numbered-list {
+            list-style-type: none;
+            padding-right: 1.5em;
+            margin: 0;
+        }
+
+        .content-list li,
+        .numbered-list li {
+            position: relative;
+            margin-bottom: 0.5em;
+        }
+
+        .content-list li {
+            line-height: 1.4;
+        }
+
+        .numbered-list li {
+            padding-right: 0.5em;
+        }
+
+        .content-list li::before {
+            content: "•";
+            position: absolute;
+            right: -1em;
+            font-weight: bold;
+        }
+
+        .numbered-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            right: -1.3em;
+            font-weight: bold;
+        }
+
+        .orange-box {
+            background-color: var(--orange-box-bg);
+            border: 1px solid #c55a11;
+            border-radius: 15px;
+            padding: 0.5em 1em;
+            margin: 0 auto 0.8em auto;
+            text-align: center;
+            font-weight: bold;
+            width: 85%;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5em;
+        }
+
+        .method-label {
+            font-weight: bold;
+            margin-left: 0.5em;
+            white-space: nowrap;
+            width: 80px;
+        }
+
+        .diagram-container {
+            position: relative;
+            margin-top: 1em;
+            margin-bottom: 2em;
+            text-align: center;
+        }
+
+        .ar-math {
+            direction: rtl;
+            unicode-bidi: embed;
+            display: inline-block;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: top;
+            position: relative;
+            top: -0.4em;
+        }
+
+        .sqrt-span {
+            white-space: nowrap;
+        }
+
+        .sqrt-sym {
+            display: inline-block;
+            transform: scaleX(-1);
+            font-size: 1.1em;
+        }
+
+        .sqrt-line {
+            border-top: 1px solid #000;
+            padding-top: 1px;
+            margin-right: -2px;
+        }
+
+        .watermark-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.08;
+        }
+
+        .wm-text-large {
+            font-size: 15vmin;
+            font-family: 'DecoType Naskh', Tahoma, sans-serif;
+            color: #000;
+        }
+
+        .footer {
+            margin-top: auto;
+            /* يدفع الفوتر للأسفل دائماً */
+            border-top: 2px solid #000;
+            padding: 10px 5px 5px 5px;
+            position: relative;
+            display: block;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-align: right;
+            height: 40px;
+            /* ضمان ارتفاع كافٍ */
+        }
+
+        .footer span:last-child {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 10px;
+        }
+
+        u {
+            text-decoration: underline;
+        }
+
+        b {
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <h1 class="section-header-centered">ثالثاً: تحليل المقدار الثلاثي المربع الكامل</h1>
+
+        <div class="section-box" style="border:none; padding:0;">
+            <p>
+                <b><u>أولاً: مفهوم المقدار الثلاثي المربع الكامل:</u></b>
+                هو مجموع كميتين مربعتين مضافاً إليه (( أو مطروحاً منه )) ضعف حاصل ضرب الكميتين، والصورة العامة للمقدار
+                الثلاثي المربع الكامل:
+                <span class="ar-math">أ<sup>٢</sup> &#177; ٢ أ ب + ب<sup>٢</sup></span> .
+            </p>
+        </div>
+
+        <div class="section-box" style="border:none; padding:0;">
+            <p><b><u>ثانياً: طرق معرفة المقدار الثلاثي المربع الكامل:</u></b></p>
+            <div class="method-row">
+                <span class="method-label">الطريقة الأولى:</span>
+                <div class="orange-box">
+                    - الحد الأول والثالث حدان موجبان مربعان " أحياناً قد يأتي أحدهما كمية غير مربعة ".<br><br>
+                    - الحد الأوسط = ٢ &#215; <span class="sqrt-span"><span class="sqrt-sym">&#8730;</span><span
+                            class="sqrt-line">الحد الأول</span></span> &#215; <span class="sqrt-span"><span
+                            class="sqrt-sym">&#8730;</span><span class="sqrt-line">الحد الثالث</span></span> .
+                </div>
+            </div>
+            <div class="method-row">
+                <span class="method-label">الطريقة الثانية:</span>
+                <div class="orange-box">
+                    - استخدام المقص، فعند التحليل لا بد أن ينتج عنه قوسين متشابهين.
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <p>
+                <b><u>ثالثاً: قاعدة التحليل:</u></b> نأخذ الجذر التربيعي لحد الأول والحد الثالث ونضعهم بين قوس أسه ( ٢ )
+                وإشار القوس تأخذ إشارة الحد الأوسط
+            </p>
+            <div class="diagram-container"
+                style="position: relative; margin-top: 2em; margin-bottom: 3em; text-align: center;">
+                <div style="font-size: 1.4em; font-weight: bold; margin-bottom: 120px;">
+                    <span style="vertical-align: middle;">أي أن: &nbsp;&nbsp;</span>
+                    <span class="ar-math" style="vertical-align: middle;">أ<sup>٢</sup> &#177; ٢ أ ب + ب<sup>٢</sup> =
+                    </span>
+                    <span
+                        style="display: inline-block; direction: rtl; position: relative; unicode-bidi: isolate; padding: 0 25px;">
+                        ( &nbsp;أ&nbsp; &#177; &nbsp;ب&nbsp; )<sup>٢</sup>
+                        <svg width="340" height="90"
+                            style="position: absolute; top: 1.2em; left: 50%; transform: translateX(-50%); overflow: visible; pointer-events: none; z-index: 1;">
+                            <line x1="285" y1="85" x2="205" y2="10" stroke="#2f5597" stroke-width="2.5"
+                                marker-end="url(#arrowhead)" />
+                            <line x1="190" y1="85" x2="180" y2="10" stroke="#2f5597" stroke-width="2.5"
+                                marker-end="url(#arrowhead)" />
+                            <line x1="95" y1="85" x2="150" y2="10" stroke="#2f5597" stroke-width="2.5"
+                                marker-end="url(#arrowhead)" />
+                            <line x1="20" y1="85" x2="120" y2="-7" stroke="#2f5597" stroke-width="2.5"
+                                marker-end="url(#arrowhead)" />
+                            <defs>
+                                <marker id="arrowhead" markerWidth="5" markerHeight="3" refX="0" refY="1.5"
+                                    orient="auto">
+                                    <polygon points="0 0, 5 1.5, 0 3" fill="#2f5597" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        <div
+                            style="position: absolute; top: 95px; left: 50%; transform: translateX(-50%); display: flex; direction: ltr; white-space: nowrap; z-index: 2;">
+                            <div
+                                style="border: 1px solid #000; border-right: none; background:#fff; padding: 10px 15px; font-size: 1.3em; line-height: 1.2;">
+                                القوس<br>تربيع</div>
+                            <div
+                                style="border: 1px solid #000; border-right: none; background:#fff; padding: 10px 15px; font-size: 1.3em; line-height: 1.2;">
+                                جذر الحد<br>الثالث</div>
+                            <div
+                                style="border: 1px solid #000; border-right: none; background:#fff; padding: 10px 15px; font-size: 1.3em; line-height: 1.2;">
+                                إشارة الحد<br>الأوسط</div>
+                            <div
+                                style="border: 1px solid #000; background:#fff; padding: 10px 15px; font-size: 1.3em; line-height: 1.2;">
+                                جذر الحد<br>الأول</div>
+                        </div>
+                    </span>
+                </div>
+                <div style="height: 50px;"></div>
+            </div>
+            <div style="height: 3em;"></div>
+        </div>
+
+        <div class="section-box" style="padding: 0.3em 0.5em;">
+            <p style="margin: 0.2em 0;"><b><u>رابعاً: قواعد هامة لإيجاد أي حد من حدود المقدار الثلاثي المربع
+                        الكامل:</u></b></p>
+            <ul class="content-list" style="margin-top: 0.3em;">
+                <li>
+                    <span style="font-weight:bold;">الحد الأول =</span>
+                    [ <div class="ar-math" style="text-align:center; vertical-align:middle; display:inline-block;">
+                        <div style="border-bottom:1px solid #000; padding: 0 5px;">الحد الأوسط</div>
+                        <div style="padding: 0 5px;">٢ &#215; <span class="sqrt-span"><span
+                                    class="sqrt-sym">&#8730;</span><span class="sqrt-line">الحد الثالث</span></span>
+                        </div>
+                    </div> ]<sup>٢</sup> .
+                </li>
+                <li>
+                    <span style="font-weight:bold;">الحد الثالث =</span>
+                    [ <div class="ar-math" style="text-align:center; vertical-align:middle; display:inline-block;">
+                        <div style="border-bottom:1px solid #000; padding: 0 5px;">الحد الأوسط</div>
+                        <div style="padding: 0 5px;">٢ &#215; <span class="sqrt-span"><span
+                                    class="sqrt-sym">&#8730;</span><span class="sqrt-line">الحد الأول</span></span>
+                        </div>
+                    </div> ]<sup>٢</sup> .
+                </li>
+            </ul>
+            <p style="text-align: center; margin: 0.5em 0 0.2em 0;">
+                <b>طريقة أخرى لإيجاد الحد الثالث (إذا كان المقدار ثلاثي بسيط):</b><br>
+                " مربع نصف معامل س " &nbsp;&nbsp; <span class="ar-math">أي أن: الحد الثالث = ( <div
+                        style="display:inline-block; vertical-align:middle; text-align:center;">
+                        <div style="border-bottom:1px solid #000;">معامل س</div>
+                        <div>٢</div>
+                    </div> )<sup>٢</sup></span> .
+            </p>
+            <p style="text-align: center; margin: 0.3em 0;">
+                <span class="ar-math" style="border: 1px solid #000; padding: 3px 10px; background: #fdfdfd;">الحد
+                    الأوسط = &#177; ٢ &#215; <span class="sqrt-span"><span class="sqrt-sym">&#8730;</span><span
+                            class="sqrt-line">الحد الأول</span></span> &#215; <span class="sqrt-span"><span
+                            class="sqrt-sym">&#8730;</span><span class="sqrt-line">الحد الثالث</span></span></span> .
+            </p>
+        </div>
+
+        <div class="section-box" style="padding: 0.3em 0.5em;">
+            <div style="font-weight:bold; text-decoration:underline; margin-bottom: 0.2em;">ملاحظات هامة:</div>
+            <ol class="numbered-list">
+                <li data-num="١.">أثناء تحليل المقدار الثلاثي المربع الكامل فلا بد أن نراعي ترتيب الحدود.</li>
+                <li data-num="٢.">إذا كان معامل الحد الأول والثالث كمية غير مربعة فإن جذرها التربيعي يبقى تحت الجذر،
+                    مثلاً:
+                    <span class="ar-math">العدد ( ٥ ) سيكون جذره التربيعي = <span class="sqrt-span"><span
+                                class="sqrt-sym">&#8730;</span><span class="sqrt-line">٥</span></span></span> .
+                </li>
+                <li data-num="٣.">قد يكون المقدار الثلاثي المربع الكامل ثلاثي بسيط أو غير بسيط.</li>
+                <li data-num="٤.">أغلب الأسئلة إذا كان السؤال من الدرجة الثانية، فيطلب إيجاد الحد الثالث، وإذا كان من
+                    الدرجة الرابعة فيطلب إيجاد الحد الأوسط.</li>
+            </ol>
+        </div>
+
+        <div class="watermark-area">
+            <div class="wm-text-large">هلا المولجي</div>
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٤٠ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

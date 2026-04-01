@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٠</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #2196F3;
+            --light-blue: #E3F2FD;
+            --primary-orange: #FF9800;
+            --light-orange: #FFF3E0;
+            --success: #2E7D32;
+            --error: #C62828;
+            --text-dark: #333;
+            --border-color: #555;
+        }
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .a4-page {
+            background-color: white;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            padding: 15mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: right;
+        }
+
+        header {
+            border: 3px double var(--primary-blue);
+            background-color: var(--light-blue);
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 24px;
+        }
+
+        .section-header {
+            background-color: var(--light-orange);
+            border: 1px solid var(--primary-orange);
+            padding: 5px 15px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            margin: 15px 0 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .q-number {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0 8px;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .option {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 4px;
+            gap: 10px;
+        }
+
+        .option:hover {
+            background-color: #f9f9f9;
+            border-color: var(--primary-blue);
+        }
+
+        .option.selected {
+            background-color: #e3f2fd;
+            border-color: var(--primary-blue);
+        }
+
+        .option.correct {
+            border-color: var(--success) !important;
+            background-color: #e8f5e9 !important;
+        }
+
+        .option.incorrect {
+            border-color: var(--error) !important;
+            background-color: #ffebee !important;
+        }
+
+        .option-label {
+            background: #eee;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.85em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .bubble-shading {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: 0.2s;
+        }
+
+        .option.selected .bubble-shading {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .option.correct .bubble-shading {
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+
+        .option.incorrect .bubble-shading {
+            background-color: var(--error);
+            border-color: var(--error);
+        }
+
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+            background: #fdfdfd;
+            border: 1px inset #ccc;
+        }
+
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .tf-table th,
+        .tf-table td {
+            border: 1px solid #bbb;
+            padding: 8px;
+            text-align: right;
+        }
+
+        .tf-table th {
+            background-color: #f5f5f5;
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .tf-cell {
+            width: 40px;
+            text-align: center;
+        }
+
+        .check-circle {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .check-circle.checked.correct {
+            background-color: var(--success);
+            border-color: var(--success);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .check-circle.checked.incorrect {
+            background-color: var(--error);
+            border-color: var(--error);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 0.8em;
+            line-height: 1.1;
+            margin: 0 2px;
+        }
+
+        .fraction-top {
+            border-bottom: 1px solid currentColor;
+            padding: 0 2px;
+        }
+
+        .fraction-bottom {
+            padding: 0 2px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            color: #777;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .a4-page {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="a4-page">
+        <header>
+            <h1>أسئلة على الدرس بطريقة الأتمتة - الجزء الثاني</h1>
+        </header>
+
+        <div class="section-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+        <!-- Q7 -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">٧</span>
+                <div>إذا كان (١ ، ل) يمثل حلاً للمعادلة س - ٤ص = ١ ، فإن قيمة ل = ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="4">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span class="fraction"><span class="fraction-top">١</span><span
+                            class="fraction-bottom">٤</span></span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>- <span class="fraction"><span class="fraction-top">١</span><span
+                                class="fraction-bottom">٢</span></span></span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>- <span class="fraction"><span class="fraction-top">١</span><span
+                                class="fraction-bottom">٤</span></span></span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>٠ (صفر)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">٨</span>
+                <div>الزوج المرتب (٠ ، ٣) يمثل حلاً للمعادلة ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="4">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>س - ص = ٠</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>س + ٣ص = ٣</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>س + ص = ٠</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>س - ٣ص = -٣</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">٩</span>
+                <div>أحد النقاط التالية تقع على خط مستقيم المعادلة س + ٢ص = ٥ ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="1">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>( ١ ، ٢ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>( ١٠ ، ٢,٥ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>( -١ ، -٢ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>( -١٠ ، -٢,٥ )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q10 with SVG -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">١٠</span>
+                <div>المستقيم في الشكل المجاور يمثل حل للمعادلة ........... :</div>
+            </div>
+            <div class="graph-container">
+                <svg width="400" height="300" viewBox="-10 -7.5 20 15" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
+                            <path d="M 1 0 L 0 0 0 1" fill="none" stroke="#e0e0e0" stroke-width="0.05" />
+                        </pattern>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+                        </marker>
+                    </defs>
+                    <rect x="-10" y="-7.5" width="20" height="15" fill="url(#grid)" />
+                    <!-- Standard Coordinate System -->
+                    <line x1="-10" y1="0" x2="10" y2="0" stroke="black" stroke-width="0.1"
+                        marker-end="url(#arrowhead)" />
+                    <line x1="0" y1="7.5" x2="0" y2="-7.5" stroke="black" stroke-width="0.1"
+                        marker-end="url(#arrowhead)" />
+
+                    <!-- Labels -->
+                    <text x="9" y="0.8" font-size="0.8" font-family="Cairo">س</text>
+                    <text x="0.5" y="-6.5" font-size="0.8" font-family="Cairo">ص</text>
+
+                    <!-- Numbers on Axes (Standard) -->
+                    <g font-size="0.5" font-family="Amiri" text-anchor="middle">
+                        <text x="1" y="0.6">١</text><text x="2" y="0.6">٢</text><text x="3" y="0.6">٣</text><text x="4"
+                            y="0.6">٤</text>
+                        <text x="-1" y="0.6">-١</text><text x="-2" y="0.6">-٢</text><text x="-3" y="0.6">-٣</text>
+                        <text x="-0.4" y="-1">١</text><text x="-0.4" y="-2">٢</text><text x="-0.4" y="-3">٣</text>
+                        <text x="-0.4" y="1">-١</text><text x="-0.4" y="2">-٢</text><text x="-0.4" y="3">-٣</text>
+                    </g>
+
+                    <!-- The Line: y = x - 1 -->
+                    <g transform="scale(1,-1)">
+                        <line x1="-5" y1="-6" x2="6" y2="5" stroke="blue" stroke-width="0.2" />
+                        <!-- Points: Math(1, 0), Math(0, -1), Math(4, 3) -->
+                        <circle cx="1" cy="0" r="0.2" fill="red" />
+                        <circle cx="0" cy="-1" r="0.2" fill="red" />
+                        <circle cx="4" cy="3" r="0.2" fill="red" />
+                    </g>
+                </svg>
+            </div>
+            <div class="options-grid" data-correct="3">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>س - ص = ٢</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>ص = س - ١</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>س + ص = ٢</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>س = ص - ١</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="background-color: #ffd8b1; border-color: #ff8c00;">
+            <span>أسئلة وزارية</span>
+        </div>
+
+        <div class="sub-header" style="padding: 5px; font-weight: bold;">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+        <table class="tf-table">
+            <thead>
+                <tr>
+                    <th>السؤال</th>
+                    <th class="tf-cell">صح</th>
+                    <th class="tf-cell">خطأ</th>
+                </tr>
+            </thead>
+            <tbody id="tf-body">
+                <!-- JS will populate this -->
+            </tbody>
+        </table>
+
+        <div class="question-block" style="margin-top: 20px;">
+            <div class="question-text">
+                <span class="q-number">أ</span>
+                <div>أحد حلول المعادلة ٣س - ٤ص = ١ هو ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="4">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>( ٣ ، -٤ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>( ٢ ، ٣ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>( ٤ ، ٣ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>( ٣ ، ٢ )</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٠ -</div>
+        </footer>
+    </div>
+
+    <script>
+        const tfQuestions = [
+            { text: "مجموعة حل المعادلة ٣ س - ٢٥ = ٢، هي {٣}.", answer: false },
+            { text: "المعادلة ٣س - ص = ٠ معادلة من الدرجة الثانية.", answer: false },
+            { text: "الزوج المرتب ( ٣ ، -١ ) يُعد حلاً للمعادلة س + ٢ص = ١٣.", answer: false },
+            { text: "معادلة الدرجة الأولى ذات متغيرين لها حل وحيد.", answer: false },
+            { text: "( ١ ، <span class='fraction'><span class='fraction-top'>١</span><span class='fraction-bottom'>٢</span></span> ) يمثل أحد حلول المعادلة ٣س - ١ = ٢ص.", answer: false },
+            { text: "( ٥ل + ٢م + ٣ = ٠ ) معادلة من الدرجة الأولى في متغير واحد.", answer: false },
+            { text: "الزوج المرتب ( ١ ، ١ ) يمثل حل للمعادلة ص = ١ - ٢س.", answer: false },
+            { text: "الزوج المرتب ( ٠ ، ٣ ) يحقق المعادلة ٣س + ص = ٧.", answer: false },
+            { text: "الزوج المرتب ( ٢ ، ٢ ) يحقق المعادلة ٢س - <span class='fraction'><span class='fraction-top'>١</span><span class='fraction-bottom'>٢</span></span> ص = ٥.", answer: true },
+            { text: "حل المعادلة ٣س + ٦ = ٠ هو س = ٢.", answer: false },
+            { text: "( ٥س<sup>٢</sup> + ص = ٧ ) معادلة من الدرجة الأولى بمتغيرين.", answer: false },
+            { text: "المعادلة ٣س + ص = ١ لها حل وحيد.", answer: false }
+        ];
+
+        const tfBody = document.getElementById('tf-body');
+        tfQuestions.forEach((q, i) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td>${(i + 1).toLocaleString('ar-EG')}. ${q.text}</td>
+            <td class="tf-cell"><span class="check-circle" onclick="toggleTf(this, true, ${q.answer}, ${i})"></span></td>
+            <td class="tf-cell"><span class="check-circle" onclick="toggleTf(this, false, ${q.answer}, ${i})"></span></td>
+        `;
+            tfBody.appendChild(row);
+        });
+
+        function selectMcq(element, choice) {
+            const parent = element.parentElement;
+            const correct = parseInt(parent.dataset.correct);
+            const options = parent.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected', 'correct', 'incorrect'));
+            element.classList.add('selected');
+            if (choice === correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+                options.forEach(opt => {
+                    if (parseInt(opt.querySelector('.option-label').innerText) === correct) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        function toggleTf(element, userVal, correctVal, index) {
+            const row = element.closest('tr');
+            const circles = row.querySelectorAll('.check-circle');
+            circles.forEach(c => c.classList.remove('checked', 'correct', 'incorrect'));
+            element.classList.add('checked');
+            if (userVal === correctVal) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

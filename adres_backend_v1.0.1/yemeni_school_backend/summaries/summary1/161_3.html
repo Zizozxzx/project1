@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٦٣ - المعلم المثالي</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 10px;
+            color: #000;
+            line-height: 1.6;
+        }
+        .page-container {
+            max-width: 950px;
+            margin: auto;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 15px 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0; /* لمنع التمدد الزائد */
+        }
+        
+        /* ترتيب الأعمدة للهاتف: اليمين أولاً */
+        .right-column {
+            order: 1;
+            border-left: 1.5px solid #000;
+            padding-left: 15px;
+        }
+        .left-column {
+            order: 2;
+        }
+
+        /* تنسيقات الرياضيات والنصوص */
+        .math-block {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            text-align: right;
+        }
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .solution-step {
+            display: block;
+            margin: 3px 0;
+        }
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 3px;
+            font-size: 0.9em;
+        }
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+        }
+        .fraction .bottom {
+            display: block;
+            padding: 0 2px;
+        }
+        .box-header {
+            border: 2px solid #000;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+        }
+        .dashed-line {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+            width: 100%;
+        }
+        .table-container {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin: 0 10px;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 3px 8px;
+            text-align: center;
+        }
+
+        /* تنسيق الرسم البياني */
+        .graph-container {
+            width: 250px;
+            height: 250px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            position: relative;
+        }
+
+        /* استجابة الهاتف */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .right-column {
+                order: 1;
+                border-left: none;
+                border-bottom: 2px solid #000;
+                padding-bottom: 20px;
+                padding-left: 0;
+            }
+            .left-column {
+                order: 2;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">ـ ٦٣ ـ</div>
+
+    <div class="content-wrapper">
+        
+        <div class="column right-column">
+            
+            <div class="math-block">
+                <span class="question-title">| ٣٩ | تكبد العدو الصهيوني ١٨ آلية ومجنزرة في عملية جهادية لأبطال فلسطين ولكن العدو صرح أن الخسارة خمس فقط . وعندما سئل أحد المجاهدين عن السبب قال أن العدو قد احتسب <div class="fraction"><span class="top">١</span><span class="bottom">٤</span></div> الآليات ، <div class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> المجنزرات فما العدد الحقيقي لخسارة العدو؟</span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">نفرض عدد الآليات = س ، وعدد المجنزرات = ص</span>
+                <span class="solution-step">∴ ما تكبده العدو : س + ص = ١٨ ← (١)</span>
+                <span class="solution-step">وحسب تصريح العدو : س + ص = ٥ ولكن وفق ما نسب إلى أحد المجاهدين عن سبب ما قاله العدو هو أن :</span>
+                <span class="solution-step"><div class="fraction"><span class="top">١</span><span class="bottom">٤</span></div> س + <div class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> ص = ٥ &nbsp; &nbsp; ← (٢) بالضرب × ٢</span>
+                <span class="solution-step">∴ ٣ س + ٤ ص = ٦٠ &nbsp; &nbsp; ← (٣)</span>
+                <span class="solution-step">وبضرب (١) × -٣ نحصل على : -٣ س - ٣ ص = -٥٤ ← (٤)</span>
+                <span class="solution-step">بجمع (٣) ، (٤) نجد : ص = ٦ ومن (١) نجد س = ١٨ - ص</span>
+                <span class="solution-step">ومنها س = ١٨ - ٦ = ١٢</span>
+                <div style="border: 1px solid #000; padding: 2px; text-align: center; width: fit-content; margin: 5px auto;">عدد الآليات = ١٢ وعدد المجنزرات = ٦</div>
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-block">
+                <span class="question-title">| ٤٠ | قطعة أرض مستطيلة الشكل محيطها ٨٠ متراً ، فإذا كان ثلثا الطول يزيد عن العرض بمقدار ٥ أمتار فما مساحتها ؟</span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">∵ محيط المستطيل = ٢ ( الطول + العرض )</span>
+                <span class="solution-step">∴ نفرض الطول = س ، العرض = ص ، المحيط = ٨٠ متراً</span>
+                <span class="solution-step">∴ ٢ س + ٢ ص = ٨٠ &nbsp; &nbsp; ← (١)</span>
+                <span class="solution-step">∵ ثلثا الطول يزيد عن العرض بمقدار ٥ أمتار</span>
+                <span class="solution-step">∴ <div class="fraction"><span class="top">٢</span><span class="bottom">٣</span></div> س - ص = ٥ &nbsp; &nbsp; ← (٢)</span>
+                <span class="solution-step">بضرب المعادلة (٢) ×-٣ نحصل على: -٢س + ٣ص = -١٥ ← (٣)</span>
+                <span class="solution-step">بجمع (٣) ، (١) نجد ٥ص = ٦٥ ومنها ص = ١٣</span>
+                <span class="solution-step">ومن (١) ٢س = ٨٠ - ٢ × ١٣ ومنها س = <div class="fraction"><span class="top">٥٤</span><span class="bottom">٢</span></div> = ٢٧</span>
+                <span class="solution-step">∴ الطول = ٢٧ م والعرض = ١٣ م</span>
+                <div style="border: 1px solid #000; padding: 2px; text-align: center; width: fit-content; margin: 5px auto;">∴ مساحة المستطيل = س × ص = ٣٥١ م<sup>٢</sup></div>
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="box-header">٣ : ٦ حل اختبار الوحدة صـ ١٦٤</div>
+
+            <div class="math-block">
+                <span class="question-title">| ١ | أ ) أوجد خمسة حلول للمعادلة : س - ( <div class="fraction"><span class="top">ص</span><span class="bottom">٢</span></div> + ١ ) = ٠</span>
+                <span class="question-title">ب) حل المعادلة : س + ٣ = <div class="fraction"><span class="top">س</span><span class="bottom">س</span></div></span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">أ ) ∵ س - ( <div class="fraction"><span class="top">ص</span><span class="bottom">٢</span></div> + ١ ) = ٠ &nbsp; نفك المعادلة</span>
+                <span class="solution-step">∴ س - <div class="fraction"><span class="top">ص</span><span class="bottom">٢</span></div> - ١ = ٠ &nbsp; نضرب × ٢ لنتخلص من الكسر</span>
+                <span class="solution-step">∴ ٢ س - ص - ٢ = ٠ ومنها ص = ٢ س - ٢ ( ص بدلالة س )</span>
+                <span class="solution-step">نفرض قيم اختيارية لـ س لنحصل على ص حيث س ∋ ح</span>
+                <span class="solution-step">∴ مجموعة الحل = { ( س ، ٢ س - ٢ ) } لتجد خمسة حلول هم</span>
+                <span class="solution-step">{ (٠، -٢) ، (١، ٠) ، (٢، ٢) ، (٣، ٤) ، (<div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div>، -١) ........ }</span>
+                <span class="solution-step">ب) نضرب طرفي المعادلة × س فنجد : س<sup>٢</sup> + ٣ س = ٤</span>
+                <span class="solution-step">∴ س<sup>٢</sup> + ٣ س - ٤ = ٠ ومنها (س + ٤) (س - ١) = ٠</span>
+                <span class="solution-step">∴ إما س + ٤ = ٠ ومنها <div style="border:1px solid #000; display:inline-block; padding:0 3px;">س = -٤</div></span>
+                <span class="solution-step">أو س - ١ = ٠ ومنها <div style="border:1px solid #000; display:inline-block; padding:0 3px;">س = ١</div></span>
+                <span class="solution-step">∴ مجموعة الحل = { ١ ، -٤ }</span>
+            </div>
+        </div>
+
+        <div class="column left-column">
+            
+            <div class="math-block">
+                <span class="question-title">| ٢ | حل نظام المعادلات الآتية وتحقق من صحة الحل</span>
+                <span class="solution-step">س + ص = ١ ، س - ( ص + ٣ ) = ٠</span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">س + ص = ١ &nbsp; ← (١)</span>
+                <span class="solution-step">س - ص - ٣ = ٠ أي س - ص = ٣ &nbsp; ← (٢)</span>
+                <span class="solution-step">بجمع المعادلتين (١) ، (٢) نجد : ٢س = ٤ ومنها س = ٢</span>
+                <span class="solution-step">نعوض في المعادلة (١) بقيمة س = ٢ فنجد :</span>
+                <span class="solution-step">٢ + ص = ١ ← ص = ١ - ٢ أي ص = - ١</span>
+                <span class="solution-step">∴ مجموعة الحل = { ( ٢ ، -١ ) }</span>
+                <span class="solution-step"><u>التحقق :</u></span>
+                <span class="solution-step">من (١) الأيمن = ٢ - ١ = ١ = الأيسر</span>
+                <span class="solution-step">من (٢) الأيمن = ٢ - ( -١ ) = ٢ + ١ = ٣ = الأيسر</span>
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-block">
+                <span class="question-title">| ٣ | حل نظام المعادلات التالية بيانياً وتحقق من صحة الحل</span>
+                <span class="solution-step">ن = م + ٣ ، ٢ن + م = ٠</span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">(١) ← ن - م = ٣ ومنها م = ن - ٣</span>
+                <span class="solution-step">(٢) ← ٢ن + م = ٠ ومنها م = -٢ن</span>
+                <span class="solution-step">نكون لكل من المعادلتين جدولاً مستقلاً ونرسم المستقيمين لهما كما يلي :-</span>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <td>ن</td>
+                            <td>م = -٢ن</td>
+                            <td>( ن ، م )</td>
+                        </tr>
+                        <tr>
+                            <td>٠</td>
+                            <td>٠</td>
+                            <td>(٠ ، ٠)</td>
+                        </tr>
+                        <tr>
+                            <td>١</td>
+                            <td>-٢</td>
+                            <td>(١ ، -٢)</td>
+                        </tr>
+                        <tr>
+                            <td>٢</td>
+                            <td>-٤</td>
+                            <td>(٢ ، -٤)</td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td>ن</td>
+                            <td>( ن ، م )</td>
+                            <td>م = ن - ٣</td>
+                        </tr>
+                        <tr>
+                            <td>٠</td>
+                            <td>(٠ ، -٣)</td>
+                            <td>-٣</td>
+                        </tr>
+                        <tr>
+                            <td>١</td>
+                            <td>(١ ، -٢)</td>
+                            <td>-٢</td>
+                        </tr>
+                        <tr>
+                            <td>٢</td>
+                            <td>(٢ ، -١)</td>
+                            <td>-١</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="svg-container" style="text-align: center;">
+                    <svg width="250" height="250" viewBox="-125 -125 250 250">
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ddd" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <rect x="-125" y="-125" width="250" height="250" fill="url(#grid)" />
+
+                        <line x1="-120" y1="0" x2="120" y2="0" stroke="black" stroke-width="1.5" /> <line x1="0" y1="-120" x2="0" y2="120" stroke="black" stroke-width="1.5" /> <polygon points="120,0 115,-3 115,3" fill="black" />
+                        <polygon points="-120,0 -115,-3 -115,3" fill="black" />
+                        <polygon points="0,-120 -3,-115 3,-115" fill="black" />
+                        <polygon points="0,120 -3,115 3,115" fill="black" />
+
+                        <text x="110" y="15" font-family="Times New Roman" font-size="12">ن</text>
+                        <text x="-120" y="15" font-family="Times New Roman" font-size="12">ن</text>
+                        <text x="5" y="-110" font-family="Times New Roman" font-size="12">م</text>
+                        <text x="5" y="115" font-family="Times New Roman" font-size="12">م</text>
+
+                        <line x1="-60" y1="120" x2="100" y2="-40" stroke="black" stroke-width="1.5" />
+
+                        <line x1="-40" y1="-80" x2="40" y2="80" stroke="black" stroke-width="1.5" />
+
+                        <circle cx="20" cy="40" r="3" fill="none" stroke="black" stroke-width="1.5" />
+                        <text x="25" y="40" font-family="Times New Roman" font-size="10">(١، -٢)</text>
+                        
+                        <text x="5" y="60" font-family="Times New Roman" font-size="10">(٠، -٣)</text>
+                        <text x="55" y="-5" font-family="Times New Roman" font-size="10">(٣،٠)</text>
+                        
+                    </svg>
+                </div>
+
+                <span class="solution-step">فمن الشكل يتقاطعان المستقيمان في النقطة ( ١ ، -٢ )</span>
+                <span class="solution-step">∴ مجموعة الحل = { ( ١ ، -٢ ) }</span>
+                <span class="solution-step">وهذه النقطة تحقق صحة المعادلتين.</span>
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-block">
+                <span class="question-title">| ٤ | مستطيل طوله يزيد على عرضه بمقدار ٤ سم فإذا كانت مساحته تساوي ١٩٢ سم<sup>٢</sup> فأوجد بعدي المستطيل</span>
+                <span class="question-title">* الحل *</span>
+                <span class="solution-step">لنفرض العرض = س سم</span>
+                <span class="solution-step">∴ الطول = س + ٤</span>
+                <span class="solution-step">∵ المساحة = الطول × العرض = ١٩٢</span>
+                <span class="solution-step">∴ س (س + ٤) = ١٩٢ ومنها س<sup>٢</sup> + ٤س - ١٩٢ = ٠</span>
+                <span class="solution-step">ومنها (س + ١٦) (س - ١٢) = ٠</span>
+                <span class="solution-step">∴ أما س + ١٦ = ٠ ومنها س = -١٦ مرفوض</span>
+                <span class="solution-step">أو س - ١٢ = ٠ ومنها س = ١٢</span>
+                <span class="solution-step">∴ عرض المستطيل = س = ١٢ سم وطوله = س + ٤ = ١٦ سم .</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

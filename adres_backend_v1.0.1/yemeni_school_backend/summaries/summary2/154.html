@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٥٤</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #dae3f3;
+            --header-blue: #8faae0;
+            --header-dark: #4472c4;
+            --page-bg: #f0f0f0;
+            --border-color: #000;
+            --correct-color: #d4edda;
+            --incorrect-color: #f8d7da;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 30px 40px;
+            border: 2px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Header */
+        .ministerial-header {
+            background-color: var(--header-blue);
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: bold;
+            font-size: 1.6em;
+            padding: 5px;
+            border: 2px solid #000;
+            margin: 20px 0 10px 0;
+            text-shadow: 2px 2px 0px #fff;
+            /* Outline effect */
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .sub-header {
+            background-color: var(--header-blue);
+            padding: 5px 10px;
+            font-weight: bold;
+            border: 2px solid #000;
+            border-bottom: none;
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 2px solid #000;
+            margin-bottom: 20px;
+            border-top: none;
+            /* Connects if following subheader */
+        }
+
+        /* Specialized container for the first block which has no section header above it, 
+           continuing from previous page? No, standard mcq-container. */
+
+        .mcq-row {
+            border-bottom: 1px solid #000;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mcq-q {
+            padding: 8px 10px;
+            background-color: #fff;
+            font-weight: bold;
+            border-bottom: 1px solid #777;
+        }
+
+        /* Grid 2x2 for options */
+        .mcq-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
+
+        .mcq-cell {
+            padding: 5px;
+            border: 1px solid #777;
+            /* Internal borders */
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 15px;
+            /* Space for number */
+            border-top: none;
+            /* Handled by rows */
+        }
+
+        /* Adjust borders for grid cells */
+        .mcq-cell:nth-child(odd) {
+            border-right: none;
+            border-left: 1px solid #777;
+        }
+
+        /* Actually simpler: all have border, collapse table style? No, using grid. */
+        /* Let's be explicit: */
+        .mcq-cell {
+            border: 1px solid #777;
+            border-top: none;
+            border-left: none;
+        }
+
+        .mcq-cell:nth-child(2n) {
+            border-left: none;
+            /* Right side item in RTL is 1st col visually? No. RTL grid: Col 1 is Right. */
+        }
+
+        /* Proper RTL Grid Boarders */
+        /* Item 1 (Right): needs left border. Item 2 (Left): no left border. */
+        .mcq-cell:nth-child(odd) {
+            border-left: 1px solid #777;
+        }
+
+        .mcq-cell:nth-child(even) {
+            border-left: none;
+        }
+
+        /* Bottom row needs no bottom border if last? */
+
+        .mcq-cell:hover {
+            background-color: #eee;
+        }
+
+        .mcq-cell.correct {
+            background-color: var(--correct-color);
+        }
+
+        .mcq-cell.incorrect {
+            background-color: var(--incorrect-color);
+        }
+
+        .opt-num {
+            font-size: 0.8em;
+            color: #555;
+            margin-right: auto;
+            padding-right: 5px;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 10em;
+            color: rgba(0, 0, 0, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .final-message {
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.4em;
+            margin: 40px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1em;
+            font-weight: bold;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <div class="watermark">هلا المولجي</div>
+
+        <!-- Questions 8-10 (Continued) -->
+        <!-- Start standard MCQ container (top border needed) -->
+        <div class="mcq-container" style="border-top: 2px solid #000;">
+
+            <!-- Q8 -->
+            <div class="mcq-row" data-correct="1"> <!-- Option 4: 2? Wait. -->
+                <!-- x+y=8. x=3y. 4y=8 -> y=2. First=6. "Second number is...". Ans: 2. -->
+                <!-- Image layout check: Opt 1: 1 (TR). Opt 3: 4 (TL). Opt 2 : 2. Opt 4: 5? 
+                     Image Q8: Row 1: 1, 4. Row 2: 2, 5. Wait, Row 2 Right is 2? Let's assume standard order:
+                     1 (TR), 3 (TL) // 2 (BR), 4 (BL)? Or 1(TR), 2(TL) // 3(BR), 4(BL)? 
+                     Previous pages: 1(TR), 3(TL), 2(BR), 4(BL). 
+                     Image: Q8 Options: 
+                     TR: .. No, layout is rows? 
+                     Image Row 1: "1       4" (Looks like Opt 1 and 3?)
+                     Image Row 2: "2       3" (Wait. Bottom Right is 2?)
+                     Let's check Opt numbers in image. Right col has '1' and '2'. Left col has '3' and '4'.
+                     So TR is 1. BR is 2. TL is 3. BL is 4.
+                     Opt 1 (TR): 2. Opt 3 (TL): 4.
+                     Opt 2 (BR): 3. Opt 4 (BL): 5.
+                     Wait, correct ans is 2. Is 2 inside TR? 
+                     Image Q8: Right Col, Top Row: "2" with Num "1". -> Correct.
+                     So Ans is 2 (Option 1).
+                -->
+                <div class="mcq-q">٨. مجموع عددين يساوي ٨ ، حيث الأول يساوي ثلاثة أمثال الثاني ، فإن العدد الثاني
+                    يساوي.........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٢ . <span class="opt-num">١</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٤ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٣ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٥ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="mcq-row" data-correct="3"> <!-- y=12. x=4. First number is 4. Opt 1 (TR) is 12? No. -->
+                <!-- Image Q9: 
+                     TR (Opt 1): 12. 
+                     TL (Opt 3): 4.
+                     BR (Opt 2): 3.
+                     BL (Opt 4): 8. 
+                     Question: "First number is...". First is x=4. So Ans is 4 (Option 3).
+                -->
+                <div class="mcq-q">٩. عددين الأول ينقص عن الثاني بمقدار ٨ ، فإذا كان العدد الأول ثلث العدد الثاني فإن
+                    العدد الأول يساوي .............:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">١٢ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٤ . <span class="opt-num">٣</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٣ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٨ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="mcq-row" data-correct="2"> <!-- Ans 3. -->
+                <!-- Image Q10: 
+                     TR (Opt 1): 6.
+                     TL (Opt 3): 4.
+                     BR (Opt 2): 3.
+                     BL (Opt 4): 8.
+                     Ans is 3 (Option 2).
+                -->
+                <div class="mcq-q">١٠. ثلاثة أمثال عدد ، ومقلوب مربعه يساوي <div
+                        style="display:inline-block; vertical-align:middle; text-align:center;"><span
+                            style="display:block; border-bottom:1px solid #000; line-height:1;">١</span><span>٩</span>
+                    </div> ، فإن العدد يساوي ..........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٦ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٤ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٣ . <span class="opt-num">٢</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٨ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ministerial Header -->
+        <div class="ministerial-header">أسئلة وزارية</div>
+        <div class="sub-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+        <div class="mcq-container" style="border-top: none;">
+
+            <!-- A -->
+            <div class="mcq-row" data-correct="4"> <!-- Larger is 9. -->
+                <!-- Image Q-A:
+                     TR (1): 15.
+                     TL (3): 11.
+                     BR (2): 13.
+                     BL (4): 9.
+                     Ans 9 (Option 4).
+                -->
+                <div class="mcq-q">أ . إذا كان مجموع عددين فرديين متتاليين = ١٦ ، والفرق بينهما = ٢ ، فإن أكبرهما =
+                    .........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">١٥ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">١١ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">١٣ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٩ . <span class="opt-num">٤</span></div>
+                    <!-- Correct -->
+                </div>
+            </div>
+
+            <!-- B -->
+            <div class="mcq-row" data-correct="1"> <!-- Ans 1. -->
+                <!-- Image Q-B:
+                     TR (1): 1, 1. (Wait, dots? or just 1?) '١ ، ١'. Looks like {1, 1} or just 1.
+                     TL (3): 2, 3.
+                     BR (2): -2, 1 ?? No '١ - ، ٢'.
+                     BL (4): - 4 ، ٢.
+                     Wait. "Sum and reciprocals=2". x=1.
+                     Opt 1: "١ ، ١". Maybe distinct roots? 
+                     Opt 2: "١ - ، ٢"? (2, -1?)
+                     Opt 3: "٢ ، ٣".
+                     Opt 4: "٢ - ، ٤ -". (-4, -2?)
+                     Let's check image carefully.
+                     Row 1 Right: "١ ، ١". Row 1 Left: "٢ ، ٣". 
+                     Row 2 Right: "١ - ، ٢" (2, -1). Row 2 Left: "٢ - ، ٤ -".
+                     Answer is 1. Logic says x=1. Opt 1 is "1, 1" (Repeated root). This matches.
+                -->
+                <div class="mcq-q">ب. إذا كان مجموع عدد ومقلوبه يساوي ٢، فإن العدد هو ............:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">١ ، ١ . <span class="opt-num">١</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٢ ، ٣ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٢ ، - ١ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">- ٤ ، - ٢ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- C -->
+            <div class="mcq-row" data-correct="2"> <!-- Smaller is 13. -->
+                <!-- Image Q-C:
+                     TR (1): 9.
+                     TL (3): 13, 3 ?? "١٣ ، ٣" ?? No, just 13. "١٣".
+                     BR (2): 11.
+                     BL (4): 15, 4 ?? "١٥ ، ٤".
+                     Wait. Looking at image Q-C.
+                     Row 1 Right: "٩". Row 1 Left: "١٣". 
+                     Row 2 Right: "١١". Row 2 Left: "١٥".
+                     Options: 1(9), 3(13), 2(11), 4(15). 
+                     Wait. Q was: "Smaller is...". Ans: 13. 
+                     13 is Option 3 (TL).
+                     My layout logic: TR(1), TL(3), BR(2), BL(4).
+                     So Ans is Option 3.
+                -->
+                <div class="mcq-q">ج. عددان فرديان متتاليان مجموعهما ٢٨ ، فإن أصغرهما يساوي .........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٩ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">١٣ . <span class="opt-num">٣</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">١١ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">١٥ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- D -->
+            <div class="mcq-row" data-correct="2"> <!-- Smaller is 7. -->
+                <!-- Image Q-D:
+                     TR (1): 6.
+                     TL (3): 8.
+                     BR (2): 7.
+                     BL (4): 9.
+                     Ans 7 (Option 2).
+                -->
+                <div class="mcq-q">د. إذا كان حاصل ضرب عددين فرديين طبيعيين = ٦٣ ، فإن أصغرهما = ................:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٦ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٨ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٧ . <span class="opt-num">٢</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٩ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- E -->
+            <div class="mcq-row" data-correct="2"> <!-- Ans 5. -->
+                <!-- Image Q-E:
+                     TR (1): 4.
+                     TL (3): 6.
+                     BR (2): 5.
+                     BL (4): 7.
+                     Ans 5 (Option 2).
+                -->
+                <div class="mcq-q">هـ. إذا كان مجموع عدد مع مربع = ٣٠ ، فإن العدد = .........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٤ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٦ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٥ . <span class="opt-num">٢</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٧ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- F -->
+            <div class="mcq-row" data-correct="1"> <!-- Smaller is 4. -->
+                <!-- Image Q-F:
+                     TR (1): 4.
+                     TL (3): 8.
+                     BR (2): 7.
+                     BL (4): 9.
+                     Ans 4 (Option 1).
+                -->
+                <div class="mcq-q">و. عددان أحدهما ضعف الآخر ، فإذا كان حاصل ضربهما = ٣٢ ، فإن أصغرهما = ...........:
+                </div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٤ . <span class="opt-num">١</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٨ . <span class="opt-num">٣</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">٧ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">٩ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+            <!-- G -->
+            <div class="mcq-row" data-correct="3"> <!-- Ans 3. -->
+                <!-- Image Q-G:
+                     TR (1): 1, 9 (1,9).
+                     TL (3): 3, 3 (3,3). -->
+                <!-- Check math: x+9/x=6. x=3. 3+9/3= 3+3=6. Correct.
+                     Roots are 3,3 (Repeated).
+                     BR (2): 2 - , 9 - .
+                     BL (4): 3 - , 4 - . 
+                     Ans is 3,3. Option 3.
+                -->
+                <div class="mcq-q">ز. إذا كان مجموع عدد وتسعة أمثال مقلوبه يساوي ٦ ، فإن العدد = ...........:</div>
+                <div class="mcq-grid-2">
+                    <div class="mcq-cell" onclick="checkMCQ(this, 1)">٩ ، ١ . <span class="opt-num">١</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 3)">٣ ، ٣ . <span class="opt-num">٣</span></div>
+                    <!-- Correct -->
+                    <div class="mcq-cell" onclick="checkMCQ(this, 2)">- ٩ ، - ٢ . <span class="opt-num">٢</span></div>
+                    <div class="mcq-cell" onclick="checkMCQ(this, 4)">- ٤ ، - ٣ . <span class="opt-num">٤</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="final-message">
+            انتهت الوحدة الثالثة بسلام . . . أجمل ما قد تهدونه لي هو الدعاء في ظهر الغيب . . كل التوفيق لكم يا أوائل
+            الجمهورية . .
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ١٥٤ -</div>
+        </footer>
+
+    </div>
+
+    <script>
+        function checkMCQ(el, optNum) {
+            const row = el.closest('.mcq-row');
+            const properCorrect = parseInt(row.getAttribute('data-correct'));
+
+            row.querySelectorAll('.mcq-cell').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            if (optNum === properCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>

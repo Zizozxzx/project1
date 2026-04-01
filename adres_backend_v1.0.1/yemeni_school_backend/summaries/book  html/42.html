@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 46</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:36px 55px 150px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:3px;
+    background:#12a7db;
+    margin-bottom:16px;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    margin-bottom:22px;
+}
+
+/* عنوان فرعي */
+.sub-title{
+    font-size:22px;
+    color:#12a7db;
+    margin:10px 0 18px;
+}
+
+/* الفقرات */
+p{
+    font-size:20px;
+    line-height:2.15;
+    letter-spacing:0.2px;
+    word-spacing:3px;
+    margin:16px 0;
+}
+
+/* إبراز */
+.highlight{
+    color:#12a7db;
+}
+
+/* الأشكال */
+.figure{
+    text-align:center;
+    margin:20px 0 8px;
+}
+.figure-label{
+    font-size:18px;
+    margin-top:6px;
+}
+
+/* ===== التذييل (مهم جدًا) ===== */
+.footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    left:0;
+    text-align:center;
+}
+
+.footer-line-wrapper{
+    position:relative;
+    width:100%;
+    height:46px;
+    margin-bottom:10px;
+}
+
+.footer-line{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#12a7db;
+    transform:translateY(-50%);
+    z-index:1;
+}
+
+.page-number{
+    position:relative;
+    display:inline-block;
+    padding:6px 28px;
+    background:#fff;
+    border:4px solid #12a7db;
+    border-radius:50%;
+    font-size:22px;
+    line-height:1;
+    z-index:2;
+}
+
+.footer-link{
+    font-size:18px;
+    color:#0000cc;
+    margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+    <div>المجموعات والعلاقات</div>
+    <div>الوحدة الأولى</div>
+</div>
+
+<div class="sub-title">ثانيًا : الفترات غير المحددة :</div>
+
+<p>
+★ أ = { س : س ∈ ح ، س ≥ ٢ } ،
+</p>
+
+<p>
+هي مجموعة الأعداد الحقيقية التي تتكون من العدد ٢
+والأعداد الأكبر من العدد ٢ ،
+وتمثل على خط الأعداد كما في الشكل (١ − ٣٩) :
+</p>
+
+<div class="figure">
+<svg width="640" height="120">
+    <line x1="40" y1="60" x2="600" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="600,60 588,54 588,66" fill="#000"/>
+
+    <!-- الامتداد -->
+    <line x1="320" y1="60" x2="600" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="320" cy="60" r="6" fill="#12a7db"/>
+
+    <!-- الأعداد -->
+    <text x="310" y="90" font-size="16">٢</text>
+    <text x="200" y="90" font-size="16">١</text>
+    <text x="420" y="90" font-size="16">٣</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٩)</div>
+</div>
+
+<p>
+وهذه المجموعة تمثلها فترة بدايتها العدد ٢
+وليس لها نهاية محددة ونكتبها بالصورة:
+<span class="highlight">[ ٢ ، +∞ ]</span> ،
+حيث +∞ يقرأ <span class="highlight">( موجب مالانهاية )</span>.
+</p>
+
+<p>
+★ ب = { س : س ∈ ح ، س &gt; ٢ } ،
+</p>
+
+<p>
+هي مجموعة الأعداد الحقيقية التي تتكون من الأعداد الأكبر من العدد ٢ ،
+وتمثل على خط الأعداد كما في الشكل (١ − ٤٠) :
+</p>
+
+<div class="figure">
+<svg width="640" height="120">
+    <line x1="40" y1="60" x2="600" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="600,60 588,54 588,66" fill="#000"/>
+
+    <!-- الامتداد -->
+    <line x1="320" y1="60" x2="600" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="320" cy="60" r="6" fill="#fff" stroke="#12a7db" stroke-width="3"/>
+
+    <!-- الأعداد -->
+    <text x="310" y="90" font-size="16">٢</text>
+    <text x="200" y="90" font-size="16">١</text>
+    <text x="420" y="90" font-size="16">٣</text>
+</svg>
+<div class="figure-label">شكل (١ − ٤٠)</div>
+</div>
+
+<p>
+وتمثلها الفترة:
+<span class="highlight">] ٢ ، +∞ [</span>
+</p>
+
+<p>
+★ ج = { س : س ∈ ح ، س ≤ ٢ } ،
+</p>
+
+<p>
+هي مجموعة الأعداد الحقيقية التي تتكون من العدد ٢
+والأعداد الأصغر من العدد ٢ ،
+وتمثل على خط الأعداد كما في الشكل (١ − ٤١) :
+</p>
+
+<div class="figure">
+<svg width="640" height="120">
+    <line x1="40" y1="60" x2="600" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="600,60 588,54 588,66" fill="#000"/>
+
+    <!-- الامتداد -->
+    <line x1="40" y1="60" x2="320" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="320" cy="60" r="6" fill="#12a7db"/>
+
+    <!-- الأعداد -->
+    <text x="310" y="90" font-size="16">٢</text>
+    <text x="200" y="90" font-size="16">١</text>
+    <text x="120" y="90" font-size="16">٠</text>
+</svg>
+<div class="figure-label">شكل (١ − ٤١)</div>
+</div>
+
+<p>
+وهذه المجموعة تمثلها فترة بدايتها العدد ٢
+وليس لها نهاية محددة ونكتبها بالصورة:
+<span class="highlight">[ −∞ ، ٢ ]</span> ،
+حيث −∞ يقرأ <span class="highlight">( سالب مالانهاية )</span>.
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+
+    <div class="footer-line-wrapper">
+        <div class="footer-line"></div>
+        <div class="page-number">٤٦</div>
+    </div>
+
+    <div class="footer-link">
+        http://www.e-learning-moe.edu.ye/
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>

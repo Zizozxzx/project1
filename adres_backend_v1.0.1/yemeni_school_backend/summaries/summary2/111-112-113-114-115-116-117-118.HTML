@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 68 - التمثيل البياني لمعادلة الدرجة الأولى</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #d9e1f2;
+            --section-bg: #fce4d6;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 12px;
+            font-size: 1.6em;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .steps-box {
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .steps-title {
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            text-decoration: underline;
+            margin-bottom: 12px;
+            display: block;
+            font-size: 1.25em;
+        }
+
+        .steps-list {
+            margin: 0;
+            padding-right: 30px;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .drill-section {
+            margin-bottom: 30px;
+        }
+
+        .drill-title {
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2em;
+            background-color: #f2f2f2;
+            border: 1px solid #000;
+            padding: 8px 18px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 25px;
+            direction: rtl;
+        }
+
+        .coordinate-plane {
+            border: 1.5px solid #000;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .case-table th,
+        .case-table td {
+            border: 1.5px solid var(--border-color);
+            padding: 12px;
+            text-align: right;
+            vertical-align: top;
+            font-size: 1.15em;
+        }
+
+        .case-table th {
+            background-color: var(--section-bg);
+            text-align: center;
+            font-size: 1.25em;
+        }
+
+        .case-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1.5px solid var(--border-color);
+            border-top: none;
+        }
+
+        .mini-graph-box {
+            border-right: 1.5px solid var(--border-color);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .mini-graph-box:first-child {
+            border-right: none;
+        }
+
+        .footer {
+            text-align: left;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .page-num {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1.5px dotted #000;
+            width: 180px;
+            font-family: 'Amiri', serif;
+            font-size: 1.2em;
+            text-align: center;
+            background: transparent;
+        }
+
+        svg text {
+            font-family: 'Cairo', sans-serif;
+            font-size: 11px;
+            fill: #000;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .grid-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .case-footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .drill-5-body {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <div class="main-header">
+                التمثيل البياني لمجموعة حل معادلة الدرجة الأولى ذات متغيرين
+            </div>
+
+            <div class="steps-box">
+                <span class="steps-title">الخطوات:</span>
+                <ol class="steps-list">
+                    <li>نكتب المعادلة بدلالة أحد المتغيرين.</li>
+                    <li>نختار قيم للمتغير الذي كتبت المعادلة بدلالته من ح.</li>
+                    <li>ننشئ جدول ونضع فيه القيم ونوجد قيم المتغير الآخر بالتعويض عن القيم المختارة.</li>
+                    <li>نمثل الأزواج المرتبة كنقاط في المستوى ح × ح.</li>
+                    <li>نصل النقاط باستخدام المسطرة، والمستقيم الناتج يمثل مجموعة حل المعادلة، وأي نقاط أخرى تقع عليه
+                        تمثل حل للمعادلة.</li>
+                </ol>
+            </div>
+
+            <!-- Drill (4) -->
+            <div class="drill-section">
+                <div class="drill-title">تدريب (٤): مثل بيانياً مجموعة حل المعادلتين في تدريب ٢.</div>
+                <div class="grid-container">
+                    <!-- Equation 1 -->
+                    <div style="text-align: center;">
+                        <div style="margin-bottom: 8px; font-weight: bold; font-size: 1.2em;">المعادلة ( ١ )</div>
+                        <svg class="coordinate-plane" width="300" height="300" viewBox="-130 -130 260 260">
+                            <!-- Background Grid -->
+                            <g stroke="#eee" stroke-width="1">
+                                <line x1="-120" y1="-120" x2="120" y2="-120" />
+                                <line x1="-120" y1="-100" x2="120" y2="-100" />
+                                <line x1="-120" y1="-80" x2="120" y2="-80" />
+                                <line x1="-120" y1="-60" x2="120" y2="-60" />
+                                <line x1="-120" y1="-40" x2="120" y2="-40" />
+                                <line x1="-120" y1="-20" x2="120" y2="-20" />
+                                <line x1="-120" y1="20" x2="120" y2="20" />
+                                <line x1="-120" y1="40" x2="120" y2="40" />
+                                <line x1="-120" y1="60" x2="120" y2="60" />
+                                <line x1="-120" y1="80" x2="120" y2="80" />
+                                <line x1="-120" y1="100" x2="120" y2="100" />
+                                <line x1="-120" y1="120" x2="120" y2="120" />
+                                <line x1="-120" y1="-120" x2="-120" y2="120" />
+                                <line x1="-100" y1="-120" x2="-100" y2="120" />
+                                <line x1="-80" y1="-120" x2="-80" y2="120" />
+                                <line x1="-60" y1="-120" x2="-60" y2="120" />
+                                <line x1="-40" y1="-120" x2="-40" y2="120" />
+                                <line x1="-20" y1="-120" x2="-20" y2="120" />
+                                <line x1="20" y1="-120" x2="20" y2="120" />
+                                <line x1="40" y1="-120" x2="40" y2="120" />
+                                <line x1="60" y1="-120" x2="60" y2="120" />
+                                <line x1="80" y1="-120" x2="80" y2="120" />
+                                <line x1="100" y1="-120" x2="100" y2="120" />
+                                <line x1="120" y1="-120" x2="120" y2="120" />
+                            </g>
+                            <!-- Axes -->
+                            <line x1="-125" y1="0" x2="125" y2="0" stroke="black" stroke-width="2.5" />
+                            <line x1="0" y1="-125" x2="0" y2="125" stroke="black" stroke-width="2.5" />
+                            <!-- Ticks & Labels -->
+                            <text x="110" y="18">س</text><text x="12" y="-115">ص</text>
+                            <text x="16" y="14">١</text><text x="36" y="14">٢</text><text x="56" y="14">٣</text><text
+                                x="76" y="14">٤</text><text x="96" y="14">٥</text>
+                            <text x="-26" y="14">-١</text><text x="-46" y="14">-٢</text><text x="-66"
+                                y="14">-٣</text><text x="-86" y="14">-٤</text><text x="-106" y="14">-٥</text>
+                            <text x="12" y="-18">١</text><text x="12" y="-38">٢</text><text x="12" y="-58">٣</text><text
+                                x="12" y="-78">٤</text><text x="12" y="-98">٥</text>
+                            <text x="12" y="24">-١</text><text x="12" y="44">-٢</text><text x="12" y="64">-٣</text><text
+                                x="12" y="84">-٤</text><text x="12" y="104">-٥</text>
+                        </svg>
+                    </div>
+                    <!-- Equation 2 -->
+                    <div style="text-align: center;">
+                        <div style="margin-bottom: 8px; font-weight: bold; font-size: 1.2em;">المعادلة ( ٢ )</div>
+                        <svg class="coordinate-plane" width="300" height="300" viewBox="-130 -130 260 260">
+                            <g stroke="#eee" stroke-width="1">
+                                <line x1="-120" y1="-120" x2="120" y2="-120" />
+                                <line x1="-120" y1="-100" x2="120" y2="-100" />
+                                <line x1="-120" y1="-80" x2="120" y2="-80" />
+                                <line x1="-120" y1="-60" x2="120" y2="-60" />
+                                <line x1="-120" y1="-40" x2="120" y2="-40" />
+                                <line x1="-120" y1="-20" x2="120" y2="-20" />
+                                <line x1="-120" y1="20" x2="120" y2="20" />
+                                <line x1="-120" y1="40" x2="120" y2="40" />
+                                <line x1="-120" y1="60" x2="120" y2="60" />
+                                <line x1="-120" y1="80" x2="120" y2="80" />
+                                <line x1="-120" y1="100" x2="120" y2="100" />
+                                <line x1="-120" y1="120" x2="120" y2="120" />
+                                <line x1="-120" y1="-120" x2="-120" y2="120" />
+                                <line x1="-100" y1="-120" x2="-100" y2="120" />
+                                <line x1="-80" y1="-120" x2="-80" y2="120" />
+                                <line x1="-60" y1="-120" x2="-60" y2="120" />
+                                <line x1="-40" y1="-120" x2="-40" y2="120" />
+                                <line x1="-20" y1="-120" x2="-20" y2="120" />
+                                <line x1="20" y1="-120" x2="20" y2="120" />
+                                <line x1="40" y1="-120" x2="40" y2="120" />
+                                <line x1="60" y1="-120" x2="60" y2="120" />
+                                <line x1="80" y1="-120" x2="80" y2="120" />
+                                <line x1="100" y1="-120" x2="100" y2="120" />
+                                <line x1="120" y1="-120" x2="120" y2="120" />
+                            </g>
+                            <line x1="-125" y1="0" x2="125" y2="0" stroke="black" stroke-width="2.5" />
+                            <line x1="0" y1="-125" x2="0" y2="125" stroke="black" stroke-width="2.5" />
+                            <text x="110" y="18">س</text><text x="12" y="-115">ص</text>
+                            <text x="16" y="14">١</text><text x="36" y="14">٢</text><text x="56" y="14">٣</text><text
+                                x="76" y="14">٤</text><text x="96" y="14">٥</text>
+                            <text x="-26" y="14">-١</text><text x="-46" y="14">-٢</text><text x="-65"
+                                y="14">-٣</text><text x="-86" y="14">-٤</text><text x="-106" y="14">-٥</text>
+                            <text x="12" y="-18">١</text><text x="12" y="-38">٢</text><text x="12" y="-58">٣</text><text
+                                x="12" y="-78">٤</text><text x="12" y="-98">٥</text>
+                            <text x="12" y="24">-١</text><text x="12" y="44">-٢</text><text x="12" y="64">-٣</text><text
+                                x="12" y="84">-٤</text><text x="12" y="104">-٥</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drill (5) -->
+            <div class="drill-section">
+                <div class="drill-title">تدريب (٥): من خلال الشكل استخرج أربعة حلول للمعادلة في الشكل المجاور:</div>
+                <!-- Flipped Layout: Input right, Graph left -->
+                <div class="drill-5-body"
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-right: 20px;">
+                    <div style="font-size: 1.35em; line-height: 2.5; flex: 1; padding-right: 40px;">
+                        المعادلة: <input type="text"><br>
+                        الحلول:<br>
+                        ١) <input type="text"><br>
+                        ٢) <input type="text"><br>
+                        ٣) <input type="text"><br>
+                        ٤) <input type="text">
+                    </div>
+                    <!-- Large Accurate Graph on the LEFT -->
+                    <svg width="320" height="320" viewBox="-130 -130 260 260"
+                        style="background: white; border: 1.5px solid #000; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+                        <g stroke="#eee" stroke-width="1">
+                            <line x1="-120" y1="-120" x2="120" y2="-120" />
+                            <line x1="-120" y1="-80" x2="120" y2="-80" />
+                            <line x1="-120" y1="-40" x2="120" y2="-40" />
+                            <line x1="-120" y1="40" x2="120" y2="40" />
+                            <line x1="-120" y1="80" x2="120" y2="80" />
+                            <line x1="-120" y1="120" x2="120" y2="120" />
+                            <line x1="-120" y1="-120" x2="-120" y2="120" />
+                            <line x1="-80" y1="-120" x2="-80" y2="120" />
+                            <line x1="-40" y1="-120" x2="-40" y2="120" />
+                            <line x1="40" y1="-120" x2="40" y2="120" />
+                            <line x1="80" y1="-120" x2="80" y2="120" />
+                            <line x1="120" y1="-120" x2="120" y2="120" />
+                        </g>
+                        <line x1="-125" y1="0" x2="125" y2="0" stroke="black" stroke-width="2" />
+                        <line x1="0" y1="-125" x2="0" y2="125" stroke="black" stroke-width="2" />
+                        <text x="110" y="16">س</text><text x="12" y="-115">ص</text>
+                        <!-- Numbers -->
+                        <text x="36" y="14">٣</text><text x="76" y="14">٥</text>
+                        <text x="-46" y="14">-٣</text><text x="-86" y="14">-٥</text>
+                        <text x="12" y="-44">٣</text><text x="12" y="46">-٣</text>
+
+                        <!-- Line Fix: Negative slope x + y = 2 (approx visually) -->
+                        <line x1="-80" y1="-120" x2="120" y2="80" stroke="#007bff" stroke-width="2.5" />
+                        <!-- Points -->
+                        <circle cx="-40" cy="-80" r="5" fill="#007bff" />
+                        <circle cx="0" cy="-40" r="5" fill="#007bff" />
+                        <circle cx="40" cy="0" r="5" fill="#007bff" />
+                        <circle cx="80" cy="40" r="5" fill="#007bff" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Special Cases -->
+            <div class="drill-section">
+                <div
+                    style="background-color: #f2f2f2; border: 1.5px solid #000; padding: 10px; font-weight: bold; text-align: center; font-size: 1.2em;">
+                    حالات مجموعة حل معادلة الدرجة الأولى ذات متغيرين مع مستوى الإحداثيات:</div>
+                <table class="case-table">
+                    <tr>
+                        <th colspan="4">معادلة الدرجة الأولى ذات متغيرين: أ س + ب ص = جـ</th>
+                    </tr>
+                    <tr style="text-align: center; font-weight: bold; background-color: #fff9f4;">
+                        <td style="width: 25%;">إذا كانت أ = ٠</td>
+                        <td style="width: 25%;">إذا كانت ب = ٠</td>
+                        <td style="width: 25%;">إذا كانت جـ = ٠</td>
+                        <td style="width: 25%;">أ، ب، جـ أعداد حقيقية ≠ ٠</td>
+                    </tr>
+                    <tr style="font-size: 1.1em; line-height: 1.6;">
+                        <td>
+                            • تصبح معادلة من الدرجة الأولى ذات متغير واحد.<br>
+                            • مستقيم المعادلة يوازي محور السينات ويتعامد مع الصادات.<br>
+                            • متغير المعادلة سيكون ص.
+                        </td>
+                        <td>
+                            • تصبح معادلة من الدرجة الأولى ذات متغير واحد.<br>
+                            • مستقيم المعادلة يوازي محور الصادات ويتعامد مع السينات.<br>
+                            • متغير المعادلة سيكون س.
+                        </td>
+                        <td>
+                            • تظل معادلة الدرجة الأولى ذات متغيرين.<br>
+                            • مستقيم المعادلة يمر بنقطة الأصل ويقطع المحورين.
+                        </td>
+                        <td>
+                            • تظل معادلة الدرجة الأولى ذات متغيرين.<br>
+                            • مستقيم المعادلة يقطع المحورين.
+                        </td>
+                    </tr>
+                </table>
+                <div class="case-footer">
+                    <div class="mini-graph-box">
+                        <!-- Case a=0: Horizontal line y=k -->
+                        <svg width="100" height="100" viewBox="-50 -50 100 100">
+                            <line x1="-40" y1="0" x2="40" y2="0" stroke="black" stroke-width="1.2" />
+                            <line x1="0" y1="-40" x2="0" y2="40" stroke="black" stroke-width="1.2" />
+                            <g stroke="red" stroke-width="2">
+                                <line x1="-35" y1="-15" x2="35" y2="-15" />
+                                <path d="M-35 -15 L-30 -18 M-35 -15 L-30 -12" />
+                                <path d="M35 -15 L30 -18 M35 -15 L30 -12" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="mini-graph-box">
+                        <!-- Case b=0: Vertical line x=k -->
+                        <svg width="100" height="100" viewBox="-50 -50 100 100">
+                            <line x1="-40" y1="0" x2="40" y2="0" stroke="black" stroke-width="1.2" />
+                            <line x1="0" y1="-40" x2="0" y2="40" stroke="black" stroke-width="1.2" />
+                            <g stroke="red" stroke-width="2">
+                                <line x1="15" y1="-35" x2="15" y2="35" />
+                                <path d="M15 -35 L12 -30 M15 -35 L18 -30" />
+                                <path d="M15 35 L12 30 M15 35 L18 30" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="mini-graph-box">
+                        <!-- Case c=0: Passing through origin (Positive slope from image) -->
+                        <svg width="100" height="100" viewBox="-50 -50 100 100">
+                            <line x1="-40" y1="0" x2="40" y2="0" stroke="black" stroke-width="1.2" />
+                            <line x1="0" y1="-40" x2="0" y2="40" stroke="black" stroke-width="1.2" />
+                            <g stroke="red" stroke-width="2">
+                                <line x1="-30" y1="30" x2="30" y2="-30" />
+                                <path d="M-30 30 L-25 30 M-30 30 L-30 25" />
+                                <path d="M30 -30 L25 -30 M30 -30 L30 -25" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="mini-graph-box">
+                        <!-- Case a,b,c !=0: General line (Negative slope intersecting axes) -->
+                        <!-- Fixed Arrow: Must be on the line endpoints -->
+                        <svg width="100" height="100" viewBox="-50 -50 100 100">
+                            <line x1="-40" y1="0" x2="40" y2="0" stroke="black" stroke-width="1.2" />
+                            <line x1="0" y1="-40" x2="0" y2="40" stroke="black" stroke-width="1.2" />
+                            <g stroke="red" stroke-width="2">
+                                <!-- Line starts in Q1 (top-right SVG: x>0, y<0) and goes to Q3 (bottom-left SVG: x<0, y>0) -->
+                                <line x1="10" y1="-10" x2="-35" y2="35" />
+                                <path d="M10 -10 L10 -5 M10 -10 L5 -10" />
+                                <path d="M-35 35 L-30 35 M-35 35 L-35 30" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer" style="padding-top: 30px;">
+                <div>إعداد: هلا المولجي</div>
+                <div class="page-num">- ٦٨ -</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

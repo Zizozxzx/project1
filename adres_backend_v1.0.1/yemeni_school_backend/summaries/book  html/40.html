@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 44</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:36px 55px 150px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:3px;
+    background:#12a7db;
+    margin-bottom:14px;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    margin-bottom:22px;
+}
+
+/* عنوان رئيسي */
+h2{
+    font-size:24px;
+    margin:10px 0 18px;
+}
+
+/* الفقرات */
+p{
+    font-size:20px;
+    line-height:2.15;
+    letter-spacing:0.2px;
+    word-spacing:3px;
+    margin:16px 0;
+}
+
+/* صندوق علاقات */
+.relation-box{
+    background:#dff1fb;
+    border:2px solid #5bb6dd;
+    border-radius:18px;
+    padding:14px 20px;
+    margin:18px 0;
+    font-size:20px;
+    display:inline-block;
+}
+
+/* رسومات */
+.figure{
+    text-align:center;
+    margin:22px 0 10px;
+}
+.figure-label{
+    font-size:18px;
+    margin-top:6px;
+}
+
+/* عنوان فرعي */
+.sub-title{
+    font-size:22px;
+    color:#12a7db;
+    margin:18px 0 10px;
+}
+
+/* ===== التذييل (مهم جدًا) ===== */
+.footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    left:0;
+    text-align:center;
+}
+.footer-line-wrapper{
+    position:relative;
+    width:100%;
+    height:46px;
+    margin-bottom:10px;
+}
+.footer-line{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#12a7db;
+    transform:translateY(-50%);
+    z-index:1;
+}
+.page-number{
+    position:relative;
+    display:inline-block;
+    padding:6px 28px;
+    background:#fff;
+    border:4px solid #12a7db;
+    border-radius:50%;
+    font-size:22px;
+    line-height:1;
+    z-index:2;
+}
+.footer-link{
+    font-size:18px;
+    color:#0000cc;
+    margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+    <div>الوحدة الأولى</div>
+</div>
+
+<h2>الأعداد الحقيقية :</h2>
+
+<p>
+مجموعة الأعداد الحقيقية هي مجموعة ناتجة من اتحاد مجموعة الأعداد
+النسبية (ن) ومجموعة الأعداد غير النسبية (ن′)،
+ونرمز لها بالرمز (ح).
+</p>
+
+<p>[ انظر الشكل (١ − ٣٤) ]</p>
+
+<!-- الشكل (1-34) -->
+<div class="figure">
+<svg width="520" height="220">
+    <!-- الإطار -->
+    <rect x="20" y="20" width="480" height="160" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="30" y="18" font-size="18">ح</text>
+
+    <!-- النسبية -->
+    <ellipse cx="300" cy="100" rx="150" ry="55" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="200" y="55" font-size="18">ص</text>
+
+    <!-- الطبيعية -->
+    <ellipse cx="300" cy="100" rx="80" ry="30" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="255" y="105" font-size="18">ط</text>
+
+    <!-- غير النسبية -->
+    <rect x="20" y="20" width="90" height="160" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="45" y="105" font-size="18">ن′</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٤)</div>
+</div>
+
+<div class="relation-box">
+ح = ن ∪ ن′
+</div>
+<br>
+<p>
+ونلاحظ من الشكل  أن:
+</p>
+<div class="relation-box">
+ط ⊂ ص ⊂ ن ⊂ ح
+</div>
+
+<p>
+والشكل (١ − ٣٥) يسمى خط الأعداد الحقيقية حيث كل نقطة فيه تمثل عددًا حقيقيًا،
+وكل عدد حقيقي يمثل بنقطة.
+</p>
+
+<!-- الشكل (1-35) -->
+<div class="figure">
+<svg width="620" height="120">
+    <line x1="40" y1="60" x2="580" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="580,60 568,54 568,66" fill="#000"/>
+
+    <!-- تدريجات -->
+    <g font-size="16">
+        <line x1="160" y1="54" x2="160" y2="66" stroke="#000" stroke-width="2"/>
+        <text x="150" y="90">−١</text>
+
+        <line x1="260" y1="54" x2="260" y2="66" stroke="#000" stroke-width="2"/>
+        <text x="252" y="90">٠</text>
+
+        <line x1="360" y1="54" x2="360" y2="66" stroke="#000" stroke-width="2"/>
+        <text x="350" y="90">١</text>
+
+        <line x1="460" y1="54" x2="460" y2="66" stroke="#000" stroke-width="2"/>
+        <text x="448" y="90">٢</text>
+    </g>
+
+    <!-- أعداد غير نسبية -->
+    <circle cx="310" cy="60" r="4" fill="#12a7db"/>
+    <text x="300" y="40" font-size="16" fill="#12a7db">√٢</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٥)</div>
+</div>
+
+<p class="sub-title">تمثيل مجموعات جزئية من ح على خط الأعداد :</p>
+
+<p><strong>أولًا : الفترات المحددة :</strong></p>
+
+<p>
+** م = { س : س ∈ ح ، −٣ ≤ س ≤ ٢ } ،
+هي مجموعة الأعداد الحقيقية التي تتكون من العددين −٣ و ٢
+والأعداد المحصورة بينهما.
+</p>
+
+<!-- الشكل (1-36) -->
+<div class="figure">
+<svg width="620" height="120">
+    <line x1="40" y1="60" x2="580" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="580,60 568,54 568,66" fill="#000"/>
+
+    <!-- القطعة -->
+    <line x1="160" y1="60" x2="420" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="160" cy="60" r="5" fill="#12a7db"/>
+    <circle cx="420" cy="60" r="5" fill="#12a7db"/>
+
+    <!-- الأرقام -->
+    <text x="150" y="90" font-size="16">−٣</text>
+    <text x="410" y="90" font-size="16">٢</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٦)</div>
+</div>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="footer-line-wrapper">
+        <div class="footer-line"></div>
+        <div class="page-number">٤٤</div>
+    </div>
+    <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

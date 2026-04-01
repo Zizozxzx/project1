@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>صفحة 61 - تدريبات الكسور الجبرية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dotted-line {
+            border-bottom: 2px dotted #000;
+            height: 30px;
+            margin: 5px 0 15px 0;
+            width: 100%;
+        }
+
+        .math-section {
+            margin-bottom: 20px;
+        }
+
+        /* Fraction styling */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1.1em;
+            margin: 0 4px;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 1.5px solid var(--border-color);
+            padding: 0 5px;
+            margin-bottom: 2px;
+        }
+
+        .bracket-group {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.8em;
+            font-weight: normal;
+            margin: 0 5px;
+        }
+
+        .equation-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1.25em;
+            margin: 10px 0;
+            direction: ltr;
+            /* Expressions flow LTR visually */
+        }
+
+        /* Force Right to Left for the whole line but keep math symbols consistent */
+        .equation-line-rtl {
+            direction: rtl;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .drill-header {
+            font-weight: bold;
+            font-size: 1.3em;
+            border: 2px solid #000;
+            padding: 2px 8px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .question-text {
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        .sub-questions {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .sub-questions span {
+            margin: 10px;
+        }
+
+        .footer {
+            text-align: left;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: auto;
+        }
+
+        .page-num {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 600px) {
+
+            .equation-line,
+            .equation-line-rtl {
+                font-size: 1em;
+                justify-content: flex-start !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 10px;
+            }
+
+            .sub-questions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .equation-line,
+            .equation-line-rtl {
+                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <!-- Question 2 -->
+            <div class="math-section">
+                <div class="equation-line-rtl">
+                    <span style="font-weight: bold; margin-left: 10px;">٢.</span>
+                    <span class="bracket-group">[</span>
+                    <div class="fraction"><span>٢ س + ١</span><span>س<sup>٢</sup> + س - ٦</span></div>
+                    <span style="margin: 0 10px; font-weight: bold;"> + </span>
+                    <div class="fraction"><span>٦</span><span>س<sup>٢</sup> - ٩</span></div>
+                    <span class="bracket-group">]</span>
+                    <span style="margin: 0 10px; font-weight: bold;"> - </span>
+                    <div class="fraction"><span>س</span><span>س<sup>٢</sup> - ٥ س + ٦</span></div>
+                </div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+            </div>
+
+            <hr style="border: 0; border-top: 2px solid #000; margin: 10px 0;">
+
+            <!-- Drill 2 (Gem) -->
+            <div class="math-section">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div class="drill-header">تدريب(٢) :</div>
+                    <div class="question-text">إذا كانت:
+                        <span> م = </span>
+                        <div class="fraction"><span>٣ س + ٦</span><span>س<sup>٢</sup> + س - ٢</span></div>
+                        <span> ، ل = </span>
+                        <div class="fraction"><span>س<sup>٢</sup> - ٢ س + ١</span><span>س<sup>٢</sup> + ٤ س - ٥</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul style="list-style: none; padding-right: 20px; font-size: 1.25em;">
+                    <li>▪ ضع كلاً من م ، ل في أبسط صورة.</li>
+                </ul>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+
+                <ul style="list-style: none; padding-right: 20px; font-size: 1.25em;">
+                    <li>▪ أوجد كلاً مما يلي:</li>
+                </ul>
+                <div class="sub-questions">
+                    <span>١) م + ل .</span>
+                    <span>٢) م - ل .</span>
+                    <span>٣) م × ل .</span>
+                    <span>٤) م ÷ ل .</span>
+                </div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+            </div>
+
+            <hr style="border: 0; border-top: 2px solid #000; margin: 10px 0;">
+
+            <!-- Drill 3 (Baa) -->
+            <div class="math-section">
+                <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+                    <div class="drill-header">تدريب(٣) :</div>
+                    <div class="question-text">
+                        مستطيل طوله
+                        <div class="fraction"><span>س<sup>٢</sup> + ٢ س + ١</span><span>س + ١</span></div>
+                        <span> سم ، وعرضه </span>
+                        <div class="fraction"><span>س<sup>٢</sup> - ١</span><span>س - ١</span></div>
+                        <span> سم ، فما محيطه بدلالة س، ثم احسب قيمته إذا كانت قيمة س = ١٠.</span>
+                    </div>
+                </div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+            </div>
+
+            <div class="page-num">- ٦١ -</div>
+            <div class="footer">إعداد: هلا المولجي</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

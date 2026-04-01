@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة 59</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+        :root {
+            --correct-bg: #28a745;
+            --wrong-bg: #dc3545;
+            --blue-header: #dce6f1;
+            --grey-header: #f2f2f2;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+
+        .page-container {
+            width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+            border: 2px solid #000;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        /* Question Header Row */
+        .q-header {
+            background-color: var(--grey-header);
+            font-weight: bold;
+            text-align: right;
+            border-bottom: 2px solid #000;
+        }
+
+        /* Choice Cell Styling */
+        .choice-cell {
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            -webkit-user-select: none;
+            user-select: none;
+            /* Prevent text selection on click */
+        }
+
+        .choice-cell:hover {
+            background-color: #f0f8ff;
+        }
+
+        /* Number box for 1. 2. 3. 4. */
+        .num-box {
+            display: inline-block;
+            width: 20px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Interaction States */
+        .correct-pick {
+            background-color: var(--correct-bg) !important;
+            color: #fff;
+        }
+
+        .wrong-pick {
+            background-color: var(--wrong-bg) !important;
+            color: #fff;
+        }
+
+        /* Superscript fix for Arabic math */
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        /* Center Art / Watermark Area */
+        .center-art {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.15;
+            font-family: 'Amiri', serif;
+            font-size: 10rem;
+            transform: rotate(-30deg);
+            pointer-events: none;
+
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            white-space: nowrap;
+        }
+
+        .quote-section {
+            text-align: center;
+            margin: 40px auto;
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .quote-text {
+            /* Stylish calligraphy-like appearance */
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            border-top: 1px solid transparent;
+            /* Spacer */
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .page-container {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Table for Questions -->
+        <table>
+            <!-- Question 7 (Zain) -->
+            <tr>
+                <td colspan="4" class="q-header">
+                    ز) م . م . أ للمقدارين ٢ س<sup>٢</sup> - ٨ ، س<sup>٢</sup> - ٤ س + ٤ هو ............... :
+                </td>
+            </tr>
+            <tr data-q="q7" data-correct="1">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١.</span> ٢ ( س - ٢ )<sup>٢</sup>
+                    ( س + ٢ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢.</span> س ( س<sup>٢</sup> - ٤ )
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣.</span> ٢ ( س<sup>٢</sup> - ٨ )
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤.</span> ( س<sup>٢</sup> - ٨ )
+                </td>
+            </tr>
+
+            <!-- Question 8 (Hha) -->
+            <tr>
+                <td colspan="4" class="q-header">
+                    ح) م . م . أ للمقدارين س + ١ ، س<sup>٢</sup> + ٢ س + ١ هو ............... :
+                </td>
+            </tr>
+            <tr data-q="q8" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١.</span> س + ١</td>
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢.</span> ( س + ١ )<sup>٢</sup>
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣.</span> ( س + ١ )<sup>٣</sup>
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤.</span> ٢ س ( س + ١
+                    )<sup>٢</sup></td>
+            </tr>
+
+            <!-- Question 9 (Ta/Ra) -->
+            <tr>
+                <td colspan="4" class="q-header">
+                    ر) م . م . أ للمقادير ( س<sup>٢</sup> - ص<sup>٢</sup> ) ، ( س - ص ) ، ( س<sup>٢</sup> + س ص +
+                    ص<sup>٢</sup> ) هو ............... :
+                </td>
+            </tr>
+            <tr data-q="q9" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١.</span> ( س<sup>٣</sup> +
+                    ص<sup>٣</sup> )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢.</span> ( س<sup>٣</sup> -
+                    ص<sup>٣</sup> )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣.</span> ( س + ص )<sup>٣</sup>
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤.</span> ( س - ص )<sup>٣</sup>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Center Watermark -->
+        <div class="center-art">
+            هلا المولجي
+        </div>
+
+        <!-- Center Quote -->
+        <div class="quote-section">
+            <div class="quote-text">لكل شخص ما سعى إليه وإن تأخر</div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div style="visibility: hidden;">placeholder</div> <!-- Balance layout -->
+            <div>- ٥٩ -</div>
+            <div>إعداد: هلا المولجي</div>
+        </div>
+
+    </div>
+
+    <script>
+        function hMCQ(el, clickedIdx) {
+            const row = el.closest('tr');
+            const qID = row.getAttribute('data-q');
+            const correctIdx = row.getAttribute('data-correct');
+
+            // Reset colors for this question row
+            row.querySelectorAll('.choice-cell').forEach(cell => {
+                cell.classList.remove('correct-pick', 'wrong-pick');
+            });
+
+            // Check Answer
+            if (clickedIdx == correctIdx) {
+                el.classList.add('correct-pick');
+            } else {
+                el.classList.add('wrong-pick');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

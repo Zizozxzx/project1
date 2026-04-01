@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة ٥٣</title>
+    <style>
+        :root {
+            --main-blue: #adb9ca;
+            --border-black: #000;
+            --correct: #28a745;
+            --wrong: #dc3545;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eee;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            border: 4px double var(--border-black);
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        .inner-box {
+            border: 1px solid var(--border-black);
+            padding: 20px;
+            min-height: 1000px;
+        }
+
+        /* العناوين */
+        .header-title {
+            background-color: var(--main-blue);
+            text-align: center;
+            padding: 10px;
+            border: 1.5px solid var(--border-black);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-decoration: underline;
+        }
+
+        .goals-box {
+            border: 1px solid var(--border-black);
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .goals-box h3 {
+            margin: 0 0 10px 0;
+            text-decoration: underline;
+            font-size: 1.1rem;
+        }
+
+        .goals-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .goals-box li {
+            margin-bottom: 5px;
+        }
+
+        .section-h {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 20px 0 10px 0;
+            display: block;
+        }
+
+        /* تنسيق الكسور الرياضية بدون تداخل */
+        .math-frac {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 5px;
+            font-style: italic;
+        }
+
+        .frac-top {
+            border-bottom: 1px solid black;
+            padding: 0 3px;
+        }
+
+        .frac-bot {
+            padding: 0 3px;
+        }
+
+        .sup {
+            vertical-align: super;
+            font-size: 0.75rem;
+            margin-right: 2px;
+        }
+
+        .examples-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .note-area {
+            line-height: 1.8;
+        }
+
+        .note-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .note-list {
+            padding-right: 20px;
+        }
+
+        /* منطقة التدريب والتفاعلية */
+        .training-item {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .answer-input {
+            border: none;
+            border-bottom: 2px dotted #888;
+            width: 200px;
+            text-align: center;
+            font-size: 1.1rem;
+            outline: none;
+            padding: 2px;
+        }
+
+        .status-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .correct-bg {
+            background-color: var(--correct) !important;
+        }
+
+        .wrong-bg {
+            background-color: var(--wrong) !important;
+        }
+
+        .footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .answer-input {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .page,
+            .a4-page,
+            .page-container,
+            .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+                /* Allow scrolling for oversized horizontal content */
+            }
+
+            .inner-border,
+            .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important;
+            }
+
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="inner-box">
+
+            <div class="header-title">الدرس السادس: ضرب وقسمة الكسور الجبرية.</div>
+
+            <div class="goals-box">
+                <h3>في هذا الدرس سنتعلم:</h3>
+                <ul>
+                    <li>١. مفهوم الكسر الجبري.</li>
+                    <li>٢. اختصار الكسور الجبرية.</li>
+                    <li>٣. ضرب وقسمة الكسور الجبرية.</li>
+                </ul>
+            </div>
+
+            <span class="section-h">أولاً: مفهوم الكسر الجبري:</span>
+            <p>هو عبارة عن كسر بسطه ومقامه حد أو مقدار جبري.</p>
+
+            <div class="examples-row">
+                <span>مثال:</span>
+                <div class="math-frac">
+                    <span class="frac-top">٢ س ص</span>
+                    <span class="frac-bot">س + ١</span>
+                </div>
+                <div class="math-frac">
+                    <span class="frac-top">٣ ع<span class="sup">٢</span> م</span>
+                    <span class="frac-bot">٢ ل م ن</span>
+                </div>
+                <div class="math-frac">
+                    <span class="frac-top">س<span class="sup">٢</span> - ١</span>
+                    <span class="frac-bot">س - ١</span>
+                </div>
+                <div class="math-frac">
+                    <span class="frac-top">١</span>
+                    <span class="frac-bot">س - ٤</span>
+                </div>
+            </div>
+
+            <span class="section-h">ثانياً: اختصار الكسور الجبرية:</span>
+            <p>أولى خطوات اختصار الكسور الجبرية وأهمها هي <u>تحليل</u> بسطه ومقامه، ثم نختصر العامل المشترك الأكبر بين
+                البسط والمقام.</p>
+
+            <div class="note-area">
+                <span class="note-header">❖ تنويه مهم:</span>
+                <ul class="note-list">
+                    <li>يتم اختصار المقادير الجبرية بسهولة عند تحويلها من جمع أو طرح إلى ضرب عواملها، مثلاً:
+                        <br>
+                        ١. <div class="math-frac"><span class="frac-top">س + ٢</span><span class="frac-bot">س</span>
+                        </div> : هنا لا نستطيع اختصار س لأن العلامة جمع.
+                        <br>
+                        ٢. <div class="math-frac"><span class="frac-top">٢ س</span><span class="frac-bot">س</span></div>
+                        : هنا نستطيع الاختصار لأن العلامة ضرب.
+                    </li>
+                    <li>عند الاختصار نبدأ باختصار المعاملات ثم المتغيرات ثم الأقواس.</li>
+                    <li>لا يمكن توزيع الأس أو الجذر إلا في الضرب والقسمة، مثلاً:
+                        ( <div class="math-frac"><span class="frac-top">٢ س</span><span class="frac-bot">٣</span></div>
+                        )<span class="sup">٢</span> =
+                        <div class="math-frac"><span class="frac-top">٤ س<span class="sup">٢</span></span><span
+                                class="frac-bot">٩</span></div>
+                        لكن ( س + ٢ )<span class="sup">٢</span> ≠ ( س<span class="sup">٢</span> + ٤ ).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="training-section">
+                <span class="section-h">تدريب (١): اكتب كلاً من الكسور التالية في أبسط صورة:</span>
+
+                <div class="training-item">
+                    <span>١)</span>
+                    <div class="math-frac"><span class="frac-top">٢ س ص</span><span class="frac-bot">٤ س<span
+                                class="sup">٢</span></span></div>
+                    <span>=</span>
+                    <input type="text" class="answer-input" onkeyup="check(this, 'ص/٢س')" placeholder="الإجابة...">
+                    <div class="status-dot"></div>
+                </div>
+
+                <div class="training-item">
+                    <span>٢)</span>
+                    <div class="math-frac"><span class="frac-top">٢ س<span class="sup">٣</span> - ٦ س<span
+                                class="sup">٢</span> + ٤ س</span><span class="frac-bot">٦ س<span class="sup">٣</span> +
+                            ٦ س<span class="sup">٢</span> - ٣٦ س</span></div>
+                    <span>=</span>
+                    <input type="text" class="answer-input" onkeyup="check(this, '(س-١)/(٣(س+٣))')"
+                        placeholder="الإجابة...">
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+
+            <span class="section-h">ثالثاً: ضرب وقسمة الكسور الجبرية:</span>
+            <p>الخطوات: ١) تحليل جميع البسوط والمقامات.</p>
+            <p>٢) اختصار أي عامل من البسط مع أي عامل مشترك في المقام.</p>
+            <p>٣) ضرب البسوط معاً والمقامات معاً.</p>
+            <p><strong>تذكر أن:</strong> القسمة تتحول لضرب مع قلب الكسر الثاني.</p>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٥٣ -</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function check(input, correct) {
+            const dot = input.nextElementSibling;
+            const val = input.value.trim().replace(/\s/g, '');
+            const target = correct.replace(/\s/g, '');
+
+            if (val === "") {
+                dot.classList.remove('correct-bg', 'wrong-bg');
+                return;
+            }
+
+            if (val === target) {
+                dot.classList.add('correct-bg');
+                dot.classList.remove('wrong-bg');
+            } else {
+                dot.classList.add('wrong-bg');
+                dot.classList.remove('correct-bg');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

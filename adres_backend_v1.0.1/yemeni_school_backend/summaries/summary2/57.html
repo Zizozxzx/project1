@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>صفحة 57 - اختبار الرياضيات التفاعلي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .question-header span {
+            margin-left: 10px;
+        }
+
+        .math-expressions {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            font-size: 1.25em;
+            margin: 10px 0;
+            direction: ltr;
+            /* To keep expressions ordered visually if needed, but Arabic text handles RTL */
+            flex-wrap: wrap;
+        }
+
+        /* Force RTL for the container but ensure expressions are handled correctly */
+        .math-expressions-rtl {
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 1.25em;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .dotted-line {
+            border-bottom: 2px dotted #000;
+            height: 30px;
+            margin: 5px 0 15px 0;
+            width: 100%;
+        }
+
+        .note-box {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .note-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .note-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        td,
+        th {
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            text-align: right;
+            vertical-align: middle;
+            font-size: 1.1em;
+        }
+
+        .tf-table td {
+            text-align: right;
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            vertical-align: middle;
+            font-size: 1.2em;
+        }
+
+        .tf-table td:nth-child(1) {
+            /* Number column (Right) */
+            width: 45px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        .tf-table td:nth-child(2) {
+            /* Question text column (Middle) */
+            text-align: right;
+        }
+
+        .tf-table td:nth-child(3) {
+            /* Circles column (Left) */
+            text-align: center;
+            width: 100px;
+            white-space: nowrap;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .circle {
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.selected-correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle.selected-wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        .tf-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding: 0 10px;
+        }
+
+        .section-header-blue {
+            background-color: #d9e1f2;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            font-size: 1.3em;
+            margin: 15px 0 5px 0;
+        }
+
+        .question-box {
+            text-align: right;
+            padding: 8px;
+            font-size: 1.2em;
+            background-color: #d9e1f2;
+            /* Light blue background for question line */
+            border: 1px solid var(--border-color);
+            margin-top: 5px;
+        }
+
+        .choice-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .choice-cell {
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 20px;
+            background-color: white;
+        }
+
+        .choice-cell:hover {
+            background-color: #f9f9f9;
+        }
+
+        .choice-cell.correct {
+            background-color: #d4edda !important;
+        }
+
+        .choice-cell.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        /* Superscript fix */
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        .footer {
+            text-align: left;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: auto;
+            border-top: 0;
+        }
+
+        .page-num {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                /* Keep fixed width so user can zoom/pan as on "paper" */
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-expressions,
+            .math-expressions-rtl {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <!-- Drill 7 -->
+            <div class="question-header">
+                <span style="border: 2px solid black; padding: 2px 5px; margin-left:10px;">تدريب (٧)</span>: أوجد
+                المضاعف المشترك الأصغر للمقادير التالية:
+            </div>
+
+            <div class="math-expressions-rtl">
+                <span>س<sup>٢</sup> - ٤ س + ٤</span>
+                <span>،</span>
+                <span>س<sup>٢</sup> - ٤</span>
+                <span>،</span>
+                <span>س<sup>٢</sup> - ٢ س</span>
+            </div>
+
+            <div class="dotted-line"></div>
+            <div class="dotted-line"></div>
+            <div class="dotted-line"></div>
+
+            <!-- Note Box -->
+            <div class="note-box">
+                <div class="note-title">ملاحظة هامة:</div>
+                <div class="note-content">
+                    قد يعطيكم في السؤال عدة مقادير بحيث يكون أحدها مقدار جبري والمقادير الأخرى عوامل هذا المقدار فيكون (
+                    م . م . أ ) لهذه المقادير هو هذا المقدار الأكبر.<br>
+                    <strong>مثلاً:</strong> <span dir="ltr">س - ١ ، س + ١ ، س<sup>٢</sup> - ١</span><br>
+                    نلاحظ أن ( س - ١ ) ، ( س + ١ ) عوامل للمقدار الثالث ( س<sup>٢</sup> - ١ ) لذلك م.م.أ = <span
+                        dir="ltr">س<sup>٢</sup> - ١ .</span>
+                </div>
+            </div>
+
+            <!-- Drill 8 -->
+            <div class="question-header">
+                <span style="border: 2px solid black; padding: 2px 5px; margin-left:10px;">تدريب (٨)</span>: أوجد
+                المضاعف المشترك الأصغر للمقادير التالية:
+            </div>
+
+            <!-- Q 5 -->
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px;">
+                <div style="width: 20px; font-weight: bold;">.٥</div>
+                <div style="flex: 1; text-align: center;" class="math-expressions-rtl">
+                    <span>ل - ٢</span> <span>،</span> <span>ل<sup>٢</sup> + ٢ ل + ٤</span> <span>،</span>
+                    <span>ل<sup>٣</sup> - ٨</span>
+                </div>
+            </div>
+            <div class="dotted-line"></div>
+
+            <!-- Q 6 -->
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px;">
+                <div style="width: 20px; font-weight: bold;">.٦</div>
+                <div style="flex: 1; text-align: center;" class="math-expressions-rtl">
+                    <span>س<sup>٢</sup> - ٥ س - ١٥ .</span> <span>،</span> <span>س + ٣</span>
+                    <!-- Transcribed as seen, noted potential mathematical oddity in thought process -->
+                </div>
+            </div>
+            <div class="dotted-line"></div>
+
+            <!-- Q 7 -->
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px;">
+                <div style="width: 20px; font-weight: bold;">.٧</div>
+                <div style="flex: 1; text-align: center;" class="math-expressions-rtl">
+                    <span>س - ٢</span> <span>،</span> <span>س<sup>٢</sup> + ٤</span> <span>،</span> <span>س<sup>٤</sup>
+                        - ١٦</span>
+                </div>
+            </div>
+            <div class="dotted-line"></div>
+            <div class="dotted-line"></div>
+
+            <!-- True/False Section -->
+            <div class="section-header-blue">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="tf-header">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <span style="width: 100px; text-align: center;"> <span style="margin-left: 20px;">صح</span>
+                    <span>خطأ</span> </span>
+            </div>
+
+            <table class="tf-table">
+                <!-- R1 -->
+                <tr>
+                    <td>١.</td>
+                    <td>م . م . أ للحدود الجبرية أ ب<sup>٢</sup> ، ب جـ<sup>٢</sup> ، أ ب<sup>٣</sup> جـ هو ب.</td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div> <!-- True (Wrong) -->
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div> <!-- False (Correct) -->
+                        </div>
+                    </td>
+                </tr>
+                <!-- R2 -->
+                <tr>
+                    <td>٢.</td>
+                    <td>م . م . أ للحدود الجبرية ٩ س ص ، ١٨ س<sup>٢</sup> ص ع ، ٢٧ ع<sup>٢</sup> يساوي ٥٤ س<sup>٢</sup>
+                        ص<sup>٢</sup> ع.</td>
+                    <!-- Fixed typo in thought transcription: image likely implies s^2 y^2? no, image says 54 s^2 y^2 maybe? text says 54 s^2 y^2 - let's look at image carefully. "54 s^2 y^2 Ain"? No "54 s^2 sad Ain". Wait. 9, 18, 27. LCM(9,18,27) = 54. x, x^2 -> x^2. y, y^?. There is just y. No wait, 9xy, 18x^2y, 27z^2 (Ain^2). LCM = 54 x^2 y z^2. The text says 54 s^2 sad Ain. Missing Ain^2? If it says "equals 54 s^2 y z", it's false due to z^2. Let's make it False unless it matches perfectly. Image: 54 s^2 sad Ain. It is missing the z^2 (Ain^2). So False. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R3 -->
+                <tr>
+                    <td>٣.</td>
+                    <td>م . م . أ للمقادير الجبرية ب<sup>٢</sup> - ب ، ب<sup>٢</sup> - ١ ، ٣ ب<sup>٢</sup> - ب - ٢ يساوي
+                        ب ( ب - ١ ) ( ٣ ب + ٢ ).</td>
+                    <!-- b^2-b = b(b-1). b^2-1=(b-1)(b+1). 3b^2-b-2 = (3b+2)(b-1). LCM = b(b-1)(b+1)(3b+2). The text says b(b^2-1)(3b+2). b^2-1 is (b-1)(b+1). So it matches. True. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R4 -->
+                <tr>
+                    <td>٤.</td>
+                    <td>إذا كان م . م . أ للحدود ٥ س ص ، أ س<sup>٢</sup> ع يساوي ٢٥ س<sup>٢</sup> ص ع فإن قيمة أ = ٥.
+                    </td>
+                    <!-- LCM(5, a) = 25. If a=5, LCM(5,5)=5. False. If a=25, LCM(5,25)=25. So a=25. Statement says a=5. False. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R5 -->
+                <tr>
+                    <td>٥.</td>
+                    <td>المضاعف المشترك الأصغر لمقدارين هو أكبر مقدار جبري يقبل القسمة على هذين المقدارين.</td>
+                    <!-- Definition: LCM is the smallest quantity divisible by them. Text says "Akbar" (Largest). False. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R6 -->
+                <tr>
+                    <td>٦.</td>
+                    <td>لإيجاد ( م . م . أ ) لمجموعة من المقادير نستخدم طريقة التحليل.</td>
+                    <!-- True. We use factorization. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R7 -->
+                <tr>
+                    <td>٧.</td>
+                    <td>م . م . أ لـ ٣ ، ٥ ، ٢ يساوي ٦٠.</td>
+                    <!-- LCM(2,3,5) = 30. Text says 60. False. (Though 60 is a multiple, it's not the LEAST). -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R8 -->
+                <tr>
+                    <td>٨.</td>
+                    <td>م . م . أ للمقادير الجبرية س<sup>٢</sup> + ٩ س + ٢٠ ، س + ٤ يساوي س<sup>٢</sup> + ٩ س + ٢٠.</td>
+                    <!-- s^2+9s+20 = (s+4)(s+5). s+4 is a factor. LCM is indeed the larger one. True. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R9 -->
+                <tr>
+                    <td>٩.</td>
+                    <td>إذا كان م . م . أ لمقدارين يساوي ٩ س<sup>٢</sup> + ٢٥ وكان أحدهما ٣ س - ٥ فقد يكون الآخر هو ٣ س
+                        + ٥.</td>
+                    <!-- 9s^2+25 is sum of squares. LCM of (3s-5) and (3s+5) is 9s^2 - 25. The sign is different. False. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- R10 -->
+                <tr>
+                    <td>١٠.</td>
+                    <td>إذا كان م . م . أ للمقدارين س + ٤ ، س + جـ يساوي س<sup>٢</sup> + س - ١٢ ، فإن قيمة جـ = ٣.</td>
+                    <!-- s^2+s-12 = (s+4)(s-3). Factors are s+4 and s-3. So s+c must be s-3. c=-3. Text says 3. False. -->
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Multiple Choice Section -->
+            <div class="question-header" style="background-color: #d9e1f2; padding: 5px; margin-top: 10px;">ظلل الإجابة
+                الصحيحة فيما يلي :</div>
+
+            <!-- MC Q1 -->
+            <div class="question-box">١. م . م . أ للحدود الجبرية - ٣ س ب ، ٤ م ن س ، ١٢ س<sup>٢</sup> ب ع م ن يساوي
+                .........:</div>
+            <table class="choice-table">
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . - ١٢ س<sup>٢</sup> ب ع م ن.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . س.</td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٤ . ١٢ س<sup>٢</sup> ب ع م ن.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . - س ن.</td>
+                </tr>
+            </table>
+
+            <!-- MC Q2 -->
+            <div class="question-box">٢. المقدار س<sup>٢</sup> - ص<sup>٢</sup> يعتبر م . م . أ للمقدارين:</div>
+            <table class="choice-table">
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . س - ص ، ( س - ص )<sup>٢</sup>.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . س - ١ ، س + ١.</td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٤ . س - ص ، س + ص.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . س + ص ، ( س + ص )<sup>٢</sup>.</td>
+                </tr>
+            </table>
+
+            <div class="footer">إعداد: هلا المولجي</div>
+            <div class="page-num">- ٥٧ -</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCircle(el, type) {
+            const group = el.parentElement;
+
+            // If already selected, deselect
+            if (el.classList.contains('selected-' + type)) {
+                el.classList.remove('selected-' + type);
+                return;
+            }
+
+            // Remove previous selections
+            group.querySelectorAll('.circle').forEach(c => {
+                c.classList.remove('selected-correct', 'selected-wrong');
+            });
+
+            // Allow selecting the circle visual, BUT logic:
+            // The circles in the table are headers "Correct" / "Wrong"?
+            // Table headers says "Correct" (Right) "Wrong" (Left).
+            // Actually usually Right is True, Left is False in Arabic context?
+            // Re-checking the image header: "صح" is rightmost? 
+            // Image crop shows: "صح" is above the FIRST column? Or the LAST column?
+            // Arabic is RTL. So First column (Right) should be correct?
+            // Let's re-verify the "Check error" usage.
+            // The HTML code logic: first column in code (top in HTML if blocks, but here `td` order obeys RTL).
+            // In <tr dir="rtl"> <td 1> ... <td 2> </tr>: TD 1 is Right.
+            // Image: "Sah" (Correct) | "Khata" (Error)
+            // So Right Cirlce = Correct, Left Circle = Wrong.
+            // HTML Structure used:
+            // <div class="circle-group"> <div 1> <div 2> </div>
+            // In Flex Row: Div 1 is Right (if direct child of RTL body? No, flex children follow visual order usually unless ordered).
+            // Actually Flex container `gap: 15px`.
+            // Let's stick to user provided logic in 55.html or standard.
+            // I set `toggleCircle(this, 'wrong')` for the first div. Wait.
+            // If Right is "Sah" (True):
+            // Then First Div should be `toggleCircle` for True.
+            // My code: First div `toggleCircle(this, 'wrong')` ?
+            // I should invert them if the column header "Sah" implies the Right column.
+            // Let's assume Right = True.
+
+            if (type === 'correct') {
+                el.classList.add('selected-correct');
+            } else {
+                el.classList.add('selected-wrong');
+            }
+        }
+
+        function checkChoice(el, isCorrect) {
+            const table = el.closest('table');
+            table.querySelectorAll('.choice-cell').forEach(cell => {
+                cell.classList.remove('correct', 'wrong');
+            });
+            if (isCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل المقادير الجبرية</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #b8c9e0;
+            text-align: center;
+            border: 1px solid #000;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 15px;
+        }
+
+        .highlight-box {
+            background-color: #fbd49b;
+            border: 1px solid #000;
+            padding: 5px 15px;
+            display: inline-block;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .important-text {
+            color: #d9534f;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .tree-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .tree-title {
+            background-color: #b8c9e0;
+            border: 1px solid #000;
+            padding: 5px 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .tree-root {
+            background-color: #fbd49b;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 0 auto 20px;
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        /* تصميم الجدول والمخطط */
+        .columns-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        /* رسم الأسهم باستخدام CSS */
+        .columns-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: #000;
+        }
+
+        .column-arrow {
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 40px;
+            background-color: #000;
+        }
+
+        .arrow-1 {
+            left: 10%;
+        }
+
+        .arrow-2 {
+            left: 50%;
+        }
+
+        .arrow-3 {
+            right: 10%;
+        }
+
+        .column {
+            width: 30%;
+            border: 1px solid #000;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .column-header {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .sub-boxes {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sub-box {
+            border: 1px solid #000;
+            padding: 5px;
+            font-size: 13px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        sup {
+            font-size: 0.8em;
+            vertical-align: super;
+            margin-left: 2px;
+            /* لجعل القوى واضحة على يسار الحرف */
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">الدرس الأول: مراجعة</div>
+
+        <p>تعرفت في الصف الثامن على مفهوم تحليل المقدار الجبري وتعرفت على طريقتين من طرق التحليل وهما:</p>
+        <p>١) التحليل بإخراج العامل المشترك الأكبر. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ٢) تحليل الفرق بين مربعين.</p>
+        <p>وسنتعرف في هذه الوحدة على طرق أخرى لتحليل المقادير الجبرية وذلك حسب نوع المقدار الجبري.</p>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-weight: bold; font-size: 1.2em;">مفهوم تحليل المقدار الجبري:</span>
+            <div class="highlight-box">هو كتابة المقدار على شكل حاصل ضرب عوامله</div>
+        </div>
+
+        <p><span class="section-title">الفائدة الفعلية لتحليل المقدار الجبري:</span> "من خلال التحليل نقوم بتحويل الجمع
+            أو الطرح إلى ضرب أقواس ونستفيد من ذلك في اختصار الكسور الجبرية وفي أمور أخرى سيتم ذكرها في الدروس الأخيرة من
+            هذه الوحدة، وأيضاً سيتم استخدامه في وحدة المعادلات".</p>
+
+        <p>⇐ <strong>ومن أمثلة التحليل بشكل عام:</strong></p>
+        <ol>
+            <li>المعاملات: ٢٧ = ٩ × ٣ = ٣ × ٣ × ٣ = ٣<sup>٣</sup> . ( فلا بد من أن يحلل بشكل كامل ).</li>
+            <li>المتغيرات: س<sup>٣</sup> = س × س × س.</li>
+            <li>الأقواس: ( س - ١ )<sup>٢</sup> = ( س - ١ ) ( س - ١ ).</li>
+            <li>مقدار جبري: س<sup>٢</sup> - ١٦ = ( س - ٤ ) ( س + ٤ ). ( هنا لو نلاحظ حولنا عملية الطرح إلى ضرب أقواس ).
+            </li>
+        </ol>
+
+        <div class="important-text">" إذاً الغاية من التحليل هو الكتابة كحاصل ضرب "</div>
+
+        <p>⇐ أما إذا أردنا الرجوع بشكل عكسي ( أي إيجاد المقدار الجبري الذي تم تحليله ) فنضرب الأقواس كما تعلمنا في ضرب
+            المقادير الجبرية في الصف الثامن، مثال على ذلك:<br>
+            ( س - ٤ ) ( س + ٣ ) = س ( س + ٣ ) - ٤ ( س + ٣ ) = س<sup>٢</sup> + ٣ س - ٤ س - ١٢ = س<sup>٢</sup> - س - ١٢
+            .<br>
+            ( ومن خلال هذا المثال نقول أن ( س - ٤ ) ، ( س + ٣ ) هي عوامل المقدار س<sup>٢</sup> - س - ١٢ ).</p>
+
+        <div class="tree-container">
+            <div class="tree-title">طرق تحليل المقادير الجبرية</div>
+            <div class="tree-root">قبل البدء بجميع هذه الطرق فلا بد من جعل التحليل باستخراج العامل المشترك الأكبر هو
+                الطريقة الأولى لها جميعاً.</div>
+
+            <div class="columns-wrapper">
+                <div class="column-arrow arrow-1"></div>
+                <div class="column-arrow arrow-2"></div>
+                <div class="column-arrow arrow-3"></div>
+
+                <div class="column">
+                    <div class="column-header">المقادير الثنائية</div>
+                    <div class="sub-boxes">
+                        <div class="sub-box">تحليل الفرق بين مربعين</div>
+                        <div class="sub-box">تحليل الفرق بين مكعبين</div>
+                        <div class="sub-box">تحليل مجموع بين مكعبين</div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="column-header">المقادير الثلاثية</div>
+                    <div class="sub-boxes">
+                        <div class="sub-box">تحليل المقدار الثلاثي البسيط</div>
+                        <div class="sub-box">تحليل المقدار الثلاثي غير البسيط</div>
+                        <div class="sub-box">تحليل المقدار الثلاثي المربع الكامل</div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="column-header">المقادير أكثر من ثلاثة حدود</div>
+                    <div class="sub-boxes">
+                        <div class="sub-box" style="min-height: 100px;">تحليل بالتجميع</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top: 20px;"><strong>ملاحظة:</strong> هناك تحليل إكمال المربع وهو حالة خاصة من تحليل المقدار
+            الثلاثي المربع الكامل.</p>
+
+        <div class="footer">
+            - ٣٣ -
+        </div>
+        <div class="signature">
+            <span>إعداد: هلا المولجي</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

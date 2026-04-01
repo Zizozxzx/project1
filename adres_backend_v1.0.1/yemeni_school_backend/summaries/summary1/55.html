@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي رياضيات تاسع - صـ 21</title>
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --text-color: #000;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arial';
+            background-color: #f4f4f9;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+        /* Grid Layout: Right column first in DOM */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            body { padding: 5px; font-size: 14px; }
+        }
+        .section-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 3px double var(--border-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .stars-divider { 
+            text-align: center; 
+            letter-spacing: 2px; 
+            margin: 15px 0; 
+            color: #555;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .solution-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        svg { width: 100%; height: auto; display: block; margin: 10px auto; max-width: 350px; }
+        .inline-svg { display: inline-block; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">
+        - ٢١ -
+    </div>
+
+    <div class="content-grid">
+        
+        <div class="right-column">
+            
+            <div class="section-title">9:1 حل تمارين اختبار الوحدة صـ 58</div>
+            
+            <p><strong>[1] إذا كانت س={أ : أ &isin; ص ، 5 &gt; أ &gt; 1}<br>
+            ك = {-1 ، 0 ، 1} أوجد س&cap;ك ومثلها بأشكال فن</strong></p>
+
+            <div style="display: flex; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <p><strong>[2] من الشكل ( 1 - 54 ) أوجد :</strong><br>
+                    أ ) س' ، ص' ب ) ( س &cap; ص )'<br>
+                    جـ ) س' &cap; ص' د ) تحقق من صحة أن :<br>
+                    ( س &cup; ص )' = س' &cap; ص'
+                    </p>
+                </div>
+                <div style="width: 140px; margin-right: 10px;">
+                    <svg viewBox="0 0 160 100">
+                        <rect x="5" y="5" width="150" height="90" fill="none" stroke="black" stroke-width="2"/>
+                        <text x="140" y="20" font-size="12">ش</text>
+                        <circle cx="100" cy="50" r="30" fill="none" stroke="black"/>
+                        <circle cx="60" cy="50" r="30" fill="none" stroke="black"/>
+                        <text x="110" y="30" font-size="12">س</text>
+                        <text x="40" y="30" font-size="12">ص</text>
+                        <text x="115" y="55" font-size="12">2،3</text>
+                        <text x="70" y="55" font-size="12">4،5</text>
+                        <text x="35" y="55" font-size="12">6،7</text>
+                        <text x="80" y="110" font-size="10" text-anchor="middle">شكل (1 - 54)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="solution-title">* الحل * : أولاً : حل تمرين [ 1 ] :-</div>
+            <p>س={2 ، 3 ، 4} ، ك={-1 ، 0 ، 1}<br>
+            <strong>&there4; س &cap; ك = { } = &empty;</strong></p>
+            
+            <svg viewBox="0 0 200 100" style="max-width: 250px;">
+                <rect x="5" y="5" width="190" height="90" fill="none" stroke="black" stroke-width="2"/>
+                <text x="180" y="20" font-size="12">ش</text>
+                <circle cx="140" cy="50" r="30" fill="none" stroke="black"/>
+                <circle cx="60" cy="50" r="30" fill="none" stroke="black"/>
+                <text x="150" y="30" font-size="12">س</text>
+                <text x="50" y="30" font-size="12">ك</text>
+                <text x="135" y="50" font-size="12">2،3</text>
+                <text x="140" y="65" font-size="12">4</text>
+                <text x="50" y="50" font-size="12">-1،0</text>
+                <text x="60" y="65" font-size="12">1</text>
+            </svg>
+
+            <div class="solution-title">ثانياً : حل تمرين [ 2 ] :-</div>
+            <p>أ ) س' = {6 ، 7} ، ص' = {2 ، 3}<br>
+            ب ) س &cap; ص = {4 ، 5}<br>
+            فإن (س &cap; ص)' = {2 ، 3 ، 6 ، 7} = س' &cup; ص'<br>
+            جـ ) س' &cap; ص' = &empty;<br>
+            د ) &because; (س &cup; ص) = {2 ، 3 ، 4 ، 5 ، 6 ، 7}<br>
+            فإن (س &cup; ص)' = &empty;<br>
+            &there4; (س &cup; ص)' = س' &cap; ص' = &empty; #</p>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[3] إذا كانت س={2 ، 3 ، 4} بين نوع العلاقات التالية على س من حيث كونها علاقة إنعكاسية متناظرة متعدية تكافؤ</strong><br>
+            ع1 = {(2،2) ، (3،3) ، (4،4) ، (2،3) ، (3،2)}<br>
+            ع2 = {(2،3) ، (3،2)}<br>
+            ع3 = {(2،3) ، (3،4) ، (2،4)}</p>
+
+            <div class="solution-title">* الحل *</div>
+            <p>ع1 علاقة إنعكاسية بوضوح ومتناظرة ومتعدية فهي علاقة تكافؤ .<br>
+            ع2 متناظرة ومتعدية فهي ليست علاقة تكافؤ لأنها ليست إنعكاسية .<br>
+            ع3 متعدية و غير إنعكاسية فهي ليست علاقة تكافؤ .</p>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[4] في الشكل (1-55 أ ، ب ، جـ) أي العلاقات تمثل تطبيقاً و أيها لا تمثل تطبيقاً؟ ثم أكتب المجال والمجال المقابل ومدى التطبيق؟</strong></p>
+
+            <div style="display: flex; justify-content: space-around; text-align: center;">
+                <div>
+                    <svg viewBox="0 0 100 120" style="max-width: 90px; margin:0;">
+                        <rect x="10" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <rect x="60" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <text x="25" y="8" font-size="12" text-anchor="middle">س</text>
+                        <text x="75" y="8" font-size="12" text-anchor="middle">ص</text>
+                        <text x="20" y="30">1</text><text x="20" y="55">2</text><text x="20" y="85">3</text>
+                        <text x="75" y="25">4</text><text x="75" y="45">5</text><text x="75" y="65">6</text><text x="75" y="85">7</text>
+                        <path d="M 30 25 L 65 25" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 50 L 65 45" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 50 L 65 65" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 80 L 65 80" stroke="black" marker-end="url(#arrow-small)"/>
+                        <circle cx="25" cy="25" r="2"/><circle cx="25" cy="50" r="2"/><circle cx="25" cy="80" r="2"/>
+                        <circle cx="70" cy="22" r="2"/><circle cx="70" cy="42" r="2"/><circle cx="70" cy="62" r="2"/><circle cx="70" cy="80" r="2"/>
+                    </svg>
+                    <div style="font-size: 11px;">شكل (1-55 جـ)</div>
+                </div>
+                <div>
+                    <svg viewBox="0 0 100 120" style="max-width: 90px; margin:0;">
+                        <rect x="10" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <rect x="60" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <text x="25" y="8" font-size="12" text-anchor="middle">س</text>
+                        <text x="75" y="8" font-size="12" text-anchor="middle">ص</text>
+                        <text x="20" y="30">1</text><text x="20" y="55">2</text><text x="20" y="80">3</text>
+                        <text x="75" y="30">4</text><text x="75" y="55">5</text><text x="75" y="80">6</text>
+                        <path d="M 30 25 L 65 25" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 50 L 65 50" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 75 L 65 55" stroke="black" marker-end="url(#arrow-small)"/>
+                        <circle cx="25" cy="25" r="2"/><circle cx="25" cy="50" r="2"/><circle cx="25" cy="75" r="2"/>
+                        <circle cx="70" cy="25" r="2"/><circle cx="70" cy="50" r="2"/><circle cx="70" cy="75" r="2"/>
+                    </svg>
+                    <div style="font-size: 11px;">شكل (1-55 ب)</div>
+                </div>
+                <div>
+                    <svg viewBox="0 0 100 120" style="max-width: 90px; margin:0;">
+                        <defs>
+                            <marker id="arrow-small" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                            </marker>
+                        </defs>
+                        <rect x="10" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <rect x="60" y="10" width="30" height="90" fill="none" stroke="black"/>
+                        <text x="25" y="8" font-size="12" text-anchor="middle">س</text>
+                        <text x="75" y="8" font-size="12" text-anchor="middle">ص</text>
+                        <text x="20" y="30">1</text><text x="20" y="55">2</text><text x="20" y="80">3</text>
+                        <text x="75" y="25">4</text><text x="75" y="45">5</text><text x="75" y="65">6</text><text x="75" y="85">7</text>
+                        <path d="M 30 25 L 65 42" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 50 L 65 62" stroke="black" marker-end="url(#arrow-small)"/>
+                        <circle cx="25" cy="25" r="2"/><circle cx="25" cy="50" r="2"/><circle cx="25" cy="80" r="2"/>
+                        <circle cx="70" cy="22" r="2"/><circle cx="70" cy="42" r="2"/><circle cx="70" cy="62" r="2"/><circle cx="70" cy="80" r="2"/>
+                    </svg>
+                    <div style="font-size: 11px;">شكل (1-55 أ)</div>
+                </div>
+            </div>
+
+            <div class="solution-title">* الحل *</div>
+            <p>أ ) لا يمثل تطبيق لأن 3 &isin; س لم يرتبط بأي عنصر من ص.<br>
+            ب ) تطبيق لأن كل عنصر من س يرتبط بعنصر واحد من ص ومداه = {4 ، 5}<br>
+            جـ ) لا يمثل تطبيق لأن 2 &isin; س يرتبط بأكثر من عنصر من ص.</p>
+
+            <div class="stars-divider">****************************************</div>
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <p><strong>[5] ليكن التطبيق ت : س &larr; ص حيث س = {1 ، 2 ، 3} ، ص = {4 ، 5 ، 6 ، 7} وقاعدته هي ت(أ) = أ + 3 &forall; أ &isin; س أوجد مدى التطبيق ثم ارسم مخططه السهمي</strong></p>
+                    <div class="solution-title">* الحل *</div>
+                    <p>ت(1) = 4 ، ت(2) = 5 ، ت(3) = 6<br>
+                    فإن المدى = {4 ، 5 ، 6}</p>
+                </div>
+                <div style="width: 100px;">
+                    <svg viewBox="0 0 100 120">
+                        <rect x="10" y="10" width="30" height="100" fill="none" stroke="black"/>
+                        <rect x="60" y="10" width="30" height="100" fill="none" stroke="black"/>
+                        <text x="25" y="8" font-size="12" text-anchor="middle">س</text>
+                        <text x="75" y="8" font-size="12" text-anchor="middle">ص</text>
+                        <text x="20" y="30">1</text><text x="20" y="55">2</text><text x="20" y="80">3</text>
+                        <text x="75" y="30">4</text><text x="75" y="55">5</text><text x="75" y="80">6</text><text x="75" y="105">7</text>
+                        <path d="M 30 25 L 65 25" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 50 L 65 50" stroke="black" marker-end="url(#arrow-small)"/>
+                        <path d="M 30 75 L 65 75" stroke="black" marker-end="url(#arrow-small)"/>
+                        <circle cx="25" cy="25" r="2"/><circle cx="25" cy="50" r="2"/><circle cx="25" cy="75" r="2"/>
+                        <circle cx="70" cy="25" r="2"/><circle cx="70" cy="50" r="2"/><circle cx="70" cy="75" r="2"/><circle cx="70" cy="100" r="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[6] ارسم التطبيق الخطي التالي ت(أ) = 2أ + 1 ، أ &isin; ح &larr; ح</strong></p>
+            <div class="solution-title">* الحل * : نختار ثلاثة عناصر من المجال ثم نجد صورها فنجد :</div>
+            <p>أ = 0 ، 1 ، -1 &isin; ح<br>
+            ت(0) = 2(0) + 1 = 1<br>
+            ت(1) = 2(1) + 1 = 3<br>
+            ت(-1) = 2(-1) + 1 = -1<br>
+            &there4; ت = {(0،1) ، (1،3) ، (-1،-1) ، ....}</p>
+
+            <svg viewBox="0 0 200 200" style="max-width: 250px;">
+                <line x1="20" y1="100" x2="180" y2="100" stroke="black" stroke-width="1.5" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                <line x1="100" y1="20" x2="100" y2="180" stroke="black" stroke-width="1.5" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                <text x="180" y="115" font-size="12">س</text><text x="110" y="20" font-size="12">ص</text>
+                <line x1="120" y1="98" x2="120" y2="102" stroke="black"/><text x="120" y="115" font-size="10" text-anchor="middle">1</text>
+                <line x1="140" y1="98" x2="140" y2="102" stroke="black"/>
+                <line x1="80" y1="98" x2="80" y2="102" stroke="black"/><text x="80" y="115" font-size="10" text-anchor="middle">-1</text>
+                <line x1="98" y1="80" x2="102" y2="80" stroke="black"/><text x="110" y="83" font-size="10">1</text>
+                <line x1="98" y1="60" x2="102" y2="60" stroke="black"/>
+                <line x1="98" y1="40" x2="102" y2="40" stroke="black"/><text x="110" y="43" font-size="10">3</text>
+                <line x1="98" y1="120" x2="102" y2="120" stroke="black"/><text x="112" y="123" font-size="10">-1</text>
+                
+                <path d="M 60 180 L 130 40" stroke="black" stroke-width="1.5"/>
+                <circle cx="100" cy="80" r="3" fill="black"/><text x="80" y="75" font-size="10">(0،1)</text>
+                <circle cx="120" cy="40" r="3" fill="black"/>
+                <circle cx="80" cy="120" r="3" fill="black"/>
+            </svg>
+
+        </div>
+
+        <div class="left-column">
+            
+            <p><strong>[19] إذا كان ت : ح &larr; ح ارسم التطبيق ت(أ) = <sup>1</sup>/<sub>2</sub> أ + 1</strong></p>
+            <div class="solution-title">* الحل *</div>
+            <p>&because; المجال = المجال المقابل = ح<br>
+            &there4; لكل عنصر من المجال صورة في المجال المقابل<br>
+            لنأخذ 0 ، 2 ، -2 &isin; ح فنجد :<br>
+            ت(0) = <sup>1</sup>/<sub>2</sub> &times; 0 + 1 = 1<br>
+            ت(2) = <sup>1</sup>/<sub>2</sub> &times; 2 + 1 = 2<br>
+            ت(-2) = <sup>1</sup>/<sub>2</sub> &times; -2 + 1 = 0<br>
+            &there4; التطبيق يمكن كتابته<br>
+            ت = { (0 ، 1) ، (2 ، 2) ، (-2 ، 0) ، ..... }</p>
+
+            <svg viewBox="0 0 200 160" style="max-width: 250px;">
+                <line x1="20" y1="120" x2="180" y2="120" stroke="black" stroke-width="1.5" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                <line x1="100" y1="20" x2="100" y2="150" stroke="black" stroke-width="1.5" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                <text x="180" y="115" font-size="12">س</text><text x="110" y="20" font-size="12">ص</text>
+                <line x1="140" y1="118" x2="140" y2="122" stroke="black"/><text x="140" y="135" font-size="10" text-anchor="middle">2</text>
+                <line x1="60" y1="118" x2="60" y2="122" stroke="black"/><text x="60" y="135" font-size="10" text-anchor="middle">-2</text>
+                <line x1="98" y1="100" x2="102" y2="100" stroke="black"/><text x="110" y="103" font-size="10">1</text>
+                <line x1="98" y1="80" x2="102" y2="80" stroke="black"/><text x="110" y="83" font-size="10">2</text>
+                
+                <path d="M 20 160 L 180 80" stroke="black" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="3" fill="black"/><text x="110" y="115" font-size="10">(0،1)</text>
+                <circle cx="140" cy="80" r="3" fill="black"/><text x="150" y="75" font-size="10">(2،2)</text>
+                <circle cx="60" cy="120" r="3" fill="black"/><text x="40" y="115" font-size="10">(-2،0)</text>
+            </svg>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[20] عين النقاط التي تمثل الأعداد التالية على خط الأعداد :<br>
+            3 ، <sup>5</sup>/<sub>2</sub> = 2.5 ، -<sup>1</sup>/<sub>4</sub> ، -&radic;<span style="text-decoration:overline;">7</span> &simeq; -2.6</strong></p>
+
+            <div class="solution-title">* الحل *</div>
+            <svg viewBox="0 0 350 70">
+                <line x1="20" y1="40" x2="330" y2="40" stroke="black" stroke-width="1.5" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                <text x="330" y="30" font-size="12" text-anchor="start">+&infin;</text>
+                <text x="20" y="30" font-size="12" text-anchor="end">-&infin;</text>
+                <line x1="50" y1="35" x2="50" y2="45" stroke="black"/><text x="50" y="60" font-size="12" text-anchor="middle">-3</text>
+                <line x1="90" y1="35" x2="90" y2="45" stroke="black"/><text x="90" y="60" font-size="12" text-anchor="middle">-2</text>
+                <line x1="130" y1="35" x2="130" y2="45" stroke="black"/><text x="130" y="60" font-size="12" text-anchor="middle">-1</text>
+                <line x1="170" y1="35" x2="170" y2="45" stroke="black"/><text x="170" y="60" font-size="12" text-anchor="middle">0</text>
+                <line x1="210" y1="35" x2="210" y2="45" stroke="black"/><text x="210" y="60" font-size="12" text-anchor="middle">1</text>
+                <line x1="250" y1="35" x2="250" y2="45" stroke="black"/><text x="250" y="60" font-size="12" text-anchor="middle">2</text>
+                <line x1="290" y1="35" x2="290" y2="45" stroke="black"/><text x="290" y="60" font-size="12" text-anchor="middle">3</text>
+                
+                <circle cx="66" cy="40" r="4" fill="black"/><text x="66" y="20" font-size="10" text-anchor="middle">-&radic;7 &simeq; -2.6</text>
+                <circle cx="160" cy="40" r="4" fill="black"/><text x="160" y="20" font-size="10" text-anchor="middle">-1/4</text>
+                <circle cx="270" cy="40" r="4" fill="black"/><text x="270" y="20" font-size="10" text-anchor="middle">5/2 = 2.5</text>
+                <circle cx="290" cy="40" r="4" fill="black"/><text x="290" y="20" font-size="10" text-anchor="middle">3</text>
+            </svg>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[21] ميز الأعداد النسبية و الأعداد غير النسبية فيما يلي :-</strong><br>
+            أ ) 2.6&#775;<span style="display:inline-block; width:40px;"></span>ب ) &radic;8<span style="display:inline-block; width:40px;"></span>جـ ) 4.212</p>
+            <div class="solution-title">* الحل *</div>
+            <p>أ ) 2.6&#775; عدد نسبي لأنه دوري .<br>
+            ب ) &radic;8 عدد غير نسبي لأنه غير منتهي ولا يمكن كتابته بالصورة <sup>أ</sup>/<sub>ب</sub> ، ب &ne; 0<br>
+            جـ ) عدد نسبي لأنه كسر عشري منتهي .</p>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[22] مثل مجموعات الأعداد التالية على خط الأعداد ثم أكتب كلاً منها كفترة عددية :</strong><br>
+            أ ) {س : س &isin; ح ، 0 &lt; س &le; 5}<br>
+            ب ) {س : س &isin; ح ، -1 &le; س &le; 2}<br>
+            جـ ) {س : س &isin; ح ، -4 &lt; س &lt; 2}<br>
+            د ) {س : س &isin; ح ، س &gt; 4}</p>
+
+            <div class="solution-title">* الحل *</div>
+            
+            <div style="display:flex; align-items:center;">
+                <div style="width: 80px;">أ ) ]0 ، 5]</div>
+                <svg viewBox="0 0 250 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="240" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="60" y1="20" x2="160" y2="20" stroke="black" stroke-width="3"/>
+                    <line x1="60" y1="15" x2="60" y2="25" stroke="black"/><text x="60" y="35" font-size="10" text-anchor="middle">0</text>
+                    <line x1="160" y1="15" x2="160" y2="25" stroke="black"/><text x="160" y="35" font-size="10" text-anchor="middle">5</text>
+                    <circle cx="60" cy="20" r="3" fill="white" stroke="black"/><circle cx="160" cy="20" r="3" fill="black"/>
+                </svg>
+            </div>
+            
+            <div style="display:flex; align-items:center;">
+                <div style="width: 80px;">ب ) [-1 ، 2]</div>
+                <svg viewBox="0 0 250 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="240" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="80" y1="20" x2="140" y2="20" stroke="black" stroke-width="3"/>
+                    <line x1="80" y1="15" x2="80" y2="25" stroke="black"/><text x="80" y="35" font-size="10" text-anchor="middle">-1</text>
+                    <line x1="140" y1="15" x2="140" y2="25" stroke="black"/><text x="140" y="35" font-size="10" text-anchor="middle">2</text>
+                    <circle cx="80" cy="20" r="3" fill="black"/><circle cx="140" cy="20" r="3" fill="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 80px;">جـ ) ]-4 ، 2[</div>
+                <svg viewBox="0 0 250 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="240" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="40" y1="20" x2="160" y2="20" stroke="black" stroke-width="3"/>
+                    <line x1="40" y1="15" x2="40" y2="25" stroke="black"/><text x="40" y="35" font-size="10" text-anchor="middle">-4</text>
+                    <line x1="160" y1="15" x2="160" y2="25" stroke="black"/><text x="160" y="35" font-size="10" text-anchor="middle">2</text>
+                    <circle cx="40" cy="20" r="3" fill="white" stroke="black"/><circle cx="160" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 80px;">د ) ]4 ، &infin;[</div>
+                <svg viewBox="0 0 250 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="240" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="100" y1="20" x2="240" y2="20" stroke="black" stroke-width="3"/>
+                    <line x1="100" y1="15" x2="100" y2="25" stroke="black"/><text x="100" y="35" font-size="10" text-anchor="middle">4</text>
+                    <circle cx="100" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div class="stars-divider">****************************************</div>
+
+            <p><strong>[23] مثل كلاً من الفترات الآتية على خط الأعداد أكتب كلاً منها بالصفة المميزة :</strong><br>
+            أ ) [-5 ، 3[ <span style="display:inline-block; width:20px;"></span> ب ) ]0 ، 4[ <span style="display:inline-block; width:20px;"></span> جـ ) [-2 ، 1[<br>
+            د ) ]-1 ، 3[ <span style="display:inline-block; width:20px;"></span> هـ ) ]-&infin; ، 3] <span style="display:inline-block; width:20px;"></span> و ) [1 ، &infin;[</p>
+
+            <div class="solution-title">* الحل *</div>
+            
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">أ ) {س:س&isin;ح ، -5&le;س&lt;3}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="30" y1="20" x2="150" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="30" y="35" font-size="10" text-anchor="middle">-5</text>
+                    <text x="150" y="35" font-size="10" text-anchor="middle">3</text>
+                    <circle cx="30" cy="20" r="3" fill="black"/><circle cx="150" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">ب ) {س:س&isin;ح ، 0&lt;س&lt;4}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="60" y1="20" x2="140" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="60" y="35" font-size="10" text-anchor="middle">0</text>
+                    <text x="140" y="35" font-size="10" text-anchor="middle">4</text>
+                    <circle cx="60" cy="20" r="3" fill="white" stroke="black"/><circle cx="140" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">جـ ) {س:س&isin;ح ، -2&le;س&lt;1}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="50" y1="20" x2="110" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="50" y="35" font-size="10" text-anchor="middle">-2</text>
+                    <text x="110" y="35" font-size="10" text-anchor="middle">1</text>
+                    <circle cx="50" cy="20" r="3" fill="black"/><circle cx="110" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">د ) {س:س&isin;ح ، -1&lt;س&lt;3}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="70" y1="20" x2="150" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="70" y="35" font-size="10" text-anchor="middle">-1</text>
+                    <text x="150" y="35" font-size="10" text-anchor="middle">3</text>
+                    <circle cx="70" cy="20" r="3" fill="white" stroke="black"/><circle cx="150" cy="20" r="3" fill="white" stroke="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">هـ ) {س:س&isin;ح ، س&le;3}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="10" y1="20" x2="130" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="130" y="35" font-size="10" text-anchor="middle">3</text>
+                    <circle cx="130" cy="20" r="3" fill="black"/>
+                </svg>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <div style="width: 130px; font-size:13px;">و ) {س:س&isin;ح ، س&ge;1}</div>
+                <svg viewBox="0 0 200 40" style="flex:1;">
+                    <line x1="10" y1="20" x2="190" y2="20" stroke="black" marker-end="url(#arrow-small)" marker-start="url(#arrow-small)"/>
+                    <line x1="80" y1="20" x2="190" y2="20" stroke="black" stroke-width="3"/>
+                    <text x="80" y="35" font-size="10" text-anchor="middle">1</text>
+                    <circle cx="80" cy="20" r="3" fill="black"/>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

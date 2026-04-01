@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأعداد الحقيقية - الصف التاسع</title>
+    <style>
+        :root {
+            --primary-color: #000;
+            --bg-color: #fff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        .container {
+            max-width: 850px;
+            background-color: var(--bg-color);
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .page-number { text-align: center; margin-bottom: 5px; border-bottom: 1px solid #000; padding-bottom: 5px; }
+
+        .header-box {
+            text-align: center;
+            border: 2px solid #000;
+            padding: 5px 40px;
+            width: fit-content;
+            margin: 10px auto 20px;
+        }
+
+        .title { font-size: 24px; font-weight: bold; }
+
+        .section-tag {
+            border: 1px solid #000;
+            padding: 2px 12px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .number-line-container { position: relative; margin: 40px 0; height: 40px; }
+        .line { width: 100%; height: 2px; background: #000; position: absolute; top: 10px; }
+        .line::before { content: ''; position: absolute; right: -5px; top: -4px; border: 5px solid transparent; border-left: 8px solid #000; }
+        .line::after { content: ''; position: absolute; left: -5px; top: -4px; border: 5px solid transparent; border-right: 8px solid #000; }
+        
+        .tick { position: absolute; width: 2px; height: 12px; background: #000; top: 5px; }
+        .tick-label { position: absolute; top: 15px; transform: translateX(50%); font-size: 13px; font-weight: bold; }
+
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; }
+        .fraction .top { border-bottom: 1px solid #000; padding: 0 3px; }
+        .fraction span { display: block; line-height: 1.2; }
+
+        .example-box { border-top: 2px dashed #000; border-bottom: 2px dashed #000; padding: 15px 5px; margin: 20px 0; }
+        .solution-section { margin-top: 20px; }
+
+        .triangle-illustration {
+            float: left;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .highlight { font-weight: bold; }
+        
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .triangle-illustration { float: none; width: fit-content; margin: 10px auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-number">— ١٤ —</div>
+    
+    <div class="header-box">
+        <div class="title">الأعداد الحقيقة</div>
+    </div>
+
+    <div class="section-tag">تذكير :-</div>
+    
+    <p>١- <b>مجموعة الأعداد الطبيعية ط</b> = { ٠ ، ١ ، ٢ ، ٣ ، ... } ونمثلها على خط الأعداد بالشكل ( أ )</p>
+    <div class="number-line-container">
+        <div style="position: absolute; right: 0; top: -25px;">شكل ( أ )</div>
+        <div class="line"></div>
+        <div class="tick" style="right: 10%"><span class="tick-label">٠</span></div>
+        <div class="tick" style="right: 25%"><span class="tick-label">١</span></div>
+        <div class="tick" style="right: 40%"><span class="tick-label">٢</span></div>
+        <div class="tick" style="right: 55%"><span class="tick-label">٣</span></div>
+    </div>
+
+    <p>٢- <b>مجموعة الأعداد الصحيحة ص</b> = { ... ، -٢ ، -١ ، ٠ ، ١ ، ٢ ، ٣ ، ... } ونمثلها على خط الأعداد بالشكل ( ب )</p>
+    <div class="number-line-container">
+        <div style="position: absolute; right: 0; top: -25px;">شكل ( ب )</div>
+        <div class="line"></div>
+        <div class="tick" style="right: 20%"><span class="tick-label">٣</span></div>
+        <div class="tick" style="right: 30%"><span class="tick-label">٢</span></div>
+        <div class="tick" style="right: 40%"><span class="tick-label">١</span></div>
+        <div class="tick" style="right: 50%"><span class="tick-label">٠</span></div>
+        <div class="tick" style="right: 60%"><span class="tick-label">-١</span></div>
+        <div class="tick" style="right: 70%"><span class="tick-label">-٢</span></div>
+        <div class="tick" style="right: 80%"><span class="tick-label">-٣</span></div>
+    </div>
+
+    <p>٣- <b>مجموعة الأعداد النسبية ن</b> = { <div class="fraction"><span class="top">أ</span><span>ب</span></div> : أ ، ب ∈ ص ، ب ≠ ٠ } حيث أن كل عدد نسبي يمكن كتابته على صورة نسبة بين عددين صحيحين تمثيله العشري منتهي أو دوري ونمثل مجموعة الأعداد النسبية على خط الأعداد بالشكل ( جـ ) .</p>
+    <p>فمثلاً: <div class="fraction"><span class="top">٣٣</span><span>١٠</span></div> = ٣,٣ هو عدد نسبي</p>
+    
+    <p>لأن تمثيله العشري منتهي ، أيضاً العدد: <div class="fraction"><span class="top">١</span><span>٣</span></div> = ٠,٣٣٣٣... هو عدد نسبي على الصورة <div class="fraction"><span class="top">أ</span><span>ب</span></div> ، ب ≠ ٠ وتمثيله العشري دوري فنكتب <div class="fraction"><span class="top">١</span><span>٣</span></div> = ٠,٣ ( والخط الذي يعلو العدد يعني أن العدد دوري ).</p>
+
+    <p>٤- <b>العدد غير النسبي:</b> هو ذلك العدد الذي لا يمكن كتابته بالصورة <div class="fraction"><span class="top">أ</span><span>ب</span></div> : أ ، ب ∈ ص ، ب ≠ ٠ ، حيث يكون تمثيله العشري غير منتهٍ وغير دوري ويرمز لمجموعة الأعداد غير النسبية بالرمز <b>ن'</b></p>
+
+    <div class="example-box">
+        <b>مثال: ميز الأعداد النسبية والأعداد غير النسبية للآتي:</b> 
+        أ) <div class="fraction"><span class="top">٢</span><span>٣</span></div> &nbsp; 
+        ب) <sup>٣</sup>√<span>(-٦٤)</span> &nbsp; 
+        جـ) √<span>٣</span> &nbsp; 
+        د) <div class="fraction"><span class="top">٣</span><span>٧</span></div> &nbsp; 
+        هـ) √<span>٢٥</span>
+        <br><br>
+        <b>* الحل *</b><br>
+        أ) <div class="fraction"><span class="top">٢</span><span>٣</span></div> = ٠,٦٦٦... عدد نسبي تمثيله العشري دوري أي أن <div class="fraction"><span class="top">٢</span><span>٣</span></div> = ٠,٦ . <br>
+        ب) <sup>٣</sup>√<span>(-٦٤)</span> = -٤ عدد نسبي لأننا يمكن أن نضعه على الصورة <div class="fraction"><span class="top">-٤</span><span>١</span></div> ، بحيث يكون ( <div class="fraction"><span class="top">-٤</span><span>١</span></div> )<sup>٣</sup> = -٦٤ أي أن ( -٦٤ ) = ( -٤ )<sup>٣</sup> (يسمى مكعب كامل) .<br>
+        جـ) √<span>٣</span> عدد غير نسبي لأننا مهما بحثنا لا نجد عدداً نسبياً مربعه العدد ( ٣ ) أي لا يمكن وضع العدد √<span>٣</span> على صورة <div class="fraction"><span class="top">أ</span><span>ب</span></div> بحيث يكون ( <div class="fraction"><span class="top">أ</span><span>ب</span></div> )<sup>٢</sup> = ٣ أي لا يمكن كتابته على صورة نسبة بين عددين صحيحين حيث تمثيله العشري غير منتهي وغير دوري ( √<span>٣</span> ≈ ١,٧٣٢٠٥٠٨٠٨ ).<br>
+        د) <div class="fraction"><span class="top">٣</span><span>٧</span></div> = ٠,٤٢٨٥٧١٤٢٨٥٧١... عدد نسبي لأن تمثيله العشري دوري على صورة <div class="fraction"><span class="top">أ</span><span>ب</span></div> ونكتب <div class="fraction"><span class="top">٣</span><span>٧</span></div> = ٠,٤٢٨٥٧١.<br>
+        هـ) √<span>٢٥</span> = ٥ عدد نسبي يمكن وضعه على صورة <div class="fraction"><span class="top">٥</span><span>١</span></div> بحيث يكون ( <div class="fraction"><span class="top">٥</span><span>١</span></div> )<sup>٢</sup> = ٢٥ أي ( ٥ )<sup>٢</sup> = ٢٥ (يسمى مربعاً كاملاً لأن (٥)<sup>٢</sup>=٢٥) .
+    </div>
+
+    <div class="section-tag">ملاحظات :-</div>
+    <div style="overflow: hidden;">
+        <div class="triangle-illustration">
+            <svg width="100" height="80">
+                <path d="M 20 10 L 20 70 L 80 70 Z" fill="none" stroke="black" stroke-width="2"/>
+                <line x1="20" y1="60" x2="30" y2="60" stroke="black" />
+                <line x1="30" y1="60" x2="30" y2="70" stroke="black" />
+                <text x="5" y="75">ب</text>
+                <text x="85" y="75">جـ</text>
+                <text x="15" y="10">أ</text>
+                <text x="50" y="40" transform="rotate(-45 50 40)">وتر</text>
+            </svg>
+            <div>( أ ب جـ )</div>
+        </div>
+        <p>(١) أي عدد غير نسبي قيمته دائماً تقع بين عددين نسبيين فمثلاً √<span>٧</span> عدد غير نسبي حيث يقع بين ٤ ، ٩ أي √<span>٧</span> يقع بين ٢ ، ٣ حيث √<span>٤</span> = ٢ و √<span>٩</span> = ٣ .</p>
+        <p>(٢) السهم (←) الذي يسبق العدد يعني أن ذلك العدد غير منتهي وغير دوري.</p>
+        <p>(٣) من دروس الهندسة سوف تعلم لاحقاً مبرهنة فيثاغورث التي تنص على أنه: <br>
+        "في المثلث القائم الزاوية طول مربع الوتر يساوي مجموع مربعي طولي الضلعين الآخرين" أي أن |أجـ|<sup>٢</sup> = |أب|<sup>٢</sup> + |ب جـ|<sup>٢</sup> . <br>
+        ويستفاد من هذه النظرية في تمثيل الأعداد غير النسبية على خط الأعداد في الحصول على قيم تقريبية لتلك الأعداد وسنوضح كيفية استخدام هذه المبرهنة لتمثيل العدد غير النسبي كما سنوضح كيفية تمثيل العدد النسبي عن طريق المثال التالي :</p>
+    </div>
+
+    <div class="example-box">
+        <b>مثال: عين النقاط التي تمثل الأعداد التالية على خط الأعداد:</b><br>
+        (١) <div class="fraction"><span class="top">١٧</span><span>٥</span></div> &nbsp;&nbsp;&nbsp; 
+        (٢) - ٦ <div class="fraction"><span class="top">٣</span><span>٤</span></div> &nbsp;&nbsp;&nbsp; 
+        (٣) √<span>١٠</span>
+    </div>
+
+    <div class="solution-section">
+        <b>* الحل *</b><br>
+        <p>(١) <div class="fraction"><span class="top">١٧</span><span>٥</span></div> = ٣ <div class="fraction"><span class="top">٢</span><span>٥</span></div> فنلاحظ أن النقطة ٣ <div class="fraction"><span class="top">٢</span><span>٥</span></div> التي تمثل العدد <div class="fraction"><span class="top">١٧</span><span>٥</span></div> تقع على يمين الصفر بين العددين ٣ ، ٤ لذلك :-</p>
+        <p>نقسم المسافة بين ٣ ، ٤ إلى خمسة أقسام متساوية (بقدر المقام) ونأخذ قسمين منها يمين العدد ٣ فنحصل على التمثيل المطلوب شكل (١)</p>
+        
+        <div class="number-line-container">
+            <div style="position: absolute; right: 0; top: -25px;">شكل (١)</div>
+            <div class="line"></div>
+            <div class="tick" style="right: 50%"><span class="tick-label">٠</span></div>
+            <div class="tick" style="right: 35%"><span class="tick-label">١</span></div>
+            <div class="tick" style="right: 20%"><span class="tick-label">٢</span></div>
+            <div class="tick" style="right: 5%"><span class="tick-label">٣</span></div>
+            <div style="position: absolute; right: 2%; top: -15px; font-weight: bold;">٣ <div class="fraction"><span class="top">٢</span><span>٥</span></div></div>
+        </div>
+
+        <p>(٢) - ٦ <div class="fraction"><span class="top">٣</span><span>٤</span></div> نلاحظ أنه يقع على يسار الصفر بين العددين -٦ ، -٧ لذلك :-</p>
+        <p>نقسم المسافة بين -٦ ، -٧ (بقدر المقام) إلى أربعة أقسام متساوية ونأخذ ثلاثة أقسام منها يسار العدد (-٦) فنحصل على التمثيل المطلوب للنقطة ( - ٦ <div class="fraction"><span class="top">٣</span><span>٤</span></div> ) شكل (٢)</p>
+
+        <p>(٣) √<span>١٠</span> هو عدد غير نسبي فنلاحظ أن العدد (١٠) موجباً فهو يقع على يمين الصفر بين المربعين الكاملين العددين ٩ ، ١٦ حيث √<span>٩</span> = ٣ ، √<span>١٦</span> = ٤ أي أن √<span>١٠</span> يقع على يمين الصفر بين العددين ٣ ، ٤ .</p>
+        <p>ولتمثيل √<span>١٠</span> على خط الأعداد نتبع الخطوات التالية :-</p>
+    </div>
+</div>
+
+</body>
+</html>

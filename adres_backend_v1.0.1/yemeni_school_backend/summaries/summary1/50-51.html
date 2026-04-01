@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات الصف التاسع - صفحة 18</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #fff; margin: 0; padding: 10px; font-size: 14px; color: #000; line-height: 1.4; }
+        .page-container { max-width: 900px; margin: auto; border: 1px solid #000; padding: 10px; }
+        .page-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold; }
+        
+        /* نظام الأعمدة */
+        .content-wrapper { display: flex; flex-wrap: wrap; gap: 15px; }
+        .column { flex: 1; min-width: 300px; }
+        .column-right { border-left: 1px solid #000; padding-left: 10px; }
+
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .column-right { border-left: none; border-bottom: 1px dashed #000; padding-bottom: 15px; }
+        }
+
+        .question-box { margin-bottom: 15px; }
+        .solution-title { color: red; font-weight: bold; text-decoration: underline; }
+        .math-text { font-style: italic; font-weight: bold; }
+        
+        /* الجداول والرسوم */
+        .graph-box { text-align: center; margin: 10px 0; border: 1px solid #eee; padding: 5px; }
+        .divider { text-align: center; margin: 10px 0; letter-spacing: 3px; font-weight: bold; }
+        
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; }
+        .fraction span { display: block; padding: 0 2px; }
+        .fraction .top { border-bottom: 1px solid #000; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">— ١٨ —</div>
+
+    <div class="content-wrapper">
+        <div class="column column-right">
+            <div class="question-box">
+                <b>|٣| إذا كانت ت(س) = ٣س + ١ وكان مجاله هو { ١ ، ٤ ، ٧ } فأوجد مداه .</b><br>
+                <span class="solution-title">* الحل *</span><br>
+                المدى = مجموعة صور عناصر المجال فنجد أن :-<br>
+                ت(١) = ٣ × ١ + ١ = ٤ ، ت(٤) = ٣ × ٤ + ١ = ١٣ ، ت(٧) = ٣ × ٧ + ١ = ٢٢<br>
+                ∴ المدى = { ٤ ، ١٣ ، ٢٢ }
+            </div>
+
+            <div class="divider">***********************************</div>
+
+            <div class="question-box">
+                <b>|٤| إذا كان ت : ح ← ح قاعدته هي ت(أ) = <span class="fraction"><span class="top">١</span><span>٢</span></span> أ + ٢ فأوجد : صور العناصر -<span class="fraction"><span class="top">١</span><span>٢</span></span> ، ١ ، ٢ ثم مثل هذا التطبيق بيانياً</b><br>
+                <span class="solution-tag solution-title">* الحل *</span><br>
+                نجري التعويض بقيم العناصر المعطى في قاعدة التطبيق<br>
+                ت(-<span class="fraction"><span class="top">١</span><span>٢</span></span>) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × (-<span class="fraction"><span class="top">١</span><span>٢</span></span>) + ٢ = -<span class="fraction"><span class="top">١</span><span>٤</span></span> + ٢ = ١<span class="fraction"><span class="top">٣</span><span>٤</span></span><br>
+                حصلنا على عنصر وصورته (-<span class="fraction"><span class="top">١</span><span>٢</span></span> ، ١<span class="fraction"><span class="top">٣</span><span>٤</span></span>)<br>
+                ت(١) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × ١ + ٢ = ٢<span class="fraction"><span class="top">١</span><span>٢</span></span> أي ( ١ ، ٢<span class="fraction"><span class="top">١</span><span>٢</span></span> )<br>
+                ت(٢) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × ٢ + ٢ = ٣ أي ( ٢ ، ٣ )<br>
+                فنلاحظ أن التطبيق المعرف من ح إلى ح يتكون من مجموعة لا نهائية من الأزواج المرتبة . والتمثيل البياني يتم برسم الأزواج المرتبة على صورة نقاط في المستوى الإحداثي .
+
+                <div class="graph-box">
+                    <svg width="180" height="150" viewBox="0 0 180 150">
+                        <line x1="10" y1="100" x2="170" y2="100" stroke="black" stroke-width="1" />
+                        <line x1="60" y1="10" x2="60" y2="140" stroke="black" stroke-width="1" />
+                        <line x1="20" y1="130" x2="160" y2="20" stroke="black" stroke-width="1.5" />
+                        <circle cx="140" cy="35" r="2.5" />
+                        <text x="110" y="30" font-size="10">(٢ ، ٣)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="divider">***********************************</div>
+
+            <div class="question-box">
+                <b>|٥| لتكن ت : ح ← ح وقاعدته هي ت(س) = <span class="fraction"><span class="top">١</span><span>٢</span></span> س + ٣ أوجد : ت(<span class="fraction"><span class="top">١</span><span>٢</span></span>) ، ت(-<span class="fraction"><span class="top">١</span><span>٢</span></span>) ، ت(-١) ، ت(<span class="fraction"><span class="top">٣</span><span>٢</span></span>) ثم مثل هذا التطبيق بيانياً</b><br>
+                <span class="solution-title">* الحل *</span><br>
+                ت(<span class="fraction"><span class="top">١</span><span>٢</span></span>) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × <span class="fraction"><span class="top">١</span><span>٢</span></span> + ٣ = <span class="fraction"><span class="top">١</span><span>٤</span></span> + ٣ = <span class="fraction"><span class="top">١٣</span><span>٤</span></span> = ٣<span class="fraction"><span class="top">١</span><span>٤</span></span><br>
+                ت(-<span class="fraction"><span class="top">١</span><span>٢</span></span>) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × (-<span class="fraction"><span class="top">١</span><span>٢</span></span>) + ٣ = -<span class="fraction"><span class="top">١</span><span>٤</span></span> + ٣ = <span class="fraction"><span class="top">١١</span><span>٤</span></span> = ٢<span class="fraction"><span class="top">٣</span><span>٤</span></span><br>
+                ت(-١) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × (-١) + ٣ = -<span class="fraction"><span class="top">١</span><span>٢</span></span> + ٣ = ٢<span class="fraction"><span class="top">١</span><span>٢</span></span> = <span class="fraction"><span class="top">٥</span><span>٢</span></span><br>
+                ت(<span class="fraction"><span class="top">٣</span><span>٢</span></span>) = <span class="fraction"><span class="top">١</span><span>٢</span></span> × <span class="fraction"><span class="top">٣</span><span>٢</span></span> + ٣ = <span class="fraction"><span class="top">٣</span><span>٤</span></span> + ٣ = <span class="fraction"><span class="top">١٥</span><span>٤</span></span> = ٣<span class="fraction"><span class="top">٣</span><span>٤</span></span><br>
+                نمثل كل نقطة تمثل العنصر وصورته في المستوى الإحداثي نحصل على الشكل البياني :-
+                ويمكن أخذ قيم مناسبة للرسم مثل :<br>
+                ١ ، ٢ ، ٠<br>
+                وصورها هي :<br>
+                ٣ ، ٣.٥ ، ٤
+
+                <div class="graph-box">
+                    <svg width="180" height="150" viewBox="0 0 180 150">
+                        <line x1="10" y1="120" x2="170" y2="120" stroke="black" stroke-width="1" />
+                        <line x1="70" y1="10" x2="70" y2="140" stroke="black" stroke-width="1" />
+                        <line x1="20" y1="130" x2="160" y2="20" stroke="black" stroke-width="1.5" />
+                        <text x="140" y="115" font-size="10">س</text>
+                        <text x="75" y="20" font-size="10">ص</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="question-box">
+                <b>|٦| ارسم المخطط البياني للتطبيق ت(أ) = ٢أ + ٣ ، أي النقاط التالية تنتمي إلى التطبيق (١ ، ٣) ، (٠ ، ٣) ، (-<span class="fraction"><span class="top">١</span><span>٢</span></span> ، ٢) ، (٠ ، ١) ، (١ ، ٢) ، (٢ ، ٧)</b><br>
+                <span class="solution-title">* الحل *</span><br>
+                كل نقطة على صورة زوج مرتب هي تمثل العنصر وصورته فإن<br>
+                النقطة (١ ، ٣) لا تنتمي للتطبيق لأن ت(١) = ٢ × ١ + ٣ = ٥ ≠ ٣<br>
+                والنقطة (٠ ، ٣) تنتمي للتطبيق لأن ت(٠) = ٢ × ٠ + ٣ = ٣<br>
+                والنقطة (-<span class="fraction"><span class="top">١</span><span>٢</span></span> ، ٢) تنتمي للتطبيق لأن ت(-<span class="fraction"><span class="top">١</span><span>٢</span></span>) = ٢ × (-<span class="fraction"><span class="top">١</span><span>٢</span></span>) + ٣ = -١ + ٣ = ٢<br>
+                والنقطة (١ ، ٥) تنتمي للتطبيق لأن ت(١) = ٢ × ١ + ٣ = ٥<br>
+                والنقطة (٢ ، ٧) تنتمي للتطبيق لأن ت(٢) = ٢ × ٢ + ٣ = ٧<br>
+                والنقطة (٠ ، ١) لا تنتمي للتطبيق لأن ت(٠) = ٢ × ٠ + ٣ = ٣ ≠ ١<br>
+                ولرسم التطبيق بيانياً يكفي رسم النقاط التي تنتمي للتطبيق
+
+                <div class="graph-box">
+                    <svg width="180" height="160" viewBox="0 0 180 160">
+                        <line x1="10" y1="130" x2="170" y2="130" stroke="black" />
+                        <line x1="60" y1="10" x2="60" y2="150" stroke="black" />
+                        <line x1="30" y1="150" x2="110" y2="10" stroke="black" stroke-width="1.5" />
+                        <circle cx="60" cy="80" r="3" />
+                        <text x="65" y="75" font-size="10">(٠ ، ٣)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="divider">***********************************</div>
+
+            <div class="question-box">
+                <b>|٧| الشكل (١ - ٤٦) يمثل التطبيق الخطي ت(أ) = ٢ أي النقاط التالية تنتمي إلى التمثيل البياني للتطبيق (٥ ، ٠) ، (٠ ، ٥) ، (٠ ، ٢) ، (٢ ، ٠) ، (١ ، ٠) ، (٠ ، ٠)</b><br>
+                <span class="solution-title">* الحل *</span><br>
+                النقاط التي تنتمي للتمثيل البياني للتطبيق هي كل النقاط التي على صورة أزواج مرتبة وفيها المسقط الثاني العنصر ٢ فتكون هي<br>
+                النقاط التالية : (٢ ، ٢) ، (٠ ، ٢) ، (١ ، ٢) ، (-٢ ، ٢)<br>
+                حيث : ت(-٢) = ٢ ، ت(٠) = ٢ ، ت(١) = ٢ ، ت(١٠٠) = ٢
+
+                <div class="graph-box">
+                    <svg width="180" height="120" viewBox="0 0 180 120">
+                        <line x1="10" y1="100" x2="170" y2="100" stroke="black" />
+                        <line x1="90" y1="10" x2="90" y2="110" stroke="black" />
+                        <line x1="10" y1="60" x2="170" y2="60" stroke="blue" stroke-width="2" />
+                        <text x="120" y="80" font-size="11">شكل (١ - ٤٦)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="divider">***********************************</div>
+
+            <div class="question-box">
+                <b>|٨| الشكل (١ - ٤٧) يمثل تطبيقاً خطياً :</b><br>
+                <b>أ) أوجد إحداثي نقطتي التقاطع مع محور السينات ومحور الصادات .</b><br>
+                <b>ب) أي القاعدتين التاليتين تعتبر قاعدة للتطبيق الخطي المرسوم جانباً :</b><br>
+                <center><b>ت(أ) = ٢ - أ ، ت(أ) = ١ + أ</b></center>
+
+                <div class="graph-box">
+                    <svg width="180" height="130" viewBox="0 0 180 130">
+                        <line x1="10" y1="100" x2="170" y2="100" stroke="black" />
+                        <line x1="90" y1="10" x2="90" y2="120" stroke="black" />
+                        <line x1="20" y1="110" x2="150" y2="20" stroke="black" stroke-width="1.5" />
+                        <text x="130" y="115" font-size="11">شكل (١ - ٤٧)</text>
+                    </svg>
+                </div>
+                
+                <span class="solution-title">* الحل *</span><br>
+                (أ) نلاحظ أن الخط المستقيم يقطع المستوى الإحداثي في نقطتين هما (١ ، ٠) ، (٠ ، ١) أي يقطع م س في النقطة (١ ، ٠) ويقطع م ص في النقطة (٠ ، ١)<br>
+                (ب) من الشكل البياني نجد أن النقطتين (١ ، ٠) ، (٠ ، ١) يحققان قاعدة التطبيق التالية : ت(أ) = ١ + أ
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

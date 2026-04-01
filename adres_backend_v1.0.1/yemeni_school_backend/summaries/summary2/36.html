@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ملزمة الرياضيات - الصف التاسع - صفحة ٣٦</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --border-color: #000;
+            --correct-color: #28a745;
+            --wrong-color: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            direction: rtl;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+
+        .main-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: right;
+            padding: 8px 10px;
+            font-weight: bold;
+            margin-bottom: 0;
+            font-size: 1.1em;
+            border-bottom: none;
+        }
+
+        /* تنسيق الكسور */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.9em;
+            margin: 0 2px;
+            direction: ltr;
+            /* الكسور عادة بالأرقام اللاتينية أو لضمان الترتيب */
+        }
+
+        .fraction .top {
+            border-bottom: 1px solid #000;
+            display: block;
+            line-height: 1;
+            padding-bottom: 1px;
+        }
+
+        .fraction .bottom {
+            display: block;
+            line-height: 1;
+            padding-top: 1px;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: top;
+            position: relative;
+            top: -0.3em;
+            font-weight: bold;
+        }
+
+        /* حاوية الأسئلة */
+        .q-table {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
+        }
+
+        .q-row {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .q-text {
+            padding: 10px;
+            font-weight: bold;
+            background-color: #fff;
+            border-bottom: 1px dotted #ccc;
+            text-align: right;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        /* لضمان ظهور الأرقام والإشارات بشكل صحيح */
+        .math-text {
+            unicode-bidi: embed;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* تنسيق الأرقام العربية المشرقية */
+        .ar-num {
+            font-family: 'Times New Roman';
+        }
+
+        /* ترتيب الأعمدة */
+        .options-container {
+            display: flex;
+            direction: rtl;
+        }
+
+        .opt-column {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opt-column:first-child {
+            border-left: 1px solid var(--border-color);
+        }
+
+        .option-cell {
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 8px 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: transparent;
+            min-height: 45px;
+            text-align: right;
+        }
+
+        .option-cell:last-child {
+            border-bottom: none;
+        }
+
+        .opt-num {
+            border: 1px solid #000;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 8px;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        .opt-text {
+            flex-grow: 1;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* ألوان التفاعل */
+        .option-cell.correct,
+        .last-opt.correct {
+            background-color: #d4edda !important;
+        }
+
+        .option-cell.correct .opt-num,
+        .last-opt.correct span {
+            background-color: var(--correct-color);
+            color: white;
+            border-color: var(--correct-color);
+        }
+
+        .option-cell.wrong,
+        .last-opt.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        .option-cell.wrong .opt-num,
+        .last-opt.wrong span {
+            background-color: var(--wrong-color);
+            color: white;
+            border-color: var(--wrong-color);
+        }
+
+        /* الأسئلة الوزارية */
+        .center-wrapper {
+            text-align: center;
+            margin: 15px 0 5px;
+        }
+
+        .ministerial-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            /* text-decoration: underline; */
+            background-color: #b0c4de;
+            /* لون أزرق فاتح / رمادي حسب الصورة */
+            display: inline-block;
+            padding: 5px 25px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            /* تقريب الحواف قليلاً لمحاكاة الشكل */
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+            font-family: 'DecoType Naskh', 'Arial', sans-serif;
+            /* محاولة لخط مشابه */
+        }
+
+        /* جدول الصح والخطأ */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .tf-table th,
+        .tf-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .tf-table th {
+            background-color: #fbe5d6;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .tf-text-col {
+            text-align: right;
+            font-weight: bold;
+            width: 70%;
+        }
+
+        .tf-check-col {
+            text-align: center;
+            width: 15%;
+        }
+
+        .circle-check {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .circle-check.active-correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle-check.active-wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        /* السؤال الأخير */
+        .last-q-header {
+            background-color: #fbe5d6;
+            border: 1px solid #000;
+            padding: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .last-q-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border: 1px solid #000;
+            border-top: none;
+            padding: 10px;
+            gap: 5px;
+        }
+
+        .last-opt {
+            border: 1px solid #000;
+            padding: 8px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 49%;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        .last-opt span {
+            border: 1px solid #000;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 23px;
+            font-weight: bold;
+            margin-left: 8px;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            margin-top: 20px;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .page-container {
+                border: none;
+                padding: 5px;
+            }
+
+            .main-header {
+                font-size: 1em;
+            }
+
+            /* Stack options on small screens */
+            .options-container {
+                flex-direction: column;
+            }
+
+            .opt-column {
+                width: 100%;
+                border-left: none;
+                /* remove separator when stacked */
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .opt-column:last-child {
+                border-bottom: none;
+            }
+
+            .last-opt {
+                width: 100%;
+            }
+
+            .tf-text-col {
+                font-size: 0.9em;
+            }
+
+            /* Ensure fractions don't break layout */
+            .fraction {
+                margin: 0 1px;
+                font-size: 0.85em;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="main-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+        <div id="mcq-container" class="q-table"></div>
+
+        <div class="center-wrapper">
+            <div class="ministerial-header">أسئلة وزارية</div>
+        </div>
+
+        <table class="tf-table">
+            <thead>
+                <tr>
+                    <th style="width: 70%;">ظلل الإجابة الصحيحة فيما يلي:</th>
+                    <th style="width: 15%;">صح</th>
+                    <th style="width: 15%;">خطأ</th>
+                </tr>
+            </thead>
+            <tbody id="tf-container"></tbody>
+        </table>
+
+        <div class="last-q-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+        <div
+            style="border: 1px solid #000; border-top: none; border-bottom: none; padding: 10px; font-weight: bold; background-color: #fff;">
+            أ. إذا كان ( س - ٠,٣ ) أحد عوامل المقدار س<sup>٢</sup> - ٠,٠٩ ؛ فإن العامل الآخر هو .......... :
+        </div>
+        <div class="last-q-options" id="last-q-opts"></div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٣٦ -</span>
+        </div>
+    </div>
+
+    <script>
+        const mcqQuestions = [
+            {
+                text: "١. ع . م . أ للحدود الجبرية ٢ س ، ٤ ص ، ٨ ع هو ..... :",
+                rightCol: [{ id: "١", val: "٢ س ص ع" }, { id: "٢", val: "٨ س ص ع" }],
+                leftCol: [{ id: "٣", val: "٢", correct: true }, { id: "٤", val: "٨" }]
+            },
+            {
+                text: "٢. ع . م . أ للحدود الجبرية -٣ ل ، -٤ س ، -٥ ص هو ..... :",
+                rightCol: [{ id: "١", val: "٣ ل س ص" }, { id: "٢", val: "ل س ص" }],
+                leftCol: [{ id: "٣", val: "<span class='math-text'>-١</span>", correct: true }, { id: "٤", val: "١" }]
+            },
+            {
+                text: "٣. ( س - ٥ ) ( س + ٥ ) = ............ :",
+                rightCol: [{ id: "١", val: "( س<sup>٢</sup> - ٢٥ )", correct: true }, { id: "٢", val: "( س<sup>٢</sup> + ٢٥ )" }],
+                leftCol: [{ id: "٣", val: "( س<sup>٢</sup> - ١٠ )" }, { id: "٤", val: "( س<sup>٢</sup> + ١٠ )" }]
+            },
+            {
+                text: "٤. ( م - ٢ )<sup>٣</sup> - ( م - ٢ )<sup>٢</sup> = ............ :",
+                rightCol: [{ id: "١", val: "( م - ٢ )<sup>٢</sup> ( م - ٣ )", correct: true }, { id: "٢", val: "( م - ٢ )<sup>٣</sup> ( م - ٣ )" }],
+                leftCol: [{ id: "٣", val: "( م - ٢ )<sup>٢</sup> ( م - ١ )" }, { id: "٤", val: "( م - ٢ )<sup>٣</sup> ( م - ١ )" }]
+            },
+            {
+                text: "٥. ( س + ص )<sup>٣</sup> - ٩ ( س + ص ) = ............ :",
+                rightCol: [
+                    { id: "١", val: "( س + ص ) ( س + ص - ٣ ) ( س + ص - ٣ )" },
+                    { id: "٢", val: "( س - ص ) ( س - ص - ٣ ) ( س - ص + ٣ )" }
+                ],
+                leftCol: [
+                    { id: "٣", val: "( س - ص ) ( س + ص - ٣ ) ( س + ص + ٣ )" },
+                    { id: "٤", val: "( س + ص ) ( س + ص - ٣ ) ( س + ص + ٣ )", correct: true }
+                ]
+            },
+            {
+                text: "٦. ٣٢ س ص<sup>٣</sup> - ٧٢ س<sup>٣</sup> ص = ............ :",
+                rightCol: [
+                    { id: "١", val: "- ٨س ص ( ٢ ص - ٣ س ) ( ٢ ص + ٣ س )" },
+                    { id: "٢", val: "٨س ص ( ٢ ص - ٣ س ) ( ٢ ص + ٣ س )", correct: true }
+                ],
+                leftCol: [
+                    { id: "٣", val: "- ٨س ص ( ٢ ص - ٣ س ) ( ٢ ص - ٣ س )" },
+                    { id: "٤", val: "٨س ص ( ٢ ص - ٣ س ) ( ٢ ص - ٣ س )" }
+                ]
+            },
+            {
+                text: "٧. (٩,١)<sup>٢</sup> - (١,٩)<sup>٢</sup> = ............ :",
+                rightCol: [{ id: "١", val: "٧٩,٢", correct: true }, { id: "٢", val: "- ٧٩,٢" }],
+                leftCol: [{ id: "٣", val: "١٢١" }, { id: "٤", val: "- ١٢١" }]
+            },
+            {
+                text: "٨. ( هـ<sup>٢</sup> ل<sup>٤</sup> - <div class='fraction'><span class='top'>ك<sup>٦</sup></span><span class='bottom'>٤٩</span></div> ) = ............ :",
+                rightCol: [
+                    { id: "١", val: "( هـ ل<sup>٢</sup> ± <div class='fraction'><span class='top'>ك<sup>٣</sup></span><span class='bottom'>٧</span></div> )", correct: true },
+                    { id: "٢", val: "( هـ ل<sup>٢</sup> - <div class='fraction'><span class='top'>ك<sup>٣</sup></span><span class='bottom'>٧</span></div> )<sup>٢</sup>" }
+                ],
+                leftCol: [
+                    { id: "٣", val: "( هـ ل<sup>٢</sup> + <div class='fraction'><span class='top'>ك<sup>٣</sup></span><span class='bottom'>٧</span></div> )<sup>٢</sup>" },
+                    { id: "٤", val: "٤. ( <div class='fraction'><span class='top'>ك<sup>٣</sup></span><span class='bottom'>٧</span></div> - هـ ل<sup>٢</sup> ) ( <div class='fraction'><span class='top'>ك<sup>٣</sup></span><span class='bottom'>٧</span></div> - هـ ل<sup>٢</sup> )" }
+                ]
+            },
+            {
+                text: "٩. (٢٧ أ<sup>٣</sup> - ١٢ أ ب<sup>٢</sup>) = ............ :",
+                rightCol: [{ id: "١", val: "٣ أ (٣ أ - ٢ ب) (٣ أ - ٢ ب)" }, { id: "٢", val: "-٣ أ (٣ أ - ٢ ب) (٣ أ - ٢ ب)" }],
+                leftCol: [{ id: "٣", val: "٣ أ (٣ أ - ٢ ب) (٣ أ + ٢ ب)", correct: true }, { id: "٤", val: "٣ (٣ أ - ٢ ب)<sup>٢</sup>" }]
+            },
+            {
+                text: "١٠. إذا كان ( م س<sup>٢</sup> - ٣٢ ع<sup>٤</sup> ) = ٨ ( س - ٢ ع<sup>٢</sup> ) ( س + ٢ ع<sup>٢</sup> ) ، فإن قيمة م = ............ :",
+                rightCol: [{ id: "١", val: "-٤" }, { id: "٢", val: "٤" }],
+                leftCol: [{ id: "٣", val: "٨", correct: true }, { id: "٤", val: "-٨" }]
+            }
+        ];
+
+        function createOptionCell(opt, allCellsInQuestion) {
+            const cell = document.createElement('div');
+            cell.className = 'option-cell';
+            cell.innerHTML = `
+            <div class="opt-num">${opt.id}</div>
+            <div class="opt-text">${opt.val}</div>
+        `;
+            cell.onclick = function () {
+                if (cell.classList.contains('correct') || cell.classList.contains('wrong')) {
+                    cell.classList.remove('correct', 'wrong');
+                } else {
+                    allCellsInQuestion.forEach(c => c.classList.remove('correct', 'wrong'));
+                    cell.classList.add(opt.correct ? 'correct' : 'wrong');
+                }
+            };
+            return cell;
+        }
+
+        const container = document.getElementById('mcq-container');
+        mcqQuestions.forEach(q => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-row';
+            qDiv.innerHTML = `<div class="q-text">${q.text}</div>`;
+            const optsContainer = document.createElement('div');
+            optsContainer.className = 'options-container';
+
+            const rightColDiv = document.createElement('div');
+            rightColDiv.className = 'opt-column';
+            const leftColDiv = document.createElement('div');
+            leftColDiv.className = 'opt-column';
+
+            const allCells = [];
+            q.rightCol.forEach(opt => {
+                const c = createOptionCell(opt, allCells);
+                allCells.push(c);
+                rightColDiv.appendChild(c);
+            });
+            q.leftCol.forEach(opt => {
+                const c = createOptionCell(opt, allCells);
+                allCells.push(c);
+                leftColDiv.appendChild(c);
+            });
+
+            optsContainer.appendChild(rightColDiv);
+            optsContainer.appendChild(leftColDiv);
+            qDiv.appendChild(optsContainer);
+            container.appendChild(qDiv);
+        });
+
+        const tfQuestions = [
+            { text: "١. ع . م . أ للمقدارين ( س<sup>٢</sup> - ٢٥ ) ، ( س - ٥ ) هو ( س - ٥ ).", correct: true },
+            { text: "٢. يقصد بتحليل المقدار: كتابته على صورة حاصل ضرب عوامله.", correct: true },
+            { text: "٣. عند التحليل باستخراج العامل المشترك نستخدم خاصية التوزيع.", correct: true },
+            { text: "٤. ( ٣ س<sup>٢</sup> - ٢٧ ) = ٣ ( س - ٣ ) ( س + ٣ ).", correct: true }
+        ];
+
+        const tfContainer = document.getElementById('tf-container');
+        tfQuestions.forEach(q => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td class="tf-text-col">${q.text}</td>
+            <td class="tf-check-col"><div class="circle-check" onclick="checkTF(this, true, ${q.correct})"></div></td>
+            <td class="tf-check-col"><div class="circle-check" onclick="checkTF(this, false, ${q.correct})"></div></td>
+        `;
+            tfContainer.appendChild(tr);
+        });
+
+        function checkTF(el, userVal, correctVal) {
+            if (el.classList.contains('active-correct') || el.classList.contains('active-wrong')) {
+                el.classList.remove('active-correct', 'active-wrong');
+                return;
+            }
+            const row = el.closest('tr');
+            row.querySelectorAll('.circle-check').forEach(c => c.classList.remove('active-correct', 'active-wrong'));
+            el.classList.add(userVal === correctVal ? 'active-correct' : 'active-wrong');
+        }
+
+        const lastQOpts = [
+            { id: "١", val: "( س - ٠,٣ )" },
+            { id: "٢", val: "( س + ٠,٣ )", correct: true },
+            { id: "٣", val: "( س - ٠,٠٣ )" },
+            { id: "٤", val: "( س + ٠,٠٣ )" }
+        ];
+        const lastQContainer = document.getElementById('last-q-opts');
+        lastQOpts.forEach(opt => {
+            const div = document.createElement('div');
+            div.className = 'last-opt';
+            div.innerHTML = `<span>${opt.id}</span> ${opt.val}`;
+            div.onclick = function () {
+                const alreadySelected = div.classList.contains('correct') || div.classList.contains('wrong');
+                lastQContainer.querySelectorAll('.last-opt').forEach(s => {
+                    s.classList.remove('correct', 'wrong');
+                });
+                if (!alreadySelected) {
+                    div.classList.add(opt.correct ? 'correct' : 'wrong');
+                }
+            };
+            lastQContainer.appendChild(div);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>حساب المثلثات</title>
+
+<style>
+body{
+  margin:0;
+  background:#fff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:760px;
+  margin:auto;
+  padding:22px 18px 36px;
+  font-size:17px;
+  line-height:2.35;
+  box-sizing:border-box;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:10px;
+}
+
+.header small{
+  font-size:14px;
+}
+
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:20px;
+}
+
+p{margin:14px 0;}
+
+.eq{margin:14px 0;}
+
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  margin:0 6px;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:4px;
+  padding:0 6px;
+}
+
+.solution{
+  display:inline-block;
+  background:#000;
+  color:#fff;
+  border-radius:18px;
+  padding:6px 18px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.section-title{
+  display:inline-block;
+  background:#a9e2fb;
+  padding:6px 22px;
+  font-size:18px;
+  margin:22px 0 10px;
+  box-shadow:-6px 6px 0 #000;
+}
+
+.svg-wrap{
+  max-width:420px;
+  margin:10px 0 14px;
+}
+
+.footer{
+  margin-top:40px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+@media(max-width:480px){
+  .page{
+    font-size:16px;
+    padding:18px 14px 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="header">
+  <small>حساب المثلثات</small>
+  <small>الوحدة الرابعة</small>
+</div>
+
+<div class="top-line"></div>
+
+<div class="solution">الحل :</div>
+
+<div class="eq">
+جا<sup>2</sup> هـ + جتا<sup>2</sup> هـ = ١
+</div>
+
+<div class="eq">
+جا<sup>2</sup> هـ + (٠٫٨)<sup>2</sup> = ١
+</div>
+
+<div class="eq">
+جا<sup>2</sup> هـ + ٠٫٦٤ = ١
+</div>
+
+<div class="eq">
+جا<sup>2</sup> هـ = ١ − ٠٫٦٤ = ٠٫٣٦
+</div>
+
+<p>
+ومنه جا هـ = ٠٫٦ &nbsp;
+[ لاحظ أننا أهملنا القيمة (−٠٫٦) لأن هـ زاوية حادة ، ٠ &lt; جا هـ &lt; ١ ]
+</p>
+
+<p>
+ولإيجاد ظا هـ نستخدم العلاقة :
+</p>
+
+<div class="eq">
+ظا هـ =
+<span class="frac">
+  <span class="top">جا هـ</span>
+  <span class="bottom">جتا هـ</span>
+</span>
+=
+<span class="frac">
+  <span class="top">٠٫٦</span>
+  <span class="bottom">٠٫٨</span>
+</span>
+=
+<span class="frac">
+  <span class="top">٣</span>
+  <span class="bottom">٤</span>
+</span>
+</div>
+
+<div class="section-title">تمارين ومسائل</div>
+
+<p>
+[ ١ ] من الشكل ( ٤ − ١٦ ) أوجد كلاً من :
+</p>
+
+<p>
+جا ج ، جتا ج ، ظا ج .
+</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 420 220" width="100%" height="auto">
+  <!-- base -->
+  <line x1="40" y1="180" x2="340" y2="180" stroke="#000" stroke-width="2"/>
+  <!-- vertical -->
+  <line x1="340" y1="180" x2="340" y2="60" stroke="#000" stroke-width="2"/>
+  <!-- hypotenuse -->
+  <line x1="40" y1="180" x2="340" y2="60" stroke="#000" stroke-width="2"/>
+
+  <!-- right angle -->
+  <rect x="320" y="160" width="20" height="20" fill="none" stroke="#00a6df" stroke-width="2"/>
+
+  <!-- labels -->
+  <text x="30" y="195" font-size="16">ج</text>
+  <text x="350" y="195" font-size="16">ب</text>
+  <text x="350" y="55" font-size="16">م</text>
+
+  <text x="175" y="200" font-size="16">٢٤ سم</text>
+  <text x="350" y="125" font-size="16">٧ سم</text>
+  <text x="165" y="95" font-size="16">٢٥ سم</text>
+
+  <text x="150" y="215" font-size="14">( شكل ٤ − ١٦ )</text>
+</svg>
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٨٢</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

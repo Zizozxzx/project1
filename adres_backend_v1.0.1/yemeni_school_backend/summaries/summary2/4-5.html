@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #000;
+            --header-bg: #e0e0e0;
+            --main-font: 'Amiri', serif; /* Font mimicking the academic Arabic style */
+            --ui-font: 'Tajawal', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Strict no scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--main-font);
+        }
+
+        /* Main A4-like Container constrained to Viewport */
+        .page-container {
+            background: white;
+            width: 98vw;
+            height: 98vh;
+            border: 3px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 1vmin;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-size: 1.6vmin; /* Scales with viewport to prevent overflow */
+        }
+
+        /* Double border effect using outline inside */
+        .page-container::after {
+            content: '';
+            position: absolute;
+            top: 3px; left: 3px; right: 3px; bottom: 3px;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* ---------------- Section 1: Top Exercise ---------------- */
+        .section-header {
+            border: 2px solid var(--border-color);
+            padding: 0.5vmin;
+            margin-bottom: 0.5vmin;
+            flex-shrink: 0;
+        }
+
+        .h-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 1vmin;
+            margin-bottom: 1vmin;
+            font-size: 1.1em;
+        }
+
+        .h-box {
+            background: #ddd;
+            padding: 0 0.5vmin;
+            border: 1px solid #000;
+            font-family: var(--ui-font);
+        }
+
+        .math-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1vmin;
+            flex-wrap: nowrap;
+        }
+
+        .math-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5vmin;
+            white-space: nowrap;
+        }
+
+        .dotted-line {
+            border-bottom: 2px dotted #888;
+            flex-grow: 1;
+            margin: 0 1vmin;
+            min-width: 5vmin;
+            display: inline-block;
+        }
+
+        .long-dotted {
+            width: 100%;
+            border-bottom: 2px dotted #888;
+            height: 1.5vmin;
+            margin-bottom: 0.5vmin;
+        }
+
+        /* ---------------- Section 2: Listing Method ---------------- */
+        .section-listing {
+            border: 2px solid var(--border-color);
+            border-top: none;
+            padding: 0.5vmin;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5vmin;
+        }
+
+        .listing-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5vmin;
+            font-family: var(--ui-font);
+            font-size: 1.1em;
+        }
+
+        .question-row {
+            display: flex;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .q-text {
+            white-space: nowrap;
+            margin-left: 1vmin;
+        }
+
+        /* ---------------- Section 3: Note Box ---------------- */
+        .note-box {
+            background-color: #dbe4eb;
+            border: 2px solid var(--border-color);
+            padding: 0.5vmin;
+            margin: 0.5vmin 0;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        .note-title {
+            font-weight: bold;
+            text-decoration: underline;
+            display: inline-block;
+            margin-left: 1vmin;
+        }
+
+        /* ---------------- Section 4: The Big Table ---------------- */
+        .table-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .table-header-title {
+            background-color: #b0c4de;
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5vmin;
+            border-bottom: 2px solid var(--border-color);
+            font-family: var(--ui-font);
+            font-size: 1.2em;
+            text-shadow: 1px 1px 0px #fff;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 3vmin 1fr 4vmin 4vmin; /* No, Q, True, False */
+            grid-auto-rows: 1fr;
+            height: 100%;
+            font-size: 1.4vmin; /* Slightly smaller for table to fit */
+        }
+
+        .grid-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #000;
+            padding: 0.2vmin;
+        }
+
+        .grid-cell {
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000; /* Vertical lines */
+            display: flex;
+            align-items: center;
+            padding: 0 0.5vmin;
+        }
+
+        .grid-cell:last-child {
+            border-left: none;
+        }
+        
+        /* Remove left border for the first column in RTL */
+        .grid-cell:nth-child(4n+1) { border-left: none; } 
+        .grid-cell:nth-child(4n+2) { border-left: 1px solid #000; }
+        .grid-cell:nth-child(4n+3) { border-left: 1px solid #000; justify-content: center; }
+        .grid-cell:nth-child(4n+4) { border-left: 1px solid #000; justify-content: center; }
+
+
+        .q-num {
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .q-content {
+            justify-content: flex-start;
+            direction: rtl;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip; /* Try to show as much as possible */
+        }
+
+        .bubble {
+            width: 1.8vmin;
+            height: 1.8vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        /* Alternating row colors slightly for readability */
+        .row-bg:nth-child(odd) { background-color: #fff; }
+        .row-bg:nth-child(even) { background-color: #f9f9f9; }
+
+        /* ---------------- Footer ---------------- */
+        .footer {
+            text-align: center;
+            font-size: 1.2vmin;
+            padding-top: 0.5vmin;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5vmin 2vmin;
+        }
+
+        /* Math styling specifics */
+        .set-bracket { font-family: serif; font-weight: bold; }
+        .math-font { font-family: 'Times New Roman', serif; font-style: italic; direction: ltr; display: inline-block; }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <div class="section-header">
+            <div class="h-title">
+                <span class="h-box">تدريب (٢):</span>
+                <span>إذا كانت: س = { ٤ ، ٥ ، ٦ } ، ص = { ١ ، ٢ ، ٣ } ، فاكتب ما يلي مرة بطريقة السرد ومرة بطريقة الصفة المميزة رمزياً:</span>
+            </div>
+            <div class="math-row">
+                <div class="math-item">أ) س <span style="transform: rotate(180deg)">U</span> ص</div>
+                <div class="math-item">ب) س <span style="transform: rotate(0deg)">U</span> ص</div>
+                <div class="math-item">ج) س × ص</div>
+            </div>
+            <div class="long-dotted"></div>
+            <div class="long-dotted"></div>
+            <div class="long-dotted"></div>
+            <div class="long-dotted"></div>
+        </div>
+
+        <div class="section-listing">
+            <div class="listing-title">اكتب ما يلي بطريقة السرد:</div>
+            
+            <div class="question-row">
+                <span class="q-text">١. س = { س : س أحد حواس جسم الإنسان }.</span>
+                <div class="dotted-line"></div>
+            </div>
+            <div class="question-row">
+                <span class="q-text">٢. ص = { س : س ∊ ط ، س + ٥ > ٩ }.</span>
+                <div class="dotted-line"></div>
+            </div>
+            <div class="question-row">
+                <span class="q-text">٣. ح = { م : م عدد فردي ، ٤ < م < ١٠ }.</span>
+                <div class="dotted-line"></div>
+            </div>
+            <div class="question-row">
+                <span class="q-text">٤. ن = { ص : ص عدد أولي من عوامل العدد ١٥ }.</span>
+                <div class="dotted-line"></div>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <span class="note-title">ملاحظة:</span>
+            يا عباقرة ركزوا مع بعض الرموز: 
+            - ∊ ، ∉ : يستخدموا مع انتماء العنصر لمجموعة ما.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            - ⊂ ، ⊄ : يستخدموا مع جزئية المجموعة من مجموعة ما.
+            <br>
+            - قد تأتي المجموعة على شكل فن فنكتبها بطريقة السرد أو الصفة المميزة.
+        </div>
+
+        <div class="table-section">
+            <div class="table-header-title">أسئلة على الدرس بطريقة الأتمتة</div>
+            
+            <div class="data-grid">
+                <div class="grid-header" style="grid-column: 2;">ظلل الإجابة الصحيحة فيما يلي:</div>
+                <div class="grid-header">صح</div>
+                <div class="grid-header">خطأ</div>
+
+                <div class="grid-cell q-num">١.</div>
+                <div class="grid-cell q-content">{ ٢ ، ٣ ، ٦ } = { س : س عامل من عوامل العدد ٦ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٢.</div>
+                <div class="grid-cell q-content">١٤ ⊅ { س : س من مضاعفات العدد ٧ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٣.</div>
+                <div class="grid-cell q-content">{ ٢ ، ٣ } ∋ { م : م عدد أولي ، م < ١٠ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٤.</div>
+                <div class="grid-cell q-content">س : س ∋ ص ، ٥ < س < ١٠ } = { ٥ ، ٦ ، ٧ ، ٨ ، ٩ ، ١٠ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٥.</div>
+                <div class="grid-cell q-content">{ (أ ، ب) : أ ، ب ∊ ط ، أ = ب } = { (٠ ، ٠) ، (١ ، ١) ، (٢ ، ٢) ... }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٦.</div>
+                <div class="grid-cell q-content">س ، ل ، م } = مجموعة حروف كلمة سلالم.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٧.</div>
+                <div class="grid-cell q-content">لأي مجموعتين ص ، س ، فإن ∅ = { م : م ∊ س ، ∉ ص }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٨.</div>
+                <div class="grid-cell q-content">إذا كانت س = { ٣ ، ٦ ، ٩ ... } = { س : س ∊ ط ، س > ٢ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">٩.</div>
+                <div class="grid-cell q-content">{ ن : ن عدد يقبل القسمة على ٤ ، -٨ < ن < ١٦ } = { -٤ ، ٤ ، ٨ ، ١٢ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١٠.</div>
+                <div class="grid-cell q-content">{ س : س عدد أولي، ٢ ≥ س < ١٠ } ∩ { ص : ص من مضاعفات العدد ٢ } = { ٢ ، ٣ ، ٥ ، ٧ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١١.</div>
+                <div class="grid-cell q-content">{ س : س من مضاعفات العدد ٧ } ∪ { ص : ص من عوامل العدد ٤٩ } = { ٤٩ ، ٧ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١٢.</div>
+                <div class="grid-cell q-content">{ ل : ل عدد طبيعي زوجي } ⊂ { أ : أ عدد طبيعي فردي }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١٣.</div>
+                <div class="grid-cell q-content">{ أ ، ب ، ت ، ... } = { ص : ص أحد الحروف الهجائية }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١٤.</div>
+                <div class="grid-cell q-content">٣ ∋ { ب : ب عدد صحيح، ب < ٣ }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+
+                <div class="grid-cell q-num">١٥.</div>
+                <div class="grid-cell q-content">{ (أ ، ب) : أ ، ب ∊ ص+ ، ب = أ + ٢ } = { (٠ ، ٢) ، (١ ، ٣) ، (٢ ، ٤) ... }.</div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+                <div class="grid-cell"><div class="bubble"></div></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>- ٤ -</span>
+            <span>إعداد: هلا المولجي</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

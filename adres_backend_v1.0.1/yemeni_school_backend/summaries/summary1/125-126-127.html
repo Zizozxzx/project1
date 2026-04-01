@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات الصف التاسع - صفحة 42</title>
+    <style>
+        :root { --border-color: #000; --bg-color: #fff; }
+        body { font-family: 'Arial', sans-serif; background: #f4f4f4; margin: 0; padding: 10px; font-size: 14px; line-height: 1.6; color: #000; }
+        .page-container { max-width: 950px; margin: auto; background: var(--bg-color); border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .page-header { text-align: center; border-bottom: 2px solid #000; margin-bottom: 15px; padding-bottom: 5px; font-weight: bold; }
+        
+        /* Layout */
+        .content-wrapper { display: flex; flex-wrap: wrap; gap: 20px; }
+        .column { flex: 1; min-width: 320px; }
+        /* Border between columns only on desktop */
+        .column:first-child { border-left: 1px solid #000; padding-left: 10px; }
+        
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .column { border-left: none !important; padding-left: 0; border-bottom: 2px dashed #000; padding-bottom: 20px; }
+        }
+
+        .section-title { font-weight: bold; margin-bottom: 10px; display: block; }
+        .equation-list { list-style: none; padding: 0; margin: 0 0 10px 0; }
+        .equation-list li { display: inline-block; width: 48%; margin-bottom: 5px; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; text-align: center; }
+        table th, table td { border: 1px solid #000; padding: 4px; }
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; font-size: 0.9em; }
+        .fraction span { display: block; }
+        .fraction span.top { border-bottom: 1px solid #000; }
+
+        /* Graphics */
+        .graph-box { position: relative; width: 220px; height: 180px; margin: 10px auto; border: 1px solid #ddd; background: #fff; }
+        .graph-label { position: absolute; bottom: 5px; width: 100%; text-align: center; font-weight: bold; }
+        .axis-label { font-size: 12px; font-weight: bold; }
+        
+        .solution-step { margin-bottom: 15px; }
+        .highlight-text { background-color: #f9f9f9; padding: 5px; border: 1px dashed #999; margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">— ٤٢ —</div>
+
+    <div class="content-wrapper">
+        <div class="column">
+            <div class="section-title">[٦] مثل بيانياً مجموعة الحل لكل من المعادلات التالية في ح :</div>
+            <ul class="equation-list">
+                <li>أ) ٣س - ٤ص = ١٢</li>
+                <li>ب) ٣س - ٢ص = ١</li>
+                <li>جـ) ٤س + ص = ٠</li>
+                <li>د) س = ص</li>
+                <li>هـ) ٢ص = ص - س</li>
+                <li>و) <span class="fraction"><span class="top">ص</span><span>٢</span></span> + <span class="fraction"><span class="top">س</span><span>٣</span></span> = ٢</li>
+            </ul>
+
+            <div class="solution-step">
+                <span style="color:red; font-weight:bold; text-decoration:underline;">* الحل *</span><br>
+                <b>أ ) ٣س - ٤ص = ١٢ لكي نحصل على الحل بيانياً نتبع ما يلي :</b><br>
+                (١) نكتب المعادلة بدلالة أحد المتغيرين تختار ص بدلالة س أو العكس أي :<br>
+                ∵ -٤ص = ١٢ - ٣س ؛ فإن ٣س + ١٢ = ٤ص بالقسمة على ٤<br>
+                ∴ ص = <span class="fraction"><span class="top">٣س + ١٢</span><span>٤</span></span> &larr; (١)<br>
+                (٢) نختار قيم اختيارية للمتغير س من ح ويفضل أن تكون هذه القيم متباعدة يسهل عندها حساب قيم المتغير ص المناظرة لنختار القيم :<br>
+                س = ٠ ، -٤ ، ............ نكتفي بـ ثم نعوض بهذه القيم في المعادلة (١) لنحصل على قيم ص المناظرة و ننشىء على ضوء ذلك جدول القيم المجاور .
+                
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = <span class="fraction"><span class="top">٣س + ١٢</span><span>٤</span></span></td>
+                        <td style="width:15%">ص</td>
+                        <td style="width:20%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td><span class="fraction"><span class="top">٣(٠)+١٢</span><span>٤</span></span> = ٣</td>
+                        <td>٣</td>
+                        <td>(٠ ، ٣)</td>
+                    </tr>
+                    <tr>
+                        <td>-٤</td>
+                        <td><span class="fraction"><span class="top">٣(-٤)+١٢</span><span>٤</span></span> = ٠</td>
+                        <td>٠</td>
+                        <td>(-٤ ، ٠)</td>
+                    </tr>
+                    <tr>
+                        <td>-٨</td>
+                        <td><span class="fraction"><span class="top">٣(-٨)+١٢</span><span>٤</span></span> = -٣</td>
+                        <td>-٣</td>
+                        <td>(-٨ ، -٣)</td>
+                    </tr>
+                </table>
+
+                (٣) نمثل الأزواج المرتبة (٠ ، ٣) ، (-٤ ، ٠) ، (-٨ ، -٣) نقاط في المستوى الإحداثي .<br>
+                (٤) نصل تلك النقاط فنحصل على الحل البياني الممثل بالخط المستقيم الموضح في الشكل ( أ ) .
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#000" /></marker></defs>
+                        <line x1="10" y1="90" x2="210" y2="90" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="110" y1="10" x2="110" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="105" font-size="10">س</text><text x="115" y="20" font-size="10">ص</text>
+                        <line x1="30" y1="90" x2="110" y2="30" stroke="black" stroke-width="2" /> <line x1="10" y1="105" x2="150" y2="0" stroke="black" stroke-width="1.5" />
+
+                        <circle cx="110" cy="30" r="3" fill="black"/><text x="115" y="30" font-size="10">(٠، ٣)</text>
+                        <circle cx="30" cy="90" r="3" fill="black"/><text x="25" y="80" font-size="10">(-٤، ٠)</text>
+                        <text x="60" y="50" font-size="10" transform="rotate(-37 60,50)">(٣،٢)</text> </svg>
+                    <div class="graph-label">شكل ( أ )</div>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <b>ب] ٣س - ٢ص = ١ ومنها ص = <span class="fraction"><span class="top">٣س - ١</span><span>٢</span></span> ويمكن أن نختار ثلاث نقاط مناسبة للمتغير س فنحصل على قيم ص المناظرة لها كما هو موضح في الجدول .</b>
+                
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = <span class="fraction"><span class="top">٣س - ١</span><span>٢</span></span></td>
+                        <td style="width:15%">ص</td>
+                        <td style="width:20%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>١</td>
+                        <td>١</td>
+                        <td>١</td>
+                        <td>(١ ، ١)</td>
+                    </tr>
+                    <tr>
+                        <td>-١</td>
+                        <td>-٢</td>
+                        <td>-٢</td>
+                        <td>(-١، -٢)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="fraction"><span class="top">١</span><span>٣</span></span></td>
+                        <td>٠</td>
+                        <td>٠</td>
+                        <td>(<span class="fraction"><span class="top">١</span><span>٣</span></span> ، ٠)</td>
+                    </tr>
+                </table>
+
+                نمثل تلك الأزواج المرتبة كنقاط في المستوى الأحداثي فنرسم الخط المستقيم المار بتلك النقاط فنحصل على الحل البياني وهو عبارة عن مجموعة لا نهائية من النقاط كما بالشكل (ب).
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#000" /></marker></defs>
+                        <line x1="10" y1="90" x2="210" y2="90" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="110" y1="10" x2="110" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="105" font-size="10">س</text><text x="115" y="20" font-size="10">ص</text>
+                        
+                        <line x1="70" y1="160" x2="150" y2="40" stroke="black" stroke-width="1.5" />
+                        
+                        <circle cx="130" cy="70" r="3" fill="black"/><text x="135" y="70" font-size="10">(١، ١)</text>
+                        <circle cx="170" cy="10" r="3" fill="black"/><text x="175" y="20" font-size="10">(٤،٣)</text> </svg>
+                    <div class="graph-label">شكل ( ب )</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="solution-step">
+                <b>جـ) ٤س + ص = ٠ ، ومنها ص = -٤س ، س ∈ ح نشكل جدول ومنه يتم الرسم</b>
+                <table>
+                    <tr>
+                        <td>س</td>
+                        <td>ص = -٤س</td>
+                        <td>(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td>٠</td>
+                        <td>(٠ ، ٠)</td>
+                    </tr>
+                    <tr>
+                        <td>-<span class="fraction"><span class="top">١</span><span>٢</span></span></td>
+                        <td>٢</td>
+                        <td>(-<span class="fraction"><span class="top">١</span><span>٢</span></span> ، ٢)</td>
+                    </tr>
+                    <tr>
+                        <td>-<span class="fraction"><span class="top">١</span><span>٤</span></span></td>
+                        <td>-</td>
+                        <td>-<span class="fraction"><span class="top">١</span><span>٤</span></span> ، ١</td>
+                    </tr>
+                </table>
+
+                <div class="graph-box">
+                    <svg width="220" height="150" viewBox="-10 -10 220 150">
+                        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#000" /></marker></defs>
+                        <line x1="10" y1="75" x2="210" y2="75" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="110" y1="10" x2="110" y2="140" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="90" font-size="10">س</text><text x="115" y="20" font-size="10">ص</text>
+                        
+                        <line x1="90" y1="-5" x2="130" y2="155" stroke="black" stroke-width="1.5" />
+                        <circle cx="110" cy="75" r="3" fill="black"/><text x="115" y="70" font-size="10">(٠،٠)</text>
+                        <circle cx="100" cy="35" r="3" fill="black"/><text x="50" y="40" font-size="10">(-١/٢ ، ٢)</text>
+                    </svg>
+                    <div class="graph-label">شكل ( جـ )</div>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <div style="display:flex; justify-content: space-between;">
+                    <div style="width:60%;">
+                        <b>د) س = ص</b><br>
+                        الطرفان متساويان فيكون بيان هذه المعادلة ينصف الربعين الأول و الثالث س = ٠ فإن ص = ٠ س = ± ١ فإن ص = ± ١ الخ ..
+                    </div>
+                    <div class="graph-box" style="width:120px; height:120px; margin:0;">
+                         <svg width="120" height="120" viewBox="0 0 120 120">
+                            <line x1="5" y1="60" x2="115" y2="60" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                            <line x1="60" y1="5" x2="60" y2="115" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                            <line x1="10" y1="110" x2="110" y2="10" stroke="black" stroke-width="1.5" />
+                            <circle cx="80" cy="40" r="2" fill="black"/><text x="85" y="40" font-size="8">(٢،٢)</text>
+                            <circle cx="70" cy="50" r="2" fill="black"/><text x="75" y="55" font-size="8">(١،١)</text>
+                        </svg>
+                        <div style="text-align:center; font-size:10px; font-weight:bold;">شكل ( د )</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <b>هـ) ∵ ٢ص = ص - س &therefore; ٢ص - ص = -س &therefore; ص = -س</b>
+                <table>
+                    <tr>
+                        <td>س</td>
+                        <td>ص = -س</td>
+                        <td>(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td>٠</td>
+                        <td>(٠ ، ٠)</td>
+                    </tr>
+                    <tr>
+                        <td>١</td>
+                        <td>-١</td>
+                        <td>(١ ، -١)</td>
+                    </tr>
+                    <tr>
+                        <td>-١</td>
+                        <td>١</td>
+                        <td>(-١ ، ١)</td>
+                    </tr>
+                </table>
+                
+                <div class="graph-box" style="height:140px;">
+                    <svg width="220" height="140" viewBox="-10 -10 220 140">
+                        <line x1="10" y1="70" x2="210" y2="70" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="110" y1="10" x2="110" y2="130" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="85" font-size="10">س</text><text x="115" y="20" font-size="10">ص</text>
+                        
+                        <line x1="50" y1="10" x2="170" y2="130" stroke="black" stroke-width="1.5" />
+                        <circle cx="90" cy="50" r="3" fill="black"/><text x="50" y="50" font-size="10">(-٢، ٢)</text>
+                        <circle cx="70" cy="30" r="3" fill="black"/><text x="75" y="30" font-size="10">(-١، ١)</text>
+                    </svg>
+                    <div class="graph-label">شكل ( هـ )</div>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <b>و) ∵ <span class="fraction"><span class="top">ص</span><span>٢</span></span> + <span class="fraction"><span class="top">س</span><span>٣</span></span> = ٢ نضرب طرفي المعادلة في ٦ ( م . م . أ ) للمقامات</b><br>
+                <div style="text-align:center; margin:5px 0;">
+                    <span class="fraction"><span class="top">٦ × ص</span><span>٢</span></span> + <span class="fraction"><span class="top">٦ × س</span><span>٣</span></span> = ١٢ ومنها ص = <span class="fraction"><span class="top">١٢ - ٢س</span><span>٣</span></span><br>
+                    &therefore; ٣ص + ٢س = ١٢
+                </div>
+
+                <table>
+                    <tr>
+                        <td style="width:10%">س</td>
+                        <td style="width:40%">ص = <span class="fraction"><span class="top">١٢ - ٣س</span><span>٢</span></span></td> <td style="width:10%">ص</td>
+                        <td>(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٢</td>
+                        <td>٣</td>
+                        <td>(٢ ، ٣)</td>
+                    </tr>
+                    <tr>
+                        <td>١</td>
+                        <td><span class="fraction"><span class="top">٩</span><span>٢</span></span></td>
+                        <td>(١ ، ٤,٥)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td>٦</td>
+                        <td>(٠ ، ٦)</td>
+                    </tr>
+                </table>
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <line x1="10" y1="150" x2="210" y2="150" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="50" y1="10" x2="50" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="165" font-size="10">س</text><text x="55" y="20" font-size="10">ص</text>
+                        
+                        <line x1="50" y1="30" x2="130" y2="150" stroke="black" stroke-width="1.5" />
+                        
+                        <circle cx="90" cy="90" r="3" fill="black"/><text x="95" y="90" font-size="10">(٢، ٣)</text>
+                        <circle cx="50" cy="30" r="3" fill="black"/><text x="60" y="40" font-size="10">(٠، ٦)</text>
+                        <text x="130" y="165" font-size="10">٤</text>
+                    </svg>
+                    <div class="graph-label">شكل ( و )</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

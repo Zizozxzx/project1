@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ملزمة الرياضيات - الصف التاسع - صفحة ٣٧</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --border-color: #000;
+            --correct-color: #28a745;
+            --wrong-color: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* STRICTLY Prevent scrolling */
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            /* Smaller fonts to fit in the narrower, shorter space */
+            font-size: 1.6vmin;
+            /* Reduced from 1.8vmin to avoid clipping */
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Center horizontally/vertically roughly, but page container handles pos */
+        }
+
+        .page-container {
+            width: 90%;
+            /* Narrower relative to screen */
+            max-width: 650px;
+            /* Reduced from 800px as requested "less width" */
+            height: 95%;
+            /* Leave some space (margin) at top/bottom naturally */
+            margin-top: 5vh;
+            /* Explicit top margin as requested "not from top directly" */
+            margin-bottom: 2vh;
+            border: 2px solid #000;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 0;
+            background: #fff;
+        }
+
+        .q-table {
+            width: 100%;
+            border-bottom: 2px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.95);
+            flex-shrink: 0;
+            /* STRICTLY limit to 25% of the container height (Quarter page) */
+            height: 25%;
+            overflow: hidden;
+            /* Ensure it stays in the box */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .q-row {
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            /* Each question takes equal 1/3 of the 25% space */
+            justify-content: center;
+        }
+
+        .q-text {
+            padding: 0 0.5em;
+            /* Minimal vertical padding, rely on flex centering */
+            font-weight: bold;
+            background-color: #f0f0f0;
+            border-bottom: 1px dotted #ccc;
+            text-align: right;
+            font-size: 1em;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 40%;
+            /* Force logical split within row */
+            display: flex;
+            align-items: center;
+        }
+
+        .math-text {
+            unicode-bidi: embed;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .options-container {
+            display: flex;
+            direction: rtl;
+            border-bottom: 1px solid #000;
+            height: 60%;
+            /* Options take slightly more height */
+            align-items: stretch;
+        }
+
+        .options-container:last-child {
+            border-bottom: none;
+        }
+
+        .opt-column {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .opt-column:last-child {
+            border-left: none;
+        }
+
+        .option-cell {
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: transparent;
+            text-align: right;
+            flex: 1;
+        }
+
+        .option-cell:last-child {
+            border-bottom: none;
+        }
+
+        .opt-num {
+            border: 1px solid #000;
+            width: 1.3em;
+            height: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 0.3em;
+            margin-right: 0.2em;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        .opt-text {
+            flex-grow: 1;
+            font-weight: 500;
+            line-height: 1;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .option-cell.correct {
+            background-color: #d4edda !important;
+        }
+
+        .option-cell.correct .opt-num {
+            background-color: var(--correct-color);
+            color: white;
+            border-color: var(--correct-color);
+        }
+
+        .option-cell.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        .option-cell.wrong .opt-num {
+            background-color: var(--wrong-color);
+            color: white;
+            border-color: var(--wrong-color);
+        }
+
+        /* Proper Square Root Construction - ARABIC STYLE */
+        .sqrt-block {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            white-space: nowrap;
+            margin: 0 2px;
+            direction: rtl;
+            /* Symbol on Right */
+        }
+
+        .sqrt-symbol {
+            font-size: 1.1em;
+            /* Reduced from 1.2em */
+            line-height: 1;
+            position: relative;
+            top: 0.05em;
+            /* Flip the symbol to look like Arabic Root (Tick on right, open to left) */
+            transform: scaleX(-1);
+            display: inline-block;
+        }
+
+        .sqrt-content {
+            border-top: 1px solid #000;
+            padding-top: 2px;
+            line-height: 1;
+            margin-right: -2px;
+            /* Connect to symbol on the right */
+            margin-left: 0;
+            padding-left: 2px;
+        }
+
+        /* Watermark Section - Takes the remaining 75% */
+        .watermark-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .wm-text-large {
+            font-size: 20vmin;
+            color: #e0e0e0;
+            transform: rotate(-30deg);
+            font-family: 'DecoType Naskh', Tahoma, sans-serif;
+            font-weight: bold;
+            opacity: 0.5;
+            pointer-events: none;
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        .wm-text-small {
+            font-size: 5vmin;
+            color: #000;
+            font-family: 'Diwani Letter', 'Traditional Arabic', serif;
+            margin-top: 10vmin;
+            font-weight: bold;
+            z-index: 2;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .footer {
+            height: 5vmin;
+            min-height: 20px;
+            border-top: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: top;
+            position: relative;
+            top: -0.3em;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .page-container {
+                width: 95%;
+                /* Slightly wider on mobile but still not full edge-to-edge if requested narrowness implies borders visible */
+                margin-top: 20px;
+                /* Safe space */
+                max-width: none;
+                border: 2px solid #000;
+            }
+
+
+
+            .options-container {
+                flex-direction: row;
+            }
+
+            .opt-column {
+                width: 50%;
+                border-left: 1px solid var(--border-color);
+                border-bottom: none;
+            }
+
+            .opt-column:last-child {
+                border-left: none;
+            }
+
+            /* Reduce font further on mobile to ensure fit */
+            body {
+                font-size: 2vmin;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <!-- No Main Header on this page based on image -->
+
+        <div id="mcq-container" class="q-table"></div>
+
+        <div class="watermark-area">
+            <div class="wm-text-large">هلا المولجي</div>
+            <div class="wm-text-small">أبنائي .. العمل بجد يحقق الأماني..</div>
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٣٧ -</span>
+        </div>
+    </div>
+
+    <script>
+        const mcqQuestions = [
+            {
+                text: "ب. يحلل المقدار ( ٥ - س<sup>٢</sup> ) إلى ............ :",
+                rightCol: [
+                    { id: "١", val: "( س + ٥ ) ( س - ٥ )" },
+                    { id: "٢", val: "( س + <span class='sqrt-block'><span class='sqrt-symbol'>√</span><span class='sqrt-content'>٥</span></span> )<sup>٢</sup>" }
+                ],
+                leftCol: [
+                    { id: "٣", val: "( <span class='sqrt-block'><span class='sqrt-symbol'>√</span><span class='sqrt-content'>٥</span></span> + س ) ( <span class='sqrt-block'><span class='sqrt-symbol'>√</span><span class='sqrt-content'>٥</span></span> - س )", correct: true },
+                    { id: "٤", val: "( ٥ + س ) ( ٥ - س )" }
+                ]
+            },
+            {
+                text: "ج. إذا كان س<sup>٢</sup> - ٤ = ( س + أ ) ( س + ٢ ) ، فإن أ = ............ :",
+                rightCol: [{ id: "١", val: "٤" }, { id: "٢", val: "١" }],
+                leftCol: [{ id: "٣", val: "٢" }, { id: "٤", val: "<span class='math-text'>-٢</span>", correct: true }]
+            },
+            {
+                text: "د. ( س - ٥ )<sup>٢</sup> - ٢٥ = ............ :",
+                rightCol: [{ id: "١", val: "( س + ١٠ ) ( س - ٥ )" }, { id: "٢", val: "( س + ٥ ) ( س - ٥ )" }],
+                leftCol: [{ id: "٣", val: "س ( س + ١٠ )" }, { id: "٤", val: "س ( س - ١٠ )", correct: true }]
+            }
+        ];
+
+        function createOptionCell(opt, allCellsInQuestion) {
+            const cell = document.createElement('div');
+            cell.className = 'option-cell';
+            cell.innerHTML = `
+            <div class="opt-num">${opt.id}</div>
+            <div class="opt-text">${opt.val}</div>
+        `;
+            cell.onclick = function () {
+                if (cell.classList.contains('correct') || cell.classList.contains('wrong')) {
+                    cell.classList.remove('correct', 'wrong');
+                } else {
+                    allCellsInQuestion.forEach(c => c.classList.remove('correct', 'wrong'));
+                    cell.classList.add(opt.correct ? 'correct' : 'wrong');
+                }
+            };
+            return cell;
+        }
+
+        const container = document.getElementById('mcq-container');
+        mcqQuestions.forEach(q => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-row';
+            qDiv.innerHTML = `<div class="q-text">${q.text}</div>`;
+            const optsContainer = document.createElement('div');
+            optsContainer.className = 'options-container';
+
+            const rightColDiv = document.createElement('div');
+            rightColDiv.className = 'opt-column';
+            const leftColDiv = document.createElement('div');
+            leftColDiv.className = 'opt-column';
+
+            const allCells = [];
+            q.rightCol.forEach(opt => {
+                const c = createOptionCell(opt, allCells);
+                allCells.push(c);
+                rightColDiv.appendChild(c);
+            });
+            q.leftCol.forEach(opt => {
+                const c = createOptionCell(opt, allCells);
+                allCells.push(c);
+                leftColDiv.appendChild(c);
+            });
+
+            optsContainer.appendChild(rightColDiv);
+            optsContainer.appendChild(leftColDiv);
+            qDiv.appendChild(optsContainer);
+            container.appendChild(qDiv);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>صفحة 60 - جمع وطرح الكسور الجبرية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --border-color: #000;
+            --header-bg: #d9e1f2;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 10px;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 5px;
+        }
+
+        .content-list {
+            list-style-type: cjk-decimal;
+            /* Fallback */
+            padding-right: 25px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-top: 0;
+        }
+
+        /* Custom numbering to match image exact style 1. 2. */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-list li {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: baseline;
+        }
+
+        .custom-list li .num {
+            font-weight: bold;
+            margin-left: 10px;
+            min-width: 20px;
+        }
+
+        .remember-box {
+            margin: 15px 0;
+        }
+
+        .remember-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .arrow-list li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 8px;
+        }
+
+        .arrow-list li:before {
+            content: '⬅';
+            /* Using arrow symbol */
+            position: absolute;
+            right: 0;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .important-notes {
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .important-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1em;
+            margin: 0 4px;
+            flex-shrink: 0;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 2px solid var(--border-color);
+            padding: 0 5px;
+            margin-bottom: 2px;
+        }
+
+        .drill-section {
+            margin-top: 20px;
+            border-top: 2px dashed #000;
+            padding-top: 15px;
+        }
+
+        .math-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Right align for Arabic drill */
+            gap: 10px;
+            font-size: 1.3em;
+            margin: 15px 0;
+            direction: ltr;
+            /* Expressions flow LTR visually within RTL context if needed, but here simple equation */
+        }
+
+        /* Force RTL layout for the equation text */
+        .math-equation-rtl {
+            direction: rtl;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            /* Start from right */
+            font-size: 1.4em;
+            margin-right: 20px;
+            flex-wrap: nowrap;
+        }
+
+        .dotted-line {
+            border-bottom: 2px dotted #000;
+            height: 30px;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .footer {
+            text-align: left;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 600px) {
+            .sheet {
+                padding: 5px;
+            }
+
+            .inner-border {
+                padding: 5px;
+            }
+
+            .content-list,
+            .arrow-list,
+            .custom-list {
+                font-size: 1em;
+            }
+
+            .math-equation-rtl {
+                font-size: 1.1em;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-equation-rtl {
+                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <div class="main-header">
+                الدرس الثامن: جمع وطرح الكسور الجبرية
+            </div>
+
+            <div class="section-title">خطوات جمع وطرح الكسور الجبرية:</div>
+            <ul class="custom-list content-list">
+                <li><span class="num">١.</span> نحلل البسوط والمقامات إلى أبسط صورة.</li>
+                <li><span class="num">٢.</span> نوحد المقامات بإيجاد ( م . م . أ ) لها.</li>
+                <li><span class="num">٣.</span> نقسم ( م . م . أ ) على مقام كل كسر ونضرب الناتج في بسطه.</li>
+                <li><span class="num">٤.</span> نجمع أو نطرح البسوط معاً.</li>
+                <li><span class="num">٥.</span> بعد التحليل لكل مقدار والاختصار وتوحيد المقامات وجمع الحدود المتشابهة في
+                    البسط، نتأكد من عدم وجود تحليل لكل من البسط والمقام لاختصاره وجعله في أبسط صورة.</li>
+            </ul>
+
+            <div class="remember-box">
+                <span class="remember-title">تذكر أن:</span> عند إجراء العمليات نتبع التسلسل التالي:
+                <ul class="custom-list arrow-list" style="margin-top: 10px;">
+                    <li>الأولوية دائماً للعمليات التي في الأقواس.</li>
+                    <li>يأتي بعد ذلك عمليتي الضرب والقسمة وتكون الأولوية للعملية التي تأتي أولاً على اليمين.</li>
+                    <li>يأتي بعد ذلك عمليتي الجمع والطرح وتكون الأولوية للعملية التي تأتي أولاً على اليمين.</li>
+                </ul>
+            </div>
+
+            <div class="important-notes">
+                <div class="important-title">ملاحظات هامة:</div>
+                <ul class="custom-list content-list">
+                    <li><span class="num">١.</span> الفرق بين هذا الدرس ودرس ضرب وقسمة الكسور، أنه في هذا الدرس يمكن فقط
+                        اختصار بسط الأول مع الأول وبسط الثاني مع الثاني وهكذا.</li>
+                    <li><span class="num">٢.</span> الفرق بين جمع وطرح الكسور، أنه في الطرح وبعد توحيد المقامات لا بد من
+                        عمل قوس بعد الطرح للبسط الذي يأتي بعد علامة الطرح ثم توزيع الإشارة له بالضرب في جميع حدود البسط
+                        لهذا الكسر.</li>
+                    <li><span class="num">٣.</span> طريقة توحيد المقامات لها ثلاثة أنواع:
+                        <ul style="list-style-type: none; padding-right: 20px; font-size: 0.95em;">
+                            <li>✓ المقامات الموحدة: نجمع أو نطرح البسوط معاً بعد الاختصار مباشرة.</li>
+                            <li>✓ المقامات المتشابهة لكن مختلفة في الإشارة: يتم ترتيب أحد المقامات من خلال إخراج إشارة
+                                السالب كعامل مشترك وضربها في بسط هذا المقام، ثم نكمل الحل.</li>
+                            <li>✓ المقامات المختلفة: يتم توحيد المقامات بإيجاد م. م. أ للمقامات ثم نقسمه على كل مقام
+                                وضرب الناتج المتبقي في البسط.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="drill-section">
+                <div style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">
+                    <span style="border: 2px solid #000; padding: 2px 5px;">تدريب (١)</span>: احسب ما يلي في أبسط صورة:
+                </div>
+
+                <!-- السؤال الأول (من الصورة) -->
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <span style="font-weight: bold; margin-left: 10px;">١.</span>
+                    <div class="math-equation-rtl">
+                        <div class="fraction"><span>س + ٤</span><span>س + ٣</span></div>
+                        <span style="margin: 0 10px;"> + </span>
+                        <div class="fraction"><span>١</span><span>س - ٣</span></div>
+                        <span style="margin: 0 10px;"> - </span>
+                        <div class="fraction"><span>٦</span><span>س<sup>٢</sup> - ٩</span></div>
+                    </div>
+                </div>
+                <div class="dotted-line"></div>
+
+                <!-- السؤال الثاني (مقامات موحدة) -->
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <span style="font-weight: bold; margin-left: 10px;">٢.</span>
+                    <div class="math-equation-rtl">
+                        <div class="fraction"><span>س<sup>٢</sup></span><span>س - ٥</span></div>
+                        <span style="margin: 0 10px;"> - </span>
+                        <div class="fraction"><span>٢٥</span><span>س - ٥</span></div>
+                    </div>
+                </div>
+                <div class="dotted-line"></div>
+
+                <!-- السؤال الثالث (مقامات مختلفة في الإشارة) -->
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <span style="font-weight: bold; margin-left: 10px;">٣.</span>
+                    <div class="math-equation-rtl">
+                        <div class="fraction"><span>٥</span><span>س - ٣</span></div>
+                        <span style="margin: 0 10px;"> + </span>
+                        <div class="fraction"><span>٢</span><span>٣ - س</span></div>
+                    </div>
+                </div>
+                <div class="dotted-line"></div>
+
+                <!-- السؤال الرابع (مقامات مختلفة تحتاج تحليل) -->
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <span style="font-weight: bold; margin-left: 10px;">٤.</span>
+                    <div class="math-equation-rtl">
+                        <div class="fraction"><span>س</span><span>س<sup>٢</sup> - س</span></div>
+                        <span style="margin: 0 10px;"> + </span>
+                        <div class="fraction"><span>١</span><span>س - ١</span></div>
+                    </div>
+                </div>
+                <div class="dotted-line"></div>
+            </div>
+
+            <div class="footer">
+                <div>إعداد: هلا المولجي</div>
+                <div>- ٦٠ -</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

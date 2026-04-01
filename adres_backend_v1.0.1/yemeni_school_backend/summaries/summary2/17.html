@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٧</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.3vmin;
+        }
+
+        .header-title {
+            text-align: right;
+            font-weight: bold;
+            font-family: var(--ui-font);
+            margin-bottom: 0.5vmin;
+            font-size: 1.2em;
+            text-decoration: underline;
+        }
+
+        .relations-table {
+            border: 2px solid #000;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            margin-bottom: 1vmin;
+            font-size: 0.9em;
+        }
+
+        .rt-head {
+            background-color: #fff;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            padding: 0.5vmin;
+            white-space: nowrap;
+        }
+
+        .rt-cell {
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2vmin;
+            text-align: center;
+        }
+
+        .rt-cell:first-child {
+            justify-content: flex-start;
+            padding-right: 1vmin;
+        }
+
+        /* Relation Name */
+        .rt-cell:last-child {
+            border-left: none;
+        }
+
+        .tick {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* ✓ */
+        .cross {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* ✗ */
+
+        .mcq-section {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #000;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .mcq-head {
+            background-color: var(--header-bg);
+            font-weight: bold;
+            padding: 1vmin;
+            border-bottom: 2px solid #000;
+            text-align: center;
+            font-family: var(--ui-font);
+        }
+
+        .grid-row {
+            display: grid;
+            grid-template-columns: 2.5vmin 2.5vmin 2.5vmin 1fr;
+            border-bottom: 1px solid #000;
+            align-items: center;
+            height: 2.5vmin;
+        }
+
+        .cell {
+            border-left: 1px solid #000;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cell:last-child {
+            border-left: none;
+            justify-content: flex-start;
+            padding-right: 1vmin;
+            font-size: 0.9em;
+        }
+
+        .bubble {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+
+        .opt-row {
+            display: grid;
+            grid-template-columns: 2.5vmin 1fr 2.5vmin 1fr;
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .border-left {
+            border-left: 1px solid #000;
+        }
+
+        .no-border-left {
+            border-left: none;
+        }
+
+        .border-black {
+            border: 1px solid #000;
+        }
+
+        .mr-5 {
+            margin-right: 5px;
+        }
+
+        .h3 {
+            height: 3vmin;
+        }
+
+        .full-cols {
+            grid-template-columns: 1fr;
+        }
+
+        .border-bottom-black {
+            border-bottom: 1px solid #000;
+        }
+
+        .padding-02-1 {
+            padding: 0.2vmin 1vmin;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .no-border-bottom {
+            border-bottom: none;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <div class="header-title">علاقات هامة :</div>
+
+        <div class="relations-table">
+            <!-- Headers -->
+            <div class="rt-head border-left">العلاقة</div>
+            <div class="rt-head">علاقة انعكاسية</div>
+            <div class="rt-head">علاقة متناظرة</div>
+            <div class="rt-head">علاقة متعدية</div>
+            <div class="rt-head no-border-left">علاقة تكافؤ</div>
+
+            <!-- Rows -->
+            <div class="rt-cell">علاقة يساوي ( = ) على مجموعات الأعداد</div>
+            <div class="rt-cell tick">✓</div>
+            <div class="rt-cell tick">✓</div>
+            <div class="rt-cell tick">✓</div>
+            <div class="rt-cell tick">✓</div>
+            <div class="rt-cell">علاقة أكبر من ( > ) على مجموعات الأعداد</div>
+            <div class="rt-cell cross">✗</div>
+            <div class="rt-cell cross">✗</div>
+            <div class="rt-cell tick">✓</div>
+            <div class="rt-cell cross">✗</div>
+            <div class="rt-cell">علاقة أصغر من ( < ) على مجموعات الأعداد</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة أكبر من أو يساوي ( ≥ ) على مجموعات الأعداد</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة أصغر من أو يساوي ( ≤ ) على مجموعات الأعداد</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة يوازي ( || ) على المستقيمات</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell">علاقة التطابق ( ≅ ) على الأشكال</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell">علاقة التعامد ( ⊥ ) على المستقيمات</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة يقسم ( ÷ ) على مجموعات الأعداد التي تحتوي على العدد صفر</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة أخ أو أخت</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell tick">✓</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell">علاقة أب أو أم</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+                    <div class="rt-cell cross">✗</div>
+            </div>
+
+            <!-- MCQ Section -->
+            <div class="mcq-section">
+                <div class="mcq-head">أسئلة على الدرس بطريقة الأتمتة</div>
+                <div class="grid-row bg-eee">
+                    <div class="cell">صح</div>
+                    <div class="cell">خطأ</div>
+                    <div class="cell no-border-left"></div>
+                    <div class="cell cell-end-bold">ظلل
+                        الإجابة الصحيحة فيما يلي:</div>
+                </div>
+
+                <!-- Questions -->
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">١.</div>
+                    <div class="cell">إذا كانت ص = { أ ، ب ، ج } ، فإن ص × ص تمثل علاقة تكافؤ.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٢.</div>
+                    <div class="cell">إذا كانت ص = { أ ، ب ، ج } ، فإن العلاقة ع = { (أ ، ب) ، (ب ، أ) } تمثل علاقة
+                        تكافؤ.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٣.</div>
+                    <div class="cell">تكون أي علاقة ع علاقة تكافؤ إذا كانت انعكاسية.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٤.</div>
+                    <div class="cell">علاقة التطابق ( ≅ ) تعتبر علاقة تكافؤ.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٥.</div>
+                    <div class="cell">من خلال الشكل المجاور العلاقة ع تمثل علاقة تكافؤ.
+                        <svg width="40" height="25" viewBox="0 0 40 25" class="border-black mr-5 bg-white">
+                            <ellipse cx="20" cy="12.5" rx="15" ry="8" fill="none" stroke="black" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٦.</div>
+                    <div class="cell">إذا كانت العلاقة تمثل تكافؤ فإنها علاقة متعدية.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٧.</div>
+                    <div class="cell">إذا كانت العلاقة متناظرة فإنها تكون علاقة تكافؤ.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٨.</div>
+                    <div class="cell">إذا كانت ع = { (أ ، أ) : أ ∊ ص }، حيث ص = { ١ ، ٢ ، ٣ ، ٤ } ، فإن ع علاقة تكافؤ.
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">٩.</div>
+                    <div class="cell">إذا كانت ع = { (أ ، ب) ، أ - ب = ١٠ ، أ ، ب ∊ ط } ، فإن ع تمثل علاقة متناظرة وليست
+                        علاقة تكافؤ.</div>
+                </div>
+                <div class="grid-row">
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="cell">١٠.</div>
+                    <div class="cell">إذا كانت ع علاقة على ط حيث كانت العلاقة ارتباط كل عنصر بنفسه، فإنها تعتبر علاقة
+                        تكافؤ.</div>
+                </div>
+
+                <div class="grid-row cell-end-bold h3 bg-ddd pr-1 full-cols">
+                    ظلل الإجابة الصحيحة فيما يلي:</div>
+
+                <div class="border-bottom-black padding-02-1 bold bg-light-gray">
+                    ١. لتكون العلاقة علاقة التكافؤ لا بد أن تكون علاقة ............:</div>
+                <div class="opt-row">
+                    <div class="cell bold bg-eee justify-center">١</div>
+                    <div class="cell start-pr1">انعكاسية ومتناظرة.
+                    </div>
+                    <div class="cell bold bg-eee justify-center">٣</div>
+                    <div class="cell start-pr1">متناظرة ومتعدية.</div>
+                </div>
+                <div class="opt-row no-border-bottom">
+                    <div class="cell bold bg-eee justify-center">٢</div>
+                    <div class="cell start-pr1">متعدية أو انعكاسية أو
+                        متناظرة.</div>
+                    <div class="cell bold bg-eee justify-center">٤</div>
+                    <div class="cell start-pr1">انعكاسية ومتناظرة
+                        ومتعدية.</div>
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٧ -</span>
+            </div>
+        </div>
+</body>
+
+</html>

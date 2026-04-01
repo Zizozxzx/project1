@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>اختبار الرياضيات التفاعلي - صفحة ٥٦</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* تنسيق العنوان الرئيسي */
+        .main-header {
+            background-color: var(--header-bg);
+            border: 2px solid var(--header-border);
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #000;
+            text-shadow: 1px 1px 2px #fff;
+        }
+
+        /* تنسيق قسم التعريف */
+        .section-box {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-weight: 900;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .math-example {
+            direction: ltr;
+            /* للأرقام الإنجليزية إذا لزم الأمر، لكن النص عربي */
+            unicode-bidi: embed;
+        }
+
+        /* تنسيق الجداول */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* جدول المقارنة */
+        .comparison-table th {
+            background-color: var(--orange-header);
+            font-weight: 900;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .col-aspect {
+            width: 15%;
+            background-color: var(--orange-header);
+            font-weight: bold;
+        }
+
+        .col-data {
+            width: 42.5%;
+        }
+
+        /* جدول التدريب التفاعلي */
+        .exercise-table th {
+            background-color: var(--green-header);
+            font-weight: 900;
+        }
+
+        .exercise-table td {
+            background-color: #FFF2CC;
+            /* لون خلفية خلايا الجدول الأخير */
+            height: 40px;
+        }
+
+        .exercise-table tr:nth-child(1) td {
+            background-color: #FFF2CC;
+        }
+
+        /* إعادة تعيين للألوان */
+        .exercise-table tr:nth-child(odd) td {
+            background-color: #FFF2CC;
+        }
+
+        .exercise-table tr:nth-child(even) td {
+            background-color: #ffffff;
+        }
+
+        .exercise-table th {
+            background-color: #A9D08E !important;
+        }
+
+        /* حقول الإدخال */
+        input.answer-input {
+            width: 90%;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px dashed #333;
+            background: transparent;
+            text-align: center;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input.answer-input:focus {
+            border-bottom: 2px solid var(--header-border);
+        }
+
+        /* الأزرار التفاعلية */
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn-check {
+            background-color: var(--header-border);
+            color: white;
+        }
+
+        .btn-reset {
+            background-color: var(--orange-header);
+            color: black;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* هامش الصفحة السفلي */
+        .footer-page {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* للموبايل */
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+
+            .page-container {
+                padding: 10px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .col-aspect {
+                width: 25%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-expr,
+            .math-line {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <header class="main-header">
+            <h1>الدرس السابع: المضاعف المشترك الأصغر</h1>
+        </header>
+
+        <section class="section-box">
+            <div class="section-title">مفهوم المضاعف المشترك الأصغر:</div>
+            <p>
+                المضاعف المشترك الأصغر لعدة مقادير جبرية أو أكثر هو أصغر مقدار يقبل القسمة على هذه المقادير، ويرمز له
+                بالرمز ( م . م . أ ).
+            </p>
+            <p>
+                <strong>مثال على ذلك:</strong> م. م. أ للعددين ٣ ، ٥ :<br>
+                مضاعفات ٣ : ٣ ، ٦ ، ٩ ، ١٢ ، ١٥ ، ١٨ ، ٢١ ، ٢٤ ، ٢٧ ، ٣٠ ، .....<br>
+                مضاعفات ٥ : ٥ ، ١٠ ، ١٥ ، ٢٠ ، ٢٥ ، ٣٠ ، ...<br>
+                المشترك بينهما: ١٥ ، ٣٠ ، لكن الأصغر بينهما هو: ١٥ ، لذلك م . م . أ = ١٥.
+            </p>
+            <p>
+                <strong>ملاحظة:</strong> لإيجاد المضاعف المشترك الأصغر أو العامل المشترك الأكبر نستخدم التحليل.
+            </p>
+        </section>
+
+        <section class="section-box">
+            <div class="section-title">جدول المقارنة بين (م . م . أ) و (ع . م . أ):</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="col-aspect">أوجه المقارنة</th>
+                        <th class="col-data">العامل المشترك الأكبر</th>
+                        <th class="col-data">المضاعف المشترك الأصغر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-aspect">التعريف</td>
+                        <td>هو عبارة عن حد أو مقدار جبري مشترك بين الحدود أو المقادير بحيث يُقسمها جميعاً.</td>
+                        <td>هو عبارة عن أصغر حد أو مقدار جبري مشترك بين الحدود أو المقادير بحيث يقبل القسمة عليها
+                            جميعاً.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">الرمز</td>
+                        <td>ع . م . أ</td>
+                        <td>م . م . أ</td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">المعاملات</td>
+                        <td>نأخذ المعاملات المشتركة فقط وبأقل تكرار.</td>
+                        <td>نأخذ المعاملات المشتركة بأكثر تكرار ونأخذ أيضاً المعاملات غير المشتركة.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">المتغيرات</td>
+                        <td>نأخذ المتغيرات المشتركة فقط وبأصغر أس.</td>
+                        <td>نأخذ المتغيرات المشتركة بأكبر أس ونأخذ أيضاً المتغيرات غير المشتركة.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">الأقواس</td>
+                        <td>نأخذ الأقواس المشتركة فقط وبأصغر أس.</td>
+                        <td>نأخذ الأقواس المشتركة بأصغر أس ونأخذ أيضاً الأقواس غير المشتركة. <br><small>(ملاحظة: النص
+                                الأصلي في الصورة قد يحتوي خطأ مطبعي في كلمة "بأصغر" للمضاعف، الصحيح رياضياً بأكبر
+                                أس)</small></td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">الاستخدام</td>
+                        <td>في عملية التحليل</td>
+                        <td>في عملية توحيد المقامات</td>
+                    </tr>
+                    <tr>
+                        <td class="col-aspect">مثال</td>
+                        <td>٣٢ س ( س + ٢ )٢ ، ٨ س٥ ص ( س + ٢ )<br><strong>ع . م . أ = ٨ س ( س + ٢ )</strong></td>
+                        <td>٣٢ س ( س + ٢ )٣ ، ٨ س٥ ص ( س + ٢ )<br><strong>م . م . أ = ٣٢ س٥ ص ( س + ٢ )٣</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section-box">
+            <div class="section-title">تدريب (١): أكمل الجدول التالي:</div>
+            <table class="exercise-table" id="exerciseTable">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">المقدار</th>
+                        <th style="width: 30%;">ع . م . أ</th>
+                        <th style="width: 30%;">م . م . أ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>٨ ، ١٠ ، ١٠٠ ، ٢٠</td>
+                        <td><input type="text" class="answer-input" data-answer="2" placeholder="اكتب الإجابة"></td>
+                        <td><input type="text" class="answer-input" data-answer="200" placeholder="اكتب الإجابة"></td>
+                    </tr>
+                    <tr>
+                        <td>س ص ، س٢ ، ع س</td>
+                        <td><input type="text" class="answer-input" data-answer="س" placeholder="اكتب الإجابة"></td>
+                        <td><input type="text" class="answer-input" data-answer="س2 ص ع" placeholder="اكتب الإجابة">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>( س + ١ )٣ ، ( س + ١ )٦</td>
+                        <td><input type="text" class="answer-input" data-answer="(س+1)^3" placeholder="اكتب الإجابة">
+                        </td>
+                        <td><input type="text" class="answer-input" data-answer="(س+1)^6" placeholder="اكتب الإجابة">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>س - ١ ، س٢ - ١ <br><small>(بافتراض أن الحد الثاني فرق بين مربعين)</small></td>
+                        <td><input type="text" class="answer-input" data-answer="س-1" placeholder="اكتب الإجابة"></td>
+                        <td><input type="text" class="answer-input" data-answer="س2-1" placeholder="اكتب الإجابة"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="controls">
+                <button class="btn-check" onclick="showAnswers()">عرض الإجابة النموذجية</button>
+                <button class="btn-reset" onclick="resetTable()">مسح الإجابات</button>
+            </div>
+        </section>
+
+        <div class="footer-page">
+            - ٥٦ - <br>
+            <span style="font-size: 0.8rem; font-weight: normal;">إعداد: هلا المولجي</span>
+        </div>
+    </div>
+
+    <script>
+        function showAnswers() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                // Get the correct answer from data attribute
+                const correct = input.getAttribute('data-answer');
+                // Set the value
+                input.value = correct;
+                // Visual flair
+                input.style.color = "#006400"; // Dark green
+                input.style.fontWeight = "bold";
+            });
+        }
+
+        function resetTable() {
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.value = "";
+                input.style.color = "black";
+                input.style.fontWeight = "normal";
+            });
+        }
+    </script>
+
+</body>
+
+</html>

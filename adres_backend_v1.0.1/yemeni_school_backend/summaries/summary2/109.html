@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٩ - الأسئلة الوزارية للوحدة الخامسة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f5f5f5;
+            --ministerial-header: #f8cbad;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ministerial Header */
+        .lesson-header {
+            background-color: var(--ministerial-header);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.4em;
+            text-decoration: underline;
+            font-family: 'Aref Ruqaa', serif;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -1px;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 8px 12px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 40px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 10px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 6px 15px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .opt-item {
+            padding: 6px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: 0.2s;
+        }
+
+        .opt-item:last-child {
+            border-left: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Special Quote / Closing */
+        .closing-box {
+            margin-top: auto;
+            border: 2px dashed #a5d6a7;
+            padding: 20px;
+            text-align: center;
+            background-color: #e8f5e9;
+            border-radius: 15px;
+        }
+
+        .closing-msg {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.5em;
+            color: #2e7d32;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: 15px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-item:nth-child(even) {
+                border-left: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="lesson-header">الأسئلة الوزارية الشاملة للوحدة الخامسة</div>
+
+            <div class="sub-header">
+                <span>أولاً: ظلل الإجابة الصحيحة (صح / خطأ):</span>
+                <div style="display: flex; gap: 40px; padding-left: 15px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">أ</td>
+                    <td>أكبر وتر في الدائرة هو القطر.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">ب</td>
+                    <td>الزاوية المحيطية المرسومة في نصف دائرة تكون قائمة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">جـ</td>
+                    <td>الوتران المتساويان في دائرة واحدة يبعدان عن مركزها ببعدين متساويين.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">د</td>
+                    <td>قياس الزاوية المركزية يساوي ضعف قياس الزاوية المحيطية المشتركة معها في القوس نفسه.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">هـ</td>
+                    <td>طول المماس المنطلق من نقطة خارج الدائرة يساوي في الطول للمماس الآخر.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">و</td>
+                    <td>الزاوية المماسية تساوي قياس الزاوية المحيطية المشتركة معها في القوس نفسه.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">ز</td>
+                    <td>مجموع كل زاويتين متقابلتين في الرباعي الدائري ١٨٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #d9e1f2; border: 1.5px solid #000; padding: 7px 15px; font-weight: bold; margin-bottom: 12px;">
+                ثانياً: اختر الإجابة الصحيحة (أ، ب، جـ، د):</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">أ . قياس الزاوية المركزية يساوي قياس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">المقابل</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المجاور</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المنعكس</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب + جـ</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">ب . قياس الزاوية المحيطية يساوي ....... قياس الزاوية المركزية المشتركة معها في
+                    القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ضعف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">نصف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">يساوي</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">لا شيء</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">جـ . الزاوية المحيطية المرسومة في نصف دائرة قياسها:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٩٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٤٥°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٥٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">د . المماس للدائرة يكون عمودياً على ....... من نقطة التماس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">الوتر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">نصف القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المركز</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">القطر</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">هـ . المستقيم الواصل بين المركز ونقطة خارج الدائرة ينصف الزاوية بين:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المساحات</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">المماسين</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">الأقطار</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">الأوتار</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">و . الرباعي الدائري أ ب ج د فيه ق ⦣ أ = ٧٠° فإن ق ⦣ ج =:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٧٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">١١٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٩٠°</div>
+                </div>
+            </div>
+
+            <div class="closing-box">
+                <div class="closing-msg">تم بحمد الله الانتهاء من الوحدة الخامسة</div>
+                <div style="margin-top: 10px; color: #555;">مع تمنياتي لكم بالتوفيق والنجاح الدائم</div>
+                <div style="font-weight: bold; margin-top: 5px;">أ. هلا المولجي</div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٠٩ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 🔑 يجعل العرض = عرض الجهاز -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <title>فهرس المحتويات - رياضيات</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@500;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: #e0e0e0;
+      font-family: 'Amiri', serif;
+      direction: rtl;
+    }
+
+    /* ========================= */
+    /* الصفحة */
+    /* ========================= */
+
+    .page-container {
+      background-color: white;
+      width: 100%;
+      max-width: 100vw;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 24px 16px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.15);
+    }
+
+    /* ========================= */
+    /* رأس الصفحة */
+    /* ========================= */
+
+    .contents-header {
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .contents-title-box {
+      display: inline-block;
+      border: 2px solid #333;
+      padding: 6px 36px;
+      border-radius: 50px 50px 10px 10px;
+      font-size: 28px;
+      font-weight: bold;
+      background: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-decoration {
+      width: 140px;
+      height: 8px;
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
+      margin: -6px auto 0;
+    }
+
+    /* ========================= */
+    /* العناوين */
+    /* ========================= */
+
+    .labels-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      padding: 0 6px;
+    }
+
+    /* ========================= */
+    /* شريط الوحدة */
+    /* ========================= */
+
+    .unit-bar {
+      background-color: #E3F2FD;
+      color: #039BE5;
+      padding: 10px 16px;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 16px 0 8px;
+      font-family: 'Tajawal', sans-serif;
+      border-radius: 4px;
+    }
+
+    /* ========================= */
+    /* قائمة المحتويات */
+    /* ========================= */
+
+    .index-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .index-item {
+      display: flex;
+      align-items: baseline;
+      margin: 12px 0;
+      font-size: 18px;
+      max-width: 100%;
+    }
+
+    .index-number {
+      min-width: 46px;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .index-text {
+      padding: 0 8px;
+      white-space: normal;
+    }
+
+    .dots-leader {
+      flex-grow: 1;
+      border-bottom: 2px dotted #999;
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+
+    .page-num {
+      min-width: 36px;
+      text-align: center;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    /* ========================= */
+    /* التذييل */
+    /* ========================= */
+
+    .footer-section {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-line {
+      height: 8px;
+      background-color: #4AB3E1;
+      flex-grow: 1;
+      margin-left: 12px;
+      border-radius: 4px;
+    }
+
+    .page-circle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #4AB3E1;
+      border-radius: 999px;
+      width: 70px;
+      height: 38px;
+      font-size: 22px;
+      font-weight: bold;
+      background: white;
+      border-left: 18px solid #4AB3E1;
+      border-right: 18px solid #4AB3E1;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page-container">
+
+  <div class="contents-header">
+    <div class="contents-title-box">المحتويات</div>
+    <div class="header-decoration"></div>
+  </div>
+
+  <div class="labels-row">
+    <span>الموضوع</span>
+    <span>الصفحة</span>
+  </div>
+
+  <div class="unit-bar">الوحدة الأولى : المجموعات والعلاقات</div>
+  <ul class="index-list">
+    <li class="index-item"><span class="index-number">1-1</span><span class="index-text">كتابة المجموعة بالصفة المميزة</span><span class="dots-leader"></span><span class="page-num">7</span></li>
+    <li class="index-item"><span class="index-number">1-2</span><span class="index-text">مجموعة الفرق والمجموعة المتممة</span><span class="dots-leader"></span><span class="page-num">10</span></li>
+    <li class="index-item"><span class="index-number">1-3</span><span class="index-text">العلاقة المتعدية</span><span class="dots-leader"></span><span class="page-num">17</span></li>
+    <li class="index-item"><span class="index-number">1-4</span><span class="index-text">علاقة التكافؤ</span><span class="dots-leader"></span><span class="page-num">25</span></li>
+    <li class="index-item"><span class="index-number">1-5</span><span class="index-text">التطبيق</span><span class="dots-leader"></span><span class="page-num">32</span></li>
+    <li class="index-item"><span class="index-number">1-6</span><span class="index-text">مجموعة الأعداد الحقيقية</span><span class="dots-leader"></span><span class="page-num">40</span></li>
+    <li class="index-item"><span class="index-number">1-7</span><span class="index-text">التطبيق الخطي</span><span class="dots-leader"></span><span class="page-num">48</span></li>
+    <li class="index-item"><span class="index-number">1-8</span><span class="index-text">تمارين عامة ومسائل</span><span class="dots-leader"></span><span class="page-num">53</span></li>
+    <li class="index-item"><span class="index-number">1-9</span><span class="index-text">اختبار الوحدة</span><span class="dots-leader"></span><span class="page-num">58</span></li>
+  </ul>
+
+  <div class="unit-bar">الوحدة الثانية : تحليل المقادير الجبرية</div>
+  <ul class="index-list">
+    <li class="index-item"><span class="index-number">2-1</span><span class="index-text">مراجعة</span><span class="dots-leader"></span><span class="page-num">59</span></li>
+    <li class="index-item"><span class="index-number">2-2</span><span class="index-text">المقدار الثلاثي</span><span class="dots-leader"></span><span class="page-num">61</span></li>
+    <li class="index-item"><span class="index-number">2-3</span><span class="index-text">التحليل بإكمال المربع</span><span class="dots-leader"></span><span class="page-num">73</span></li>
+    <li class="index-item"><span class="index-number">2-4</span><span class="index-text">مجموع مكعبين والفرق بينهما</span><span class="dots-leader"></span><span class="page-num">81</span></li>
+    <li class="index-item"><span class="index-number">2-5</span><span class="index-text">التحليل بالتجميع</span><span class="dots-leader"></span><span class="page-num">86</span></li>
+    <li class="index-item"><span class="index-number">2-6</span><span class="index-text">ضرب وقسمة الكسور الجبرية</span><span class="dots-leader"></span><span class="page-num">90</span></li>
+  </ul>
+
+  <div class="footer-section">
+    <div class="footer-line"></div>
+    <div class="page-circle-wrap">5</div>
+  </div>
+
+</div>
+
+</body>
+</html>

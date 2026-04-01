@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 4 كاملة</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 10px;
+            direction: rtl;
+        }
+        .page-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header-num {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px dashed #000;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-bottom: 3px solid #000;
+            padding-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .main-content { flex-direction: row; }
+            .right-col { border-left: 2px solid #ccc; padding-left: 15px; }
+        }
+        .col { flex: 1; }
+        .venn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .venn-item { text-align: center; border: 1px solid #eee; padding: 5px; }
+        svg { max-width: 100%; height: auto; background: #fff; border: 1px solid #000; }
+        .shaded { fill: #d3d3d3; }
+        .outline { fill: none; stroke: #000; stroke-width: 1.5; }
+        .label-text { font-size: 13px; font-weight: bold; }
+        
+        .banner {
+            text-align: center;
+            background: #e0e0e0;
+            border: 4px double #000;
+            padding: 10px;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 1.3em;
+        }
+        .reminder-box { border: 1px solid #000; padding: 15px; line-height: 1.8; }
+        .tag { text-decoration: underline; font-weight: bold; border: 1px solid #000; padding: 2px 6px; display: inline-block; }
+        .note-box { border: 2px solid #000; padding: 10px; font-weight: bold; margin: 15px 0; }
+        .solution-box { background: #f9f9f9; border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-num">- ٤ -</div>
+
+    <div class="main-content">
+        <div class="col right-col">
+            <h3>* حل رقم ٥ : *</h3>
+            <p>ش = { ٠ ، ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ } ، س = { ١ ، ٢ ، ٣ ، ٦ } ، ص = { ٢ ، ٧ }</p>
+            <p>(أ) سَ = { ٠ ، ٤ ، ٥ ، ٧ ، ٨ }</p>
+            <p>(ب) صَ = { ٤ ، ٣ ، ٠ ، ١ ، ٥ ، ٦ ، ٨ }</p>
+            <p>(ج) سَ U صَ = { ٠ ، ١ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ }</p>
+            <p>(د) ∵ (س ∩ ص) = { ٢ ، ٧ } <br> ∴ (س ∩ ص)َ = { ٠ ، ١ ، ٣ ، ٤ ، ٥ ، ٦ ، ٨ } = سَ U صَ</p>
+            <p>(هـ) سَ / صَ = { ٧ } = { ٠ ، ٤ ، ٣ ، ٤ } / { ٨ ، ٧ ، ٦ ، ٥ ، ٤ ، ٣ }</p>
+            
+            <hr>
+            <h3>[٦] إذا كانت ش = { ١ ، ٢ ، ٣ ، ٤ ، ٥ } ، س = { ١ ، ٢ } ، ص = { ٤ ، ١ ، ٥ } ، ع = { ٢ ، ٣ } فأوجد :-</h3>
+            <div class="solution-box">
+                <p><b>أ) سَ / ص</b> <br> ∵ سَ = { ٣ ، ٤ ، ٥ } ∴ سَ / ص = { ٣ ، ٤ ، ٥ } / { ١ ، ٤ ، ٥ } = { ٣ }</p>
+                <p><b>ب) ع / س</b> = { ٢ ، ٣ } / { ١ ، ٢ } = { ٣ }</p>
+                <p><b>ج) سَ / صَ</b> = { ٣ ، ٤ ، ٥ } / { ٢ ، ٣ } = { ٤ ، ٥ }</p>
+                <p><b>د) (س / ص) ∩ (ع / صَ)</b> <br> صَ = { ٢ ، ٣ ، ٥ } <br> نجد أولاً: س / ص = { ٢ } ، ع / صَ = { ∅ } <br> ∴ الناتج = { ٢ } ∩ { ∅ } = ∅</p>
+            </div>
+        </div>
+
+        <div class="col">
+            <h3>[٧] اكتب المجموعات الممثلة بالمناطق المظللة في كل شكل من أشكال فن التالية :-</h3>
+            <div class="venn-grid">
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="outline"/>
+                        <clipPath id="clipA"><circle cx="55" cy="45" r="25"/></clipPath>
+                        <circle cx="85" cy="45" r="25" class="shaded" clip-path="url(#clipA)"/>
+                        <circle cx="55" cy="45" r="25" class="outline"/><circle cx="85" cy="45" r="25" class="outline"/>
+                        <text x="40" y="50" class="label-text">ص</text><text x="90" y="50" class="label-text">س</text>
+                    </svg>
+                    <div>(أ) شكل (١-١٠أ) <br> س ∩ ص</div>
+                </div>
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="outline"/>
+                        <mask id="maskB"><rect width="140" height="90" fill="white"/><circle cx="85" cy="45" r="25" fill="black"/></mask>
+                        <circle cx="55" cy="45" r="25" class="shaded" mask="url(#maskB)"/>
+                        <circle cx="55" cy="45" r="25" class="outline"/><circle cx="85" cy="45" r="25" class="outline"/>
+                        <text x="40" y="50" class="label-text">ص</text><text x="90" y="50" class="label-text">س</text>
+                    </svg>
+                    <div>(ب) شكل (١-١٠ب) <br> ص / س</div>
+                </div>
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="shaded"/>
+                        <circle cx="70" cy="45" r="25" fill="white" stroke="black"/>
+                        <text x="65" y="50" class="label-text">س</text><text x="10" y="20" class="label-text">ش</text>
+                    </svg>
+                    <div>(ج) شكل (١-١٠ج) <br> سَ</div>
+                </div>
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="shaded"/>
+                        <circle cx="55" cy="45" r="20" fill="white" stroke="black"/>
+                        <circle cx="95" cy="45" r="20" fill="white" stroke="black"/>
+                        <text x="10" y="20" class="label-text">ش</text>
+                    </svg>
+                    <div>(د) شكل (١-١٠د) <br> (س U ص)َ</div>
+                </div>
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="outline"/>
+                        <circle cx="55" cy="45" r="25" class="shaded"/>
+                        <circle cx="85" cy="45" r="25" class="shaded"/>
+                        <clipPath id="clipE"><circle cx="55" cy="45" r="25"/></clipPath>
+                        <circle cx="85" cy="45" r="25" fill="white" clip-path="url(#clipE)"/>
+                        <circle cx="55" cy="45" r="25" class="outline"/><circle cx="85" cy="45" r="25" class="outline"/>
+                        <text x="40" y="50" class="label-text">ص</text><text x="90" y="50" class="label-text">س</text>
+                    </svg>
+                    <div>(هـ) شكل (١-١٠هـ) <br> (س/ص) U (ص/س)</div>
+                </div>
+                <div class="venn-item">
+                    <svg width="140" height="90">
+                        <rect x="0" y="0" width="140" height="90" class="outline"/>
+                        <mask id="maskF"><rect width="140" height="90" fill="white"/><circle cx="55" cy="45" r="25" fill="black"/></mask>
+                        <circle cx="85" cy="45" r="25" class="shaded" mask="url(#maskF)"/>
+                        <circle cx="55" cy="45" r="25" class="outline"/><circle cx="85" cy="45" r="25" class="outline"/>
+                        <text x="40" y="50" class="label-text">ص</text><text x="90" y="50" class="label-text">س</text>
+                    </svg>
+                    <div>(و) شكل (١-١٠و) <br> س / ص</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">العلاقــــــات</div>
+    <div class="reminder-box">
+        <span class="tag">تذكير :</span>
+        <p>[١] <b>الزوج المرتب :</b> يسمى العنصر (أ ، ب) زوج مرتب ويسمى العنصر الأول أ المسقط الأول والعنصر الثاني ب يسمى المسقط الثاني.</p>
+        <p>[٢] <b>تساوي زوجان مرتبان :</b> يقال أن (أ ، ب) = (جـ ، د) إذا كان أ = جـ ، ب = د .</p>
+        <p>[٣] <b>حاصل ضرب مجموعتين س ، ص :</b> هو مجموعة كل الأزواج المرتبة التي مسقطها الأول ينتمي إلى س ومسقطها الثاني ينتمي إلى ص ونكتب س × ص = { (أ ، ب) : أ ∈ س ، ب ∈ ص } وعـدد هذه الأزواج = حاصل ضرب عناصر س في عناصر ص.</p>
+        <p>[٤] <b>العلاقة :</b> العلاقة من مجموعة غير خالية س إلى مجموعة غير خالية ص : هي مجموعة جزئية من حاصل ضرب المجموعتين س × ص ونرمز لذلك ع ⊆ س × ص حيث نكتب العلاقة ع بالصورة التالية : ع = { (أ ، ب) : أ ∈ س ، ب ∈ ص }.</p>
+        <p>[٥] <b>العلاقة من مجموعة س إلى نفسها :</b> هي مجموعة جزئية من س × س أي ع ⊆ س × س وتكتب ع = { (أ ، ب) : أ ، ب ∈ س }.</p>
+    </div>
+    <div class="note-box">ملاحظة : الزوج المرتب (أ ، ب) ∈ ع يعني به أن العنصر أ من س يرتبط بالعنصر ب من ص حيث كل عنصر (أ ، ب) ∈ ع ينتمي إلى س × ص .</div>
+    
+    <div style="margin-top: 20px;">
+        <p><b>مثال:</b> إذا كانت س = { ١ ، ٢ ، ٣ } ، ص = { -١ ، ٢ } فأوجد س × ص ثم اكتب العلاقات التالية من س إلى ص :-</p>
+        <p>أ) ع١ = { (س ، ص) : س < ص ، س ∈ س ، ص ∈ ص } (علاقة أصغر من) .</p>
+        <p>ب) ع٢ = { (س ، ص) : س > ص ، س ∈ س ، ص ∈ ص } (علاقة أكبر من) .</p>
+        <p>ثم ارسم المخطط السهمي والبياني لكل علاقة.</p>
+        <h3 style="text-align: center;">* الحـــــل * ↶</h3>
+        <div class="solution-box" style="border: 2px solid #000;">
+            <p><b>١) نوجد س × ص :</b> <br> س × ص = { (١ ، -١) ، (١ ، ٢) ، (٢ ، -١) ، (٢ ، ٢) ، (٣ ، -١) ، (٣ ، ٢) }</p>
+            <p><b>٢) نوجد ع١ :</b> نبحث عن الأزواج التي يكون فيها س < ص <br> ع١ = { (١ ، ٢) }</p>
+            <p><b>٣) نوجد ع٢ :</b> نبحث عن الأزواج التي يكون فيها س > ص <br> ع٢ = { (١ ، -١) ، (٢ ، -١) ، (٣ ، -١) ، (٣ ، ٢) }</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

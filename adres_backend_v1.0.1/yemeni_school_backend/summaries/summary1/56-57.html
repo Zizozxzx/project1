@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل المقادير الجبرية - صفحة 22</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: #000;
+        }
+        .container {
+            max-width: 900px;
+            background: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000;
+        }
+        .header-top { text-align: center; border-bottom: 1px solid #000; margin-bottom: 5px; font-weight: bold; }
+        .main-title { text-align: center; border: 2px solid #000; width: fit-content; margin: 10px auto; padding: 5px 30px; font-size: 20px; background: #eee; }
+        
+        .section-box { border: 1px solid #000; padding: 10px; margin-bottom: 15px; }
+        .section-title { text-decoration: underline; font-weight: bold; margin-bottom: 10px; display: block; }
+        
+        .exercises-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 2px solid #000;
+            padding-top: 15px;
+        }
+        .exercise-card {
+            flex: 1 1 45%;
+            border-bottom: 1px dashed #000;
+            padding-bottom: 10px;
+            min-width: 300px;
+        }
+        .q-num { font-weight: bold; color: #000; border: 1px solid #000; padding: 0 5px; margin-left: 5px; }
+        .solution { color: #000; font-weight: bold; margin-top: 5px; display: block; }
+        .math-text { font-family: 'Times New Roman', serif; direction: ltr; display: inline-block; font-style: italic; }
+        
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; }
+        .fraction span { display: block; padding: 0 5px; }
+        .fraction .top { border-bottom: 1px solid #000; }
+
+        @media (max-width: 600px) {
+            .exercise-card { flex: 1 1 100%; min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-top">— ٢٢ —</div>
+    <div style="text-align: center; font-weight: bold;">الوحدة الثانية</div>
+    <div class="main-title">تحليل المقادير الجبرية</div>
+
+    <div class="section-box">
+        <span class="section-title">مراجعة وتذكر:</span>
+        ١) تذكر أن تحليل المقدار الجبري هو وضعه على صورة حاصل ضرب عاملين أو أكثر بحيث يكون كل عامل من عوامله في أبسط صورة.<br>
+        ٢) تذكر أن التحليل باستخراج العامل المشترك الأكبر (ع. م. أ) لعدة حدود جبرية هو حد جبري يقسم جميع الحدود.<br>
+        ٣) تذكر أن تحليل الفرق بين مربعي كميتين يساوي حاصل ضرب مجموع الكميتين في الفرق بينهما.<br>
+        أي تذكر قانون الفرق بين مربعي كميتين: <span class="math-text">( أ² - ب² ) = ( أ + ب ) ( أ - ب )</span><br>
+        <strong>ملاحظة:</strong> في حالة عدم وجود عامل مشترك بين الحدود الصحيحة يكون الواحد الصحيح هو العامل المشترك الأكبر.
+    </div>
+
+    <div class="main-title" style="font-size: 16px;">١:٢ حل تمارين ومسائل الكتاب المدرسي ص ٦٠</div>
+
+    <div class="exercises-container">
+        <div class="exercise-card">
+            <span class="q-num">١</span> ٣ س² - ١٥ س ص + ٢١ ص²<br>
+            <span class="solution">* الحل: أخذنا مشترك العدد ٣ لجميع الحدود وقسمنا كل حد على ٣.</span>
+            المقدار = ٣ ( س² - ٥ س ص + ٧ ص² )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٢</span> ٥ س ص - ٣ س ع + ٧ س ص<br>
+            <span class="solution">* الحل: أخذنا س مشترك وقسمنا كل حد على س.</span>
+            المقدار = س ( ٥ ص - ٣ ع + ٧ ص )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٣</span> ١٢ أ² ب + ١٦ أ ب² - ١٢ أ ب<br>
+            <span class="solution">* الحل: نأخذ أولاً العامل المشترك بين ١٢، ١٦، ١٢ وهو العدد ٤.</span>
+            ثانياً نأخذ العامل المشترك بين أ²، أ، أ وهو أ ، وبين ب، ب²، ب وهو ب.<br>
+            المقدار = ٤ أ ب ( ٣ أ + ٤ ب - ٣ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٤</span> ( م - ٢ )² + ( م - ٢ )<br>
+            <span class="solution">* الحل: أخذنا ( م - ٢ ) مشترك ثم نفك القوس الكبير</span>
+            = ( م - ٢ ) [ ( م - ٢ ) + ١ ]<br>
+            = ( م - ٢ ) ( م - ٢ + ١ ) = ( م - ٢ ) ( م - ١ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٥</span> م² - ٩ ل² = ( جذر الأول - جذر الثاني ) ( جذر الأول + جذر الثاني )<br>
+            هذا المقدار على صورة فرق بين مربعين.<br>
+            المقدار = ( م + ٣ ل ) ( م - ٣ ل )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٦</span> ١٤٤ س² - ١ = ( ١٢ س + ١ ) ( ١٢ س - ١ )<br>
+            على صورة فرق بين مربعين .
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٧</span> ٦٢٥ - ١٢٥ أ² ب²<br>
+            <span class="solution">* الحل: نأخذ المشترك بين ٦٢٥ ، ١٢٥ وهو ١٢٥ والمشترك بين أ ، ب .</span>
+            المقدار = ١٢٥ ( ٥ - أ² ب² )<br>
+            = ١٢٥ ( √٥ - أ ب ) ( √٥ + أ ب )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٨</span> <div class="fraction"><span class="top">س²</span><span>٣٦</span></div> - ٢٥ = ( <div class="fraction"><span class="top">س</span><span>٦</span></div> + ٥ ) ( <div class="fraction"><span class="top">س</span><span>٦</span></div> - ٥ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٩</span> أ² ب² - ٤٩ = ( أ ب + ٧ ) ( أ ب - ٧ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٠</span> ٣ ل² م - <div class="fraction"><span class="top">٢٧</span><span>٣</span></div> م<br>
+            <span class="solution">* أولاً: نأخذ ٣ مشترك بحيث نقسم كل حد على ٣.</span>
+            ثانياً: نأخذ م مشترك بحيث نقسم كل حد على م.<br>
+            المقدار = ٣ م ( ل² - <div class="fraction"><span class="top">٢٧</span><span>٩</span></div> ) = ٣ م ( ل + ٣ ) ( ل - ٣ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١١</span> س⁴ - ١ = ( س² + ١ ) ( س² - ١ )<br>
+            على صورة فرق بين مربعين ، ويمكن تحليل العاملين على صورة فرق ومجموع مكعبين.<br>
+            <div style="background:#eee; padding:5px; margin-top:5px;">
+                <strong>ملاحظة:</strong> عند ضرب حدين لهما نفس الأساس تجمع الأسس وعند القسمة نطرح.<br>
+                فمثلاً: س² × س³ = س⁵ ، س⁷ ÷ س³ = س⁴
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٢</span> ٠,١٦ - <div class="fraction"><span class="top">ب²</span><span>٩</span></div> = ( ٠,٤ - <div class="fraction"><span class="top">ب</span><span>٣</span></div> ) ( ٠,٤ + <div class="fraction"><span class="top">ب</span><span>٣</span></div> )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٣</span> (٦٥)² - (٢٥)² = ( ٦٥ + ٢٥ ) ( ٦٥ - ٢٥ ) = ٩٠ × ٤٠ = ٣٦٠٠
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٤</span> ٣٠ س² ص - ٤٥ ص = ٥ ص ( ٦ س² - ٩ )<br>
+            = ٥ ص ( √٦ س - ٣ ) ( √٦ س + ٣ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٥</span> ٧ - ٢٨ ص² = ٧ ( ١ - ٤ ص² )<br>
+            = ٧ ( ١ - ٢ ص ) ( ١ + ٢ ص )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٦</span> ٨ س ص² - ٢ س ص = ٢ س ص ( ٤ ص - ١ )<br>
+            = ٢ س ص ( ٢ √ص - ١ ) ( ٢ √ص + ١ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٧</span> (٩,١)² - (١,٩)² = ( ٩,١ - ١,٩ ) ( ٩,١ + ١,٩ )<br>
+            = ٧,٢ × ١١ = ٧٩,٢
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٨</span> ٢٧ أ² - ١٢ ب² = ٣ ( ٩ أ² - ٤ ب² )<br>
+            = ٣ ( ٣ أ - ٢ ب ) ( ٣ أ + ٢ ب )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">١٩</span> <div class="fraction"><span class="top">١</span><span>٣</span></div> أ² - <div class="fraction"><span class="top">١</span><span>٣</span></div> ب² = <div class="fraction"><span class="top">١</span><span>٣</span></div> ( أ² - ب² )<br>
+            = <div class="fraction"><span class="top">١</span><span>٣</span></div> ( أ + ب ) ( أ - ب )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٢٠</span> ٣٢ س ص² - ٧٢ س = ٨ س ( ٤ ص² - ٩ )<br>
+            = ٨ س ( ٢ ص - ٣ ) ( ٢ ص + ٣ )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٢١</span> م² - ( أ + ب )² = [ م - ( أ + ب ) ] [ م + ( أ + ب ) ]<br>
+            = ( م - أ - ب ) ( م + أ + ب )
+        </div>
+
+        <div class="exercise-card">
+            <span class="q-num">٢٢</span> ( س + ص )² - ٩ ( س + ص )<br>
+            = ( س + ص ) [ ( س + ص ) - ٩ ]<br>
+            = ( س + ص ) ( س + ص - ٩ )
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

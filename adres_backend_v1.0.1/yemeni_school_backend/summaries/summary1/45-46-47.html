@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي رياضيات تاسع - صـ 16</title>
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --text-color: #000;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arial';
+            background-color: #f4f4f9;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+        /* Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            body { padding: 5px; font-size: 14px; }
+        }
+        /* Custom Boxes */
+        .box-title {
+            border: 2px solid var(--border-color);
+            padding: 5px 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #eef;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .box-bordered {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .box-note {
+            border: 2px solid var(--border-color);
+            padding: 5px 10px;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 20px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+        .math-eq {
+            direction: ltr;
+            display: inline-block;
+            font-weight: bold;
+        }
+        ul, ol { margin-top: 5px; margin-bottom: 5px; }
+        .stars-divider { text-align: center; letter-spacing: 2px; margin: 10px 0; }
+        /* SVG Styling */
+        svg { width: 100%; height: auto; display: block; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">
+        - ١٦ -
+    </div>
+
+    <div class="content-grid">
+        
+        <div class="right-column">
+            
+            <div class="box-title">التطبيق الخطي</div>
+            
+            <div class="box-bordered">
+                <strong>تعريف التطبيق الخطي :</strong> التطبيق الخطي هو تطبيق ت : ح &larr; ح<br>
+                قاعدته <strong>ت(س) = أ س + ب</strong> حيث أ ، ب &isin; ح ويمثل بيانياً على خط مستقيم وحيد.
+            </div>
+
+            <p><strong>ملاحظة هامة :</strong> لرسم التطبيق الخطي بيانياً نختار أي ثلاث نقاط من المجال ثم نجد صورها بالتعويض في قاعدة التطبيق فنحصل على مجموعة من الأزواج المرتبة نمثلها كنقاط مرسومة في المستوى الإحداثي ثم نصل هذه النقاط فنحصل على خط مستقيم واحد يسمى هذا الخط المستقيم بالتمثيل البياني للتطبيق فيسمى هذا التطبيق تطبيقاً خطياً.</p>
+
+            <div class="box-title" style="background-color: #ddd;">6:1 حل تمارين ومسائل الكتاب المدرسي صـ 47 و 48<br>على الأعداد النسبية وغير النسبية والفترات</div>
+
+            <p><strong>[1] ميز الأعداد النسبية و الأعداد غير النسبية فيما يلي :-</strong></p>
+            <div style="display: flex; justify-content: space-between;">
+                <div>أ ) &larr; 3,030220222</div>
+                <div>ب) 5,30</div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <div>جـ) 14,151151115</div>
+                <div>د ) &radic;<span style="text-decoration:overline;">327</span></div>
+            </div>
+            
+            <p><strong>* الحل *</strong><br>
+            أ ) عدد غير نسبي لأن تمثيله العشري غير منتهي.<br>
+            ب) عدد نسبي لأنه كسر عشري دوري.<br>
+            جـ) عدد نسبي لأنه كسر منتهي.<br>
+            د ) عدد غير نسبي لأنه غير منتهي و غير دوري و لا يمكن وضعه على الصورة <sup>أ</sup>/<sub>ب</sub> ، ب &ne; 0 ، أ ، ب &isin; ص.</p>
+
+            <div class="stars-divider">******************************</div>
+
+            <p><strong>[2] عين النقاط التي تمثل الأعداد التالية على خط الأعداد :-</strong><br>
+            أ ) -2 ، -<sup>1</sup>/<sub>3</sub> ، <sup>7</sup>/<sub>3</sub><br>
+            ب) -4 ، 0 ، <sup>1</sup>/<sub>4</sub> ، <sup>5</sup>/<sub>2</sub><br>
+            جـ) -&radic;<span style="text-decoration:overline;">5</span> ، <sup>&pi;</sup>/<sub>2</sub> ، &radic;<span style="text-decoration:overline;">7</span><br>
+            د ) &pi; ، -<sup>&pi;</sup>/<sub>4</sub>
+            </p>
+
+            <p><strong>* الحل *</strong></p>
+            
+            <div>
+                أ) 
+                <svg viewBox="0 0 400 60">
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                        </marker>
+                    </defs>
+                    <line x1="20" y1="35" x2="380" y2="35" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                    <line x1="80" y1="30" x2="80" y2="40" stroke="black"/><text x="80" y="55" text-anchor="middle" font-size="12">-2</text>
+                    <line x1="160" y1="30" x2="160" y2="40" stroke="black"/><text x="160" y="55" text-anchor="middle" font-size="12">-1</text>
+                    <line x1="240" y1="30" x2="240" y2="40" stroke="black"/><text x="240" y="55" text-anchor="middle" font-size="12">0</text>
+                    <line x1="320" y1="30" x2="320" y2="40" stroke="black"/><text x="320" y="55" text-anchor="middle" font-size="12">1</text>
+                    
+                    <circle cx="80" cy="35" r="4" fill="black"/><text x="80" y="20" text-anchor="middle" font-size="12">-2</text>
+                    <circle cx="213" cy="35" r="4" fill="black"/><text x="213" y="20" text-anchor="middle" font-size="12">-1/3</text>
+                    <circle cx="360" cy="35" r="4" fill="black"/><text x="360" y="20" text-anchor="middle" font-size="12">7/3</text>
+                </svg>
+            </div>
+            
+            <div>
+                ب)
+                <svg viewBox="0 0 400 60">
+                    <line x1="20" y1="35" x2="380" y2="35" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                    <line x1="60" y1="30" x2="60" y2="40" stroke="black"/><text x="60" y="55" text-anchor="middle" font-size="12">-4</text>
+                    <line x1="140" y1="30" x2="140" y2="40" stroke="black"/><text x="140" y="55" text-anchor="middle" font-size="12">-2</text>
+                    <line x1="220" y1="30" x2="220" y2="40" stroke="black"/><text x="220" y="55" text-anchor="middle" font-size="12">0</text>
+                    <line x1="300" y1="30" x2="300" y2="40" stroke="black"/><text x="300" y="55" text-anchor="middle" font-size="12">2</text>
+                    
+                    <circle cx="60" cy="35" r="4" fill="black"/><text x="60" y="20" text-anchor="middle" font-size="12">-4</text>
+                    <circle cx="220" cy="35" r="4" fill="black"/>
+                    <circle cx="230" cy="35" r="4" fill="black"/><text x="230" y="20" text-anchor="middle" font-size="12">1/4</text>
+                    <circle cx="320" cy="35" r="4" fill="black"/><text x="320" y="20" text-anchor="middle" font-size="12">5/2</text>
+                    <path d="M 220 30 Q 220 15 220 5 L 215 10 M 220 5 L 225 10" stroke="black" fill="none"/> <text x="210" y="15" font-size="10">0</text>
+                </svg>
+            </div>
+
+            <div>
+                جـ)
+                <svg viewBox="0 0 400 60">
+                    <line x1="20" y1="35" x2="380" y2="35" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                    <line x1="100" y1="30" x2="100" y2="40" stroke="black"/><text x="100" y="55" text-anchor="middle" font-size="12">-2</text>
+                    <line x1="180" y1="30" x2="180" y2="40" stroke="black"/><text x="180" y="55" text-anchor="middle" font-size="12">0</text>
+                    <line x1="260" y1="30" x2="260" y2="40" stroke="black"/><text x="260" y="55" text-anchor="middle" font-size="12">2</text>
+                    
+                    <circle cx="90" cy="35" r="4" fill="black"/><text x="90" y="20" text-anchor="middle" font-size="12">-√5</text>
+                    <circle cx="240" cy="35" r="4" fill="black"/><text x="240" y="20" text-anchor="middle" font-size="12">π/2</text>
+                    <circle cx="280" cy="35" r="4" fill="black"/><text x="280" y="20" text-anchor="middle" font-size="12">√7</text>
+                </svg>
+            </div>
+
+            <div>
+                د)
+                <svg viewBox="0 0 400 60">
+                    <line x1="20" y1="35" x2="380" y2="35" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                    <line x1="100" y1="30" x2="100" y2="40" stroke="black"/><text x="100" y="55" text-anchor="middle" font-size="12">-2</text>
+                    <line x1="180" y1="30" x2="180" y2="40" stroke="black"/><text x="180" y="55" text-anchor="middle" font-size="12">-1</text>
+                    <line x1="260" y1="30" x2="260" y2="40" stroke="black"/><text x="260" y="55" text-anchor="middle" font-size="12">0</text>
+                    <line x1="340" y1="30" x2="340" y2="40" stroke="black"/><text x="340" y="55" text-anchor="middle" font-size="12">1</text>
+                    
+                    <circle cx="340" cy="35" r="4" fill="black"/><text x="340" y="20" text-anchor="middle" font-size="12">π</text>
+                    <circle cx="240" cy="35" r="4" fill="black"/><text x="240" y="20" text-anchor="middle" font-size="12">-π/4</text>
+                </svg>
+            </div>
+
+            <div class="box-note">ملاحظة</div>
+            <p><strong>يمكن تمثيل بعض الجذور باستخدام مبرهنة فيثاغورث على خط الأعداد سوف نمثل -&radic;<span style="text-decoration:overline;">5</span> ، &radic;<span style="text-decoration:overline;">3</span></strong></p>
+
+            <p><strong>أولاً: &radic;<span style="text-decoration:overline;">3</span></strong> نجد أن العدد 3 يقع بين العددان المربعان الكاملان 1 ، 4 حيث &radic;1 = 1 ، &radic;4 = 2 أي أن &radic;3 يقع على يمين الصفر بين العددين 1 ، 2 لتمثيل &radic;3 نتبع ما يلي :<br>
+            أ ) نرسم &Delta; أ ب جـ القائم في ب بحيث يكون : |أ ب| = 1 (وحدة) ، |ب جـ| = &radic;2 وحدة &simeq; 1.4<br>
+            لاحظ شكل ( ) يمثل &radic;2</p>
+            
+            ب) نطبق مبرهنة فيثاغورث : |أ جـ|<sup>2</sup> = |أ ب|<sup>2</sup> + |ب جـ|<sup>2</sup><br>
+            &there4; |أ جـ|<sup>2</sup> = (1)<sup>2</sup> + (&radic;2)<sup>2</sup> = 1 + 2<br>
+            &there4; |أ جـ|<sup>2</sup> = 3<br>
+            بأخذ الجذر التربيعي للطرفين يكون :<br>
+            <strong>|أ جـ| = &radic;3</strong>
+
+            <svg viewBox="0 0 200 120" style="width: 50%; margin: 0 auto;">
+                <path d="M 50 100 L 150 100 L 150 40 Z" fill="none" stroke="black" stroke-width="2"/>
+                <rect x="140" y="90" width="10" height="10" fill="none" stroke="black"/>
+                <text x="100" y="115" text-anchor="middle" font-size="12">√2 ≃ 1.4</text>
+                <text x="165" y="75" text-anchor="middle" font-size="12">1</text>
+                <text x="90" y="60" text-anchor="middle" font-size="12">√3</text>
+                <text x="40" y="105" text-anchor="middle" font-size="12">جـ</text>
+                <text x="160" y="110" text-anchor="middle" font-size="12">ب</text>
+                <text x="150" y="30" text-anchor="middle" font-size="12">أ</text>
+                <text x="100" y="15" text-anchor="middle" font-size="12">شكل ( )</text>
+            </svg>
+
+        </div>
+
+        <div class="left-column">
+            
+            <p>جـ) نركز الفرجار في النقطة (جـ) المنطبقة على صفر الأعداد وبفتحة طولها |أ جـ| = &radic;3 نرسم قوساً يقطع خط الأعداد في النقطة ء فيكون |جـ ء| = |أ جـ| = &radic;3 فتكون :<br>
+            النقطة ء تمثل قيمة تقريبية للعدد &radic;3 &simeq; 1.7 وحدة شكل (*)</p>
+
+            <svg viewBox="0 0 300 150">
+                <line x1="20" y1="120" x2="280" y2="120" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                <line x1="60" y1="115" x2="60" y2="125" stroke="black"/><text x="60" y="140" text-anchor="middle">0</text>
+                <line x1="140" y1="115" x2="140" y2="125" stroke="black"/><text x="140" y="140" text-anchor="middle">1</text>
+                <line x1="220" y1="115" x2="220" y2="125" stroke="black"/><text x="220" y="140" text-anchor="middle">2</text>
+                
+                <path d="M 60 120 L 173 120 L 173 40 Z" fill="none" stroke="black" stroke-width="2"/>
+                <rect x="163" y="110" width="10" height="10" fill="none" stroke="black"/>
+                <text x="60" y="135" text-anchor="end" font-size="12">جـ</text>
+                <text x="173" y="135" text-anchor="start" font-size="12">ب</text>
+                <text x="173" y="30" text-anchor="start" font-size="12">أ</text>
+                <text x="110" y="70" text-anchor="middle" font-size="12">√3</text>
+                <text x="185" y="80" text-anchor="middle" font-size="12">1</text>
+                
+                <path d="M 173 40 Q 200 60 196 120" fill="none" stroke="black" stroke-dasharray="4" stroke-width="1.5"/>
+                <text x="210" y="105" text-anchor="middle" font-size="12">1.7 ≃ √3</text>
+                <text x="196" y="135" text-anchor="middle" font-size="12">ء</text>
+                <text x="40" y="40" text-anchor="middle" font-size="12">شكل (*)</text>
+            </svg>
+
+            <p><strong>ثانياً: تمثيل -&radic;<span style="text-decoration:overline;">5</span></strong> نلاحظ أن العدد 5 يقع بين المربعين الكاملين 4 ، 9 لذلك فإن (-&radic;5) يقع على يسار الصفر بين (-&radic;4 ، -&radic;9) أي بين -2 ، -3 فنجري ما يلي :<br>
+            أ ) نرسم &Delta; أ ب جـ القائم في ب على خط الأعداد بحيث يكون : |أ ب| = 1 وحدة طول ، و |ب جـ| = 2 وحدة .<br>
+            ب) من مبرهنة فيثاغورث نجد |أ جـ|<sup>2</sup> = |أ ب|<sup>2</sup> + |ب جـ|<sup>2</sup><br>
+            فنجد |أ جـ|<sup>2</sup> = (1)<sup>2</sup> + (2)<sup>2</sup> = 1+4 فيكون |أ جـ|<sup>2</sup>=5<br>
+            بأخذ الجذر التربيعي للطرفين :<br>
+            &there4; |أ جـ| = &radic;5 ولكن (-&radic;5) بين (-&radic;4 ، -&radic;9) أي بين (-2 ، -3).<br>
+            جـ) نركز الفرجار في النقطة (جـ) المنطبقة على الصفر وبفتحة طولها |أ جـ| = &radic;5 نرسم قوساً يقطع خط الأعداد في نقطة ء فيكون |جـ ء| = |أ جـ| = &radic;5 وحدة فتكون النقطة ء تمثل قيمة تقريبية للعدد (-&radic;5) &simeq; -2.2 كما هو موضح في الشكل(**)</p>
+
+            <svg viewBox="0 0 300 150">
+                <line x1="20" y1="120" x2="280" y2="120" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                <line x1="60" y1="115" x2="60" y2="125" stroke="black"/><text x="60" y="140" text-anchor="middle">-3</text>
+                <line x1="120" y1="115" x2="120" y2="125" stroke="black"/><text x="120" y="140" text-anchor="middle">-2</text>
+                <line x1="180" y1="115" x2="180" y2="125" stroke="black"/><text x="180" y="140" text-anchor="middle">-1</text>
+                <line x1="240" y1="115" x2="240" y2="125" stroke="black"/><text x="240" y="140" text-anchor="middle">0</text>
+                
+                <path d="M 240 120 L 120 120 L 120 60 Z" fill="none" stroke="black" stroke-width="2"/>
+                <rect x="120" y="110" width="10" height="10" fill="none" stroke="black"/>
+                <text x="240" y="135" text-anchor="start" font-size="12">جـ</text>
+                <text x="120" y="135" text-anchor="end" font-size="12">ب</text>
+                <text x="120" y="50" text-anchor="end" font-size="12">أ</text>
+                <text x="180" y="85" text-anchor="middle" font-size="12">√5</text>
+                <text x="110" y="90" text-anchor="middle" font-size="12">1</text>
+                
+                <path d="M 120 60 Q 90 80 106 120" fill="none" stroke="black" stroke-dasharray="4" stroke-width="1.5"/>
+                <text x="90" y="140" text-anchor="middle" font-size="12">ء</text>
+                <text x="106" y="150" text-anchor="middle" font-size="12">-2.2 ≃ -√5</text>
+                <text x="50" y="50" text-anchor="middle" font-size="12">شكل (**)</text>
+            </svg>
+
+            <div class="box-note">ملاحظة هامة :</div>
+            <p>ليس بالضرورة أن يكون طول العمود أ ب المقام من النقطة أ يساوي الواحد (أي |أ ب| = 1 ليس شرطاً لازماً)<br>
+            فمثلاً : يمكن تمثيل &radic;<span style="text-decoration:overline;">13</span> على خط الأعداد باستخدام المبرهنة كما يلي :<br>
+            العدد 13 يقع على يمين الصفر بين 9 ، 16 مربعان كاملان أي : &radic;13 على يمين الصفر بين العددين &radic;9 ، &radic;16 (3 ، 4) لذلك:<br>
+            أ ) نرسم &Delta; أ ب جـ القائم في ب بحيث يكون |أ ب| = 2 ، |ب جـ| = 3<br>
+            ب) |أ جـ|<sup>2</sup> = |أ ب|<sup>2</sup> + |ب جـ|<sup>2</sup> بالتالي |أ جـ|<sup>2</sup> = 4 + 9 = 13<br>
+            بأخذ الجذر التربيعي |أ جـ| = &radic;13<br>
+            جـ) نركز الفرجار في النقطة (جـ) وبفتحة طولها |أ جـ| = &radic;13 نرسم قوساً يقطع خط الأعداد في النقطة ء فيكون :<br>
+            |جـ ء| = |أ جـ| = &radic;13 &simeq; 3.6 انظر الشكل (***)</p>
+
+            <svg viewBox="0 0 300 150">
+                <line x1="20" y1="120" x2="280" y2="120" stroke="black" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                <line x1="40" y1="115" x2="40" y2="125" stroke="black"/><text x="40" y="140" text-anchor="middle">0</text>
+                <line x1="90" y1="115" x2="90" y2="125" stroke="black"/><text x="90" y="140" text-anchor="middle">1</text>
+                <line x1="140" y1="115" x2="140" y2="125" stroke="black"/><text x="140" y="140" text-anchor="middle">2</text>
+                <line x1="190" y1="115" x2="190" y2="125" stroke="black"/><text x="190" y="140" text-anchor="middle">3</text>
+                <line x1="240" y1="115" x2="240" y2="125" stroke="black"/><text x="240" y="140" text-anchor="middle">4</text>
+                
+                <path d="M 40 120 L 190 120 L 190 30 Z" fill="none" stroke="black" stroke-width="2"/>
+                <rect x="180" y="110" width="10" height="10" fill="none" stroke="black"/>
+                <text x="40" y="135" text-anchor="end" font-size="12">جـ</text>
+                <text x="190" y="135" text-anchor="start" font-size="12">ب</text>
+                <text x="190" y="20" text-anchor="start" font-size="12">أ</text>
+                <text x="100" y="70" text-anchor="middle" font-size="12">√13</text>
+                <text x="200" y="75" text-anchor="middle" font-size="12">2</text>
+                <text x="115" y="115" text-anchor="middle" font-size="12">3</text>
+                
+                <path d="M 190 30 Q 240 60 220 120" fill="none" stroke="black" stroke-dasharray="4" stroke-width="1.5"/>
+                <text x="220" y="135" text-anchor="middle" font-size="12">ء</text>
+                <text x="235" y="100" text-anchor="middle" font-size="12">3.6 ≃ √13</text>
+                <text x="40" y="20" text-anchor="middle" font-size="12">شكل (***)</text>
+                <text x="20" y="110" font-size="12">-∞</text>
+                <text x="280" y="110" font-size="12">+∞</text>
+            </svg>
+
+            <div class="stars-divider">******************************</div>
+
+            <p><strong>[3] مثل مجموعات الأعداد التالية على خط الأعداد ثم أكتب كلا منها كفترة عددية :-</strong><br>
+            أ ) {س : س &isin; ح ، 2 &le; س &le; 6}<br>
+            ب) {س : س &isin; ح ، 0 &lt; س &lt; 5}<br>
+            جـ) {س : س &isin; ح ، -3 &lt; س &lt; 1}<br>
+            د ) {س : س &isin; ح ، س &ge; -1}<br>
+            هـ) {س : س &isin; ح ، س &gt; 2}
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

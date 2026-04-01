@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غلاف الوحدة الخامسة - الهندسة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            font-family: 'Amiri', serif;
+        }
+
+        .cover-page {
+            width: 850px;
+            height: 1100px;
+            background-color: #fff;
+            border: 2px solid #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Texture / Background Background */
+        .texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(76, 175, 80, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(76, 175, 80, 0.05) 0%, transparent 40%),
+                url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            z-index: 0;
+        }
+
+        /* Decorative leaf sections based on image */
+        .leaf-cluster {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .leaf-top-right {
+            top: 20px;
+            right: 20px;
+            width: 350px;
+        }
+
+        .leaf-bottom-left {
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            transform: scaleX(-1);
+        }
+
+        .main-frame {
+            position: relative;
+            z-index: 5;
+            border: 4px solid #c8e6c9;
+            width: 650px;
+            height: 900px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.02);
+        }
+
+        .title-box {
+            background-color: #e8f5e9;
+            border: 2px solid #a5d6a7;
+            border-radius: 50% / 15%;
+            padding: 70px 90px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* The decorative diamond/square accents on the frame */
+        .title-box::before,
+        .title-box::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #a5d6a7;
+            background-color: #e8f5e9;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .title-box::before {
+            top: -15px;
+        }
+
+        .title-box::after {
+            bottom: -15px;
+        }
+
+        .unit-num {
+            font-size: 3.8em;
+            color: #2e7d32;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .unit-title {
+            font-size: 3.2em;
+            color: #000;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .subject-line {
+            font-size: 1.6em;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Ribbon for author */
+        .ribbon {
+            background-color: #c8e6c9;
+            padding: 12px 60px;
+            position: relative;
+            margin-top: 150px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .ribbon::before,
+        .ribbon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            border-width: 25px 30px;
+            border-style: solid;
+        }
+
+        .ribbon::before {
+            left: -40px;
+            border-color: #c8e6c9 #c8e6c9 #c8e6c9 transparent;
+        }
+
+        .ribbon::after {
+            right: -40px;
+            border-color: #c8e6c9 transparent #c8e6c9 #c8e6c9;
+        }
+
+        .author-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e7d32;
+            margin: 0;
+        }
+
+        /* Leaf SVG Component */
+        .leaf-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="cover-page">
+        <div class="texture"></div>
+
+        <!-- Leaf Decor -->
+        <div class="leaf-cluster leaf-top-right">
+            <svg class="leaf-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#43a047;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1b5e20;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M150,50 Q200,80 220,150 Q200,220 150,250 Q100,220 80,150 Q100,80 150,50"
+                    fill="url(#leafGrad)" />
+                <path d="M150,50 L150,250" stroke="#fff" stroke-width="2" opacity="0.3" fill="none" />
+                <!-- Small leaves -->
+                <path d="M220,100 Q260,110 270,150 Q250,180 220,170" fill="#2e7d32" opacity="0.8" />
+                <path d="M80,100 Q40,110 30,150 Q50,180 80,170" fill="#2e7d32" opacity="0.8" />
+            </svg>
+        </div>
+
+        <div class="leaf-cluster leaf-bottom-left">
+            <svg class="leaf-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <path d="M150,50 Q200,80 220,150 Q200,220 150,250 Q100,220 80,150 Q100,80 150,50" fill="#4caf50"
+                    opacity="0.6" />
+                <path d="M180,120 Q230,140 240,190 Q210,220 180,210" fill="#1b5e20" opacity="0.7" />
+            </svg>
+        </div>
+
+        <div class="main-frame">
+            <div class="title-box">
+                <h1 class="unit-num">الوحدة الخامسة</h1>
+                <h2 class="unit-title">الهندسة</h2>
+                <div class="subject-line">رياضيات - الصف التاسع</div>
+            </div>
+
+            <div class="ribbon">
+                <p class="author-name">إعداد: هلا المولجي</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

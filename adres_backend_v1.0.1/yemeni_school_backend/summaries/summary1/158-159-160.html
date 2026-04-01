@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٥٧ - المعلم المثالي</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background-color: #f9f9f9; margin: 0; padding: 10px; color: #000; line-height: 1.4; }
+        .page-container { max-width: 900px; margin: auto; background: #fff; border: 2px solid #000; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .header-page { text-align: center; font-weight: bold; font-size: 1.2em; border-bottom: 2px solid #000; margin-bottom: 15px; padding-bottom: 5px; }
+        .main-content { display: flex; gap: 20px; }
+        .column { flex: 1; }
+        .right-col { order: 1; border-left: 1px solid #000; padding-left: 15px; }
+        .left-col { order: 2; }
+        .title-bold { font-weight: bold; text-decoration: underline; }
+        .math-text { margin-bottom: 15px; font-size: 1.05em; }
+        .dashed-separator { border-top: 1px dashed #000; margin: 15px 0; }
+        .graph-container { text-align: center; margin: 15px 0; }
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; }
+        .fraction .top { border-bottom: 1px solid #000; display: block; padding: 0 2px; }
+        .fraction .bottom { display: block; padding: 0 2px; }
+        .boxed { border: 1px solid #000; padding: 2px 8px; display: inline-block; }
+
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; }
+            .right-col { border-left: none; border-bottom: 2px solid #000; padding-bottom: 15px; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-page">ـ ٥٧ ـ</div>
+
+    <div class="main-content">
+        <div class="column right-col">
+            <div class="math-text">
+                [٣] ٢ص + ٣س = -٦ عندما نضع س = ٠ نجد ص = -٣<br>
+                وعندما نفرض ص = ٠ نجد س = -٢<br>
+                فتحصل على النقاط ( ٠ ، -٣ ) ، ( -٢ ، ٠ ) التي يمر بهما المستقيم شكل (٣)
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.2" /> <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.2" /> <path d="M200 110 l-5 -3 v6 z" fill="black" /> <path d="M110 20 l-3 5 h6 z" fill="black" />
+                    <text x="205" y="115" font-size="12">س</text> <text x="105" y="15" font-size="12">ص</text>
+                    <text x="115" y="125" font-size="10">٠</text>
+                    <line x1="130" y1="108" x2="130" y2="112" stroke="black" /> <text x="128" y="105" font-size="9">١</text>
+                    <line x1="90" y1="108" x2="90" y2="112" stroke="black" /> <text x="85" y="105" font-size="9">-١</text>
+                    <line x1="70" y1="108" x2="70" y2="112" stroke="black" /> <text x="65" y="105" font-size="9">-٢</text>
+                    <line x1="108" y1="130" x2="112" y2="130" stroke="black" /> <text x="115" y="133" font-size="9">-١</text>
+                    <line x1="108" y1="150" x2="112" y2="150" stroke="black" /> <text x="115" y="153" font-size="9">-٢</text>
+                    <line x1="108" y1="170" x2="112" y2="170" stroke="black" /> <text x="115" y="173" font-size="9">-٣</text>
+                    <line x1="50" y1="90" x2="130" y2="190" stroke="black" stroke-width="1.5" />
+                    <circle cx="70" cy="110" r="2" fill="black" /> <text x="45" y="105" font-size="10">(-٢،٠)</text>
+                    <circle cx="110" cy="170" r="2" fill="black" /> <text x="115" y="185" font-size="10">(٠،-٣)</text>
+                    <text x="100" y="215" font-weight="bold">شكل (٣)</text>
+                </svg>
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-text">
+                [٤] ٨س + ص = ٠ ومنها ص = -٨س<br>
+                س = ٠ نجد ص = ٠ ، س = <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> نجد ص = -٤<br>
+                نجد س = - <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> نجد ص = ٤<br>
+                نرسم المستقيم المار بالنقاط<br>
+                ( ٠ ، ٠ ) ، ( <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> ، -٤ ) ، ( - <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> ، ٤ )
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.2" />
+                    <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.2" />
+                    <text x="205" y="115" font-size="12">س</text> <text x="105" y="15" font-size="12">ص</text>
+                    <line x1="80" y1="40" x2="140" y2="180" stroke="black" stroke-width="1.5" />
+                    <circle cx="110" cy="110" r="2" fill="black" /> <text x="115" y="105" font-size="9">(٠،٠)</text>
+                    <circle cx="125" cy="145" r="2" fill="black" /> <text x="128" y="155" font-size="9">(١/٢، -٤)</text>
+                    <circle cx="95" cy="75" r="2" fill="black" /> <text x="50" y="70" font-size="9">(-١/٢، ٤)</text>
+                    <text x="100" y="215" font-weight="bold">شكل (٤)</text>
+                </svg>
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-text">
+                [٥] <div class="fraction"><span class="top">س</span><span class="bottom">٥</span></div> + <div class="fraction"><span class="top">ص</span><span class="bottom">٢٠</span></div> = ٠ بالضرب × ٢٠<br>
+                ٤س + ص = ٠ ومنها ص = -٤س<br>
+                نفرض قيم لـ س<br>
+                س = ٠ نجد ص = ٠ ، س = ١ نجد ص = -٤<br>
+                نجد ص = ٤ ، س = -١ نجد ص = ٤<br>
+                نرسم المستقيم المار بالنقاط ( ٠ ، ٠ ) ، ( ١ ، -٤ ) ، ( -١ ، ٤ )
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.2" />
+                    <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.2" />
+                    <line x1="70" y1="30" x2="150" y2="190" stroke="black" stroke-width="1.5" />
+                    <circle cx="130" cy="150" r="2" fill="black" /> <text x="135" y="160" font-size="10">(١،-٤)</text>
+                    <circle cx="90" cy="70" r="2" fill="black" /> <text x="60" y="65" font-size="10">(-١،٤)</text>
+                    <text x="100" y="215" font-weight="bold">شكل (٥)</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="column left-col">
+            <div class="math-text">
+                [٦] <div class="fraction"><span class="top">س</span><span class="bottom">٣</span></div> + <div class="fraction"><span class="top">ص</span><span class="bottom">٥</span></div> = <div class="fraction"><span class="top">١</span><span class="bottom">١٥</span></div> نضرب × ١٥<br>
+                ٥س + ٣ص = ١ ومنها ٣ص = ١ - ٥س<br>
+                عندما س = ١ نجد ص = <div class="fraction"><span class="top">-٤</span><span class="bottom">٣</span></div> ، س = -١ نجد ص = ٢<br>
+                س = ٢ نجد ص = -٣<br>
+                نرسم المستقيم المار بالنقاط<br>
+                ( ١ ، <div class="fraction"><span class="top">-٤</span><span class="bottom">٣</span></div> ) ، ( -١ ، ٢ ) ، ( ٢ ، -٣ )<br>
+                نحصل على الشكل البياني<br>
+                <span class="title-bold">شكل (٦)</span>
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.2" />
+                    <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.2" />
+                    <text x="205" y="115" font-size="12">س</text> <text x="105" y="15" font-size="12">ص</text>
+                    <circle cx="90" cy="70" r="2" fill="black" /> <text x="65" y="65" font-size="9">(-١،٢)</text>
+                    <circle cx="110" cy="110" r="1.5" fill="black" /> <text x="115" y="105" font-size="9">(٠،١)</text>
+                    <circle cx="130" cy="135" r="2" fill="black" /> <text x="135" y="145" font-size="9">(١،-٢)</text>
+                    <circle cx="150" cy="170" r="2" fill="black" /> <text x="155" y="180" font-size="9">(٢،-٣)</text>
+                    <line x1="70" y1="40" x2="170" y2="200" stroke="black" stroke-width="1.5" />
+                    <text x="100" y="215" font-weight="bold">شكل (٦)</text>
+                </svg>
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-text">
+                [٧] إذا كان الزوج المرتب ( -١ ، ل ) يحقق المعادلة :<br>
+                ٢س - ل ص + ٣ = ٠ ، فما قيمة ل ؟<br>
+                <span class="title-bold">* الحل *</span><br>
+                من الزوج المرتب ( -١ ، ل ) نجري التعويض في المعادلة حيث<br>
+                س = -١ ، ص = ل<br>
+                ٢ × ( -١ ) - ل × ل + ٣ = ٠ ومنها -٢ - ل<sup>٢</sup> + ٣ = ٠<br>
+                ١ - ل<sup>٢</sup> = ٠ ومنها ( ١ - ل ) ( ١ + ل ) = ٠<br>
+                بالتالي أما ل = ١ أو ل = -١
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-text">
+                [٨] ما قيمة م التي تجعل النقطة هـ ( ٥ ، -٥ ) تحقق المعادلة :<br>
+                ٧س + م ص = ٠<br>
+                <span class="title-bold">* الحل *</span><br>
+                كي تكون النقطة هـ ( ٥ ، -٥ ) تحقق المعادلة يجب أن يكون<br>
+                الطرف الأيمن = الطرف الأيسر عند التعويض في المعادلة<br>
+                حيث س = ٥ ، ص = -٥<br>
+                ٧ × ٥ + م × ( -٥ ) = ٠ ومنها ٣٥ - ٥م = ٠<br>
+                -٥م = -٣٥ ومنها م = <div class="fraction"><span class="top">-٣٥</span><span class="bottom">-٥</span></div> بالقسمة على -٥<br>
+                ∴ م = <div class="boxed">5</div> ومنها <div class="boxed">م = 5</div>
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-text">
+                [٩] اكتب ٣ معادلات تكافئ المعادلة : س - ٢ص = ٣<br>
+                <span class="title-bold">* الحل *</span><br>
+                نعلم أنه عند ضرب طرفي معادلة في عدد أو قسمتها على عدد ما<br>
+                فإننا نحصل على معادلة مكافئة للمعادلة الأصلية<br>
+                المعادلة الأصلية س - ٢ص = ٣ <span style="border: 1px solid #000; border-radius: 50%; padding: 0 4px;">*</span><br>
+                بضرب المعادلة <span style="border: 1px solid #000; border-radius: 50%; padding: 0 4px;">*</span> في ٢ نحصل على المعادلة المكافئة الأولى<br>
+                وهي : ٢س - ٤ص = ٦ ← (١)<br>
+                أيضاً بضرب المعادلة <span style="border: 1px solid #000; border-radius: 50%; padding: 0 4px;">*</span> في ٣ نحصل على المعادلة المكافئة<br>
+                الثانية وهي : ٣س - ٦ص = ١٨ ← (٢)<br>
+                أيضاً إذا قسمنا المعادلة <span style="border: 1px solid #000; border-radius: 50%; padding: 0 4px;">*</span> على ٦ نحصل على المعادلة المكافئة<br>
+                الثالثة وهي : <div class="fraction"><span class="top">س</span><span class="bottom">٦</span></div> - <div class="fraction"><span class="top">ص</span><span class="bottom">٣</span></div> = <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> ← (٣)
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

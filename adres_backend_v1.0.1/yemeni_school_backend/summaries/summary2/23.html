@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 23</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: 'Amiri', serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 100vh;
+            aspect-ratio: 0.707;
+            background-color: white;
+            position: relative;
+            padding: 2vmin 2vmin 3.5vmin 2vmin;
+            /* Extra bottom padding for footer */
+            display: flex;
+            flex-direction: column;
+            border: 0.5vmin double black;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border: 0.3vmin solid black;
+            background-color: #d1d9e6;
+            padding: 1.5vmin;
+            margin-bottom: 1vmin;
+            border-radius: 1vmin;
+        }
+
+        .header h1 {
+            font-size: 3.5vmin;
+            font-weight: bold;
+            margin: 0;
+            text-decoration: underline;
+        }
+
+        /* Instruction Bar */
+        .instruction-bar {
+            background-color: #fbd6b3;
+            border: 0.3vmin solid black;
+            padding: 1vmin 2vmin;
+            margin-bottom: 1.5vmin;
+            font-weight: bold;
+            font-size: 2.2vmin;
+            border-radius: 0.5vmin;
+        }
+
+        /* Questions Container */
+        .questions-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vmin;
+            overflow: hidden;
+        }
+
+        .question-box {
+            border: 0.2vmin solid #ccc;
+            padding: 1.5vmin;
+            border-radius: 0.5vmin;
+            background-color: #fafafa;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 2vmin;
+            margin-bottom: 1vmin;
+            line-height: 1.5;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1vmin;
+            font-size: 1.8vmin;
+        }
+
+        .option {
+            font-family: 'Times New Roman', serif;
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        /* Motivational Quote */
+        .motivational-quote {
+            margin-top: auto;
+            text-align: center;
+            padding: 3vmin 0;
+            font-size: 3vmin;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 20vmin;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1vmin;
+            border-top: 0.2vmin solid black;
+            width: 100%;
+        }
+
+        .footer-right {
+            width: 25%;
+            text-align: right;
+            font-size: 1.5vmin;
+            font-weight: bold;
+        }
+
+        .footer-center {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.8vmin;
+        }
+
+        .footer-left {
+            width: 25%;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Watermark -->
+        <div class="watermark">المولجي</div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>أسئلة وزارية</h1>
+        </div>
+
+        <!-- Instruction Bar -->
+        <div class="instruction-bar">
+            ظلل الإجابة الصحيحة فيما يلي:
+        </div>
+
+        <!-- Questions -->
+        <div class="questions-container">
+
+            <!-- Question أ -->
+            <div class="question-box">
+                <div class="question-text">
+                    أ. العلاقة التي تربط كل عنصر من عناصر المجال بصورته في المجال المقابل تسمى .... :
+                </div>
+                <div class="options-container">
+                    <div class="option">1. منطلق العلاقة.</div>
+                    <div class="option">2. مدى التطبيق.</div>
+                    <div class="option">3. قاعدة التطبيق.</div>
+                    <div class="option">4. مستقر التطبيق.</div>
+                </div>
+            </div>
+
+            <!-- Question ب -->
+            <div class="question-box">
+                <div class="question-text">
+                    ب. لتكن س = { -1 ، 1 }، وعرف التطبيق ت : س ← ح بالعلاقة ت ( س ) = س² - 1 ، فإن المدى = .......... :
+                </div>
+                <div class="options-container">
+                    <div class="option">1. { -1 }.</div>
+                    <div class="option">2. { 0 ، 1 }.</div>
+                    <div class="option">3. { 0 }.</div>
+                    <div class="option">4. { -1 ، 0 }.</div>
+                </div>
+            </div>
+
+            <!-- Question ج -->
+            <div class="question-box">
+                <div class="question-text">
+                    ج. قاعدة التطبيق التي تربط كل عنصر من مجموعة بمربع ضعفه هي ت ( س ) = ............... :
+                </div>
+                <div class="options-container">
+                    <div class="option">1. 2 س².</div>
+                    <div class="option">2. ( س + 2 )².</div>
+                    <div class="option">3. 4 س.</div>
+                    <div class="option">4. 4 س².</div>
+                </div>
+            </div>
+
+            <!-- Question د -->
+            <div class="question-box">
+                <div class="question-text">
+                    د. العلاقة من س إلى ص والتي تربط كل عنصر من س بعنصر واحد فقط من ص تسمى ............. :
+                </div>
+                <div class="options-container">
+                    <div class="option">1. مجموعة.</div>
+                    <div class="option">2. مخطط.</div>
+                    <div class="option">3. تطبيق.</div>
+                    <div class="option">4. شكل فن.</div>
+                </div>
+            </div>
+
+            <!-- Question و -->
+            <div class="question-box">
+                <div class="question-text">
+                    و. إذا كان ت: س ← ص ، معرفاً بالقاعدة ت(س) = ½ س + 1 ، حيث س= { -2 ، 2 }، فإن المدى = ........ :
+                </div>
+                <div class="options-container">
+                    <div class="option">1. { -1 ، 2 }.</div>
+                    <div class="option">2. { 1 ، 2 }.</div>
+                    <div class="option">3. { 0 ، 2 ، 3 }.</div>
+                    <div class="option">4. { 0 ، 2 }.</div>
+                </div>
+            </div>
+
+            <!-- Question هـ -->
+            <div class="question-box">
+                <div class="question-text">
+                    هـ. إذا كان ت: ح ← ح تطبيق معرف بالقاعدة ت ( أ ) = أ² ، فإن ت ( -1 ) = .....
+                </div>
+                <div class="options-container">
+                    <div class="option">1. -1.</div>
+                    <div class="option">2. 1.</div>
+                    <div class="option">3. 2.</div>
+                    <div class="option">4. -2.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Motivational Quote -->
+        <div class="motivational-quote">
+            لكي تصل إلى ما تريده أشعل العزيمة بداخلك
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-right">إعداد: هلا المولجي</div>
+            <div class="footer-center">- 23 -</div>
+            <div class="footer-left"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

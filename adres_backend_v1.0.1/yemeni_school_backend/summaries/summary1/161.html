@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 62</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* العمود الأيمن (يظهر أولاً في الجوال) */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        /* العمود الأيسر */
+        .left-column {
+            order: 2;
+        }
+        .math-text {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px;
+        }
+        .fraction span { display: block; padding: 0 3px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+        
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+
+        /* تنسيق رسمة المقص X */
+        .x-diagram {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            margin: 5px 20px;
+        }
+        .x-labels {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٦٢ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="math-text">
+                | ٣٢ | مجموع عمري صفاء وبشار ٢٥ سنة ومنذ ثمان سنوات كان عمر صفاء ضعف عمر بشار فما عمر كل منهما الآن ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                لنفرض عمر صفاء = س سنة وعمر بشار = ص سنة <br>
+                ∴ س + ص = ٢٥ ← (١) <br>
+                ومنذ ٨ سنوات كان عمر صفاء ضعف عمر بشار يعني <br>
+                س - ٨ = ٢ ( ص - ٨ ) ومنها س - ٨ = ٢ ص - ١٦ <br>
+                أي س - ٢ ص = -٨ ← (٢) <br>
+                بطرح (٢) من (١) نجد ٣ ص = ٣٣ ومنها ص = ١١ <br>
+                ومن (١) نجد س = ٢٥ - ١١ = ١٤ <br>
+                أي أن عمر صفاء = ١٤ سنة وعمر بشار = ١١ سنة .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٣٣ | عددان موجبان مجموع مربعيهما يساوي ٣٤ فإذا كان الفرق بينهما يساوي اثنين فما العددان ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                الفرق بين العددان = ٢ فإننا : <br>
+                نفرض أحد العددين = س فيكون العدد الآخر = س + ٢ <br>
+                س² + ( س + ٢ )² = ٣٤ <br>
+                س² + س² + ٤ س + ٤ = ٣٤ <br>
+                ٢ س² + ٤ س - ٣٠ = ٠ ومنها س² + ٢ س - ١٥ = ٠ قسمنا على ٢ <br>
+                ∴ ( س + ٥ ) ( س - ٣ ) = ٠ <br>
+                إما س + ٥ = ٠ ومنها س = -٥ مرفوض <br>
+                أو س - ٣ = ٠ ومنها س = ٣ <br>
+                أي أن أحد العددين = س = ٣ والآخر = ٣ + ٢ = ٥ <br>
+                حيث الفرق بينهما = ٢ أي ٥ - ٣ = ٢ # .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٣٤ | إذا كان مربع عمر ماهر الآن يزيد عن ثلاثة أمثال عمره منذ أربع سنوات بمقدار ١٩٢ فما عمره الآن ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                ليكن عمر ماهر الآن = س فيكون عمره منذ أربع سنوات = س - ٤ <br>
+                ∴ س² = ٣ ( س - ٤ ) + ١٩٢ <br>
+                س² - ٣ س - ١٨٠ = ٠ ومنها ( س + ١٢ ) ( س - ١٥ ) = ٠ <br>
+                إما س + ١٢ = ٠ ومنها س = -١٢ مرفوض <br>
+                أو س - ١٥ = ٠ ومنها س = ١٥ وهو عمر ماهر # .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٣٥ | النسبة بين عمري عماد وعبد الله ( ٥ : ٣ ) ومنذ سنتين كانت النسبة بين عمريهما ( ٧ : ٤ ) فما عمر كل منهما الآن ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                ليكن عمر عماد = ٥ س سنة ، وليكن عمر عبد الله = ٣ س سنة <br>
+                عمر كل منهما منذ سنتين على التوالي ٥ س - ٢ ، ٣ س - ٢ <br>
+                ونسبة عمريهما منذ سنتين = <span class="fraction"><span>٧</span><span class="bottom">٤</span></span> <br>
+                أي <span class="fraction"><span>٥ س - ٢</span><span class="bottom">٣ س - ٢</span></span> = <span class="fraction"><span>٧</span><span class="bottom">٤</span></span> ومنها ٢٠ س - ٨ = ٢١ س - ١٤ <br>
+                س = ٦ ، ومنها س = ٦ <br>
+                ∴ عمر عماد الآن = ٥ س سنة = ٣٠ سنة <br>
+                وعمر عبد الله الآن = ٣ س سنة = ١٨ سنة # .
+            </div>
+
+             <div class="math-text" style="border-top: 1px solid #000; padding-top: 10px;">
+                | ٣٦ | طول مستطيل يساوي ضعف طول ضلع مربع وطول ضلع مربع يزيد عن عرض المستطيل بمقدار ٥ سم فإذا كانت مساحة المربع تساوي مساحة المستطيل فأوجد أبعاد المربع والمستطيل ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                نفرض طول ضلع المربع = س سم فيكون طول المستطيل = ٢ س سم <br>
+                طول المربع يزيد عن عرض المستطيل بمقدار ٥ سم <br>
+                أي أن عرض المستطيل = س - ٥ سم <br>
+                مساحة المستطيل = مساحة المربع <br>
+                ٢ س ( س - ٥ ) = س²
+            </div>
+        </div>
+
+        <div class="column left-column">
+             <div class="math-text">
+                تابع حل مسألة رقم | ٣٦ | <br>
+                ٢ س² - ١٠ س = س² ومنها س² - ١٠ س = ٠ <br>
+                س ( س - ١٠ ) = ٠ <br>
+                إما س = ٠ قيمة مرفوضة ليس لها معنى <br>
+                أو س - ١٠ = ٠ ومنها س = ١٠ <br>
+                طول المربع = ١٠ سم فيكون طول المستطيل = ٢ × ١٠ = ٢٠ سم <br>
+                وعرض المستطيل = ١٠ - ٥ = ٥ سم
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٣٧ | عددان مجموعهما ١١ ومجموع مقلوبيهما <span class="fraction"><span>١١</span><span class="bottom">٢٨</span></span> فما العددان ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                نفرض أحد العددين = س <br>
+                فيكون العدد الآخر = ١١ - س ( لأن مجموع العددين = ١١ ) <br>
+                ∴ <span class="fraction"><span>١</span><span class="bottom">س</span></span> + <span class="fraction"><span>١</span><span class="bottom">١١ - س</span></span> = <span class="fraction"><span>١١</span><span class="bottom">٢٨</span></span> ومنها <span class="fraction"><span>١١ - س + س</span><span class="bottom">س (١١ - س)</span></span> = <span class="fraction"><span>١١</span><span class="bottom">٢٨</span></span> <br>
+                <span class="fraction"><span>١١</span><span class="bottom">١١ س - س²</span></span> = <span class="fraction"><span>١١</span><span class="bottom">٢٨</span></span> ومنها البسط = البسط فإن المقام = المقام <br>
+                ١١ س - س² = ٢٨ ومنها س² - ١١ س + ٢٨ = ٠ <br>
+                ( س - ٤ ) ( س - ٧ ) = ٠ <br>
+                إما س - ٤ = ٠ ومنها س = ٤ <br>
+                أو س - ٧ = ٠ ومنها س = ٧ <br>
+                ∴ هما العددان <br>
+                إذا كان أحد العددين = ٤ فإن الآخر = ١١ - ٤ = ٧ <br>
+                أو إذا كان أحد العددين = ٧ فإن الآخر = ١١ - ٧ = ٤
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٣٨ | اشتركت مجموعة من الطلبة في رحلة بلغت تكاليفها ( ٩٠٠٠ ) ريال دفعها الطلبة فيما بينهم بالتساوي ، ولو زاد عدد الطلبة ستة لنقص اشتراك الطالب بمقدار ٥٠ ريالا ، فكم يكون عدد الطلبة الذين اشتركوا في الرحلة ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                نفرض عدد الطلاب = س طالباً ، تكلفة الرحلة = ٩٠٠٠ <br>
+                اشتراك كل طالب = <span class="fraction"><span>٩٠٠٠</span><span class="bottom">س</span></span> <br>
+                وعدد الطلاب بعد الزيادة = س + ٦ فيكون اشتراك الطالب بعد زيادة عدد الطلاب = <span class="fraction"><span>٩٠٠٠</span><span class="bottom">س + ٦</span></span> <br>
+                فيكون اشتراك الطالب بعد وقبل الزيادة هو <br>
+                <span class="fraction"><span>٩٠٠٠</span><span class="bottom">س</span></span> - <span class="fraction"><span>٩٠٠٠</span><span class="bottom">س + ٦</span></span> = ٥٠ ومنها <span class="fraction"><span>٩٠٠٠ س + ٥٤٠٠٠ - ٩٠٠٠ س</span><span class="bottom">س² + ٦ س</span></span> = ٥٠ <br>
+                ٥٠ س² + ٣٠٠ س = ٥٤٠٠٠ .. بالقسمة على ٥٠ <br>
+                س² + ٦ س - ١٠٨٠ = ٠ بالتحليل
+                
+                <div class="x-diagram">
+                    <div class="x-labels"><span>س</span><span>س</span></div>
+                    <svg width="50" height="50" style="margin: 0 10px;">
+                        <line x1="0" y1="0" x2="50" y2="50" stroke="black" stroke-width="1" />
+                        <line x1="0" y1="50" x2="50" y2="0" stroke="black" stroke-width="1" />
+                    </svg>
+                    <div class="x-labels"><span>- ٣٠</span><span>+ ٣٦</span></div>
+                </div>
+                
+                ∴ ( س - ٣٠ ) ( س + ٣٦ ) = ٠ <br>
+                ومنها إما س - ٣٠ = ٠ <br>
+                أو س = ٣٠ أو س + ٣٦ = ٠ <br>
+                ومنها س = -٣٦ مرفوض <br>
+                <span style="border: 1px solid #000; padding: 2px;">∴ عدد الطلاب = ٣٠ طالباً</span>
+            </div>
+
+           
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

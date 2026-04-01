@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة ١٨</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Arial","Tahoma",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+.header .unit{
+    font-size:16px;
+    margin-left:15px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* النص */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+
+/* الرسوم */
+.figure{
+    margin:15px 0;
+    text-align:center;
+}
+.caption{
+    font-size:16px;
+    margin-top:6px;
+}
+
+/* التذييل */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:30px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- الرأس -->
+<div class="header">
+    <div class="unit">الوحدة الأولى</div>
+    <div class="line"></div>
+</div>
+
+<p>
+( ب ) ع₂ ليست انعكاسية ، لأن ٦ ∈ س ، ولكن ( ٦ ، ٦ ) ∉ ع₂ .
+</p>
+
+<p>
+ع₂ متناظرة ، لأن ( ٦ ، ٥ ) ∈ ع₂ ، وأيضًا ( ٥ ، ٦ ) ∈ ع₂ .
+</p>
+
+<p>
+( ج ) ع₃ انعكاسية ومتناظرة ، لماذا ؟
+</p>
+
+<p>
+( د ) ع₄ ليست انعكاسية وليست متناظرة ، لماذا ؟
+</p>
+
+<p>
+وفي هذا الدرس سنتعرف على نوع آخر من العلاقات على المجموعات .
+</p>
+
+<p>
+تأمل ما يلي :
+</p>
+
+<p>
+إذا كان هناك ثلاثة أصدقاء : أحمد ، علي ، محمد ، وكان أحمد أطول من علي ،
+وعلي أطول من محمد ، فإن ذلك يؤدي بالضرورة إلى أن أحمد أطول من محمد .
+</p>
+
+<p>
+وإذا أردنا كتابة العلاقة ( أطول من ) بالأزواج المرتبة ستكون كالتالي :
+</p>
+
+<p>
+ع = { ( أحمد ، علي ) ، ( علي ، محمد ) ، ( أحمد ، محمد ) } .
+</p>
+
+<p>
+ويمكن تمثيلها كالتالي :
+</p>
+
+<p>
+( أ ) المخطط السهمي [ الشكل ( ١١ - أ ) ] .
+</p>
+
+<!-- المخطط السهمي المصحح -->
+<div class="figure">
+<svg width="420" height="140">
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6" fill="black"/>
+</marker>
+</defs>
+
+<!-- النقاط -->
+<circle cx="90" cy="70" r="4" fill="black"/>
+<circle cx="210" cy="70" r="4" fill="black"/>
+<circle cx="330" cy="70" r="4" fill="black"/>
+
+<!-- الأسماء -->
+<text x="65" y="105">محمد</text>
+<text x="195" y="105">علي</text>
+<text x="305" y="105">أحمد</text>
+
+<!-- الأسهم -->
+<line x1="210" y1="70" x2="90" y2="70" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="330" y1="70" x2="210" y2="70" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M330 85 Q210 120 90 85" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+</div>
+
+<div class="caption">شكل ( ١١ - أ )</div>
+
+<p>
+( ب ) الرسم البياني [ الشكل ( ١١ - ب ) ] .
+</p>
+
+<!-- الرسم البياني -->
+<div class="figure">
+<svg width="320" height="240">
+
+<!-- المحاور -->
+<line x1="90" y1="40" x2="90" y2="200" stroke="black"/>
+<line x1="90" y1="200" x2="260" y2="200" stroke="black"/>
+
+<!-- خطوط الشبكة -->
+<line x1="150" y1="40" x2="150" y2="200" stroke="black"/>
+<line x1="210" y1="40" x2="210" y2="200" stroke="black"/>
+
+<line x1="90" y1="80" x2="260" y2="80" stroke="black"/>
+<line x1="90" y1="140" x2="260" y2="140" stroke="black"/>
+
+<!-- النقاط -->
+<circle cx="150" cy="140" r="4" fill="#1aa3d9"/>
+<circle cx="210" cy="80" r="4" fill="#1aa3d9"/>
+<circle cx="210" cy="140" r="4" fill="#1aa3d9"/>
+
+<!-- تسميات المحاور -->
+<text x="40" y="85">محمد</text>
+<text x="40" y="145">علي</text>
+<text x="40" y="205">أحمد</text>
+
+<text x="135" y="225">محمد</text>
+<text x="195" y="225">علي</text>
+<text x="255" y="225">أحمد</text>
+</svg>
+</div>
+
+<div class="caption">شكل ( ١١ - ب )</div>
+
+<p>
+ويتم ذلك على النحو التالي :
+</p>
+
+<p>
+– حدد المساقط الأولى للأزواج المرتبة على محور أفقي والمساقط الثانية على
+محور رأسي .
+</p>
+
+<p>
+– عين النقاط التي تمثل الأزواج المرتبة لهذه العلاقة .
+</p>
+
+<p>
+وإذا كانت ع علاقة ( أ خ ) .
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="page-num">١٨</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

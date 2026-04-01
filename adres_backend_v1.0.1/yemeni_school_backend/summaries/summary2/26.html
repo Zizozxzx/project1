@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملزمة – صفحة 26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --header-bg: #e0e0e0;
+        }
+
+        /* Reset and Box Sizing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f0f0f0;
+            color: #000;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vmin;
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 900px;
+            aspect-ratio: 0.7;
+            /* Keep aspect ratio if possible, roughly A4 */
+            background: var(--bg-color);
+            border: 0.5vmin double var(--border-color);
+            padding: 1.5vmin;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            justify-content: space-between;
+        }
+
+        /* Responsive Typography */
+        h3,
+        .section-header {
+            font-size: 2.2vmin;
+            font-weight: bold;
+        }
+
+        /* Training Table Section */
+        .training-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-bottom: 0.5vmin;
+            overflow: hidden;
+        }
+
+        .training-title {
+            text-align: right;
+            margin-bottom: 0.5vmin;
+            text-decoration: underline;
+            text-underline-offset: 0.3vmin;
+        }
+
+        .train-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.6vmin;
+        }
+
+        .train-table th,
+        .train-table td {
+            border: 0.15vmin solid #000;
+            padding: 0.3vmin;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .train-table th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            height: 3vmin;
+        }
+
+        .train-table td {
+            height: 4vmin;
+        }
+
+        /* SVGs */
+        .number-line {
+            width: 100%;
+            max-width: 25vmin;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Explanation Box */
+        .explanation-box {
+            border: 0.2vmin solid #000;
+            padding: 1vmin;
+            margin: 0.5vmin 0;
+            background-color: #fff;
+            font-size: 1.7vmin;
+            flex-shrink: 0;
+            text-align: justify;
+        }
+
+        .explanation-title {
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 0.5vmin;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .quiz-header {
+            text-align: center;
+            background-color: var(--header-bg);
+            padding: 0.5vmin;
+            border: 0.15vmin solid #000;
+            margin-bottom: 0;
+            font-size: 1.8vmin;
+            font-weight: bold;
+        }
+
+        /* Scrollable Quiz Content */
+        .quiz-container {
+            overflow-y: auto;
+            border: 0.15vmin solid #000;
+            border-top: none;
+            flex-grow: 1;
+        }
+
+        .quiz-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.6vmin;
+        }
+
+        .quiz-table th {
+            padding: 0.5vmin;
+            border-bottom: 0.15vmin solid #000;
+            background-color: #f9f9f9;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .quiz-table td {
+            padding: 0.3vmin;
+            border-bottom: 0.1vmin solid #ddd;
+            /* Lighter border for rows */
+        }
+
+        .quiz-row:last-child td {
+            border-bottom: none;
+        }
+
+        .bubble-container {
+            display: flex;
+            justify-content: center;
+            gap: 1vmin;
+        }
+
+        .bubble {
+            width: 2vmin;
+            height: 2vmin;
+            border: 0.15vmin solid #000;
+            border-radius: 50%;
+        }
+
+        .q-text {
+            text-align: right;
+            padding-right: 1vmin !important;
+        }
+
+        .q-number {
+            float: right;
+            margin-left: 0.5vmin;
+            font-weight: bold;
+        }
+
+        /* Math Helpers */
+        .ltr-math {
+            direction: ltr;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .root {
+            white-space: nowrap;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .radicand {
+            text-decoration: overline;
+            display: inline-block;
+            padding-top: 0.1vmin;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5vmin;
+            font-weight: bold;
+            font-size: 1.8vmin;
+            border-top: 0.1vmin solid #eee;
+            padding-top: 0.5vmin;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Training Section -->
+        <div class="training-section">
+            <h3 class="training-title">تدريب (٢): أكمل الجدول التالي:</h3>
+
+            <table class="train-table">
+                <thead>
+                    <tr>
+                        <th style="width:15%">الفترة</th>
+                        <th style="width:45%">الصفة المميزة للفترة</th>
+                        <th style="width:40%">تمثيلها على خط الأعداد</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                        <td><span class="ltr-math">[ ٧ ، ٣ ]</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <tr>
+                        <td></td>
+                        <td><span class="ltr-math">{ س : س &isin; ح ، -٢ &lt; س &le; ١.٥ }</span></td>
+                        <td></td>
+                    </tr>
+                    <!-- Row 3 -->
+                    <tr>
+                        <td></td>
+                        <td><span class="ltr-math">{ س : س &isin; ح ، -١ &gt; س }</span></td>
+                        <td></td>
+                    </tr>
+                    <!-- Row 4 -->
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <svg class="number-line" viewBox="0 0 300 50">
+                                <g stroke="black" stroke-width="1" font-size="10" text-anchor="middle"
+                                    font-family="Arial">
+                                    <line x1="10" y1="35" x2="290" y2="35" stroke-width="1.5" />
+                                    <polygon points="10,35 15,32 15,38" fill="black" />
+                                    <polygon points="290,35 285,32 285,38" fill="black" />
+                                    <line x1="60" y1="32" x2="60" y2="38" /> <text x="60" y="48">-٣</text>
+                                    <line x1="210" y1="32" x2="210" y2="38" /> <text x="210" y="48">٢</text>
+                                </g>
+                                <g stroke="#007bff" stroke-width="2" fill="none">
+                                    <line x1="60" y1="20" x2="210" y2="20" />
+                                    <circle cx="60" cy="20" r="3" stroke="#007bff" fill="white" />
+                                    <circle cx="210" cy="20" r="3" stroke="#007bff" fill="white" />
+                                </g>
+                            </svg>
+                        </td>
+                    </tr>
+                    <!-- Row 5 -->
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <svg class="number-line" viewBox="0 0 300 50">
+                                <g stroke="black" stroke-width="1" font-size="10" text-anchor="middle"
+                                    font-family="Arial">
+                                    <line x1="10" y1="35" x2="290" y2="35" stroke-width="1.5" />
+                                    <polygon points="10,35 15,32 15,38" fill="black" />
+                                    <polygon points="290,35 285,32 285,38" fill="black" />
+                                    <line x1="210" y1="32" x2="210" y2="38" /> <text x="210" y="48">٢</text>
+                                </g>
+                                <g stroke="#007bff" stroke-width="2" fill="none">
+                                    <line x1="210" y1="20" x2="30" y2="20" />
+                                    <polygon points="30,20 36,17 36,23" fill="#007bff" stroke="none" />
+                                    <circle cx="210" cy="20" r="3" stroke="#007bff" fill="white" />
+                                </g>
+                            </svg>
+                        </td>
+                    </tr>
+                    <!-- Row 6 -->
+                    <tr>
+                        <td><span class="ltr-math">] &infin; + ، ٧ [</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Explanation Box -->
+        <div class="explanation-box">
+            <span class="explanation-title">تحديد انتماء الجذور الصماء للفترات:</span>
+            <p style="margin: 0;">
+                نحدد أقرب كمية مربعة قبل هذا العدد وبعده ثم نوجد الجذور التربيعية لكل منها وستكون حتماً قيمة الجذر الصم
+                بينها لكن إذا كان الحد الأدنى سالباً فتكون الكمية المربعة قبله هي الصفر.
+            </p>
+            <div style="margin-top: 0.5vmin;">
+                مثال: هل <span class="ltr-math"><span class="root">&radic;<span class="radicand">٣٢</span></span> &isin;
+                    [ ٥ ، ٦ ]</span> ؟<br>
+                الحل: ١. أصغر كمية مربعة قبل ٣٢ هي ٢٥ ، والجذر التربيعي لها = ٥<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;٢. أكبر كمية مربعة بعد ٣٢ هي ٣٦ ، والجذر التربيعي لها = ٦.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;٣. ستكون قيمة <span class="ltr-math"><span class="root">&radic;<span
+                            class="radicand">٣٢</span></span></span> بين ٥ و ٦.<br>
+                إذن: <span class="ltr-math"><span class="root">&radic;<span class="radicand">٣٢</span></span> &isin; [ ٥
+                    ، ٦ ]</span>.
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <div class="quiz-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="quiz-container">
+                <table class="quiz-table">
+                    <thead>
+                        <tr>
+                            <th style="width:15%">صح <span style="margin:0 0.5vmin"></span> خطأ</th>
+                            <th style="text-align: right; padding-right: 2vmin;">ظلل الإجابة الصحيحة فيما يلي:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Q1 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">١.</span> كل عدد صحيح هو عدد حقيقي والعكس غير
+                                صحيح.</td>
+                        </tr>
+                        <!-- Q2 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٢.</span> كل عدد غير نسبي هو عدد حقيقي والعكس
+                                صحيح.</td>
+                        </tr>
+                        <!-- Q3 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٣.</span> <span class="ltr-math"><span
+                                        class="root">&radic;<span class="radicand">٧</span></span> &isin; ح</span>.
+                            </td>
+                        </tr>
+                        <!-- Q4 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٤.</span> <span class="ltr-math"><span
+                                        class="root">&radic;<span class="radicand">٧</span></span> &isin; [ ٢ ، ٠
+                                    ]</span>.</td>
+                        </tr>
+                        <!-- Q5 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٥.</span> <span class="ltr-math">{ س : س &isin; ح
+                                    ، ٢ &lt;
+                                    س } = ] ٢ ، + &infin; [</span>.</td>
+                        </tr>
+                        <!-- Q6 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٦.</span> <span class="ltr-math">[ ٣ ، ٥ ] = { س :
+                                    س
+                                    &isin; ح ، ٣ &lt; س &ge; ٥ }</span>.</td>
+                        </tr>
+                        <!-- Q7 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٧.</span> <span class="ltr-math">&pi;</span> يعتبر
+                                عدد
+                                نسبي.</td>
+                        </tr>
+                        <!-- Q8 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٨.</span> <span class="ltr-math">{ ٤ ، ٥ } = { س :
+                                    س
+                                    &isin; ط ، ٤ &lt; س &lt; ٥ }</span>.</td>
+                        </tr>
+                        <!-- Q9 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">٩.</span> <span class="ltr-math">{ س : س &isin; ح
+                                    ، ٢ &lt;
+                                    س &lt; ٣ } = &Oslash;</span>.</td>
+                        </tr>
+                        <!-- Q10 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text">
+                                <span class="q-number">١٠.</span> الشكل المجاور يمثل الفترة <span class="ltr-math">] -
+                                    &infin; ، ٣ ]</span>.
+                                <svg class="number-line" viewBox="0 0 200 40"
+                                    style="width: 15vmin; vertical-align: middle; margin-right: 1vmin; display:inline-block;">
+                                    <line x1="10" y1="30" x2="190" y2="30" stroke="black" stroke-width="1.5" />
+                                    <text x="100" y="38" font-size="12" text-anchor="middle"
+                                        font-family="Arial">٣</text>
+                                    <line x1="100" y1="27" x2="100" y2="33" stroke="black" stroke-width="1" />
+                                    <g stroke="#007bff" stroke-width="2" fill="none">
+                                        <line x1="100" y1="20" x2="20" y2="20" />
+                                        <polygon points="20,20 26,17 26,23" fill="#007bff" stroke="none" />
+                                        <circle cx="100" cy="20" r="3" stroke="#007bff" fill="#007bff" />
+                                    </g>
+                                </svg>
+                            </td>
+                        </tr>
+                        <!-- Q11 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text"><span class="q-number">١١.</span> <span class="ltr-math">٧٦,٢٣١
+                                    &rarr;</span> عدد
+                                غير نسبي و عدد صحيح.</td>
+                        </tr>
+                        <!-- Q12 -->
+                        <tr class="quiz-row">
+                            <td>
+                                <div class="bubble-container">
+                                    <div class="bubble"></div>
+                                    <div class="bubble"></div>
+                                </div>
+                            </td>
+                            <td class="q-text">
+                                <span class="q-number">١٢.</span> العدد الدوري المنتهي عدد حقيقي.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٢٦ -</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

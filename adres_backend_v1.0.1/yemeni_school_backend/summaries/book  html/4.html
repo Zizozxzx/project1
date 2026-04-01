@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>رياضيات الصف التاسع – الوحدة الأولى</title>
+
+  <!-- خط عربي قريب جدًا من الكتاب -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: 'Amiri', serif;
+      color: #000;
+    }
+
+    .page {
+      width: 90%;
+      margin: auto;
+      padding: 30px 10px 60px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* ====== رأس الصفحة ====== */
+    .header {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .header .unit {
+      position: absolute;
+      right: 0;
+      top: -5px;
+      font-size: 16px;
+    }
+
+    .header .line {
+      height: 3px;
+      background: #1da1f2;
+      margin-top: 20px;
+    }
+
+    /* ====== عنوان الحل ====== */
+    .solution-title {
+      display: inline-block;
+      border: 2px solid #000;
+      border-radius: 25px;
+      padding: 6px 22px;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    /* ====== الفقرات ====== */
+    p {
+      font-size: 18px;
+      line-height: 2;
+      margin: 12px 0;
+      text-align: justify;
+    }
+
+    .math-set {
+      font-size: 18px;
+      margin: 10px 0 10px 20px;
+    }
+
+    /* ====== عنوان التمارين ====== */
+    .exercises-title {
+      background: #bde7ff;
+      display: inline-block;
+      padding: 6px 20px;
+      font-weight: bold;
+      margin: 25px 0 10px;
+      font-size: 18px;
+      position: relative;
+    }
+
+    .exercises-title::before {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: -6px;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #000;
+      z-index: -1;
+    }
+
+    /* ====== القوائم ====== */
+    ol {
+      font-size: 18px;
+      line-height: 2;
+      padding-right: 25px;
+    }
+
+    .sets {
+      margin-top: 10px;
+      margin-right: 25px;
+      font-size: 18px;
+    }
+
+    /* ====== أسفل الصفحة ====== */
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 3px solid #1da1f2;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .bottom-line {
+      height: 3px;
+      background: #1da1f2;
+      position: absolute;
+      bottom: 32px;
+      width: 100%;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- رأس الصفحة -->
+  <div class="header">
+    <span class="unit">الوحدة الأولى</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- عنوان الحل -->
+  <div class="solution-title">الحل :</div>
+
+  <p>
+    (أ) نلاحظ أن س هي مجموعة الحروف الهجائية العربية، ونكتب ذلك
+    بالصفة المميزة رمزياً على النحو التالي:
+  </p>
+
+  <div class="math-set">
+    س = { م : م أحد الحروف الهجائية العربية }
+  </div>
+
+  <p>
+    (ب) نلاحظ أن الصفة المميزة لعناصر المجموعة ص هي: أعداد صحيحة
+    محصورة بين ٢ و٦، أو أرقام العدد ٥٣... إلخ.
+  </p>
+
+  <p>
+    نكتفي في الحل بذكر صفة واحدة فقط من الصفات المميزة، فنكتب مثلاً:
+  </p>
+
+  <div class="math-set">
+    ص = { م : م ∈ ص ، ٢ &lt; م &lt; ٦ }
+  </div>
+
+  <p>
+    (ج) ع = { ب : ب عددًا زوجيًا طبيعيًا، ب &lt; ٥ }
+  </p>
+
+  <!-- التمارين -->
+  <div class="exercises-title">تمارين ومسائل</div>
+
+  <ol>
+    <li>اكتب كلاً من المجموعات الآتية بالصفة المميزة رمزياً:</li>
+  </ol>
+
+  <div class="sets">
+    س = { محرم، صفر، ربيع أول، ... ، ذي الحجة } <br>
+    ص = { ١١ ، ١٣ ، ١٥ ، ١٧ ، ١٩ } <br>
+    ل' = { ١٠ ، ١١ ، ١٢ ، ١٣ ، ١٤ } <br>
+    م = { ل ، ع ، ب }
+  </div>
+
+  <ol start="2">
+    <li>
+      اكتب بذكر الصفة المميزة رمزياً كلاً من المجموعات التالية:
+      <br>
+      (أ) مجموعة عواصم العالم &nbsp;&nbsp;
+      (ب) مجموعة مضاعفات العدد ٩
+    </li>
+  </ol>
+
+  <!-- أسفل الصفحة -->
+  <div class="bottom-line"></div>
+  <div class="footer">٨</div>
+
+</div>
+
+</body>
+</html>

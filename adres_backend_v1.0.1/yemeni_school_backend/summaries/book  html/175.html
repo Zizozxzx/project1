@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ظل الزاوية – حساب المثلثات</title>
+
+<style>
+body{
+  margin:0;
+  background:#fff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:760px;              /* حجم متوسط مناسب للجوال */
+  margin:auto;
+  padding:22px 18px 30px;
+  font-size:17px;
+  line-height:2.15;             /* توزيع الطول بين الفقرات */
+  box-sizing:border-box;
+}
+
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:16px;
+}
+
+h2{
+  font-size:20px;
+  margin:6px 0 10px;
+}
+
+p{
+  margin:10px 0;
+}
+
+.eq{
+  margin:14px 0;
+}
+
+.frac{
+  display:inline-block;
+  text-align:center;
+  vertical-align:middle;
+  margin:0 6px;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:3px;
+  padding:0 6px;
+}
+
+.box{
+  background:#dff1fb;
+  border:2px solid #000;
+  border-radius:12px;
+  padding:12px 14px;
+  margin:16px 0;
+}
+
+.badge{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:2px 12px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.solution{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:18px;
+  padding:6px 18px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
+.diagram{
+  margin:16px 0 20px;
+}
+
+.footer{
+  margin-top:28px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+@media(max-width:480px){
+  .page{
+    font-size:16px;
+    padding:18px 14px 26px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<h2>ظل الزاوية :</h2>
+
+<p>
+في الشكل (٤ – ١٢) تلاحظ تشابه المثلثات :
+أ ب ج ، س هـ ج ، م د ج .
+</p>
+
+<div class="diagram">
+<svg width="320" height="190" viewBox="0 0 320 190">
+  <!-- القاعدة -->
+  <line x1="30" y1="150" x2="280" y2="150" stroke="#000" stroke-width="2"/>
+  <!-- الوتر -->
+  <line x1="30" y1="150" x2="260" y2="50" stroke="#000" stroke-width="2"/>
+  <!-- الأعمدة -->
+  <line x1="120" y1="150" x2="120" y2="115" stroke="#000" stroke-width="2"/>
+  <line x1="180" y1="150" x2="180" y2="85" stroke="#000" stroke-width="2"/>
+  <line x1="260" y1="150" x2="260" y2="50" stroke="#000" stroke-width="2"/>
+  <!-- زوايا قائمة -->
+  <rect x="112" y="142" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <rect x="172" y="142" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <rect x="252" y="142" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <!-- تسميات -->
+  <text x="20" y="158" font-size="15">ج</text>
+  <text x="285" y="158" font-size="15">ب</text>
+  <text x="262" y="42" font-size="15">م</text>
+  <text x="182" y="78" font-size="15">د</text>
+  <text x="122" y="108" font-size="15">هـ</text>
+  <text x="110" y="175" font-size="14">(شكل ٤ – ١٢)</text>
+</svg>
+</div>
+
+<div class="eq">
+<span class="frac">
+  <span class="top">| م هـ |</span>
+  <span class="bottom">| هـ ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| س هـ |</span>
+  <span class="bottom">| هـ ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| ب ج |</span>
+</span>
+</div>
+
+<p>
+وهذا يعني أن نسبة طول الضلع المقابل للزاوية ج
+في مثلث قائم الزاوية إلى طول الضلع المجاور للزاوية ج
+هي نسبة ثابتة .
+</p>
+
+<p>نسمي هذه النسبة ظل الزاوية ج .</p>
+
+<div class="box">
+<strong>
+ظل الزاوية الحادة ج في مثلث قائم الزاوية هو نسبة طول الضلع المقابل للزاوية
+إلى طول الضلع المجاور لها ، ونرمز له بالرمز ( ظا ج ) .
+</strong>
+</div>
+
+<p>
+تسمى النسب جا ج ، جتا ج ، ظا ج ،
+النسب المثلثية الأساسية للزاوية الحادة ج .
+</p>
+
+<p>
+لاحظ في المثلث أ ب ج القائم الزاوية في ب ، أن :
+</p>
+
+<div class="eq">
+ظا ج =
+<span class="frac">
+  <span class="top">المقابل</span>
+  <span class="bottom">المجاور</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| ب ج |</span>
+</span>
+</div>
+
+<div class="badge">مثال (٣)</div>
+
+<p>
+س هـ و مثلث قائم الزاوية في هـ ، فيه | هـ و | = ٦ سم ،
+| س و | = ٨ سم ، أوجد ظا و .
+</p>
+
+<div class="solution">الحل :</div>
+
+<p>نلاحظ في الشكل (٤ – ١٣) أن :</p>
+
+<div class="diagram">
+<svg width="260" height="190" viewBox="0 0 260 190">
+  <line x1="40" y1="150" x2="200" y2="150" stroke="#000" stroke-width="2"/>
+  <line x1="40" y1="150" x2="40" y2="60" stroke="#000" stroke-width="2"/>
+  <line x1="40" y1="60" x2="200" y2="150" stroke="#000" stroke-width="2"/>
+  <rect x="40" y="138" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <text x="28" y="58" font-size="15">س</text>
+  <text x="205" y="158" font-size="15">و</text>
+  <text x="22" y="158" font-size="15">هـ</text>
+  <text x="115" y="165" font-size="14">٦ سم</text>
+  <text x="92" y="92" font-size="14">٨ سم</text>
+  <text x="80" y="180" font-size="14">(شكل ٤ – ١٣)</text>
+</svg>
+</div>
+
+<div class="eq">
+∴ ظا و =
+<span class="frac">
+  <span class="top">| هـ و |</span>
+  <span class="bottom">| هـ س |</span>
+</span>
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٧٨</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

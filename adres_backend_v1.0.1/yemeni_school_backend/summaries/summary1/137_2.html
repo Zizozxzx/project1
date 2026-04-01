@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 46</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1100px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* الترتيب: العمود الأيمن يظهر أولاً في الكود */
+        .right-column {
+            order: 1;
+            border-left: 2px solid #000;
+            padding-left: 15px;
+        }
+        .left-column {
+            order: 2;
+        }
+        .math-text {
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            background-color: #f0f0f0; /* تمييز خفيف للعناوين */
+            padding: 2px;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .bordered-box {
+            border: 1px solid #000;
+            padding: 2px 6px;
+            display: inline-block;
+            margin: 2px 0;
+        }
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.8em;
+        }
+        .fraction > span {
+            display: block;
+        }
+        .fraction span.top {
+            border-bottom: 1px solid #000;
+        }
+        .math-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.85em;
+            margin: 10px 0;
+        }
+        .math-table td, .math-table th {
+            border: 1px solid #000;
+            padding: 3px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٤٦ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="section-title">ثانياً : حل أنظمة المعادلات التالية باستخدام طريقة الحذف وتحقق من صحة الحل :</div>
+
+            <div class="math-text">
+                <span class="highlight">|١| ٤س + ٣ص = ٩ ، ٢س + ٥ص = ١٥</span><br>
+                <span class="highlight">* الحل *</span><br>
+                ∵ ٤س + ٣ص = ٩ &nbsp; ← (١)<br>
+                ∵ ٢س + ٥ص = ١٥ &nbsp; ← (٢) بضربها في -٢ نجد<br>
+                -٤س - ١٠ص = -٣٠ &nbsp; ← (٣) بجمع المعادلتين (١) ، (٣) نجد :<br>
+                -٧ص = -٢١ &nbsp; بالقسمة على -٧<br>
+                ∴ ومنها <div class="bordered-box">ص = ٣</div><br>
+                نعوض بقيمة ص = ٣ في المعادلة لتكن (١) فنجد :<br>
+                ٤س + ٣ × ٣ = ٩ ومنها ٤س = ٩ - ٩<br>
+                ∴ ٤س = ٠ ومنها س = ٠ أي <div class="bordered-box">س = ٠</div><br>
+                ∴ مجموعة الحل = { ( ٠ ، ٣ ) }
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">التحقق :</span><br>
+                من (١) الأيمن = ٤ × ٠ + ٣ × ٣ = ٠ + ٩ = ٩ = الأيسر<br>
+                من (٢) الأيمن = ٢ × ٠ + ٥ × ٣ = ٠ + ١٥ = ١٥ = الأيسر
+            </div>
+
+            <hr style="border-top: 1px dashed #000;">
+
+            <div class="math-text">
+                <span class="highlight">|٢| ١٥ - ص = ٤س ، ٣ص - ٥س = ١١</span><br>
+                <span class="highlight">* الحل *</span><br>
+                ∵ ١٥ - ص = ٤س &nbsp; ← (١) ومنها ١٥ - ٤س = ص أي <div class="bordered-box">ص = ١٥ - ٤س</div><br>
+                ∵ ٣ص - ٥س = ١١ &nbsp; ← (٢) نعوض بقيمة ص = ١٥ - ٤س في (٢)<br>
+                ∴ ٣ (١٥ - ٤س) - ٥س = ١١ ومنها ٤٥ - ١٢س - ٥س = ١١<br>
+                ∴ -١٧س = ١١ - ٤٥ ومنها -١٧س = -٣٤ بالقسمة على -١٧<br>
+                <div class="bordered-box">س = ٢</div><br>
+                نعوض بقيمة س = ٢ في المعادلة (١) فنجد :<br>
+                ص = ١٥ - ٤ × ٢ = ١٥ - ٨ = ٧ أي <div class="bordered-box">ص = ٧</div><br>
+                ∴ مجموعة الحل = { ( ٢ ، ٧ ) }
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">التحقق :</span><br>
+                من (١) الأيمن = ١٥ - ٧ = ٨ ، الأيسر = ٤ × ٢ = ٨ ∴ الأيمن = الأيسر<br>
+                من (٢) الأيمن = ٣ × ٧ - ٥ × ٢ = ٢١ - ١٠ = ١١ = الأيسر
+            </div>
+
+            <hr style="border-top: 1px dashed #000;">
+
+            <div class="math-text">
+                <span class="highlight">|٣| ٢س + ص = ٩ ، ٣س - ٢ص = ٤</span><br>
+                <span class="highlight">* الحل *</span><br>
+                ∵ ٢س + ص = ٩ &nbsp; ← (١)<br>
+                نضربها في ٢ نجد :<br>
+                ٤س + ٢ص = ١٨ &nbsp; ← (٣)<br>
+                ∵ ٣س - ٢ص = ٤ &nbsp; ← (٢)<br>
+                بجمع المعادلتين (٣) ، (٢) نجد :<br>
+                ٧س = ٢٢ بالقسمة على ٧ نجد : <div class="bordered-box">س = ٢٢/٧</div><br>
+                نعوض في (١) فنجد :<br>
+                ٢ × ٢٢/٧ + ص = ٩ ومنها ص = ٩ - ٤٤/٧<br>
+                <div class="bordered-box">ص = ١٩/٧</div><br>
+                ∴ مجموعة الحل = { ( ٢٢/٧ ، ١٩/٧ ) }
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">التحقق :</span> نعوض بقيمة س = ٢٢/٧ ، ص = ١٩/٧ في المعادلتين<br>
+                من (١) الأيمن = ٢ × ٢٢/٧ + ١٩/٧ = ٤٤/٧ + ١٩/٧ = ٦٣/٧ = ٩ = الأيسر<br>
+                من (٢) الأيمن = ٣ × ٢٢/٧ - ٢ × ١٩/٧ = ٦٦/٧ - ٣٨/٧ = ٢٨/٧ = ٤ = الأيسر
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                <span class="highlight">|٤| <div class="fraction"><span class="top">١</span><span>٣</span></div> ص + <div class="fraction"><span class="top">١</span><span>٦</span></div> س = ٨ ، <div class="fraction"><span class="top">١</span><span>٢</span></div> ص - <div class="fraction"><span class="top">١</span><span>٤</span></div> س = ٦</span><br>
+                <span class="highlight">* الحل *</span><br>
+                ∵ <div class="fraction"><span class="top">١</span><span>٣</span></div> ص + <div class="fraction"><span class="top">١</span><span>٦</span></div> س = ٨ &nbsp; ← (١) ومنها (بضربها في ٦) ← ٢ص + س = ٤٨ ← (٣)<br>
+                ∵ <div class="fraction"><span class="top">١</span><span>٢</span></div> ص - <div class="fraction"><span class="top">١</span><span>٤</span></div> س = ٦ &nbsp; ← (٢) ومنها (بضربها في ٤) ← ٢ص - س = ٢٤ ← (٤)<br>
+                بجمع المعادلتين (٣) ، (٤) نجد :<br>
+                ٤ص = ٧٢ بالقسمة على ٤<br>
+                <div class="bordered-box">ص = ١٨</div><br>
+                نعوض في (٣) نجد :<br>
+                ٢ × ١٨ + س = ٤٨ ومنها ٣٦ + س = ٤٨<br>
+                س = ٤٨ - ٣٦ = ١٢ ومنها <div class="bordered-box">س = ١٢</div><br>
+                ∴ مجموعة الحل = { ( ١٢ ، ١٨ ) }
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">التحقق :</span><br>
+                الطرف الأيمن = <div class="fraction"><span class="top">١</span><span>٣</span></div> × ١٨ + <div class="fraction"><span class="top">١</span><span>٦</span></div> × ١٢ = ٦ + ٢ = ٨ = الطرف الأيسر<br>
+                ومن (٢) الطرف الأيمن = <div class="fraction"><span class="top">١</span><span>٢</span></div> × ١٨ - <div class="fraction"><span class="top">١</span><span>٤</span></div> × ١٢ = ٩ - ٣ = ٦ = الطرف الأيسر
+            </div>
+
+            <hr style="border-top: 2px solid #000; margin: 20px 0;">
+
+            <div class="section-title">ثالثاً : حل النظام المعادلات التالية بيانيا وتحقق من صحة الحل</div>
+
+            <div class="math-text">
+                <span class="highlight">|١| ٢س - ص = ٥ ، س - ٢ص = ١٠</span><br>
+                <span class="highlight">* الحل *</span><br>
+                <span class="highlight">أولاً :</span> من المعادلة ٢س - ص = ٥ فإن :<br>
+                ص = ٢س - ٥<br>
+                نكون جدول قيم المعادلة ونرسم المستقيم الأول "جدول (١)"
+            </div>
+
+            <table class="math-table" style="width: 50%;">
+                <caption>جدول (١)</caption>
+                <tr>
+                    <th>س</th>
+                    <th>ص = ٢س - ٥</th>
+                    <th>(س ، ص)</th>
+                </tr>
+                <tr><td>٠</td><td>-٥</td><td>(٠ ، -٥)</td></tr>
+                <tr><td>٣</td><td>١</td><td>(٣ ، ١)</td></tr>
+                <tr><td>١</td><td>-٣</td><td>(١ ، -٣)</td></tr>
+            </table>
+
+            <div class="math-text">
+                <span class="highlight">ثانياً :</span> في المعادلة س - ٢ص = ١٠ فإن ص = <div class="fraction"><span class="top">س - ١٠</span><span>٢</span></div><br>
+                نكون جدول قيم المعادلة ونرسم المستقيم الثاني من جدول (٢) فمن الشكل البياني فإن :<br>
+                مجموعة الحل = { ( ٠ ، -٥ ) }<br>
+                نقطة تقاطع المستقيمين .
+            </div>
+
+            <table class="math-table" style="width: 50%;">
+                <caption>جدول (٢)</caption>
+                <tr>
+                    <th>س</th>
+                    <th>ص = (س-١٠)/٢</th>
+                    <th>(س ، ص)</th>
+                </tr>
+                <tr><td>٠</td><td>-٥</td><td>(٠ ، -٥)</td></tr>
+                <tr><td>٤</td><td>-٣</td><td>(٤ ، -٣)</td></tr>
+                <tr><td>-٢</td><td>-٦</td><td>(-٢ ، -٦)</td></tr>
+            </table>
+
+            <div class="diagram-container">
+                <svg width="250" height="250" viewBox="-80 -100 200 160">
+                    <line x1="-70" y1="0" x2="100" y2="0" stroke="black" stroke-width="1.5" /> <line x1="0" y1="-90" x2="0" y2="60" stroke="black" stroke-width="1.5" /> <polygon points="100,0 95,-3 95,3" fill="black" />
+                    <polygon points="0,-90 -3,-85 3,-85" fill="black" />
+                    
+                    <text x="105" y="5" font-size="12">س</text>
+                    <text x="5" y="-90" font-size="12">ص</text>
+                    <text x="70" y="-80" font-size="12">شكل (١)</text>
+
+                    <line x1="-10" y1="70" x2="40" y2="-30" stroke="black" stroke-width="2" />
+                    <text x="25" y="-40" font-size="10">(٣،١)</text>
+
+                    <line x1="-40" y1="70" x2="80" y2="10" stroke="black" stroke-width="2" />
+                    <text x="50" y="20" font-size="10">(٤،-٣)</text>
+
+                    <circle cx="0" cy="50" r="3" fill="black" />
+                    <text x="-40" y="55" font-size="10">(٠، -٥)</text>
+                    
+                    <circle cx="20" cy="40" r="2" fill="black" />
+
+                    <text x="10" y="55" font-size="8">-١</text>
+                    <text x="20" y="55" font-size="8">-٢</text>
+                    <text x="30" y="55" font-size="8">-٣</text>
+                </svg>
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">التحقق :</span><br>
+                من المعادلة (١) نجد :<br>
+                الطرف الأيمن = ٢ × ٠ - (-٥) = ٥ = الطرف الأيسر<br>
+                من المعادلة (٢) نجد :<br>
+                الطرف الأيمن = ٠ - ٢ × -٥ = ١٠ = ٩ + ١ = ١٠ = الطرف الأيسر
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

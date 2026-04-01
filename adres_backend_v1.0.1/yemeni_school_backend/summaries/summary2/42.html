@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة ٤٢</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-header: #d9e9ff;
+            --orange-header: #fce4d6;
+            --border: #000;
+            --correct: #28a745;
+            --wrong: #dc3545;
+        }
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            background: white;
+            padding: 10mm;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border: 2px solid #000;
+            margin: 0 auto;
+        }
+
+        .math-root {
+            display: inline-flex;
+            align-items: flex-end;
+            position: relative;
+            margin: 0 2px;
+            direction: rtl;
+        }
+
+        .root-symbol {
+            font-size: 1.1em;
+            margin-left: -1px;
+        }
+
+        .root-content {
+            border-top: 1.5px solid black;
+            padding: 0 2px;
+            line-height: 1.1;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2px;
+        }
+
+        td {
+            border: 1px solid var(--border);
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .header-blue {
+            background-color: var(--blue-header);
+            font-weight: bold;
+            font-size: 18px;
+            padding: 8px;
+        }
+
+        .q-text {
+            padding: 8px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 35px 1fr 35px 1fr;
+            direction: rtl;
+        }
+
+        .opt {
+            cursor: pointer;
+            border: 1px solid #000;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            background: #fff;
+        }
+
+        .opt-text {
+            border: 1px solid #000;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .header-orange {
+            background-color: var(--orange-header);
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            padding: 8px;
+            border: 2px solid #000;
+            margin-top: 15px;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page">
+        <table>
+            <tr class="header-blue">
+                <td colspan="2">ظلل الإجابة الصحيحة فيما يلي:</td>
+            </tr>
+
+            <tr>
+                <td width="35" align="center" style="font-weight:bold">١</td>
+                <td>
+                    <div class="q-text">٠,١٦ س<sup>٢</sup> - ٠,٨ س + ١ = ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q1',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q1',1)">(٠,٤ س - ١)</div>
+                        <div class="opt" onclick="ch(this,'q1',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q1',3)">(٠,٤ س - ١) (٠,٤ س + ١)
+                        </div>
+                        <div class="opt" onclick="ch(this,'q1',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q1',2)">(٠,٤ س - ١)<sup>٢</sup>
+                        </div>
+                        <div class="opt" onclick="ch(this,'q1',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q1',4)">(٠,٤ س + ١)<sup>٢</sup>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٢</td>
+                <td>
+                    <div class="q-text">إذا كانت إشارة الحد الثالث في المقدار الثلاثي سالبة فإن إشارة العاملين
+                        ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q2',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q2',1)">+ ، +</div>
+                        <div class="opt" onclick="ch(this,'q2',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q2',3)">- ، -</div>
+                        <div class="opt" onclick="ch(this,'q2',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q2',2)">- ، +</div>
+                        <div class="opt" onclick="ch(this,'q2',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q2',4)">متشابهة</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٣</td>
+                <td>
+                    <div class="q-text">(س<sup>٢</sup> - ٤ س + ٣) ÷ (س - ١) = ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q3',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q3',1)">(س + ٣)</div>
+                        <div class="opt" onclick="ch(this,'q3',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q3',3)">(س + ١)</div>
+                        <div class="opt" onclick="ch(this,'q3',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q3',2)">(س - ٣)</div>
+                        <div class="opt" onclick="ch(this,'q3',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q3',4)">(س - ١)</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٤</td>
+                <td>
+                    <div class="q-text">إذا كان (٢ س + ٣) أحد عوامل المقدار (٤ س<sup>٢</sup> + ١٠ س + ٦)، فإن العامل
+                        الآخر هو ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q4',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q4',1)">(٢ س + ١)</div>
+                        <div class="opt" onclick="ch(this,'q4',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q4',3)">(٢ س - ١)</div>
+                        <div class="opt" onclick="ch(this,'q4',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q4',2)">٢ (س + ١)</div>
+                        <div class="opt" onclick="ch(this,'q4',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q4',4)">٢ (س - ١)</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٥</td>
+                <td>
+                    <div class="q-text">قيمة ل التي تجعل المقدار (- ل/٤ س<sup>٢</sup> + ٣ س + ٢) مقدار ثلاثي بسيط هي
+                        ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q5',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q5',1)">٤</div>
+                        <div class="opt" onclick="ch(this,'q5',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q5',3)">-٤</div>
+                        <div class="opt" onclick="ch(this,'q5',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q5',2)">٨</div>
+                        <div class="opt" onclick="ch(this,'q5',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q5',4)">-٨</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٦</td>
+                <td>
+                    <div class="q-text">معامل الحد الأوسط في المقدار (س - ١) (س + ١) يساوي ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q6',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q6',1)">١</div>
+                        <div class="opt" onclick="ch(this,'q6',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q6',3)">٢</div>
+                        <div class="opt" onclick="ch(this,'q6',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q6',2)">-١</div>
+                        <div class="opt" onclick="ch(this,'q6',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q6',4)">صفر</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٧</td>
+                <td>
+                    <div class="q-text">(٩ س - ١) (٢ س + ١) = ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q7',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q7',1)">١٨ س<sup>٢</sup> - ٧ س +
+                            ١</div>
+                        <div class="opt" onclick="ch(this,'q7',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q7',3)">١٨ س<sup>٢</sup> - ٧ س -
+                            ١</div>
+                        <div class="opt" onclick="ch(this,'q7',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q7',2)">١٨ س<sup>٢</sup> + ٧ س +
+                            ١</div>
+                        <div class="opt" onclick="ch(this,'q7',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q7',4)">١٨ س<sup>٢</sup> + ٧ س -
+                            ١</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٨</td>
+                <td>
+                    <div class="q-text">يحلل المقدار (ص<sup>٢</sup> + ٢ <div class="math-root"><span
+                                class="root-symbol">v</span><span class="root-content">١٣</span></div> ص + ١٣)
+                        إلى..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q8',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q8',1)">(ص + <div
+                                class="math-root"><span class="root-symbol">v</span><span class="root-content">١٣</span>
+                            </div>) (ص - <div class="math-root"><span class="root-symbol">v</span><span
+                                    class="root-content">١٣</span></div>)</div>
+                        <div class="opt" onclick="ch(this,'q8',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q8',3)">(ص - <div
+                                class="math-root"><span class="root-symbol">v</span><span class="root-content">١٣</span>
+                            </div>)<sup>٢</sup></div>
+                        <div class="opt" onclick="ch(this,'q8',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q8',2)">(ص + <div
+                                class="math-root"><span class="root-symbol">v</span><span class="root-content">١٣</span>
+                            </div>)<sup>٢</sup></div>
+                        <div class="opt" onclick="ch(this,'q8',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q8',4)">(ص + <div
+                                class="math-root"><span class="root-symbol">v</span><span class="root-content">١٣</span>
+                            </div>)</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">٩</td>
+                <td>
+                    <div class="q-text">أحد العبارات التالية لا تنطبق على المقدار الثلاثي المربع الكامل ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q9',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q9',1)">الأوسط = ٢ × جذر١ × جذر٣
+                        </div>
+                        <div class="opt" onclick="ch(this,'q9',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q9',3)">الحد الثالث إشارته + أو -
+                        </div>
+                        <div class="opt" onclick="ch(this,'q9',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q9',2)">الحد الأول كمية مربعة
+                        </div>
+                        <div class="opt" onclick="ch(this,'q9',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q9',4)">إشارة القوس تأخذ إشارة
+                            الأوسط</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="font-weight:bold">١٠</td>
+                <td>
+                    <div class="q-text">أحد المعاملات التالية لـ س<sup>٢</sup> تجعل المقدار الثلاثي غير بسيط عدا معامل
+                        هو ..........</div>
+                    <div class="options-grid">
+                        <div class="opt" onclick="ch(this,'q10',1)">١</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q10',1)">-١</div>
+                        <div class="opt" onclick="ch(this,'q10',3)">٣</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q10',3)">٢</div>
+                        <div class="opt" onclick="ch(this,'q10',2)">٢</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q10',2)">١</div>
+                        <div class="opt" onclick="ch(this,'q10',4)">٤</div>
+                        <div class="opt-text" onclick="ch(this.previousElementSibling,'q10',4)">-٢١</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="header-orange">أسئلة وزارية</div>
+        <table>
+            <tr style="background:#fce4d6; font-weight:bold; text-align:center;">
+                <td style="padding:10px">ظلل الإجابة الصحيحة فيما يلي:</td>
+                <td width="50">صح</td>
+                <td width="50">خطأ</td>
+            </tr>
+            <tr>
+                <td style="padding:8px">١. ٣ س<sup>٢</sup> - ٥ س + ٢ = (٣ س - ٢) (س - ١).</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf1',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf1',false)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:8px">٢. المقدار ١/٢ س<sup>٢</sup> + ٣ س + ٥ مقدار ثلاثي غير بسيط.</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf2',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf2',false)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:8px">٣. (س - ١) (س - ٧) = س<sup>٢</sup> + ٨ س - ٧.</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf3',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf3',false)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:8px">٤. يسمى المقدار ١ + س - س<sup>٢</sup> مقدار ثلاثي بسيط.</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf4',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf4',false)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:8px">٥. المقدار الثلاثي ٤ س<sup>٢</sup> + ٦ س + ٩ مقدار ثلاثي مربع كامل.</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf5',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf5',false)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:8px">٦. المقدار ٥ - ٢ س + ٣ س<sup>٢</sup> مقدار ثلاثي غير بسيط.</td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf6',true)"></div>
+                </td>
+                <td>
+                    <div class="circle" onclick="ctf(this,'tf6',false)"></div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer">- ٤٢ -<br>إعداد: هلا المولجي</div>
+    </div>
+
+    <script>
+        const ans = {
+            q1: 2, q2: 2, q3: 2, q4: 2, q5: 3, q6: 4, q7: 4, q8: 2, q9: 3, q10: 2,
+            tf1: true, tf2: true, tf3: false, tf4: false, tf5: false, tf6: true
+        };
+
+        function ch(el, q, v) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt').forEach(b => {
+                b.style.background = "transparent";
+                b.style.color = "black";
+            });
+            if (v == ans[q]) {
+                el.style.background = "var(--correct)";
+                el.style.color = "white";
+            } else {
+                el.style.background = "var(--wrong)";
+                el.style.color = "white";
+            }
+        }
+
+        function ctf(el, q, v) {
+            const row = el.parentElement.parentElement;
+            row.querySelectorAll('.circle').forEach(c => c.style.background = "transparent");
+            el.style.background = (v == ans[q]) ? "var(--correct)" : "var(--wrong)";
+        }
+    </script>
+</body>
+
+</html>

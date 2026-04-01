@@ -1,0 +1,245 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة 16</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Arial","Tahoma",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* ===== رأس الصفحة ===== */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:10px;
+}
+.header .unit{
+    font-size:16px;
+    margin-left:15px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* ===== النص ===== */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+
+/* ===== شبكة الأشكال ===== */
+.figures{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 40px;
+    margin-top:15px;
+}
+.figure{
+    text-align:center;
+}
+.caption{
+    font-size:16px;
+    margin-top:6px;
+}
+
+/* ===== التذييل ===== */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:30px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ===== الرأس ===== -->
+<div class="header">
+    <div class="unit">الوحدة الأولى</div>
+    <div class="line"></div>
+</div>
+
+<p>
+( هـ ) س / ص &nbsp;&nbsp; ( و ) ( س ∩ ص )̅
+</p>
+
+<p>
+[ ٦ ] إذا كانت : ش = { ١ ، ٢ ، ٣ ، ٤ ، ٥ } ،
+س = { ١ ، ٢ } ،
+ص = { ٢ ، ٣ } ،
+ع = { ١ ، ٤ ، ٥ } أوجد :
+</p>
+
+<p>
+( أ ) س / ص &nbsp;&nbsp;
+( ب ) ع / س &nbsp;&nbsp;
+( ج ) ش̅
+</p>
+
+<p>
+( د ) ص̅ &nbsp;&nbsp;
+( هـ ) ( س / ص ) ∩ ( ع / ص )
+</p>
+
+<p>
+[ ٧ ] اكتب المجموعات الممثلة بالمناطق المظللة في كل شكل من أشكال فن التالية :
+</p>
+
+<!-- ===== الأشكال ===== -->
+<div class="figures">
+
+<!-- (أ) -->
+<div class="figure">
+<svg width="220" height="160">
+<defs>
+<pattern id="h1" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="3" x2="6" y2="3" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+<circle cx="90" cy="80" r="60" fill="url(#h1)" stroke="black" stroke-width="2"/>
+<circle cx="130" cy="80" r="60" fill="white" stroke="black" stroke-width="2"/>
+<text x="60" y="150">ص</text>
+<text x="140" y="150">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - أ )</div>
+</div>
+
+<!-- (ب) -->
+<div class="figure">
+<svg width="220" height="160">
+<defs>
+<pattern id="h2" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="3" y1="0" x2="3" y2="6" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+<circle cx="90" cy="80" r="60" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="130" cy="80" r="60" fill="white" stroke="black" stroke-width="2"/>
+<ellipse cx="110" cy="80" rx="20" ry="60" fill="url(#h2)"/>
+<text x="60" y="150">ص</text>
+<text x="140" y="150">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - ب )</div>
+</div>
+
+<!-- (ج) -->
+<div class="figure">
+<svg width="260" height="160">
+<defs>
+<pattern id="h3" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+<rect x="10" y="10" width="240" height="140" fill="url(#h3)" stroke="black" stroke-width="2"/>
+<ellipse cx="130" cy="80" rx="80" ry="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="20" y="30">ش</text>
+<text x="120" y="85">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - ج )</div>
+</div>
+
+<!-- (د) -->
+<div class="figure">
+<svg width="260" height="160">
+<defs>
+<pattern id="h4" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="black" stroke-width="1"/>
+</pattern>
+<pattern id="h5" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="3" y1="0" x2="3" y2="6" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+<rect x="10" y="10" width="240" height="140" fill="url(#h4)" stroke="black" stroke-width="2"/>
+<ellipse cx="120" cy="80" rx="80" ry="40" fill="white" stroke="black" stroke-width="2"/>
+<ellipse cx="170" cy="80" rx="80" ry="40" fill="url(#h5)" stroke="black" stroke-width="2"/>
+<text x="20" y="30">ش</text>
+<text x="90" y="85">ص</text>
+<text x="190" y="85">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - د )</div>
+</div>
+
+<!-- (هـ) -->
+<div class="figure">
+<svg width="260" height="160">
+<defs>
+<pattern id="h6" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="#1aa3d9" stroke-width="1"/>
+</pattern>
+</defs>
+<rect x="10" y="10" width="240" height="140" fill="url(#h6)" stroke="black" stroke-width="2"/>
+<ellipse cx="120" cy="80" rx="80" ry="40" fill="white" stroke="black" stroke-width="2"/>
+<ellipse cx="170" cy="80" rx="80" ry="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="20" y="30">ش</text>
+<text x="90" y="85">ص</text>
+<text x="190" y="85">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - هـ )</div>
+</div>
+
+<!-- (و) -->
+<div class="figure">
+<svg width="260" height="160">
+<defs>
+<pattern id="h7" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="#1aa3d9" stroke-width="1"/>
+</pattern>
+</defs>
+<circle cx="90" cy="80" r="60" fill="url(#h7)" stroke="black" stroke-width="2"/>
+<circle cx="130" cy="80" r="60" fill="url(#h7)" stroke="black" stroke-width="2"/>
+<ellipse cx="110" cy="80" rx="25" ry="60" fill="white"/>
+<text x="60" y="150">ص</text>
+<text x="140" y="150">س</text>
+</svg>
+<div class="caption">شكل ( ١٠ - و )</div>
+</div>
+
+</div>
+
+<!-- ===== التذييل ===== -->
+<div class="footer">
+    <div class="page-num">١٦</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>
+```

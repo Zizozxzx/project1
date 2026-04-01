@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٦ - أتمتة الدرس الرابع</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -1px;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 6px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 5px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .opt-item {
+            padding: 6px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: 0.2s;
+        }
+
+        .opt-item:last-child {
+            border-left: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-item:nth-child(even) {
+                border-left: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-header">أتمتة الدرس الرابع</div>
+
+            <div class="sub-header">
+                <span>أولاً: ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">١</td>
+                    <td>المماس عمودي على نصف القطر المرسوم من نقطة التماس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>قياس الزاوية المماسية يساوي نصف قياس القوس المحصور بين المماس والوتر.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٣</td>
+                    <td>الزاوية المماسية تساوي قياس الزاوية المحيطية المشتركة معها في القوس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>كل زاويتين متقابلتين في الشكل الرباعي الدائري مجموعهما ١٨٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٥</td>
+                    <td>الزاوية الخارجة عن الشكل الرباعي الدائري تساوي الزاوية المقابلة للمجاورة لها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٦</td>
+                    <td>إذا كان ق ⦣ م المركزية = ١٠٠° فإن ق ⦣ المماسية = ٥٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٧</td>
+                    <td>إذا كان قياس القوس المحصور بين المماس والوتر ٨٠° فإن ق ⦣ المماسية = ٤٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٨</td>
+                    <td>في الشكل الرباعي الدائري أ ب ج د إذا كان ق ⦣ أ = ٧٠° فإن ق ⦣ ج = ١١٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٩</td>
+                    <td>الزاوية المماسية محصورة بين وتر ومماس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٠</td>
+                    <td>المماس هو مستقيم يقطع الدائرة في نقطتين.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١١</td>
+                    <td>الزاوية المماسية رأسها يقع خارج الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٢</td>
+                    <td>الزاوية المحيطية المرسومة في نصف دائرة تكون منفرجة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٣</td>
+                    <td>أي زاوية رأسها يقع على الدائرة تسمى محيطية.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٤</td>
+                    <td>إذا ق ⦣ أ الخارجة عن الرباعي الدائري = ٦٠° فإن ج المقابلة للمجاورة = ٦٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٥</td>
+                    <td>الزوايا المحيطية المرسومة على القوس نفسه متساوية.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٦</td>
+                    <td>ق ⦣ المركزية يساوي ضعف ق ⦣ المماسية.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٧</td>
+                    <td>مجموع زوايا الشكل الرباعي الدائري ٣٦٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 6px 15px; font-weight: bold; margin-bottom: 8px;">
+                ثانياً: ظلل الإجابة الصحيحة:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١ . المماس عمودي على ....... في نقطة التماس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">الوتر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">نصف القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المركز</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">القطر</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٢ . قياس الزاوية المماسية يساوي ....... قياس القوس المحصور بين المماس والوتر:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ربع</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">نصف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ضعف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ثلث</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٣ . قياس الزاوية المماسية يساوي قياس الزاوية:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">المحيطية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المركزية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المنعكسة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">القائمة</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٤ . مجموع كل زاويتين متقابلتين في الرباعي الدائري:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٩٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">١٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٣٦٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٤٥°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٥ . الزاوية الخارجية في الرباعي الدائري تساوي الزاوية ....... للمجاورة لها:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المتممة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">المقابلة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المنعكسة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">القائمة</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٦ . إذا كان ق ⦣ أ = ٥٠° في الرباعي الدائري أ ب ج د فإن ق ⦣ ج =:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٥٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">١٣٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٠٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٩٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٧ . إذا كانت ق ⦣ المركزية = ٨٠° فإن ق ⦣ المماسية المشتركة معها في القوس تساوى:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٤٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٦٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٢٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٨ . الزاوية المحصورة بين وتر ومماس هي زاوية:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">مركزية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">محيطية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">مماسية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">قائمة</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٩ . إذا كانت ق ⦣ المماسية = ٦٠° فإن قياس القوس المحصور بين وترها ومماسها =:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٦٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٣٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">١٢٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٩٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١٠ . رؤوس الرباعي الدائري الأربعة تقع على:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المستوى</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المركز</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">الدائرة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">الوتر</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٠٦ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

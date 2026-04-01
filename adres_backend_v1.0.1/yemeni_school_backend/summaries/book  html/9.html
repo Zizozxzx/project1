@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة 13</title>
+
+<style>
+/* ===== الصفحة العامة ===== */
+body{
+    margin:0;
+    background:#ffffff;
+    font-family: "Arial", "Tahoma", sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* ===== رأس الصفحة ===== */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+.header .title{
+    font-size:18px;
+    margin-left:15px;
+    white-space:nowrap;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* ===== النص ===== */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+.center{
+    text-align:center;
+}
+
+/* ===== مثال / الحل / تدريب ===== */
+.badge{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:18px;
+    padding:4px 18px;
+    font-size:18px;
+    margin:8px 0;
+}
+.badge.black{
+    background:#000;
+    color:#fff;
+}
+.badge.blue{
+    background:#dff1fb;
+    border-color:#000;
+}
+
+/* ===== الأشكال ===== */
+.figure{
+    display:flex;
+    align-items:flex-start;
+    margin:10px 0 20px;
+}
+.figure svg{
+    border:1px solid transparent;
+}
+.figure .caption{
+    text-align:center;
+    font-size:16px;
+    margin-top:5px;
+}
+
+/* ===== صندوق ===== */
+.box{
+    background:#dff1fb;
+    border:2px solid #000;
+    border-radius:18px;
+    padding:15px 20px;
+    font-size:18px;
+    line-height:2;
+    margin:15px 0;
+}
+
+/* ===== تذييل ===== */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:25px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ===== الرأس ===== -->
+<div class="header">
+    <div class="title">المجموعات والعلاقات</div>
+    <div class="line"></div>
+</div>
+
+<!-- ===== نص الملاحظة ===== -->
+<p>
+نلاحظ أن المجموعة المتممة للمجموعة س هي نفسها مجموعة الفرق بين ش ، س أي أن :
+س = ش / س .
+</p>
+
+<!-- ===== مثال ===== -->
+<div class="badge">مثال (٢)</div>
+
+<p>
+إذا كانت : ش = { ٢ ، ٣ ، ٤ ، … ، ٩ } ،
+س = { ٢ ، ٣ ، ٤ ، ٨ ، ٩ } ،
+ص = { ٤ ، ٦ ، ٧ ، ٩ } .
+</p>
+
+<p>
+أوجد كلاً من : <span style="text-decoration:overline;">س</span> ،
+<span style="text-decoration:overline;">ص</span> ،
+ومثلهما بأشكال فن .
+</p>
+
+<!-- ===== الحل ===== -->
+<div class="badge black">الحل :</div>
+
+<p class="center">
+<span style="text-decoration:overline;">س</span> = ش / س
+</p>
+
+<p class="center">
+{ ٩ ، ٨ ، ٤ ، ٣ ، ٢ } / { ٩ ، … ، ٤ ، ٣ ، ٢ }
+</p>
+
+<p class="center">
+= { ٥ ، ٦ ، ٧ }
+</p>
+
+<!-- ===== الشكل (1-7) ===== -->
+<div class="figure">
+<svg width="420" height="220">
+<defs>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+
+<!-- الخلفية الشاملة -->
+<rect x="5" y="5" width="410" height="210" fill="url(#hatch)" stroke="black"/>
+
+<!-- دائرتا فن -->
+<ellipse cx="190" cy="115" rx="90" ry="65" fill="white" stroke="black" stroke-width="2"/>
+<ellipse cx="260" cy="115" rx="90" ry="65" fill="white" stroke="black" stroke-width="2"/>
+
+<!-- التسميات -->
+<text x="115" y="55">ص</text>
+<text x="255" y="55">س</text>
+<text x="20" y="30">ش</text>
+
+<!-- عناصر -->
+<text x="150" y="115">٢</text>
+<text x="170" y="135">٣</text>
+<text x="190" y="105">٤</text>
+<text x="210" y="125">٩</text>
+
+<text x="260" y="105">٣</text>
+<text x="280" y="125">٢</text>
+<text x="300" y="105">٨</text>
+
+<text x="230" y="155">٥</text>
+<text x="250" y="175">٦</text>
+<text x="270" y="155">٧</text>
+</svg>
+</div>
+
+<p class="center">شكل ( ١ - ٧ )</p>
+
+<p>
+وتمثلها المنطقة المظللة في الشكل ( ١ - ٧ ) .
+</p>
+
+<!-- ===== متممة ص ===== -->
+<p class="center">
+<span style="text-decoration:overline;">ص</span> = ش / ص
+</p>
+
+<p class="center">
+{ ٩ ، ٧ ، ٦ ، ٤ } / { ٩ ، … ، ٤ ، ٣ ، ٢ }
+</p>
+
+<p class="center">
+= { ٢ ، ٣ ، ٥ ، ٨ }
+</p>
+
+<!-- ===== الشكل (1-8) ===== -->
+<div class="figure">
+<svg width="420" height="220">
+<defs>
+<pattern id="hatch2" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="0" y1="6" x2="6" y2="0" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+
+<rect x="5" y="5" width="410" height="210" fill="url(#hatch2)" stroke="black"/>
+
+<ellipse cx="190" cy="115" rx="90" ry="65" fill="white" stroke="black" stroke-width="2"/>
+<ellipse cx="260" cy="115" rx="90" ry="65" fill="white" stroke="black" stroke-width="2"/>
+
+<text x="115" y="55">س</text>
+<text x="255" y="55">ص</text>
+<text x="20" y="30">ش</text>
+
+<text x="150" y="115">٧</text>
+<text x="170" y="135">٦</text>
+
+<text x="260" y="105">٤</text>
+<text x="280" y="125">٩</text>
+
+<text x="230" y="155">٢</text>
+<text x="250" y="175">٣</text>
+<text x="270" y="155">٥</text>
+<text x="290" y="175">٨</text>
+</svg>
+</div>
+
+<p class="center">شكل ( ١ - ٨ )</p>
+
+<p>
+وتمثلها المنطقة المظللة في الشكل ( ١ - ٨ ) .
+</p>
+
+<!-- ===== تدريب ===== -->
+<div class="badge blue">تدريب</div>
+
+<p>
+إذا كانت ش = { ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ } ،
+س = { ٣ ، ٥ ، ٧ } .
+</p>
+
+<!-- ===== التذييل ===== -->
+<div class="footer">
+    <div class="page-num">١٣</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

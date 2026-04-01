@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المعادلات – الحل</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Traditional Arabic","Arial",sans-serif;
+  color:#000;
+}
+.page{
+  max-width:760px;
+  margin:auto;
+  padding:20px 18px 16px;
+  box-sizing:border-box;
+}
+
+/* ===== العنوان ===== */
+.header{
+  position:relative;
+  margin-bottom:30px;
+}
+.header-title{
+  font-size:20px;
+  margin-right:4px;
+}
+.header-line{
+  height:4px;
+  background:#1aa3e0;
+  margin-top:6px;
+}
+
+/* ===== الحل ===== */
+.solution-badge{
+  position:absolute;
+  right:0;
+  top:46px;
+  background:#111;
+  color:#fff;
+  border-radius:40px;
+  padding:6px 26px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* ===== المحتوى ===== */
+.content{
+  font-size:18px;
+  line-height:2.1;
+  margin-top:42px; /* إنزال أول سطر */
+}
+.step{
+  margin-bottom:14px;
+}
+.step .num{
+  display:inline-block;
+  width:28px;
+}
+
+/* ===== المعادلات ===== */
+.eq{
+  margin:6px 0;
+}
+.frac{
+  display:inline-block;
+  text-align:center;
+  vertical-align:middle;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  padding-top:2px;
+}
+
+/* ===== التذييل ===== */
+.footer{
+  margin-top:30px;
+  position:relative;
+}
+.page-num{
+  position:absolute;
+  left:0;          /* الطرف الآخر */
+  top:-24px;       /* مرفوع قليلًا عن الخيط */
+  border:3px solid #1aa3e0;
+  border-radius:50%;
+  width:52px;
+  height:30px;
+  text-align:center;
+  line-height:26px;
+  font-size:18px;
+  background:#fff;
+}
+.footer-line{
+  height:4px;
+  background:#1aa3e0;
+}
+.footer-line.thin{
+  margin-top:6px;
+}
+.link{
+  text-align:center;
+  margin-top:8px;
+  color:#1a3db8;
+  font-size:15px;
+}
+
+/* ===== الجوال ===== */
+@media (max-width:480px){
+  .content{font-size:17px;}
+  .solution-badge{font-size:18px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="header">
+    <span class="header-title">المعادلات</span>
+    <div class="header-line"></div>
+    <div class="solution-badge">الحل :</div>
+  </div>
+
+  <div class="content">
+
+    <div class="step">
+      <span class="num">(١)</span>
+      نكتب إحدى المعادلتين ولتكن المعادلة (١) بدلالة أحد المتغيرين.<br>
+      وليكن س فتصبح المعادلة : ص = ٢س − ٥ ................. (٣)
+    </div>
+
+    <div class="step">
+      <span class="num">(٢)</span>
+      نعوض عن المتغير ص [ المعادلة (٣) ] في المعادلة (٢)
+      <div class="eq">س + ٣ (٢س − ٥) = −١</div>
+      <div class="eq">س + ٦س − ١٥ = −١</div>
+      <div class="eq">−٧س − ١٥ + ١٥ = −١ + ١٥</div>
+      <div class="eq">٧س = ١٤</div>
+      <div class="eq">
+        <span class="frac">
+          <span class="top">٧س</span>
+          <span class="bottom">٧</span>
+        </span>
+        =
+        <span class="frac">
+          <span class="top">١٤</span>
+          <span class="bottom">٧</span>
+        </span>
+      </div>
+      <div class="eq">∴ س = ٢</div>
+    </div>
+
+    <div class="step">
+      <span class="num">(٣)</span>
+      نعوض عن قيمة المتغير س في المعادلة (٣) فنحصل على :
+      <div class="eq">ص = (٢ × ٢) − ٥</div>
+      <div class="eq">ص = ٤ − ٥</div>
+      <div class="eq">ص = −١</div>
+      ∴ مجموعة حل المعادلتين هي : { (٢ ، −١) }
+    </div>
+
+    <div class="step">
+      <span class="num">(٤)</span>
+      تحقق من صحة الحل بالتعويض عن (٢ ، −١) في كلا المعادلتين (١) ، (٢) كما يلي :
+      <div class="eq">المعادلة (٢) :</div>
+      <div class="eq">
+        الطرف الأيمن = س + ٣ص = ٢ + ٣ (−١) = ٢ − ٣ = −١
+      </div>
+      <div class="eq">∴ الطرف الأيمن = الطرف الأيسر</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="page-num">١٢٩</div>
+    <div class="footer-line"></div>
+    <div class="footer-line thin"></div>
+    <div class="link">http://www.e-learning-moe.edu.ye/</div>
+  </div>
+
+</div>
+</body>
+</html>

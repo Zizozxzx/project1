@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematics Grade 9 - Page 37</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 794px;
+            height: 1123px;
+            padding: 30px 50px;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        /* رأس الصفحة */
+        .top-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .header-text { font-size: 14px; margin-left: 10px; color: #333; }
+        .header-line { flex-grow: 1; height: 3px; background-color: #00adef; }
+
+        /* النصوص والمثال */
+        .example-header {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #000;
+            border-radius: 12px;
+            padding: 4px 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .example-title { border-left: 1.5px solid #000; padding-left: 10px; margin-left: 10px; }
+
+        .text-line { font-size: 21px; line-height: 1.8; margin-bottom: 12px; }
+
+        /* أيقونة الحل في أقصى اليمين */
+        .solution-wrapper {
+            display: flex;
+            justify-content: flex-start; /* اليمين في نظام rtl */
+            margin: 15px 0;
+        }
+        .solution-tag {
+            background-color: #262626;
+            color: white;
+            padding: 3px 45px;
+            border-radius: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* الرسوم البيانية والسهمية */
+        .graphics-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 40px;
+            direction: ltr;
+        }
+
+        /* المخطط السهمي */
+        .arrow-diagram {
+            position: relative;
+            width: 220px;
+            height: 200px;
+        }
+        .set-box {
+            position: absolute;
+            border: 1px solid #000;
+            width: 50px;
+            height: 160px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 20px;
+            background: #fff;
+            z-index: 2;
+        }
+        .set-k { left: 160px; }
+        .set-l { left: 10px; }
+        .set-label { position: absolute; top: -35px; font-weight: bold; font-size: 22px; width: 100%; text-align: center; }
+
+        /* الرسم البياني (الشبكة) */
+        .graph-grid {
+            position: relative;
+            width: 250px;
+            height: 220px;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #000;
+            margin-top: 20px;
+        }
+        .grid-line-h { position: absolute; width: 100%; border-top: 1px dashed #666; }
+        .grid-line-v { position: absolute; height: 100%; border-left: 1px dashed #666; }
+        .point-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #00adef;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 5;
+        }
+
+        /* التذييل ورقم الصفحة */
+        .footer-line-cyan {
+            position: absolute;
+            bottom: 70px;
+            left: 50px;
+            right: 50px;
+            height: 10px;
+            background-color: #00adef;
+            border-radius: 5px;
+        }
+        .page-num-oval {
+            position: absolute;
+            bottom: 53px;
+            right: 140px;
+            background: white;
+            border: 4.5px solid #00adef;
+            width: 85px;
+            height: 42px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            z-index: 10;
+        }
+        .moe-url {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #0000ee;
+            font-size: 16px;
+            text-decoration: none;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="top-header">
+        <span class="header-text">المجموعات والعلاقات</span>
+        <div class="header-line"></div>
+    </div>
+
+    <div class="example-header">
+        <span class="example-title">مثال ( ٤ )</span>
+        <span>إذا كانت ك = { ١ ، ٢ ، ٣ } ، ل = { ١ ، ٣ ، ٥ ، ٧ } ،</span>
+    </div>
+
+    <div class="text-line">
+        وكان ت : ك ← ل معرفاً بالقاعدة : ت ( س ) = ٢س + ١
+    </div>
+
+    <div class="text-line">أ ) اكتب صورة كل عنصر ، ثم عيّن المدى .</div>
+    <div class="text-line">ب ) مثّل التطبيق سهمياً وبيانياً .</div>
+
+    <div class="solution-wrapper">
+        <div class="solution-tag">الحل :</div>
+    </div>
+
+    <div class="text-line">أ ) المجال = ك = { ١ ، ٢ ، ٣ } ، المجال المقابل = ل = { ١ ، ٣ ، ٥ ، ٧ } .</div>
+    <div class="text-line">∵ ت ( س ) = ٢س + ١ ، منها :</div>
+    <div class="text-line" style="margin-right: 40px;">
+        ت ( ١ ) = ٢ × ١ + ١ = ٣<br>
+        ت ( ٢ ) = ٢ × ٢ + ١ = ٥<br>
+        ت ( ٣ ) = ٢ × ٣ + ١ = ٧
+    </div>
+    <div class="text-line">∴ مدى التطبيق = { ٣ ، ٥ ، ٧ } .</div>
+
+    <div class="text-line">ب ) الشكل ( ١ - ٢٧ أ ) يمثل التطبيق سهمياً والشكل ( ١ - ٢٧ ب ) يمثله بيانياً .</div>
+
+    <div class="graphics-row">
+        <div style="text-align: center;">
+            <div class="arrow-diagram">
+                <div class="set-box set-k">
+                    <span class="set-label">ك</span>
+                    <div>١ •</div><div>٢ •</div><div>٣ •</div>
+                </div>
+                <svg style="position:absolute; width:100%; height:100%; z-index:1;">
+                    <defs>
+                        <marker id="head" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                          <path d="M0,0 L0,6 L9,3 z" fill="#00adef" />
+                        </marker>
+                    </defs>
+                    <path d="M 160 30 Q 85 0 10 30" fill="none" stroke="#00adef" stroke-width="1.2" marker-end="url(#head)" />
+                    <text x="80" y="20" font-family="Amiri" font-size="16">ت</text>
+                    <line x1="160" y1="55" x2="10" y2="80" stroke="#00adef" stroke-width="1.2" marker-end="url(#head)" />
+                    <line x1="160" y1="105" x2="10" y2="135" stroke="#00adef" stroke-width="1.2" marker-end="url(#head)" />
+                    <line x1="160" y1="155" x2="10" y2="155" stroke="#00adef" stroke-width="1.2" marker-end="url(#head)" />
+                </svg>
+                <div class="set-box set-l">
+                    <span class="set-label">ل</span>
+                    <div>• ١</div><div>• ٣</div><div>• ٥</div><div>• ٧</div>
+                </div>
+            </div>
+            <div style="margin-top:45px; font-weight:bold; font-size:18px;">الخطط السهمي للتطبيق<br>شكل ( ١ - ٢٧ أ )</div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="graph-grid">
+                <div class="grid-line-h" style="bottom: 25%;"></div>
+                <div class="grid-line-h" style="bottom: 50%;"></div>
+                <div class="grid-line-h" style="bottom: 75%;"></div>
+                <div class="grid-line-v" style="left: 33%;"></div>
+                <div class="grid-line-v" style="left: 66%;"></div>
+                
+                <div class="point-dot" style="left: 33%; bottom: 25%;"></div>
+                <div class="point-dot" style="left: 66%; bottom: 50%;"></div>
+                <div class="point-dot" style="left: 99%; bottom: 75%;"></div>
+
+                <span style="position:absolute; left:-20px; bottom:-5px;">١</span>
+                <span style="position:absolute; left:-20px; bottom:25%;">٣</span>
+                <span style="position:absolute; left:-20px; bottom:50%;">٥</span>
+                <span style="position:absolute; left:-20px; bottom:75%;">٧</span>
+                <span style="position:absolute; left:-20px; top:-25px;">ل</span>
+                <span style="position:absolute; left:33%; bottom:-25px;">١</span>
+                <span style="position:absolute; left:66%; bottom:-25px;">٢</span>
+                <span style="position:absolute; left:99%; bottom:-25px;">٣</span>
+                <span style="position:absolute; right:-25px; bottom:-10px;">ك</span>
+            </div>
+            <div style="margin-top:35px; font-weight:bold; font-size:18px;">التمثيل البياني للتطبيق<br>شكل ( ١ - ٢٧ ب )</div>
+        </div>
+    </div>
+
+    <div class="footer-line-cyan"></div>
+    <div class="page-number-oval">٣٧</div>
+
+    <a href="http://www.e-learning-moe.edu.ye/" class="moe-url">http://www.e-learning-moe.edu.ye/</a>
+</div>
+
+</body>
+</html>

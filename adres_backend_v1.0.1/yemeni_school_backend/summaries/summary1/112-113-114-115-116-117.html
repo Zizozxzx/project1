@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 40</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.5;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1100px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 25px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* الترتيب للجوال: اليمين ثم اليسار */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 20px;
+        }
+        .left-column {
+            order: 2;
+        }
+        .example-box {
+            border: 2px solid #000;
+            padding: 5px 10px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .math-table {
+            width: 90%;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 15px auto;
+        }
+        .math-table td, .math-table th {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .divider {
+            border-top: 2px dashed #000;
+            margin: 25px 0;
+        }
+        .bordered-formula {
+            border: 1px solid #000;
+            padding: 2px 8px;
+            display: inline-block;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٤٠ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div>
+                <span class="example-box">مثال توضيحي</span>
+                <span>أوجد مجموعة حل المعادلة : ٣س + ٢ص = ١ ، س ، ص ∈ ح ثم مثل مجموعة الحل بيانياً .</span>
+            </div>
+            
+            <div class="math-text">
+                <span class="highlight">* الحل * :</span><br>
+                حل المعادلة على ح هي مجموعة غير منتهية .<br>
+                <span class="highlight">* لإيجاد مجموعة من الحلول نتبع الخطوات التالية :</span><br>
+                أ) نكتب المعادلة المعطاة بدلالة أحد المتغيرين لنكتب ص بدلالة س ( أي نجعل ص في طرف مستقل بذاته ) .<br>
+                أي : ٣س + ٢ص = ١ ومنها ٢ص = ١ - ٣س بالقسمة على ٢<br>
+                ∴ <div class="bordered-formula">ص = (١ - ٣س) / ٢</div> ⬅ (١)
+            </div>
+
+            <div class="math-text">
+                ب) نختار قيم اختيارية مناسبة من عندنا ∈ ح للمتغير س نعوض بها في المعادلة (١) لنحصل على القيم المقابلة للمتغير ص فنحصل على مجموعة من الأزواج المرتبة كل زوج يمثل حلاً للمعادلة :<br>
+                لنختار القيم : { ٠ ، ١ ، -١ ، ٣ ، ... } ∈ ح فنجد :<br>
+                عند س = ٠ فإن ص = (١ - ٣×٠) / ٢ = ١/٢ فنحصل على الزوج ( ٠ ، ١/٢ )<br>
+                عند س = ١ فإن ص = (١ - ٣×١) / ٢ = -١ فنحصل على الزوج ( ١ ، -١ )<br>
+                عند س = -١ فإن ص = (١ - ٣×-١) / ٢ = ٢ فنحصل على الزوج ( -١ ، ٢ )<br>
+                عند س = ٣ فإن ص = (١ - ٣×٣) / ٢ = -٤ فنحصل على الزوج ( ٣ ، -٤ )<br>
+                وهكذا ........
+            </div>
+
+            <div class="math-text">
+                وننشئ على ضوء ذلك جدول القيم المجاور <span class="highlight">جدول ➊</span><br>
+                جـ) نعين مجموعة الحل من مجموعة الأزواج المرتبة الموضحة في الجدول ➊ أي أن : مجموعة الحل<br>
+                = { (٠ ، ١/٢)، (١ ، -١)، (-١ ، ٢)، (٣ ، -٤)، .... } وهي مجموعة لا نهائية .
+            </div>
+
+            <div class="math-text">
+                بصورة عامة مجموعة الحل :<br>
+                = { (س، ص) : س، ص ∈ ح ، ص = (١ - ٣س) / ٢ }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                <span class="highlight">تمثيل مجموعة الحل بيانياً :</span><br>
+                نتبع الخطوات التالية :<br>
+                (١) نجري نفس الخطوات ( أ ) ، ( ب ) المتبعة سابقاً في إيجاد مجموعة حل المعادلة .<br>
+                (٢) نمثل الأزواج المرتبة كنقاط في المستوى الإحداثي ح × ح الممثل على محوري الإحداثيات ( المستوى الإحداثي س سَ ص صَ ) ونكتفي بتمثيل ثلاثة أزواج مرتبة على الأكثر كنقاط لتكن (٠ ، ١/٢) ، (١ ، -١) ، (-١ ، ٢) .
+            </div>
+
+            <div class="diagram-container">
+                <p><strong>شكل ( أ )</strong></p>
+                <svg width="250" height="250" viewBox="-120 -120 240 240">
+                    <line x1="-100" y1="0" x2="100" y2="0" stroke="black" stroke-width="1.5" />
+                    <line x1="0" y1="-100" x2="0" y2="100" stroke="black" stroke-width="1.5" />
+                    <polygon points="105,0 95,-5 95,5" fill="black" />
+                    <polygon points="-105,0 -95,-5 -95,5" fill="black" />
+                    <polygon points="0,-105 -5,-95 5,-95" fill="black" />
+                    <polygon points="0,105 -5,95 5,95" fill="black" />
+                    
+                    <text x="110" y="5" font-size="12">س</text>
+                    <text x="-115" y="5" font-size="12">سَ</text>
+                    <text x="5" y="-110" font-size="12">ص</text>
+                    <text x="5" y="115" font-size="12">صَ</text>
+
+                    <line x1="-40" y1="-80" x2="60" y2="100" stroke="black" stroke-width="2" />
+
+                    <circle cx="-30" cy="-60" r="3" fill="black" /> <text x="-65" y="-65" font-size="10">(-١ ، ٢)</text>
+
+                    <circle cx="0" cy="-15" r="3" fill="black" /> <text x="5" y="-15" font-size="10">(٠ ، ١/٢)</text>
+
+                    <circle cx="30" cy="30" r="3" fill="black" /> <text x="35" y="35" font-size="10">(١ ، -١)</text>
+
+                    <circle cx="60" cy="75" r="3" fill="black" /> 
+                    <text x="65" y="80" font-size="10">(٢ ، -٢.٥)</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                التحقق من صحة الرسم : نأخذ أي زوج مرتب ليكن ( ٢ ، -٢.٥ ) يحقق المعادلة فإذا وقعت هذه النقطة على الخط المستقيم فيعتبر ذلك تحققاً من صحة الرسم .
+            </div>
+
+            <div class="math-text" style="border: 2px solid #000; padding: 10px; border-radius: 15px;">
+                <span class="highlight">ملاحظات هامة :</span><br>
+                (١) إذا لم تعطى مجموعة للتعويض معنى ذلك أن حل معادلة الدرجة الأولى ذات متغيرين يكون على ح .<br>
+                (٢) يمكن تمثيل مجموعة حل المعادلة : أس + ب ص = جـ حيث أ ≠ ٠ ، ب ≠ ٠ ، أ، ب، جـ ∈ ح بيانياً عن طريق نقاط التقاطع مع المحاور وهي كالتالي :<br>
+                أ) نضع س = ٠ نحصل على ص = جـ/ب فيقال أن الخط المستقيم يقطع محور الصادات م في النقطة ( ٠ ، جـ/ب ) .<br>
+                ب) نضع ص = ٠ نحصل على س = جـ/أ فيقال أن الخط المستقيم يقطع محور السينات م في النقطة ( جـ/أ ، ٠ ) .<br>
+                من ( أ ) ، ( ب ) تسمى النقطتان ( جـ/أ ، ٠ ) ، ( ٠ ، جـ/ب ) بنقطتي تقاطع الخط المستقيم مع المحورين السيني والصادي .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text" style="text-align: center; font-weight: bold;">
+                ١:٣ حل تمارين ومسائل الكتاب صـ ١٢٤-١٢٥ على معادلة الدرجة الأولى ذات متغيرين
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">|١| عين المعادلات ذات المتغيرين من الدرجة الأولى فيما يلي :-</span><br>
+                أ) ٢س - ص = ٤ &nbsp;&nbsp; ب) س² - ٣ص = ٧<br>
+                جـ) س ( ١ + س ص ) = ٠ &nbsp;&nbsp; د) ل + ٥م + ٩ = ٠<br>
+                هـ) ١/س + ١/ص = ٥ &nbsp;&nbsp; و) س + ص² = ١
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">* الحل *</span><br>
+                المعادلات التي من الدرجة الأولى ذات متغيرين هي :<br>
+                أ) ٢س - ص = ٤ ، د) ل + ٥م + ٩ = ٠ ، هـ) س + ١/٢ ص = ٠<br>
+                لأن أس كل متغير يساوي الواحد الصحيح .<br>
+                أما المعادلات التي في الفقرات (ب) ، (جـ) ، (و) ليست من الدرجة الأولى لأن أس المتغيرين ≠ ١ .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                <span class="highlight">|٢| اكتب المعادلات التالية بدلالة المتغير س مرة وبدلالة المتغير ص مرة أخرى :</span><br>
+                أ) س + ص = ٥ &nbsp;&nbsp; ب) ص - ٤س = ١٥ &nbsp;&nbsp; جـ) س/٢ + ص/٣ = ١/٦ <br>
+                د) ٢ص + ٣س = -٦ &nbsp;&nbsp; هـ) ٣س - ص + ٥ = ٠ <br>
+                و) ٢(س + ١) = ٣(ص - ١)
+            </div>
+
+            <div class="math-text">
+                <span class="highlight">* الحل *</span><br>
+                أولاً : كتابة المعادلات بدلالة المتغير س : وهذا يعني علينا أن نجعل المتغير س في طرف مستقل بذاته .<br>
+                أ) ∵ س + ص = ٥ فإن <div class="bordered-formula">س = ٥ - ص</div> ( أي حد ينقل من طرف إلى آخر تتغير إشارته )<br>
+                ب) ص - ٤س = ١٥ <br>
+                ∴ -٤س = ١٥ - ص بالقسمة على -٤ يكون <div class="bordered-formula">س = (١٥ - ص) / -٤</div><br>
+                جـ) س/٢ + ص/٣ = ١/٦ (نضرب طرفي المعادلة في المضاعف المشترك للمقامات )) وهو ١٢<br>
+                ١٢ (س/٢ + ص/٣) = ١٢ × ١/٦ <br>
+                ٦س + ٤ص = ٢ ومنها ٦س = ٢ - ٤ص <br>
+                بالقسمة على ٦ نجد <div class="bordered-formula">س = (٢ - ٤ص) / ٦</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

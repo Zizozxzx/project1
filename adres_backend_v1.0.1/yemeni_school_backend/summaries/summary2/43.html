@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - الصف التاسع</title>
+    <style>
+        :root {
+            --correct: #28a745;
+            --wrong: #dc3545;
+        }
+
+        body {
+            background-color: #525659;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        .a4-page {
+            width: 100%;
+            max-width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            background-color: white;
+            padding: 12mm;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .inner-border {
+            border: 2px solid #000;
+            flex-grow: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2px;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 8px;
+            font-size: 17px;
+        }
+
+        .orange-header {
+            background-color: #fce4d6;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .circles-cell {
+            text-align: left;
+            width: 80px;
+            white-space: nowrap;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 4px;
+            vertical-align: middle;
+        }
+
+        .question-title {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .options-row td {
+            width: 25%;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .options-row td:hover {
+            background-color: #f0f0f0;
+        }
+
+        .correct {
+            background-color: #d4edda !important;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .wrong {
+            background-color: #f8d7da !important;
+            color: #721c24;
+        }
+
+        .motivation {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 28px;
+            font-family: 'Traditional Arabic', serif;
+            font-weight: bold;
+        }
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        .footer {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .author {
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="a4-page">
+        <div class="inner-border">
+
+            <table>
+                <tr>
+                    <td>٧. تحليل س٢ - ٥ س ص + ٦ ص٢ = ( س + ٣ ص ) ( س + ٢ ص ).</td>
+                    <td class="circles-cell">
+                        <div class="circle" onclick="tf(this, false)"></div>
+                        <div class="circle" onclick="tf(this, false)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>٨. المقدار ٩ س٢ + ٦ س + ١ ، مقدار ثلاثي مربع كامل.</td>
+                    <td class="circles-cell">
+                        <div class="circle" onclick="tf(this, false)"></div>
+                        <div class="circle" onclick="tf(this, true)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>٩. إذا كان المقدار س٢ + ل س ص + ٩ ص٢ مربع كامل فإن ل = ١٨.</td>
+                    <td class="circles-cell">
+                        <div class="circle" onclick="tf(this, true)"></div>
+                        <div class="circle" onclick="tf(this, false)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>١٠. إذا كان المقدار س٢ + أ س + ٣٦ مربع كامل فإن أ = ٦.</td>
+                    <td class="circles-cell">
+                        <div class="circle" onclick="tf(this, true)"></div>
+                        <div class="circle" onclick="tf(this, false)"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>١١. إذا كان المقدار س٢ + أ س + ٣٦ مربع كامل فإن أ = - ٤.</td>
+                    <td class="circles-cell">
+                        <div class="circle" onclick="tf(this, true)"></div>
+                        <div class="circle" onclick="tf(this, false)"></div>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr class="orange-header">
+                    <td colspan="4">ظلل الإجابة الصحيحة فيما يلي:</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">أ. إذا كانت حديقة مربعة الشكل مساحتها ( س٢ + ١٤ س + ٤٩ ) ، فإن طول ضلعها ل = :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, true)">١. ( س + ٧ )</td>
+                    <td onclick="sel(this, false)">٢. ( س - ٧ )</td>
+                    <td onclick="sel(this, false)">٣. ( س + ١٤ )</td>
+                    <td onclick="sel(this, false)">٤. ( س - ١٤ )</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">ب. ل٢ - ٧ ل م - ٣٠ م٢ = :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, true)">١. ( ل + ٣ م )( ل - ١٠ م )</td>
+                    <td onclick="sel(this, false)">٢. ( ل - ٣ م )( ل + ١٠ م )</td>
+                    <td onclick="sel(this, false)">٣. ( ل - ٥ م )( ل + ٦ م )</td>
+                    <td onclick="sel(this, false)">٤. ( ل - ١٥ م )( ل + ٢ م )</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">ج. إذا كان س٢ + ب س + ٧ = ( س - ١ ) ( س - ٧ ) فإن قيمة ب = :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. ٨</td>
+                    <td onclick="sel(this, false)">٢. ٧</td>
+                    <td onclick="sel(this, true)">٣. - ٨</td>
+                    <td onclick="sel(this, false)">٤. - ٧</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">د. الحد الأوسط في المقدار الثلاثي ( ٣ س - ١ ) ( س + ٣ ) هو :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. ٩ س</td>
+                    <td onclick="sel(this, true)">٢. ٨ س</td>
+                    <td onclick="sel(this, false)">٣. ٤ س</td>
+                    <td onclick="sel(this, false)">٤. ٥ س</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">و. الحد الأوسط في المقدار الثلاثي ( ٢ س + ١ ) ( س - ٦ ) هو :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, true)">١. - ١١ س</td>
+                    <td onclick="sel(this, false)">٢. - ١٢ س</td>
+                    <td onclick="sel(this, false)">٣. ١١ س</td>
+                    <td onclick="sel(this, false)">٤. ١٢ س</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">هـ. إذا س٢ + ب س - ١٩ = ( س + ١٩ ) ( س - ١ )، فإن ب = :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. ٢٠</td>
+                    <td onclick="sel(this, false)">٢. ١٩</td>
+                    <td onclick="sel(this, true)">٣. ١٨</td>
+                    <td onclick="sel(this, false)">٤. - ١٩</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">ز. الحد الأوسط في المقدار الثلاثي ( س - ٣ ) ( س + ٢ ) هو :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. س</td>
+                    <td onclick="sel(this, false)">٢. ٥ س</td>
+                    <td onclick="sel(this, true)">٣. - س</td>
+                    <td onclick="sel(this, false)">٤. - ٣ س</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">م. إذا كانت حديقة مساحتها ( س٢ + ٢٠ س + ١٠٠ ) ، فإن طول ضلع الحديقة يساوي:</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. ( س + ٢٠ )</td>
+                    <td onclick="sel(this, false)">٢. ( س + ٤ )</td>
+                    <td onclick="sel(this, true)">٣. ( س + ١٠ )</td>
+                    <td onclick="sel(this, false)">٤. ( س - ١٠ )</td>
+                </tr>
+
+                <tr class="question-title">
+                    <td colspan="4">ن. الحد الأوسط في المقدار الثلاثي ( ٧ س - ٢ ) ( ٣ س + ٥ ) هو :</td>
+                </tr>
+                <tr class="options-row">
+                    <td onclick="sel(this, false)">١. ٢١</td>
+                    <td onclick="sel(this, false)">٢. - ٢١</td>
+                    <td onclick="sel(this, true)">٣. ٢٩</td>
+                    <td onclick="sel(this, false)">٤. ٣١</td>
+                </tr>
+            </table>
+
+            <div class="motivation">ستثمر جهودك إذا حققت أحلامك..</div>
+
+            <div class="spacer"></div>
+
+            <div class="footer">- ٤٣ -</div>
+            <div class="author">إعداد: هلا المولجي</div>
+        </div>
+    </div>
+
+    <script>
+        function tf(el, correct) {
+            let parent = el.parentElement;
+            Array.from(parent.children).forEach(c => c.style.backgroundColor = "transparent");
+            el.style.backgroundColor = correct ? "#28a745" : "#dc3545";
+        }
+        function sel(el, correct) {
+            Array.from(el.parentElement.children).forEach(c => c.classList.remove('correct', 'wrong'));
+            el.classList.add(correct ? 'correct' : 'wrong');
+        }
+    </script>
+
+</body>
+
+</html>

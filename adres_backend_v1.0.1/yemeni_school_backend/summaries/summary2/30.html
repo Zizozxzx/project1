@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملزمة – صفحة 30</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --header-bg: #dbe4ef;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vmin;
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 950px;
+            aspect-ratio: 0.707;
+            background: var(--bg-color);
+            border: 0.5vmin double var(--border-color);
+            padding: 1.5vmin;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Training Section */
+        .top-section {
+            border: 0.15vmin solid #000;
+            padding: 1vmin;
+            margin-bottom: 0.5vmin;
+            display: flex;
+            gap: 1vmin;
+            flex-shrink: 0;
+            height: 35%;
+            /* Approx 1/3 of page */
+        }
+
+        .training-questions {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: 1.5vmin;
+        }
+
+        .training-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5vmin;
+            font-size: 1.7vmin;
+        }
+
+        .graph-side {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 0.15vmin dashed #ccc;
+            /* Optional separation */
+            padding-right: 1vmin;
+        }
+
+        .dotted-line {
+            border-bottom: 0.15vmin dotted #000;
+            width: 90%;
+            display: inline-block;
+            margin-top: 0.5vmin;
+            height: 1vmin;
+        }
+
+        /* Middle Quiz Section */
+        .quiz-header {
+            background-color: var(--header-bg);
+            border: 0.15vmin solid #000;
+            padding: 0.3vmin;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0;
+            font-size: 1.6vmin;
+        }
+
+        .quiz-table-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 0.15vmin solid #000;
+            border-top: none;
+            margin-bottom: 0.5vmin;
+        }
+
+        .quiz-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.3vmin;
+        }
+
+        .quiz-table th {
+            border: 0.15vmin solid #000;
+            background-color: #f0f0f0;
+            padding: 0.2vmin;
+            position: sticky;
+            top: 0;
+        }
+
+        .quiz-table td {
+            border: 0.1vmin solid #000;
+            padding: 0.1vmin 0.5vmin;
+            vertical-align: middle;
+        }
+
+        .bubble-cell {
+            text-align: center;
+            width: 5%;
+        }
+
+        .bubble {
+            width: 1.8vmin;
+            height: 1.8vmin;
+            border: 0.15vmin solid #000;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Bottom Section - Shade Answer */
+        .bottom-section {
+            border: 0.15vmin solid #000;
+            padding: 0.5vmin;
+            flex-shrink: 0;
+            font-size: 1.3vmin;
+        }
+
+        .bottom-header {
+            background-color: #e0e0e0;
+            padding: 0.2vmin;
+            margin-bottom: 0.3vmin;
+            font-weight: bold;
+        }
+
+        .mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .mcq-table td {
+            border: 0.1vmin solid #ccc;
+            padding: 0.2vmin 1vmin;
+            text-align: right;
+        }
+
+        .mcq-number {
+            width: 3vmin;
+            text-align: center !important;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.2vmin;
+            font-weight: bold;
+            font-size: 1.4vmin;
+            border-top: 0.1vmin solid #eee;
+        }
+
+        /* Helpers */
+        .ltr-math {
+            font-family: 'Times New Roman', serif;
+            direction: ltr;
+            display: inline-block;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Top Section -->
+        <div class="top-section">
+
+            <!-- Graph (Left visually in LTR, Right visually in RTL? Image shows Graph on Left side) -->
+            <!-- In RTL flex, valid RTL order puts first item on Right. The graph is on the LEFT in the image. -->
+            <!-- So Graph should be the SECOND child in flex container -->
+
+            <div class="training-questions">
+                <div class="training-title" style="direction: rtl;">تدريب (٢): من خلال الشكل المجاور أجب عن التالي:
+                </div>
+                <ol style="margin-right: 2vmin; list-style-position: inside;">
+                    <li>أوجـد إحداثي نقطتي التقاطع مع محور السينات، ومحور الصادات.
+                        <br><span class="dotted-line"></span>
+                    </li>
+                    <li>أي القاعدتين التاليتين تعتبر قاعدة للتطبيق الخطي المرسوم جانباً.
+                        <ul style="margin-right: 2vmin; list-style: square;">
+                            <li><span class="ltr-math">ت(أ) = ٢ أ - ١</span></li>
+                            <li><span class="ltr-math">ت(أ) = أ + ١</span> <span
+                                    style="font-size: 1.5vmin;">&#10003;</span></li>
+                            <!-- Checked in mind, maybe user wants blank? Image implies questions to answer -->
+                        </ul>
+                    </li>
+                    <br>
+                    <li>أوجـد صورة <span class="ltr-math">ت(٤) ، ت(١,١) ، ت(1/2)</span> في القاعدة الصحيحة.
+                        <br><span class="dotted-line"></span>
+                        <br><span class="dotted-line"></span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="graph-side" style="width: 25%;">
+                <svg viewBox="0 0 100 100" style="width: 100%; height: auto;">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"
+                            markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L6,3 z" fill="black" />
+                        </marker>
+                        <marker id="arrowReverse" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                            orient="auto-start-reverse" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L6,3 z" fill="black" />
+                        </marker>
+                    </defs>
+                    <!-- Axes -->
+                    <line x1="5" y1="50" x2="95" y2="50" stroke="black" stroke-width="1" marker-end="url(#arrow)"
+                        marker-start="url(#arrowReverse)" /> <!-- X -->
+                    <line x1="50" y1="95" x2="50" y2="5" stroke="black" stroke-width="1" marker-end="url(#arrow)"
+                        marker-start="url(#arrowReverse)" /> <!-- Y -->
+
+                    <!-- Ticks -->
+                    <line x1="60" y1="48" x2="60" y2="52" stroke="black" stroke-width="1" /> <text x="60" y="60"
+                        font-size="8" text-anchor="middle">1</text>
+                    <line x1="70" y1="48" x2="70" y2="52" stroke="black" stroke-width="1" /> <text x="70" y="60"
+                        font-size="8" text-anchor="middle">2</text>
+
+                    <line x1="40" y1="48" x2="40" y2="52" stroke="black" stroke-width="1" /> <text x="40" y="60"
+                        font-size="8" text-anchor="middle">-1</text>
+                    <line x1="30" y1="48" x2="30" y2="52" stroke="black" stroke-width="1" /> <text x="30" y="60"
+                        font-size="8" text-anchor="middle">-2</text>
+
+                    <line x1="48" y1="40" x2="52" y2="40" stroke="black" stroke-width="1" /> <text x="40" y="42"
+                        font-size="8" text-anchor="end">1</text>
+                    <line x1="48" y1="30" x2="52" y2="30" stroke="black" stroke-width="1" /> <text x="40" y="32"
+                        font-size="8" text-anchor="end">2</text>
+
+                    <text x="55" y="10" font-size="10" font-weight="bold">ص</text>
+                    <text x="90" y="45" font-size="10" font-weight="bold">س</text>
+
+                    <!-- Function Line: Teal color, arrows at both ends pointing OUT -->
+                    <line x1="20" y1="80" x2="80" y2="20" stroke="#008080" stroke-width="1.5" marker-end="url(#arrow)"
+                        marker-start="url(#arrowReverse)" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Middle Quiz Header -->
+        <div class="quiz-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+        <!-- Quiz Table -->
+        <div class="quiz-table-container">
+            <table class="quiz-table">
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">صح</th>
+                        <th style="width: 12%;">خطأ</th>
+                        <th>ظلل الإجابة الصحيحة فيما يلي:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>١. التطبيق ت : ط &larr; ط ، والذي قاعدته ت(س) = ٢س + ١ ، يمثل تطبيق خطي.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٢. ت(س) = ٤ ، تطبيق من ح إلى ح تطبيق خطي مداه = {٤}.</td>
+                    </tr>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٣. التطبيق ت : ح &larr; ح ، قاعدته ت(أ) = ٢ ، يوازي محور الصادات.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٤. ت(م) = <span class="ltr-math">&radic;م + 1</span> تمثل قاعدة تطبيق خطي.</td>
+                    </tr>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٥. إذا كان ( -٢ ، ٢ ) ، ( -١ ، ٢ ) ، ( ٠ ، ٢ ) ، ( ١ ، ٢ ) &isin; التطبيق الخطي، فإن مداه =
+                            ٢.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٦. إذا كان ( -٢ ، ٢ ) ، ( -١ ، ٢ ) ، ( ٠ ، ٢ ) ، ( ١ ، ٢ ) &isin; التطبيق الخطي، فإن التطبيق
+                            يوازي محور السينات.</td>
+                    </tr>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٧. تمثل قاعدة التطبيق ت(س) = ٣ س² بخط مستقيم في مستوى الإحداثيات.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٨. تمثل قاعدة التطبيق ت(س) = س - ٢ بخط منحني في مستوى الإحداثيات.</td>
+                    </tr>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>٩. ت(س) = ٤ س - س تمثل قاعدة تطبيق خطي.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>١٠. ت(هـ) = <span class="ltr-math">س/٢</span> ، لا تمثل قاعدة تطبيق خطي.</td>
+                    </tr>
+                    <tr>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>١١. مدى التطبيق الخطي ت(ل) = ل - ١ يساوي ١.</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td class="bubble-cell">
+                            <div class="bubble"></div>
+                        </td>
+                        <td>١٢. يكون ت(س) = أ س + ب ينطبق على محور السينات، حيث أ ، ب أعداد حقيقية، إذا كان أ = صفر.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bottom MCQ -->
+        <div class="bottom-section">
+            <div class="bottom-header">ظلل الإجابة الصحيحة فيما يلي :</div>
+            <table class="mcq-table">
+                <tr>
+                    <td rowspan="2" class="mcq-number">١</td>
+                    <td colspan="3">نقول عن التطبيق ت(س) = أ س + ب أنه خطي إذا كان ت: .......:</td>
+                </tr>
+                <tr>
+                    <td>١ &nbsp;&nbsp; ط &larr; ط.</td>
+                    <td>٣ &nbsp;&nbsp; ن &larr; ن.</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="mcq-number">٢</td>
+                    <td>٢ &nbsp;&nbsp; ص &larr; ص.</td>
+                    <td>٤ &nbsp;&nbsp; ح &larr; ح.</td>
+                </tr>
+            </table>
+            <table class="mcq-table" style="margin-top: 0.2vmin;">
+                <tr>
+                    <td rowspan="2" class="mcq-number">٢</td>
+                    <td colspan="3">مدى التطبيق الخطي ت(س) = ٤ س - ٢ يساوي:</td>
+                </tr>
+                <tr>
+                    <td>١ &nbsp;&nbsp; {صفر}.</td>
+                    <td>٣ &nbsp;&nbsp; &Phi;.</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="mcq-number"></td>
+                    <td>٢ &nbsp;&nbsp; {٤}.</td>
+                    <td>٤ &nbsp;&nbsp; ح.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٣٠ -</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

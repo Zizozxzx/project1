@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>اختبار الرياضيات التفاعلي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            /* Thicker double border as per typical worksheets */
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+            table-layout: fixed;
+            /* Ensures flexible columns don't break layout */
+        }
+
+        td {
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+            font-size: 1.2em;
+            /* Ensure readability on large screens */
+        }
+
+        /* تنسيق الكسور */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1em;
+            margin: 0 4px;
+            flex-shrink: 0;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 2px solid var(--border-color);
+            padding: 0 5px;
+            margin-bottom: 2px;
+        }
+
+        /* دوائر التفاعل */
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .circle {
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.selected-correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle.selected-wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        .header-blue {
+            background-color: #d9e1f2;
+            padding: 8px;
+            font-weight: bold;
+            text-align: right;
+            border: 1px solid var(--border-color);
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .header-orange {
+            background-color: #f8cbad;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.5em;
+            border: 1px solid var(--border-color);
+            margin: 10px 0;
+        }
+
+        .question-box {
+            text-align: right;
+            padding: 8px;
+            font-size: 1.2em;
+            border-right: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            /* Added bottom border for separation */
+        }
+
+        .choice-cell {
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .choice-cell:hover {
+            background-color: #f9f9f9;
+        }
+
+        .choice-cell.correct {
+            background-color: #d4edda !important;
+        }
+
+        .choice-cell.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        .footer {
+            text-align: center;
+            font-weight: bold;
+            padding: 20px 0;
+            font-size: 1.3em;
+            margin-top: auto;
+        }
+
+        .page-num {
+            text-align: center;
+            font-size: 1.1em;
+            padding-bottom: 5px;
+        }
+
+        /* منع الـ Scroll العرضي */
+        * {
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            .fraction {
+                font-size: 0.9em;
+            }
+
+            td {
+                padding: 4px;
+                font-size: 0.9em;
+            }
+
+            .header-blue {
+                font-size: 1.1em;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-line {
+                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <table>
+                <colgroup>
+                    <col style="width: 50px;"> <!-- Number Column -->
+                    <col> <!-- Equation Column -->
+                    <col style="width: 80px;"> <!-- Circles Column -->
+                </colgroup>
+                <tr>
+                    <td style="font-weight: bold; background-color: #fff;">٥.</td>
+                    <td style="text-align: right;">
+                        <div class="math-line" style="justify-content: flex-start; display: flex; align-items: center;">
+                            <div class="fraction"><span>س<sup>٢</sup> - ٢٥</span><span>س<sup>٢</sup> - ١٧ س + ٧٢</span>
+                            </div>
+                            <span style="margin: 0 10px; font-weight: bold; font-size: 1.2em;"> ÷ </span>
+                            <div class="fraction"><span>س<sup>٢</sup> + ٤ س - ٥</span><span>س<sup>٢</sup> - ٩ س +
+                                    ٨</span></div>
+                            <span style="margin: 0 10px; font-weight: bold;"> = </span>
+                            <div class="fraction"><span>س - ٥</span><span>س - ٩</span></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; background-color: #fff;">٦.</td>
+                    <td style="text-align: right;">
+                        <div class="math-line" style="justify-content: flex-start; display: flex; align-items: center;">
+                            <div class="fraction"><span>ص<sup>٢</sup> ع ل ن<sup>٣</sup></span><span>ن ل<sup>٣</sup>
+                                    ص</span></div>
+                            <span style="margin: 0 10px; font-weight: bold; font-size: 1.2em;"> ÷ </span>
+                            <div class="fraction"><span> ٣ س ع ص</span><span>س ع ل<sup>٢</sup></span></div>
+                            <span style="margin: 0 10px; font-weight: bold;"> = </span>
+                            <span>٣ ن ع .</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="header-blue">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="question-box">١. <div class="fraction"><span>ص<sup>٢</sup> + ١٠ ص + ٩</span><span>ص<sup>٢</sup>
+                        - ٨١</span></div> = .................... :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . <div class="fraction"><span>ص +
+                                ١</span><span>ص - ٩</span></div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . <div class="fraction"><span>ص +
+                                ١</span><span>ص - ٣</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . <div class="fraction"><span>ص +
+                                ١</span><span>ص + ٩</span></div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٢ . <div class="fraction"><span>ص +
+                                ١</span><span>ص + ٣</span></div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="question-box">٢. <div class="fraction"><span>ع - ١</span><span>ع<sup>٢</sup> - ١</span></div> ×
+                <div class="fraction"><span>ع<sup>٣</sup> + ١</span><span>ع<sup>٢</sup> - ع + ١</span></div> =
+                .................... :
+            </div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . صفر.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . ع - ١.</td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . -١.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٢ . ١.</td>
+                </tr>
+            </table>
+
+            <div class="question-box">٣. <div class="fraction"><span>
+                        <div class="fraction"><span>ل<sup>٢</sup> - ٤٩</span><span>ل<sup>٢</sup> - ٩ ل + ١٤</span></div>
+                    </span><span>
+                        <div class="fraction"><span>ل + ٧</span><span>ل<sup>٢</sup> - ٤</span></div>
+                    </span></div> ÷ <div class="fraction"><span>ل + ٢</span><span>ل - ١</span></div> =
+                .................... :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . ل + ٠١.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">١ . <div class="fraction">
+                            <span>١</span><span>ل - ٠١</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . <div class="fraction">
+                            <span>١</span><span>ل + ٠١</span>
+                        </div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . ل - ٠١.</td>
+                </tr>
+            </table>
+
+            <div class="question-box">٤. القيمة العددية لحاصل ضرب <div class="fraction"><span>س + ٣</span><span>س -
+                        ٣</span></div> × <div class="fraction"><span>١</span><span>س<sup>٢</sup> - ٩</span></div> ، عند
+                س = ١ هي ................. :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٣ . - <div class="fraction">
+                            <span>١</span><span>٤</span>
+                        </div>.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . .٤</td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . <div class="fraction">
+                            <span>١</span><span>٤</span>
+                        </div>.</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . .٤-</td>
+                </tr>
+            </table>
+
+            <div class="question-box">٥. القيمة العددية لناتج قسمة <div class="fraction"><span>ل + ٤</span><span>ل -
+                        ٢</span></div> على <div class="fraction"><span>ل + ٤</span><span>ل<sup>٢</sup> + ٨</span></div>
+                ، عند ل = ١٠ هي ................. :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . .٧٤</td>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">١ . .٩٤</td>
+                </tr>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . .٦٤</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . .٨٤</td>
+                </tr>
+            </table>
+
+            <div class="header-orange">أسئلة وزارية</div>
+            <div class="header-blue">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="question-box">أ. ناتج القسمة <div class="math-line"
+                    style="display: inline-flex; align-items: center; vertical-align: middle;">
+                    <div class="fraction"><span>٣ س<sup>٢</sup> - ٣ س</span><span>س<sup>٢</sup> - ١</span></div>
+                    <span style="margin: 0 10px; font-weight: bold; font-size: 1.2em;"> ÷ </span>
+                    <div class="fraction"><span>س</span><span>س + ١</span></div>
+                </div> يساوي .................... :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٣ . ٣</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . س + ١</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . س - ١</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . -٣</td>
+                </tr>
+            </table>
+
+            <div class="question-box">ب. المقدار <div class="fraction"><span>٥٥ س<sup>٣</sup>
+                        ص<sup>٢</sup></span><span>١١ س<sup>٢</sup> ص</span></div> في أبسط صورة يساوي
+                .................... :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">٣ . ٥ س ص</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">١ . ٥</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . ٥ س</td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . ٥ ص</td>
+                </tr>
+            </table>
+
+            <div class="question-box">ج. ناتج القسمة <div class="fraction"><span>
+                        <div class="fraction"><span>س + ٢</span><span>س<sup>٢</sup> - ٩</span></div>
+                    </span><span>
+                        <div class="fraction"><span>س<sup>٢</sup> - ٤</span><span>س<sup>٢</sup> - ٥ س + ٦</span></div>
+                    </span></div> يساوي .................... :</div>
+            <table>
+                <tr>
+                    <td class="choice-cell" onclick="checkChoice(this, true)">١ . <div class="fraction">
+                            <span>١</span><span>س + ٣</span>
+                        </div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٢ . <div class="fraction">
+                            <span>-١</span><span>س - ٣</span>
+                        </div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٣ . <div class="fraction">
+                            <span>١</span><span>س - ٢</span>
+                        </div>
+                    </td>
+                    <td class="choice-cell" onclick="checkChoice(this, false)">٤ . <div class="fraction">
+                            <span>١</span><span>س + ٢</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="footer">حتى وإن واجهت العثرات... فلا تتوقف ...</div>
+            <div class="page-num">ـ ٥٥ ـ</div>
+        </div>
+    </div>
+
+    <script> // وظيفة تلوين الدوائر (صح/خطأ) function toggleCircle(el, type) { const group = el.parentElement; group.querySelectorAll('.circle').forEach(c => { c.classList.remove('selected-correct', 'selected-wrong'); }); if (type === 'correct') el.classList.add('selected-correct'); else el.classList.add('selected-wrong'); }
+
+        // وظيفة فحص الاختيارات وتلوينها (أخضر/أحمر)
+        function checkChoice(el, isCorrect) {
+            const table = el.closest('table');
+            table.querySelectorAll('.choice-cell').forEach(cell => {
+                cell.classList.remove('correct', 'wrong');
+            });
+            if (isCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

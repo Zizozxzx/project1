@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - رياضيات الصف التاسع</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header-page {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .problem-box {
+            border-bottom: 1px dashed #666;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+        .main-title {
+            text-align: center;
+            border: 4px double #000;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 1.4em;
+            background-color: #eee;
+        }
+        .section-title {
+            text-decoration: underline;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .rule-box {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 15px 0;
+            position: relative;
+        }
+        .rule-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .note {
+            border: 1px solid #000;
+            padding: 5px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        .remember-box {
+            border: 1px solid #000;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        /* تصميم متجاوب للهواتف */
+        @media (max-width: 600px) {
+            .columns {
+                flex-direction: column;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-page">ـ ٣٠ ـ</div>
+
+    <div class="columns">
+        <div class="column">
+            <div class="problem-box">
+                [٧] \( 4 + 12أ + 9أ^2 - 16أ^4 = (4 + 12أ + 9أ^2) - 16أ^4 \) <br>
+                \( = (2 + 3أ)^2 - (4أ^2)^2 \) <br>
+                \( = (2 + 3أ - 4أ^2)(2 + 3أ + 4أ^2) \) <br>
+                \( = (2 + 3أ - 4أ^2)(2 + 3أ + 4أ^2) \) <br>
+                \( = 3 ( \frac{1}{3} + أ ) ( 3 + أ ) \)
+            </div>
+
+            <div class="problem-box">
+                [٨] \( 25س^2 + 40س ص + 16ص^2 + 5س + 4ص \) <br>
+                \( = (5س + 4ص)^2 + 1(5س + 4ص) \) <br>
+                \( = (5س + 4ص) (5س + 4ص + 1) \)
+            </div>
+
+            <div class="problem-box">
+                [٩] \( ١٢ - ٣ ب + ١٤ - ١٢ أ ب + ٩ ب^٢ \) <br>
+                \( = ١٢ - ٣ ب + ( ١٤ - ١٢ أ ب + ٩ ب^٢ ) \) <br>
+                \( = ( ١٢ - ٣ ب ) ( ١ + ١٢ - ٣ ب ) \) <br>
+                \( = ( ١٢ - ٣ ب ) ( ١٣ - ٣ ب + ١ ) \)
+            </div>
+
+            <div class="problem-box">
+                [١٠] \( ٦س - ١٠ ص س + ١٢ ص - ٢٠ ص^٢ \) <br>
+                \( = ٢س ( ٣ - ٥ص ) + ٤ص ( ٣ - ٥ص ) \) <br>
+                \( = ( ٣ - ٥ص ) ( ٢س + ٤ص ) \) <br>
+                \( = ٢ ( ٣ - ٥ص ) ( س + ٢ص ) \)
+            </div>
+
+            <div class="problem-box">
+                [١١] \( س^٣ + ٧س^٢ - ٣س - ٢١ \) <br>
+                \( = س^٢ ( س + ٧ ) - ٣ ( س + ٧ ) \) <br>
+                \( = ( س + ٧ ) ( س^٢ - ٣ ) \)
+            </div>
+
+            <div class="problem-box">
+                [١٢] \( ١٢أ^٢ب - ٧٢أب - ١٨أب^٢ + ٤٨أب^٢ \) <br>
+                \( = ١٢أب(أ - ٦) - ١٨أب(ب - ١) \) <br>
+                \( = (أ - ٦)(١٢أب - ١٨أب^٢) \) <br>
+                \( = ٦أب(أ - ٦)(٢ - ٣ب) \)
+            </div>
+
+            <div class="problem-box">
+                [١٣] \( ٢س^٢(س + ٣) - ١٨س(س + ٣) \) <br>
+                \( = (س + ٣)(٢س^٢ - ١٨س) \) <br>
+                \( = ٢س(س + ٣)(س - ٩) = ٢س(س + ٣)(س - ٣)(س + ٣) \) <br>
+                \( = ٢س(س - ٣)(س + ٣)^٢ \)
+            </div>
+
+            <div class="problem-box">
+                [١٤] \( [ ٢ ( أ + ب ) ]^٢ - ١٨ - ٤ب \) <br>
+                \( = [ ٢ ( أ + ب ) ]^٢ - ( ٤ ( أ + ب ) ) \) <br>
+                \( = [ ٢ ( أ + ب ) ] ( ٢ ( أ + ب ) - ٤ ) \) <br>
+                \( = ٢ ( أ + ب ) [ ٢ ( أ + ب ) - ٢ ] ( ٢ ( أ + ب ) + ٢ ) \)
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="problem-box">
+                [١٨] \( ١٠٠ ل^٢ = ٤ م^٢ + ٤٠ ل + ٤ \) <br>
+                \( = (١٠٠ ل^٢ + ٤٠ ل + ٤) - ٤ م^٢ \) <br>
+                \( = (١٠ ل + ٢)^٢ - (٢ م)^٢ \) <br>
+                \( = (١٠ ل + ٢ - ٢ م) (١٠ ل + ٢ + ٢ م) \) <br>
+                \( = ٢ (٥ ل - م + ١) \times ٢ (٥ ل + م + ١) \) <br>
+                \( = ٤ (٥ ل - م + ١) (٥ ل + م + ١) \)
+            </div>
+
+            <div class="problem-box">
+                [١٩] \( س^{١٢} + س^٦ + س^٣ + ١ \) <br>
+                \( = (س^{١٢} + س^٦) + (س^٣ + ١) \) <br>
+                \( = س^٦(س^٦ + ١) + ١(س^٣ + ١) \) <br>
+                \( = (س^٣ + ١)(س^٩ - س^٦ + ١) + (س^٣ + ١) \)
+            </div>
+
+            <div class="problem-box">
+                [٢٠] \( س^٦ - س^٤ - س^٢ + ١ \) <br>
+                \( = (س^٦ - س^٤) - (س^٢ - ١) \) <br>
+                \( = س^٤(س^٢ - ١) - ١(س^٢ - ١) \) <br>
+                \( = (س^٢ - ١)(س^٤ - ١) \) <br>
+                \( = (س - ١)(س + ١)(س^٢ - ١)(س^٢ + ١) \) <br>
+                \( = (س - ١)^٢(س + ١)^٢(س^٢ + ١) \)
+            </div>
+
+            <div class="main-title">
+                ضرب وقسمة الكسور الجبرية
+            </div>
+
+            <div class="section-title">أولاً: اختصار الكسور الجبرية:</div>
+            <p>لاختصار أي كسر نحلل أولاً كلاً من البسط والمقام إن أمكن ثم نقسم كلاً من البسط والمقام على العامل المشترك الأعلى (ع.م.أ) بينهما إن وجد.</p>
+
+            <div class="rule-box">
+                <span class="rule-header">قـــــواعـــــد</span>
+                (١) ضرب كلاً من البسط والمقام في عدد حقيقي معين لا يساوي صفراً لا يغير من قيمة الكسر .<br>
+                مثال: \( \frac{٢}{٣} = \frac{٢ \times ٣}{٣ \times ٣} = \frac{٦}{٩} \) ، \( \frac{٢}{٣} \times \frac{(س-ب)}{(س-ب)} = \frac{٢(س-ب)}{٣(س-ب)} \)<br>
+                حيث \( س \neq ب ، ب \in ح \)
+            </div>
+
+            <p>(٢) إذا قسم كل من البسط والمقام على عدد حقيقي معين لا يساوي صفراً فإن قيمة الكسر لا تتغير .</p>
+            
+            <strong>مثال: اختصر الكسر التالي إلى أبسط صورة حيث المقام \( \neq \cdot \)</strong>
+            <div style="text-align: center; margin: 10px 0;">
+                \( \frac{٢س^٢ + ٢س - ١٢}{٢س + ٦} \)
+            </div>
+            
+            <strong>* الحل *</strong>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+                <div>
+                    \( = \frac{٢(س^٢ + س - ٦)}{٢(س + ٣)} \) <br>
+                    \( = \frac{(س+٣)(س-٢)}{(س+٣)} = س-٢ \)
+                </div>
+                <div style="font-size: 0.8em; border-right: 1px solid #000; padding-right: 5px;">
+                    أخذنا ٢ مشترك<br>بسطاً ومقاماً ثم<br>قسمنا على ٢<br>ونحلل المقام
+                </div>
+            </div>
+
+            <div class="note">
+                ملاحظة: \( \frac{أ}{ب} = \frac{ج}{د} \) إذا كان \( أ \times د = ب \times ج \) (شرط تساوي كسرين)
+            </div>
+
+            <div class="section-title">ثانياً: ضرب وقسمة الكسور الجبرية:</div>
+            <div class="remember-box">
+                <strong>تذكر أن</strong> (١) عند ضرب كسرين اعتياديين نضرب البسط في البسط والمقام في المقام <br>
+                فمثلاً: \( \frac{٥}{٧} \times \frac{٢}{٣} = \frac{٥ \times ٢}{٧ \times ٣} = \frac{١٠}{٢١} \)
+                <hr>
+                (٢) عند القسمة تتحول عملية القسمة إلى ضرب مع قلب القاسم أي (يصبح بسطه مقاماً ومقامه بسطاً) <br>
+                أي أن: \( \frac{أ}{ب} \div \frac{ج}{د} = \frac{أ}{ب} \times \frac{د}{ج} = \frac{أد}{ب ج} \) حيث \( ب، ج، د \neq \cdot \) <br>
+                فمثلاً: \( \frac{٥}{٧} \div \frac{٢}{٣} = \frac{٥}{٧} \times \frac{٣}{٢} = \frac{١٥}{١٤} \)
+            </div>
+            <p>وبالمثل يمكن ضرب وقسمة الكسور الجبرية .</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

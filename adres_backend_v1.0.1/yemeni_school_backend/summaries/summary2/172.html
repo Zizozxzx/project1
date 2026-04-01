@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٧٢</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* MCQ Top Styles */
+        .mcq-box {
+            border: 1.5px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 5px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .option-item {
+            border-left: 1.5px solid #000;
+            border-bottom: 1px solid #ccc;
+            padding: 4px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:nth-child(even) {
+            border-left: none;
+        }
+
+        .option-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .option-num {
+            font-weight: bold;
+            margin-left: 10px;
+            min-width: 20px;
+        }
+
+        .option-item.correct {
+            background-color: #d4edda !important;
+        }
+
+        .option-item.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        /* Ministerial Section Header */
+        .ministerial-header {
+            background-color: #d9e1f2;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin: 15px 0 10px 0;
+            text-decoration: underline;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 30px;
+            text-align: center;
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 85px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .circle {
+            width: 17px;
+            height: 17px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* Ministerial MCQ */
+        .min-mcq-sub {
+            border: 1.5px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .min-mcq-header {
+            padding: 5px 12px;
+            background-color: #fff;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .mini-diagram {
+            flex: 0 0 100px;
+        }
+
+        .options-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1.5px solid #000;
+        }
+
+        .opt-cell {
+            border-left: 1.5px solid #000;
+            padding: 4px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .opt-cell:last-child {
+            border-left: none;
+        }
+
+        .opt-cell.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-cell.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Quote Section */
+        .quote-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .quote-text {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            transform: rotate(-2deg);
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        /* Math precision */
+        .math-root {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .root-symbol {
+            margin-left: -2px;
+            vertical-align: middle;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 4px;
+            margin-top: 3.5px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .options-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-cell:nth-child(even) {
+                border-left: none;
+            }
+
+            .min-mcq-header {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Top MCQs -->
+            <div class="mcq-box">
+                <div class="question-text">١٢. أ ب جـ مثلث حاد الزاوية، | أ ب | > | أ جـ | ، أ د أحد ارتفاعاته، ن منتصف
+                    ب ج ، فإن | أ ب |<sup>٢</sup> - | أ جـ |<sup>٢</sup> = ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> ٢ × | ن د
+                        | × | ب أ | .</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span> ٢ × | ن د
+                        | × | ب جـ | .</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> ٢ × | ن د
+                        | × | جـ أ | .</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ٢ × | ن د
+                        | × | ب د | .</div>
+                </div>
+            </div>
+
+            <div class="mcq-box">
+                <div class="question-text">
+                    ١٣. مثلث قائم في ب ، | أ جـ | = ٤ سم ، | أ ب | = <span class="math-root"><span
+                            class="root-content">٧</span><svg class="root-symbol" width="10" height="20"
+                            viewBox="0 0 10 20">
+                            <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                        </svg></span> سم ، فإن الضلع الثالث يساوي :
+                </div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> <span
+                            class="math-root"><span class="root-content">٧</span><svg class="root-symbol" width="10"
+                                height="20" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> سم .</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٣</span> <span
+                            class="math-root"><span class="root-content">١٤</span><svg class="root-symbol" width="10"
+                                height="20" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> سم .</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٢</span> ٣ سم .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ١٤ سم .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ministerial Questions Section -->
+            <div class="ministerial-header">أسئلة وزارية</div>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 4px 15px; display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 2px;">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 30px; padding-left: 5px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr>
+                    <td class="col-num">١</td>
+                    <td>في المثلث القائم الزاوية، مربع أي ضلع يساوي مجموع مربعي الضلعين الآخرين.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٢</td>
+                    <td>مربع الارتفاع في مثلث قائم الزاوية يساوي حاصل ضرب الوتر في مسقط ذلك الضلع القائم.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٣</td>
+                    <td>مربع الضلع القائم في مثلث يساوي حاصل ضرب الوتر في مسقط ذلك الضلع القائم.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٤</td>
+                    <td>في المثلث أ ب جـ القائم الزاوية في ب إذا كان | أ ب | = ٨ سم ، | ب جـ | = ٦ سم فإن | أ جـ | = ٥
+                        سم.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٥</td>
+                    <td>تنص مبرهنة فيثاغورث على أن "مربع ضلع في مثلث قائم يساوي ( الوتر × مسقط الضلع )".</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Second Ministerial MCQ Section -->
+            <div
+                style="background-color: #f2f2f2; border: 1.5px solid #000; padding: 4px 15px; font-weight: bold; margin: 10px 0 5px 0;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <!-- MQ a -->
+            <div class="min-mcq-sub">
+                <div class="min-mcq-header">
+                    <div class="mini-diagram">
+                        <svg width="100" height="70" viewBox="0 0 100 70">
+                            <path d="M10,60 L90,60 L30,15 Z" fill="none" stroke="black" stroke-width="1.5" />
+                            <line x1="30" y1="15" x2="30" y2="60" stroke="black" stroke-width="1" />
+                            <path d="M30,52 L38,52 L38,60" fill="none" stroke="black" stroke-width="0.8" />
+                            <text x="5" y="65" font-family="Amiri" font-size="14">ع</text>
+                            <text x="92" y="65" font-family="Amiri" font-size="14">س</text>
+                            <text x="25" y="10" font-family="Amiri" font-size="14">ص</text>
+                            <text x="32" y="68" font-family="Amiri" font-size="12">ل</text>
+                        </svg>
+                    </div>
+                    <div>أ . في الشكل المرسوم جانباً إذا كان | س ع | = ٩ سم ، | ع ل | = ٤ سم ، فإن | ص ع | يساوي :</div>
+                </div>
+                <div class="options-row">
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . ٤ سم .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . ٥ سم .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٣ . ٦ سم .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . ٧ سم .</div>
+                </div>
+            </div>
+
+            <!-- MQ b -->
+            <div class="min-mcq-sub">
+                <div class="min-mcq-header">ب . في المثلث حاصل ضرب الوتر في مسقط ضلع قائم يساوي :</div>
+                <div class="options-row">
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . مربع الوتر .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . الضلع القائم .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . مربع الارتفاع .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٤ . مربع الضلع القائم .</div>
+                </div>
+            </div>
+
+            <!-- MQ c -->
+            <div class="min-mcq-sub">
+                <div class="min-mcq-header">جـ . " مربع الوتر في مثلث قائم الزاوية يساوي مجموع مربعي الضلعين القائمن "
+                    نص مبرهنة :</div>
+                <div class="options-row">
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . الأوتار .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٢ . فيثاغورث .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . الساقط .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . ديمورجان .</div>
+                </div>
+            </div>
+
+            <!-- MQ d -->
+            <div class="min-mcq-sub">
+                <div class="min-mcq-header">د . مربع الوتر في مثلث قائم الزاوية بمربع الوتر في مثلث قائم يساوي
+                    ............ مربع الضلعين القائمن :</div>
+                <div class="options-row">
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . الفرق بين .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . ناتج قسمة .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . حاصل ضرب .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٤ . مجموع .</div>
+                </div>
+            </div>
+
+            <!-- MQ e -->
+            <div class="min-mcq-sub">
+                <div class="min-mcq-header">
+                    <div class="mini-diagram">
+                        <svg width="80" height="60" viewBox="0 0 80 60">
+                            <path d="M10,50 L70,50 L10,10 Z" fill="none" stroke="black" stroke-width="1.5" />
+                            <line x1="10" y1="50" x2="35" y2="27" stroke="black" stroke-width="1.2" />
+                            <path d="M10,42 L18,42 L18,50" fill="none" stroke="black" stroke-width="0.8" />
+                            <g transform="translate(35, 27) rotate(145)">
+                                <path d="M0,0 L8,0 L8,8" fill="none" stroke="black" stroke-width="0.8" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div>و . في الشكل المرسوم: أ ب جـ مثلث قائم الزاوية في ب ، ب د عمودي على أ ب ، فإن مربع | ب د | =
+                        ........... :</div>
+                </div>
+                <div class="options-row">
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . | أ ب | × | ب جـ | .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . | أ ب | × | أ د | .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٣ . | جـ د | × | د أ | .</div>
+                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . | أ د | × | د جـ | .</div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="quote-box">
+                <div class="quote-text">اترك عنك الكسل...</div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٩٠ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTF(el) {
+            const group = el.parentElement;
+            group.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.option-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMinMCQ(el, isCorrect) {
+            const row = el.parentElement;
+            row.querySelectorAll('.opt-cell').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

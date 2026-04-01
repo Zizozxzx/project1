@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٣١ - الدائرتان المتماستان والمتقاطعتان</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --sub-bg: #f2f2f2;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rounded-header {
+            border: 2px solid #000;
+            border-radius: 12px;
+            padding: 8px 30px;
+            width: fit-content;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.25em;
+            margin-bottom: 20px;
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            gap: 20px;
+        }
+
+        .flow-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .node-tag {
+            border: 1.2px solid #000;
+            padding: 3px 15px;
+            font-weight: bold;
+            background-color: #fafafa;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .node-tag::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            right: 50%;
+            transform: translateX(50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #000;
+        }
+
+        .formula-box {
+            border: 1.5px dashed #000;
+            padding: 10px;
+            font-size: 0.9em;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 5px;
+        }
+
+        .diagram-box {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-title">ثانياً: الدائرتان المتماستان</div>
+            <div class="rounded-header">هناك حالتان للدائرتين المتماستـين</div>
+
+            <div class="flow-container">
+                <div class="flow-node">
+                    <div class="node-tag">من الخارج</div>
+                    <div class="formula-box">
+                        البعد بين المركزين يساوي مجموع طولي نصفي القطرين، أي أن:
+                        <br><b>| م١ م٢ | = نق١ + نق٢</b>
+                    </div>
+                    <div class="diagram-box">
+                        <svg width="150" height="90" viewBox="0 0 150 90">
+                            <circle cx="45" cy="45" r="35" fill="none" stroke="black" stroke-width="1.2" />
+                            <circle cx="110" cy="45" r="30" fill="none" stroke="black" stroke-width="1.2" />
+                            <line x1="45" y1="45" x2="110" y2="45" stroke="black" stroke-width="1.2" />
+                            <line x1="80" y1="10" x2="80" y2="80" stroke="black" stroke-width="1"
+                                stroke-dasharray="2" /> <!-- Common Tangent -->
+                            <text x="40" y="42" font-family="Amiri" font-size="10">م١</text>
+                            <text x="105" y="42" font-family="Amiri" font-size="10">م٢</text>
+                            <text x="45" y="65" font-family="Amiri" font-size="9">نق١</text>
+                            <text x="110" y="65" font-family="Amiri" font-size="9">نق٢</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flow-node">
+                    <div class="node-tag">من الداخل</div>
+                    <div class="formula-box">
+                        البعد بين المركزين يساوي الفرق بين طولي نصفي القطرين، أي أن:
+                        <br><b>| م١ م٢ | = | نق١ - نق٢ |</b>
+                    </div>
+                    <div class="diagram-box">
+                        <svg width="120" height="90" viewBox="0 0 120 90">
+                            <circle cx="50" cy="45" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                            <circle cx="70" cy="45" r="20" fill="none" stroke="black" stroke-width="1.2" />
+
+                            <!-- Radius 1 (Big) to Left -->
+                            <line x1="50" y1="45" x2="10" y2="45" stroke="black" stroke-width="1" />
+                            <text x="30" y="40" font-family="Amiri" font-size="9">نق١</text>
+
+                            <!-- Radius 2 (Small) to Up-Right -->
+                            <line x1="70" y1="45" x2="84" y2="31" stroke="black" stroke-width="1" />
+                            <text x="78" y="35" font-family="Amiri" font-size="9">نق٢</text>
+
+                            <!-- Center Line -->
+                            <line x1="50" y1="45" x2="70" y2="45" stroke="black" stroke-width="1.2" />
+
+                            <text x="45" y="55" font-family="Amiri" font-size="10">م١</text>
+                            <text x="68" y="55" font-family="Amiri" font-size="10">م٢</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 25px 0; border: none; border-top: 1.5px solid #000;">
+
+            <div class="section-title">ثالثاً: الدائرتان المتقاطعتان</div>
+            <div class="rounded-header">هناك حالتان للدائرتين المتقاطعتين</div>
+
+            <div class="flow-container">
+                <div class="flow-node">
+                    <div class="node-tag">في نقطتين</div>
+                    <div class="formula-box">
+                        البعد بين المركزين أصغر من مجموع طولي نصفي القطرين وأكبر من الفرق بين طولي نصفي القطرين، أي أن:
+                        <br><b>| نق١ - نق٢ | < | م١ م٢ | < نق١ + نق٢</b>
+                    </div>
+                    <div class="diagram-box">
+                        <svg width="150" height="110" viewBox="0 0 160 110">
+                            <!-- Circles -->
+                            <circle cx="60" cy="65" r="35" fill="none" stroke="black" stroke-width="1.2" />
+                            <circle cx="100" cy="65" r="35" fill="none" stroke="black" stroke-width="1.2" />
+
+                            <!-- Intersection Triangle -->
+                            <path d="M60 65 L100 65 L80 34 Z" fill="none" stroke="black" stroke-width="1" />
+
+                            <!-- Labels -->
+                            <text x="50" y="65" font-family="Amiri" font-size="10">م١</text>
+                            <text x="105" y="65" font-family="Amiri" font-size="10">م٢</text>
+                            <text x="60" y="48" font-family="Amiri" font-size="9">نق١</text>
+                            <text x="95" y="48" font-family="Amiri" font-size="9">نق٢</text>
+
+                            <!-- Common Chord (Vertical, Optional but good for context) -->
+                            <line x1="80" y1="34" x2="80" y2="96" stroke="black" stroke-width="0.8"
+                                stroke-dasharray="2" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="flow-node">
+                    <div class="node-tag">في أكثر من نقطة</div>
+                    <div class="formula-box">
+                        ستكونا منطبقتين والبعد بين المركزين يساوي صفراً، أي أن:
+                        <br><b>| م١ م٢ | = ٠ ، نق١ = نق٢</b>
+                    </div>
+                    <div class="diagram-box">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <!-- Coincident Circles (One visual circle) -->
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="black" stroke-width="1.5" />
+
+                            <!-- Center Point -->
+                            <circle cx="50" cy="50" r="2" fill="black" />
+
+                            <!-- Two Radii forming a V shape -->
+                            <line x1="50" y1="50" x2="20" y2="20" stroke="black" stroke-width="1" />
+                            <!-- Left radius -->
+                            <line x1="50" y1="50" x2="80" y2="20" stroke="black" stroke-width="1" />
+                            <!-- Right radius -->
+
+                            <!-- Labels -->
+                            <text x="50" y="65" font-family="Amiri" font-size="10" text-anchor="middle">م١ ، م٢</text>
+                            <text x="30" y="35" font-family="Amiri" font-size="9">نق١</text>
+                            <text x="65" y="35" font-family="Amiri" font-size="9">نق٢</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٣٠ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

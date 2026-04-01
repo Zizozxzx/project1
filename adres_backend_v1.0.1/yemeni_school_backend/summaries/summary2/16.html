@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٦</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.6vmin;
+        }
+
+        .header-title {
+            background-color: #b0c4de;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding: 1vmin;
+            border: 2px solid #000;
+            margin-bottom: 2vmin;
+            font-family: var(--ui-font);
+        }
+
+        .section-box {
+            border: 2px solid #000;
+            margin-bottom: 1vmin;
+            padding: 0.5vmin;
+        }
+
+        .rule-box {
+            border: 2px solid #000;
+            padding: 1vmin;
+            margin-bottom: 1vmin;
+        }
+
+        .arrow-diagrams {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 2vmin;
+            margin-bottom: 2vmin;
+        }
+
+        .arrow-diagrams svg {
+            max-width: 32%;
+            height: auto;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            width: 100%;
+            margin-top: 0.5vmin;
+            margin-bottom: 0.5vmin;
+        }
+
+        .list-none-bold-lh {
+            list-style-type: none;
+            font-weight: bold;
+            line-height: 1.8;
+            padding-right: 0;
+            margin-right: 0;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="header-title">الدرس الرابع: علاقة التكافؤ</div>
+
+        <div class="rule-box">
+            <ul class="list-none-bold-lh">
+                <li>- نقول عن أي علاقة أنها علاقة تكافؤ إذا كانت العلاقة انعكاسية ومتناظرة ومتعدية في آن واحد.</li>
+                <li>- وتقول عن أي علاقة أنها ليست علاقة تكافؤ إذا لم تكن العلاقة انعكاسية أو متناظرة أو متعدية.</li>
+            </ul>
+        </div>
+
+        <!-- Exercise 1 -->
+        <div class="section-box">
+            <div class="bold-underline">تدريب (١):</div>
+            <div>إذا كانت س = { ١ ، ٢ ، ٣ ، ٥ } ، فبين أياً من العلاقات التالية تمثل علاقة تكافؤ مع ذكر السبب:</div>
+
+            <div class="mt-1">١. ع١ = { (١ ، ١) ، (٢ ، ٣) ، (٣ ، ٢) ، (٢ ، ٥) }.</div>
+            <div class="dotted-line"></div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-1">٢. ع٢ علاقة يساوي على المجموعة س.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-1">٣. ع٣ علاقة أكبر من على المجموعة س.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-1">٤. ع٤ = { (٢ ، ١) ، (٢ ، ٢) ، (١ ، ٢) }.</div>
+            <div class="dotted-line"></div>
+        </div>
+
+        <!-- Exercise 2 Relations -->
+        <div class="section-box flex-grow">
+            <div class="bold-underline">تدريب (٢):</div>
+            <div>بين نوع العلاقات الموضحة بالمخططات السهمية التالية:</div>
+
+            <div class="arrow-diagrams">
+                <!-- Diagram 1 -->
+                <svg width="150" height="60" viewBox="0 0 150 60">
+                    <ellipse cx="75" cy="30" rx="60" ry="25" fill="none" stroke="black" />
+                    <circle cx="40" cy="30" r="2" fill="black" /> <text x="40" y="45" font-size="12">أ</text>
+                    <circle cx="110" cy="30" r="2" fill="black" /> <text x="110" y="45" font-size="12">ب</text>
+                    <!-- Self loops -->
+                    <path d="M 40,30 Q 30,10 45,20" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <path d="M 110,30 Q 120,10 105,20" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <!-- Connection -->
+                    <path d="M 40,30 Q 75,40 110,30" fill="none" stroke="black" marker-end="url(#arrow)" />
+
+                    <defs>
+                        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8" fill="black" />
+                        </marker>
+                    </defs>
+                </svg>
+
+                <!-- Diagram 2 -->
+                <svg width="150" height="60" viewBox="0 0 150 60">
+                    <ellipse cx="75" cy="30" rx="70" ry="25" fill="none" stroke="black" />
+                    <!-- Points -->
+                    <circle cx="30" cy="30" r="2" fill="black" />
+                    <circle cx="120" cy="30" r="2" fill="black" />
+                    <!-- Loop -->
+                    <path d="M 30,30 Q 20,10 35,20" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <path d="M 120,30 Q 130,10 115,20" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <!-- Connections -->
+                    <path d="M 30,30 Q 75,50 120,30" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <path d="M 120,30 Q 75,10 30,30" fill="none" stroke="black" marker-end="url(#arrow)" />
+
+                    <!-- Point Center -->
+                    <circle cx="75" cy="30" r="2" fill="black" />
+                </svg>
+
+                <!-- Diagram 3 -->
+                <svg width="150" height="60" viewBox="0 0 150 60">
+                    <ellipse cx="75" cy="30" rx="60" ry="25" fill="none" stroke="black" />
+                    <circle cx="40" cy="30" r="2" fill="black" /> <text x="40" y="45" font-size="12">أ</text>
+                    <circle cx="110" cy="30" r="2" fill="black" /> <text x="110" y="45" font-size="12">ب</text>
+                    <!-- Connection -->
+                    <path d="M 40,30 Q 75,10 110,30" fill="none" stroke="black" marker-end="url(#arrow)" />
+                    <path d="M 110,30 Q 75,50 40,30" fill="none" stroke="black" marker-end="url(#arrow)" />
+
+                    <path d="M 110,30 Q 130,10 115,20" fill="none" stroke="black" marker-end="url(#arrow)" />
+                </svg>
+            </div>
+
+            <div class="text-center mt-2 bold">
+                لكي تقوم بحل هذا التمرين عليك أولاً كتابة عناصر كل مجموعة ثم كتابة العلاقة كأزواج مرتبة.
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٦ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

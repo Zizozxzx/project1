@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٢ - رسالة تحفيزية وختام القسم</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* MCQ Table */
+        .mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1em;
+            border: 1.5px solid #000;
+            margin-bottom: 50px;
+        }
+
+        .mcq-table td {
+            border: 1.5px solid #000;
+            padding: 12px 15px;
+        }
+
+        .mcq-num {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            width: 40px;
+            text-align: center;
+        }
+
+        .mcq-opt {
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .mcq-opt.correct {
+            background-color: #d4edda;
+        }
+
+        .mcq-opt.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Artistic Quote */
+        .quote-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-msg {
+            font-family: var(--font-calligraphy);
+            font-size: 3.5em;
+            line-height: 1.8;
+            color: #1a1a1a;
+            position: relative;
+            z-index: 2;
+        }
+
+        .watermark {
+            position: absolute;
+            font-family: var(--font-calligraphy);
+            font-size: 12em;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <table class="mcq-table">
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">جـ. إذا كان قياس زاوية مركزية
+                        يساوي ٨٠° فإن درجة قياس القوس المحدد بضلعيها يساوي ....... :</td>
+                </tr>
+                <tr data-question="c">
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٤٠°</td>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٦٠°</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">٨٠°</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">١٦٠°</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background-color: #f2f2f2; font-weight: bold;">د. إذا كان قياس زاوية مركزية =
+                        ٦٠° ، فإن درجة قياس قوسها الصغير = ....... :</td>
+                </tr>
+                <tr data-question="d">
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٣٠°</td>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">٣٠٠°</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">١٢٠°</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">٦٠°</td>
+                </tr>
+            </table>
+
+            <div class="quote-container">
+                <div class="watermark">هلا المولجي</div>
+                <div class="quote-msg">
+                    ما يوماً سهرت إلا <br>
+                    ووجدت ما سهرت له...
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٢ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkMCQ(el, isCorrect) {
+            const row = el.closest('tr');
+            const siblings = row.querySelectorAll('.mcq-opt');
+            siblings.forEach(s => s.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

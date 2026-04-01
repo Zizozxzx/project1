@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات الصف التاسع - صفحة 15</title>
+    <style>
+        :root { --line-color: #000; }
+        body { font-family: 'Times New Roman', serif; background-color: #f0f0f0; margin: 0; padding: 10px; line-height: 1.6; color: #000; }
+        .container { max-width: 850px; background: #fff; margin: auto; padding: 20px; border: 2px solid #000; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+        .page-num { text-align: center; border-bottom: 1px solid #000; margin-bottom: 10px; font-weight: bold; }
+        
+        /* تنسيق الفقرة أ - الرسم الهندسي */
+        .geometry-container { border: 1px solid #000; padding: 15px; margin: 15px 0; background: #fff; }
+        .geo-svg { width: 100%; height: auto; max-width: 500px; display: block; margin: 10px auto; }
+        
+        .title-main { text-align: center; border: 2px solid #000; width: fit-content; margin: 20px auto; padding: 5px 40px; font-size: 22px; font-weight: bold; }
+        .title-sub { text-align: center; border: 1px solid #000; width: fit-content; margin: 15px auto; padding: 5px 20px; font-weight: bold; }
+
+        /* فنيات خطوط الأعداد */
+        .number-line { position: relative; margin: 40px 0; height: 30px; width: 90%; margin-right: 5%; }
+        .axis { width: 100%; height: 2px; background: #000; position: absolute; top: 10px; }
+        .axis::before { content: ''; position: absolute; right: -8px; top: -4px; border: 5px solid transparent; border-left: 10px solid #000; }
+        .axis::after { content: ''; position: absolute; left: -8px; top: -4px; border: 5px solid transparent; border-right: 10px solid #000; }
+        
+        .shade { position: absolute; height: 8px; background: repeating-linear-gradient(45deg, #999, #999 2px, transparent 2px, transparent 4px); top: 7px; border: 0.5px solid #000; }
+        .point { position: absolute; width: 10px; height: 10px; border-radius: 50%; border: 1px solid #000; top: 5px; background: #000; z-index: 10; }
+        .point.open { background: #fff; }
+        .label { position: absolute; top: 20px; transform: translateX(50%); font-weight: bold; font-size: 14px; }
+        .inf { position: absolute; top: -5px; font-weight: bold; font-size: 16px; }
+
+        .note { border-right: 5px solid #000; background: #f9f9f9; padding: 10px; margin: 15px 0; font-size: 14px; }
+        strong { font-weight: bold; }
+        
+        @media (max-width: 600px) { body { padding: 5px; } .container { padding: 10px; } font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-num">— ١٥ —</div>
+
+    <div class="geometry-container">
+        <p>( أ ) نرسم المثلث أ ب جـ القائم في ب على خط الأعداد بحيث يكون أ ب ⊥ ب جـ ، ب جـ منطبقاً على خط الأعداد والنقطة ( جـ ) منطبقة على صفر الأعداد ، | أ ب | = ١ وحدة ، | ب جـ | = ٣ وحدة .</p>
+        
+        <svg class="geo-svg" viewBox="0 0 400 150">
+            <line x1="20" y1="120" x2="380" y2="120" stroke="black" stroke-width="2" />
+            <polygon points="380,120 370,115 370,125" fill="black" />
+            <polygon points="20,120 30,115 30,125" fill="black" />
+            
+            <line x1="100" y1="115" x2="100" y2="125" stroke="black" /> <text x="95" y="140">٠</text> <line x1="160" y1="115" x2="160" y2="125" stroke="black" /> <text x="155" y="140">١</text>
+            <line x1="220" y1="115" x2="220" y2="125" stroke="black" /> <text x="215" y="140">٢</text>
+            <line x1="280" y1="115" x2="280" y2="125" stroke="black" /> <text x="275" y="140">٣</text> <line x1="280" y1="120" x2="280" y2="40" stroke="black" stroke-width="2" /> <line x1="100" y1="120" x2="280" y2="40" stroke="black" stroke-width="2" stroke-dasharray="4" /> <path d="M 280 40 Q 320 60 335 120" fill="none" stroke="black" stroke-dasharray="2" />
+            
+            <text x="285" y="35" font-weight="bold">أ</text>
+            <text x="285" y="115" font-weight="bold">ب</text>
+            <text x="90" y="115" font-weight="bold">جـ (٠)</text>
+            <text x="335" y="135" font-weight="bold" fill="red">د (√١٠)</text>
+            
+            <rect x="270" y="110" width="10" height="10" fill="none" stroke="black" />
+        </svg>
+        <div style="text-align: center; font-size: 12px;">شكل ( ٣ )</div>
+
+        <p>( ب ) نطبق مبرهنة فيثاغورث : | أ جـ |² = | أ أب |² + | ب جـ |² نجري التعويض<br>
+        ∴ | أ جـ |² = (١)² + (٣)² فنجد | أ جـ |² = ١ + ٩<br>
+        | أ جـ |² = ١٠ بأخذ الجذر التربيعي للطرفين فنجد | أ جـ | = √١٠ من الوحدات . </br>
+        ( جـ ) بعد رسم المثلث على خط الأعداد نركز الفرجار في النقطة ( جـ ) المنطبقة على الصفر بفتحة طولها | أ جـ | = √١٠ نرسم قوساً يقطع خط الأعداد في نقطة لتكن ( د ) فيكون | جـ د | = | أ جـ | = √١٠ فتكون النقطة د تمثل قيمة تقريبية للعدد √١٠ ≈ ٣,٢ بين ٣ ، ٤ شكل (٣)<br>
+        | راجع حل تمارين الكتاب المدرسي لاحقاً |</p>
+    </div>
+
+    <div class="title-main">مجموعة الأعداد الحقيقية</div>
+    
+    <p><strong>مجموعة الأعداد الحقيقية:</strong> هي مجموعة تتألف من إتحاد مجموعة الأعداد النسبية ن وغير النسبية ن' ونرمز لها بالرمز ح = ن ∪ ن' علماً بأن ط ⊂ ص ⊂ ن ⊂ ح كما أن ح = ح+ ∪ ح- ∪ { ٠ } حيث ح+ هي مجموعة الأعداد الحقيقية الموجبة ، ح- هي مجموعة الأعداد الحقيقية السالبة .</p>
+
+    <div style="border: 1px solid #000 ; padding: 10px; margin: 10px 0;">
+        <strong>خط الأعداد الحقيقية:</strong> عبارة عن خط مستقيم مكون من عدد لا نهائي من النقاط بحيث تكون كل نقطة من هذا المستقيم تعبر عن عدد حقيقي وحيد وكل عدد حقيقي تمثله نقطة واحدة في ذلك المستقيم ونمثل خط الأعداد الحقيقية بالشكل ( ) حيث الرمز (+∞) يقرأ موجب ما لا نهاية والرمز (-∞) يقرأ سالب ما لا نهاية .
+    </div>
+
+    <div class="title-sub">تمثيل مجموعات جزئية من مجموعة الأعداد الحقيقية على خط الأعداد</div>
+
+    <p><strong>أولاً : الفترات المحدودة :</strong> إذا كان أ < ب ، أ ، ب ∈ ح فإننا نعرف ما يلي :</p>
+    
+    <p><strong>١) الفترة المغلقة [ أ ، ب ]</strong> = { س : س ∈ ح ، أ ≤ س ≤ ب } وهي مجموعة كل الأعداد الحقيقية الأكبر أو تساوي أ والأصغر أو تساوي ب </p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 30%; width: 40%;"></div>
+        <div class="point" style="right: 30%;"></div><span class="label" style="right: 30%;">أ</span>
+        <div class="point" style="right: 70%;"></div><span class="label" style="right: 70%;">ب</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>٢) الفترة المفتوحة ] أ ، ب [</strong> = { س : س ∈ ح ، أ < س < ب } وهي مجموعة الأعداد الحقيقية الأكبر تماماً من أ والأصغر تماماً من ب .</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 30%; width: 40%;"></div>
+        <div class="point open" style="right: 30%;"></div><span class="label" style="right: 30%;">أ</span>
+        <div class="point open" style="right: 70%;"></div><span class="label" style="right: 70%;">ب</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>٣) الفترة المغلقة من اليمين والمفتوحة من اليسار [ أ ، ب [</strong> = { س : س ∈ ح ، أ ≤ س < ب } مجموعة الأعداد الحقيقية الأكبر أو تساوي أ والأقل تماماً من ب .</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 30%; width: 40%;"></div>
+        <div class="point" style="right: 30%;"></div><span class="label" style="right: 30%;">أ</span>
+        <div class="point open" style="right: 70%;"></div><span class="label" style="right: 70%;">ب</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>٤) الفترة المغلقة من اليسار والمفتوحة من اليمين ] أ ، ب ]</strong> = { س : س ∈ ح ، أ < س ≤ ب } مجموعة الأعداد الحقيقية الأكبر تماماً من أ والأصغر أو تساوي ب .</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 30%; width: 40%;"></div>
+        <div class="point open" style="right: 30%;"></div><span class="label" style="right: 30%;">أ</span>
+        <div class="point" style="right: 70%;"></div><span class="label" style="right: 70%;">ب</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <div class="note">
+        <strong>ملاحظة:</strong> ١) الدائرة المغلقة (●) رمز للفترة المغلقة عند طرف العدد والدائرة الفارغة (○) رمز للفترة المفتوحة عند طرف العدد <br>
+        ٢) كل عدد يقع على طرف فترة مفتوحة لا ينتمي إلى الفترة وكل عدد يقع على طرف فترة مغلقة ينتمي إلى الفترة .
+    </div>
+
+    <p><strong>ثانياً : الفترات غير المحدودة :</strong> إذا كان أ ∈ ح فإننا نعرف الفترات اللانهائية كما يلي :</p>
+    
+    <p><strong>[١] [ أ ، ∞+ [</strong> = { س : س ∈ ح ، س ≥ أ } كل الأعداد الحقيقية الأكبر أو تساوي أ . تمثل على خط الأعداد بالشكل (أ)</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 0%; width: 60%; border-right: none;"></div>
+        <div class="point" style="right: 40%;"></div><span class="label" style="right: 40%;">أ</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>[٢] ] أ ، ∞+ [</strong> = { س : س ∈ ح ، س > أ } كل الأعداد الحقيقية الأكبر تماماً من أ . تمثل على خط الأعداد بالشكل (ب)</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="right: 0%; width: 60%; border-right: none;"></div>
+        <div class="point open" style="right: 40%;"></div><span class="label" style="right: 40%;">أ</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>[٣] ] -∞ ، أ ]</strong> = { س : س ∈ ح ، س ≤ أ } هي مجموعة كل الأعداد الحقيقية المكونة من العدد أ والأعداد الأصغر من أ . تمثل على خط الأعداد بالشكل (جـ)</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="left: 0%; width: 60%; border-left: none;"></div>
+        <div class="point" style="left: 40%;"></div><span class="label" style="left: 40%;">أ</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+    <p><strong>[٤] ] -∞ ، أ [</strong> = { س : س ∈ ح ، س < أ } هي مجموعة كل الأعداد الحقيقية الأصغر تماماً من أ . تمثل على خط الأعداد بالشكل (د)</p>
+    <div class="number-line">
+        <div class="axis"></div><div class="shade" style="left: 0%; width: 60%; border-left: none;"></div>
+        <div class="point open" style="left: 40%;"></div><span class="label" style="left: 40%;">أ</span>
+        <div class="inf" style="right: -30px;">∞+</div><div class="inf" style="left: -30px;">∞-</div>
+    </div>
+
+</div>
+
+</body>
+</html>

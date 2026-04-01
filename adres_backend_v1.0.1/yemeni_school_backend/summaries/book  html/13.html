@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة 17</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Arial","Tahoma",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* ===== رأس الصفحة ===== */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+.header .title{
+    font-size:18px;
+    margin-left:15px;
+    white-space:nowrap;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* ===== عنوان الدرس ===== */
+.lesson-title{
+    display:inline-flex;
+    align-items:center;
+    border:3px solid #000;
+    border-radius:30px;
+    padding:6px 18px;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+    color:#1aa3d9;   
+}
+.lesson-title span{
+    color:#1aa3d9;
+    margin-right:10px;
+}
+
+/* ===== النص ===== */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:8px 0;
+}
+.bold{
+    font-weight:bold;
+}
+
+/* ===== مثال / حل ===== */
+.badge{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:18px;
+    padding:4px 18px;
+    font-size:18px;
+    margin:10px 0;
+}
+.badge.black{
+    background:#000;
+    color:#fff;
+}
+
+/* ===== التذييل ===== */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:30px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ===== الرأس ===== -->
+<div class="header">
+    <div class="title">المجموعات والعلاقات</div>
+    <div class="line"></div>
+</div>
+
+<!-- ===== عنوان الدرس ===== -->
+<div class="lesson-title">
+    <span>٣ .</span> العلاقة المتعدية
+</div>
+
+<!-- ===== تذكّر ===== -->
+<p class="bold">
+تذكّر :
+</p>
+
+<p>
+العلاقة ع على المجموعة س هي مجموعة جزئية من حاصل ضرب المجموعتين
+س × س .
+</p>
+
+<p>
+أي أن : ع ⊆ س × س .
+</p>
+
+<!-- ===== العلاقة الانعكاسية ===== -->
+<p class="bold">
+العلاقة الانعكاسية :
+</p>
+
+<p>
+تكون العلاقة ع انعكاسية على المجموعة س ، إذا كان لكل أ ∈ س
+فإن ( أ ، أ ) ∈ ع .
+</p>
+
+<!-- ===== العلاقة المتناظرة ===== -->
+<p class="bold">
+العلاقة المتناظرة :
+</p>
+
+<p>
+تكون العلاقة ع متناظرة على المجموعة س ، إذا كان لكل ( أ ، ب ) ∈ ع ،
+فإن ( ب ، أ ) ∈ ع ، حيث أ ، ب ∈ س .
+</p>
+
+<!-- ===== مثال ===== -->
+<div class="badge">مثال ( ١ )</div>
+
+<p>
+إذا كانت : س = { ٤ ، ٥ ، ٦ } ، بيّن نوع العلاقات التالية
+( انعكاسية ، متناظرة ) مع ذكر السبب :
+</p>
+
+<p>
+( أ ) ع₁ = { ( ٦ ، ٦ ) ، ( ٥ ، ٥ ) ، ( ٤ ، ٤ ) ، ( ٥ ، ٤ ) } .
+</p>
+
+<p>
+( ب ) ع₂ = { ( ٥ ، ٦ ) ، ( ٤ ، ٤ ) ، ( ٦ ، ٥ ) ، ( ٥ ، ٥ ) } .
+</p>
+
+<p>
+( ج ) ع₃ = { ( ٥ ، ٥ ) ، ( ٤ ، ٤ ) ، ( ٤ ، ٥ ) ، ( ٦ ، ٦ ) ، ( ٥ ، ٤ ) } .
+</p>
+
+<p>
+( د ) ع₄ = { ( ٥ ، ٥ ) ، ( ٤ ، ٤ ) ، ( ٤ ، ٥ ) } .
+</p>
+
+<!-- ===== الحل ===== -->
+<div class="badge black">الحل :</div>
+
+<p>
+( أ ) ع₁ انعكاسية لأن كل عنصر في س ارتبط بنفسه .
+</p>
+
+<p>
+ع₁ ليست متناظرة ، لأن ( ٥ ، ٤ ) ∈ ع₁ ، ولكن ( ٤ ، ٥ ) ∉ ع₁ .
+</p>
+
+<!-- ===== التذييل ===== -->
+<div class="footer">
+    <div class="page-num">١٧</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

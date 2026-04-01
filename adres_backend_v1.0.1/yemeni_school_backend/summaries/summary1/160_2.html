@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل تمارين الرياضيات - صفحة 58</title>
+    <style>
+        :root {
+            --primary-color: #000;
+            --bg-color: #fff;
+            --border-color: #000;
+            --font-family: 'Arial', sans-serif;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: var(--font-family);
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: var(--primary-color);
+            direction: rtl;
+        }
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .page-num {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            width: 50px;
+            margin: 0 auto 15px;
+            font-size: 1.2em;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 2px solid #000;
+            padding-top: 15px;
+        }
+        .column { display: flex; flex-direction: column; gap: 20px; }
+        .section { border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
+        .title-box { font-weight: bold; margin-bottom: 10px; font-size: 1.05em; }
+        .math-text { font-family: 'Times New Roman', serif; margin: 5px 0; }
+        .highlight-box { border: 1px solid #000; padding: 2px 8px; display: inline-block; font-weight: bold; }
+        
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 10px 0; }
+        table { border-collapse: collapse; width: 100%; max-width: 300px; margin: 0 auto; text-align: center; font-size: 0.9em; }
+        table, th, td { border: 1px solid #000; }
+        th, td { padding: 5px; }
+        .table-label { text-align: center; font-size: 0.85em; margin-top: 5px; font-weight: bold; }
+
+        /* Diagrams */
+        .diagram-box { text-align: center; margin: 15px 0; background: #fff; padding: 10px; border: 1px solid #eee; }
+        svg { max-width: 100%; height: auto; }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .page-container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-num">٥٨</div>
+
+    <div class="main-grid">
+        <!-- Right Column -->
+        <div class="column">
+            <div class="section">
+                <div class="title-box">١٠ | صل كل معادلة من العمود الأيمن بمجموعة حلها من العمود الأيسر في الجدول التالي :</div>
+                <div class="diagram-box">
+                    <svg width="320" height="220" viewBox="0 0 320 220">
+                        <!-- Left Equations -->
+                        <g font-size="13" font-weight="bold">
+                            <text x="220" y="40">س + ص = ٧</text>
+                            <text x="220" y="80">٣س + ص/٢ = ٥</text>
+                            <text x="220" y="120">٢س - ٣ص = ٣</text>
+                            <text x="220" y="160">س/٢ + ص = ٦</text>
+                        </g>
+                        <!-- Right Sets -->
+                        <g font-size="12">
+                            <text x="20" y="40">( ٣ ، ٤ ) ، ( ٥ ، ٢ )</text>
+                            <text x="20" y="80">( ٤ ، ٤ ) ، ( ٥ ، ٢ )</text>
+                            <text x="20" y="120">( ٢- ، ٢ ) ، ( ١ ، ١ )</text>
+                            <text x="20" y="160">( ١ ، ٤ ) ، ( ٤ ، ١ )</text>
+                            <text x="20" y="200">( ١ ، ٤ ) ، ( ١ ، ٣ )</text>
+                        </g>
+                        <!-- Arrows based on image -->
+                        <path d="M210,35 L120,35" stroke="black" fill="none" marker-end="url(#arr)"/>
+                        <path d="M210,75 L120,155" stroke="black" fill="none" marker-end="url(#arr)"/>
+                        <path d="M210,115 L120,115" stroke="black" fill="none" marker-end="url(#arr)"/>
+                        <path d="M210,155 L120,75" stroke="black" fill="none" marker-end="url(#arr)"/>
+                        <defs>
+                            <marker id="arr" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="math-text" style="font-weight:bold;">* الحل * سنصل سهم ينطلق من المعادلة إلى الأزواج المرتبة التي تمثل حلاً للمعادلة :</div>
+            </div>
+
+            <div class="section">
+                <div class="title-box">حل نظام المعادلات في التمارين من [ ١١ ] إلى [ ١٧ ] جبرياً وبيانياً وتحقق من صحة الحل :</div>
+                <div class="math-text">
+                    [ ١١ ] س - ص = ٤ ، س + ص = ٢<br>
+                    <span style="text-decoration:underline;">* الحل * الحل الجبري:</span><br>
+                    س - ص = ٤ &larr; (١) ، س + ص = ٢ &larr; (٢) بجمع المعادلتين<br>
+                    ٢س = ٦ بالقسمة على ٢ نجد <span class="highlight-box">س = ٣</span><br>
+                    لنعوض في (٢) نجد : ٣ + ص = ٢ ومنها ص = ٢ - ٣ = -١<br>
+                    <span class="highlight-box">مجموعة الحل = { ( ٣ ، -١ ) }</span>
+                </div>
+                <div class="math-text">
+                    <span style="text-decoration:underline;">الحل البياني :</span> من المعادلة س - ص = ٤ نجد ص = س - ٤<br>
+                    سيكون جدول قيم المعادلة بفرض قيم اختيارية للمتغير س لنحصل على قيم ص المناظرة فنرسم المستقيم الأول.
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th>س</th><td>١</td><td>٢</td><td>٣</td></tr>
+                        <tr><th>ص = س - ٤</th><td>-٣</td><td>-٢</td><td>-١</td></tr>
+                        <tr><th>( س ، ص )</th><td>( ١ ، -٣ )</td><td>( ٢ ، -٢ )</td><td>( ٣ ، -١ )</td></tr>
+                    </table>
+                    <div class="table-label">جدول (١)</div>
+                </div>
+                <div class="math-text">من المعادلة س + ص = ٢ نجد ص = ٢ - س نكون جدولها ونرسم المستقيم الثاني.</div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th>س</th><td>١</td><td>٢</td><td>٣</td></tr>
+                        <tr><th>ص = ٢ - س</th><td>١</td><td>٠</td><td>-١</td></tr>
+                        <tr><th>( س ، ص )</th><td>( ١ ، ١ )</td><td>( ٢ ، ٠ )</td><td>( ٣ ، -١ )</td></tr>
+                    </table>
+                    <div class="table-label">جدول (٢)</div>
+                </div>
+                <div class="diagram-box">
+                    <svg width="280" height="280" viewBox="0 0 280 280">
+                        <!-- Grid -->
+                        <g stroke="#eee" stroke-width="0.5">
+                            <line x1="0" y1="140" x2="280" y2="140" stroke="#000" stroke-width="1"/>
+                            <line x1="140" y1="0" x2="140" y2="280" stroke="#000" stroke-width="1"/>
+                            <path d="M0,20 H280 M0,40 H280 M0,60 H280 M0,80 H280 M0,100 H280 M0,120 H280 M0,160 H280 M0,180 H280 M0,200 H280 M0,220 H280 M0,240 H280 M0,260 H280" />
+                            <path d="M20,0 V280 M40,0 V280 M60,0 V280 M80,0 V280 M100,0 V280 M120,0 V280 M160,0 V280 M180,0 V280 M200,0 V280 M220,0 V280 M240,0 V280 M260,0 V280" />
+                        </g>
+                        <!-- Line 1: y = x - 4 -->
+                        <line x1="60" y1="60" x2="220" y2="220" stroke="black" stroke-width="1.5"/>
+                        <!-- Line 2: y = 2 - x -->
+                        <line x1="60" y1="220" x2="220" y2="60" stroke="black" stroke-width="1.5"/>
+                        <!-- Intersection -->
+                        <circle cx="200" cy="160" r="3" fill="black"/>
+                        <text x="205" y="155" font-size="10" font-weight="bold">( ٣ ، -١ )</text>
+                        <text x="260" y="135" font-size="10">س</text>
+                        <text x="145" y="15" font-size="10">ص</text>
+                        <text x="130" y="270" font-size="12" font-weight="bold">شكل ( ١١ )</text>
+                    </svg>
+                </div>
+                <div class="math-text">فمن الشكل ( ١١ ) مجموعة الحل تساوي نقطة تقاطع المستقيمين . <span class="highlight-box">مجموعة الحل = { ( ٣ ، -١ ) }</span></div>
+            </div>
+        </div>
+
+        <!-- Left Column -->
+        <div class="column">
+            <div class="section">
+                <div class="title-box">[ ١٢ ] ٢س + ص = ١١ ، ٦س - ص = ١٤</div>
+                <div class="math-text">
+                    <span style="text-decoration:underline;">* الحل *</span><br>
+                    <span style="text-decoration:underline;">أولاً جبرياً :</span> سوف نستخدم طريقة الحذف<br>
+                    ٢س + ص = ١١ &larr; (١)<br>
+                    ٦س - ص = ١٤ &larr; (٢) لنحذف المتغير ص بضرب (٢) × ٢ (ملاحظة: الصورة تظهر جمع مباشر)<br>
+                    بجمع المعادلتين (١) ، (٢) نجد : ١٣س = ٣٩ بالقسمة على ١٣<br>
+                    نجد <span class="highlight-box">س = ٣</span> ومنها س = ٣٩/١٣ = ٣ نعوض في أي معادلة لنجد ص<br>
+                    لنعوض بقيمة س = ٣ في المعادلة (١) نجد :<br>
+                    ٢(٣) + ص = ١١ ومنها ص = ١١ - ٦ أي ص = ٥<br>
+                    <span class="highlight-box">ص = ٥</span> ومنها <span class="highlight-box">ص = ٥</span><br>
+                    <span class="highlight-box">مجموعة الحل = { ( ٣ ، ٥ ) }</span>
+                </div>
+                <div class="math-text">
+                    <span style="text-decoration:underline;">ثانياً الحل بيانياً :</span> لحل المعادلتين بيانياً نكون لكل منهما جدولاً مستقلاً ثم نرسم المستقيمين الممثلين لهما كما يلي :-
+                </div>
+                <div class="table-container" style="display:flex; gap:10px; justify-content:center;">
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>س</th><td>١</td><td>٢</td><td>٣</td></tr>
+                            <tr><th>ص = ١١ - ٢س</th><td>٩</td><td>٧</td><td>٥</td></tr>
+                            <tr><th>( س ، ص )</th><td>(١، ٩)</td><td>(٢، ٧)</td><td>(٣، ٥)</td></tr>
+                        </table>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>س</th><td>٢</td><td>٣</td><td>٤</td></tr>
+                            <tr><th>ص = ٦س - ١٤</th><td>-٢</td><td>٤</td><td>١٠</td></tr>
+                            <tr><th>( س ، ص )</th><td>(٢، -٢)</td><td>(٣، ٤)</td><td>(٤، ١٠)</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="diagram-box">
+                    <svg width="280" height="320" viewBox="0 0 280 320">
+                        <line x1="20" y1="280" x2="260" y2="280" stroke="black" stroke-width="1"/>
+                        <line x1="140" y1="20" x2="140" y2="300" stroke="black" stroke-width="1"/>
+                        <!-- Line 1 -->
+                        <line x1="60" y1="40" x2="220" y2="280" stroke="black" stroke-width="1.5"/>
+                        <!-- Line 2 -->
+                        <line x1="60" y1="280" x2="220" y2="40" stroke="black" stroke-width="1.5"/>
+                        <circle cx="200" cy="100" r="3" fill="black"/>
+                        <text x="205" y="95" font-size="10" font-weight="bold">( ٣ ، ٥ )</text>
+                        <text x="130" y="315" font-size="12" font-weight="bold">شكل ( ١٢ )</text>
+                    </svg>
+                </div>
+                <div class="math-text">فمن الشكل ( ١٢ ) مجموعة الحل = { ( ٣ ، ٥ ) }</div>
+                <div class="math-text">
+                    <span style="text-decoration:underline;">التحقق :</span> من المعادلة (١) نجد :<br>
+                    الأيمن = ٢ × ٣ + ٥ = ٦ + ٥ = ١١ = الأيسر<br>
+                    من (٢) الأيمن = ٦ × ٣ - ٤ = ١٨ - ٤ = ١٤ = الأيسر
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title-box">[ ١٣ ] ٣س - ٤ص = -٢٠ ، ٢س + ٣ص = ٢٦</div>
+                <div class="math-text">
+                    <span style="text-decoration:underline;">* الحل *</span><br>
+                    ٣س - ٤ص = -٢٠ &larr; (١)<br>
+                    ٢س + ٣ص = ٢٦ &larr; (٢)<br>
+                    بالضرب × ٢ نحصل على -٦س + ٨ص = -٤٠ (٣)<br>
+                    ٢س + ٣ص = ٢٦ &larr; (٢) بالضرب × ٣ نحصل على<br>
+                    ٦س + ٩ص = ٧٨ &larr; (٤) بجمع المعادلتين (٣) ، (٤)<br>
+                    نحصل على ١٧ص = ٦٨ بالقسمة على ١٧<br>
+                    <span class="highlight-box">ص = ٤</span> ومنها ص = ٤ نعوض بقيمة ص في المعادلة (٢)<br>
+                    ٢س + ٣ × ٤ = ٢٦ ومنها ٢س = ٢٦ - ١٢<br>
+                    ٢س = ١٤ بالقسمة على ٢ نجد س = ١٤/٢ أي <span class="highlight-box">س = ٧</span><br>
+                    <span class="highlight-box">مجموعة الحل = { ( ٧ ، ٤ ) }</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

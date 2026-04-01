@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٠ - أتمتة الدائرة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -1px;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 5px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .opt-item {
+            padding: 6px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: 0.2s;
+        }
+
+        .opt-item:last-child {
+            border-left: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-item:nth-child(even) {
+                border-left: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-header">أتمتة الدرس الأول</div>
+
+            <div class="sub-header">
+                <span>أولاً: ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">١</td>
+                    <td>الدائرة هي مجموعة نقط في مستوى واحد تبعد عن نقطة ثابتة مسافات متساوية.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>مركز الدائرة هو نقطة لا تقع على الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٣</td>
+                    <td>نصف القطر هو قطعة مستقيمة واصلة بين مركز الدائرة وأي نقطة عليها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>قطر الدائرة هو قطعة مستقيمة واصلة بين نقطتين على الدائرة وتمر بمركزها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٥</td>
+                    <td>أكبر وتر في الدائرة هو القطر.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٦</td>
+                    <td>جميع أنصاف أقطار الدائرة الواحدة متساوية في الطول.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٧</td>
+                    <td>طول قطر الدائرة = ٢ نق .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٨</td>
+                    <td>القوس هو جزء من الدائرة محصور بين نقطتين عليها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٩</td>
+                    <td>القطعة الدائرية تتحدد بوتر وقوس في الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٠</td>
+                    <td>محيط الدائرة = طول القوس الصغير + طول القوس الكبير.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١١</td>
+                    <td>الدائرة تقسم المستوى إلى جزأين فقط.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٢</td>
+                    <td>مركز الدائرة ينتمي إلى الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٣</td>
+                    <td>عدد الأوتار في الدائرة لا نهائي.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5 solid #000; padding: 6px 15px; font-weight: bold; margin-bottom: 10px;">
+                ثانياً: ظلل الإجابة الصحيحة:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١ . القطعة المستقيمة التي طرفاها المركز وأي نقطة على الدائرة هي:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. الوتر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">جـ. نصف القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. القوس</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٢ . أكبر أوتار الدائرة طولاً هو:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. نصف القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">ب. القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. المحيط</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. المركز</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٣ . الدائرة التي طول قطرها ١٠ سم يكون نصف قطرها:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. ٥ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. ١٠ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ٢٠ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. ١٥ سم</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٤ . إذا كان نق = ٤ سم فإن طول القطر =:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. ٤ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">ب. ٨ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ٢ سم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. ١٢ سم</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٥ . عدد أقطار الدائرة الواحدة:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. ١</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٢</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">جـ. عدد لا نهائي</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. ٣</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٦ . مركز الدائرة نقطة تقع ....... الدائرة:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. داخل</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. خارج</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. على</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. فوق</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٧ . الخط المنحني المغلق الذي يمثل الدائرة يسمى:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">أ. المساحة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">جـ. المحيط</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. المركز</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٨ . نصف القطر + نصف القطر =:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">أ. القطر</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ب. ٢ نق</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">جـ. ١+٢</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">د. المركز</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٠٠ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

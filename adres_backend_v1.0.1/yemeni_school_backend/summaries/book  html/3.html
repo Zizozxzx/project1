@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>كتابة المجموعة بالصفة المميزة - صفحة ٧</title>
+    <style>
+        /* استيراد خطوط تحاكي خط الكتاب المدرسي وتدعم الأرقام العربية */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --yemen-blue: #4AB3E1;
+            --light-blue-bg: #E1F5FE;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 210mm; /* حجم A4 */
+            height: 297mm;
+            padding: 40px 60px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* الجزء العلوي الملون */
+        .header-banner {
+            background-color: var(--light-blue-bg);
+            height: 120px;
+            margin: -40px -60px 40px -60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .unit-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .unit-hexagon {
+            background: white;
+            border: 2px solid var(--yemen-blue);
+            padding: 10px 25px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            text-align: center;
+        }
+
+        /* إطار العنوان (١ : ١) */
+        .title-frame {
+            border: 4px double #333;
+            border-radius: 40px 15px 40px 15px;
+            display: flex;
+            margin: 0 auto 30px;
+            width: fit-content;
+            overflow: hidden;
+        }
+
+        .title-text {
+            padding: 10px 30px;
+            font-size: 26px;
+            color: var(--yemen-blue);
+            font-weight: bold;
+        }
+
+        .title-number {
+            background-color: var(--light-blue-bg);
+            border-right: 2px solid #333;
+            padding: 10px 20px;
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--yemen-blue);
+        }
+
+        /* محتوى الصفحة */
+        .content {
+            font-size: 22px;
+            line-height: 1.8;
+            color: #222;
+        }
+
+        /* إطار "مثال" */
+        .example-box {
+            border: 1px solid #333;
+            border-radius: 15px;
+            display: inline-block;
+            padding: 2px 15px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        /* تذييل الصفحة */
+        .footer-line-container {
+            position: absolute;
+            bottom: 50px;
+            right: 60px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-blue-bar {
+            height: 10px;
+            background-color: var(--yemen-blue);
+            flex-grow: 1;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .page-num-circle {
+            width: 70px;
+            height: 40px;
+            border: 3px solid var(--yemen-blue);
+            border-radius: 50% 50% 50% 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-left-width: 15px;
+            border-right-width: 15px;
+            background: white;
+        }
+
+        /* ضمان ظهور الأرقام العربية */
+        .arabic-numbers {
+            font-variant-numeric: traditional-numeric;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-banner">
+        <div class="unit-title">المجموعات والعلاقات</div>
+        <div class="unit-hexagon">
+            <div style="font-size: 18px;">الوحدة</div>
+            <div style="font-size: 24px; font-weight: bold;">الأولى</div>
+        </div>
+    </div>
+
+    <div class="title-frame">
+        <div class="title-number">١ : ١</div>
+        <div class="title-text">كتابة المجموعة بالصفة المميزة</div>
+    </div>
+
+    <div class="content">
+        <p>تأمل المجموعتين التاليتين :</p>
+        <p>س = { ٢ ، ٤ ، ٦ } ، ص هي مجموعة الأعداد الفردية الأكبر</p>
+        <p>من ٢ والأصغر من ٨ . ماذا تلاحظ ؟</p>
+        
+        <p>تلاحظ أن : المجموعة س مكتوبة بطريقة السرد أما المجموعة ص مكتوبة بالصفة المميزة وهو الأسلوب اللفظي ، كما أن هناك أسلوباً آخر لكتابة المجموعتين السابقتين بالصفة المميزة وهو الأسلوب الرمزي .</p>
+
+        <p>فمثلاً ، تُكتب : س = { أ : أ عدداً زوجياً ، ١ < أ < ٧ } . وتُقرأ س مجموعة الأعداد أ حيث أ عدد زوجي محصور بين ١ ، ٧ والرمز ( : ) يُقرأ « حيث » .</p>
+
+        <p>وبالمثل تُكتب ص = { ب : ب عدداً فردياً ، ٢ < ب < ٨ } . وتُقرأ ص مجموعة الأعداد ب حيث ب عدد فردي محصور بين ٢ ، ٨ .</p>
+
+        <div style="margin-top: 30px;">
+            <div class="example-box">مثال</div>
+            <span>اكتب المجموعات التالية بطريقة الصفة المميزة رمزياً :</span>
+        </div>
+
+        <ul style="list-style: none; padding-right: 40px;">
+            <li>أ) س = { أ ، ب ، ت ، ث ، ... ، ي } .</li>
+            <li>ب) ص = { ٣ ، ٤ ، ٥ } .</li>
+            <li>جـ) ع = { ٦ ، ٨ ، ١٠ ، ... } .</li>
+        </ul>
+    </div>
+
+    <div class="footer-line-container">
+        <div class="page-num-circle">٧</div>
+        <div class="footer-blue-bar"></div>
+    </div>
+</div>
+
+</body>
+</html>

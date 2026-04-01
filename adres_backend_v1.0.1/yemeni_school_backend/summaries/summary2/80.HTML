@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٨٠</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --border-color: #000;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #ECEFF1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Q Block Grid Style */
+        .q-block {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+            background: #fff;
+        }
+
+        .q-header {
+            padding: 8px;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .opts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .opt-cell {
+            border: 1px solid #000;
+            border-top: none;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            min-height: 35px;
+        }
+
+        /* Borders for cells */
+        .opt-cell:nth-last-child(1),
+        .opt-cell:nth-last-child(2) {
+            border-bottom: none;
+        }
+
+        .opt-cell:nth-child(odd) {
+            border-right: none;
+            border-left: 1px solid #000;
+        }
+
+        .opt-cell:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-cell:hover {
+            background: #f0f0f0;
+        }
+
+        .opt-cell.correct {
+            background: #A5D6A7;
+        }
+
+        .opt-cell.incorrect {
+            background: #EF9A9A;
+        }
+
+        .opt-num {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            font-size: 0.8em;
+            color: #777;
+            font-weight: bold;
+            background: #eee;
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        /* Ministerial Section */
+        .mini-header {
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.5em;
+            margin: 20px 0 10px 0;
+            color: #333;
+            text-shadow: 1px 1px 2px #ccc;
+            background: #ccc;
+            border: 2px solid #000;
+            border-radius: 5px;
+            display: inline-block;
+            padding: 2px 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blue-header {
+            background-color: #D9E1F2;
+            padding: 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #000;
+            margin-bottom: 0;
+        }
+
+        /* T/F Grid */
+        .tf-grid {
+            border: 1px solid #000;
+            border-top: none;
+        }
+
+        .tf-row {
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        .tf-row:last-child {
+            border-bottom: none;
+        }
+
+        .tf-row:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .tf-q {
+            flex-grow: 1;
+            padding: 8px;
+            border-left: 1px solid #000;
+        }
+
+        .tf-opts {
+            width: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .tf-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .tf-circle.correct {
+            background: #4CAF50;
+        }
+
+        .tf-circle.incorrect {
+            background: #F44336;
+        }
+
+        /* Math Fractions */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            line-height: 1;
+            padding-bottom: 2px;
+        }
+
+        .fraction .bottom {
+            display: block;
+            line-height: 1;
+            padding-top: 2px;
+        }
+
+        /* Math Roots */
+        .root {
+            display: inline-block;
+            direction: ltr;
+        }
+
+        /* Simple layout for roots maybe */
+        .arabic-root {
+            display: inline-flex;
+            align-items: flex-start;
+            vertical-align: middle;
+            direction: rtl;
+        }
+
+        .root-tick-svg {
+            width: 12px;
+            height: 24px;
+            overflow: visible;
+        }
+
+        .arabic-root .root-content {
+            border-top: 2px solid #000;
+            padding: 2px 2px 0 2px;
+            margin-right: -1px;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Q5 -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">٥. يكون للمعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ حلان حقيقيان مختلفان، إذا كان ∆
+                .........</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">> الصفر. <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">= الصفر. <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">
+                    < الصفر. <span class="opt-num">٢</span>
+                </div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">= ١. <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">٦. إذا كان س = ٣ أحد حلول المعادلة س<sup>٢</sup> - ب س + ٦ = ٠ ، فإن قيمة ب =
+                .........</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">٥ <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">-٣ <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">-٥ <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">٣ <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">٧. عدد حلول معادلة الدرجة الثانية في متغير واحد .........</div>
+            <div class="opts-grid">
+                <!-- Swapped 2 and 3 visual position to match user image if needed, but standard 1/3/2/4 fill -->
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">حل وحيد. <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">ثلاثة حلول. <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">حلان. <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">عدد لا نهائي من الحلول. <span class="opt-num">٤</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">٨. قيمة جـ في المعادلة س<sup>٢</sup> + ٣ س = ٤ تساوي .........</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">٤ <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">-٤ <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">٣ <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">. <span class="opt-num">٤</span></div>
+                <!-- Opt 4 is dot/zero? Image looks like dot? Or 0? Assuming 0. -->
+            </div>
+        </div>
+
+        <!-- Q9: Delta Formula -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">٩. في المعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ ، ∆ = .........</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">ب - ٤ أ جـ <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">( ب - ٤ أ جـ )<sup>٢</sup> <span
+                        class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">ب<sup>٢</sup> + ٤ أ جـ <span class="opt-num">٢</span>
+                </div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">ب<sup>٢</sup> - ٤ أ جـ <span class="opt-num">٤</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q10: Root Formula -->
+        <!-- Image Layout Analysis: 
+             TR (1): b ± ... (Wrong)
+             TL (3): -b ± √∆ / 2a (Correct)
+             BR (2): ...
+             BL (4): ...
+        -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">١٠. في المعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ ، قيمة س = .........</div>
+            <div class="opts-grid">
+                <!-- Cell 1 (TR) -> Opt 1: b ± ... -->
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">
+                    <div class="fraction"><span class="top">ب &plusmn; <span class="arabic-root"><svg
+                                    class="root-tick-svg" viewBox="0 0 12 24">
+                                    <path d="M 11 12 L 6 22 L 1 4" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg><span class="root-content">∆</span></span></span><span class="bottom">٢ أ</span>
+                    </div>
+                    <span class="opt-num">١</span>
+                </div>
+                <!-- Cell 2 (TL) -> Opt 3: -b ± ... (Correct) -->
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">
+                    <div class="fraction"><span class="top">-ب &plusmn; <span class="arabic-root"><svg
+                                    class="root-tick-svg" viewBox="0 0 12 24">
+                                    <path d="M 11 12 L 6 22 L 1 4" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg><span class="root-content">∆</span></span></span><span class="bottom">٢ أ</span>
+                    </div>
+                    <span class="opt-num">٣</span>
+                </div>
+                <!-- Cell 3 (BR) -> Opt 2 -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 2)">
+                    <div class="fraction"><span class="top">ب &plusmn; ∆</span><span class="bottom">٢ أ</span></div>
+                    <span class="opt-num">٢</span>
+                </div>
+                <!-- Cell 4 (BL) -> Opt 4 -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 4)">
+                    <div class="fraction"><span class="top">-ب &plusmn; ∆</span><span class="bottom">٢ أ</span></div>
+                    <span class="opt-num">٤</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ministerial Header -->
+        <div style="text-align: center;">
+            <div class="mini-header">أسئلة وزارية</div>
+        </div>
+
+        <!-- T/F Header -->
+        <div class="blue-header">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+            <div style="width: 100px; display:flex; justify-content:space-around;">
+                <span>صح</span>
+                <span>خطأ</span>
+            </div>
+        </div>
+
+        <div class="tf-grid">
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">١. مجموعه حل المعادلة س<sup>٢</sup> + ٤س + ٣ = ٠ هي { -٢ }.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٢. إذا كان ∆ > صفر لمعادلة الدرجة الثانية في متغير واحد فإن للمعادلة حلان حقيقيان
+                    متساويان.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٣. المعادلة ٣س<sup>٢</sup> - ٦س + ٣ = ٠ ، لها مميز ∆ = صفر.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٤. إذا كان ∆ < ٠ للمعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ ، فإن للمعادلة حلان حقيقيان
+                        متساويان.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٥. مجموعة حل المعادلة ٤س<sup>٢</sup> - ٤ = ٠ هي { -٢ ، ٢ }.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٦. مجموعة حل المعادلة ٣س<sup>٢</sup> - ٦ = ٣ ، هي { ٩ }.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blue-header" style="margin-top: 20px;">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+        </div>
+
+        <!-- MCQ A -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">أ . مميز المعادلة س<sup>٢</sup> + ٦ س + ٩ = ٠ هو ....:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">-٣٦ <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">٩ <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">صفر <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">٣٦ <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- MCQ B -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">ب. إذا كان مميز معادلة الدرجة الثانية بمتغير واحد يساوي الصفر، فإن للمعادلة
+                ..........:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">حلان حقيقيان متساويان. <span class="opt-num">١</span>
+                </div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">حلان غير حقيقيين. <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">حلان حقيقيان مختلفان. <span class="opt-num">٢</span>
+                </div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">لا يوجد حل. <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- MCQ C -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">ج. مجموعة حل المعادلة س<sup>٢</sup> - ٦ س + ٩ = ٠ هي .......:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">∅ <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">{ ٣ } <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">{ ٠ } <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">{ ٦ ، -٩ } <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- MCQ D -->
+        <!-- Image Analysis Refined: 
+             User says "Options missing a lot". Meaning distractors are complex formulas.
+             Correct answer for Delta=0 is -b/2a.
+             Numbering: 1(TR), 2(TL), 3(BR), 4(BL).
+        -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">د. إذا كان ∆ = ٠ ، للمعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ ، فإن للمعادلة حلان حقيقيان
+                متساويان هما .............:</div>
+            <div class="opts-grid">
+                <!-- Cell 1 (TR) -> Opt 1: (-b ± √∆)/2a -->
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">
+                    <div class="fraction"><span class="top">-ب &plusmn; <span class="arabic-root"><svg
+                                    class="root-tick-svg" viewBox="0 0 12 24">
+                                    <path d="M 11 12 L 6 22 L 1 4" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg><span class="root-content">∆</span></span></span><span class="bottom">٢ أ</span>
+                    </div> <span class="opt-num">١</span>
+                </div>
+                <!-- Cell 2 (TL) -> Opt 3: (b ± √∆)/2a -->
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">
+                    <div class="fraction"><span class="top">ب &plusmn; <span class="arabic-root"><svg
+                                    class="root-tick-svg" viewBox="0 0 12 24">
+                                    <path d="M 11 12 L 6 22 L 1 4" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg><span class="root-content">∆</span></span></span><span class="bottom">٢ أ</span>
+                    </div> <span class="opt-num">٣</span>
+                </div>
+                <!-- Cell 3 (BR) -> Opt 2: -b/a -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 2)">
+                    <div class="fraction"><span class="top">-ب</span><span class="bottom">أ</span></div> <span
+                        class="opt-num">٢</span>
+                </div>
+                <!-- Cell 4 (BL) -> Opt 4: -b/2a (Correct) -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 4)">
+                    <div class="fraction"><span class="top">-ب</span><span class="bottom">٢ أ</span></div> <span
+                        class="opt-num">٤</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٨٠ -</div>
+        </footer>
+
+    </div>
+
+    <script>
+        function checkTF(el, isTrueCol) {
+            const row = el.closest('.tf-row');
+            const expected = row.getAttribute('data-correct') === 'true';
+            row.querySelectorAll('.tf-circle').forEach(c => c.classList.remove('correct', 'incorrect'));
+            if (isTrueCol === expected) el.classList.add('correct');
+            else el.classList.add('incorrect');
+        }
+
+        function checkMCQ(el, optNum) {
+            const block = el.closest('.q-block');
+            const properCorrect = parseInt(block.getAttribute('data-correct'));
+            block.querySelectorAll('.opt-cell').forEach(c => c.classList.remove('correct', 'incorrect'));
+            if (optNum === properCorrect) el.classList.add('correct');
+            else el.classList.add('incorrect');
+        }
+    </script>
+</body>
+
+</html>

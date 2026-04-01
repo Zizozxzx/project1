@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٣</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.6vmin;
+            padding: 2vmin;
+            box-shadow: var(--box-shadow);
+        }
+
+
+
+
+        .header-title {
+            background-color: #b0c4de;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding: 0.5vmin;
+            border: 2px solid #000;
+            margin-bottom: 2vmin;
+            font-family: var(--ui-font);
+        }
+
+        .section-box {
+            border: 2px solid #000;
+            margin-bottom: 1vmin;
+            padding: 1vmin;
+            height: auto;
+        }
+
+        .top-box {
+            border: 2px solid #000;
+            margin-bottom: 1vmin;
+            padding: 0.5vmin;
+        }
+
+        .section-head {
+            font-weight: bold;
+            font-family: var(--ui-font);
+            margin-bottom: 0.5vmin;
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            font-size: 1.1em;
+        }
+
+        .content-row {
+            margin-bottom: 1vmin;
+            line-height: 1.6;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            gap: 2vmin;
+            margin-top: 1vmin;
+            align-items: center;
+        }
+
+        .box-dashed {
+            border: 1px dashed #000;
+            padding: 0.5vmin;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="header-title">الدرس الثالث: العلاقة المتعدية</div>
+
+        <!-- Remember -->
+        <div class="top-box">
+            <div class="bold">تذكر أن:</div>
+            <ul class="pr-2 list-disc">
+                <li>ما يربط أي عنصر من أي مجموعة بعنصر من المجموعة نفسها أو مجموعة أخرى تسمى بالعلاقة ، فنقول أن هذه
+                    العلاقة مجموعة جزئية من حاصل ضرب المجموعتين، فمثلاً إذا كانت ع علاقة على المجموعة س فهي مجموعة جزئية
+                    من س × س ، أي أن ع ⊂ س × س.</li>
+                <li>أخذنا سابقاً بعض العلاقات على المجموعة نفسها وهي : العلاقة الانعكاسية والعلاقة المتناظرة، وسنعيد
+                    تفصيلها فيما سيأتي.</li>
+            </ul>
+        </div>
+
+        <!-- 1. Reflexive -->
+        <div class="section-box">
+            <div class="section-head">أولاً: العلاقة الانعكاسية:</div>
+            <div class="content-row">
+                نقول عن أي علاقة أنها انعكاسية إذا ارتبط <strong>كل</strong> عنصر في المجموعة بنفسه، أي أن:
+                <div class="text-center bold my-05">إذا كان لكل أ ∊ س ، فإن (أ ، أ) ∊
+                    ع.</div>
+                • نركز على الأزواج المرتبة في المساقط فقط ولا يهمنا الأزواج المختلفة في المساقط.
+            </div>
+
+            <!-- 2. Symmetric -->
+            <div class="section-head mt-1">ثانياً: العلاقة المتناظرة ( التماثلية ):</div>
+            <div class="content-row">
+                نقول عن العلاقة ع أنها متناظرة على س إذا كان:
+                <div class="text-center bold my-05">لكل (أ ، ب) ∊ ع ، فإن (ب ، أ) ∊ ع
+                    ، حيث أ ، ب ∊ س.</div>
+                • نركز على الأزواج المرتبة المختلفة في المساقط فقط ولا يهمنا الأزواج المتساوية في المساقط لأنها بالأصل
+                تحقق الشرط.
+            </div>
+        </div>
+
+        <!-- Exercise 4 -->
+        <div class="section-box">
+            <div class="bold underline">تدريب (٤):</div>
+            <div class="content-row">
+                إذا كانت س = { ١ ، ٢ ، ٣ ، ٥ } ، فبين أياً من العلاقات التالية تمثل انعكاسية وأياً منها متناظرة مع ذكر
+                السبب ومثلها بالمخطط السهمي:
+            </div>
+
+            <div class="mb-05">١. ع١ = { (١ ، ١) ، (٢ ، ٣) ، (٣ ، ٢) ، (٥ ، ٢) }.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mb-05 mt-1">٢. ع٢ علاقة يساوي على المجموعة س.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mb-05 mt-1">٣. ع٣ علاقة أكبر من على المجموعة س.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mb-05 mt-1">٤. ع٤ = { (٢ ، ١) ، (٢ ، ٢) ، (١ ، ٢) }.</div>
+            <div class="dotted-line"></div>
+        </div>
+
+        <!-- 3. Transitive -->
+        <div class="section-box flex-grow">
+            <div class="section-head">ثالثاً: العلاقة المتعدية ( الانتقالية ):</div>
+            <div class="content-row">
+                نقول عن العلاقة ع أنها متعدية على س إذا كان:
+                <div class="text-center bold mt-1">
+                    لكل (أ ، ب) ∊ ع ، (ب ، جـ) ∊ ع ، فإن (أ ، جـ) ∊ ع ، حيث أ ، ب ، جـ ∊ س.
+                </div>
+
+                <div class="diagram-container">
+                    <div class="flex-col-center">
+                        <span>↑</span>
+                        <div class="box-dashed">فعل الشرط</div>
+                    </div>
+                    <div class="flex-col-center">
+                        <span>↑</span>
+                        <div class="box-dashed">جواب الشرط</div>
+                    </div>
+                </div>
+
+                <ul class="list-disc pr-2 mt-1">
+                    <li>نركز على الأزواج المرتبة المختلفة في المساقط فقط ولا يهمنا الأزواج المتساوية في المساقط لأنها
+                        بالأصل تحقق الشرط.</li>
+                    <li>في هذه العلاقة يوجد لدينا فعل شرط وجواب شرط، فإذا وجد الجواب ولم يوجد الفعل تكون العلاقة متعدية
+                        والعكس غير صحيح.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٣ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

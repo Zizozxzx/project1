@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٨٧ - مبرهنة الارتفاع وفيثاغورث</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --border-width: 1.5px;
+            --font-main: 'Amiri', serif;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Box Headers */
+        .box-title {
+            font-weight: bold;
+            text-decoration: underline;
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 4px 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .section-box {
+            border: 1.5px solid #000;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Drill lines */
+        .drill-lines {
+            margin-top: 15px;
+        }
+
+        .dotted-line {
+            border-bottom: 1.2px dotted #000;
+            height: 25px;
+            margin-bottom: 8px;
+        }
+
+        /* Theorem Style */
+        .theorem-text {
+            border: 1.5px solid #000;
+            padding: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        .guide-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Layout rows */
+        .layout-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin: 15px 0;
+        }
+
+        .diagram-side {
+            flex: 0 0 160px;
+            text-align: center;
+        }
+
+        .info-side {
+            flex: 1;
+        }
+
+        /* Math precision */
+        .math-root {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+
+        .root-symbol {
+            margin-left: -2px;
+            vertical-align: middle;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 5px;
+            margin-top: 3.5px;
+            line-height: 1.2;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 8px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            font-family: var(--font-main);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 650px) {
+            .layout-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .inner-content {
+                padding: 10px;
+            }
+
+            .section-box {
+                padding: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Drill 1 -->
+            <div class="section-box">
+                <div class="box-title">تدريب (١):</div>
+                <div>
+                    إذا كان لديك المثلث أ ب جـ مثلث قائم في ب ، ب د ⊥ أ جـ ، | ب جـ | = ١٦ سم ، | أ د | = ٤ سم ، ارسم
+                    المثلث ، ثم أوجد: | أ ب | ، | ب جـ | .
+                </div>
+                <div class="drill-lines">
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+
+            <!-- Theorem 2 -->
+            <div class="section-box">
+                <div class="box-title">مبرهنة (٢):</div>
+                <div class="theorem-text">
+                    " مربع الارتفاع في مثلث قائم يساوي حاصل ضرب جزأي الوتر المحددين بهذا الارتفاع . "
+                </div>
+
+                <div class="layout-row">
+                    <div class="diagram-side">
+                        <svg width="150" height="120" viewBox="0 0 150 120">
+                            <path d="M20,100 L140,100 L20,20 Z" fill="none" stroke="black" stroke-width="1.8" />
+                            <line x1="20" y1="100" x2="57.5" y2="48.5" stroke="black" stroke-width="1.8" />
+                            <path d="M20,90 L30,90 L30,100" fill="none" stroke="black" stroke-width="1.2" />
+                            <g transform="translate(57.5, 48.5) rotate(143.5)">
+                                <path d="M0,0 L10,0 L10,10" fill="none" stroke="black" stroke-width="1" />
+                            </g>
+                            <text x="5" y="105" font-family="Amiri" font-size="18">ب</text>
+                            <text x="145" y="105" font-family="Amiri" font-size="18">جـ</text>
+                            <text x="15" y="15" font-family="Amiri" font-size="18">أ</text>
+                            <text x="65" y="45" font-family="Amiri" font-size="18">د</text>
+                        </svg>
+                    </div>
+                    <div class="info-side">
+                        <ul class="guide-list">
+                            <li>• من خلال الشكل يمكننا أن نعبر عن المبرهنة كالتالي:</li>
+                            <li style="margin-top: 10px;">
+                                | د ب |<sup>٢</sup> = | جـ د | × | د أ | ، أي أن: | د ب | =
+                                <span class="math-root">
+                                    <span class="root-content">| جـ د | × | د أ |</span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                            <li style="margin-top: 15px;">• من خلال هذه المبرهنة يمكننا استنتاج التالي:</li>
+                            <li style="margin-top: 10px; display: flex; align-items: center;">
+                                ١. | جـ د | = <span class="fraction"><span class="top">| د ب |<sup>٢</sup></span><span
+                                        class="bottom">| أ د |</span></span> .
+                            </li>
+                            <li style="margin-top: 10px; display: flex; align-items: center;">
+                                ٢. | أ د | = <span class="fraction"><span class="top">| د ب |<sup>٢</sup></span><span
+                                        class="bottom">| جـ د |</span></span> .
+                            </li>
+                            <li style="margin-top: 10px;">
+                                ٣. | جـ أ | = | أ د | + | جـ د | .
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drill 2 -->
+            <div class="section-box">
+                <div class="box-title">تدريب (٢):</div>
+                <div>
+                    إذا كان لديك المثلث س ص ع مثلث قائم في ص ، ص ل ⊥ س ع ، | ص س | = ١٣ سم ، | د س | = ٩ سم ، ارسم
+                    المثلث ، ثم أوجد: | ص د | .
+                </div>
+                <div class="drill-lines">
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                </div>
+            </div>
+
+            <!-- Theorem 3 -->
+            <div class="section-box">
+                <div class="box-title">مبرهنة (٣):</div>
+                <span style="font-weight: bold; margin-right: 10px;">- مبرهنة فيثاغورث الشهيرة ، الاثبات ص ١٦٨ .</span>
+                <div class="theorem-text">
+                    " في المثلث القائم الزاوية، مربع الوتر يساوي مجموع مربعي الضلعين الآخرين . "
+                </div>
+
+                <div class="layout-row">
+                    <div class="diagram-side">
+                        <svg width="150" height="110" viewBox="0 0 150 110">
+                            <path d="M30,90 L130,90 L30,20 Z" fill="none" stroke="black" stroke-width="1.8" />
+                            <path d="M30,80 L40,80 L40,90" fill="none" stroke="black" stroke-width="1.2" />
+                            <text x="15" y="95" font-family="Amiri" font-size="18">ب</text>
+                            <text x="135" y="95" font-family="Amiri" font-size="18">جـ</text>
+                            <text x="25" y="15" font-family="Amiri" font-size="18">أ</text>
+                        </svg>
+                    </div>
+                    <div class="info-side">
+                        <ul class="guide-list">
+                            <li>• من خلال الشكل يمكننا أن نعبر عن المبرهنة كالتالي:</li>
+                            <li style="margin-top: 10px;">
+                                | أ جـ |<sup>٢</sup> = | أ ب |<sup>٢</sup> + | جـ ب |<sup>٢</sup> ، أي أن : | أ جـ | =
+                                <span class="math-root">
+                                    <span class="root-content">| أ ب |<sup>٢</sup> + | جـ ب |<sup>٢</sup></span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                            <li style="margin-top: 15px;">• من خلال هذه المبرهنة يمكننا استنتاج التالي:</li>
+                            <li style="margin-top: 10px; display: flex; align-items: center; flex-wrap: wrap;">
+                                ٥. | أ ب |<sup>٢</sup> = | أ جـ |<sup>٢</sup> - | جـ ب |<sup>٢</sup> أي أن : | أ ب | =
+                                <span class="math-root">
+                                    <span class="root-content">| أ جـ |<sup>٢</sup> - | جـ ب |<sup>٢</sup></span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                            <li style="margin-top: 15px; display: flex; align-items: center; flex-wrap: wrap;">
+                                ٦. | جـ ب |<sup>٢</sup> = | أ جـ |<sup>٢</sup> - | أ ب |<sup>٢</sup> أي أن : | جـ ب | =
+                                <span class="math-root">
+                                    <span class="root-content">| أ جـ |<sup>٢</sup> - | أ ب |<sup>٢</sup></span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Note section -->
+                <div style="margin-top: 15px; border-top: 1.5px solid #000; padding-top: 10px; font-size: 0.95em;">
+                    <div class="box-title"
+                        style="background: none; text-decoration: underline; border: none; padding: 0;">ملاحظة:</div>
+                    <div style="margin-top: 5px;">
+                        ١. لا يمكن استخدام مبرهنة فيثاغورث في المثلث متساوي الأضلاع .
+                        <br>
+                        ٢. مبرهنة فيثاغورث مهمة جداً، ستستمر معكم إلى صف ٣ ثانوي، فلا تنسونها .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="footer">
+                <div class="author-name">إعداد: هلا المولجي</div>
+                <div class="page-number">- ٨٧ -</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

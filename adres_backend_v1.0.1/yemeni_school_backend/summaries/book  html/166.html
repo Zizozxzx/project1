@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حساب المثلثات – صفحة ١٦٩</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:900px;
+  min-height:1450px;
+  margin:0 auto;
+  padding:0 48px 170px;
+  box-sizing:border-box;
+  position:relative;
+  font-size:20px;
+  line-height:2.2;
+}
+
+/* الخط العلوي */
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-top:20px;
+}
+
+/* رأس الصفحة */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:14px 0 30px;
+}
+.header .title{
+  font-size:18px;
+}
+
+/* أمثلة */
+.example{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:4px 14px;
+  font-weight:bold;
+}
+
+/* الحل */
+.solution{
+  display:inline-block;
+  background:#111;
+  color:#fff;
+  border-radius:18px;
+  padding:4px 18px;
+  font-weight:bold;
+}
+
+/* الكسور والجذور */
+.sqrt{
+  border-top:2px solid #000;
+  display:inline-block;
+  padding:0 6px;
+}
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+}
+.frac span{
+  display:block;
+  padding:0 6px;
+}
+.frac .top{
+  border-bottom:2px solid #000;
+}
+
+/* الرسومات */
+.diagram{
+  margin:22px 0 10px;
+}
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* التذييل */
+.footer{
+  position:absolute;
+  bottom:20px;
+  left:48px;
+  right:48px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-num{
+  position:absolute;
+  right:0;
+  top:-28px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:6px 18px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  margin-top:18px;
+  font-size:15px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{
+    padding:0 18px 170px;
+    font-size:18px;
+    line-height:2.05;
+  }
+  .footer{
+    left:18px;
+    right:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+  <div class="title">حساب المثلثات</div>
+</div>
+
+<p style="text-align:center;">
+| ب ج | × | ب ج | = | ب ج |<sup>٢</sup>
+</p>
+
+<p style="text-align:center;">
+لماذا ؟
+</p>
+
+<p style="text-align:center;">
+وهو المطلوب .
+</p>
+
+<p>
+<span class="example">مثال (٢)</span>
+في الشكل (٤ – ٥) المثلث س ص ع قائم الزاوية في ص ،
+</p>
+
+<p>
+| س ص | = ٦ سم ، &nbsp; | ص ع | = ٨ سم .
+</p>
+
+<p>
+أوجد &nbsp; | س ع | .
+</p>
+
+<p>
+<span class="solution">الحل :</span>
+</p>
+
+<p style="text-align:center;">
+| س ع |<sup>٢</sup> = | س ص |<sup>٢</sup> + | ص ع |<sup>٢</sup>
+</p>
+
+<p style="text-align:center;">
+= ٦<sup>٢</sup> + ٨<sup>٢</sup>
+</p>
+
+<p style="text-align:center;">
+= ٣٦ + ٦٤ = ١٠٠
+</p>
+
+<p style="text-align:center;">
+| س ع | = √١٠٠ = ١٠ سم .
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 220 140">
+  <line x1="20" y1="110" x2="180" y2="110" stroke="#000" stroke-width="2"/>
+  <line x1="180" y1="110" x2="180" y2="20" stroke="#000" stroke-width="2"/>
+  <line x1="20" y1="110" x2="180" y2="20" stroke="#000" stroke-width="2"/>
+  <rect x="165" y="95" width="15" height="15" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <text x="10" y="115" font-size="16">ع</text>
+  <text x="185" y="115" font-size="16">ص</text>
+  <text x="185" y="15" font-size="16">س</text>
+</svg>
+<p style="text-align:center;">شكل (٤ – ٥)</p>
+</div>
+
+<p>
+<span class="example">مثال (٣)</span>
+في الشكل (٤ – ٦) المثلث أ ب ج قائم الزاوية في ب ،
+</p>
+
+<p>
+| أ ب | = √٧ سم ، &nbsp; | أ ج | = ٤ سم .
+</p>
+
+<p>
+أوجد &nbsp; | ب ج | .
+</p>
+
+<p>
+<span class="solution">الحل :</span>
+</p>
+
+<p style="text-align:center;">
+| أ ج |<sup>٢</sup> = | أ ب |<sup>٢</sup> + | ب ج |<sup>٢</sup>
+</p>
+
+<p style="text-align:center;">
+| ب ج |<sup>٢</sup> + ٧ = ١٦
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 220 140">
+  <line x1="20" y1="110" x2="180" y2="110" stroke="#000" stroke-width="2"/>
+  <line x1="180" y1="110" x2="180" y2="20" stroke="#000" stroke-width="2"/>
+  <line x1="20" y1="110" x2="180" y2="20" stroke="#000" stroke-width="2"/>
+  <rect x="165" y="95" width="15" height="15" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <text x="10" y="115" font-size="16">ج</text>
+  <text x="185" y="115" font-size="16">ب</text>
+  <text x="185" y="15" font-size="16">أ</text>
+</svg>
+<p style="text-align:center;">شكل (٤ – ٦)</p>
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-num">١٦٩</div>
+  </div>
+  <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

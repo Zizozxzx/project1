@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢٨ - الأسئلة الوزارية للمماسات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* MCQ Container */
+        .ministerial-header {
+            background-color: #8faadc;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: -1px;
+        }
+
+        .mcq-item {
+            border: 1.5px solid #000;
+            margin-bottom: 4px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 3px 10px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.92em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .opt-box {
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            padding: 2px 10px;
+            cursor: pointer;
+            font-size: 0.88em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .opt-box:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-box:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .opt-box.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-box.wrong {
+            background-color: #f8d7da;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1.2px solid #000;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75em;
+        }
+
+        /* Diagram Box */
+        .diagram-section {
+            border: 1.5px solid #000;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="ministerial-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-item">
+                <div class="question-text">١. المماس لدائرة طول قطرها = ٨ سم، يكون على بعد ........ سم من مركزها:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>٤.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٨.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١٦.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٢. العمود المقام على مماس الدائرة من نقطة التماس:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>يمر بمركزها.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>ينطبق على أحد أقطار الدائرة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>ينطبق على أحد أنصاف أقطار الدائرة.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>كل ما سبق ذكره صحيح.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٣. مماس الدائرة يكون عمودياً على:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>الوتر المنتهي بنقطة التماس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>نصف القطر المار بنقطة التماس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>القطر الموازي للمماس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>كل ما سبق ذكره صحيح.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٤. دائرة نصف قطرها = ٣ سم، يمكن رسم مماس لها بطول:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٢٠ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٣٠ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٠ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>كل ما سبق ذكره صحيح.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٥. إذا رسم من مركز الدائرة مستقيم على مماسها فصنع زاوية معه = ٦٠° فستكون
+                    النسبة بين طول المماس وهذا المستقيم = ....:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>١ / ٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>جذر ٣ / ٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١ / جذر ٣.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١.
+                    </div>
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <svg width="180" height="120" viewBox="0 0 200 130">
+                    <circle cx="80" cy="70" r="45" fill="none" stroke="black" stroke-width="1.2" />
+                    <line x1="80" y1="70" x2="35" y2="70" stroke="black" stroke-width="1" />
+                    <!-- Chord and Tangent -->
+                    <line x1="125" y1="70" x2="160" y2="20" stroke="black" stroke-width="1.2" /> <!-- Tangent -->
+                    <line x1="125" y1="70" x2="10" y2="20" stroke="black" stroke-width="1.2" /> <!-- Chord -->
+                    <!-- Points -->
+                    <text x="75" y="85" font-family="Amiri" font-size="10">م</text>
+                    <text x="125" y="82" font-family="Amiri" font-size="10">أ</text>
+                    <text x="100" y="65" font-family="Amiri" font-size="9">١</text>
+                    <text x="110" y="55" font-family="Amiri" font-size="9">٦</text>
+                    <text x="135" y="65" font-family="Amiri" font-size="9">٥</text>
+                    <text x="145" y="50" font-family="Amiri" font-size="9">٤</text>
+                </svg>
+                <div style="font-weight: bold; font-size: 0.9em;">من خلال الشكل المجاور (سؤال ٦-١٠):</div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٦. ق ⦣ ( ٤ ) = :</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>ق ⦣ ( ٣ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>ق ⦣ ( ٥ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>ق ⦣ ( ١ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>ق ⦣ ( ٦ ).
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٧. من خلال الفقرة السابقة: ق ⦣ ( ٢ ) :</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>ق ⦣ ( ٣ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>ق ⦣ ( ٥ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>ق ⦣ ( ١ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>ق ⦣ ( ٦ ).
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٨. من خلال الفقرة (٦): ق ⦣ ( ١ ) = ق ⦣ ( ٣ ) لأنها:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>زاوية مركزية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>زاوية محيطية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>زاوية مماسية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>زاوية مرسومة في نصف دائرة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٩. من خلال الفقرة (٦): جـ أ مستقيم ينصف الزاوية:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>د جـ ب.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>د أ ب.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>د أ جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>جـ أ ب.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١٠. من خلال الفقرة (٦): ق ⦣ ( ١ ) + ق ⦣ ( ٤ ) = .............:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤٥.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١١. الزاوية المماسية هي زاوية محصورة بين:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>مماس ونصف قطر.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>مماس وقوس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>مماس ووتر.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>مماس وقطر.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٧ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-box').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

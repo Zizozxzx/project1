@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٣ - الزوايا المركزية والمحيطية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --header-bg: #d9e1f2;
+            --def-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .lesson-header {
+            background-color: #d9e1f2;
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1em;
+        }
+
+        /* Definition Box */
+        .def-box {
+            border: 1.5px solid #000;
+            padding: 10px 15px;
+            background-color: var(--def-bg);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* Theorem Box */
+        .theorem-box {
+            border: 1.5px solid #000;
+            margin-bottom: 15px;
+        }
+
+        .theorem-title {
+            background-color: #fce4d6;
+            padding: 4px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .theorem-content {
+            padding: 8px 15px;
+            line-height: 1.5;
+        }
+
+        /* Diagrams */
+        .diagram-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .diagram-item {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            flex: 1;
+            background-color: #fff;
+        }
+
+        /* Notes and List */
+        .notes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+
+        .notes-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .diagram-row {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="lesson-header">الدرس الثالث: الزاوية المركزية والزاوية المحيطية</div>
+
+            <!-- Central Angle -->
+            <span class="section-title">أولاً: الزاوية المركزية:</span>
+            <div class="def-box">
+                <span style="font-weight: bold;">تعريف:</span> هي أي زاوية رأسها يقع في مركز الدائرة وضلعاها أنصاف أقطار
+                في الدائرة.
+            </div>
+
+            <div class="theorem-box">
+                <div class="theorem-title">مبرهنة (٣):</div>
+                <div class="theorem-content">قياس الزاوية المركزية يساوي قياس القوس المقابل لها.</div>
+            </div>
+
+            <div class="diagram-row">
+                <div class="diagram-item">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="black" stroke-width="1.5" />
+                        <circle cx="75" cy="75" r="2" fill="black" />
+                        <text x="80" y="70" font-family="Amiri" font-size="14">م</text>
+                        <line x1="75" y1="75" x2="125" y2="40" stroke="black" stroke-width="1.5" />
+                        <line x1="75" y1="75" x2="125" y2="110" stroke="black" stroke-width="1.5" />
+                        <path d="M125,40 A60,60 0 0,1 125,110" fill="none" stroke="red" stroke-width="2" />
+                        <text x="130" y="35" font-family="Amiri" font-size="14">أ</text>
+                        <text x="130" y="125" font-family="Amiri" font-size="14">ب</text>
+                    </svg>
+                    <div style="margin-top: 5px;">ق ⦣ أ م ب المركزية = ق القوس أ ب</div>
+                </div>
+            </div>
+
+            <!-- Inscribed Angle -->
+            <span class="section-title">ثانياً: الزاوية المحيطية:</span>
+            <div class="def-box">
+                <span style="font-weight: bold;">تعريف:</span> هي أي زاوية يقع رأسها على الدائرة وضلعاها أوتار في
+                الدائرة.
+            </div>
+
+            <div class="theorem-box">
+                <div class="theorem-title">مبرهنة (٤):</div>
+                <div class="theorem-content">قياس الزاوية المركزية يساوي ضعف قياس الزاوية المحيطية المشتركة معها في نفس
+                    القوس.</div>
+            </div>
+
+            <div class="diagram-row">
+                <div class="diagram-item">
+                    <svg width="180" height="180" viewBox="0 0 180 180">
+                        <circle cx="90" cy="90" r="70" fill="none" stroke="black" stroke-width="1.5" />
+                        <circle cx="90" cy="90" r="2" fill="black" />
+                        <text x="95" y="85" font-family="Amiri" font-size="14"> م </text>
+                        <!-- Inscribed j -->
+                        <line x1="20" y1="90" x2="140" y2="40" stroke="black" stroke-width="1.5" />
+                        <line x1="20" y1="90" x2="140" y2="140" stroke="black" stroke-width="1.5" />
+                        <!-- Central m -->
+                        <line x1="90" y1="90" x2="140" y2="40" stroke="blue" stroke-width="1.5" stroke-dasharray="3" />
+                        <line x1="90" y1="90" x2="140" y2="140" stroke="blue" stroke-width="1.5" stroke-dasharray="3" />
+
+                        <text x="5" y="95" font-family="Amiri" font-size="14">جـ</text>
+                        <text x="145" y="35" font-family="Amiri" font-size="14">أ</text>
+                        <text x="145" y="150" font-family="Amiri" font-size="14">ب</text>
+                    </svg>
+                    <div style="margin-top: 5px;">ق ⦣ أ م ب = ٢ × ق ⦣ أ جـ ب</div>
+                </div>
+            </div>
+
+            <ul class="notes-list">
+                <li><span style="font-weight: bold; text-decoration: underline;">نتائج هامة جداً:</span></li>
+                <li>١. قياس الزاوية المحيطية يساوي نصف قياس الزاوية المركزية المشتركة معها في نفس القوس.</li>
+                <li>٢. قياس الزاوية المحيطية يساوي نصف قياس القوس المقابل لها.</li>
+                <li>٣. الزوايا المحيطية المرسومة على نفس القوس في دائرة واحدة متساوية في القياس.</li>
+            </ul>
+
+            <div class="theorem-box">
+                <div class="theorem-title">مبرهنة (٥):</div>
+                <div class="theorem-content">الزاوية المحيطية المرسومة في نصف دائرة تكون قائمة (٩٠ درجة).</div>
+            </div>
+
+            <div class="diagram-row">
+                <div class="diagram-item">
+                    <svg width="180" height="150" viewBox="0 0 180 150">
+                        <path d="M20,100 A70,70 0 0,1 160,100" fill="none" stroke="black" stroke-width="1.5" />
+                        <line x1="20" y1="100" x2="160" y2="100" stroke="black" stroke-width="1.5" />
+                        <circle cx="90" cy="100" r="2" fill="black" />
+                        <line x1="20" y1="100" x2="90" y2="40" stroke="black" stroke-width="1.5" />
+                        <line x1="160" y1="100" x2="90" y2="40" stroke="black" stroke-width="1.5" />
+                        <!-- Right angle marker -->
+                        <rect x="85" y="45" width="10" height="10" fill="none" stroke="black" stroke-width="0.8"
+                            transform="rotate(45 90 40)" />
+                        <text x="85" y="30" font-family="Amiri" font-size="14">جـ</text>
+                        <text x="5" y="110" font-family="Amiri" font-size="14">أ</text>
+                        <text x="165" y="110" font-family="Amiri" font-size="14">ب</text>
+                    </svg>
+                    <div style="margin-top: 5px;">ق ⦣ أ جـ ب = ٩٠°</div>
+                </div>
+            </div>
+
+            <div style="border: 1.5px solid #000; padding: 10px; margin-top: 10px; background-color: #f2f2f2;">
+                <span style="font-weight: bold; text-decoration: underline;">ملاحظة:</span>
+                <br>١. الزاوية المحيطية المرسومة على القوس الأصغر تكون منفرجة.
+                <br>٢. الزاوية المحيطية المرسومة على القوس الأكبر تكون حادة.
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٠٣ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

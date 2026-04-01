@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٥٦ - المعلم المثالي</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 15px;
+            color: #000;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .header-num {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .content-layout {
+            display: flex;
+            gap: 30px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-col {
+            border-left: 1px solid #ccc;
+            padding-left: 15px;
+        }
+        
+        .math-box {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .title-bold {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .solution-tag {
+            font-weight: bold;
+            color: #000;
+        }
+        .dashed-line {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+        
+        /* تصميم المقص */
+        .scissors-method {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .scissors-cross {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+        }
+        .scissors-cross::before, .scissors-cross::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: black;
+            top: 50%;
+        }
+        .scissors-cross::before { transform: rotate(45deg); }
+        .scissors-cross::after { transform: rotate(-45deg); }
+
+        /* الرسوم البيانية */
+        .graph-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px;
+        }
+        .fraction span {
+            display: block;
+            padding: 0 2px;
+        }
+        .fraction .top { border-bottom: 1px solid #000; }
+
+        /* تعديلات الهاتف */
+        @media (max-width: 768px) {
+            .content-layout {
+                flex-direction: column;
+            }
+            .right-col {
+                border-left: none;
+                border-bottom: 2px solid #000;
+                padding-bottom: 20px;
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="header-num">ـ ٥٦ ـ</div>
+
+    <div class="content-layout">
+        <div class="column right-col">
+            <div class="math-box">
+                <span class="title-bold">|١٠| مجموع عددين يساوي ١٨ ومجموع مربعيهما يساوي ١٩٤ فما العددان ؟</span><br>
+                <span class="solution-tag">* الحل *</span><br>
+                نفرض العدد الأول = س <br>
+                فيكون العدد الثاني = ١٨ - س <br>
+                س² + ( ١٨ - س )² = ١٩٤ <br>
+                س² + ( ٣٢٤ - ٣٦س + س² ) = ١٩٤ <br>
+                ٢س² - ٣٦س + ٣٢٤ - ١٩٤ = ٠ <br>
+                ٢س² - ٣٦س + ١٣٠ = ٠ &nbsp;&nbsp; (بالقسمة على ٢) <br>
+                س² - ١٨س + ٦٥ = ٠ <br>
+                
+                <div class="scissors-method">
+                    <span>س</span>
+                    <div class="scissors-cross"></div>
+                    <span>- ١٣</span>
+                </div><br>
+                <div class="scissors-method" style="margin-top:-20px">
+                    <span>س</span>
+                    <div class="scissors-cross"></div>
+                    <span>- ٥</span>
+                </div><br>
+
+                ( س - ١٣ ) ( س - ٥ ) = ٠ <br>
+                إما س = ١٣ ، ومنها ص = ٥ <br>
+                أو س = ٥ ، ومنها ص = ١٣ <br>
+                العددان هما : ١٣ ، ٥
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-box">
+                <span class="title-bold">|١١| مزرعة بها مجموعة من الأغنام والدجاج فإذا كان عدد الرؤوس فيها يساوي ٤٥ رأساً بينما عدد الأرجل ١٥٠ رجلاً فأوجد عدد كل من الأغنام والدجاج .</span><br>
+                <span class="solution-tag">* الحل *</span><br>
+                نعلم أن كل غنم وكل دجاجة لها رأس واحد ، كما نعلم أن كل غنمة لها ٤ أرجل وكل دجاجة لها رجلين .. <br>
+                نفرض الرؤوس : &nbsp;&nbsp; س (الأغنام) &nbsp;&nbsp; ص (الدجاج) <br>
+                س + ص = ٤٥ &nbsp;← (١) <br>
+                ونفرض الأرجل : ٤س &nbsp;&nbsp; ٢ص <br>
+                ٤س + ٢ص = ١٥٠ &nbsp;← (٢) <br>
+                بقسمة المعادلة (٢) على ٢ <br>
+                ∴ ٢س + ص = ٧٥ &nbsp;← (٣) <br>
+                بجمع (٣) ، (١) نجد : س = ٣٠ ومنها ص = ١٥ <br>
+                ∴ عدد الأغنام س = ٣٠ غنمة وعدد الدجاج ص = ١٥ دجاجة .
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-box">
+                <span class="title-bold">|١٢| إذا كان عمر رجل الآن يساوي ٣ أضعاف عمر ابنه وقبل ٦ سنوات كان حاصل ضرب عمريهما ١٨٠ ، فما عمراهما الآن ؟</span><br>
+                <span class="solution-tag">* الحل *</span><br>
+                بفرض أن عمر الابن الآن = س <br>
+                فيكون عمر الأب = ٣س <br>
+                عمر الابن قبل ٦ سنوات = س - ٦ <br>
+                عمر الأب قبل ٦ سنوات = ٣س - ٦ <br>
+                فيكون قبل ٦ سنوات حاصل ضرب عمريهما = ١٨٠ <br>
+                هو ( س - ٦ ) ( ٣س - ٦ ) = ١٨٠ <br>
+                ٣س² - ٢٤س + ٣٦ = ١٨٠ <br>
+                ٣س² - ٢٤س - ١٤٤ = ٠ &nbsp;&nbsp; بالقسمة على ٣ <br>
+                س² - ٨س - ٤٨ = ٠ <br>
+                
+                <div class="scissors-method">
+                    <span>س</span>
+                    <div class="scissors-cross"></div>
+                    <span>- ١٢</span>
+                </div><br>
+                <div class="scissors-method" style="margin-top:-20px">
+                    <span>س</span>
+                    <div class="scissors-cross"></div>
+                    <span>+ ٤</span>
+                </div><br>
+
+                ( س - ١٢ ) ( س + ٤ ) = ٠ <br>
+                إما س - ١٢ = ٠ ومنها س = ١٢ سنة <br>
+                أو س + ٤ = ٠ ومنها س = -٤ مرفوض <br><br>
+                ∴ عمر الابن = ١٢ سنة <br>
+                وعمر الأب = ٣ × ١٢ = ٣٦ سنة #
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="math-box">
+                <span class="title-bold">|١٣| عددان فرديان متتابعان ، مربع مجموعهما يزيد على مربعهما بمقدار ١٢٦ فما العددان ؟</span><br>
+                <span class="solution-tag">* الحل *</span><br>
+                <span style="background-color: #eee;">ملاحظة هامة : بصورة عامة لكل عدد س فإن ٢س ± ١ هو عدد صحيح فردي لذلك :-</span> <br>
+                نفرض العدد الفردي الأول = ٢س - ١ فيكون العدد الفردي الذي يليه ٢س + ١ <br>
+                مربع مجموعهما يزيد على مجموع مربعيهما بمقدار ١٢٦ يعني أن : <br>
+                [(٢س - ١) + (٢س + ١)]² - [(٢س - ١)² + (٢س + ١)²] = ١٢٦ <br>
+                (٤س)² - (٤س² - ٤س + ١ + ٤س² + ٤س + ١) = ١٢٦ <br>
+                ١٦س² - ٨س² - ٢ = ١٢٦ <br>
+                ٨س² = ١٢٨ &nbsp;&nbsp; ومنها ٨(س² - ١٦) = ٠ بالقسمة على ٨ <br>
+                س² - ١٦ = ٠ <br>
+                ( س - ٤ ) ( س + ٤ ) = ٠ <br>
+                س = ٤ أو س = -٤ <br>
+                العدد الفردي الأول = ٢ × ٤ - ١ = ٧ والذي يليه ٢ × ٤ + ١ = ٩ <br>
+                أو العدد الفردي الأول = ٢ × (-٤) - ١ = -٩ والذي يليه ٢ × (-٤) + ١ = -٧ <br>
+                أي أن العددان هما : ٩ ، ٧ أو -٩ ، -٧
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-box">
+                <span class="title-bold">٣ : ٥ حلول تمارين ومسائل عامة ص ١٦٠ - ١٦٣</span><br>
+                مثل بيانياً مجموعة حل كل من المعادلات من [١] إلى [٦] : <br>
+                <span class="title-bold">|١| س + ص = ٥ نستخدم نقاط التقاطع مع المحاور</span> <br>
+                نضع س = ٠ فنجد ص = ٥ فنحصل على ( ٠ ، ٥ ) نقطة التقاطع مع م ص <br>
+                ص = ٠ فنجد س = ٥ فنحصل على ( ٥ ، ٠ ) نقطة التقاطع مع م س <br>
+                ونمثل مجموعة الحل بيانياً بالخط المستقيم المار بالنقطتين ( ٠ ، ٥ ) ، ( ٥ ، ٠ )
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="180" viewBox="0 0 220 180">
+                    <line x1="20" y1="140" x2="200" y2="140" stroke="black" stroke-width="1.5" /> <line x1="40" y1="20" x2="40" y2="160" stroke="black" stroke-width="1.5" /> <text x="195" y="155" font-size="12">س</text>
+                    <text x="25" y="25" font-size="12">ص</text>
+                    <line x1="40" y1="40" x2="140" y2="140" stroke="black" stroke-width="2" />
+                    <circle cx="40" cy="40" r="3" fill="black" />
+                    <text x="50" y="45" font-size="11">(٠ ، ٥)</text>
+                    <circle cx="140" cy="140" r="3" fill="black" />
+                    <text x="145" y="135" font-size="11">(٥ ، ٠)</text>
+                    <text x="100" y="175" font-weight="bold">رسم شكل (١)</text>
+                </svg>
+            </div>
+
+            <div class="math-box">
+                <span class="title-bold">|٢| ص - ٤س = ١٥ ومنها ص = ١٥ ، نجد ص = ١٥</span> <br>
+                ص = ٠ ، نجد س = <div class="fraction"><span class="top">١٥</span><span>٤</span></div> - <br>
+                نرسم المستقيم المار بالنقطتين ( ١٥ ، ٠ ) ، ( ٠ ، -<div class="fraction"><span class="top">١٥</span><span>٤</span></div> )
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.5" />
+                    <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.5" />
+                    <line x1="80" y1="190" x2="130" y2="30" stroke="black" stroke-width="2" />
+                    <circle cx="120" cy="40" r="3" fill="black" />
+                    <text x="125" y="45" font-size="11">(٠ ، ١٥)</text>
+                    <circle cx="95" cy="110" r="3" fill="black" />
+                    <text x="60" y="105" font-size="11">(-١٥/٤ ، ٠)</text>
+                    <text x="100" y="215" font-weight="bold">شكل (٢)</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // يمكن إضافة تفاعلية هنا إذا لزم الأمر
+</script>
+
+</body>
+</html>

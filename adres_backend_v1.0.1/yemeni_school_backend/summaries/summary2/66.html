@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 66 - معادلة الدرجة الأولى ذات متغيرين</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #d9e1f2;
+            --section-bg: #fce4d6;
+            --border-color: #000;
+            --correct-bg: #d4edda;
+            --wrong-bg: #f8d7da;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .section-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .note-list {
+            list-style-type: disc;
+            padding-right: 25px;
+            font-size: 1.15em;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .comparison-table td:first-child {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            width: 15%;
+        }
+
+        .drill-box {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .drill-title {
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1em;
+            background-color: #fff;
+            padding: 0 10px;
+            display: inline-block;
+            margin-top: -25px;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 4px;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 3px;
+        }
+
+        .equation-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+            text-align: center;
+            direction: rtl;
+            /* Grid items start from right */
+        }
+
+        .eq-item {
+            padding: 5px;
+            border-bottom: 1px dashed #ccc;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .eq-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .classification-table th {
+            background-color: var(--section-bg);
+        }
+
+        .solution-pair {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            direction: ltr;
+            font-size: 1.1em;
+        }
+
+        .solution-pair:hover {
+            background-color: #eee;
+        }
+
+        .correct {
+            background-color: var(--correct-bg) !important;
+            border-color: #28a745;
+        }
+
+        .wrong {
+            background-color: var(--wrong-bg) !important;
+            border-color: #dc3545;
+        }
+
+        .footer {
+            text-align: left;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        sup {
+            font-size: 0.7em;
+        }
+
+        @media (max-width: 600px) {
+            .equation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sheet {
+                padding: 5px;
+            }
+
+            .inner-border {
+                padding: 5px;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <div class="main-header">
+                الدرس الأول: معادلة الدرجة الأولى ذات متغيرين
+            </div>
+
+            <ul class="note-list">
+                <li>أخذتم في الصف السابع والثامن معادلة الدرجة الأولى ذات متغير واحد وطريقة حلها، وشروطها كالآتي:</li>
+                <li style="list-style: none;">١. أس متغيرها دائماً = ١.</li>
+                <li style="list-style: none;">٢. لها متغير واحد فقط.</li>
+                <li>عدد حلول معادلة الدرجة الأولى ذات متغير واحد = حل واحد في ح.</li>
+            </ul>
+
+            <table class="comparison-table">
+                <tr>
+                    <th colspan="3" style="background-color: #fce4d6;">حلول معادلة الدرجة الأولى ذات متغير واحد فقط</th>
+                </tr>
+                <tr>
+                    <td>الصياغة</td>
+                    <td>أ س + ب = ٠</td>
+                    <td>
+                        <div class="fraction"><span>أ</span><span>س</span></div> + ب = ٠
+                    </td>
+                </tr>
+                <tr>
+                    <td>أمثلة</td>
+                    <td>٢ س + ٥ = ٢ ، ٢ ص - ١٢,٢ = ٠ <br> ع - ٤ ع = ٥</td>
+                    <td>
+                        <div class="fraction"><span>٣</span><span>س</span></div> + ٩ = ٠ ، ٤ - <div class="fraction">
+                            <span>١٠</span><span>ل</span>
+                        </div> = ٠
+                    </td>
+                </tr>
+                <tr>
+                    <td>الحل</td>
+                    <td>س = -<div class="fraction"><span>ب</span><span>أ</span></div> ، أ ≠ ٠</td>
+                    <td>س = -<div class="fraction"><span>أ</span><span>ب</span></div> ، ب ≠ ٠</td>
+                </tr>
+                <tr>
+                    <td>حالات أخرى للحل</td>
+                    <td>إذا كانت أ = صفر ← مستحيلة الحل. <br> إذا كانت أ = ب = صفر ← لها حلول غير محدودة.</td>
+                    <td>إذا كانت ب = صفر ← مستحيلة الحل. <br> إذا كانت أ = ب = صفر ← لها حلول غير محدودة.</td>
+                </tr>
+            </table>
+
+            <div class="section-header">معادلة الدرجة الأولى ذات متغيرين</div>
+
+            <ul class="note-list">
+                <li>مميزاتها:</li>
+                <li style="list-style: none;">١. الصورة العامة (أ س + ب ص = جـ) ، أ، ب، جـ أعداد حقيقية.</li>
+                <li style="list-style: none;">٢. أس المتغيرات س، ص دائماً = ١.</li>
+                <li style="list-style: none;">٣. لها متغيرين فقط.</li>
+                <li style="list-style: none;">٤. لها قيم كثيرة في ح وأحياناً تكون لا نهائية.</li>
+                <li style="list-style: none;">٥. يمثل حلها كزوج مرتب (س، ص).</li>
+                <li style="list-style: none;">٦. تمثل كمجموعة نقاط لا منتهية في مستوى الإحداثيات على شكل خط مستقيم.</li>
+                <li style="list-style: none;">٧. تسمى بالمعادلة الخطية.</li>
+                <li>ملاحظة: أي نقطة تقع على الخط المستقيم تحقق المعادلة (أي تمثل حلاً لها)، ولتحقق من أي حل نعوض في
+                    المعادلة.</li>
+            </ul>
+
+            <!-- Drill 1 -->
+            <div class="drill-box">
+                <div class="drill-title">تدريب (١): ميز معادلة الدرجة الأولى ذات متغير واحد ومعادلة الدرجة الأولى ذات
+                    متغيرين:</div>
+                <div class="equation-grid">
+                    <div class="eq-item" onclick="classify(this, 1)">س + ١ = ٣ س</div>
+                    <div class="eq-item" onclick="classify(this, 1)">٢ س<sup>٢</sup> - ١ = ٠</div>
+                    <div class="eq-item" onclick="classify(this, 1)">ص - ٤ = ٠</div>
+                    <div class="eq-item" onclick="classify(this, 2)">س - ص = ٤</div>
+                    <div class="eq-item" onclick="classify(this, 2)">٢ س + ص<sup>٢</sup> = ٠</div>
+                    <div class="eq-item" onclick="classify(this, 2)">س<sup>٢</sup> - ٤ = ص</div>
+                    <div class="eq-item" onclick="classify(this, 1)">ص + ٢ ص = ٤</div>
+                    <div class="eq-item" onclick="classify(this, 1)">٣ - س = ٠</div>
+                    <div class="eq-item" onclick="classify(this, 2)">ص + ٣ س = ٨</div>
+                    <div class="eq-item" onclick="classify(this, 1)">٤ س = ٢</div>
+                </div>
+
+                <table class="classification-table">
+                    <tr>
+                        <th style="width: 50%;">معادلة الدرجة الأولى ذات متغير واحد</th>
+                        <th style="width: 50%;">معادلة الدرجة الأولى ذات متغيرين</th>
+                    </tr>
+                    <tr>
+                        <td id="cat1" style="height: 60px; vertical-align: top; text-align: right; padding: 10px;"></td>
+                        <td id="cat2" style="height: 60px; vertical-align: top; text-align: right; padding: 10px;"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Drill 2 -->
+            <div class="drill-box" style="margin-top: 30px;">
+                <div class="drill-title">تدريب (٢): أي مما يلي يمثل حلاً للمعادلة (٢ س - ص = ٣):</div>
+                <div style="text-align: center; padding: 15px;">
+                    <span class="solution-pair" onclick="checkSol(this, false)">(٣ ، ٤)</span>
+                    <span class="solution-pair" onclick="checkSol(this, true)">(٤ ، ٥)</span>
+                    <span class="solution-pair" onclick="checkSol(this, false)">(١ ، ٢,١)</span>
+                    <span class="solution-pair" onclick="checkSol(this, true)">(٢,٥ ، ٢)</span>
+                    <span class="solution-pair" onclick="checkSol(this, true)">(-١ ، -٥)</span>
+                    <span class="solution-pair" onclick="checkSol(this, false)">(- <div class="fraction">
+                            <span>١</span><span>٢</span>
+                        </div> ، ٤)</span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>إعداد: هلا المولجي</div>
+                <div style="font-family: 'Cairo', sans-serif;">- ٦٦ -</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function classify(el, cat) {
+            const dest = document.getElementById('cat' + cat);
+            const text = el.innerHTML;
+
+            // Check if already moved
+            if (el.style.opacity === '0.3') return;
+
+            const newItem = document.createElement('div');
+            newItem.innerHTML = '• ' + text;
+            newItem.style.marginBottom = '5px';
+            newItem.style.fontSize = '1em';
+            newItem.style.cursor = 'pointer';
+            newItem.onclick = function () {
+                this.remove();
+                el.style.opacity = '1';
+            };
+
+            dest.appendChild(newItem);
+            el.style.opacity = '0.3';
+
+            // Visual feedback 
+            if (cat === 2 && (text.includes('ص<sup>٢</sup>') || text.includes('س<sup>٢</sup>'))) {
+                newItem.classList.add('wrong');
+            } else if (cat === 1 && text.includes('س<sup>٢</sup>')) {
+                newItem.classList.add('wrong');
+            } else {
+                newItem.classList.add('correct');
+            }
+        }
+
+        function checkSol(el, isCorrect) {
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

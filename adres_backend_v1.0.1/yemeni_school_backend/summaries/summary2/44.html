@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة ٤٤</title>
+    <style>
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            background-color: #fff;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;padding: 10mm;
+            border: 2px solid #000;
+            min-height: 297mm;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .inner-border {
+            border: 1.5px solid #000;
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .header-title {
+            background-color: #d9e1f2;
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .text-bold {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .main-list {
+            margin-right: 20px;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            list-style-type: disc;
+        }
+
+        .diagram-wrapper {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+            align-items: stretch;
+        }
+
+        .box-container {
+            border: 1.5px solid #000;
+            border-radius: 20px;
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label-rect {
+            text-align: center;
+            font-weight: bold;
+            border: 1.2px solid #000;
+            border-radius: 8px;
+            padding: 3px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* تنسيق الرياضيات الدقيق */
+        .math-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            gap: 3px;
+            margin: 8px 0;
+        }
+
+        .frac {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .num {
+            border-bottom: 1px solid #000;
+            padding: 0 4px;
+        }
+
+        .den {
+            padding: 0 4px;
+        }
+
+        .sqrt {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .sqrt-v {
+            font-size: 1.2rem;
+            margin-right: -1px;
+        }
+
+        .sqrt-t {
+            border-top: 1.2px solid #000;
+            padding: 0 2px;
+            margin-top: 3px;
+        }
+
+        .notes {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            padding: 8px 0;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .exercise {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .dots {
+            border-bottom: 1px dotted #000;
+            display: block;
+            height: 8px;
+            width: 100%;
+            margin-top: 2px;
+        }
+
+        .page-footer {
+            text-align: center;
+            font-weight: bold;
+            margin-top: auto;
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        .author-sign {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 0.7rem;
+        }
+
+        sup {
+            font-size: 0.7rem;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="inner-border">
+            <div class="header-title">الدرس الثالث : التحليل بإكمال المربع</div>
+
+            <div class="text-bold">هذا النوع من التحليل سيكون لعدة مقادير جبرية ، وهي :</div>
+            <ul class="main-list">
+                <li>مقدار ثلاثي يفتقد الحد الثالث على صورة ( س<sup>٢</sup> + ب س ) ، فيمكن تحليله بـ ( ع . م . أ ) أو
+                    بإكمال المربع .</li>
+                <li>مقدار ثلاثي الحد الثالث ليس مربع كامل ( أي أن قد يكون كمية ليست مربعة أو يكون عدد سالب ) فيمكن
+                    تحليله بطريقة المقدار الثلاثي أو بإكمال المربع .</li>
+                <li>مقدار ثلاثي الحد الأول والثاني مربع كامل لكن حده الأوسط لا يحقق الشرط أو ليس موجود فلا يمكن تحليله
+                    ألا بإكمال المربع .</li>
+            </ul>
+
+            <div style="text-align: center; font-weight: bold; text-decoration: underline; font-size: 0.85rem;">يمكن
+                تلخيص طريقة التحليل لكل نوع منها في المخطط التالي :</div>
+
+            <div
+                style="text-align: center; margin: 8px auto; border: 1.5px solid #000; width: fit-content; padding: 3px 20px; font-weight: bold; border-radius: 6px; font-size: 0.85rem;">
+                طرق التحليل بإكمال المربع</div>
+
+            <div class="diagram-wrapper">
+                <div class="box-container">
+                    <div class="label-rect">مقدار ينقصه الحد الثالث</div>
+                    <div class="label-rect">مقدار حده الثالث ليس مربع كامل</div>
+                    <p style="text-align: center; font-size: 0.75rem; margin: 4px 0;">نضيف إليه ونطرح منه مربع نصف معامل
+                        س ، أي أن :</p>
+                    <div class="math-flex">
+                        معامل الحد الثالث = ( <div class="frac"><span class="num">ب</span><span class="den">٢</span>
+                        </div> )<sup>٢</sup> &larr; بسيط فقط
+                    </div>
+                    <div class="math-flex" style="font-size: 0.8rem;">
+                        فيصبح س<sup>٢</sup> + ب س + ( <div class="frac"><span class="num">ب</span><span
+                                class="den">٢</span></div> )<sup>٢</sup> = ( س + <div class="frac"><span
+                                class="num">ب</span><span class="den">٢</span></div> )<sup>٢</sup>
+                    </div>
+                    <p style="text-align: center; font-size: 0.75rem; margin: 4px 0;">أو نستخدم قانون الحد الثالث :</p>
+                    <div class="math-flex">
+                        ( <div class="frac">
+                            <span class="num">الحد الأوسط</span>
+                            <span class="den">٢ &times; <span class="sqrt"><span class="sqrt-v">√</span><span
+                                        class="sqrt-t">الحد الأول</span></span></span>
+                        </div> )<sup>٢</sup> &larr; بسيط أو غير بسيط
+                    </div>
+                </div>
+
+                <div class="box-container">
+                    <div class="label-rect">مقدار الخلل في حده الأوسط</div>
+                    <p style="text-align: center; margin-top: 10px; font-size: 0.75rem;">نضيف إليه ونطرح منه :</p>
+                    <div class="math-flex">
+                        ٢ &times; <span class="sqrt"><span class="sqrt-v">√</span><span class="sqrt-t">الحد
+                                الأول</span></span> &times; <span class="sqrt"><span class="sqrt-v">√</span><span
+                                class="sqrt-t">الحد الثالث</span></span>
+                    </div>
+                    <p style="text-align: center; font-size: 0.75rem; margin-top: 10px;">وهذا باستخدام قانون الحد الأوسط
+                        في المربع الكامل .</p>
+                </div>
+            </div>
+
+            <div class="notes">
+                <b style="text-decoration: underline;">ملاحظات :</b><br>
+                ١. إذا طلب إكمال المربع فقط ولم يطلب التحليل نكتفي بالإضافة فقط .<br>
+                ٢. نضيف ونطرح في نفس الوقت أثناء التحليل لكيلا نغير في قيمة المقدار .<br>
+                ٣. أثناء التحليل بإكمال في الغالب يتحول إلى تحليل الفرق بين مربعين لكن ليس دائماً .<br>
+                ٤. إذا كان معامل الحد الأول ليس مربع نأخذه عامل مشترك .
+            </div>
+
+            <div class="text-bold" style="border-bottom: 1.5px solid #000; width: fit-content;">تدريب ( ١ ) :</div>
+            <p style="font-size: 0.85rem; margin: 4px 0;">حدد الخلل في المقادير التالية التي لا تجعلها مقداراً مربعاً
+                كاملاً ثم أكملها إلى مربع كامل :</p>
+
+            <div class="exercise">٥. س<sup>٤</sup> + ٦ س<sup>٢</sup> .<span class="dots"></span></div>
+            <div class="exercise">٦. ص<sup>٢</sup> - ٣ ص .<span class="dots"></span></div>
+            <div class="exercise">٧. ل<sup>٤</sup> + ٦٤ .<span class="dots"></span></div>
+            <div class="exercise">٨. ع<sup>٤</sup> + ٤ ع<sup>٢</sup> - ١ .<span class="dots"></span></div>
+
+            <div class="page-footer">- ٤٤ -</div>
+            <div class="author-sign">إعداد : هلا المولجي</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

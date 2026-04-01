@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٢</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.6vmin;
+            padding: 2vmin;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-section {
+            background-color: var(--header-bg);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 1vmin;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2vmin;
+            font-family: var(--ui-font);
+        }
+
+        .mcq-section {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #000;
+        }
+
+        .q-header {
+            background-color: #e6c5ae;
+            padding: 0.5vmin;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+            display: flex;
+        }
+
+        .q-header-right {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .q-header-tf {
+            width: 4vmin;
+            text-align: center;
+            border-right: 1px solid #000;
+        }
+
+        .row {
+            display: flex;
+            border-bottom: 1px solid #000;
+            height: 3.5vmin;
+            align-items: center;
+        }
+
+        .cell-tf {
+            width: 4vmin;
+            border-left: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .cell-content {
+            flex-grow: 1;
+            padding: 0 1vmin;
+            display: flex;
+            align-items: center;
+        }
+
+        .bubble {
+            width: 2vmin;
+            height: 2vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+
+        .opt-grid {
+            display: grid;
+            grid-template-columns: 3vmin 1fr 3vmin 1fr;
+            width: 100%;
+        }
+
+        .opt-num {
+            border-left: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .opt-txt {
+            border-left: 1px solid #000;
+            display: flex;
+            align-items: center;
+            padding: 0 1vmin;
+        }
+
+        .opt-txt:last-child {
+            border-left: none;
+        }
+
+        .footer-quote {
+            text-align: center;
+            font-family: 'Diwani', cursive;
+            font-size: 2em;
+            margin-top: auto;
+            margin-bottom: 3vmin;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="header-section">أسئلة وزارية</div>
+
+        <div class="mcq-section">
+            <div class="q-header">
+                <div class="q-header-right">ظلل الإجابة الصحيحة فيما يلي:</div>
+                <div class="q-header-tf">خطأ</div>
+                <div class="q-header-tf no-border-right">صح</div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">١. ∅" = ∅.</div>
+                <div class="cell-tf">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell-tf">
+                    <div class="bubble"></div>
+                </div>
+            </div>
+
+            <div class="q-header bg-beige">
+                <div class="q-header-right">ظلل الإجابة الصحيحة فيما يلي:</div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">أ. ( س ∪ ص )َ = ......... :</div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">١</div>
+                    <div class="opt-txt">سَ ∪ صَ !</div>
+                    <div class="opt-num">٣</div>
+                    <div class="opt-txt">( س ∩ ص )َ !</div>
+                </div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">٢</div>
+                    <div class="opt-txt">سَ ∩ صَ !</div>
+                    <div class="opt-num">٤</div>
+                    <div class="opt-txt">س ∪ صَ.</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">ب. لتكن س = { ١ ، ٢ ، ٣ } ، ص = { ٢ ، ٣ } ، فإن س / ص :</div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">١</div>
+                    <div class="opt-txt">{ ٢ }.</div>
+                    <div class="opt-num">٣</div>
+                    <div class="opt-txt">{ ٣ }.</div>
+                </div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">٢</div>
+                    <div class="opt-txt">{ ١ }.</div>
+                    <div class="opt-num">٤</div>
+                    <div class="opt-txt">{ ٤ ، ٣ }.</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">ج. إذا كانت س مجموعة غير خالية فإن ∅ / س = ......... :</div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">١</div>
+                    <div class="opt-txt">س.</div>
+                    <div class="opt-num">٣</div>
+                    <div class="opt-text">سَ !.</div> <!-- Using text class typo here, fixing -->
+                </div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">٢</div>
+                    <div class="opt-txt">∅.</div>
+                    <div class="opt-num">٤</div>
+                    <div class="opt-txt">٥.٣.</div> <!-- Typo in original? -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">د. لتكن س = { ١ ، ٢ } ، ص = { ١ ، ٢ ، ٣ ، ٤ } ، فإن ص / س = ......... :</div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">١</div>
+                    <div class="opt-txt">{ ١ ، ٣ }.</div>
+                    <div class="opt-num">٣</div>
+                    <div class="opt-txt">{ ١ ، ٤ }.</div>
+                </div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">٢</div>
+                    <div class="opt-txt">{ ٣ ، ٢ }.</div>
+                    <div class="opt-num">٤</div>
+                    <div class="opt-txt">{ ٤ ، ٣ }.</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell-content">و. { ١ ، ٢ ، ٣ } / { ٢ ، ١ ، ٣ } = ......... :</div>
+            </div>
+            <div class="row height-auto">
+                <div class="opt-grid">
+                    <div class="opt-num">١</div>
+                    <div class="opt-txt">{ ٢ }.</div>
+                    <div class="opt-num">٣</div>
+                    <div class="opt-txt">{ ١ }.</div>
+                </div>
+            </div>
+            <div class="row height-auto no-border">
+                <div class="opt-grid">
+                    <div class="opt-num">٢</div>
+                    <div class="opt-txt">∅.</div>
+                    <div class="opt-num">٤</div>
+                    <div class="opt-txt">{ ٣ }.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-quote">
+            ستحقق ما أردت يوماً .. فلا تتراجع ولا تحزن.
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٢ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

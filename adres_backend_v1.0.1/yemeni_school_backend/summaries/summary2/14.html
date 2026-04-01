@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٤</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.4vmin;
+            padding: 2vmin;
+        }
+
+        .section-box {
+            border: 2px solid var(--border-color);
+            margin-bottom: 2vmin;
+            padding: 1.5vmin;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .note-box {
+            border: 2px solid #000;
+            margin-bottom: 0.5vmin;
+            padding: 0.5vmin;
+            font-weight: bold;
+        }
+
+        .head-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5vmin;
+            font-family: var(--ui-font);
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            width: 100%;
+            margin-top: 0.2vmin;
+        }
+
+        /* MCQ Table */
+        .mcq-table {
+            border: 2px solid #000;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .mcq-header {
+            background-color: #b0c4de;
+            font-weight: bold;
+            text-align: right;
+            padding: 0.2vmin 1vmin;
+            border-bottom: 2px solid #000;
+        }
+
+        .font-ui {
+            font-family: var(--ui-font);
+        }
+
+        .bg-eee {
+            background-color: #eee;
+        }
+
+        .bubble {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Notes -->
+        <div class="note-box">
+            <div class="underline mb-05 font-ui">ملاحظة:</div>
+            <ul class="list-disc pr-2">
+                <li>نقول عن العلاقة ع أنها غير متعدية على س إذا وجد زوجان مرتبان (أ ، ب) ∊ ع ، (ب ، جـ) ∊ ع ، ولكن (أ ،
+                    جـ) ∉ ع ، حيث أ ، ب ، جـ ∊ س.</li>
+                <li>تمثل العلاقة إما بمخطط سهمي أو تمثل بيانياً.</li>
+            </ul>
+        </div>
+
+        <!-- Exercise 4 (or 5?) -->
+        <div class="section-box">
+            <div class="head-title">تدريب ( ٥ ):</div> <!-- Assuming 5 based on content context -->
+            <div>إذا كانت س = { أ ، ب ، ج ، د } ، فبين أياً من العلاقات التالية تمثل علاقة متعدية مع ذكر السبب ومثلها
+                بيانياً:</div>
+
+            <div class="mt-05">١. ع١ = { (أ ، أ) ، (ب ، ب) ، (ج ، ج) ، (د ، د) }.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-05">٢. ع٢ = { (أ ، ب) ، (ب ، أ) ، (ج ، أ) }.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-05">٣. ع٣ = { (ج ، د) }.</div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-05">٤. ع٤ = { (أ ، أ) ، (د ، د) ، (ب ، أ) ، (أ ، د) ، (ب ، د) ، (د ، ب) }.
+            </div>
+            <div class="dotted-line"></div>
+
+            <div class="mt-05">٥. ع٥ = س × س.</div>
+            <div class="dotted-line"></div>
+        </div>
+
+        <!-- Exercise 6 -->
+        <div class="section-box">
+            <div class="head-title">تدريب ( ٦ ):</div>
+            <div>إذا كانت ل = { ٢ ، ٣ ، ٤ ، ٥ } ، ع علاقة على المجموعة ل ، حيث ع = { (أ ، ب) : أ ، ب ∊ ل ، أ + ب عدداً
+                فردياً }، فهل ع علاقة متعدية ؟ لماذا ؟ - ارسم المخطط السهمي والبياني لهذه العلاقة.</div>
+            <div class="dotted-line mt-1"></div>
+            <div class="dotted-line mt-1"></div>
+            <div class="dotted-line mt-1"></div>
+            <div class="dotted-line mt-1"></div>
+            <div class="dotted-line mt-1"></div>
+            <div class="dotted-line mt-1"></div>
+        </div>
+
+        <!-- MCQ Section -->
+        <div class="mcq-table">
+            <div class="mcq-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="grid-row bg-eee bold">
+                <div class="cell">صح</div>
+                <div class="cell">خطأ</div>
+                <div class="cell cell-end-pad">ظلل الإجابة الصحيحة فيما يلي:</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">١. إذا كانت ع علاقة على المجموعة س ، وكانت ع = { (أ ، أ) ، أ ∊ ط } ، فإن ع تمثل علاقة
+                    انعكاسية.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٢. لكل (أ ، ب) ∊ ع ، فإن (ب ، أ) ∊ ع يمثل شرط العلاقة المتعدية.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٣. علاقة " > " تمثل علاقة متناظرة.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٤. إذا كانت س = { ٢ ، ٣ ، ٤ } ، وكانت ع = { (٢ ، ٢) ، (٣ ، ٣) } علاقة على س ، فإن ع
+                    علاقة انعكاسية.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٥. علاقة " = " تمثل علاقة متعدية ومتناظرة وانعكاسية في آن واحد.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٦. علاقة ك × ك على المجموعة ك = { ٢ ، ٥ ، ١١ } تمثل علاقة متعدية وانعكاسية فقط.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٧. العلاقة { (أ ، ب) : أ ، ب ∊ ط ، أ + ب عدداً فردياً } تمثل علاقة متعدية على ط.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٨. علاقة (( يقسم )) علاقة متناظرة على مجموعة الأعداد الصحيحة.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٤ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

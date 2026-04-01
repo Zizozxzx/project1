@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 38 (معدل)</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* العمود الأيمن الجديد (كان يساراً) */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        /* العمود الأيسر الجديد (كان يميناً) */
+        .left-column {
+            order: 2;
+        }
+        .math-text {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px;
+        }
+        .fraction span { display: block; padding: 0 3px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+        
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+
+        /* تنسيق الهواتف: الأيمن (تبسيط الكسور) يظهر أولاً */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٣٨ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="math-text">
+                | ٤٩ | <span class="fraction"><span>س + ٥</span><span class="bottom">س² + ٦ س + ٥</span></span> - <span class="fraction"><span>س² - ٣ س - ١٨</span><span class="bottom">س² - ٩</span></span> + <span class="fraction"><span>٤ س + ١٢</span><span class="bottom">٩ - س²</span></span> <br>
+                = <span class="fraction"><span>(س + ٥)</span><span class="bottom">(س + ٥)(س + ١)</span></span> - <span class="fraction"><span>(س - ٦)(س + ٣)</span><span class="bottom">(س - ٣)(س + ٣)</span></span> - <span class="fraction"><span>٤ (س + ٣)</span><span class="bottom">(س - ٣)(س + ٣)</span></span> <br>
+                = <span class="fraction"><span>١</span><span class="bottom">(س + ١)</span></span> - <span class="fraction"><span>(س - ٦)</span><span class="bottom">(س - ٣)</span></span> - <span class="fraction"><span>٤</span><span class="bottom">(س - ٣)</span></span> <br>
+                = <span class="fraction"><span>١</span><span class="bottom">س + ١</span></span> - [ <span class="fraction"><span>س - ٦ + ٤</span><span class="bottom">(س - ٣)</span></span> ] = <span class="fraction"><span>١</span><span class="bottom">س + ١</span></span> - <span class="fraction"><span>س - ٢</span><span class="bottom">س - ٣</span></span> <br>
+                = <span class="fraction"><span>(س - ٣) - (س - ٢)(س + ١)</span><span class="bottom">(س + ١)(س - ٣)</span></span> = <span class="fraction"><span>س - ٣ - (س² - س - ٢)</span><span class="bottom">(س + ١)(س - ٣)</span></span> <br>
+                = <span class="fraction"><span>- س² + ٢ س - ١</span><span class="bottom">(س + ١)(س - ٣)</span></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٠ | <span class="fraction"><span>س³ - ٢٧</span><span class="bottom">٣ س</span></span> ÷ <span class="fraction"><span>س² + ٣ س + ٩</span><span class="bottom">٦ س</span></span> × <span class="fraction"><span>س² + ٦ س + ٩</span><span class="bottom">س² - ٩</span></span> <br>
+                = <span class="fraction"><span>(س - ٣)(س² + ٣ س + ٩)</span><span class="bottom">٣ س</span></span> × <span class="fraction"><span>٦ س</span><span class="bottom">س² + ٣ س + ٩</span></span> × <span class="fraction"><span>(س + ٣)²</span><span class="bottom">(س - ٣)(س + ٣)</span></span> <br>
+                = <span class="fraction"><span>(س - ٣) × ٢ × (س + ٣)</span><span class="bottom">(س - ٣)</span></span> = ٢ ( س + ٣ ) <br>
+                # = ٢ س + ٦
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥١ | [ <span class="fraction"><span>س + ١</span><span class="bottom">س + ٢</span></span> + <span class="fraction"><span>١</span><span class="bottom">س - ٢</span></span> ] ÷ [ <span class="fraction"><span>س + ٢</span><span class="bottom">س - ٢</span></span> - <span class="fraction"><span>س - ٢</span><span class="bottom">س + ٢</span></span> ] <br>
+                = [ <span class="fraction"><span>(س + ١)(س - ٢) + (س + ٢)</span><span class="bottom">(س + ٢)(س - ٢)</span></span> ] ÷ [ <span class="fraction"><span>(س + ٢)² - (س - ٢)²</span><span class="bottom">(س - ٢)(س + ٢)</span></span> ] <br>
+                = [ <span class="fraction"><span>س² - س - ٢ + س + ٢</span><span class="bottom">(س + ٢)(س - ٢)</span></span> ] × <span class="fraction"><span>(س - ٢)(س + ٢)</span><span class="bottom">س² + ٤ س + ٤ - (س² - ٤ س + ٤)</span></span> <br>
+                = <span class="fraction"><span>س²</span><span class="bottom">١</span></span> × <span class="fraction"><span>١</span><span class="bottom">٨ س</span></span> = <span class="fraction"><span>س</span><span class="bottom">٨</span></span> #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٢ | إذا كانت س = <span class="fraction"><span>أ + ١</span><span class="bottom">أ - ١</span></span> × [ <span class="fraction"><span>أ³ + ١</span><span class="bottom">أ + ٣</span></span> ÷ <span class="fraction"><span>أ² - أ + ١</span><span class="bottom">أ² - ٩</span></span> ] <br>
+                ، ص = <span class="fraction"><span>أ² + ٩ أ + ٢٠</span><span class="bottom">أ² - ٢٥</span></span> ÷ <span class="fraction"><span>أ² + أ - ٦</span><span class="bottom">أ² - ١٠ أ + ٢٥</span></span> <br>
+                فثبت أن س - ص = ١ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                الطرف الأيمن = س - ص <br>
+                س = <span class="fraction"><span>أ + ١</span><span class="bottom">أ - ١</span></span> × [ <span class="fraction"><span>(أ + ١)(أ² - أ + ١)</span><span class="bottom">أ + ٣</span></span> × <span class="fraction"><span>(أ - ٣)(أ + ٣)</span><span class="bottom">أ² - أ + ١</span></span> ] <br>
+                س = <span class="fraction"><span>أ + ١</span><span class="bottom">أ - ١</span></span> × [ (أ + ١)(أ - ٣) ] = <span class="fraction"><span>(أ + ١)² (أ - ٣)</span><span class="bottom">أ - ١</span></span> <br>
+                ص = <span class="fraction"><span>(أ + ٤)(أ + ٥)</span><span class="bottom">(أ - ٥)(أ + ٥)</span></span> × <span class="fraction"><span>(أ - ٥)²</span><span class="bottom">(أ + ٣)(أ - ٢)</span></span> <br>
+                ص = <span class="fraction"><span>(أ + ٤)(أ - ٥)</span><span class="bottom">(أ + ٣)(أ - ٢)</span></span> <br>
+                وهنا المقامات موحدة فيجوز طرح البسط من البسط <br>
+                ∴ س - ص = <span class="fraction"><span>(أ+١)(أ-١)</span><span class="bottom">(أ+١)(أ-١)</span></span> = ١ = الطرف الأيسر #
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                | ٥٣ | غرفة مربعة الشكل مساحتها ( س² + ١٨ س + ٨١ ) متراً مربعاً أوجد طول الغرفة بدلالة س . <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                بفرض طول الغرفة المربعة = ل متراً <br>
+                ونعلم أن مساحة المربع = طول الضلع × نفسه <br>
+                ∴ مساحة الغرفة = ل² متراً مربعاً <br>
+                ∴ ( س² + ١٨ س + ٨١ ) = ل² والطرف الأيمن مربع كامل <br>
+                ∴ ( س + ٩ )² = ل² بأخذ الجذر التربيعي للطرفين <br>
+                ∴ س + ٩ = ل أي أن طول الغرفة = س + ٩ متراً #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٤ | سجادة مربعة الشكل مساحتها ( س² - ١٠ س + ٢٥ ) متراً مربعاً حيث س > ٥ أوجد محيطها بدلالة س . <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                نعلم أن محيط المربع = مجموع أطوال أضلاعه الأربعة <br>
+                محيط السجادة المربعة = مجموع أطوال أضلاعها الأربعة ، فإذا فرضنا طول السجاد = ل <br>
+                مساحة السجاد المربعة = ل² نجري التعويض بقيمة المساحة <br>
+                ∴ ( س² - ١٠ س + ٢٥ ) = ل² <br>
+                ∴ ( س - ٥ )² = ل² بأخذ الجذر التربيعي للطرفين <br>
+                ∴ س - ٥ = ل متراً ← (١) <br>
+                محيط السجادة المربعة = ٤ ل نعوض بقيمة ل من (١) <br>
+                محيط السجادة = ٤ ( س - ٥ ) متراً #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٥ | حديقة أطفال مربعة الشكل مساحتها ( س² + ٥٠ س + ٦٢٥ ) متراً مربعاً أوجد طول الحديقة بدلالة س ، وإذا علمت أن س = ١٥٠ فما طول الحديقة ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                بفرض طول الحديقة المربعة = ل متراً فتكون مساحة الحديقة = ل² <br>
+                ∴ ( س² + ٥٠ س + ٦٢٥ ) = ل² ( الطرف الأيمن مربع كامل ) <br>
+                ∴ ( س + ٢٥ )² = ل² بأخذ الجذر التربيعي للطرفين <br>
+                ∴ س + ٢٥ = ل بالتالي طول الحديقة = ( س + ٢٥ ) متراً <br>
+                وعندما س = ١٥٠ يكون طول الحديقة = ١٥٠ + ٢٥ = ١٧٥ متراً #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٦ | غرفة مربعة الشكل مساحتها ( س² + ٦ س + ٩ ) متراً مربعاً أوجد طول ضلع الغرفة المربعة إذا علمت أن مساحة الغرفة تساوي ١٤٤ متراً مربعاً فما قيمة س ؟ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                بفرض ل طول الغرفة المربعة وحيث مساحة المربع = ل × ل = ل² <br>
+                ∴ ( س² + ٦ س + ٩ ) = ل² ( مساحة الغرفة المربعة = ل² ) <br>
+                ∴ ( س + ٣ )² = ل² بأخذ الجذر التربيعي <br>
+                ∴ س + ٣ = ل أي أن طول الغرفة المربعة = ( س + ٣ ) م <br>
+                مساحة الغرفة المربعة = ١٤٤ م² <br>
+                ∴ ( س + ٣ )² = ١٤٤ <br>
+                ∴ س + ٣ = ( ١٢ )² بأخذ الجذر التربيعي <br>
+                ∴ س + ٣ = ١٢ ومنها س = ١٢ - ٣ أي <span style="border: 1px solid #000; padding: 2px;">س = ٩</span> #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٥٧ | خزان ماء مكعبي الشكل حجمه الأول ( ٢ س + ٦ )³ متراً مكعباً وحجمه الآخر ٨ متراً مكعباً أوجد مجموع حجميهما كحاصل ضرب . <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                مجموع حجميهما = ( ٢ س + ٦ )³ + ٦٤ نحلل على صورة مجموع مكعبين <br>
+                = [ ( ٢ س + ٦ ) + ٤ ] [ ( ٢ س + ٦ )² - ٤ ( ٢ س + ٦ ) + ١٦ ] <br>
+                = [ ٢ س + ٦ + ٤ ] [ ٤ س² + ٢٤ س + ٣٦ - ٨ س - ٢٤ + ١٦ ] <br>
+                = ( ٢ س + ١٠ ) ( ٤ س² + ١٦ س + ٢٨ ) <br>
+                = ٢ ( س + ٥ ) × ٤ ( س² + ٤ س + ٧ ) <br>
+                = ٨ ( س + ٥ ) ( س² + ٤ س + ٧ ) متراً مكعباً #
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

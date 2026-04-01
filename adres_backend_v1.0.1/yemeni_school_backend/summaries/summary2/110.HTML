@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٠ - تدريبات وأتمتة الهندسة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Exercise Header */
+        .exercise-header {
+            border: 2px solid #000;
+            padding: 5px 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.25em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exercise-header span {
+            border-bottom: 2px solid #000;
+        }
+
+        /* Diagram Box */
+        .diagram-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .diagram-svg {
+            border: 1px solid #ccc;
+            padding: 5px;
+            background-color: #fff;
+        }
+
+        .exercise-text {
+            flex: 1;
+            padding-right: 20px;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .dotted-line {
+            border-bottom: 1.5px dotted #000;
+            margin: 8px 0;
+            min-height: 20px;
+        }
+
+        /* Automation Section Header */
+        .automation-header {
+            background-color: #8faadc;
+            border: 2.5px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.3em;
+            font-family: 'Aref Ruqaa', serif;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        /* T/F Table */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 1.5px solid #000;
+        }
+
+        .tf-table th {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+
+        .tf-table td {
+            border: 1.5px solid #000;
+            padding: 5px 8px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 17px;
+            height: 17px;
+            border: 1.8px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Table */
+        .mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            border: 1.5px solid #000;
+        }
+
+        .mcq-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+        }
+
+        .mcq-num {
+            background-color: #d9e1f2;
+            font-weight: bold;
+            width: 30px;
+            text-align: center;
+        }
+
+        .mcq-opt {
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mcq-opt.correct {
+            background-color: #d4edda;
+        }
+
+        .mcq-opt.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="exercise-header">
+                <span>تدريب ٢ :</span>
+            </div>
+
+            <div class="diagram-container">
+                <div class="exercise-text">
+                    أ. من خلال الشكل المجاور، ق ⦣ (د م ج) = ق ⦣ (أ م ب)، ق ⦣ (د م أ) = ق ⦣ (ج م ب) ،
+                    <br>سم الأوتار المتطابقة والأقواس المتطابقة.
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+
+                    ب. هل قياس القوس (ج د أ) = قياس القوس (ب أ د)؟ اذكر السبب.
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                </div>
+                <div class="diagram-svg">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="60" fill="none" stroke="black" stroke-width="1.5" />
+                        <circle cx="75" cy="75" r="2.5" fill="black" />
+                        <text x="70" y="70" font-family="Amiri" font-size="14">م</text>
+
+                        <path d="M75,15 L15,85 L75,135 L135,85 Z" fill="none" stroke="black" stroke-width="1.2" />
+
+                        <text x="70" y="12" font-family="Amiri" font-size="14">أ</text>
+                        <text x="138" y="90" font-family="Amiri" font-size="14">ب</text>
+                        <text x="70" y="148" font-family="Amiri" font-size="14">جـ</text>
+                        <text x="5" y="90" font-family="Amiri" font-size="14">د</text>
+
+                        <line x1="75" y1="75" x2="75" y2="15" stroke="black" stroke-width="1" stroke-dasharray="2" />
+                        <line x1="75" y1="75" x2="135" y2="85" stroke="black" stroke-width="1" stroke-dasharray="2" />
+                        <line x1="75" y1="75" x2="75" y2="135" stroke="black" stroke-width="1" stroke-dasharray="2" />
+                        <line x1="75" y1="75" x2="15" y2="85" stroke="black" stroke-width="1" stroke-dasharray="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="automation-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+            <div
+                style="background-color: #d9e1f2; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+            <table class="tf-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th>السؤال</th>
+                        <th style="width: 100px; text-align: center; background-color: #fff;">صح — خطأ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-answer="false">
+                        <td class="col-num">١</td>
+                        <td>الزاوية المركزية هي زاوية يقع رأسها على محيط الدائرة.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="false">
+                        <td class="col-num">٢</td>
+                        <td>درجة قياس القوس = نصف قياس الزاوية المركزية.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٣</td>
+                        <td>إذا كان قياس زاوية مركزية = ٣٠°، فإن درجة قياس القوس الكبير = ٣٣٠°.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٤</td>
+                        <td>إذا كان قياس القوس الكبير = ٢٠٠°، فإن قياس زاويته المركزية المنعكسة = ٢٠٠°.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٥</td>
+                        <td>الأوتار التي على أبعاد متساوية تكون أقواسها المناظرة لها متطابقة.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="false">
+                        <td class="col-num">٦</td>
+                        <td>إذا كان | أ ب | = | ج د | وهما وتران في الدائرة م، فإذا كانت ق ⦣ (أ م ب) = ٧٠° ، فإن ق ⦣ (ج
+                            م د) = ١٤٠°.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٧</td>
+                        <td>
+                            من خلال الشكل المجاور: | هـ أ | = | أ و |، فإن قياس القوس (هـ أ) = قياس القوس (أ و).
+                            <svg width="60" height="30" viewBox="0 0 100 50"
+                                style="vertical-align: middle; margin-right: 10px;">
+                                <circle cx="35" cy="25" r="20" fill="none" stroke="black" stroke-width="1" />
+                                <circle cx="65" cy="25" r="20" fill="none" stroke="black" stroke-width="1" />
+                                <line x1="35" y1="25" x2="65" y2="25" stroke="black" stroke-width="1" />
+                                <circle cx="35" cy="25" r="1.5" fill="black" />
+                                <circle cx="65" cy="25" r="1.5" fill="black" />
+                                <text x="30" y="45" font-family="Amiri" font-size="10">هـ</text>
+                                <text x="65" y="45" font-family="Amiri" font-size="10">و</text>
+                                <text x="47" y="22" font-family="Amiri" font-size="10">أ</text>
+                            </svg>
+                        </td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٨</td>
+                        <td>قياس الزاوية المركزية المنعكسة = ٣٦٠° - درجة قياس القوس الصغير.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">٩</td>
+                        <td>من خلال الشكل أسفل: درجة قياس القوس الصغير (د هـ) = درجة قياس القوس الصغير (أ ب).</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="false">
+                        <td class="col-num">١٠</td>
+                        <td>من خلال الشكل أسفل: درجة قياس القوس (د و) = ١٨٠°.</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="false">
+                        <td class="col-num">١١</td>
+                        <td>من خلال الشكل أسفل: قياس القوس الصغير (د هـ) أكبر من قياس القوس الصغير (ب جـ).</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-answer="true">
+                        <td class="col-num">١٢</td>
+                        <td>من خلال الشكل أسفل: قياس القوس الكبير (هـ و) = قياس الزاوية المركزية (هـ م و).</td>
+                        <td class="col-circles">
+                            <div class="circle-group">
+                                <div class="circle" onclick="checkTF(this, true)"></div>
+                                <div class="circle" onclick="checkTF(this, false)"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin: 15px 0;">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="black" stroke-width="1.2" />
+                    <circle cx="60" cy="60" r="30" fill="none" stroke="black" stroke-width="1.2" />
+                    <circle cx="60" cy="60" r="2" fill="black" />
+                    <text x="56" y="75" font-family="Amiri" font-size="12">م</text>
+                    <line x1="60" y1="60" x2="60" y2="10" stroke="black" stroke-width="1" />
+                    <line x1="60" y1="60" x2="105" y2="35" stroke="black" stroke-width="1" />
+                    <text x="57" y="8" font-family="Amiri" font-size="12">و</text>
+                    <text x="108" y="32" font-family="Amiri" font-size="12">هـ</text>
+                    <text x="75" y="28" font-family="Amiri" font-size="12">ب</text>
+                    <text x="63" y="25" font-family="Amiri" font-size="12">أ</text>
+                    <text x="30" y="85" font-family="Amiri" font-size="12">د</text>
+                    <text x="85" y="85" font-family="Amiri" font-size="12">جـ</text>
+                </svg>
+            </div>
+
+            <div
+                style="background-color: #8faadc; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+            <table class="mcq-table">
+                <tr>
+                    <td colspan="5" style="background-color: #f2f2f2; font-weight: bold;">١. درجة قياس القوس تساوي درجة
+                        قياس:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">الوتر المناظر له.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">الزاوية المركزية المقابلة له.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">الزاوية المركزية المنعكسة.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">القطر المناظر له.</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="background-color: #f2f2f2; font-weight: bold;">٢. الزاوية المركزية هي زاوية
+                        رأسها يقع على:</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">١</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">محيط الدائرة.</td>
+                    <td class="mcq-num">٣</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">وتر الدائرة.</td>
+                </tr>
+                <tr>
+                    <td class="mcq-num">٢</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, true)">مركز الدائرة.</td>
+                    <td class="mcq-num">٤</td>
+                    <td class="mcq-opt" onclick="checkMCQ(this, false)">منتصف نق.</td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٠ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const row = el.closest('tr');
+            const grid = el.closest('table');
+            // Reset siblings in the current choice set
+            const siblings = el.parentElement.querySelectorAll('.mcq-opt');
+            siblings.forEach(s => s.classList.remove('correct', 'wrong'));
+
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

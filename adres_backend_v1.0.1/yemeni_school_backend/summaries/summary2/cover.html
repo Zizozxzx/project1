@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غلاف الوحدة الثانية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&family=Lalezar&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-outer: #000;
+            --border-inner: #8ac5cc;
+            --pink-text: #ff6ca8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .main-container {
+            width: 96vw;
+            max-width: 800px;
+            height: 96vh;
+            max-height: 1120px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-wrapper {
+            flex: 1;
+            border: 4px solid var(--border-outer);
+            background-color: #fff;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .marble-bg {
+            background-color: #f6fbff;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(138, 197, 204, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(138, 197, 204, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 40% 50%, rgba(150, 150, 150, 0.05) 0%, transparent 30%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            border: 1.5px solid #000;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyan-border {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+            border: 4px solid var(--border-inner);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .leaves-tr {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 450px;
+            height: 450px;
+            z-index: 2;
+            pointer-events: none;
+            filter: drop-shadow(3px 6px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .leaves-bl {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 450px;
+            height: 450px;
+            z-index: 2;
+            pointer-events: none;
+            filter: drop-shadow(3px -6px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .center-plaque-container {
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 550px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .plaque-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.15));
+        }
+
+        .plaque-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-pink {
+            color: var(--pink-text);
+            font-family: 'Lalezar', cursive;
+            font-size: 3.8rem;
+            -webkit-text-stroke: 1.5px black;
+            text-shadow: 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000;
+            margin-bottom: -15px;
+            z-index: 2;
+            position: relative;
+            line-height: 1.2;
+            transform: rotate(-2deg);
+        }
+
+        .text-title {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: #000;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -1px;
+        }
+
+        .text-subtitle {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #000;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ribbon-container {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 320px;
+            text-align: center;
+            filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.15));
+        }
+
+        .ribbon-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .ribbon-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding-top: 5px;
+        }
+
+        .ribbon-text {
+            color: var(--pink-text);
+            font-family: 'Lalezar', cursive;
+            font-size: 1.8rem;
+            -webkit-text-stroke: 1px black;
+            text-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+            line-height: 1;
+            transform: rotate(-1deg);
+            display: inline-block;
+        }
+
+        .bottom-credits {
+            text-align: left;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #000;
+            padding-top: 2px;
+            padding-left: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .text-pink {
+                font-size: 2.5rem;
+                -webkit-text-stroke: 1px black;
+                text-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+                margin-bottom: -5px;
+            }
+
+            .text-title {
+                font-size: 1.8rem;
+            }
+
+            .text-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .leaves-tr {
+                width: 250px;
+                height: 250px;
+                top: -20px;
+                right: -20px;
+            }
+
+            .leaves-bl {
+                width: 250px;
+                height: 250px;
+                bottom: -20px;
+                left: -20px;
+            }
+
+            .center-plaque-container {
+                width: 95%;
+                max-width: 400px;
+            }
+
+            .ribbon-container {
+                width: 260px;
+                bottom: 15%;
+            }
+
+            .ribbon-text {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="page-wrapper">
+            <div class="marble-bg">
+                <div class="cyan-border"></div>
+
+                <!-- Top Right Leaves -->
+                <svg viewBox="0 0 500 500" class="leaves-tr" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="leafGrad" cx="40%" cy="40%" r="60%">
+                            <stop offset="0%" stop-color="#ffa6ba" />
+                            <stop offset="60%" stop-color="#cc234c" />
+                            <stop offset="100%" stop-color="#7a0320" />
+                        </radialGradient>
+                        <g id="leaf">
+                            <path d="M 0,0 C -60,60 -50,150 0,200 C 50,150 60,60 0,0 Z" fill="url(#leafGrad)" />
+                            <path d="M 0,0 Q 15,100 0,200" stroke="#ffb8ca" stroke-width="2" fill="none"
+                                opacity="0.4" />
+                            <path d="M 0,40 Q 25,60 40,45 M 0,90 Q 25,110 45,95 M 0,140 Q 25,160 35,145"
+                                stroke="#ffb8ca" stroke-width="1.5" fill="none" opacity="0.3" />
+                            <path d="M 0,50 Q -25,70 -40,55 M 0,100 Q -25,120 -45,105 M 0,150 Q -25,170 -35,155"
+                                stroke="#ffb8ca" stroke-width="1.5" fill="none" opacity="0.3" />
+                        </g>
+                    </defs>
+                    <g transform="translate(380, 80) rotate(55) scale(1.1)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(250, 20) rotate(15) scale(1.05)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(420, 220) rotate(100) scale(1.2)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(300, 160) rotate(45) scale(0.85)">
+                        <use href="#leaf" opacity="0.95" />
+                    </g>
+                    <g transform="translate(180, 120) rotate(-10) scale(0.7)">
+                        <use href="#leaf" opacity="0.9" />
+                    </g>
+                </svg>
+
+                <!-- Bottom Left Leaves -->
+                <svg viewBox="0 0 500 500" class="leaves-bl" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(80, 420) rotate(-125) scale(1.2)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(220, 460) rotate(-75) scale(1.1)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(0, 260) rotate(-160) scale(1.15)">
+                        <use href="#leaf" />
+                    </g>
+                    <g transform="translate(130, 320) rotate(-110) scale(0.9)">
+                        <use href="#leaf" opacity="0.95" />
+                    </g>
+                    <g transform="translate(260, 360) rotate(-50) scale(0.75)">
+                        <use href="#leaf" opacity="0.9" />
+                    </g>
+                </svg>
+
+                <!-- Center Plaque -->
+                <div class="center-plaque-container">
+                    <svg viewBox="0 0 500 250" class="plaque-svg" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M 50 20 L 200 20 Q 250 10 300 20 L 450 20 Q 480 20 480 50 L 480 100 Q 495 125 480 150 L 480 200 Q 480 230 450 230 L 300 230 Q 250 240 200 230 L 50 230 Q 20 230 20 200 L 20 150 Q 5 125 20 100 L 20 50 Q 20 20 50 20 Z"
+                            fill="#b9dfa5" />
+                        <path
+                            d="M 55 28 L 200 28 Q 250 18 300 28 L 445 28 Q 472 28 472 55 L 472 98 Q 485 125 472 152 L 472 195 Q 472 222 445 222 L 300 222 Q 250 232 200 222 L 55 222 Q 28 222 28 195 L 28 152 Q 15 125 28 98 L 28 55 Q 28 28 55 28 Z"
+                            fill="none" stroke="#fff" stroke-width="3" opacity="0.75" />
+                    </svg>
+                    <div class="plaque-content">
+                        <div class="text-pink">الوحدة الثانية</div>
+                        <div class="text-title">تحليل المقادير الجبرية</div>
+                        <div class="text-subtitle">(رياضيات - الصف التاسع)</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Ribbon -->
+                <div class="ribbon-container">
+                    <svg viewBox="0 0 400 90" class="ribbon-svg" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 25 L 40 45 L 10 65 L 100 65 L 100 25 Z" fill="#8cb276" />
+                        <path d="M 390 25 L 360 45 L 390 65 L 300 65 L 300 25 Z" fill="#8cb276" />
+                        <path d="M 70 65 L 70 80 L 85 65 Z" fill="#5c8247" />
+                        <path d="M 330 65 L 330 80 L 315 65 Z" fill="#5c8247" />
+                        <path d="M 70 15 L 330 15 L 330 65 L 70 65 Z" fill="#b9dfa5" />
+                    </svg>
+                    <div class="ribbon-content">
+                        <div class="ribbon-text">إعداد: هلا المولجي</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottom-credits">إعداد: هلا المولجي</div>
+    </div>
+
+</body>
+
+</html>

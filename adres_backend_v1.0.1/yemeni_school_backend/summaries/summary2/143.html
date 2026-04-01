@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٤٣</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --border-color: #000;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #ECEFF1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Top Training Section */
+        .training-block {
+            border: 2px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .training-header {
+            background-color: #f2f2f2;
+            padding: 8px;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.1em;
+        }
+
+        .training-content {
+            display: flex;
+            height: 150px;
+        }
+
+        .training-col {
+            width: 50%;
+            border-left: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .training-col:last-child {
+            border-left: none;
+        }
+
+        .eq-text {
+            direction: ltr;
+            /* Keeping equation LTR for correct rendering of numbers/symbols */
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Header Title */
+        .main-header {
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2em;
+            margin: 20px 0;
+            color: #333;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+
+        /* T/F Section Header */
+        .blue-header {
+            background-color: #D9E1F2;
+            padding: 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #000;
+            margin-bottom: 0;
+            /* Connected to grid */
+        }
+
+        .tf-grid {
+            border: 1px solid #000;
+            border-top: none;
+        }
+
+        .tf-row {
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        .tf-row:last-child {
+            border-bottom: none;
+        }
+
+        .tf-row:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .tf-q {
+            flex-grow: 1;
+            padding: 8px;
+            border-left: 1px solid #000;
+        }
+
+        .tf-opts {
+            width: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .tf-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .tf-circle:hover {
+            background: #eee;
+        }
+
+        .tf-circle.correct {
+            background: #4CAF50;
+            border-color: #2E7D32;
+        }
+
+        .tf-circle.incorrect {
+            background: #F44336;
+            border-color: #C62828;
+        }
+
+        /* MCQ Grid Layout */
+        .q-block {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+            background: #fff;
+        }
+
+        .q-header {
+            padding: 8px;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .opts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .opt-cell {
+            border: 1px solid #000;
+            border-top: none;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Border Logic for 2x2 Grid */
+        /* Cells: 1(TR), 3(TL), 2(BR), 4(BL) */
+        /* Row 1 (Top) */
+        .opt-cell:nth-child(1),
+        .opt-cell:nth-child(2) {
+            /* Standard border setup */
+        }
+
+        /* Row 2 (Bottom) has no bottom border if strictly matching container, but container has border. */
+        .opt-cell:nth-last-child(1),
+        .opt-cell:nth-last-child(2) {
+            border-bottom: none;
+        }
+
+        /* Column lines */
+        .opt-cell:nth-child(odd) {
+            /* Right Cells */
+            border-right: none;
+            border-left: 1px solid #000;
+        }
+
+        .opt-cell:nth-child(even) {
+            /* Left Cells */
+            border-left: none;
+            border-right: none;
+        }
+
+        .opt-cell:hover {
+            background: #f0f0f0;
+        }
+
+        .opt-cell.correct {
+            background: #A5D6A7;
+        }
+
+        .opt-cell.incorrect {
+            background: #EF9A9A;
+        }
+
+        .opt-num {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            font-size: 0.8em;
+            color: #777;
+            font-weight: bold;
+            background: #eee;
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        /* Fractions */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            display: block;
+            line-height: 1;
+        }
+
+        sup {
+            vertical-align: super;
+            font-size: 0.7em;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Training (Drill) -->
+        <div class="training-block">
+            <div class="training-header">
+                تدريب (ج): أوجد مجموعة حل المعادلات التالية باستخدام طريقة القانون العام:
+            </div>
+            <div class="training-content">
+                <div class="training-col">
+                    <div class="eq-text">٢س<sup>٢</sup> + ٣س = -١</div>
+                </div>
+                <div class="training-col">
+                    <div class="eq-text">س<sup>٢</sup> + ٧ = ٠</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Title -->
+        <div class="main-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+        <!-- T/F HEADER -->
+        <div class="blue-header">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+            <div style="width: 100px; display:flex; justify-content:space-around;">
+                <span>صح</span>
+                <span>خطأ</span>
+            </div>
+        </div>
+
+        <!-- T/F Grid -->
+        <div class="tf-grid">
+            <!-- 1. False -->
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">١. عدد حلول معادلة الدرجة الثانية في متغير واحد عدد لا نهائي من الحلول.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 2. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٢. مجموعة حل المعادلة س<sup>٢</sup> - ٧س + ١٢ = ٠ هي { ٣ ، ٤ }.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 3. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٣. للمعادلة س<sup>٢</sup> - ٦س + ٩ = ٠ حلان حقيقيان متساويان في ح.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 4. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٤. للمعادلة ص<sup>٢</sup> + ٥ص + ٣ = ٠ مميز > الصفر.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 5. False (a=4 not 2) -->
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٥. إذا كان س = -١ أحد حلول المعادلة أ س<sup>٢</sup> + ٥س + ١ = ٠ ، فإن قيمة أ = ٢.
+                </div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 6. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٦. أحد حلول المعادلة ٢س<sup>٢</sup> - ٨ = ٠ هو س = -٢.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 7. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٧. المعادلة س<sup>٢</sup> - ٠.٥س - ١٠.٥ = ٠ ، لها مميز > الصفر.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 8. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">٨. المعادلة <div class="fraction"><span class="top">١</span><span
+                            class="bottom">٢س</span></div> = س + ٣ ، تعتبر معادلة من الدرجة الثانية في متغير.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 9. False (Not zero) -->
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">٩. للمعادلة ٢ص + <div class="fraction"><span class="top">٣</span><span
+                            class="bottom">ص</span></div> = ٧ مميز يساوي الصفر.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 10. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">١٠. المعادلة س<sup>٢</sup> - ٣س + ٢ = ٠ لها ∆ = ١.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 11. False -->
+            <div class="tf-row" data-correct="false">
+                <div class="tf-q">١١. المعادلة س<sup>٢</sup> + س - ١ = ٠ ، نستطيع حلها مباشرة بطريقة التحليل.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+            <!-- 12. True -->
+            <div class="tf-row" data-correct="true">
+                <div class="tf-q">١٢. المعادلة س<sup>٢</sup> + س + ٣ = ٠ مستحيلة الحل في ح.</div>
+                <div class="tf-opts">
+                    <div class="tf-circle" onclick="checkTF(this, true)"></div>
+                    <div class="tf-circle" onclick="checkTF(this, false)"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MCQ Header -->
+        <div class="blue-header" style="margin-top:20px; border-bottom:1px solid #000;">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+        </div>
+
+        <!-- Q1: Ans 3 (= Zero) -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">١. بيكون للمعادلة أ س<sup>٢</sup> + ب س + جـ = ٠ حلان حقيقيان متساويان، إذا كان ∆
+                .............</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">> الصفر. <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">
+                    < الصفر. <span class="opt-num">٢</span>
+                </div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">= الصفر. <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">= ١. <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Q2: Ans 2 -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">٢. أياً من المعادلات التالية معادلة من الدرجة الثانية في متغير .............</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">ص + س<sup>٢</sup> - ١ = ٠ . <span
+                        class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">س - س<sup>٢</sup> + ٢ = ٠ . <span
+                        class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">٢س + ١ = س . <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">س + ص = ٥ . <span class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Q3: Ans 4 ({2/3, -1}) -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">٣. مجموعة حل المعادلة ٣ س<sup>٢</sup> + س - ٢ = ٠ تساوي .............</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">{ -٢، ٣ } <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">{ -٢، -٣ } <span class="opt-num">٢</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">{ ٢، ٣ } <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">{٣، -٢} <span class="opt-num">٤</span></div>
+                <!-- Approximation for representation -->
+            </div>
+        </div>
+
+        <!-- Q4: Ans 3 (Real Equal) -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">٤. للمعادلة س<sup>٢</sup> - ١٢ س + ٣٦ = ٠ ، حلان .............</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">حقيقيان مختلفان. <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 2)">حقيقيان متساويان. <span class="opt-num">٢</span></div>
+                <!-- Wait image ordering -->
+                <!-- Image: 1. Diff Real. 2. Equal Non-Real (or something). 3. Equal Real. 4. Diff Non-Real. -->
+                <!-- Correct is Equal Real. If Image Opt 3 is Equ Real, then Correct is 3. -->
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">حقيقيان متساويان. <span class="opt-num">٣</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 4)">غير حقيقيين مختلفان. <span class="opt-num">٤</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ١٤٣ -</div>
+        </footer>
+    </div>
+
+    <script>
+        function checkTF(el, isTrueCol) {
+            const row = el.closest('.tf-row');
+            const expected = row.getAttribute('data-correct') === 'true';
+
+            // Clear siblings
+            row.querySelectorAll('.tf-circle').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            if (isTrueCol === expected) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+
+        function checkMCQ(el, optNum) {
+            const block = el.closest('.q-block');
+            const properCorrect = parseInt(block.getAttribute('data-correct'));
+
+            block.querySelectorAll('.opt-cell').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            if (optNum === properCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>

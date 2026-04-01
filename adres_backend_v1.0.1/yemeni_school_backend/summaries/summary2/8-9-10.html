@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ٧</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.6vmin;
+        }
+
+        .header-title {
+            background-color: #b0c4de;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding: 0.5vmin;
+            border: 2px solid #000;
+            margin-bottom: 2vmin;
+            font-family: var(--ui-font);
+        }
+
+        .section-box {
+            border: 2px solid #000;
+            margin-bottom: 2vmin;
+        }
+
+        .section-box.top {
+            border: none;
+        }
+
+        .section-head {
+            font-weight: bold;
+            font-family: var(--ui-font);
+            margin-bottom: 0.5vmin;
+            border-bottom: 1px solid #000;
+            background-color: #f0f0f0;
+            padding: 0.5vmin;
+        }
+
+        .content-row {
+            padding: 1vmin;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .venn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1vmin 0;
+            position: relative;
+            height: 8vmin;
+        }
+
+        .circle {
+            width: 6vmin;
+            height: 6vmin;
+            border: 2px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .circle.left {
+            left: 45%;
+        }
+
+        .circle.right {
+            right: 45%;
+            background-image: radial-gradient(circle, #000 1px, transparent 1px);
+            background-size: 3px 3px;
+        }
+
+        /* Dotted fill simulation */
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1em;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            width: 60%;
+            vertical-align: bottom;
+        }
+
+        .border-none {
+            border: none;
+        }
+
+        .footer-head-style {
+            text-align: center;
+            border: none;
+            background: none;
+            text-decoration: underline;
+        }
+
+        .font-1-1 {
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="header-title">الدرس الثاني: مجموعة الفرق ومجموعة المتممة</div>
+
+        <!-- Remember Section -->
+        <div class="section-box top">
+            <div><strong>تذكر أن:</strong> ١) هناك عمليتين تم أخذها سابقاً على المجموعات ، وهي:</div>
+            <ul class="list-none pr-2">
+                <li>• عملية التقاطع ( ∩ ) : أخذ العناصر المشتركة فقط بين المجموعات.</li>
+                <li>• عملية الاتحاد ( ∪ ) : أخذ جميع العناصر المشتركة وغير المشتركة بين المجموعات.</li>
+            </ul>
+            <div class="mt-1 pr-2">
+                <div>٢) إذا كان س ⊃ ص، فإن س ∩ ص = ص.</div>
+                <div>٣) إذا كان ص ⊃ س، فإن س ∩ ص = س.</div>
+                <div>٤) إذا كان س ⊃ ص، فإن س ∪ ص = س.</div>
+                <div>٥) إذا كان ص ⊃ س، فإن س ∪ ص = ص.</div>
+            </div>
+        </div>
+
+        <!-- First: Difference Set -->
+        <div class="section-box">
+            <div class="section-head text-center">أولاً: مجموعة الفرق</div>
+            <div class="content-row">
+                <div><strong>التعريف:</strong> المجموعة س فرق المجموعة ص، هي مجموعة عناصرها تنتمي إلى المجموعة س ولا
+                    تنتمي إلى المجموعة ص.</div>
+                <div class="mt-1"><strong>الرمز:</strong> س - ص / س \ ص</div>
+                <div class="mt-1"><strong>الصفة المميزة للتعبير عن مجموعة الفرق:</strong> س / ص = { أ : أ
+                    ∊ س ، أ ∉ ص }.</div>
+                <div class="align-center-mt-1">
+                    <strong>الرسمة:</strong>
+                    <div class="venn-container flex-grow">
+                        <svg width="250" height="120" viewBox="0 0 250 120">
+                            <!-- Definition of patterns -->
+                            <defs>
+                                <pattern id="hatchLines" width="8" height="8" patternTransform="rotate(45 0 0)"
+                                    patternUnits="userSpaceOnUse">
+                                    <line x1="0" y1="0" x2="0" y2="8" class="hatch-line" />
+                                </pattern>
+                            </defs>
+
+                            <!-- Set S -->
+                            <circle cx="90" cy="60" r="40" stroke="black" stroke-width="2" fill="white" />
+                            <text x="75" y="40" font-size="18" font-weight="bold" font-family="Amiri">س</text>
+
+                            <!-- Set S (Difference part shaded) is tricky in pure SVG without path subtraction, 
+                                 Simulating visually for school worksheet: 
+                                 Usually Difference S-P means "In S not in P".
+                                 If they are disjoint: All S shaded.
+                                 If intersecting: S excluding intersection shaded.
+                                 Here we mimic a generic intersection.
+                            -->
+                            <circle cx="160" cy="60" r="40" stroke="black" stroke-width="2" fill="url(#hatchLines)"
+                                fill-opacity="0.3" />
+                            <text x="165" y="40" font-size="18" font-weight="bold" font-family="Amiri">ص</text>
+
+                            <!-- Intersection Outline -->
+                            <path d="M 130,60 A 40,40 0 0,0 120,86.4" fill="none" stroke="none" />
+
+                            <!-- Redraw outlines on top -->
+                            <circle cx="90" cy="60" r="40" stroke="black" stroke-width="2" fill="none" />
+                            <circle cx="160" cy="60" r="40" stroke="black" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 1 -->
+        <div class="section-box">
+            <div class="section-head">تدريب (١): أكمل على نمط السابق:</div>
+            <div class="content-row">
+                <div><strong>التعريف:</strong> المجموعة ص فرق المجموعة س هي <span class="dotted-line"></span></div>
+                <div class="mt-1"><strong>الرمز:</strong> <span class="dotted-line"></span></div>
+                <div class="mt-1"><strong>الصفة المميزة للتعبير عن مجموعة الفرق:</strong> <span
+                        class="dotted-line"></span></div>
+                <div class="align-center-mt-1">
+                    <strong>الرسمة:</strong>
+                    <div class="flex-grow text-center">
+                        <svg width="250" height="100" viewBox="0 0 250 100">
+                            <circle cx="90" cy="50" r="35" stroke="black" stroke-width="2" fill="white" />
+                            <circle cx="160" cy="50" r="35" stroke="black" stroke-width="2" fill="white" />
+                            <text x="90" y="55" font-size="18" font-weight="bold">ص</text>
+                            <text x="160" y="55" font-size="18" font-weight="bold">س</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Steps to find difference -->
+        <div class="section-box border-none border-top-2">
+            <div class="section-head footer-head-style">لإيجاد مجموعة
+                الفرق نتبع الخطوات التالية:</div>
+            <ul class="list-disc pr-4 mt-1 font-1-1">
+                <li>إذا وُجدت مجموعة مكتوبة بطريقة الصفة المميزة نحولها إلى صورة مكتوبة بطريقة السرد.</li>
+                <li>نحذف العناصر المشتركة بين المجموعتين إن وُجدت.</li>
+                <li>نكتب ما تبقى من عناصر المجموعة التي تأتي أولاً ( مثل عملية الطرح - ٨٨ يا عباقرة ).</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٧ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

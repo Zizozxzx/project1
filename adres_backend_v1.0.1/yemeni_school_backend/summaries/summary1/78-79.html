@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 28</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* تصميم العمود الأيمن */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        /* تصميم العمود الأيسر */
+        .left-column {
+            order: 2;
+        }
+        .title-box {
+            border: 2px solid #000;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background-color: #f0f0f0;
+            font-size: 1.2em;
+        }
+        .sub-section {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .math-text {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .fraction span { display: block; padding: 0 3px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+        
+        .note-box {
+            border: 1px solid #000;
+            border-radius: 15px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .star-divider {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* تنسيق الهواتف: الأيمن يعرض أولاً */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ 28 ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="title-box">مجموع مكعبين والفرق بينهما</div>
+            
+            <div class="sub-section">أولاً : الفرق بين مكعبين :</div>
+            <div class="math-text" style="background: #f9f9f9; padding: 10px; border: 1px solid #ccc;">
+                <strong>الفرق بين مكعبي حدين =</strong><br>
+                (الجذر التكعيبي للأول - الجذر التكعيبي للثاني)<br>
+                × ( مربع الأول + الأول × الثاني + مربع الثاني )
+            </div>
+            <p>أي أن : أ<sup>3</sup> - ب<sup>3</sup> = ( أ - ب ) ( أ<sup>2</sup> + أ ب + ب<sup>2</sup> ) " قانون "</p>
+
+            <div class="sub-section">ثانياً : مجموع مكعبين :</div>
+            <div class="math-text" style="background: #f9f9f9; padding: 10px; border: 1px solid #ccc;">
+                <strong>مجموع مكعبي حدين =</strong><br>
+                ( الحد الأول + الحد الثاني ) ( مربع الأول<br>
+                - ضرب الحدين + مربع الحد الثاني )
+            </div>
+            <p>أي أن : أ<sup>3</sup> + ب<sup>3</sup> = ( أ + ب ) ( أ<sup>2</sup> - أ ب + ب<sup>2</sup> )</p>
+
+            <div class="math-text" style="border-top: 2px dashed #000; padding-top: 10px;">
+                <strong>4 : 2 حل تمارين ومسائل الكتاب المدرسي<br> ص 84 إلى 86 على مجموع وفرق مكعبين</strong>
+            </div>
+
+            <p><strong>| 1 | عين المقادير التي هي مجموع مكعبين ثم حللها :</strong></p>
+            <p>أ) س<sup>3</sup> + 1/8 &nbsp;&nbsp; ب) ب<sup>3</sup> + <span class="fraction"><span>8</span><span class="bottom">27</span></span> &nbsp;&nbsp; جـ) م<sup>3</sup> + 1<br>
+               د) 9 + 8 س<sup>3</sup> &nbsp;&nbsp; هـ) س<sup>3</sup> + 1/3 &nbsp;&nbsp; و) 27 ع<sup>3</sup> + 25</p>
+
+            <p><span class="solution-tag">* الحل *</span><br>
+            جميع المقادير تمثل مجموع مكعبين عدا الفقرتين (د) ، (و) حيث :<br>
+            أ) س<sup>3</sup> + 1/8 = ( س + 1/2 ) ( س<sup>2</sup> - 1/2 س + 1/4 )<br>
+            ب) ب<sup>3</sup> + <span class="fraction"><span>8</span><span class="bottom">27</span></span> = ( ب + <span class="fraction"><span>2</span><span class="bottom">3</span></span> ) ( ب<sup>2</sup> - <span class="fraction"><span>2</span><span class="bottom">3</span></span> ب + <span class="fraction"><span>4</span><span class="bottom">9</span></span> )<br>
+            جـ) م<sup>3</sup> + 1 = ( م + 1 ) ( م<sup>2</sup> - م + 1 )<br>
+            د) 9 + 8 س<sup>3</sup> لا يمثل مجموع مكعبين لأن العدد (9) ليس مكعباً لأي عدد أو لا يمكن تحليله إلى ثلاثة عوامل متساوية .<br>
+            هـ) س<sup>3</sup> + 1/3 = ( س + 3 ) ( س<sup>2</sup> - 3 س + 9 )<br>
+            و) 27 ع<sup>3</sup> + 25 لا يمثل مجموع مكعبين لأن 25 ليس مكعب كامل أي لا يمكن تحليله إلى ثلاثة عوامل متساوية .</p>
+
+            <div class="note-box">
+                <span class="solution-tag">ملاحظة :</span><br>
+                حاصل ضرب قوتين متفقتين بالأساس : أ<sup>م</sup> × أ<sup>ن</sup> = أ<sup>م+ن</sup> فمثلاً :<br>
+                س<sup>1</sup> × س<sup>2</sup> = س<sup>1+2</sup> = س<sup>3</sup> بالتالي يكون &sup3;&radic;س<sup>3</sup> = س<sup>1</sup><br>
+                <strong>قانون :</strong> قوة القوى نضرب القوى أي : (أ<sup>م</sup>)<sup>ن</sup> = أ<sup>م×ن</sup><br>
+                مثلاً : (س<sup>2</sup>)<sup>3</sup> = س<sup>2×3</sup> = س<sup>6</sup>
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <p><strong>| 2 | عين المقادير التي هي فرق بين مكعبين ثم حللها :-</strong></p>
+            <p>أ) س<sup>3</sup> - 27 &nbsp;&nbsp; ب) م<sup>3</sup> - 16 &nbsp;&nbsp; جـ) <span class="fraction"><span>4</span><span class="bottom">9</span></span> - س<sup>3</sup><br>
+               د) 27 و<sup>3</sup> - 64 &nbsp;&nbsp; هـ) ل<sup>3</sup> - 25 &nbsp;&nbsp; و) م<sup>6</sup> - 1</p>
+            
+            <p><span class="solution-tag">* الحل *</span><br>
+            المقادير التي تمثل فرق بين مكعبين هي (أ) ، (د) ، (و)<br>
+            وتحليلها كالتالي :-<br>
+            أ) س<sup>3</sup> - 27 = ( س - 3 ) ( س<sup>2</sup> + 3 س + 9 )<br>
+            ب) م<sup>3</sup> - 16 لا تمثل فرق بين مكعبين لأن العدد 16 ليس مكعب كامل .<br>
+            جـ) <span class="fraction"><span>4</span><span class="bottom">9</span></span> - س<sup>3</sup> ليس فرق مكعبين لأن المقام 9 ليس مكعب كامل<br>
+            د) 27 و<sup>3</sup> - 64 = ( 3 و - 4 ) ( 9 و<sup>2</sup> + 12 و + 16 )<br>
+            هـ) لا يمثل فرق بين مكعبين لأن 25 ليس مكعب كامل<br>
+            و) م<sup>6</sup> - 1 = ( م<sup>2</sup> )<sup>3</sup> - (1)<sup>3</sup> يحلل المقدار الأول على صورة فرق بين مربعين = ( م<sup>3</sup> + 1 ) ( م<sup>3</sup> - 1 ) يحلل المقدار الأول على صورة مجموع بين مكعبين = ( م + 1 ) ( م<sup>2</sup> - م + 1 ) ( م - 1 ) ( م<sup>2</sup> + م + 1 )</p>
+
+            <p><strong>| 3 | حلل كل من المقادير الآتية :</strong></p>
+            <div class="math-text">
+                (1) ف<sup>3</sup> + 1 = ( ف + 1 ) ( ف<sup>2</sup> - ف + 1 )<br>
+                (2) س<sup>3</sup> ص<sup>3</sup> ع<sup>3</sup> + 343 = (س ص ع + 7)(س<sup>2</sup> ص<sup>2</sup> ع<sup>2</sup> - 7 س ص ع + 49)<br>
+                (3) <span class="fraction"><span>1</span><span class="bottom">س<sup>3</sup></span></span> + <span class="fraction"><span>1</span><span class="bottom">ص<sup>3</sup></span></span> = ( <span class="fraction"><span>1</span><span class="bottom">س</span></span> + <span class="fraction"><span>1</span><span class="bottom">ص</span></span> ) ( <span class="fraction"><span>1</span><span class="bottom">س<sup>2</sup></span></span> - <span class="fraction"><span>1</span><span class="bottom">س ص</span></span> + <span class="fraction"><span>1</span><span class="bottom">ص<sup>2</sup></span></span> )<br>
+                (4) أ<sup>3</sup> - 8 ب<sup>3</sup> = ( أ - 2 ب ) ( أ<sup>2</sup> + 2 أ ب + 4 ب<sup>2</sup> )<br>
+                (5) 216 س<sup>3</sup> + 64 ص<sup>3</sup> = ( 6 س + 4 ص ) ( 36 س<sup>2</sup> - 24 س ص + 16 ص<sup>2</sup> )<br>
+                (6) 1000 ص<sup>3</sup> - 1 = ( 10 ص - 1 ) ( 100 ص<sup>2</sup> + 10 ص + 1 )<br>
+                (7) ل<sup>3</sup> - <span class="fraction"><span>1</span><span class="bottom">125</span></span> = ( ل - <span class="fraction"><span>1</span><span class="bottom">5</span></span> ) ( ل<sup>2</sup> + <span class="fraction"><span>1</span><span class="bottom">5</span></span> ل + <span class="fraction"><span>1</span><span class="bottom">25</span></span> )<br>
+                (8) س ع<sup>3</sup> - س ل<sup>3</sup> = س ( ع<sup>3</sup> - ل<sup>3</sup> ) = س ( ع - ل ) ( ع<sup>2</sup> + ع ل + ل<sup>2</sup> )<br>
+                (9) 216 ك<sup>3</sup> + 64 ل<sup>3</sup> = ( 6 ك + 4 ل ) ( 36 ك<sup>2</sup> - 24 ك ل + 16 ل<sup>2</sup> )<br>
+                (10) <span class="fraction"><span>27</span><span class="bottom">س<sup>3</sup></span></span> + <span class="fraction"><span>1</span><span class="bottom">8</span></span> = ( <span class="fraction"><span>3</span><span class="bottom">س</span></span> + <span class="fraction"><span>1</span><span class="bottom">2</span></span> ) ( <span class="fraction"><span>9</span><span class="bottom">س<sup>2</sup></span></span> - <span class="fraction"><span>3</span><span class="bottom">2س</span></span> + <span class="fraction"><span>1</span><span class="bottom">4</span></span> )<br>
+                (11) 0.008 - ص<sup>3</sup> = ( 0.2 - ص ) ( 0.04 + 0.2 ص + ص<sup>2</sup> )<br>
+                (12) 2 ( س - 1 )<sup>3</sup> - 2 = 2 [ ( س - 1 )<sup>3</sup> - 1 ]<br>
+                = 2 [ ( ( س - 1 ) - 1 ) ( ( س - 1 )<sup>2</sup> + ( س - 1 ) + 1 ) ]<br>
+                = 2 ( س - 2 ) ( س<sup>2</sup> - 2 س + 1 + س - 1 + 1 )<br>
+                = 2 ( س - 2 ) ( س<sup>2</sup> - س + 1 ) #<br>
+                (13) ( م + ن )<sup>3</sup> - ن<sup>3</sup><br>
+                = [ ( م + ن ) - ن ] [ ( م + ن )<sup>2</sup> + ن ( م + ن ) + ن<sup>2</sup> ]<br>
+                = م [ م<sup>2</sup> + 2 م ن + ن<sup>2</sup> + م ن + ن<sup>2</sup> + ن<sup>2</sup> ]<br>
+                = م ( م<sup>2</sup> + 3 م ن + 3 ن<sup>2</sup> ) #<br>
+                (14) 500 س<sup>3</sup> ص<sup>3</sup> + 256 س<sup>3</sup> ص<sup>3</sup><br>
+                = 4 س<sup>3</sup> ص<sup>3</sup> ( 125 + 64 ) <br>
+                = 4 س<sup>3</sup> ص<sup>3</sup> ( 5 + 4 ) ( 25 - 20 ص + 16 ص<sup>2</sup> )<br>
+                (15) 27.001 + <span class="fraction"><span>125</span><span class="bottom">216</span></span> ب<sup>3</sup><br>
+                = ( 3.01 ) ( <span class="fraction"><span>5</span><span class="bottom">6</span></span> ب ) ( 9.06 + <span class="fraction"><span>15</span><span class="bottom">6</span></span> أ ب + <span class="fraction"><span>25</span><span class="bottom">36</span></span> ب<sup>2</sup> ) <br>
+                (16) ( أ - ب )<sup>3</sup> - 64 ب<sup>3</sup><br>
+                = [ ( أ - ب ) - 4 ب ] [ ( أ - b )<sup>2</sup> + 4 ب ( أ - ب ) + 16 ب<sup>2</sup> ]<br>
+                = ( أ - 5 ب ) ( أ<sup>2</sup> - 2 أ ب + ب<sup>2</sup> + 4 أ ب - 4 ب<sup>2</sup> + 16 ب<sup>2</sup> )<br>
+                = ( أ - 5 ب ) ( أ<sup>2</sup> + 2 أ ب + 13 ب<sup>2</sup> )
+            </div>
+
+            <div class="star-divider">***</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

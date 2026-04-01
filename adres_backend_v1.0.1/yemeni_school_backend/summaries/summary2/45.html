@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٤٦ - رياضيات تاسع (معدلة)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #dce6f1;
+            /* لون أزرق فاتح للعناوين */
+            --border-col: #000;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --wrong-bg: #f8d7da;
+            --wrong-border: #dc3545;
+        }
+
+        body {
+            font-family: 'Amiri', 'Tajawal', serif;
+            /* خط يشبه كتب الرياضيات */
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sheet-container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 850px;
+            border: 2px solid var(--border-col);
+            padding: 15px;
+            position: relative;
+        }
+
+        /* تنسيق الكسور (بسط ومقام عمودي) */
+        .frac {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .frac .num {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        .frac .den {
+            display: block;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        /* تنسيق الجذور (رمز الجذر مع خط علوي) */
+        .sqrt-box {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .radical {
+            font-size: 1.2em;
+            line-height: 1;
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+
+        .radicand {
+            border-top: 1px solid #000;
+            padding-top: 3px;
+            margin-right: -2px;
+            /* تقريب الخط من الرمز */
+        }
+
+        /* القسم العلوي (الكتابي) */
+        .written-box {
+            margin-bottom: 20px;
+        }
+
+        .q-header {
+            font-weight: bold;
+            background-color: #f2f2f2;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .written-row {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .dots-line {
+            display: block;
+            border-bottom: 2px dashed #999;
+            width: 100%;
+            height: 20px;
+            margin-top: 5px;
+        }
+
+        /* عناوين الأقسام الزرقاء */
+        .section-title {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-col);
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .section-subtitle {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-col);
+            border-top: none;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        /* جدول الصح والخطأ */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+
+        .tf-table td {
+            border: 1px solid var(--border-col);
+            padding: 6px;
+            vertical-align: middle;
+        }
+
+        /* العمود الأول للنص */
+        .tf-text {
+            text-align: right;
+        }
+
+        /* العمود الثاني للدوائر (يسار الورقة) */
+        .tf-bubbles {
+            width: 80px;
+            text-align: center;
+            /* توسيط الدوائر داخل الخلية */
+            white-space: nowrap;
+        }
+
+        .bubble {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin: 0 4px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .bubble:hover {
+            background-color: #eee;
+        }
+
+        /* قسم الاختيارات (MCQ) */
+        .mcq-container {
+            border: 1px solid var(--border-col);
+            border-top: none;
+        }
+
+        .mcq-row {
+            border-bottom: 1px solid var(--border-col);
+        }
+
+        .mcq-question {
+            background-color: #fff;
+            padding: 8px 10px;
+            font-weight: bold;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .mcq-options {
+            display: flex;
+            flex-direction: row;
+            /* من اليمين لليسار تلقائياً بسبب dir=rtl */
+            width: 100%;
+        }
+
+        .mcq-opt {
+            flex: 1;
+            /* توزيع متساوي */
+            border-left: 1px solid var(--border-col);
+            padding: 8px 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .mcq-opt:last-child {
+            border-left: none;
+            /* إزالة الحد من الخيار الأخير (رقم 4 يسار الصفحة) */
+        }
+
+        .mcq-opt:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* أرقام الخيارات */
+        .opt-num {
+            margin-left: 5px;
+            color: #444;
+            font-size: 0.9em;
+        }
+
+        /* التفاعلية */
+        .correct {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border);
+        }
+
+        .wrong {
+            background-color: var(--wrong-bg) !important;
+            border-color: var(--wrong-border);
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .page,
+            .a4-page,
+            .page-container,
+            .container,
+            .sheet-container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+                /* Allow scrolling for oversized horizontal content */
+            }
+
+            .inner-border,
+            .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important;
+            }
+
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+
+            /* page 45 explicit fixes for layout squishing */
+            .mcq-options {
+                flex-direction: column;
+            }
+
+            .mcq-opt {
+                border-left: none;
+                border-bottom: 1px solid var(--border-col);
+                justify-content: right;
+                padding: 10px 15px;
+            }
+
+            .mcq-opt:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet-container">
+
+        <div class="written-box">
+            <div class="q-header">تدريب (٦): حلل المقادير التالية بإكمال المربع ثم حلله بطريقة أخرى إن أمكن:</div>
+
+            <div class="written-row">
+                ٦. س<sup>٢</sup> + ١٤ س .
+                <div class="dots-line"></div>
+                <div class="dots-line"></div>
+            </div>
+
+            <div class="written-row">
+                ٧. س<sup>٢</sup> + ٢ س - ٨ .
+                <div class="dots-line"></div>
+                <div class="dots-line"></div>
+            </div>
+
+            <div class="written-row">
+                ٨. ٣٦ س<sup>٤</sup> - ١٠٠ س<sup>٢</sup> ص<sup>٢</sup> + ٤٩ ص<sup>٤</sup> .
+                <div class="dots-line"></div>
+                <div class="dots-line"></div>
+            </div>
+        </div>
+
+        <div class="section-title">أسئلة على الدرس بطريقة الأتمتة</div>
+        <div class="section-subtitle">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+            <span>صح &nbsp; &nbsp; خطأ</span>
+        </div>
+
+        <table class="tf-table">
+            <tr>
+                <td class="tf-text">١. لإكمال المقدار س<sup>٢</sup> - ١٠ س إلى مربع كامل نضيف إليه ٢٥.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" title="صح" onclick="checkTF(this, true)"></span> <span class="bubble"
+                        title="خطأ" onclick="checkTF(this, false)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٢. لإكمال المقدار ل<sup>٢</sup> + ٨١ إلى مربع كامل نضيف إليه ٨ ل.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">
+                    ٣. لتحليل المقدار س<sup>٢</sup> +
+                    <div class="frac"><span class="num">١٠</span><span class="den">٣</span></div> س + ١
+                    بإكمال المربع نضيف إليه ونطرح منه
+                    <div class="frac"><span class="num">١٠٠</span><span class="den">٩</span></div> .
+                </td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٤. قيمة جـ التي تجعل المقدار جـ ص<sup>٢</sup> + ٢٨ ص + ٤٩ مربعاً كاملاً هي ٤.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, true)"></span> <span class="bubble"
+                        onclick="checkTF(this, false)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٥. قيمة ل التي تجعل المقدار ٩ س<sup>٢</sup> + ١٢ س ص + ل مربعاً كاملاً هي ٤.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٦. يتحلل المقدار أ<sup>٤</sup> + ٤ ب<sup>٤</sup> بإكمال المربع إلى (أ<sup>٢</sup> +
+                    ٢ ب<sup>٢</sup> - ٢ أ ب) (أ<sup>٢</sup> + ٢ ب<sup>٢</sup> - ٢ أ ب).</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٧. المقدار ٢ س<sup>٢</sup> - ٥ س + ٦ يتحلل بطريقة إكمال المربع وطريقة المقص.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٨. يمكن تحليل فرق بين مربعين بطريقة إكمال المربع.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, false)"></span>
+                    <span class="bubble" onclick="checkTF(this, true)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">٩. يمكن تحليل المقدار الثلاثي غير البسيط بإكمال المربع.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, true)"></span> <span class="bubble"
+                        onclick="checkTF(this, false)"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tf-text">١٠. يؤول التحليل بإكمال المربع إلى تحليل الفرق بين مربعين دائماً.</td>
+                <td class="tf-bubbles">
+                    <span class="bubble" onclick="checkTF(this, true)"></span> <span class="bubble"
+                        onclick="checkTF(this, false)"></span>
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-subtitle" style="margin-top: 0; border-top: none; justify-content: center;">
+            ظلل الإجابة الصحيحة فيما يلي:
+        </div>
+
+        <div class="mcq-container">
+
+            <div class="mcq-row">
+                <div class="mcq-question">
+                    ١. لإكمال المربع س<sup>٢</sup> - ٢
+                    <span class="sqrt-box"><span class="radical">√</span><span class="radicand"> ٧</span></span> س
+                    نضيف إليه .........:
+                </div>
+                <div class="mcq-options">
+                    <div class="mcq-opt" onclick="checkMCQ(this, true)"><span class="opt-num">١.</span> ٥</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٢.</span> ٢٥</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٣.</span> -٥</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٤.</span> -٢٥</div>
+                </div>
+            </div>
+
+            <div class="mcq-row">
+                <div class="mcq-question">
+                    ٢. قيمة م التي تجعل المقدار ع<sup>٢</sup> + ٥ ع + م مربع كامل هي ........:
+                </div>
+                <div class="mcq-options">
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)">
+                        <span class="opt-num">١.</span>
+                        <div class="frac"><span class="num">٥</span><span class="den">-٢</span></div>
+                    </div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, true)">
+                        <span class="opt-num">٢.</span>
+                        <div class="frac"><span class="num">٢٥</span><span class="den">٤</span></div>
+                    </div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)">
+                        <span class="opt-num">٣.</span>
+                        <div class="frac"><span class="num">٥</span><span class="den">٠٢</span></div>
+                    </div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)">
+                        <span class="opt-num">٤.</span>
+                        <div class="frac"><span class="num">٢٥</span><span class="den">-٤</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-row">
+                <div class="mcq-question">
+                    ٣. لإكمال المقدار ل<sup>٢</sup> + ١ إلى مربع كامل نضيف إليه ............:
+                </div>
+                <div class="mcq-options">
+                    <div class="mcq-opt" onclick="checkMCQ(this, true)"><span class="opt-num">١.</span> ٢ س .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٢.</span> - ٢ س .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٣.</span> - س .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٤.</span> س .</div>
+                </div>
+            </div>
+
+            <div class="mcq-row">
+                <div class="mcq-question">
+                    ٤. لإكمال المقدار ٤ ص<sup>٤</sup> - ٧ ص<sup>٢</sup> ع<sup>٢</sup> + ٤ ع<sup>٤</sup> إلى مربع كامل
+                    نضيف إليه:
+                </div>
+                <div class="mcq-options">
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">١.</span> ٢ ص<sup>٢</sup>
+                        ع<sup>٢</sup> .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٢.</span> - ٢
+                        ص<sup>٢</sup> ع<sup>٢</sup> .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, false)"><span class="opt-num">٣.</span> - ٤
+                        ص<sup>٢</sup> ع<sup>٢</sup> .</div>
+                    <div class="mcq-opt" onclick="checkMCQ(this, true)"><span class="opt-num">٤.</span> ٤ ص<sup>٢</sup>
+                        ع<sup>٢</sup> .</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">- ٤٥ -</div>
+        <div class="watermark">إعداد: هلا المولجي</div>
+
+    </div>
+
+    <script>
+        // دالة تصحيح الصح والخطأ
+        // في هذا التصميم: الدائرة الأولى (يمين) هي "صح"، الدائرة الثانية (يسار/أقصى الورقة) هي "خطأ"
+        // isCorrect here means "Is this specific bubble the correct answer?"
+        function checkTF(element, isWinningMove) {
+            let parent = element.parentElement;
+            let bubbles = parent.getElementsByClassName('bubble');
+
+            // تصفير الألوان
+            for (let b of bubbles) {
+                b.style.backgroundColor = 'transparent';
+                b.style.borderColor = '#000';
+            }
+
+            // تلوين الإجابة
+            if (isWinningMove) {
+                element.style.backgroundColor = 'var(--correct-bg)';
+                element.style.borderColor = 'var(--correct-border)';
+            } else {
+                element.style.backgroundColor = 'var(--wrong-bg)';
+                element.style.borderColor = 'var(--wrong-border)';
+            }
+        }
+
+        // دالة تصحيح الاختيارات
+        function checkMCQ(element, isCorrect) {
+            let parent = element.parentElement;
+            let options = parent.getElementsByClassName('mcq-opt');
+
+            // تصفير الألوان
+            for (let opt of options) {
+                opt.classList.remove('correct', 'wrong');
+            }
+
+            // تلوين الاختيار
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

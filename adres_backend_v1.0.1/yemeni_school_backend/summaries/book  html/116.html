@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التمثيل البياني – الصف التاسع</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+.page{
+    max-width:900px;
+    margin:auto;
+    padding:20px 60px 160px 60px;
+    position:relative;
+}
+
+/* العنوان العلوي */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+.header span{
+    font-size:18px;
+}
+.header .line{
+    flex:1;
+    height:4px;
+    background:#00a0df;
+    margin-right:15px;
+}
+
+/* نص */
+.section{
+    font-size:20px;
+    line-height:2.6;
+    margin-bottom:20px;
+}
+
+/* إطار مثال */
+.example{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:14px;
+    padding:6px 18px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+/* الحل */
+.solution{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:20px;
+    padding:6px 22px;
+    background:#000;
+    color:#fff;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+/* الرسم */
+.graph-box{
+    width:100%;
+    margin:30px auto;
+    border:1px solid #ccc;
+    padding:10px;
+}
+
+/* التذييل */
+.footer-line{
+    position:absolute;
+    bottom:40px;
+    right:60px;
+    left:60px;
+    height:4px;
+    background:#00a0df;
+}
+.page-number{
+    position:absolute;
+    bottom:15px;
+    left:60px;
+    width:60px;
+    height:60px;
+    border:3px solid #00a0df;
+    border-radius:50%;
+    text-align:center;
+    line-height:54px;
+    font-size:22px;
+    font-weight:bold;
+}
+.footer-link{
+    position:absolute;
+    bottom:-35px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#1a5fb4;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+    <div class="header">
+        <span>المعادلات</span>
+        <div class="line"></div>
+    </div>
+
+    <div class="section">
+        (٤) مثل الزوجين المرتبين كنقطتين في المستوى ح × ح  
+        <br>
+        (٥) نصل النقطتين باستخدام المسطرة، والمستقيم يمثل مجموعة حل المعادلة.
+    </div>
+
+    <!-- الرسم البياني المرسوم SVG -->
+    <div class="graph-box">
+    <svg viewBox="0 0 600 600" width="100%" height="600">
+
+        <!-- شبكة -->
+        <g stroke="#ddd" stroke-width="1">
+            <!-- خطوط عمودية -->
+            <line x1="100" y1="0" x2="100" y2="600"/>
+            <line x1="200" y1="0" x2="200" y2="600"/>
+            <line x1="300" y1="0" x2="300" y2="600"/>
+            <line x1="400" y1="0" x2="400" y2="600"/>
+            <line x1="500" y1="0" x2="500" y2="600"/>
+
+            <!-- خطوط أفقية -->
+            <line x1="0" y1="100" x2="600" y2="100"/>
+            <line x1="0" y1="200" x2="600" y2="200"/>
+            <line x1="0" y1="300" x2="600" y2="300"/>
+            <line x1="0" y1="400" x2="600" y2="400"/>
+            <line x1="0" y1="500" x2="600" y2="500"/>
+        </g>
+
+        <!-- المحاور -->
+        <line x1="300" y1="0" x2="300" y2="600" stroke="#000" stroke-width="3"/>
+        <line x1="0" y1="300" x2="600" y2="300" stroke="#000" stroke-width="3"/>
+
+        <!-- الأسهم -->
+        <polygon points="300,0 290,20 310,20" fill="#000"/>
+        <polygon points="600,300 580,290 580,310" fill="#000"/>
+
+        <!-- أسماء المحاور -->
+        <text x="310" y="20" font-size="18">ص</text>
+        <text x="570" y="290" font-size="18">س</text>
+
+        <!-- الخط المستقيم (ص = س - 1) -->
+        <line x1="100" y1="400" x2="500" y2="0"
+              stroke="#00a0df" stroke-width="4"/>
+
+        <!-- نقاط -->
+        <circle cx="300" cy="300" r="6" fill="#00a0df"/>
+        <circle cx="400" cy="200" r="6" fill="#00a0df"/>
+
+        <!-- تسميات -->
+        <text x="310" y="320" font-size="16">(0 ، 0)</text>
+        <text x="410" y="190" font-size="16">(1 ، 1)</text>
+
+    </svg>
+    </div>
+
+    <div class="section">
+        <strong>التحقق :</strong><br>
+        نأخذ أي زوج مرتب مثل (١ ، ٠) يحقق المعادلة وإذا وقعت النقطة على المستقيم
+        فيعد ذلك تحققًا من صحة الرسم.
+    </div>
+
+    <div class="example">مثال (٦)</div>
+
+    <div class="section">
+        مثل بيانياً مجموعة حل المعادلة : س − ص = ٥ .
+    </div>
+
+    <div class="solution">الحل :</div>
+
+    <div class="section">
+        نكتب المعادلة بدلالة أحد المتغيرين:
+        <br>
+        ص = س − ٥
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="page-number">١١٩</div>
+    <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+
+</div>
+</body>
+</html>

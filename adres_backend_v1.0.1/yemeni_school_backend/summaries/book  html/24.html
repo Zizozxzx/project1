@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة ٢٨</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Tahoma","Arial",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:10px;
+}
+.header .title{
+    font-size:18px;
+    margin-left:15px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* عناوين */
+.solution{
+    display:inline-block;
+    background:#000;
+    color:#fff;
+    border-radius:20px;
+    padding:6px 18px;
+    font-size:18px;
+    margin:10px 0;
+}
+.note{
+    color:#1aa3d9;
+    font-weight:bold;
+}
+
+/* النص */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+
+/* مثال */
+.example{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:14px;
+    padding:4px 14px;
+    font-size:18px;
+    margin:10px 0;
+}
+
+/* مخطط سهمي */
+.diagram{
+    border:2px solid #000;
+    margin:10px 0 4px;
+    padding:10px;
+    width:420px;
+}
+.diagram-wrapper{
+    display:flex;
+    justify-content:flex-start;
+}
+.caption{
+    font-size:16px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+/* التذييل */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:25px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- الرأس -->
+<div class="header">
+    <div class="title">المجموعات والعلاقات</div>
+    <div class="line"></div>
+</div>
+
+<div class="solution">الحل :</div>
+
+<p>
+– ع انعكاسية لأن لكل أ ∈ ك فإن ( أ ، أ ) ∈ ع .
+</p>
+
+<p>
+– ع ليست متناظرة لأن ( ٣ ، ٥ ) ∈ ع ولكن ( ٥ ، ٣ ) ∉ ع .
+</p>
+
+<p>
+∴ ع ليست علاقة تكافؤ .
+</p>
+
+<p class="note">
+ملحوظة :
+</p>
+
+<p>
+تكون العلاقة ع ليست علاقة تكافؤ إذا لم تكن ع انعكاسية ، أو متناظرة ، أو متعدية .
+</p>
+
+<p class="example">مثال ( ٤ )</p>
+
+<p>
+لتكن س = { ٢ ، ٤ ، ٨ } ، ع علاقة على المجموعة س والموضحة بالمخطط السهمي في الشكل ( ١٨ - ١ ) .
+</p>
+
+<p>
+بيّن أن هذه العلاقة هي علاقة تكافؤ على المجموعة س .
+</p>
+
+<div class="diagram-wrapper">
+<div class="diagram">
+<svg width="380" height="200">
+    <!-- نقاط -->
+    <circle cx="60" cy="100" r="5" fill="#000"/>
+    <circle cx="190" cy="100" r="5" fill="#000"/>
+    <circle cx="320" cy="100" r="5" fill="#000"/>
+
+    <text x="45" y="125" font-size="16">٨</text>
+    <text x="175" y="125" font-size="16">٤</text>
+    <text x="305" y="125" font-size="16">٢</text>
+
+    <!-- أسهم -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#000"/>
+        </marker>
+    </defs>
+
+    <!-- انعكاسية -->
+    <path d="M55,90 C30,60 90,60 65,90" fill="none" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M185,90 C160,60 220,60 195,90" fill="none" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M315,90 C290,60 350,60 325,90" fill="none" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- تبادلية -->
+    <line x1="60" y1="100" x2="190" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="190" y1="100" x2="60" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <line x1="190" y1="100" x2="320" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="320" y1="100" x2="190" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <line x1="60" y1="100" x2="320" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="320" y1="100" x2="60" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+</div>
+</div>
+
+<div class="caption">شكل ( ١٨ - ١ )</div>
+
+<div class="solution">الحل :</div>
+
+<p>
+ع = { ( ٢ ، ٢ ) ، ( ٤ ، ٢ ) ، ( ٢ ، ٤ ) ، ( ٤ ، ٤ ) ، ( ٨ ، ٤ ) ، ( ٤ ، ٨ ) ، ( ٨ ، ٨ ) ، ( ٢ ، ٨ ) ، ( ٨ ، ٢ ) } .
+</p>
+
+<p>
+– ع علاقة انعكاسية لأن لكل أ ∈ س فإن ( أ ، أ ) ∈ ع .
+</p>
+
+<p>
+– ع متناظرة لأن ( ٢ ، ٨ ) ∈ ع وأيضاً ( ٨ ، ٢ ) ∈ ع ، وكذلك ( ٤ ، ٨ ) ∈ ع .
+</p>
+
+<p>
+–  لأن ( ٢ ، ٤ ) ، ( ٤ ، ٢ ) ∈ ع ⇒ ( ٤ ، ٨ ) ∈ ع وأيضاً ( ٨ ، ٤ ) ∈ ع ، وبالمثل لبقية الأزواج .
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="page-num">٢٨</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

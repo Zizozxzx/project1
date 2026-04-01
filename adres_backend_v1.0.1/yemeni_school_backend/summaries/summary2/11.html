@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١١</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.5vmin;
+            padding: 2vmin;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-title {
+            background-color: var(--header-bg);
+            font-weight: bold;
+            text-align: right;
+            padding: 1vmin;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: var(--ui-font);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 3vmin 1fr 3vmin;
+            border: 2px solid #000;
+            border-top: 1px solid #000;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        /* Q, Opt1Num, Opt1Text, Opt2Num... customized layout for this page as it lists options differently */
+
+        .question-block {
+            grid-column: 1 / -1;
+            border-bottom: 1px solid #000;
+            background-color: #f9f9f9;
+            padding: 0.5vmin;
+            font-weight: bold;
+        }
+
+        .option-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 3vmin 1fr 3vmin 1fr;
+            border-bottom: 1px solid #000;
+        }
+
+        .opt-num {
+            border-left: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .opt-text {
+            border-left: 1px solid #000;
+            display: flex;
+            align-items: center;
+            padding-right: 1vmin;
+        }
+
+        .opt-text:last-child {
+            border-left: none;
+        }
+
+        .venn-section {
+            grid-column: 1 / -1;
+            border-bottom: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1vmin;
+            height: 15vmin;
+            /* Fixed height for venn area */
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .no-border-bottom {
+            border-bottom: none;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="header-title">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+        <div class="data-grid">
+            <!-- Q1 -->
+            <div class="question-block">١. { أ : أ ∊ س ، أ ∉ ط } = ......... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">صَ !</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">ش / س.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">س / ش.</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">شَ !</div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-block">٢. س / { ٥ ، ٧ ، ٨ ، ١٠ } = { ٢ ، ٣ ، ٤ } ، فإن س = ......... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">∅</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ٢ ، ٥ ، ٣ ، ٧ }.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ ٤ ، ٥ ، ٧ ، ٣ }.</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ٢ ، ٣ ، ٥ ، ٤ }.</div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-block">٣. إذا كانت ش مجموعة عوامل العدد ٣٦ ، س مجموعة عوامل العدد ٦ ، فإن سَ! =
+                ......... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">{ ٦ ، ١ ، ١٢ ، ٣٠ }.</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ٢ ، ١٨ ، ٣ ، ١٢ }.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ ٦ ، ١ ، ٢ ، ٣ }.</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ١٨ ، ٤ ، ٩ ، ١٢ ، ٣٦ }.</div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-block">٤. { ٤ ، ٥ ، ١١ } / مجموعة الأعداد الصحيحة = ......... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">∅</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ٥ ، ٤ ، ١١ }</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ ٥ ، ٤ }</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">مجموعة الأعداد الصحيحة.</div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-block">٥. إذا كانت ش هي مجموعة الأعداد الطبيعية ، فإن { ٠ ، ١ ، ٢ }` = ......... :
+            </div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">ط</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ٣ ، ٤ ، ٥ .... }.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ -١ ، -٢ ، -٣ .... }.</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ٣ ، ٤ ، ٥ }</div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question-block">٦. إذا كانت ش = { (٢ ، ٣) ، (٤ ، ٣) ، (٥ ، ٣) } ، ( ٣ ، ٢ ) }` = ......... :
+            </div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">{ ( ٢ ، ٣ ) ، ( ٤ ، ٣ ) }.</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ( ٢ ، ٣ ) }.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ ( ٤ ، ٣ ) ، ( ٥ ، ٣ ) }.</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ٤ ، ٣ ، ٥ }.</div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-block">٧. إذا كان { ٤ ، س ، ٦ ، ٧ } / { ٤ ، ٨ ، ٩ ، ١٠ } = { ١١ ، ٦ ، ٧ } ، فإن س =
+                ...... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">١٠</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">٩</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">١١</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">٨</div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-block">٨. { ١ ، ٠ ، ١١ ، ١٠٠ } / ص = { ١١ ، ٠ } ، فإن ص = ......... :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">{ ١ ، ١١ }</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">{ ١٠ ، ١٢ }</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">{ ١٠٠ ، ١ }</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ١٠ ، ١ ، ١٢ }.</div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-block">٩. إذا كانت ش هي مجموعة الأعداد الصحيحة ، فإن متممة الأعداد الطبيعية = .........
+                :</div>
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">ص-</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">ص- ∪ صَ.</div>
+            </div>
+            <div class="option-row">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">ص+</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">{ ٠ } ∪ ص-.</div>
+            </div>
+
+            <!-- Venn Diagram Q10 -->
+            <div class="question-block no-border-bottom">١٠. يمثل الشكل المجاور ............:</div>
+            <div class="venn-section">
+                <svg width="200" height="80" viewBox="0 0 200 80">
+                    <!-- Background shaded rectangle -->
+                    <rect x="10" y="10" width="180" height="60" rx="5" fill="url(#hatchBlue)" stroke="black" />
+
+                    <!-- Two intersecting circles, white (unshaded) -->
+                    <circle cx="70" cy="40" r="25" fill="white" stroke="black" />
+                    <circle cx="110" cy="40" r="25" fill="white" stroke="black" />
+
+                    <!-- Labels -->
+                    <text x="60" y="35" font-size="14">ص</text>
+                    <text x="110" y="35" font-size="14">س</text>
+
+                    <defs>
+                        <pattern id="hatchBlue" width="4" height="4" patternTransform="rotate(45 0 0)"
+                            patternUnits="userSpaceOnUse">
+                            <rect width="2" height="4" fill="#6699ff" />
+                        </pattern>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Venn Options -->
+            <div class="option-row">
+                <div class="opt-num">١</div>
+                <div class="opt-text">[ ( ص ∪ س ) / س ] / صَ !</div>
+                <div class="opt-num">٣</div>
+                <div class="opt-text">[ ( ص / س ) ∪ س ] / صَ !</div>
+            </div>
+            <div class="option-row no-border-bottom">
+                <div class="opt-num">٢</div>
+                <div class="opt-text">[ ( ص / س ) ∩ س ] / صَ !</div>
+                <div class="opt-num">٤</div>
+                <div class="opt-text">[ ( ص / س ) ∪ س ] / ص [ ]</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١١ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

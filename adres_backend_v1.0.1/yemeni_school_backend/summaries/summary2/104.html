@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٠٤ - أتمتة الزوايا المركزية والمحيطية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: -1px;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 6px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 5px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .opt-item {
+            padding: 6px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: 0.2s;
+        }
+
+        .opt-item:last-child {
+            border-left: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-item:nth-child(even) {
+                border-left: none;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="section-header">أتمتة الدرس الثالث</div>
+
+            <div class="sub-header">
+                <span>أولاً: ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">١</td>
+                    <td>قياس الزاوية المركزية يساوي قياس القوس المقابل لها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>قياس الزاوية المحيطية يساوي نصف قياس الزاوية المركزية المشتركة معها في نفس القوس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٣</td>
+                    <td>الزاوية المحيطية المرسومة في نصف دائرة تكون حادة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>الزوايا المحيطية المرسومة على نفس القوس في دائرة واحدة متساوية في القياس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٥</td>
+                    <td>قياس القوس الذي قياس زاويته المركزية ٥٠° يساوي ٥٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٦</td>
+                    <td>قياس الزاوية المركزية يساوي ضعف قياس الزاوية المحيطية المشتركة معها في القوس.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٧</td>
+                    <td>الزاوية المحيطية المرسومة على القوس الأصغر تكون منفرجة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٨</td>
+                    <td>الزاوية المحيطية المرسومة على القوس الأكبر تكون حادة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٩</td>
+                    <td>ق ⦣ م المركزية = ٦٠° فإن ق ⦣ المحيطية المشتركة معها في القوس = ٣٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٠</td>
+                    <td>ق ⦣ المحيطية = ٤٠° فإن ق ⦣ م المركزية المشتركة معها في القوس = ٨٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١١</td>
+                    <td>ق ⦣ المحيطية = ٥٠° فإن قياس القوس المقابل لها = ١٠٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٢</td>
+                    <td>قياس الزاوية المحيطية يساوي نصف قياس القوس المقابل لها.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٣</td>
+                    <td>إذا كان قياس القوس ١٠٠° فإن قياس الزاوية المركزية المقابلة له = ٢٠٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٤</td>
+                    <td>إذا كان قياس القوس ١٥٠° فإن قياس الزاوية المحيطية المقابلة له = ٧٥°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٥</td>
+                    <td>الزاوية المركزية هي زاوية رأسها يقع في أي نقطة من نقاط الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٦</td>
+                    <td>الزاوية المحيطية هي زاوية رأسها يقع في أي نقطة من نقاط الدائرة.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٧</td>
+                    <td>ربع الدائرة هي زاوية قائمة ٩٠°.</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #fce4d6; border: 1.5px solid #000; padding: 6px 15px; font-weight: bold; margin-bottom: 8px;">
+                ثانياً: ظلل الإجابة الصحيحة:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١ . قياس الزاوية المركزية يساوي قياس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المجاور</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">المقابل</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المتمم</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">المنعكس</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٢ . قياس الزاوية المحيطية يساوي ....... قياس الزاوية المركزية المشتركة معها في
+                    نفس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ربع</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">نصف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ضعف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ثلث</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٣ . قياس الزاوية المركزية يساوي ....... قياس الزاوية المحيطية المشتركة معها في
+                    نفس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ربع</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">نصف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">ضعف</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">ثلث</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٤ . الزاوية المحيطية المرسومة في نصف دائرة قياسها يساوي:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٩٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٤٥°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٥٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٥ . إذا كان ق ⦣ المحيطية = ٤٠° فإن ق ⦣ المركزية المشتركة معها في القوس =:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٤٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٢٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٥٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٦ . إذا كان قياس القوس = ٧٠° فإن قياس الزاوية المركزية المقابلة له =:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٧٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٣٥°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٤٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٥٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٧ . إذا كان قياس القوس يساوي ٦٠° فإن قياس الزاوية المحيطية المقابلة له =:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٦٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٢٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٣٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٩٠°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٨ . الزوايا المحيطية المرسومة على نفس القوس:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">متطابقة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">متوازية</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">متعامدة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">متساوية</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٩ . الزاوية المحيطية المرسومة في ربع دائرة تكون:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">منفرجة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">حادة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">قائمة</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">منعكسة</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١٠ . القوس الذي قياس زاويته المركزية ٥٠° يساوي:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٥٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٠٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٢٥°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٧٥°</div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١١ . قياس قوس ربع دائرة يساوي:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">٩٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">١٨٠°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٤٥°</div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">٣٦٠°</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٠٤ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

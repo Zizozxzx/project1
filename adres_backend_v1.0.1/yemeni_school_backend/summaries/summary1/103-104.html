@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 34</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* العمود الأيمن يظهر أولاً في الجوال */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        /* العمود الأيسر */
+        .left-column {
+            order: 2;
+        }
+        .section-title {
+            background-color: #f0f0f0;
+            border: 1px solid #000;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .math-box {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #d10000;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px;
+        }
+        .fraction span { display: block; padding: 0 3px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+        
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٣٤ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="section-title">٢ : ٨ حل تمارين ومسائل الكتاب المدرسي<br>ص ١٠٦ إلى ١٠٨ على جمع وطرح الكسور الجبرية</div>
+            
+            <div class="math-box">
+                في التمارين من [ ١ ] إلى [ ٦ ] اختصر إلى أبسط صورة : <br>
+                | ١ | <span class="fraction"><span>٢ س - ١</span><span class="bottom">س + ١</span></span> + <span class="fraction"><span>٣ - س</span><span class="bottom">س + ١</span></span> = <span class="fraction"><span>٢ س - ١ + ٣ - س</span><span class="bottom">س + ١</span></span> (المقامات موحدة) <br>
+                = <span class="fraction"><span>س + ٢</span><span class="bottom">س + ١</span></span> <br>
+                = <span class="fraction"><span>١ (س + ٢)</span><span class="bottom">١ (س + ١)</span></span> = <span class="fraction"><span>س + ٢</span><span class="bottom">س + ١</span></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-box">
+                | ٢ | <span class="fraction"><span>س + ٥</span><span class="bottom">س² + ٧ س + ١٠</span></span> + <span class="fraction"><span>س - ١</span><span class="bottom">س² + ٥ س + ٦</span></span> <br>
+                <span class="solution-tag">* الحل *</span> نجري التحليل للبسط والمقام <br>
+                = <span class="fraction"><span>س + ٥</span><span class="bottom">(س + ٥) (س + ٢)</span></span> + <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٣) (س + ٢)</span></span> <br>
+                = <span class="fraction"><span>١</span><span class="bottom">س + ٢</span></span> + <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٣) (س + ٢)</span></span> نأخذ المضاعف المشترك <br>
+                = <span class="fraction"><span>س + ٣ + س - ١</span><span class="bottom">(س + ٣) (س + ٢)</span></span> = <span class="fraction"><span>٢ س + ٢</span><span class="bottom">(س + ٣) (س + ٢)</span></span> <br>
+                = <span class="fraction"><span>٢ (س + ١)</span><span class="bottom">(س + ٣) (س + ٢)</span></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-box">
+                | ٣ | <span class="fraction"><span>س² + ٦ س</span><span class="bottom">س² + ٥ س + ٦</span></span> + <span class="fraction"><span>٢ س + ٤</span><span class="bottom">س² + ٤ س + ٤</span></span> <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                = <span class="fraction"><span>س (س + ٦)</span><span class="bottom">(س + ٣) (س + ٢)</span></span> + <span class="fraction"><span>٢ (س + ٢)</span><span class="bottom">(س + ٢) (س + ٢)</span></span> <br>
+                = <span class="fraction"><span>س</span><span class="bottom">س + ٣</span></span> + <span class="fraction"><span>٢</span><span class="bottom">س + ٢</span></span> = <span class="fraction"><span>س (س + ٢) + ٢ (س + ٣)</span><span class="bottom">(س + ٣) (س + ٢)</span></span> <br>
+                = <span class="fraction"><span>س² + ٢ س + ٢ س + ٦</span><span class="bottom">(س + ٣) (س + ٢)</span></span> <br>
+                = <span class="fraction"><span>س² + ٤ س + ٦</span><span class="bottom">(س + ٣) (س + ٢)</span></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-box">
+                | ٤ | <span class="fraction"><span>س - ٦</span><span class="bottom">س² - ٩</span></span> + <span class="fraction"><span>٨ - س</span><span class="bottom">س² - ١٢ س + ٣٢</span></span> <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                = <span class="fraction"><span>س - ٦</span><span class="bottom">(س - ٣) (س + ٣)</span></span> + <span class="fraction"><span>- (س - ٨)</span><span class="bottom">(س - ٨) (س - ٤)</span></span> <br>
+                = <span class="fraction"><span>س - ٦</span><span class="bottom">(س - ٣) (س + ٣)</span></span> - <span class="fraction"><span>١</span><span class="bottom">س - ٤</span></span> <br>
+                = <span class="fraction"><span>(س - ٦) (س - ٤) - (س - ٣) (س + ٣)</span><span class="bottom">(س - ٣) (س + ٣) (س - ٤)</span></span> <br>
+                = <span class="fraction"><span>س² - ١٠ س + ٢٤ - (س² - ٩)</span><span class="bottom">(س - ٣) (س + ٣) (س - ٤)</span></span> <br>
+                = <span class="fraction"><span>س² - ١٠ س + ٢٤ - س² + ٩</span><span class="bottom">(س - ٣) (س + ٣) (س - ٤)</span></span> <br>
+                = <span class="fraction"><span>-١٠ س + ٣٣</span><span class="bottom">(س - ٣) (س + ٣) (س - ٤)</span></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-box">
+                | ٥ | <span class="fraction"><span>٢ س + ١</span><span class="bottom">س² + ٥ س + ٦</span></span> + <span class="fraction"><span>١</span><span class="bottom">س² - ٩</span></span> - <span class="fraction"><span>١</span><span class="bottom">س + ٢</span></span> <br>
+                = <span class="fraction"><span>٢ س + ١</span><span class="bottom">(س + ٣) (س + ٢)</span></span> + <span class="fraction"><span>١</span><span class="bottom">(س - ٣) (س + ٣)</span></span> - <span class="fraction"><span>١</span><span class="bottom">س + ٢</span></span> <br>
+                = <span class="fraction"><span>(٢ س + ١) (س - ٣) + (س + ٢) - (س² - ٩)</span><span class="bottom">(س + ٣) (س + ٢) (س - ٣)</span></span> <br>
+                نأخذ (م.م.أ) <br>
+                = <span class="fraction"><span>(٢ س² - ٦ س + س - ٣) + س + ٢ - س² + ٩</span><span class="bottom">(س + ٣) (س + ٢) (س - ٣)</span></span> <br>
+                = <span class="fraction"><span>٢ س² - ٥ س - ٣ + س + ٢ - س² + ٩</span><span class="bottom">(س + ٣) (س + ٢) (س - ٣)</span></span> <br>
+                = <span class="fraction"><span>س² - ٤ س + ٨</span><span class="bottom">(س + ٣) (س + ٢) (س - ٣)</span></span>
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-box">
+                | ٦ | <span class="fraction"><span>س - ٥</span><span class="bottom">س² - ٣ س - ١٨</span></span> + <span class="fraction"><span>٣ - س</span><span class="bottom">س² - ٩ س + ١٣</span></span> - <span class="fraction"><span>س - ١٢</span><span class="bottom">س² - ١٣ س + ٤٢</span></span> <br>
+                = <span class="fraction"><span>س - ٥</span><span class="bottom">(س - ٦) (س + ٣)</span></span> + <span class="fraction"><span>- (س - ٣)</span><span class="bottom">(س - ٥) (س - ٣)</span></span> - <span class="fraction"><span>س - ١٢</span><span class="bottom">(س - ٧) (س - ٦)</span></span> <br>
+                لاحظ أننا سنأخذ مشترك (-١) من داخل القوس لكل من بسط ومقام الكسر الثاني <br>
+                = <span class="fraction"><span>س - ٥</span><span class="bottom">(س - ٦) (س + ٣)</span></span> - <span class="fraction"><span>١</span><span class="bottom">س - ٥</span></span> - <span class="fraction"><span>س - ١٢</span><span class="bottom">(س - ٧) (س - ٦)</span></span> <br>
+                = <span class="fraction"><span>(س - ٥)² (س - ٧) - (س - ٦) (س + ٣) (س - ٧) - (س - ١٢) (س + ٣) (س - ٥)</span><span class="bottom">(س - ٦) (س + ٣) (س - ٥) (س - ٧)</span></span> <br>
+                = <span class="fraction"><span>(س² - ١٠ س + ٢٥) (س - ٧) - (س² - ٣ س - ١٨) (س - ٧) - (س² - ٩ س - ٣٦) (س - ٥)</span><span class="bottom">(س - ٦) (س + ٣) (س - ٥) (س - ٧)</span></span> <br>
+                = <span class="fraction"><span>س³ - ٧ س² - ١٠ س² + ٧٠ س + ٢٥ س - ١٧٥ - (س³ - ٧ س² - ٣ س² + ٢١ س - ١٨ س + ١٢٦) - ...</span><span class="bottom">(س - ٦) (س + ٣) (س - ٥) (س - ٧)</span></span> <br>
+                = <span class="fraction"><span>س³ - ١٧ س² + ٩٥ س - ١٧٥ - س³ + ١٠ س² - ٣ س - ١٢٦ - س³ + ١٤ س² - ٩ س - ١٨٠</span><span class="bottom">(س - ٦) (س + ٣) (س - ٥) (س - ٧)</span></span> <br>
+                = <span class="fraction"><span>- س³ + ٧ س² + ٨٣ س - ٤٨١</span><span class="bottom">(س - ٦) (س + ٣) (س - ٥) (س - ٧)</span></span> <br>
+                #
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-box">
+                | ٧ | إذا كانت م = <span class="fraction"><span>٣ س + ٦</span><span class="bottom">س² + ٤ س - ٥</span></span> ، ق = <span class="fraction"><span>س - ١</span><span class="bottom">س² + ٦ س + ٥</span></span> <br>
+                أ ) ضع م ، ق في أبسط صورة <br>
+                م = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> <br>
+                ق = <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٥) (س + ١)</span></span> <br>
+                ب) م + ق = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> + <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٥) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ (س + ٢) (س + ١) + (س - ١)²</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ (س² + ٣ س + ٢) + س² - ٢ س + ١</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ س² + ٩ س + ٦ + س² - ٢ س + ١</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٤ س² + ٧ س + ٧</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                جـ) م - ق = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> - <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٥) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ (س + ٢) (س + ١) - (س - ١)²</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ س² + ٩ س + ٦ - (س² - ٢ س + ١)</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ س² + ٩ س + ٦ - س² + ٢ س - ١</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٢ س² + ١١ س + ٥</span><span class="bottom">(س + ٥) (س - ١) (س + ١)</span></span> <br>
+                د) م × ق = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> × <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٥) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥)² (س + ١)</span></span> <br>
+                هـ) م ÷ ق = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> ÷ <span class="fraction"><span>س - ١</span><span class="bottom">(س + ٥) (س + ١)</span></span> <br>
+                = <span class="fraction"><span>٣ (س + ٢)</span><span class="bottom">(س + ٥) (س - ١)</span></span> × <span class="fraction"><span>(س + ٥) (س + ١)</span><span class="bottom">س - ١</span></span> <br>
+                = <span class="fraction"><span>٣ (س + ٢) (س + ١)</span><span class="bottom">(س - ١)²</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

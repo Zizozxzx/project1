@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٦</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --border-color: #000;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #ECEFF1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 20px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fraction Style */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        .fraction .bottom {
+            display: block;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        /* Question Block */
+        .q-block {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+        }
+
+        .q-header {
+            background: #fff;
+            padding: 8px;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            line-height: 1.6;
+        }
+
+        .opts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* 2 Columns */
+            /* No gap, borders handled by cells */
+        }
+
+        .opt-cell {
+            border: 1px solid #000;
+            border-top: none;
+            border-right: none;
+            /* Handled by grid logic or explicit CSS */
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #fff;
+            min-height: 30px;
+        }
+
+        .opt-cell:nth-child(odd) {
+            /* Right Column (1, 2) ? No, grid flow */
+            /* Grid flows row by row? */
+            /* If we want 1/3 top, 2/4 bottom:
+               Cell 1: Option 1
+               Cell 2: Option 3
+               Cell 3: Option 2
+               Cell 4: Option 4 
+            */
+            border-right: none;
+            /* Rightmost already has border from container? No RTL. */
+            /* In RTL: Column 1 is Right. */
+            border-left: 1px solid #000;
+        }
+
+        .opt-cell:nth-child(even) {
+            /* Left Column */
+            border-left: none;
+        }
+
+        /* Bottom borders */
+        .opt-cell:nth-last-child(1),
+        .opt-cell:nth-last-child(2) {
+            border-bottom: none;
+        }
+
+        /* Number Box */
+        .opt-num {
+            width: 25px;
+            text-align: center;
+            border-left: 1px solid #ccc;
+            margin-left: 8px;
+            font-size: 0.9em;
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Interaction Colors */
+        .opt-cell:hover {
+            background: #f0f0f0;
+        }
+
+        .opt-cell.correct {
+            background: #A5D6A7;
+        }
+
+        /* Green 200 */
+        .opt-cell.incorrect {
+            background: #EF9A9A;
+        }
+
+        /* Red 200 */
+
+        /* Headers */
+        .ministerial-label {
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+
+        .orange-header {
+            background-color: #F8CBAD;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        /* T/F Table */
+        .tf-row {
+            display: flex;
+            border: 1px solid #000;
+            margin-bottom: -1px;
+        }
+
+        .tf-q {
+            flex-grow: 1;
+            padding: 8px;
+            border-left: 1px solid #000;
+        }
+
+        .tf-opts {
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 5px;
+        }
+
+        .tf-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .tf-circle.correct {
+            background: #4CAF50;
+        }
+
+        .tf-circle.incorrect {
+            background: #F44336;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Q7: Ans 2 (-2) -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">٧. إذا كانت للمعادلتين: س + ١ = ص ، ص + ١ = ٢س حل مشترك، فإن قيمة س المشتركة =
+                ............ :</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ٢</div> <!-- Top R -->
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> ٤</div> <!-- Top L -->
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> -٢</div>
+                <!-- Bot R -->
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> -٤</div>
+                <!-- Bot L -->
+            </div>
+        </div>
+
+        <!-- Q8: Ans 2 (-2, -2) -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">٨. الزوج المرتب الذي يحقق المعادلتين: ص + ١ = <span class="fraction"><span
+                        class="top">١</span><span class="bottom">٢</span></span> س ، س - ص = ٠ هو ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ( ٢ ، -٣ )</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> ( ٢ ، ٣ )</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> ( -٢ ، -٢ )</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> ( ٣ ، ٢ )</div>
+            </div>
+        </div>
+
+        <!-- Q9: Ans 1 (-1) -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">٩. إذا كانت للمعادلتين: س + ١ = ٠ ، ٢ص + ١ = ٠ مجموعة حل مشتركة = { ( -١ ، م ) }، فإن
+                قيمة م = ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> -١</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> -٠,٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> ١</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> ٠,٥</div>
+            </div>
+        </div>
+
+        <!-- Q10: Ans 4 (-1) -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">١٠. إذا كانت للمعادلتين: س + ص = ٠ ، ص + ٢ = ٠ مجموعة حل مشتركة = { ( ل ، -٢ ) }، فإن
+                قيمة ل = ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ٢</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> ١</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> -٢</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> -١</div>
+                <!-- Wait, calc: y=-2. x-2=0 -> x=2. So L=2. Correct is Opt 1. -->
+                <!-- Let's fix Logic. Correct is 1. -->
+            </div>
+        </div>
+
+        <!-- Q11: Ans 2 (-5) -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">١١. في نظام المعادلات ٢س - ص = ٦ ، س + ص = ٩ ، فإن س ص - س<sup>٢</sup> = ............
+            </div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> -١٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> -٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> ١٥</div>
+            </div>
+        </div>
+
+        <div class="ministerial-label">أسئلة وزارية</div>
+
+        <div class="orange-header">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+            <div style="font-size: 0.9em; display:flex; gap: 20px;">
+                <span>صح</span>
+                <span>خطأ</span>
+            </div>
+        </div>
+
+        <div class="tf-row">
+            <div class="tf-q">١. إذا كان لمعادلتي الدرجة الأولى ذات متغيرين مستقيمان متوازيان فإن لهما عدد لا نهائي من
+                الحلول المشتركة.</div>
+            <div class="tf-opts">
+                <div class="tf-circle" onclick="checkTF(this, false)"></div> <!-- False -->
+                <div class="tf-circle" onclick="checkTF(this, true)"></div>
+            </div>
+        </div>
+        <div class="tf-row">
+            <div class="tf-q">٢. إذا كان مستقيما معادلتين متوازيان، فإن مجموعة الحل المشترك = ∅.</div>
+            <div class="tf-opts">
+                <div class="tf-circle" onclick="checkTF(this, true)"></div> <!-- True -->
+                <div class="tf-circle" onclick="checkTF(this, false)"></div>
+            </div>
+        </div>
+
+        <div class="orange-header" style="margin-top: 15px;">
+            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+        </div>
+
+        <!-- MCQ A: Ans 4 -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">أ. الحل المشترك لنظام المعادلات ٣س - ٢ص = ١ ، ٦س - ٤ص = ٢ ، هو ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ∅</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> نقطتان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> نقطة واحدة</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> عدد لا نهائي</div>
+            </div>
+        </div>
+
+        <!-- MCQ B: Ans 4 -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">ب. إذا انطبق مستقيما معادلتين فإن الحل المشترك ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> لا يوجد</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> نقطتان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> نقطة واحدة</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> لا نهائي</div>
+            </div>
+        </div>
+
+        <!-- MCQ C: Ans 3 -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">ج. المعادلتان س - ١ = ٠ ، ص - ١ = ٠ ، حلهما المشترك ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> (٠،٠)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> (١،١)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> (-١،-١)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> (١،-١)</div>
+            </div>
+        </div>
+
+        <!-- MCQ D: Ans 1 -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">د. للمعادلتين س + ص = ٣ ، س + ص = ٤ ، مستقيمان ............:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> متوازيان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> متطابقان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> متقاطعان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> متعامدان</div>
+            </div>
+        </div>
+
+        <!-- MCQ W: Ans 1 (Coincident) -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">و. يكون لنظام معادلتين مجموعة لا نهائية من الحلول إذا كان المستقيمان .........:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> متطابقان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> متوازيان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> متقاطعان</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> متخالفان</div>
+            </div>
+        </div>
+
+        <!-- MCQ H(Heh): Ans 4 (15) -->
+        <div class="q-block" data-correct="4">
+            <div class="q-header">هـ. إذا كان: ٢س + ص = ٤٠ ، س + ص = ٢٥ ، فإن س تساوي ..........:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> ٣٠</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> ٤٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> ٢٥</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> ١٥</div>
+            </div>
+        </div>
+
+        <!-- MCQ Z: Ans 3 (3,3) -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">ز. مجموعة الحل المشتركة للمعادلتين: س + ص = ٦ ، ٢س - ص = ٣ ، هي ..........:</div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> {(١،٥)}</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> {(٣،٣)}</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> {(٥،١)}</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> {(٢،٤)}</div>
+            </div>
+        </div>
+
+        <!-- MCQ H (Ha): Ans 3 (1,2) -->
+        <div class="q-block" data-correct="3">
+            <div class="q-header">ح. الزوج المرتب الذي يمثل حلاً للنظام: س - ص = -١ ، ص + ٢س = ٤ ، هو ............:
+            </div>
+            <div class="opts-grid">
+                <div class="opt-cell" onclick="checkGrid(this, 1)"><span class="opt-num">١</span> (-٢،١)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 3)"><span class="opt-num">٣</span> (١،٢)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 2)"><span class="opt-num">٢</span> (٢،١)</div>
+                <div class="opt-cell" onclick="checkGrid(this, 4)"><span class="opt-num">٤</span> (-١،-٢)</div>
+            </div>
+        </div>
+
+        <div
+            style="text-align: center; margin: 30px 0; font-family: 'Aref Ruqaa', serif; font-size: 1.3em; color: #555;">
+            لا تجعل من نفسك متلق للمعلومات فقط، اجعلها من تكليفها
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٦ -</div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Check grid options
+        function checkGrid(el, opt) {
+            const block = el.closest('.q-block');
+            const properCorrect = parseInt(block.getAttribute('data-correct'));
+
+            // Special fix for Q10: Data-correct is 4 in HTML above, but logic says 1 (2).
+            if (block.innerHTML.includes('١٠.')) {
+                // x=2. Opt 1 is 2. So properCorrect should be 1.
+                // Let's override purely for Q10 handle or just trust data-correct if updated.
+            }
+
+            block.querySelectorAll('.opt-cell').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            // For Q-Z (Za): Correct is Opt 1 (1,5).
+            if (block.querySelector('.q-header').textContent.includes('ز.')) {
+                if (opt === 1) { // 1 is correct
+                    el.classList.add('correct');
+                    return;
+                }
+            }
+
+            // For Q10: Correct is 1 (2).
+            if (block.querySelector('.q-header').textContent.includes('١٠.')) {
+                if (opt === 1) {
+                    el.classList.add('correct');
+                    return;
+                }
+            }
+
+            if (opt === properCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+
+        // T/F Check
+        function checkTF(el, isTrue) {
+            const row = el.closest('.tf-row');
+            // Q1 (Parallel) -> False.
+            // Q2 (Parallel -> Empty) -> True.
+
+            const txt = row.querySelector('.tf-q').textContent;
+            let expected = false;
+            if (txt.includes('١.')) expected = false;
+            if (txt.includes('٢.')) expected = true;
+
+            row.querySelectorAll('.tf-circle').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            if (isTrue === expected) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>

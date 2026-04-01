@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٢٣ - المعلم المثالي</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 10px;
+            color: #000;
+        }
+        .page-container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column { flex: 1; }
+        
+        /* الهاتف: الأيمن أولاً ثم الأيسر */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-col { border-left: none !important; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+        }
+
+        .right-col { border-left: 1px solid #ccc; padding-left: 15px; }
+        
+        .box-title {
+            border: 2px solid #000;
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: #eee;
+        }
+        .section-header {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 10px 0;
+        }
+        .math-text { margin-bottom: 15px; line-height: 1.6; }
+        .table-math {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .table-math td, .table-math th { border: 1px solid #000; padding: 5px; }
+        
+        /* تصميم المقص SVG */
+        .scissors-svg { display: block; margin: 10px auto; }
+        
+        .dashed-line { border-top: 1px dashed #000; margin: 15px 0; }
+        .note-box { border: 1px solid #000; padding: 5px; margin: 10px 0; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">ـ ٢٣ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-col">
+            <div style="text-align: center;">
+                <div class="box-title" style="font-size: 1.4em;">المقدار الثلاثي</div>
+            </div>
+            
+            <div class="section-header">الصورة العامة للمقدار الثلاثي هي :</div>
+            <div class="math-text">أ س<sup>٢</sup> + ب س + جـ &nbsp;&nbsp; ، أ ≠ ٠ ، أ ، ب ، جـ ∋ ح</div>
+            
+            <div class="math-text">وهما نوعان :-<br>
+            ١ | مقدار ثلاثي بسيط صورته العامة هي : س<sup>٢</sup> + ب س + جـ <br>
+            حيث معامل س<sup>٢</sup> هو ١ = أ ، ب ، جـ ∋ ح <br>
+            ب | مقدار ثلاثي غير بسيط صورته العامة هي : أ س<sup>٢</sup> + ب س + جـ <br>
+            حيث أ ≠ ٠ ، أ ≠ ١ ، أ ، ب ، جـ ∋ ح
+            </div>
+
+            <div class="note-box">
+                <b>* أولاً : تحليل المقدار الثلاثي البسيط</b><br>
+                الذي صورته : س<sup>٢</sup> + ب س + جـ
+            </div>
+
+            <div class="math-text">
+                لتحليل المقدار الثلاثي البسيط نتبع ما يلي :-<br>
+                نبحث عن عددين نفرض أنهما م ، ن بحيث يكون ( أي نحلل الحد المطلق جـ إلى عاملين م ، ن ) بحيث يكون :<br>
+                مجموعهما م + ن = ب ( معامل س للحد الأوسط ) <br>
+                وحاصل ضربهما م × ن = جـ ( الحد الثالث المطلق ) فيكون :<br>
+                س<sup>٢</sup> + ب س + جـ = س<sup>٢</sup> + ( م + ن ) س + م ن <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = س<sup>٢</sup> + م س + ن س + م ن <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = س ( س + م ) + ن ( س + م ) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = ( س + م ) ( س + ن ) # التحليل المطلوب
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="math-text">
+                <span class="section-header">مثال :</span> حلل المقدار س<sup>٢</sup> + ٣ س + ٢ <br>
+                ( من خلال هذا المثال سنوضح بعض الطرق في الحل ) <br>
+                <span class="section-header">* الحل *</span><br>
+                |١| <u>الطريقة الأولى:</u> تلاحظ أن : الحد الأول س<sup>٢</sup> = س × س <br>
+                الحد الأوسط = ٣ س والحد المطلق (الثالث) = ٢ (موجب) <br>
+                لذلك عاملاه كلاهما موجبان أو سالبان معاً نكتب عوامله في الجدول المجاور ثم نبحث عن عاملين للعدد (٢) بحيث يكون : <br>
+                حاصل ضربهما = ٢ <br>
+                ومجموعهما = ٣ معامل الحد الأوسط س فنجد أنهما ٢ ، ١ فيكون التحليل <br>
+                المطلوب هو : س<sup>٢</sup> + ٣ س + ٢ = ( س + ١ ) ( س + ٢ )
+            </div>
+
+            <table class="table-math" style="width: 80%; margin: auto;">
+                <tr><th>عوامل العدد ٢</th><th>مجموع العاملين</th></tr>
+                <tr><td>٢ × ١</td><td>٢ + ١ = ٣</td></tr>
+                <tr><td>-٢ × -١</td><td>-٢ - ١ = -٣</td></tr>
+            </table>
+
+            <div class="math-text" style="margin-top: 10px;">
+                |٢| <u>الطريقة الثانية :</u> طريقة المقص : تتم كالتالي : <br>
+                أ) نرسم خطين متقاطعين كما هو موضح في الشكل المقابل. <br>
+                ب) نحلل الحد الأول على يمين الخطين ونحلل الحد المطلق على يسارهما. وتوضع الإشارة في وسط الحدين من الوسطين أعلى ومن أسفل .
+            </div>
+
+            <div class="scissors-svg">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                    <line x1="40" y1="20" x2="140" y2="100" stroke="black" stroke-width="1.5" />
+                    <line x1="40" y1="100" x2="140" y2="20" stroke="black" stroke-width="1.5" />
+                    <text x="20" y="25">س</text>
+                    <text x="20" y="105">س</text>
+                    <text x="150" y="25">٢</text>
+                    <text x="150" y="105">١</text>
+                    <text x="85" y="65" font-weight="bold">+</text>
+                    <path d="M40,20 Q10,60 40,100" fill="none" stroke="black" stroke-dasharray="2" />
+                    <path d="M140,20 Q170,60 140,100" fill="none" stroke="black" stroke-dasharray="2" />
+                    <text x="5" y="65" font-size="10">الوسطين</text>
+                    <text x="145" y="65" font-size="10">الطرفين</text>
+                </svg>
+            </div>
+
+            <div class="math-text">
+                جـ) نحصل على الحد الأوسط من المجموع الجبري لعاملي حاصل ضرب الطرفين والوسطين <br>
+                أي الحد الأوسط : <br>
+                س × ٢ + س × ١ = ٢ س + س = ٣ س
+            </div>
+
+            <div class="note-box" style="text-align: center;">
+                فيكون لتحليل المطلوب : س<sup>٢</sup> + ٣ س + ٢ = ( س + ١ ) ( س + ٢ )
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="math-text">
+                |٣| <u>الطريقة الثالثة :</u> لتحليل المقدار : س<sup>٢</sup> + ٣ س + ٢ نتبع ما يلي : <br>
+                أ) نجد حاصل ضرب الحدين الأول والأخير = س<sup>٢</sup> × ٢ = ٢ س<sup>٢</sup> <br>
+                ب) نحلل ناتج الضرب في (أ) إلى عاملين مجموعهما = الحد الأوسط = ٣ س فنجد أنهما ٢ س ، س أي ٢ س + س = ٣ س <br>
+                جـ) نكتب المقدار الأصلي واضعين العاملين بدلاً عن الحد الأوسط <br>
+                أي : س<sup>٢</sup> + ٣ س + ٢ = س<sup>٢</sup> + (٢ س + س) + ٢ نأخذ العامل المشترك الأكبر لكل حدين متتاليين على حده <br>
+                = س(س + ٢) + ١(س + ٢) <br>
+                نأخذ المقدار المشترك ( س + ٢ ) <br>
+                فنحصل على التحليل المطلوب = ( س + ١ ) ( س + ٢ )
+            </div>
+
+            <div class="note-box" style="background-color: #f9f9f9;">
+                <b>ملاحظة :</b> للتحقق من صحة الحل اضرب المقدارين ( العاملين ) تجد المقدار الأصلي أي أن : <br>
+                ( س + ١ ) ( س + ٢ ) = س ( س + ٢ ) + ١ ( س + ٢ ) <br>
+                ( نضرب كل حد من العامل الأول في المقدار ثم نجمع الحدود المتشابهة ) = س<sup>٢</sup> + ٢ س + س + ٢ = س<sup>٢</sup> + ٣ س + ٢
+            </div>
+
+            <div class="dashed-line"></div>
+
+            <div class="note-box">
+                <b>* ثانياً : تحليل المقدار الثلاثي غير البسيط</b><br>
+                الذي صورته هي : أ س<sup>٢</sup> + ب س + جـ &nbsp;، أ ≠ ١ ، أ ≠ ٠ <br>
+                أ ، ب ، جـ ∋ ح حيث أ معامل س<sup>٢</sup> <br>
+                ، ب معامل الحد الأوسط ، جـ حد مطلق
+            </div>
+
+            <div class="math-text">
+                لتحليل المقدار الثلاثي البسيط نستخدم إحدى الطريقتين الثانية ( المقص ) أو الثالثة التي أوضحناهما سابقاً في تحليل المقدار الثلاثي البسيط كما سنريهما على المثال التالي :-
+            </div>
+
+            <div class="math-text">
+                <span class="section-header">مثال :</span> حلل المقدار ٣ س<sup>٢</sup> + ٤ س - ٤ <br>
+                <span class="section-header">* الحل * الطريقة الأولى :</span> <br>
+                أ) نجد حاصل ضرب الحدين الأول والأخير أي : <br>
+                ٣ س<sup>٢</sup> × ( -٤ ) = -١٢ س<sup>٢</sup> ( ممكن نضرب معامل س<sup>٢</sup> في الحد المطلق ثم نكتب معامل الأوسط = مجموع العاملين ) <br>
+                ب) نحلل ناتج الضرب في ( أ ) إلى عاملين مجموعهما = الحد الأوسط = ٤ س ( نلاحظ أن -١٢ س<sup>٢</sup> يحلل إلى عاملين مختلفين في الإشارة ) فنجد أن العاملين هما ٦ س ، -٢ س حيث يكون ٦ س - ٢ س = ٤ س ( الحد الأوسط ) . <br>
+                جـ) نكتب المقدار الأصلي واضعين مجموع العاملين بدلاً عن الحد الأوسط ثم نأخذ العامل المشترك بين كل حدين متتاليين ثم العامل المشترك بين المقادير أي : <br>
+                ٣ س<sup>٢</sup> + ٤ س - ٤ = ٣ س<sup>٢</sup> + ٦ س - ٢ س - ٤ <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = ٣ س ( س + ٢ ) - ٢ ( س + ٢ ) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = ( ٣ س - ٢ ) ( س + ٢ ) <br>
+                وهو التحليل المطلوب للمقدار .
+            </div>
+
+            <div class="math-text">
+                <u>الطريقة الثانية :</u> طريقة المقص : راجع الخطوات ( أ ) ، ( ب ) ، ( جـ ) الموضحة في المقدار البسيط <br>
+                حيث نحلل الخطين نحلل الحد الأول ٣ س<sup>٢</sup> إلى عاملين هما ٣ س ، س وكذلك نحلل الحد الثالث (-٤) إلى عاملين مختلفي الإشارة وهما ٢ ، -٢ <br>
+                أو ١ ، -٤ أو -١ ، ٤ ثم نتحقق من أن المجموع الجبري لحاصل ضرب الوسطين وحاصل ضرب الطرفين = الحد الأوسط للمقدار
+            </div>
+
+            <div class="scissors-svg">
+                <svg width="180" height="100" viewBox="0 0 180 100">
+                    <line x1="40" y1="20" x2="140" y2="80" stroke="black" stroke-width="1.5" />
+                    <line x1="40" y1="80" x2="140" y2="20" stroke="black" stroke-width="1.5" />
+                    <text x="10" y="25">٣ س</text>
+                    <text x="25" y="85">س</text>
+                    <text x="145" y="25">-٢</text>
+                    <text x="145" y="85">٢</text>
+                    <text x="85" y="55" font-weight="bold">×</text>
+                </svg>
+            </div>
+
+            <div class="math-text">
+                ٣ س × ٢ + س × -٢ = ٦ س - ٢ س = ٤ س = الحد الأوسط <br>
+                فتجد : ٣ س<sup>٢</sup> + ٤ س - ٤ = ( ٣ س - ٢ ) ( س + ٢ )
+            </div>
+
+            <div class="note-box" style="font-size: 0.85em;">
+                <b>ملاحظة :</b> الإشارة العليا تنتج من ضرب إشارة الحد الأول ، والإشارة السفلى تنتج من ضرب إشارة الحد الأوسط × إشارة الحد الأخير
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

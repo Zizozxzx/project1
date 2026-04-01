@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematics Grade 9 - Digital Page 35</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 794px;
+            height: 1123px;
+            padding: 30px 50px;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        /* الرأس العلوي */
+        .top-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header-text { font-size: 14px; margin-left: 10px; color: #333; }
+        .header-line { flex-grow: 1; height: 3px; background-color: #00adef; }
+
+        /* العناوين */
+        .main-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+            display: block;
+        }
+
+        .text-line {
+            font-size: 21px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* المخططات الرياضية */
+        .diagram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .svg-area {
+            width: 320px;
+            height: 200px;
+            position: relative;
+            direction: ltr;
+        }
+
+        .set-box {
+            position: absolute;
+            border: 1.5px solid #333;
+            width: 45px;
+            height: 150px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 20px;
+            background: #fff;
+            z-index: 2;
+        }
+
+        .set-s { left: 240px; } /* س في اليمين (ltr context) */
+        .set-y { left: 10px; }  /* ص في اليسار (ltr context) */
+
+        .set-label {
+            position: absolute;
+            top: -30px;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        /* تعريف المدى (الصندوق الملون) */
+        .blue-highlight-box {
+            background-color: #e3f2fd;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .blue-text { color: #00adef; }
+
+        /* تذييل الصفحة */
+        .footer-line-cyan {
+            position: absolute;
+            bottom: 70px;
+            left: 50px;
+            right: 50px;
+            height: 10px;
+            background-color: #00adef;
+            border-radius: 5px;
+        }
+
+        .page-number-oval {
+            position: absolute;
+            bottom: 53px;
+            right: 140px;
+            background: white;
+            border: 4px solid #00adef;
+            width: 80px;
+            height: 40px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 22px;
+            z-index: 10;
+        }
+
+        .moe-url {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #0000ee;
+            font-size: 16px;
+            text-decoration: none;
+            left: 0;
+        }
+
+        /* تنسيق الرموز الرياضية */
+        .math-center {
+            text-align: center;
+            font-size: 24px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="top-header">
+        <span class="header-text">المجموعات والعلاقات</span>
+        <div class="header-line"></div>
+    </div>
+
+    <span class="main-title">مدى التطبيق :</span>
+
+    <div class="text-line">
+        إذا رمزنا للتطبيق من س إلى ص بالرمز « ت » فيمكننا أن نعبّر عن التطبيق رمزياً كالتالي :
+    </div>
+
+    <div class="math-center">
+        ت : س ← ص ، أو س <span style="position:relative; top:-10px;">&nbsp; ت &nbsp;<br> ← </span> ص .
+    </div>
+
+    <div class="text-line">ويُقرأ : التطبيق ت من س إلى ص .</div>
+
+    <div class="diagram-container">
+        <div class="svg-area">
+            <div class="set-box set-s">
+                <span class="set-label">س</span>
+                <div>أ •</div><div>ب •</div><div>جـ •</div>
+            </div>
+            
+            <svg style="position:absolute; width:100%; height:100%; z-index:1;">
+                <defs>
+                    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <path d="M0,0 L0,6 L9,3 z" fill="#00adef" />
+                    </marker>
+                </defs>
+                <path d="M 240 30 Q 145 0 55 30" fill="none" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <text x="140" y="20" font-family="Amiri" font-size="18">ت</text>
+                <line x1="240" y1="50" x2="55" y2="75" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <line x1="240" y1="100" x2="55" y2="100" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <line x1="240" y1="145" x2="55" y2="125" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+            </svg>
+
+            <div class="set-box set-y">
+                <span class="set-label">ص</span>
+                <div>• ١</div><div>• ٢</div><div>• ٣</div>
+            </div>
+            <div style="position:absolute; bottom:-30px; width:100%; text-align:center; direction:rtl;">شكل ( ١ - ٢٤ )</div>
+        </div>
+
+        <div class="text-line" style="width: 350px;">
+            المخطط المرسوم في الشكل ( ١-٢٤ )<br>
+            يمثل تطبيقاً من س إلى ص .<br>
+            تلاحظ أن ٢ هي صورة أ<br>
+            بالتطبيق ت ، ونكتب ذلك على<br>
+            النحو التالي :
+        </div>
+    </div>
+
+    <div class="text-line" style="text-align: left; margin-left: 50px;">
+        ت ( أ ) = ٢ &nbsp; ، &nbsp; وبالمثل ت ( ب ) = ٢ &nbsp; ، &nbsp; ت ( جـ ) = ٣ .
+    </div>
+
+    <div class="text-line">
+        مجموعة صور المجال هي { ٢ ، ٣ } ، وتسمى <span class="blue-text">مدى التطبيق</span> .
+    </div>
+
+    <div class="blue-highlight-box">
+        مجموعة صور عناصر المجال تُسمّى مدى التطبيق .
+    </div>
+
+    <div class="text-line">
+        مدى التطبيق مجموعة جزئية من المجال المقابل، أي { ٢ ، ٣ } ⊂ { ١ ، ٢ ، ٣ } .
+    </div>
+
+    <span class="main-title">قاعدة التطبيق :</span>
+
+    <div class="diagram-container">
+        <div class="svg-area">
+            <div class="set-box set-s">
+                <span class="set-label">س</span>
+                <div>٢ •</div><div>٣ •</div><div>٤ •</div>
+            </div>
+            
+            <svg style="position:absolute; width:100%; height:100%; z-index:1;">
+                <path d="M 240 30 Q 145 0 55 30" fill="none" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <text x="140" y="20" font-family="Amiri" font-size="18">ت</text>
+                <line x1="240" y1="50" x2="55" y2="50" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <line x1="240" y1="100" x2="55" y2="100" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+                <line x1="240" y1="145" x2="55" y2="145" stroke="#00adef" stroke-width="1.2" marker-end="url(#arr)" />
+            </svg>
+
+            <div class="set-box set-y" style="height: 170px; top: -10px;">
+                <span class="set-label">ص</span>
+                <div>• ٣</div><div>• ٤</div><div>• ٦</div><div>• ٨</div>
+            </div>
+            <div style="position:absolute; bottom:-35px; width:100%; text-align:center; direction:rtl;">شكل ( ١ - ٢٥ )</div>
+        </div>
+
+        <div class="text-line" style="width: 350px;">
+            المخطط المرسوم في الشكل ( ١-٢٥ )<br>
+            يمثل تطبيقاً من س إلى ص .<br>
+            تلاحظ أن كل عنصر من المجال ارتبط
+        </div>
+    </div>
+
+    <div class="footer-line-cyan"></div>
+    <div class="page-number-oval">٣٥</div>
+
+    <a href="http://www.e-learning-moe.edu.ye/" class="moe-url">http://www.e-learning-moe.edu.ye/</a>
+</div>
+
+</body>
+</html>

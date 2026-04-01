@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 38</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:40px 50px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:4px;
+    background:#0aa3d9;
+}
+
+/* عنوان الوحدة */
+.unit{
+    position:absolute;
+    top:40px;
+    right:50px;
+    font-size:18px;
+}
+
+/* عنوان تمارين ومسائل */
+.title-wrap{
+    text-align:center;
+    margin:35px 0 25px;
+}
+.title{
+    display:inline-block;
+    background:#cfeaf7;
+    padding:6px 30px;
+    font-size:26px;
+    font-weight:bold;
+    border-top:7px solid #000;
+}
+
+/* النص */
+p{
+    font-size:20px;
+    line-height:1.9;
+    margin:8px 0;
+}
+
+/* منطقة الأشكال */
+.relations{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0 30px;
+}
+
+/* كل شكل */
+.rel{
+    position:relative;
+    width:150px;
+    height:300px;
+}
+
+/* أعمدة المجموعات */
+.set{
+    position:absolute;
+    top:0;
+    width:55px;
+    height:260px;
+    border:2px solid #000;
+    text-align:center;
+    font-size:20px;
+}
+
+.set.right{ right:0; }
+.set.left{ left:0; }
+
+/* عنوان المجموعة */
+.set .name{
+    position:absolute;
+    top:-30px;
+    width:100%;
+    font-weight:bold;
+}
+
+/* العناصر داخل المجموعة */
+.item{
+    position:absolute;
+    right:0;
+    left:0;
+}
+
+/* نقاط */
+.dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background:#00a3d9;
+    border-radius:50%;
+    margin-left:5px;
+}
+
+/* الأسهم */
+.arrow{
+    position:absolute;
+    height:2px;
+    background:#00a3d9;
+    transform-origin:right center;
+}
+.arrow::after{
+    content:"";
+    position:absolute;
+    left:-6px;
+    top:-4px;
+    border:6px solid transparent;
+    border-right-color:#00a3d9;
+}
+
+/* الخط السفلي */
+.bottom-line{
+    height:4px;
+    background:#0aa3d9;
+    margin-top:20px;
+}
+
+/* رقم الصفحة */
+.page-number{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    width:48px;
+    height:48px;
+    border:3px solid #0aa3d9;
+    border-radius:50%;
+    font-size:22px;
+    text-align:center;
+    line-height:44px;
+}
+
+/* التذييل */
+.footer{
+    text-align:center;
+    font-size:18px;
+    color:#0000cc;
+    margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+<div class="unit">الوحدة الأولى</div>
+
+<div class="title-wrap">
+    <div class="title">تمارين ومسائل</div>
+</div>
+
+<p><strong>[١]</strong> أيُّ العلاقات في الأشكال التالية تمثّل تطبيقًا؟ اذكر السبب.</p>
+
+<!-- الأشكال المرسومة -->
+<div class="relations">
+
+    <!-- شكل 1 -->
+    <div class="rel">
+        <div class="set left">
+            <div class="name">ص</div>
+            <div class="item" style="top:40px;">١ <span class="dot"></span></div>
+            <div class="item" style="top:90px;">٣ <span class="dot"></span></div>
+        </div>
+
+        <div class="set right">
+            <div class="name">س</div>
+            <div class="item" style="top:40px;">٧</div>
+            <div class="item" style="top:90px;">٩</div>
+            <div class="item" style="top:140px;">١١</div>
+        </div>
+
+        <div class="arrow" style="top:95px; right:55px; width:40px;"></div>
+        <div class="arrow" style="top:115px; right:55px; width:40px;"></div>
+        <div class="arrow" style="top:135px; right:55px; width:40px;"></div>
+    </div>
+
+    <!-- شكل 2 -->
+    <div class="rel">
+        <div class="set left">
+            <div class="name">ص</div>
+            <div class="item" style="top:50px;">١</div>
+            <div class="item" style="top:120px;">٢</div>
+        </div>
+
+        <div class="set right">
+            <div class="name">س</div>
+            <div class="item" style="top:40px;">٢</div>
+            <div class="item" style="top:90px;">٣</div>
+            <div class="item" style="top:150px;">٤</div>
+        </div>
+
+        <div class="arrow" style="top:55px; right:55px; width:45px;"></div>
+        <div class="arrow" style="top:125px; right:55px; width:45px;"></div>
+    </div>
+
+    <!-- شكل 3 -->
+    <div class="rel">
+        <div class="set left">
+            <div class="name">ل</div>
+            <div class="item" style="top:40px;">٧</div>
+            <div class="item" style="top:90px;">٩</div>
+            <div class="item" style="top:140px;">١١</div>
+        </div>
+
+        <div class="set right">
+            <div class="name">ك</div>
+            <div class="item" style="top:40px;">٣</div>
+            <div class="item" style="top:90px;">٥</div>
+            <div class="item" style="top:140px;">٧</div>
+        </div>
+
+        <div class="arrow" style="top:45px; right:55px; width:45px;"></div>
+        <div class="arrow" style="top:95px; right:55px; width:45px;"></div>
+        <div class="arrow" style="top:145px; right:55px; width:45px;"></div>
+    </div>
+
+</div>
+
+<p><strong>[٢]</strong> إذا كانت س = { أ ، ب ، ج } ، ص = { ٠ ، ١ } ، بيّن أيًّا من العلاقات التالية تمثّل تطبيقًا من س إلى ص ؟ اذكر السبب.</p>
+
+<p>
+ع = { ( أ ، ٠ ) ، ( ب ، ١ ) ، ( ج ، ١ ) } ،<br>
+ع = { ( أ ، ١ ) ، ( ب ، ١ ) ، ( ج ، ٠ ) } ،<br>
+ع = { ( أ ، ٠ ) ، ( ب ، ١ ) ، ( ج ، ٠ ) ، ( أ ، ١ ) } ،<br>
+ع = { ( أ ، ٠ ) ، ( ب ، ٠ ) ، ( ج ، ٠ ) } ،<br>
+ع = { ( أ ، ١ ) ، ( ج ، ١ ) } .
+</p>
+
+<p><strong>[٣]</strong> في السؤال رقم (٢) عيّن المجال والمجال المقابل للتطبيقات، ثم مثّلها سهميًا وبيانيًا.</p>
+
+<p><strong>[٤]</strong> إذا كانت م = { ٤ ، ٥ ، ٦ } ، ل = { ٦ ، ٨ ، ١٠ ، ١٢ } وكان</p>
+
+<p>ت : م ← ل معرّفًا بالقاعدة ل = ٢م − ٢ .</p>
+
+<p>
+أ) اكتب صورة كل عنصر ، ثم اكتب مدى التطبيق.<br>
+ب) اكتب التطبيق كأزواج مرتبة ، ثم ارسم المخطط السهمي والبياني لهذا التطبيق.
+</p>
+
+<div class="bottom-line"></div>
+
+<div class="page-number">٣٨</div>
+
+
+</div>
+</body>
+</html>

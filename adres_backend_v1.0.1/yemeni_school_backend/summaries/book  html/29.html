@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Digital Edition - Page 33</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .book-page {
+            background-color: white;
+            width: 800px;
+            height: 1100px;
+            padding: 50px 60px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            color: #222;
+        }
+
+        /* الخط العلوي */
+        .top-header {
+            border-bottom: 2px solid #00adef;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* النصوص العادية */
+        .text-line {
+            font-size: 21px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .highlight-blue { color: #00adef; font-weight: bold; }
+
+        /* صندوق التعريف */
+        .definition-box {
+            border: 1px solid #000;
+            background-color: #f0f8ff;
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* عنوان المثال */
+        .example-tag {
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 5px 20px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .example-num {
+            border-left: 2px solid #333;
+            padding-left: 15px;
+            margin-left: 15px;
+        }
+
+        /* --- رسم المخططات السهمية باستخدام CSS --- */
+        .diagrams-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            direction: ltr; /* لترتيب الأشكال من اليسار لليمين كما في الصورة */
+        }
+
+        .diagram-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 140px;
+        }
+
+        .relation-sets {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        /* المجموعات س و ص */
+        .set-rect {
+            border: 1.5px solid #333;
+            width: 35px;
+            height: 100%;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background: white;
+            z-index: 2;
+            font-size: 18px;
+        }
+
+        .set-label {
+            position: absolute;
+            top: -25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* رسم الأسهم */
+        .svg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .arrow-line {
+            stroke: #00adef;
+            stroke-width: 1.5;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        /* عنوان الشكل السفلي */
+        .figure-caption {
+            font-size: 16px;
+            margin-top: 5px;
+            direction: rtl;
+        }
+
+        /* قسم الحل */
+        .solution-section {
+            margin-top: 40px;
+        }
+
+        .solution-badge {
+            background-color: #333;
+            color: white;
+            padding: 4px 30px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* التذييل */
+        .page-footer {
+            position: absolute;
+            bottom: 60px;
+            width: calc(100% - 120px);
+            height: 8px;
+            background-color: #00adef;
+            border-radius: 4px;
+        }
+
+        .page-num-circle {
+            position: absolute;
+            bottom: 40px;
+            right: 150px;
+            background: white;
+            border: 4px solid #00adef;
+            width: 80px;
+            height: 40px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 22px;
+            z-index: 10;
+        }
+
+        .url-link {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #0000ee;
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="book-page">
+    <div class="top-header">
+        <span>المجموعات والعلاقات</span>
+        <span></span>
+    </div>
+
+    <div class="text-line">
+        في ع<sub>3</sub> يوجد عنصر واحد من س لم يرتبط بأي عنصر من ص ما هو؟
+    </div>
+    <div class="text-line">
+        في ع<sub>2</sub> <span class="highlight-blue">كل عنصر</span> من س ارتبط <span class="highlight-blue">بعنصر واحد فقط</span> من ص .
+    </div>
+    <div class="text-line">
+        العلاقة مثل ع<sub>2</sub> من س إلى ص تسمى <span class="highlight-blue">تطبيق</span> .
+    </div>
+
+    <div class="definition-box">
+        التطبيق هو علاقة من س إلى ص ، تربط كل عنصر من س بعنصر واحد فقط من ص ، ويسمى س مجال التطبيق ( المنطلق ) ، ويسمى ص المجال المقابل ( المستقر ) للتطبيق .
+    </div>
+
+    <div class="example-tag">
+        <span class="example-num">مثال ( 1 )</span>
+        أي العلاقات التالية في الأشكال ( 1-23 أ ، ب ، جـ ، د ) تمثل تطبيقاً ؟ اذكر السبب :
+    </div>
+
+    <div class="diagrams-container">
+        <svg width="0" height="0">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#00adef" />
+                </marker>
+            </defs>
+        </svg>
+
+        <div class="diagram-box">
+            <div class="relation-sets">
+                <span class="set-label" style="left:10px">س</span>
+                <span class="set-label" style="right:10px">ص</span>
+                <div class="set-rect"><div>1</div><div>2</div><div>3</div></div>
+                <svg class="svg-overlay">
+                    <line x1="35" y1="25" x2="105" y2="25" class="arrow-line" />
+                    <line x1="35" y1="75" x2="105" y2="75" class="arrow-line" />
+                </svg>
+                <div class="set-rect"><div>4</div><div>5</div><div>6</div></div>
+            </div>
+            <div class="figure-caption">شكل (1-23 أ)</div>
+            <div class="figure-caption">ع<sub>1</sub></div>
+        </div>
+
+        <div class="diagram-box">
+            <div class="relation-sets">
+                <span class="set-label" style="left:10px">س</span>
+                <span class="set-label" style="right:10px">ص</span>
+                <div class="set-rect"><div>أ</div><div>ب</div><div>جـ</div></div>
+                <svg class="svg-overlay">
+                    <line x1="35" y1="25" x2="105" y2="25" class="arrow-line" />
+                    <line x1="35" y1="75" x2="105" y2="25" class="arrow-line" />
+                    <line x1="35" y1="125" x2="105" y2="125" class="arrow-line" />
+                </svg>
+                <div class="set-rect"><div>م</div><div>ن</div><div>هـ</div></div>
+            </div>
+            <div class="figure-caption">شكل (1-23 ب)</div>
+            <div class="figure-caption">ع<sub>2</sub></div>
+        </div>
+
+        <div class="diagram-box">
+            <div class="relation-sets">
+                <span class="set-label" style="left:10px">س</span>
+                <span class="set-label" style="right:10px">ص</span>
+                <div class="set-rect"><div>أ</div><div>ب</div></div>
+                <svg class="svg-overlay">
+                    <line x1="35" y1="35" x2="105" y2="115" class="arrow-line" />
+                    <line x1="35" y1="115" x2="105" y2="35" class="arrow-line" />
+                    <line x1="35" y1="115" x2="105" y2="115" class="arrow-line" />
+                </svg>
+                <div class="set-rect"><div>1</div><div>3</div><div>5</div></div>
+            </div>
+            <div class="figure-caption">شكل (1-23 جـ)</div>
+            <div class="figure-caption">ع<sub>3</sub></div>
+        </div>
+
+        <div class="diagram-box">
+            <div class="relation-sets">
+                <span class="set-label" style="left:10px">س</span>
+                <span class="set-label" style="right:10px">ص</span>
+                <div class="set-rect"><div>1</div><div>ب</div><div>جـ</div></div>
+                <svg class="svg-overlay">
+                    <line x1="35" y1="25" x2="105" y2="75" class="arrow-line" />
+                    <line x1="35" y1="75" x2="105" y2="75" class="arrow-line" />
+                    <line x1="35" y1="125" x2="105" y2="75" class="arrow-line" />
+                </svg>
+                <div class="set-rect"><div>2</div><div>3</div><div>4</div></div>
+            </div>
+            <div class="figure-caption">شكل (1-23 د)</div>
+            <div class="figure-caption">ع<sub>4</sub></div>
+        </div>
+    </div>
+
+    <div class="solution-section">
+        <div class="solution-badge">الحل :</div>
+        <div class="text-line">
+            ع<sub>1</sub> ليست تطبيقاً ، لأن العنصر 3 من س ( المجال ) لم يرتبط بأي عنصر من ص ( المجال المقابل ) .
+        </div>
+        <div class="text-line" style="margin-top: 20px;">
+            ع<sub>2</sub> تطبيق ، لأن كل عنصر من س ارتبط بعنصر واحد فقط من ص .
+        </div>
+    </div>
+
+    <div class="page-footer"></div>
+    <div class="page-num-circle">٣٣</div>
+
+    <a href="http://www.e-learning-moe.edu.ye/" class="url-link">http://www.e-learning-moe.edu.ye/</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>صفحة 64 - ختام الوحدة الأولى</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background-color: #fff;
+            padding: 10px;
+            font-size: 1.25em;
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+            table-layout: fixed;
+        }
+
+        .choice-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            font-size: 1.15em;
+        }
+
+        .choice-table td:hover {
+            background-color: #f9f9f9;
+        }
+
+        .choice-table td.correct {
+            background-color: #d4edda !important;
+            border-color: var(--correct-color);
+        }
+
+        .choice-table td.wrong {
+            background-color: #f8d7da !important;
+            border-color: var(--wrong-color);
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 4px;
+            flex-shrink: 0;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 4px;
+            margin-bottom: 1px;
+        }
+
+        .closing-message {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 20px;
+            line-height: 1.6;
+            border-top: 1px dashed #ccc;
+        }
+
+        .footer {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0;
+            font-size: 1em;
+            margin-top: auto;
+        }
+
+        .page-num {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 600px) {
+            .choice-table td {
+                font-size: 0.9em;
+                padding: 10px 5px;
+                word-break: break-all;
+            }
+
+            .question-box {
+                font-size: 1.1em;
+                overflow-x: auto;
+            }
+
+            .closing-message {
+                font-size: 1.3em;
+                margin-top: 30px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <!-- Question ج -->
+            <div class="question-box">
+                ج) ناتج طرح [ <div class="fraction"><span>١</span><span>س - ١</span></div> - <div class="fraction">
+                    <span>٢</span><span>س - ١</span>
+                </div> ] = ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. <div class="fraction"><span>١</span><span>س + ١</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, true)">٢. <div class="fraction"><span>-١</span><span>س - ١</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٣. <div class="fraction"><span>١</span><span>س - ١</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٤. <div class="fraction"><span>١</span><span>س + ١</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Question د -->
+            <div class="question-box">
+                د) ناتج الطرح ( <div class="fraction"><span>١</span><span>م</span></div> + <div class="fraction">
+                    <span>١</span><span>ن</span>
+                </div> ) - ( <div class="fraction"><span>م + ن</span><span>م ن</span>
+                </div> ) يساوي ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, true)">١. صفر.</td>
+                    <td onclick="checkChoice(this, false)">٢. ١. </td>
+                    <td onclick="checkChoice(this, false)">٣. -١. </td>
+                    <td onclick="checkChoice(this, false)">٤. م ن.</td>
+                </tr>
+            </table>
+
+            <!-- Question هـ -->
+            <div class="question-box">
+                هـ) ناتج طرح <div class="fraction"><span>س<sup>٣</sup> - ١</span><span>س<sup>٢</sup> - ١</span></div> -
+                <div class="fraction"><span>س<sup>٢</sup></span><span>س + ١</span></div> يساوي ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. ١. </td>
+                    <td onclick="checkChoice(this, true)">٢. -١. </td>
+                    <td onclick="checkChoice(this, false)">٣. س.</td>
+                    <td onclick="checkChoice(this, false)">٤. - س.</td>
+                </tr>
+            </table>
+
+            <!-- Question و -->
+            <div class="question-box">
+                و) ناتج طرح <div class="fraction"><span>س<sup>٢</sup> - ٢ س + ٤</span><span>س - ٢</span></div> - <div
+                    class="fraction"><span>س<sup>٢</sup></span><span>س - ٢</span></div> يساوي ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. -١. </td>
+                    <td onclick="checkChoice(this, false)">٢. ١. </td>
+                    <td onclick="checkChoice(this, false)">٣. -٢. </td>
+                    <td onclick="checkChoice(this, true)">٤. ٢. </td>
+                </tr>
+            </table>
+
+            <!-- Question ز -->
+            <div class="question-box">
+                ز) <div class="fraction"><span>٢ س + ٤</span><span>س<sup>٢</sup> - ٤</span></div> - <div
+                    class="fraction"><span>١</span><span>س - ٢</span></div> = ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. <div class="fraction"><span>١</span><span>س<sup>٢</sup> -
+                                ٤</span></div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٢. <div class="fraction"><span>١</span><span>س - ٢</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, true)">٣. <div class="fraction"><span>١</span><span>س + ٢</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٤. <div class="fraction"><span>١</span><span>٢ - س</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Question ح -->
+            <div class="question-box">
+                ح) ناتج طرح <div class="fraction"><span>١</span><span>س - ١</span></div> - <div class="fraction">
+                    <span>١</span><span>س - ١</span>
+                </div> يساوي ..........:
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. <div class="fraction"><span>-١</span><span>س + ١</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٢. <div class="fraction"><span>١</span><span>١ - س</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٣. <div class="fraction"><span>١</span><span>س - ١</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, true)">٤. <div class="fraction"><span>١</span><span>س + ١</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Closing Message -->
+            <div class="closing-message">
+                انتهت الوحدة الأولى بسلام . . . أجمل ما قد تهدونه لي هو الدعاء في ظهر الغيب . . كل التوفيق لكم يا أوائل
+                الجمهورية . .
+            </div>
+
+            <div class="page-num">- ٦٤ -</div>
+            <div class="footer">إعداد: هلا المولجي</div>
+        </div>
+    </div>
+
+    <script>
+        function checkChoice(el, isCorrect) {
+            const row = el.closest('table').querySelectorAll('td');
+            row.forEach(cell => {
+                cell.classList.remove('correct', 'wrong');
+            });
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

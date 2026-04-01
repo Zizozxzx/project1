@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٢</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #4a90e2;
+            --light-blue: #e3f2fd;
+            --primary-orange: #f5a623;
+            --light-orange: #fff4e5;
+            --step-bg: #f8f9fa;
+            --text-dark: #333;
+        }
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .a4-page {
+            background-color: white;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            padding: 10mm 15mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: right;
+        }
+
+        .lesson-header {
+            background-color: #6d9bc3;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .bullet-point::before {
+            content: "•";
+            color: var(--text-dark);
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        .info-box {
+            background-color: #ffd8b1;
+            border: 1px solid #ff8c00;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px 40px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .equation-box {
+            background-color: #ffd8b1;
+            border: 1px solid #ff8c00;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 40px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .steps-list {
+            margin: 10px 40px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .steps-list li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .method-title-center {
+            background-color: #ffce00;
+            padding: 8px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 20px auto;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: 1px solid #888;
+        }
+
+        .methods-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+            flex-grow: 1;
+        }
+
+        .method-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+
+        .method-header {
+            color: white;
+            padding: 8px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-1 .method-header {
+            background-color: #e67e22;
+        }
+
+        .method-2 .method-header {
+            background-color: #e67e22;
+        }
+
+        .method-3 .method-header {
+            background-color: #e67e22;
+        }
+
+        .method-number {
+            background: white;
+            color: #444;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+        }
+
+        .method-content {
+            border: 1px solid #88c;
+            border-top: none;
+            padding: 10px;
+            border-radius: 0 0 15px 15px;
+            background-color: #c9d6ea;
+            flex-grow: 1;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .method-3 .method-content {
+            background-color: #b8cde5;
+        }
+
+        .method-2 .method-content {
+            background-color: #cbdcf0;
+        }
+
+        .method-1 .method-content {
+            background-color: #d8e5f5;
+        }
+
+        .step-item {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .step-num {
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 7em;
+            color: rgba(0, 0, 0, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="a4-page">
+        <div class="watermark">هلا المولجي</div>
+
+        <div class="lesson-header">
+            الدرس الثاني: نظام المعادلات من الدرجة الأولى في متغيرين
+        </div>
+
+        <div class="bullet-point">الصورة العامة لنظام المعادلات من الدرجة الأولى في متغيرين:</div>
+        <div class="equation-box">
+            أ<sub>١</sub> س + ب<sub>١</sub> ص + جـ<sub>١</sub> = ٠ <br>
+            أ<sub>٢</sub> س + ب<sub>٢</sub> ص + جـ<sub>٢</sub> = ٠
+        </div>
+
+        <div class="bullet-point">الغرض من نظام المعادلات من الدرجة الأولى في متغيرين:</div>
+        <div class="info-box">
+            إيجاد الحلول المشتركة بين المعادلات المعطاة
+        </div>
+
+        <div class="bullet-point">مبدأ حل نظام معادلتين من الدرجة الأولى في متغيرين، في التسلسل الآتي:</div>
+        <ul class="steps-list">
+            <li>١) حذف أحد المتغيرين باستخدام التحويلات المتكافئة.</li>
+            <li>٢) الحصول على معادلة من الدرجة الأولى في متغير واحد.</li>
+            <li>٣) نحصل على قيمة أحد المتغيرين.</li>
+            <li>٤) نوجد المتغير الآخر عن طريق التعويض بالمتغير الناتج في الخطوة السابقة في أحد المعادلات المعطاة.</li>
+            <li>٥) نكتب المتغيرين في زوج مرتب والذي يمثل مجموعة الحل المشتركة بين المعادلتين.</li>
+        </ul>
+
+        <div class="bullet-point">طرق حل نظام المعادلات من الدرجة الأولى في متغيرين:</div>
+        <ul class="steps-list">
+            <li>١) طرق الحل جبرياً.</li>
+            <li>٢) طريقة الحل بيانياً.</li>
+        </ul>
+
+        <div style="text-align: center;">
+            <div class="method-title-center">طرق الحل جبرياً</div>
+        </div>
+
+        <div class="methods-container">
+            <!-- Method 1 -->
+            <div class="method-column method-1">
+                <div class="method-header">
+                    <span class="method-number">١</span>
+                    <span>طريقة التعويض</span>
+                </div>
+                <div class="method-content">
+                    <div class="step-item"><span class="step-num">١)</span><span>اكتب إحدى المعادلتين بدلالة أحد
+                            المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٢)</span><span>عوض بالمعادلة الجديدة في المعادلة
+                            الأخرى للحصول على معادلة في متغير واحد، فتحصل على أحد المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٣)</span><span>عوض عن قيمة المتغير الناتج في الخطوة
+                            السابقة لتحصل على المتغير الآخر.</span></div>
+                    <div class="step-item"><span class="step-num">٤)</span><span>تحقق من صحة الحل في أي من
+                            المعادلتين.</span></div>
+                </div>
+            </div>
+
+            <!-- Method 2 -->
+            <div class="method-column method-2">
+                <div class="method-header">
+                    <span class="method-number">٢</span>
+                    <span>طريقة المقابلة</span>
+                </div>
+                <div class="method-content">
+                    <div class="step-item"><span class="step-num">١)</span><span>اكتب كلاً من المعادلتين بدلالة أحد
+                            المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٢)</span><span>ساوٍ قيمتي المتغير في المعادلتين للحصول
+                            على معادلة في متغير واحد، فتحصل على قيمة أحد المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٣)</span><span>عوض عن قيمة المتغير الناتج في الخطوة
+                            السابقة لتحصل على المتغير الآخر.</span></div>
+                    <div class="step-item"><span class="step-num">٤)</span><span>تحقق من صحة الحل في أي من
+                            المعادلتين.</span></div>
+                </div>
+            </div>
+
+            <!-- Method 3 -->
+            <div class="method-column method-3">
+                <div class="method-header">
+                    <span class="method-number">٣</span>
+                    <span>طريقة الحذف</span>
+                </div>
+                <div class="method-content">
+                    <div class="step-item"><span class="step-num">١)</span><span>ضع كلاً من المعادلتين في الصورة العامة:
+                            <br> أ<sub>١</sub> س + ب<sub>١</sub> ص = جـ<sub>١</sub> <br> أ<sub>٢</sub> س + ب<sub>٢</sub>
+                            ص = جـ<sub>٢</sub></span></div>
+                    <div class="step-item"><span class="step-num">٢)</span><span>وحد معاملي أحد المتغيرين عن طريق الضرب
+                            في عدد مناسب لتتمكن من حذف أحد المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٣)</span><span>قم بعملية الجمع أو الطرح للمعادلتين
+                            للحصول على معادلة ذات متغير واحد؛ فتحصل على قيمة أحد المتغيرين.</span></div>
+                    <div class="step-item"><span class="step-num">٤)</span><span>عوض عن قيمة المتغير الناتج في الخطوة
+                            السابقة لتحصل على المتغير الآخر.</span></div>
+                    <div class="step-item"><span class="step-num">٥)</span><span>تحقق من صحة الحل في أي من
+                            المعادلتين.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٢ -</div>
+        </footer>
+    </div>
+</body>
+
+</html>

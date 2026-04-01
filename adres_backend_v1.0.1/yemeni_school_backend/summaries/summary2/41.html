@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة ٤١</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --light-blue: #e7eff6;
+            --correct: #28a745;
+            --wrong: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            width: 90%;
+            max-width: 850px;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise-header {
+            background-color: var(--header-bg);
+            border: 1px solid #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 12px 0 8px 0;
+        }
+
+        .interactive-input {
+            border: none;
+            border-bottom: 1px dotted #000;
+            font-size: 1.1em;
+            outline: none;
+            background: transparent;
+            padding: 0 5px;
+            width: 40%;
+        }
+
+        .full-line {
+            border-bottom: 1px dotted #000;
+            width: 100%;
+            height: 25px;
+            margin-bottom: 15px;
+        }
+
+        .exam-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .exam-table th,
+        .exam-table td {
+            border: 1px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .exam-table th {
+            background-color: var(--light-blue);
+            text-align: center;
+        }
+
+        .col-text {
+            text-align: right;
+            width: 75%;
+            font-size: 1.05em;
+        }
+
+        .col-check {
+            width: 10%;
+            text-align: center;
+        }
+
+        .option-input {
+            display: none;
+        }
+
+        .circle-label {
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .correct-choice:checked+.circle-label {
+            background-color: var(--correct);
+            border-color: var(--correct);
+        }
+
+        .wrong-choice:checked+.circle-label {
+            background-color: var(--wrong);
+            border-color: var(--wrong);
+        }
+
+        .footer {
+            margin-top: 30px;
+            border-top: 2px solid #000;
+            padding-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 80px;
+            color: rgba(0, 0, 0, 0.04);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="watermark">هلا المولجي</div>
+
+        <div class="exercise-header">تدريب (٣):</div>
+        <div class="section-title">أ. حدد أياً مما يلي يمثل مقدار ثلاثي مربع كامل مع ذكر السبب:</div>
+        <div>١) ٤ ص<sup>٢</sup> - ٤ ص - ١ <input type="text" class="interactive-input"> ( .................... )</div>
+        <div>٢) ١٦ س<sup>٢</sup> + ٤٨ س + ٣٦ <input type="text" class="interactive-input"> ( .................... )
+        </div>
+        <div>٣) س<sup>٤</sup> - ٢ س<sup>٢</sup> + ١ <input type="text" class="interactive-input"> ( ....................
+            )</div>
+
+        <div class="section-title">ب. حلل المقادير التالية باستخدام قاعدة تحليل المقدار الثلاثي المربع الكامل:</div>
+        <div>١) ٩ م<sup>٢</sup> - ١٢ م + ٤ <div class="full-line"></div>
+        </div>
+        <div>٢) ٢٥ أ<sup>٢</sup> + ٢٠ أ ب + ٤ ب<sup>٢</sup>
+            <div class="full-line"></div>
+        </div>
+        <div>٣) ١/٤ س<sup>٤</sup> - س<sup>٢</sup> + ١ <div class="full-line"></div>
+        </div>
+
+        <div class="section-title">ج. حدد الحد الأوسط والحد الثالث للمقادير التالية:</div>
+        <div>١) ( ٣ س - ٤ )<sup>٢</sup> .( الحد الأول = ..... ، الحد الأوسط = ..... ، الحد الثالث = ..... )</div>
+        <div>٢) ( ٤ ص - ٠,٣ )<sup>٢</sup> .( الحد الأول = ..... ، الحد الأوسط = ..... ، الحد الثالث = ..... )</div>
+
+        <div class="exercise-header" style="margin-top:15px;">تدريب (٤):</div>
+        <p>قطعة أرض مربعة الشكل مساحتها ( س<sup>٢</sup> + ١٤ س + ٤٩ ) متراً مربعاً، أوجد طول هذه القطعة بدلالة س.</p>
+        <div class="full-line"></div>
+        <div class="full-line"></div>
+
+        <div class="exercise-header">تدريب (٥): حل المقادير التالية:</div>
+        <div>١) ٠,٢٥ أ<sup>٢</sup> + أ ب + ب<sup>٢</sup>. <div class="full-line"></div>
+        </div>
+        <div>٢) ل<sup>٢</sup> - ٣٠ م<sup>٢</sup> ل + ٢٢٥ م<sup>٤</sup>. <div class="full-line"></div>
+        </div>
+        <div>٣) ٢ م<sup>٢</sup> + ٧ م + ٣. <div class="full-line"></div>
+        </div>
+
+        <div
+            style="background-color: var(--header-bg); text-align: center; font-weight: bold; border: 1px solid #000; margin-top: 15px; padding: 5px;">
+            أسئلة على الدرس بطريقة الأتمتة
+        </div>
+
+        <table class="exam-table">
+            <thead>
+                <tr>
+                    <th class="col-text">ظلل الإجابة الصحيحة فيما يلي:</th>
+                    <th class="col-check">صح</th>
+                    <th class="col-check">خطأ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-text">١. المقدار الجبري ( س<sup>٢</sup> + ١٠ س + ٢٥ ) يعتبر مقدار ثلاثي بسيط.</td>
+                    <td class="col-check"><input type="radio" name="q1" id="q1t"
+                            class="option-input correct-choice"><label for="q1t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q1" id="q1f"
+                            class="option-input wrong-choice"><label for="q1f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٢. الحد الأوسط في المقدار ( ص - ١ )( ٢ ص + ١ ) يساوي (- ص).</td>
+                    <td class="col-check"><input type="radio" name="q2" id="q2t"
+                            class="option-input correct-choice"><label for="q2t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q2" id="q2f"
+                            class="option-input wrong-choice"><label for="q2f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٣. س<sup>٢</sup> ص<sup>٢</sup> - ٣ س ص - ١٠ = ( س ص - ٥ )( س ص + ٢ ).</td>
+                    <td class="col-check"><input type="radio" name="q3" id="q3t"
+                            class="option-input correct-choice"><label for="q3t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q3" id="q3f"
+                            class="option-input wrong-choice"><label for="q3f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٤. إذا كان ( ل<sup>٢</sup> + أ ل + ٤ ) = ( ل + ٤ )( ل + ١ )، فإن قيمة أ = ٤.
+                    </td>
+                    <td class="col-check"><input type="radio" name="q4" id="q4t"
+                            class="option-input wrong-choice"><label for="q4t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q4" id="q4f"
+                            class="option-input correct-choice"><label for="q4f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٥. قيمة جـ التي تجعل المقدار جـ س<sup>٢</sup> + ١٤ س + ١ مقدار ثلاثي مربع كامل.
+                    </td>
+                    <td class="col-check"><input type="radio" name="q5" id="q5t"
+                            class="option-input correct-choice"><label for="q5t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q5" id="q5f"
+                            class="option-input wrong-choice"><label for="q5f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٦. المقدار ( س + ٤ )( س + ٤ ) يعتبر مقدار ثلاثي مربع كامل.</td>
+                    <td class="col-check"><input type="radio" name="q6" id="q6t"
+                            class="option-input correct-choice"><label for="q6t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q6" id="q6f"
+                            class="option-input wrong-choice"><label for="q6f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٧. المقدار ( ٣ - ٤ س )( ٣ + ٢ س ) يعتبر مقدار ثلاثي غير بسيط.</td>
+                    <td class="col-check"><input type="radio" name="q7" id="q7t"
+                            class="option-input correct-choice"><label for="q7t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q7" id="q7f"
+                            class="option-input wrong-choice"><label for="q7f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٨. يتحلل المقدار ٣٦ س<sup>٤</sup> - ٨٤ س<sup>٢</sup> + ٤٩ ص<sup>٤</sup> إلى
+                        قوسين متشابهين.</td>
+                    <td class="col-check"><input type="radio" name="q8" id="q8t"
+                            class="option-input correct-choice"><label for="q8t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q8" id="q8f"
+                            class="option-input wrong-choice"><label for="q8f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">٩. حديقة أطفال مربعة الشكل مساحتها س<sup>٢</sup> + ٢ س + ١ ، فإن طول ضلعها = (س
+                        + ٢).</td>
+                    <td class="col-check"><input type="radio" name="q9" id="q9t"
+                            class="option-input wrong-choice"><label for="q9t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q9" id="q9f"
+                            class="option-input correct-choice"><label for="q9f" class="circle-label"></label></td>
+                </tr>
+                <tr>
+                    <td class="col-text">١٠. إشارة الحد الأوسط في المقدار ( ص - ٣ )( ص - ٥ ) إشارة موجبة.</td>
+                    <td class="col-check"><input type="radio" name="q10" id="q10t"
+                            class="option-input wrong-choice"><label for="q10t" class="circle-label"></label></td>
+                    <td class="col-check"><input type="radio" name="q10" id="q10f"
+                            class="option-input correct-choice"><label for="q10f" class="circle-label"></label></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span style="position: absolute; left: 50%; transform: translateX(-50%);">- ٤١ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

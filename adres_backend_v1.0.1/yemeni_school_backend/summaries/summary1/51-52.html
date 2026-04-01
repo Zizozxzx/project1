@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - رياضيات تاسع</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #555; padding: 10px; display: flex; justify-content: center; }
+        .page-container { max-width: 800px; background: #fff; border: 2px solid #000; padding: 25px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .header { text-align: center; border: 2px solid #000; padding: 10px; margin-bottom: 20px; font-weight: bold; font-size: 1.1em; }
+        .section-title { font-weight: bold; background: #eee; padding: 5px; border-right: 5px solid #000; margin-top: 15px; font-size: 0.95em; }
+        .solution { color: #d00; font-weight: bold; margin-top: 8px; white-space: pre-wrap; font-size: 0.9em; }
+        .divider { border-top: 1px dashed #000; margin: 15px 0; }
+        
+        /* إطارات المجموعات */
+        .venn-frame { border: 1.5px solid #000; position: relative; margin: 15px auto; background: #fff; overflow: hidden; }
+        .label-u { position: absolute; top: 2px; right: 5px; font-weight: bold; font-size: 13px; }
+        .circle { border: 1.5px solid #000; border-radius: 50%; position: absolute; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 11px; }
+
+        /* تعديل شكل 4: تقاطع */
+        .f-4 { width: 180px; height: 110px; }
+        .c-4-s { width: 80px; height: 80px; right: 20px; top: 15px; }
+        .c-4-y { width: 80px; height: 80px; left: 20px; top: 15px; }
+
+        /* تعديل شكل 6: احتواء (س داخل ص) */
+        .f-6 { width: 140px; height: 110px; }
+        .c-6-y { width: 100px; height: 90px; right: 20px; top: 10px; padding-right: 40px; } /* ص الكبرى */
+        .c-6-s { width: 50px; height: 50px; right: 30px; top: 30px; background: transparent; } /* س الصغرى */
+
+        /* تعديل شكل 9: مجموعات متباعدة */
+        .f-9 { width: 180px; height: 110px; }
+        .c-9-s { width: 70px; height: 70px; right: 15px; top: 20px; }
+        .c-9-y { width: 70px; height: 70px; left: 15px; top: 20px; }
+
+        /* شكل 10 ب: التظليل المطلوب */
+        .shaded-area { background: #999 !important; }
+        .white-center { width: 25px; height: 45px; background: #fff; position: absolute; left: 67px; top: 27px; border-radius: 50%; z-index: 5; }
+
+        .figures-row { display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; }
+        .fig-box { margin: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div style="text-align: center; font-size: 14px; font-weight: bold;">- ١٩ -</div>
+    <div class="header">
+        ١ : ٨ حل تمارين عامة<br>
+        مسائل الكتاب المدرسي ص ٥٣ إلى ٥٧
+    </div>
+
+    <div class="section-title">١) ضع علامة (✓) أمام العبارة الصحيحة وعلامة (×) أمام العبارة الخاطئة فيما يلي :-</div>
+    <p>أ) { ٩ } ⊂ { س : س ∈ ص+ ، س < ١٠ } &nbsp;&nbsp; ( )<br>ب) { ١.٥ } ⊂ { أ : أ ∈ ط ، ١ < أ < ٦ } &nbsp;&nbsp; ( )<br>جـ) { ٢ ، ٤ ، ٨ } = { ص : ص عدد يقسم ٨ } &nbsp;&nbsp; ( )</p>
+    <div class="solution">* الحل *<br>(أ) (✓) ، (ب) (×) لأن { ١.٥ } ∉ ط ، (جـ) (✓)</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٢) اكتب كلاً من المجموعات الآتية بالصفة المميزة (رمزياً) :-</div>
+    <p>ش = { ٢ ، ٤ ، ٦ ، ٨ ، ١٠ } ، ص = { ك ، ت ، ا ، ب }<br>ع هي مجموعة الأعداد التي تقبل القسمة على ٣</p>
+    <div class="solution">* الحل *<br>س = { س : س عدد طبيعي زوجي ، ٢ ≤ س < ١١ }<br>ص = { ص : ص أحد حروف كلمة كتاب }<br>ع = { ع : ع عدد يقبل القسمة على ٣ }</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٣) إذا كانت س = { ١ ، ٣ ، ٤ } ، ص = { ٢ ، ٦ ، ٨ } ، وعلاقة من س إلى ص حيث ع = { (١ ، ٢) ، (٣ ، ٦) ، (٤ ، ٨) } . اكتب هذه العلاقة بطريقة الصفة المميزة (رمزياً) .</div>
+    <div class="solution">* الحل *<br>واضح من الأزواج المرتبة للعلاقة ع أن المسقط الثاني هو ضعف المسقط الأول:<br>∴ ع = { (أ ، ب) : ب = ٢ أ ، أ ∈ س ، ب ∈ ص }</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٤) من الشكل (١ - ٤٨) أكتب :-</div>
+    <p>أ) المجموعتين س ، ص بطريقة السرد .<br>ب) المجموعة ص بطريقة الصفة المميزة .</p>
+    
+    <div class="venn-frame f-4">
+        <span class="label-u">ش</span>
+        <div class="circle c-4-s">س <br> ٤ . ٥</div>
+        <div class="circle c-4-y">ص <br> أ . ب</div>
+        <div style="position:absolute; right:85px; top:45px; font-weight:bold; z-index:10;">٦</div>
+    </div>
+
+    <div class="solution">* الحل *<br>أ) س = { ٤ ، ٥ ، ٦ } ، ص = { ٦ ، أ ، ب } .<br>ب) لا يمكن كتابة المجموعة ص بالصفة المميزة لعدم وجود صفة مشتركة بين العناصر بينما س = { س : س ∈ ط ، ٣ < س < ٧ }</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٥) أكتب المجموعات التالية أولاً بطريقة السرد ثم بالصفة المميزة .</div>
+    <p>أ) مجموعة حروف كلمة (شبوة) .<br>ب) مجموعة الأعداد الفردية الأكبر من ١٠ ، والأصغر من ١٦ .<br>جـ) مجموعة أرقام العدد ٣٢٢٣٥ .</p>
+    <div class="solution">* الحل *<br>أولاً: طريقة السرد : أ) { ش ، ب ، و ، ة } ب) { ١١ ، ١٣ ، ١٥ } جـ) { ٢ ، ٣ ، ٥ }<br>ثانياً: طريقة الصفة المميزة : <br>أ) { س : س أحد حروف كلمة شبوة } <br>ب) { س : س عدد طبيعي فردي ، ١٠ < س < ١٦ } <br>جـ) { س : س أحد أرقام العدد ٣٢٢٣٥ }</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٦) إذا كانت س = { ٩ ، ٧ ، ٦ } ، ص = { ١ ، ٦ ، ٧ ، ٩ } ، أوجد :-</div>
+    <p>أ) س / ص ، ص / س &nbsp;&nbsp; (ب) مثل س / ص بأشكال فن</p>
+    
+    <div class="venn-frame f-6">
+        <span class="label-u">ش</span>
+        <div class="circle c-6-y">ص <br> <br> ١</div>
+        <div class="circle c-6-s">س <br> ٦.٧.٩</div>
+    </div>
+
+    <div class="solution">* الحل *<br>أ) س / ص = { ٩ ، ٧ ، ٦ } / { ١ ، ٦ ، ٧ ، ٩ } = ∅<br>ص / س = { ١ ، ٦ ، ٧ ، ٩ } / { ٩ ، ٧ ، ٦ } = { ١ }<br>ب) شكل فن لتمثيل ص / س كما هو موضح بالشكل.</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٧) إذا كانت ش = { ٥ ، ٧ ، ٩ ، ١٠ ، ١٢ } ، س = { ٥ ، ٧ ، ١٢ } ، ص = { ٧ ، ٩ ، ١٠ } أوجد كلاً مما يأتي :-</div>
+    <p>أ) سَ &nbsp; ب) سَ ∩ ص &nbsp; جـ) (سَ / صَ) &nbsp; د) (س / ص) ∪ ص</p>
+    <div class="solution">* الحل *<br>أ) سَ = { ٩ ، ١٠ } &nbsp;&nbsp; ب) سَ ∩ ص = { ٩ ، ١٠ } ∩ { ٧ ، ٩ ، ١٠ } = { ٩ ، ١٠ }<br>جـ) صَ = { ٥ ، ١٢ } إذن (سَ / صَ) = { ٩ ، ١٠ } / { ٥ ، ١٢ } = { ٩ ، ١٠ }<br>د) (س / ص) ∪ ص = { ٥ ، ١٢ } ∪ { ٧ ، ٩ ، ١٠ } = { ٥ ، ٧ ، ٩ ، ١٠ ، ١٢ } = ش</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٨) إذا كانت ش = { ٦ ، ٧ ، ٨ ، ٩ ، ١٠ ، ١١ } ، س = { ٧ ، ٨ ، ١٠ ، ١١ } ، ص = { ٦ ، ٧ ، ٨ ، ١١ } أوجد :-</div>
+    <p>أ) سَ &nbsp; ب) ش / ص &nbsp; جـ) سَ / صَ</p>
+    <div class="solution">* الحل *<br>أ) سَ = { ٦ ، ٩ } &nbsp;&nbsp; ب) ش / ص = { ٩ ، ١٠ } &nbsp;&nbsp; جـ) صَ = { ٩ ، ١٠ }<br>∴ سَ / صَ = { ٦ ، ٩ } / { ٩ ، ١٠ } = { ٦ }</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">٩) من الشكل (١ - ٤٩) أوجد كلاً مما يلي :-</div>
+    <p>أ) س / ص &nbsp; ب) (س ∩ ص)َ &nbsp; جـ) (س ∪ ص)َ</p>
+
+    <div class="venn-frame f-9">
+        <span class="label-u">ش</span>
+        <div class="circle c-9-s">س <br> ٣.٥.٧</div>
+        <div class="circle c-9-y">ص <br> ٤ . ٨</div>
+    </div>
+
+    <div class="solution">* الحل *<br>من الشكل نجد ش = { ٣ ، ٤ ، ٥ ، ٧ ، ٨ } ، س = { ٣ ، ٥ ، ٧ } ، ص = { ٤ ، ٨ } فإن :<br>أ) س / ص = { ٣ ، ٥ ، ٧ } &nbsp;&nbsp; ب) س ∩ ص = ∅ فإن (س ∩ ص)َ = ش = { ٣ ، ٤ ، ٥ ، ٧ ، ٨ }<br>جـ) (س ∪ ص)َ = ∅</div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">١٠) اكتب المجموعات الممثلة بالمناطق المظللة في كل من الأشكال التالية :-</div>
+    
+    <div class="figures-row">
+        <div class="fig-box">
+            <div class="venn-frame" style="width:160px; height:100px;">
+                <div class="circle" style="width:70px; height:70px; right:15px; top:15px; background:#fff;">ل</div>
+                <div class="circle shaded-area" style="width:70px; height:70px; left:15px; top:15px;">م</div>
+            </div>
+            <p>شكل (١ - ٥٠ أ)</p>
+        </div>
+
+        <div class="fig-box">
+            <div class="venn-frame" style="width:160px; height:100px;">
+                <span class="label-u">ش</span>
+                <div class="circle shaded-area" style="width:70px; height:70px; right:15px; top:15px;">س</div>
+                <div class="circle shaded-area" style="width:70px; height:70px; left:15px; top:15px;">ص</div>
+                <div class="white-center"></div>
+            </div>
+            <p>شكل (١ - ٥٠ ب)</p>
+        </div>
+
+        <div class="fig-box">
+            <div class="venn-frame" style="width:160px; height:100px; background:#999;">
+                <span class="label-u">ش</span>
+                <div class="circle" style="width:70px; height:70px; left:45px; top:15px; background:#fff;">ل</div>
+            </div>
+            <p>شكل (١ - ٥٠ جـ)</p>
+        </div>
+    </div>
+
+    <div class="solution">* الحل *<br>الشكل (١ - ٥٠ أ) يمثل م / ل<br>الشكل (١ - ٥٠ ب) يمثل (س ∩ ص)َ<br>الشكل (١ - ٥٠ جـ) يمثل لَ</div>
+
+</div>
+
+</body>
+</html>

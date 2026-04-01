@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢٥ - الدرس الثامن: المماس</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --box-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-title {
+            background-color: var(--header-bg);
+            border: 2.5px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            font-size: 1.4em;
+            font-family: var(--font-calligraphy);
+        }
+
+        .section-header {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .list-style {
+            padding: 0;
+            margin: 0 0 10px 0;
+            list-style: none;
+        }
+
+        .list-style li {
+            margin-bottom: 3px;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .list-style li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .term {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .diagram-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .note-dashed {
+            border: 2px dashed #000;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 12px;
+        }
+
+        .theorem-box {
+            border: 1.5px solid #000;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .theorem-tag {
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Result Arrows */
+        .result-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .result-text {
+            border: 1.5px dashed #000;
+            padding: 5px 15px;
+            flex: 1;
+            text-align: center;
+            background-color: #fcfcfc;
+        }
+
+        .arrow-indicator {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        /* Drill Section */
+        .drill-section {
+            margin-top: 15px;
+        }
+
+        .drill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .drill-item {
+            border: 1.2px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .input-dotted {
+            border: none;
+            border-bottom: 1.5px dotted #000;
+            width: 90%;
+            text-align: center;
+            outline: none;
+            margin-top: 5px;
+            font-family: inherit;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .drill-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="main-title">الدرس الثامن: المماس</div>
+
+            <span class="section-header">تعرفنا في الدرس الأول على حالة المستقيم مع الدائرة:</span>
+            <ul class="list-style">
+                <li>لا يقطع الدائرة أي لا يوجد نقاط مشتركة.</li>
+                <li>يقطع الدائرة في نقطتين فيسمى قاطعاً.</li>
+                <li>يقطع الدائرة في نقطة واحدة فيسمى مماساً.</li>
+            </ul>
+
+            <div class="diagram-box">
+                <div style="flex: 1;">
+                    <span class="section-header">مفاهيم:</span>
+                    <ul class="list-style" style="margin-top: 5px;">
+                        <li>١. <span class="term">مماس الدائرة:</span> هو مستقيم يمس الدائرة أو يقطعها في نقطة واحدة فقط
+                            كما الشكل المجاور (جـ ل) هو المماس.</li>
+                        <li>٢. <span class="term">نقطة التماس:</span> النقطة المشتركة بين المماس والدائرة التي يمسها كما
+                            في الشكل المجاور (ب) هي نقطة التماس.</li>
+                    </ul>
+                </div>
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <circle cx="70" cy="60" r="45" fill="none" stroke="black" stroke-width="1.2" />
+                    <circle cx="70" cy="60" r="2" fill="black" />
+                    <text x="75" y="60" font-family="Amiri" font-size="10">م</text>
+                    <!-- Tangent Line -->
+                    <line x1="25" y1="10" x2="25" y2="110" stroke="black" stroke-width="1.2" />
+                    <polygon points="25,10 23,15 27,15" fill="black" />
+                    <polygon points="25,110 23,105 27,105" fill="black" />
+                    <text x="15" y="20" font-family="Amiri" font-size="11">جـ</text>
+                    <text x="15" y="105" font-family="Amiri" font-size="11">ل</text>
+                    <!-- Intersection point B -->
+                    <line x1="25" y1="60" x2="70" y2="60" stroke="black" stroke-width="1" stroke-dasharray="2" />
+                    <circle cx="25" cy="60" r="2.5" fill="black" />
+                    <text x="30" y="65" font-family="Amiri" font-size="11">ب</text>
+                </svg>
+            </div>
+
+            <div class="note-dashed">
+                المستقيم العمودي على نصف قطر الدائرة من نقطة نهايته على الدائرة يكون مماساً للدائرة عند هذه النقطة.
+                <br>أي أن الزاوية بين المماس ونصف القطر المار بنقطة التماس تساوي ٩٠°.
+            </div>
+
+            <div style="border: 2px solid #000; padding: 10px; margin-bottom: 12px; background-color: #fff;">
+                <span class="section-header"
+                    style="display: block; text-align: center; font-size: 1.15em; margin-bottom: 10px;">مبرهنات هامة على
+                    مماس الدائرة:</span>
+
+                <div class="theorem-box">
+                    <span class="theorem-tag">مبرهنة ( ١٠ ):</span>
+                    مماس الدائرة يكون عمودي على نصف القطر المار بنقطة التماس.
+                    <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٤٥).</span>
+                </div>
+            </div>
+
+            <p style="font-size: 0.95em; margin-bottom: 10px;"><span class="term">ملاحظة على المبرهنة:</span> نصف القطر
+                يعتبر أقصر قطعة مستقيمة واصلة من مركز الدائرة إلى مماس الدائرة.</p>
+
+            <span class="section-header">نتائج على المبرهنة:</span>
+            <div class="result-box">
+                <span class="arrow-indicator">⬅</span>
+                <div class="result-text">لا يمكن رسم أكثر من مماس واحد لدائرة من نقطة عليها.</div>
+            </div>
+            <div class="result-box">
+                <span class="arrow-indicator">⬅</span>
+                <div class="result-text">للدائرة عدد لا نهائي من المماسات.</div>
+            </div>
+            <div class="result-box">
+                <span class="arrow-indicator">⬅</span>
+                <div class="result-text">العمود المقام على مماس دائرة من نقطة التماس يمر بمركزها.</div>
+            </div>
+
+            <div class="drill-section">
+                <span class="section-header">تدريب ١: ميز عدد المماسات للدوائر التالية:</span>
+                <div class="drill-grid">
+                    <div class="drill-item">
+                        <svg width="60" height="60" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="30" fill="none" stroke="black" stroke-width="1" />
+                            <line x1="10" y1="10" x2="30" y2="70" stroke="black" stroke-width="1.2" />
+                        </svg>
+                        <input type="text" class="input-dotted" placeholder="........">
+                    </div>
+                    <div class="drill-item">
+                        <svg width="60" height="60" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="30" fill="none" stroke="black" stroke-width="1" />
+                            <line x1="10" y1="15" x2="70" y2="15" stroke="black" stroke-width="1.2" />
+                        </svg>
+                        <input type="text" class="input-dotted" placeholder="........">
+                    </div>
+                    <div class="drill-item">
+                        <svg width="60" height="60" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="30" fill="none" stroke="black" stroke-width="1" />
+                            <line x1="10" y1="40" x2="70" y2="60" stroke="black" stroke-width="1.2" />
+                        </svg>
+                        <input type="text" class="input-dotted" placeholder="........">
+                    </div>
+                    <div class="drill-item">
+                        <svg width="60" height="60" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="30" fill="none" stroke="black" stroke-width="1" />
+                            <line x1="10" y1="20" x2="70" y2="40" stroke="black" stroke-width="1.2" />
+                        </svg>
+                        <input type="text" class="input-dotted" placeholder="........">
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٤ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات الصف التاسع - صفحة 47</title>
+    <style>
+        :root { --border-black: #000; --bg-white: #fff; }
+        body { font-family: 'Arial', sans-serif; background: #f4f4f4; margin: 0; padding: 10px; font-size: 14px; line-height: 1.5; color: #000; }
+        .page-container { max-width: 950px; margin: auto; background: var(--bg-white); border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .page-header { text-align: center; border-bottom: 2px solid #000; margin-bottom: 15px; padding-bottom: 5px; font-weight: bold; font-size: 1.2em; }
+        
+        /* Layout Configuration */
+        .content-wrapper { display: flex; flex-wrap: wrap; gap: 20px; }
+        /* First child is Right Column in RTL */
+        .column { flex: 1; min-width: 300px; }
+        /* Border separation for desktop */
+        .column:first-child { border-left: 1px solid #000; padding-left: 15px; }
+        
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .column { border-left: none !important; padding-left: 0; border-bottom: 2px dashed #999; padding-bottom: 20px; }
+        }
+
+        .question-title { font-weight: bold; margin-bottom: 8px; display: block; background-color: #f0f0f0; padding: 5px; border: 1px solid #ddd; }
+        .solution-tag { color: red; font-weight: bold; text-decoration: underline; margin-right: 5px; }
+        
+        /* Math formatting */
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; font-size: 0.9em; margin: 0 2px; }
+        .fraction span { display: block; }
+        .fraction span.top { border-bottom: 1px solid #000; padding-bottom: 1px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; text-align: center; }
+        table th, table td { border: 1px solid #000; padding: 3px; }
+        .table-caption { text-align: right; font-size: 11px; margin-top: -5px; margin-bottom: 10px; }
+
+        /* Graph Box */
+        .graph-box { position: relative; width: 220px; height: 180px; margin: 15px auto; border: 1px solid #000; background: #fff; }
+        .graph-label { position: absolute; bottom: 2px; width: 100%; text-align: center; font-weight: bold; font-size: 12px; }
+        
+        /* Solution set box */
+        .result-box { text-align: center; font-weight: bold; margin: 10px 0; }
+        .divider-stars { text-align: center; margin: 15px 0; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">— ٤٧ —</div>
+
+    <div class="content-wrapper">
+        <div class="column">
+            <div class="question-block">
+                <div class="question-title">[٢] ٣س + ٢ص = ١٢ ، ٥س - ٣ص = ١</div>
+                <span class="solution-tag">* الحل *</span>
+                <p>
+                    ٣س + ٢ص = ١٢ &larr; (١) ومنها ص = <span class="fraction"><span class="top">١٢ - ٣س</span><span>٢</span></span><br>
+                    نكون جدول قيم المعادلة بفرض قيم اختيارية مناسبة للمتغير س لنحصل على القيم المقابلة للمتغير ص ثم نرسم المستقيم الأول .
+                </p>
+                
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = <span class="fraction"><span class="top">١٢ - ٣س</span><span>٢</span></span></td>
+                        <td style="width:25%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td>٦</td>
+                        <td>(٠ ، ٦)</td>
+                    </tr>
+                    <tr>
+                        <td>٢</td>
+                        <td>٣</td>
+                        <td>(٢ ، ٣)</td>
+                    </tr>
+                    <tr>
+                        <td>٤</td>
+                        <td>٠</td>
+                        <td>(٤ ، ٠)</td>
+                    </tr>
+                </table>
+                <div class="table-caption">جدول (١)</div>
+
+                <p>
+                    ٥س - ٣ص = ١ &larr; (٢) ومنها ص = <span class="fraction"><span class="top">٥س - ١</span><span>٣</span></span><br>
+                    نكون جدول كما سبق فرسم المستقيم الثاني . فمن الشكل البياني شكل (٢) يتقاطع المستقيمان في النقطة ( ٢ ، ٣ )<br>
+                    أي مجموعة الحل = { ( ٢ ، ٣ ) }<br>
+                    أنظر الرسم البياني شكل (٢)
+                </p>
+
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = <span class="fraction"><span class="top">٥س - ١</span><span>٣</span></span></td>
+                        <td style="width:25%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>-١</td>
+                        <td>-٢</td>
+                        <td>(-١ ، -٢)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="fraction"><span class="top">١</span><span>٥</span></span></td> <td>٠</td>
+                        <td>(<span class="fraction"><span class="top">١</span><span>٥</span></span> ، ٠)</td>
+                    </tr>
+                    <tr>
+                        <td>٢</td>
+                        <td>٣</td>
+                        <td>(٢ ، ٣)</td>
+                    </tr>
+                </table>
+                <div class="table-caption">جدول (٢)</div>
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#000" /></marker></defs>
+                        <line x1="10" y1="120" x2="210" y2="120" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="80" y1="10" x2="80" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="135" font-size="10">س</text><text x="85" y="20" font-size="10">ص</text>
+                        
+                        <line x1="140" y1="120" x2="50" y2="-15" stroke="black" stroke-width="1.5" />
+                        <text x="110" y="25" font-size="9">(٠ ، ٦)</text>
+
+                        <line x1="55" y1="165" x2="130" y2="45" stroke="black" stroke-width="1.5" />
+                        <text x="135" y="100" font-size="9">(٠ ، ٤)</text> <circle cx="110" cy="75" r="3" fill="none" stroke="black" stroke-width="2" />
+                        <text x="115" y="75" font-size="10" font-weight="bold">(٢، ٣)</text>
+                    </svg>
+                    <div class="graph-label">شكل (٢)</div>
+                </div>
+                
+                <div class="result-box">مجموعة الحل = { ( ٢ ، ٣ ) }</div>
+            </div>
+
+            <div class="divider-stars">******************************</div>
+
+            <div class="question-block">
+                <div class="question-title">[٣] س = ص ، س + ٢ص = ٣</div>
+                <span class="solution-tag">* الحل *</span>
+                <p><b>يمكن أن نجد الحل البياني باستخدام نقاط التقاطع مع المحاور كالتالي :</b></p>
+                <p>
+                    أ ) من المعادلة س = ص &larr; (١) نجد نقطة التقاطع مع م ص بوضع س = ٠ نجد : ص = ٠ نحصل على ( ٠ ، ٠ )<br>
+                    ب) نجد نقطة التقاطع مع م س بوضع ص = ٠ فنجد س = ٠ لأن س = ص<br>
+                    أيضاً ص = ± ١ فإن س = ± ١ فنحصل على ( ٠ ، ٠ ) ، ( ± ١ ، ± ١ ) .... نرسم المستقيم الأول المار بالنقاط ( ٠ ، ٠ ) ، ( ± ١ ، ± ١ ) ، .....
+                </p>
+                <p>
+                    من المعادلة س + ٢ص = ٣ &larr; (٢) نجري ما فعلناه في ( أ ) ، ( ب )<br>
+                    فعندما نضع س = ٠ فان ص = <span class="fraction"><span class="top">٣</span><span>٢</span></span> نحصل على ( ٠ ، <span class="fraction"><span class="top">٣</span><span>٢</span></span> )<br>
+                    وعندما نضع ص = ٠ فإن س = ٣ فنحصل على ( ٣ ، ٠ )<br>
+                    نرسم المستقيم الثاني المار بالنقطتين ( ٠ ، <span class="fraction"><span class="top">٣</span><span>٢</span></span> ) ، ( ٣ ، ٠ )
+                </p>
+                <p>
+                    من (١) ، (٢) يتقاطعان المستقيمان في النقطة ( ١ ، ١ )<br>
+                    كما هو موضح في الشكل (٣)
+                </p>
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <line x1="10" y1="120" x2="210" y2="120" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="80" y1="10" x2="80" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="135" font-size="10">س</text><text x="85" y="20" font-size="10">ص</text>
+                        
+                        <line x1="20" y1="180" x2="160" y2="40" stroke="black" stroke-width="1.5" />
+                        
+                        <line x1="60" y1="80" x2="160" y2="130" stroke="black" stroke-width="1.5" />
+                        
+                        <circle cx="100" cy="100" r="3" fill="none" stroke="black" stroke-width="2" />
+                        <text x="105" y="95" font-size="10" font-weight="bold">(١،١)</text>
+                        <text x="145" y="115" font-size="9">(٣،٠)</text>
+                    </svg>
+                    <div class="graph-label">شكل (٣)</div>
+                </div>
+
+                <div class="result-box">∴ مجموعة الحل = { ( ١ ، ١ ) }</div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="question-block">
+                <div class="question-title">[٤] ص = ١ ، س + ص = ٣</div>
+                <span class="solution-tag">* الحل *</span>
+                <p>
+                    ∵ ص = ١ &larr; (١) هذه المعادلة تمثل خط مستقيم يقطع م ص في النقطة ( ٠ ، ١ ) ويوازي م س<br>
+                    س + ص = ٣ &larr; (٢) ومنها نجد ص بدلالة س<br>
+                    ∴ ص = ٣ - س نكون جدول القيم ونرسم خطها المستقيم أو ممكن نجد نقاط التقاطع كالتالي :
+                </p>
+                <p>
+                    أ ) نجد نقاط التقاطع مع م ص بوضع س = ٠ ومنها ص = ٣ أي أن المستقيم يقطع م ص في النقطة ( ٠ ، ٣ )<br>
+                    ب) نضع ص = ٠ ومنها س = ٣ بالتالي المستقيم يقطع م س في النقطة ( ٣ ، ٠ )
+                </p>
+                <p>
+                    من (أ) ، (ب) نرسم المستقيم المار بالنقطتين ( ٣ ، ٠ ) ، ( ٠ ، ٣ )<br>
+                    فنجد من رسم المستقيمين انهما يتقاطعان في لنقطة ( ٢ ، ١ )<br>
+                    كما هو موضح في الشكل (٤)
+                </p>
+
+                <table style="width:60%; margin:auto;">
+                    <tr>
+                        <td style="width:20%">س</td>
+                        <td style="width:40%">ص = ٣ - س</td>
+                        <td>(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٣</td>
+                        <td>٠</td>
+                        <td>(٣ ، ٠)</td>
+                    </tr>
+                    <tr>
+                        <td>٢</td>
+                        <td>١</td>
+                        <td>(٢ ، ١)</td>
+                    </tr>
+                    <tr>
+                        <td>١</td>
+                        <td>٢</td>
+                        <td>(١ ، ٢)</td>
+                    </tr>
+                </table>
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <line x1="10" y1="120" x2="210" y2="120" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="80" y1="10" x2="80" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="135" font-size="10">س</text><text x="85" y="20" font-size="10">ص</text>
+                        
+                        <line x1="10" y1="100" x2="210" y2="100" stroke="black" stroke-width="1.5" />
+                        <text x="150" y="95" font-size="10">ص = ١</text>
+
+                        <line x1="50" y1="30" x2="160" y2="140" stroke="black" stroke-width="1.5" />
+                        
+                        <circle cx="120" cy="100" r="3" fill="none" stroke="black" stroke-width="2" />
+                        <text x="125" y="90" font-size="10">(٢، ١)</text>
+                        <text x="145" y="115" font-size="9">(٣،٠)</text>
+                    </svg>
+                    <div class="graph-label">شكل (٤)</div>
+                </div>
+
+                <div class="result-box">مجموعة الحل = { ( ٢ ، ١ ) }</div>
+            </div>
+
+            <div class="divider-stars">******************************</div>
+
+            <div class="question-block">
+                <div class="question-title">[٥] س - ٢ص = ٧ ، <span class="fraction"><span class="top">١</span><span>٣</span></span> س + ص = -١</div>
+                <span class="solution-tag">* الحل *</span>
+                <p>
+                    س - ٢ص = ٧ &larr; (١) ومنها ص = <span class="fraction"><span class="top">س - ٧</span><span>٢</span></span><br>
+                    نكون جدول لقيم المعادلة بفرض قيم اختيارية لـ س لتحصل على القيم المناظرة لـ ص ونرسم المستقيم الأول من قيم الجدول (١) .
+                </p>
+
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = <span class="fraction"><span class="top">س - ٧</span><span>٢</span></span></td>
+                        <td style="width:25%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>-١</td>
+                        <td>-٤</td>
+                        <td>(-١ ، -٤)</td>
+                    </tr>
+                    <tr>
+                        <td>١</td>
+                        <td>-٣</td>
+                        <td>(١ ، -٣)</td>
+                    </tr>
+                    <tr>
+                        <td>٣</td>
+                        <td>-٢</td>
+                        <td>(٣ ، -٢)</td>
+                    </tr>
+                </table>
+
+                <p>
+                    <span class="fraction"><span class="top">١</span><span>٣</span></span> س + ص = -١ ومنها ص = - <span class="fraction"><span class="top">س</span><span>٣</span></span> - ١ ، نكون جدول القيم<br>
+                    للمعادلة (٢) ونرسم المستقيم الثاني من قيم الجدول (٢) فمن الشكل (٥) نجد أن المستقيمان يتقاطعان في النقطة ( ٣ ، -٢ )
+                </p>
+
+                <table>
+                    <tr>
+                        <td style="width:15%">س</td>
+                        <td>ص = - <span class="fraction"><span class="top">س</span><span>٣</span></span> - ١</td>
+                        <td style="width:25%">(س ، ص)</td>
+                    </tr>
+                    <tr>
+                        <td>٠</td>
+                        <td>-١</td>
+                        <td>(٠ ، -١)</td>
+                    </tr>
+                    <tr>
+                        <td>٣</td>
+                        <td>-٢</td>
+                        <td>(٣ ، -٢)</td>
+                    </tr>
+                    <tr>
+                        <td>-٣</td>
+                        <td>٠</td>
+                        <td>(-٣ ، ٠)</td>
+                    </tr>
+                </table>
+
+                <div class="result-box">∴ مجموعة الحل = { ( ٣ ، -٢ ) }</div>
+
+                <div class="graph-box">
+                    <svg width="220" height="180" viewBox="-10 -10 220 180">
+                        <line x1="10" y1="80" x2="210" y2="80" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <line x1="80" y1="10" x2="80" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="200" y="95" font-size="10">س</text><text x="85" y="20" font-size="10">ص</text>
+                        
+                        <line x1="50" y1="147.5" x2="155" y2="95" stroke="black" stroke-width="1.5" />
+                        
+                        <line x1="20" y1="75" x2="170" y2="125" stroke="black" stroke-width="1.5" />
+                        
+                        <circle cx="125" cy="110" r="3" fill="none" stroke="black" stroke-width="2" />
+                        <text x="130" y="105" font-size="10">(٣، -٢)</text>
+                        <text x="130" y="70" font-size="9">(٠ ،٧)</text> </svg>
+                    <div class="graph-label">شكل (٥)</div>
+                </div>
+
+                <div style="text-align:left; font-weight:bold;">التحقق : تحقق بنفسك..</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

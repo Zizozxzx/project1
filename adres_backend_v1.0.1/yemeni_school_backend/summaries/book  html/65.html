@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تحليل المقادير الجبرية – صفحة ٦٨</title>
+<style>
+    body{
+        margin:0;
+        background:#ffffff;
+        font-family:"Traditional Arabic","Amiri",serif;
+        color:#000;
+    }
+    .page{
+        width:900px;
+        margin:0 auto;
+        padding:30px 40px 90px 40px;
+        box-sizing:border-box;
+        position:relative;
+    }
+    .top-line{
+        height:4px;
+        background:#1aa3d9;
+        margin-bottom:18px;
+    }
+    .content{
+        font-size:22px;
+        line-height:1.9;
+    }
+    .note-title{
+        font-weight:bold;
+        margin-bottom:8px;
+    }
+    .cross-wrap{
+        display:flex;
+        align-items:flex-start;
+        gap:40px;
+        margin:10px 0 20px 0;
+    }
+    .cross{
+        width:200px;
+        height:160px;
+        position:relative;
+    }
+    .cross:before,
+    .cross:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        width:100%;
+        height:2px;
+        background:#1aa3d9;
+        transform:rotate(45deg);
+    }
+    .cross:after{
+        transform:rotate(-45deg);
+    }
+    .cross span{
+        position:absolute;
+        color:#1aa3d9;
+        font-size:22px;
+        white-space:nowrap;
+    }
+    .tl{top:0;right:0;}
+    .tr{top:0;left:0;}
+    .bl{bottom:0;right:0;}
+    .br{bottom:0;left:0;}
+
+    .example{
+        border:3px solid #000;
+        border-radius:25px;
+        padding:6px 20px;
+        display:inline-block;
+        font-weight:bold;
+        margin:15px 0;
+    }
+    .solution{
+        border:3px solid #000;
+        border-radius:30px;
+        padding:6px 25px;
+        display:inline-block;
+        font-weight:bold;
+        margin:15px 0;
+    }
+    .footer-line{
+        position:absolute;
+        bottom:40px;
+        left:40px;
+        right:40px;
+        height:4px;
+        background:#1aa3d9;
+    }
+    .page-number{
+        position:absolute;
+        bottom:25px;
+        right:40px;
+        width:60px;
+        height:40px;
+        border:4px solid #1aa3d9;
+        border-radius:30px;
+        text-align:center;
+        line-height:32px;
+        font-size:22px;
+        background:#fff;
+    }
+    .link{
+        position:absolute;
+        bottom:5px;
+        left:0;
+        right:0;
+        text-align:center;
+        color:#1a4cff;
+        font-size:20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="top-line"></div>
+
+    <div class="content">
+
+        <p class="note-title">ملاحظة :</p>
+
+        <p>يمكنك تحليل المقدار السابق كما يلي :</p>
+
+        <div class="cross-wrap">
+            <div class="cross">
+                <span class="tl">٢س</span>
+                <span class="tr">٣ +</span>
+                <span class="bl">س</span>
+                <span class="br">٢ +</span>
+            </div>
+
+            <div>
+                <p>
+                    يستعان برسم خطين متقاطعين بصورة مقص ، يُحلل الحد الأول بينهما ويُحلل الحد المطلق يسارهما ، والحد الأوسط ينتج عن مجموع عاملي ضرب الطرفين .
+                </p>
+
+                <p>
+                    الحد الأوسط = ٢س × ٢ + س × ٣
+                </p>
+
+                <p>
+                    = ٤س + ٣س
+                </p>
+
+                <p>
+                    = ٧س
+                </p>
+
+                <p>
+                    ∴ ٢س<sup>٢</sup> + ٧س + ٦ = ( ٢س + ٣ ) ( س + ٢ )
+                </p>
+            </div>
+        </div>
+
+        <div class="example">مثال (٦)</div>
+
+        <p>حلل المقدار : ٣س<sup>٢</sup> − ١٣س ص + ١٤ص<sup>٢</sup> .</p>
+
+        <div class="solution">الحل :</div>
+
+        <p>الحد الأول : ٣س<sup>٢</sup> = ٣س × س</p>
+
+        <p>الحد الثالث : ١٤ص<sup>٢</sup> ( موجب ) ، إذن العاملان لهما نفس إشارة الحد الأوسط وهما : −٧ص ، −٢ص .</p>
+
+        <p>نضع هذه العوامل في الأشكال التالية :</p>
+
+        <div class="cross-wrap">
+            <div class="cross">
+                <span class="tl">٣س</span>
+                <span class="tr">−٧ص</span>
+                <span class="bl">س</span>
+                <span class="br">−٢ص</span>
+            </div>
+
+            <div class="cross">
+                <span class="tl">٣س</span>
+                <span class="tr">−٢ص</span>
+                <span class="bl">س</span>
+                <span class="br">−٧ص</span>
+            </div>
+
+            <div class="cross">
+                <span class="tl">٣س</span>
+                <span class="tr">−١٤ص</span>
+                <span class="bl">س</span>
+                <span class="br">−ص</span>
+            </div>
+
+            <div class="cross">
+                <span class="tl">٣س</span>
+                <span class="tr">−ص</span>
+                <span class="bl">س</span>
+                <span class="br">−١٤ص</span>
+            </div>
+        </div>
+
+        <p>
+            (١) الحد الأوسط = −١٧س ص &nbsp;&nbsp;&nbsp;
+            (٢) الحد الأوسط = −٢٣س ص &nbsp;&nbsp;&nbsp;
+            (٣) الحد الأوسط = −٣٣س ص &nbsp;&nbsp;&nbsp;
+            (٤) الحد الأوسط = −١٣س ص
+        </p>
+
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="page-number">٦٨</div>
+    <div class="link">http://www.e-learning-moe.edu.ye/</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٦ - الأسئلة الوزارية الختامية للوحدة الخامسة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ministerial-title {
+            background-color: var(--header-bg);
+            border: 2.5px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.35em;
+            font-family: var(--font-calligraphy);
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .sub-header {
+            background-color: #fce4d6;
+            border: 1.5px solid #000;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 0.95em;
+            margin-bottom: -1px;
+        }
+
+        /* MCQ Grid */
+        .mcq-container {
+            border: 1.5px solid #000;
+            margin-bottom: 5px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 6px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .opt-item {
+            padding: 4px 10px;
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+
+        .opt-item:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1.2px solid #000;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        /* Artistic Footer */
+        .art-footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .art-msg {
+            font-family: var(--font-calligraphy);
+            font-size: 2.5em;
+            line-height: 1.4;
+            color: #1a1a1a;
+            position: relative;
+            z-index: 2;
+        }
+
+        .watermark {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-calligraphy);
+            font-size: 8em;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.2px solid #000;
+            padding: 0 3px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 3px;
+            line-height: 1.2;
+        }
+
+        .math-symbol {
+            font-family: 'Amiri', serif;
+            font-style: italic;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opt-item {
+                border-left: 1.5px solid #000;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="ministerial-title">أسئلة وزارية</div>
+
+            <div class="sub-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">أ. إذا كان ل طول قطاع دائري في دائرة نصف قطرها نق محدد بزاوية مركزية قياسها س،
+                    فإن ل = <span class="fraction"><span class="top">س</span><span class="bottom">٣٦٠</span></span> ×
+                    ............. :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div> ٢ π نق
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div> ٢ π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div> ٣ π نق
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">ب. إذا كانت س زاوية مركزية في دائرة نصف قطرها نق ، فإن ٢ π نق × <span
+                        class="fraction"><span class="top">س</span><span class="bottom">٣٦٠</span></span> =
+                    ............. القطاع الدائري:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>طول قوس.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>مساحة.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>محيط.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>أضلاع زاوية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">جـ. إذا كان ل طول قطاع دائري في دائرة نصف قطرها نق محدد بزاوية مركزية قياسها
+                    س، فإن مساحة القطاع الدائري = <span class="fraction"><span class="top">س</span><span
+                            class="bottom">٣٦٠</span></span> × ............. :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٢ π نق
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>π نق
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١ / ٢ π نق
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">د. مساحة القطاع الذي زاويته المحيطية ٤٥° في دائرة نصف قطرها نق = .............
+                    :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">٢</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div><span class="fraction"><span class="top">٣</span><span
+                                class="bottom">٨</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">٤</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">١٢</span></span> π نق<sup>٢</sup>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">و. إذا كان طول القوس المقابل لزاوية مركزية مستقيمة في دائرة = ٤٤ سم، فإن محيط
+                    الدائرة = ............. :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٢٢ سم.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٤٤ سم.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٨٨ سم.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٣٣.٢ سم.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">هـ. إذا كانت س زاوية مركزية في دائرة نصف قطرها نق ، فإن π نق<sup>٢</sup> ×
+                    <span class="fraction"><span class="top">س</span><span class="bottom">٣٦٠</span></span> =
+                    ............. :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>طول قوس القطاع الدائري.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>مساحة القطاع الدائري.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>محيط القطاع الدائري.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>محيط الدائرة.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">ز. إذا كان س قياس زاوية مركزية في دائرة قطرها = ٨ سم، فإن مساحة القطاع الدائري
+                    = <span class="fraction"><span class="top">س</span><span class="bottom">٣٦٠</span></span> ×
+                    ............. سم<sup>٢</sup>:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٤ π
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>١٢ π
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٨ π
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>١٦ π
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">حـ. مساحة القطاع الدائري الذي زاويته المركزية ٤٥° في دائرة نصف قطرها نق =
+                    ............. :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">٢</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div><span class="fraction"><span class="top">٣</span><span
+                                class="bottom">٨</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">٨</span></span> π نق<sup>٢</sup>
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div><span class="fraction"><span class="top">١</span><span
+                                class="bottom">١٢</span></span> π نق<sup>٢</sup>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">ر. إذا كانت مساحة دائرة ١٥ π سم<sup>٢</sup> ، فإن قياس الزاوية المركزية في
+                    قطاع دائري مساحته ٥ π سم<sup>٢</sup> يساوي .... :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>١٢٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٦٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٩٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٣٠°.
+                    </div>
+                </div>
+            </div>
+
+            <div class="art-footer">
+                <div class="watermark">هلا المولجي</div>
+                <div class="art-msg">حتى وإن هلّ مرا ما ترونه...<br>يكفيكم شرف المحاولة...</div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٥ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

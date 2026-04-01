@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة ٢٧</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Tahoma","Arial",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* الرأس */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+.header .title{
+    font-size:18px;
+    margin-left:15px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* النص */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+
+/* مثال */
+.example{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:14px;
+    padding:4px 14px;
+    font-size:18px;
+    margin:10px 0;
+}
+
+/* الحل */
+.solution{
+    display:inline-block;
+    background:#000;
+    color:#fff;
+    border-radius:20px;
+    padding:6px 18px;
+    font-size:18px;
+    margin:10px 0;
+}
+
+/* المخطط السهمي */
+.diagram-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:15px 0 5px;
+}
+.diagram{
+    border:2px solid #000;
+    padding:10px;
+}
+.caption{
+    text-align:center;
+    font-size:16px;
+    margin-top:4px;
+}
+
+/* التذييل */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:30px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- الرأس -->
+<div class="header">
+    <div class="title">المجموعات والعلاقات</div>
+    <div class="line"></div>
+</div>
+
+<p>
+وتمثيلها بالمخطط السهمي في الشكل ( ١٧ - ١ ) .
+</p>
+
+<div class="diagram-wrapper">
+<div class="diagram">
+<svg width="420" height="260">
+    <!-- المستطيلان -->
+    <rect x="20" y="20" width="120" height="200" fill="none" stroke="#000" stroke-width="2"/>
+    <rect x="280" y="20" width="120" height="200" fill="none" stroke="#000" stroke-width="2"/>
+
+    <!-- العناوين -->
+    <text x="80" y="15" text-anchor="middle" font-size="16">م</text>
+    <text x="340" y="15" text-anchor="middle" font-size="16">م</text>
+
+    <!-- النقاط اليسرى -->
+    <circle cx="80" cy="50" r="4" fill="#000"/>
+    <circle cx="80" cy="90" r="4" fill="#000"/>
+    <circle cx="80" cy="130" r="4" fill="#000"/>
+    <circle cx="80" cy="170" r="4" fill="#000"/>
+
+    <text x="60" y="55" font-size="16">١</text>
+    <text x="60" y="95" font-size="16">٢</text>
+    <text x="60" y="135" font-size="16">٣</text>
+    <text x="60" y="175" font-size="16">٠</text>
+
+    <!-- النقاط اليمنى -->
+    <circle cx="340" cy="50" r="4" fill="#000"/>
+    <circle cx="340" cy="90" r="4" fill="#000"/>
+    <circle cx="340" cy="130" r="4" fill="#000"/>
+    <circle cx="340" cy="170" r="4" fill="#000"/>
+
+    <text x="360" y="55" font-size="16">١</text>
+    <text x="360" y="95" font-size="16">٢</text>
+    <text x="360" y="135" font-size="16">٣</text>
+    <text x="360" y="175" font-size="16">٠</text>
+
+    <!-- الأسهم -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#1aa3d9"/>
+        </marker>
+    </defs>
+
+    <line x1="80" y1="50" x2="340" y2="50" stroke="#1aa3d9" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="80" y1="50" x2="340" y2="130" stroke="#1aa3d9" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="80" y1="90" x2="340" y2="90" stroke="#1aa3d9" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="80" y1="130" x2="340" y2="50" stroke="#1aa3d9" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="80" y1="170" x2="340" y2="170" stroke="#1aa3d9" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+</div>
+</div>
+<div class="caption">شكل ( ١٧ - ١ )</div>
+
+<p class="example">مثال ( ٢ )</p>
+
+<p>
+لتكن م = { ٣ ، ٤ ، ٥} ، ع علاقة على م حيث
+</p>
+
+<p>
+ع = { ( ٥ ، ٥ ) ، ( ٤ ، ٤ ) ، ( ٣ ، ٤ ) ، ( ٤ ، ٣ ) ، ( ٣ ، ٣ ) } .
+</p>
+
+<p>
+هل ع علاقة تكافؤ ؟ ولماذا ؟
+</p>
+
+<div class="solution">الحل :</div>
+
+<p>
+ع انعكاسية لأن لكل أ ∈ م فإن ( أ ، أ ) ∈ ع .
+</p>
+
+<p>
+ع متناظرة لأن ( ٣ ، ٤ ) ∈ ع وأيضاً ( ٤ ، ٣ ) ∈ ع .
+</p>
+
+<p>
+∵ ( ٣ ، ٤ ) ، ( ٤ ، ٣ ) ∈ ع نجد أن ( ٣ ، ٣ ) ∈ ع .
+</p>
+
+<p>
+وكذلك ( ٤ ، ٣ ) ، ( ٣ ، ٤ ) ∈ ع نجد أن ( ٤ ، ٤ ) ∈ ع .
+</p>
+
+<p>
+∴ ع علاقة متعدية .
+</p>
+
+<p>
+∴ ع علاقة انعكاسية ومتناظرة ومتعدية .
+</p>
+
+<p>
+∴ ع علاقة تكافؤ .
+</p>
+
+<p class="example">مثال ( ٣ )</p>
+
+<p>
+إذا كانت ك = { ٣ ، ٥ ، ٧ } ، وكانت ع علاقة على ك حيث
+</p>
+
+<p>
+ع = { ( ٣ ، ٣ ) ،( ٣ ، ٥ ) ،( ٥ ، ٥ ) ، ( ٧ ، ٧ ) } .
+</p>
+
+<p>
+هل ع علاقة تكافؤ ؟ ولماذا ؟
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="page-num">٢٧</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

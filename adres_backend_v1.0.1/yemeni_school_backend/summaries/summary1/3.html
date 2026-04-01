@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجموعات والعلاقات - الصف التاسع</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-border: #2c3e50;
+            --box-bg: #fdfdfd;
+            --title-bg: #e9ecef;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 10px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border: 4px double var(--primary-border);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .unit-title {
+            border: 1px solid #000;
+            display: inline-block;
+            padding: 5px 30px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .main-title {
+            border: 2px solid #000;
+            background-color: var(--title-bg);
+            padding: 10px 40px;
+            margin: 15px auto;
+            display: table;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .section-box {
+            border: 1px solid #333;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .definition-box {
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        .definition-title {
+            background: #eee;
+            border-bottom: 1px solid #000;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .definition-content {
+            padding: 10px;
+        }
+        .example-box {
+            background-color: #fff;
+            border-right: 4px solid #333;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .highlight-box {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .venn-diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+        /* تصميم متجاوب للهواتف */
+        @media (max-width: 600px) {
+            .page-container {
+                padding: 10px;
+                border-width: 2px;
+            }
+            .main-title {
+                font-size: 1.2em;
+                padding: 8px 20px;
+            }
+            svg {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header">
+        <div class="unit-title">الوحدة الأولى</div>
+        <div class="main-title">المجموعات والعلاقات</div>
+    </div>
+
+    <div class="definition-box">
+        <div class="definition-title">المجموعات :</div>
+        <div class="definition-content">
+            <strong>المجموعة :</strong> هي لفظ يطلق على تجمع من الأشياء المدركة حسياً أو بديهياً على أن تكون هذه الأشياء متمايزة ومحددة تحديداً تاماً، وتكون المجموعة منتهية إذا كان عدد عناصرها محدوداً ( منتهياً )، وتكون مجموعة غير منتهية إذا لم يكن ممكناً حصر عدد عناصرها .<br>
+            <strong>فمثلاً :</strong> مجموعة محافظات الجمهورية اليمنية مجموعة منتهية .<br>
+            ، مجموعة الأعداد الطبيعية \( ط = \{ \dots ، ٢ ، ١ ، ٠ \} \) مجموعة غير منتهية .
+        </div>
+    </div>
+
+    <div class="definition-box">
+        <div class="definition-title">طرق التعبير عن المجموعة :</div>
+        <div class="definition-content">
+            (أ) <strong>طريقة السرد :</strong> وهي أن تكتب جميع عناصر المجموعة مع وضع فاصلة بين كل عنصر والذي يليه وحصرها بين قوسين { } .<br>
+            (ب) <strong>طريقة الصفة المميزة :</strong> وهي أن نعبر عن عناصر المجموعة بالوصف وفق قاعدة معينة أو نحاول كتابتها من صورة مقالة أو عبارة إلى طريقة رمزية .
+        </div>
+    </div>
+
+    <div class="example-box">
+        <strong>مثال :</strong> أكتب كلاً من المجموعات التالية بطريقة السرد مرة وبطريقة الصفة المميزة مرة أخرى .<br>
+        أ) مجموعة قواسم العدد ٢٤ ب) مجموعة الأعداد الصحيحة المحصورة بين -٢ ، ٢ ج) مضاعفات العدد ٤ الأكبر من ١٣
+        <br><strong>الحل * أولاً : طريقة السرد :</strong><br>
+        أ) { ١ ، ٢ ، ٣ ، ٤ ، ٦ ، ٨ ، ١٢ ، ٢٤ } ب) { -١ ، ٠ ، ١ } ج) { ١٦ ، ٢٠ ، ٢٤ ، ٢٨ ، ٣٢ ، ... }
+        <br><strong>ثانياً : طريقة الصفة المميزة :</strong><br>
+        أ) { س : س قاسم من قواسم العدد ٢٤ } ب) { أ : أ \( \in \) ص ، -٢ < أ < ٢ } ج) { س : س مضاعف للعدد ٤ ، س > ١٣ }
+    </div>
+
+    <div class="highlight-box">
+        المجموعة الخالية \( \emptyset \) : هي المجموعة التي لا تحتوي أي عنصر ويرمز لها بالرمز \( \emptyset \) أو { } فمثلاً : أمريكا دولة عربية = \( \emptyset \)
+    </div>
+
+    <div class="highlight-box">
+        تساوي مجموعتين : إذا كان كل عنصر من س هو عنصر في ص، وكل عنصر في ص هو عنصر في س نقول أن المجموعتان س ، ص متساويتان أي س = ص .
+    </div>
+
+    <div class="highlight-box">
+        المجموعة الجزئية : يقال أن المجموعة س مجموعة جزئية من المجموعة ص إذا كان كل عنصر في س ينتمي إلى ص ونرمز لذلك \( س \subset ص \).
+    </div>
+
+    <div class="section-box">
+        <strong>ملاحظة:</strong> إذا كان لكل عنصر \( س \in س \) ولكل عنصر \( س \in ص \) نقول أن س مجموعة جزئية أو تساوي ص ونكتب \( س \subseteq ص \).
+    </div>
+
+    <div class="highlight-box">
+        المجموعة الشاملة (ش) هي المجموعة التي تحوي كل المجموعات الجزئية منها وتمثل بشكل فن بمستطيل داخله كل المجموعات.
+    </div>
+
+    <div class="section-box">
+        <strong>تذكر أن :</strong> (١) المجموعة الخالية \( \emptyset \) جزئية من أي مجموعة . (٢) كل مجموعة هي جزئية من نفسها أي \( س \subseteq س \) .<br>
+        (٣) عدد المجموعات الجزئية الممكن تكوينها من مجموعة ما تحوي \( ن \) عنصراً تتضمن \( ٢^ن \) مجموعة جزئية .
+    </div>
+
+    <div class="definition-box">
+        <div class="definition-title">تعريف المجموعتان المنفصلتان :</div>
+        <div class="definition-content">
+            هما مجموعتان تقاطعهما = \( \emptyset \) أي أن \( س \cap ص = \emptyset \) ( س \( \neq \) ص ، س \( \not\subset \) ص )
+        </div>
+    </div>
+
+    <div class="example-box">
+        <strong>تمرين محلول :</strong> إذا كانت ش = { ٠ ، ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ } ، س = { ٠ ، ١ ، ٣ ، ٥ } ، ص = { ٢ ، ٤ ، ٦ } ، ع = { ٣ }<br>
+        أولاً : مثل المجموعات ش ، س ، ص ، ع بشكل فن .<br>
+        ثانياً : اكتب بطريقة الصفة المميزة كلاً من : \( س \cap ع \)، \( س \cap ص \)، \( س \cup ص \)<br>
+        ثالثاً : نكتب جميع المجموعات الجزئية للمجموعة ع بطريقة السرد .
+    </div>
+
+    <div class="venn-diagram">
+        [شكل فن]
+        <br>
+        <svg width="300" height="200" viewBox="0 0 300 200">
+            <rect x="10" y="10" width="280" height="180" fill="none" stroke="black" stroke-width="2"/>
+            <text x="20" y="30" font-weight="bold">ش</text>
+            
+            <circle cx="90" cy="100" r="60" fill="none" stroke="black" stroke-width="2"/>
+            <text x="90" y="55" font-weight="bold">س</text>
+            
+            <circle cx="110" cy="120" r="25" fill="none" stroke="black" stroke-width="1"/>
+            <text x="110" y="110">ع</text>
+            <text x="105" y="130">٣</text>
+            
+            <text x="50" y="100">٠</text>
+            <text x="70" y="130">١</text>
+            <text x="90" y="80">٥</text>
+
+            <circle cx="220" cy="100" r="50" fill="none" stroke="black" stroke-width="2"/>
+            <text x="220" y="60" font-weight="bold">ص</text>
+            <text x="200" y="90">٢</text>
+            <text x="230" y="110">٤</text>
+            <text x="210" y="130">٦</text>
+            
+            <text x="260" y="40">٧</text>
+        </svg>
+        <div style="font-size: 0.9em;">شكل رقم (١)</div>
+    </div>
+
+    <div class="example-box">
+        <strong>الحل *</strong><br>
+        أولاً: شكل رقم (١) .<br>
+        ثانياً: \( س \cap ع = \{ ٣ \} \)، (السرد) والصفة المميزة: \( س \cap ع = \{ س : س \in س ، س \in ع \} \)<br>
+        \( س \cap ص = \emptyset \) وبالصفة المميزة: \( س \cap ص = \{ س : س \in س ، س \in ص \} \)<br>
+        \( س \cup ص = \{ ٠ ، ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ \} \) بالسرد وبالصفة المميزة: \( س \cup ص = \{ س : س \in س \text{ أو } س \in ص \} \)
+    </div>
+
+</div>
+
+</body>
+</html>

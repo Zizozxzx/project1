@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة 189 – حساب المثلثات</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:760px;
+  margin:auto;
+  padding:18px 16px 36px;
+  box-sizing:border-box;
+  font-size:17px;
+  line-height:2.2;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+.top-line{
+  border-top:3px solid #00a6df;
+  margin:6px 0 16px;
+}
+
+/* كسور */
+.frac{
+  display:inline-block;
+  text-align:center;
+  vertical-align:middle;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:4px;
+  padding:0 6px;
+}
+
+/* شكل */
+.figure{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  margin:12px 0;
+}
+.caption{
+  text-align:center;
+  font-size:15px;
+}
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* تذييل */
+.footer{
+  margin-top:28px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+@media(max-width:480px){
+  .page{font-size:16px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="header">
+  <span>حساب المثلثات</span>
+</div>
+<div class="top-line"></div>
+
+<div class="figure">
+  <div>
+    <svg viewBox="0 0 220 200">
+      <polygon points="80,20 200,40 200,180 80,160" fill="none" stroke="#000" stroke-width="2"/>
+      <polygon points="20,140 80,20 80,160" fill="none" stroke="#000" stroke-width="2"/>
+      <line x1="20" y1="140" x2="120" y2="60" stroke="#000" stroke-width="2"/>
+      <line x1="30" y1="132" x2="110" y2="70" stroke="#000" stroke-width="1"/>
+      <line x1="40" y1="124" x2="100" y2="80" stroke="#000" stroke-width="1"/>
+      <line x1="50" y1="116" x2="90" y2="90" stroke="#000" stroke-width="1"/>
+      <rect x="80" y="160" width="18" height="18" fill="none" stroke="#000" stroke-width="2"/>
+      <!-- نوافذ -->
+      <g fill="#cfefff" stroke="#000" stroke-width="1">
+        <rect x="120" y="60" width="18" height="26"/>
+        <rect x="150" y="60" width="18" height="26"/>
+        <rect x="120" y="100" width="18" height="26"/>
+        <rect x="150" y="100" width="18" height="26"/>
+        <rect x="120" y="140" width="18" height="26"/>
+        <rect x="150" y="140" width="18" height="26"/>
+      </g>
+    </svg>
+    <div class="caption">شكل (٤ – ٢١)</div>
+  </div>
+
+  <div style="flex:1">
+    <p>[ ٦ ] على الشكل (٤ – ٢١).</p>
+    <p>أوجد ارتفاع طرف السلم الملامس للحائط عن سطح الأرض، علماً بأن طول السلم ١٠ أمتار وأن طرفه الآخر يبعد عن الحائط بمقدار ٣ أمتار.</p>
+  </div>
+</div>
+
+<p>[ ٧ ] حديقة أطفال مستطيلة الشكل طولها ٣٠ متراً، وعرضها ١٦ متراً. أوجد طول قطرها.</p>
+
+<p>[ ٨ ] د هـ و مثلث قائم الزاوية في هـ، فيه د هـ = ٢٤ سم، هـ و = ٣٠ سم.</p>
+<p>( أ ) أوجد النسب المثلثية الأساسية للزاوية و.</p>
+<p>( ب ) النسب المثلثية الأساسية للزاوية د.</p>
+
+<p>[ ٩ ] مثلث قائم الزاوية طول وتره ٩ سم وطول أحد ضلعيه القائمين ٦ سم.</p>
+<p>( أ ) أوجد النسب المثلثية الأساسية لزاويته الحادة الكبرى.</p>
+<p>( ب ) أوجد النسب المثلثية الأساسية لزاويته الحادة الصغرى.</p>
+<p>( ج ) ما العلاقة بين النسب المثلثية للزاويتين الحادتين الكبرى والصغرى؟</p>
+
+<p>[ ١٠ ] أ ب ج مثلث قائم الزاوية في أ، أ س ⟂ ب ج، فإذا كان |أ ب| = ٣ سم، |س ج| = ٣٫٢ سم، أوجد:</p>
+<p>( أ ) جتا (أ ب س)</p>
+<p>( ب ) جا (أ ب س)</p>
+<p>( ج ) ظا (أ ب س)</p>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٨٩</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

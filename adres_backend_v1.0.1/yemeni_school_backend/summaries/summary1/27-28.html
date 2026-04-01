@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات تاسع - صفحة 8</title>
+    <style>
+        :root { --main-border: #000; --bg-paper: #fff; --text-color: #222; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #555; margin: 0; padding: 15px; direction: rtl; line-height: 1.6; }
+        .page-sheet { max-width: 900px; margin: 0 auto; background: var(--bg-paper); border: 2px solid #000; padding: 25px; box-shadow: 0 0 15px rgba(0,0,0,0.3); }
+        .page-header { text-align: center; font-weight: bold; border-bottom: 2px solid #000; margin-bottom: 20px; padding-bottom: 5px; font-size: 1.4em; }
+        
+        .content-wrapper { display: flex; gap: 25px; border-top: 1px solid #000; padding-top: 15px; }
+        .column { flex: 1; min-width: 0; }
+        .right-column { border-left: 2px solid #000; padding-left: 20px; }
+
+        .section-box { border: 1px solid #333; padding: 10px; margin-bottom: 15px; background: #fafafa; }
+        .solution-heading { text-decoration: underline; font-weight: bold; display: block; margin-top: 10px; margin-bottom: 5px; }
+        
+        .diagram-container { text-align: center; margin: 20px 0; padding: 10px; border: 1px dashed #ccc; background: #fff; }
+        svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        
+        .math-text { font-family: 'Arial', sans-serif; font-size: 0.95em; }
+
+        @media (max-width: 800px) {
+            .content-wrapper { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-sheet">
+    <div class="page-header">- ٨ -</div>
+
+    <div class="content-wrapper">
+        <div class="column right-column">
+            <div class="section-box">
+                <strong>[٨] الشكل (١-١٦) يمثل مخططاً بيانياً لعلاقة معرفة على المجموعة س = { ٢، ٤، ٦، ٨ }</strong><br>
+                أ) اكتب ع بطريقة السرد.<br>
+                ب) بين نوع العلاقة ع (انعكاسية، متناظرة، متعدية).
+            </div>
+
+            <div class="diagram-container">
+                <svg width="200" height="200" viewBox="0 0 140 140">
+                    <defs>
+                        <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ddd" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="120" height="120" fill="url(#grid)" transform="translate(10,10)"/>
+                    
+                    <line x1="10" y1="130" x2="10" y2="10" stroke="black" stroke-width="1.5"/>
+                    <line x1="10" y1="130" x2="130" y2="130" stroke="black" stroke-width="1.5"/>
+                    
+                    <text x="35" y="142" font-size="10">٢</text><text x="65" y="142" font-size="10">٤</text>
+                    <text x="95" y="142" font-size="10">٦</text><text x="125" y="142" font-size="10">٨</text>
+                    <text x="0" y="105" font-size="10">٢</text><text x="0" y="75" font-size="10">٤</text>
+                    <text x="0" y="45" font-size="10">٦</text><text x="0" y="15" font-size="10">٨</text>
+                    <text x="135" y="135" font-size="12">س</text><text x="5" y="10" font-size="12">س</text>
+
+                    <circle cx="40" cy="100" r="3" fill="black"/> <circle cx="40" cy="70" r="3" fill="black"/>  <circle cx="40" cy="40" r="3" fill="black"/>  <circle cx="40" cy="10" r="3" fill="black"/>  <circle cx="70" cy="70" r="3" fill="black"/>  <circle cx="70" cy="10" r="3" fill="black"/>  <circle cx="100" cy="40" r="3" fill="black"/> <circle cx="130" cy="10" r="3" fill="black"/> </svg>
+                <div style="font-size: 0.9em; font-weight: bold;">شكل (١ - ١٦)</div>
+            </div>
+
+            <div class="math-text">
+                <span class="solution-heading">* الحل: *</span>
+                أ) ع = { (٢،٢)، (٢،٤)، (٢،٦)، (٢،٨)، (٤،٤)، (٤،٨)، (٦،٦)، (٨،٨) }.<br><br>
+                ب) <strong>ع علاقة انعكاسية</strong> لأن كل عنصر من س يرتبط مع نفسه وفق العلاقة ع.<br>
+                <strong>ع علاقة غير متناظرة</strong> وذلك لأنه توفرت أزواج في الشكل (أ، ب) ولم تتوفر أزواج من الشكل (ب، أ) على سبيل المثال نجد:<br>
+                (٢، ٤) ∈ ع بينما (٤، ٢) ∉ ع.<br>
+                <strong>ع متعدية</strong> لتحقق شرط التعدي لجميع الحالات، لنأخذ مثلاً:<br>
+                (٢، ٤) ∈ ع ، (٤، ٨) ∈ ع فنجد (٢، ٨) ∈ ع ... إلخ.
+            </div>
+
+            <hr style="margin: 20px 0; border-top: 2px dashed #ccc;">
+
+            <div class="section-box" style="background: #eef;">
+                <strong>١ : ٤ حل تمارين ومسائل الكتاب المدرسي ص ٢٩-٣٢ على علاقة التكافؤ</strong>
+            </div>
+
+            <div class="section-box">
+                <strong>[١] إذا كانت ص = { أ، ب، جـ } ، فبين أياً من العلاقات التالية انعكاسية، متناظرة، متعدية وايها تمثل علاقة تكافؤ:</strong><br>
+                ع₁ = { (أ،أ)، (ب،ب)، (جـ،جـ) }.<br>
+                ع₂ = { (أ،أ)، (أ،ب)، (ب،أ)، (جـ،جـ)، (جـ،أ)، (أ،جـ)... }<br>
+                ع₃ = { (أ،أ)، (ب،ب)، (جـ،جـ)، (ب،جـ)، (جـ،ب) }.<br>
+                ع₄ = { (أ،أ)، (أ،ب)، (ب،أ) }.<br>
+                ع₅ = { (أ،ب)، (ب،جـ) }.
+            </div>
+
+            <div class="math-text">
+                <span class="solution-heading">* الحل: *</span>
+                <strong>أولاً: ع₁ هي علاقة:</strong><br>
+                ١) انعكاسية لارتباط كل عنصر من ص مع نفسه وفق ع₁.<br>
+                ٢) علاقة متناظرة لعدم وجود ما ينقض شرط التناظر.<br>
+                ٣) متعدية لعدم وجود ما ينقض شرط التعدي.<br>
+                ∴ من (١)، (٢)، (٣) ع₁ علاقة تكافؤ.<br><br>
+
+                <strong>ثانياً: ع₂ على ص هي علاقة:</strong><br>
+                ١) غير انعكاسية لأن ب ∈ ص ولكن (ب، ب) ∉ ع₂.<br>
+                ٢) غير متناظرة لتوفر (أ، ب) ، (ب، جـ) ∈ ع₂ وعدم توفر (ب، أ) ، (جـ، ب) على الترتيب (حسب معطيات الحل).<br>
+                ٣) متعدية لأن شرط التعدي محقق لجميع الحالات.<br>
+                ∴ من (١)، (٢)، (٣) ع₂ لا تمثل علاقة تكافؤ لأنها متعدية فقط.<br><br>
+
+                <strong>ثالثاً: ع₃ على ص هي علاقة:</strong><br>
+                ١) ليست انعكاسية لأن أ ∈ ص ولكن (أ، أ) ∉ ع₃ (بناءً على الشرح).<br>
+                ٢) متناظرة لأن (أ، جـ) ∈ ع₃ فإن (جـ، أ) ∈ ع₃.<br>
+                ٣) ليست متعدية لعدم تحقق شرط التعدي فنجد مثلاً:<br>
+                (ب، جـ) ∈ ع₃ ، (جـ، د) ∈ ع₃ ولكن (ب، د) ∉ ع₃.<br>
+                ∴ ع₃ لا تمثل علاقة تكافؤ.
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="math-text">
+                <strong>رابعاً: ع₄ على ص هي علاقة:</strong><br>
+                ١) انعكاسية لأن كل عنصر من ص يرتبط مع نفسه وفق ع₄.<br>
+                ٢) غير متناظرة لتوفر (ب، جـ) وعدم توفر (جـ، ب).<br>
+                ٣) متعدية لتحقق شروط التعدي لجميع الحالات.<br>
+                من (١)، (٢)، (٣) ع₄ ليست علاقة تكافؤ لأنها غير متناظرة.<br><br>
+
+                <strong>خامساً: ع₅ على ص هي:</strong><br>
+                ١) غير انعكاسية بوضوح.<br>
+                ٢) غير متناظرة بوضوح.<br>
+                ٣) غير متعدية لأن: (أ، ب) ∈ ع₅ ، (ب، جـ) ∈ ع₅ ولكن (أ، جـ) ∉ ع₅.<br>
+                ∴ ع₅ لا تمثل علاقة تكافؤ.
+            </div>
+
+            <hr style="margin: 20px 0; border-top: 2px dashed #ccc;">
+
+            <div class="section-box">
+                <strong>[٢] بين نوع العلاقات الموضحة بالمخططات السهمية التالية [انظر الأشكال (١-١٩ أ، ب، جـ)] من حيث الانعكاسية، متناظرة، متعدية تكافؤ.</strong>
+            </div>
+
+            <div class="diagram-container">
+                <svg width="180" height="100" viewBox="0 0 150 100">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L6,3 z" fill="black"/>
+                        </marker>
+                    </defs>
+                    <circle cx="75" cy="20" r="3" fill="black"/><text x="70" y="15">أ</text>
+                    <circle cx="25" cy="80" r="3" fill="black"/><text x="15" y="85">ب</text>
+                    <circle cx="125" cy="80" r="3" fill="black"/><text x="135" y="85">جـ</text>
+                    
+                    <path d="M75 20 L125 80" stroke="black" marker-end="url(#arrow)"/> <path d="M125 80 L25 80" stroke="black" marker-end="url(#arrow)"/> <path d="M25 80 L75 20" stroke="black" marker-end="url(#arrow)"/> </svg>
+                <div style="font-size: 0.9em; font-weight: bold;">شكل (١ - ١٩ أ)</div>
+            </div>
+            
+            <div class="diagram-container">
+                <svg width="180" height="80" viewBox="0 0 150 80">
+                    <circle cx="40" cy="40" r="3" fill="black"/><text x="35" y="60">أ</text>
+                    <circle cx="110" cy="40" r="3" fill="black"/><text x="105" y="60">ب</text>
+                    
+                    <path d="M37 40 A15 15 0 1 1 43 40" fill="none" stroke="black"/>
+                    <path d="M45 35 Q75 15 105 35" fill="none" stroke="black" marker-end="url(#arrow)"/>
+                    </svg>
+                <div style="font-size: 0.9em; font-weight: bold;">شكل (١ - ١٩ ب)</div>
+            </div>
+
+            <div class="diagram-container">
+                <svg width="180" height="80" viewBox="0 0 180 80">
+                    <circle cx="30" cy="40" r="3" fill="black"/><text x="25" y="60">ب</text>
+                    <circle cx="90" cy="40" r="3" fill="black"/><text x="85" y="60">جـ</text>
+                    <circle cx="150" cy="40" r="3" fill="black"/><text x="145" y="60">د</text>
+
+                    <path d="M27 40 A12 12 0 1 1 33 40" fill="none" stroke="black"/>
+                    <path d="M87 40 A12 12 0 1 1 93 40" fill="none" stroke="black"/>
+
+                    <line x1="35" y1="40" x2="85" y2="40" stroke="black" marker-end="url(#arrow)"/>
+                    <line x1="95" y1="40" x2="145" y2="40" stroke="black" marker-end="url(#arrow)"/>
+                </svg>
+                <div style="font-size: 0.9em; font-weight: bold;">شكل (١ - ١٩ جـ)</div>
+            </div>
+
+            <div class="math-text">
+                <span class="solution-heading">* الحل: *</span>
+                <strong>أ) نفرض الشكل (١-١٩ أ) هو العلاقة ع ، فنجد :-</strong><br>
+                ١) ع غير انعكاسية لأن (جـ ، جـ) ∉ ع.<br>
+                ٢) ع غير متناظرة لأن (ب ، جـ) ∈ ع ولكن (جـ ، ب) ∉ ع.<br>
+                ٣) ع علاقة متعدية لتحقق شرط التعدي لجميع الحالات فمثلاً نجد: (أ، ب) ∈ ع، (ب، جـ) ∈ ع، فنجد (أ، جـ) ∈ ع.<br>
+                ∴ الشكل (١-١٩ أ) لا يمثل علاقة تكافؤ.<br><br>
+
+                <strong>ب) نفرض الشكل (١-١٩ ب) هو العلاقة ع ، حيث واضح :</strong><br>
+                { (أ، أ) ، (جـ، جـ) ، (جـ، أ) ، (جـ، د) ، (د، د) } فتكون :<br>
+                ١) غير انعكاسية لأن ب ∈ ص ولكن (ب، ب) ∉ ع.<br>
+                ٢) غير متناظرة لتوفر (أ، ب) ، (ب، جـ) ∈ ع وعدم توفر (ب، أ) ، (جـ، ب) على الترتيب.<br>
+                ٣) متعدية لأن شرط التعدي محقق لجميع الحالات.<br>
+                ∴ من (١)،(٢)،(٣) ع لا تمثل علاقة تكافؤ لأنها متعدية فقط.<br><br>
+
+                <strong>جـ) نفرض الشكل (١-١٩ جـ) هو العلاقة ع ، فنجد :-</strong><br>
+                ١) ع غير انعكاسية لأن ( د ، د ) ∉ ع.<br>
+                ٢) ليست متناظرة لأننا نجد على سبيل المثال : (ب، جـ) ∈ ع، ولكن (جـ، ب) ∉ ع.<br>
+                ٣) ليست متعدية لعدم تحقق شرط التعدي فنجد مثلاً : (ب، جـ) ∈ ع ، (جـ، د) ∈ ع ولكن (ب، د) ∉ ع.<br>
+                ∴ ع التي تمثل الشكل (١-١٩ جـ) لا تمثل علاقة تكافؤ.
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

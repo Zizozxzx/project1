@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 67 - التعبير عن المتغيرات وحل المعادلات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #d9e1f2;
+            --section-bg: #fce4d6;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-box {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .note-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .steps-list {
+            list-style-type: none;
+            padding-right: 10px;
+            margin: 0;
+        }
+
+        .steps-list li {
+            margin-bottom: 8px;
+        }
+
+        .sub-steps {
+            list-style-type: none;
+            padding-right: 25px;
+            margin-top: 5px;
+        }
+
+        .sub-steps li::before {
+            content: '✓ ';
+            color: #000;
+        }
+
+        .drill-header {
+            background-color: #f2f2f2;
+            border: 1px solid var(--border-color);
+            padding: 5px 15px;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1.2em;
+        }
+
+        th {
+            background-color: var(--section-bg);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 4px;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 5px;
+        }
+
+        .solution-box {
+            border: 1px solid var(--border-color);
+            min-height: 150px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .solution-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+            padding: 4px;
+            border: 1px solid #eee;
+        }
+
+        .solution-row input {
+            width: 50px;
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 1.1em;
+            border: 1px solid #ccc;
+        }
+
+        .check-btn {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            padding: 2px 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .feedback {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .wrong {
+            color: #dc3545;
+        }
+
+        .footer {
+            text-align: left;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .page-num {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        @media (max-width: 600px) {
+
+            th,
+            td {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+
+            .note-box {
+                font-size: 1em;
+            }
+
+            .drill-header {
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <div class="note-box">
+                <span class="note-title">ملاحظة:</span> أحياناً يطلب في المسائل أن نكتب عدة حلول لمعادلة الدرجة الأولى
+                ذات متغيرين، فعليك أن تتبع الخطوات التالية:
+                <ul class="steps-list">
+                    <li>١) نكتب المعادلة بدلالة أحد المتغيرين أي أن:
+                        <ul class="sub-steps">
+                            <li>إذا كتبناها بدلالة س سيكون ص منفردة في الطرف الآخر.</li>
+                            <li>إذا كتبناها بدلالة ص سيكون س منفردة في الطرف الآخر.</li>
+                        </ul>
+                    </li>
+                    <li>٢) نختار قيم للمتغير الذي كتبت المعادلة بدلالته من ح على حسب عدد الحلول المطلوبة.</li>
+                    <li>٣) نكتب هذه القيم في جدول، ونوجد القيم المقابلة لها للمتغير الآخر من خلال التعويض بهذه القيم في
+                        المعادلة الجديدة.</li>
+                </ul>
+            </div>
+
+            <!-- Drill (2) -->
+            <div class="drill-header">تدريب (٢): اكتب المعادلات التالية مرة بدلالة س ومرة أخرى بدلالة ص:</div>
+
+            <table>
+                <tr>
+                    <th style="width: 34%;">المعادلة</th>
+                    <th style="width: 33%;">بدلالة س</th>
+                    <th style="width: 33%;">بدلالة ص</th>
+                </tr>
+                <tr>
+                    <td>س + ص = ٥</td>
+                    <td>ص = ٥ - س</td>
+                    <td>س = ٥ - ص</td>
+                </tr>
+                <tr>
+                    <td>٢ ( س + ١ ) = ٣ ( ص - ١ )</td>
+                    <td>ص = <div class="fraction"><span>٢ س + ٥</span><span>٣</span></div>
+                    </td>
+                    <td>س = <div class="fraction"><span>٣ ص - ٥</span><span>٢</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fraction"><span>س</span><span>٣</span></div> + <div class="fraction">
+                            <span>ص</span><span>٤</span>
+                        </div> = <div class="fraction"><span>١</span><span>٦</span>
+                        </div>
+                    </td>
+                    <td>ص = <div class="fraction"><span>٢ - ٤ س</span><span>٣</span></div>
+                    </td>
+                    <td>س = <div class="fraction"><span>٢ - ٣ ص</span><span>٤</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ص - ٤ س = ١٥</td>
+                    <td>ص = ٤ س + ١٥</td>
+                    <td>س = <div class="fraction"><span>ص - ١٥</span><span>٤</span></div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Drill (3) -->
+            <div class="drill-header">تدريب (٣): اكتب خمس حلول في ح × ح للمعادلتين الآتيتين:</div>
+
+            <div style="display: flex; gap: 15px; margin-top: 10px;">
+                <!-- Equation 1 -->
+                <div style="flex: 1;">
+                    <div
+                        style="background-color: var(--section-bg); border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        ٢ س + ص = ٤</div>
+                    <div class="solution-box">
+                        <div class="solution-row">
+                            س: <input type="text" class="s-val"> ص: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 1)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            س: <input type="text" class="s-val"> ص: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 1)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            س: <input type="text" class="s-val"> ص: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 1)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            س: <input type="text" class="s-val"> ص: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 1)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            س: <input type="text" class="s-val"> ص: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 1)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Equation 2 -->
+                <div style="flex: 1;">
+                    <div
+                        style="background-color: var(--section-bg); border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        عددان حقيقيان مجموعهما ( ٧ ).</div>
+                    <div class="solution-box">
+                        <div class="solution-row">
+                            ١: <input type="text" class="s-val"> ٢: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 2)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            ١: <input type="text" class="s-val"> ٢: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 2)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            ١: <input type="text" class="s-val"> ٢: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 2)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            ١: <input type="text" class="s-val"> ٢: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 2)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                        <div class="solution-row">
+                            ١: <input type="text" class="s-val"> ٢: <input type="text" class="y-val">
+                            <button class="check-btn" onclick="checkRow(this, 2)">تحقق</button>
+                            <span class="feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>إعداد: هلا المولجي</div>
+                <div class="page-num">- ٦٧ -</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function checkRow(btn, qType) {
+            const row = btn.parentElement;
+            const sVal = parseFloat(row.querySelector('.s-val').value);
+            const yVal = parseFloat(row.querySelector('.y-val').value);
+            const feedback = row.querySelector('.feedback');
+
+            if (isNaN(sVal) || isNaN(yVal)) {
+                feedback.innerHTML = '⚠';
+                feedback.className = 'feedback wrong';
+                return;
+            }
+
+            let isCorrect = false;
+            if (qType === 1) {
+                // 2s + y = 4
+                if ((2 * sVal) + yVal === 4) isCorrect = true;
+            } else {
+                // s + y = 7
+                if (sVal + yVal === 7) isCorrect = true;
+            }
+
+            if (isCorrect) {
+                feedback.innerHTML = '✓';
+                feedback.className = 'feedback correct';
+            } else {
+                feedback.innerHTML = '✗';
+                feedback.className = 'feedback wrong';
+            }
+        }
+    </script>
+</body>
+
+</html>

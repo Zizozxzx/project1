@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات تاسع - صفحة 7 كاملة</title>
+    <style>
+        :root { --line-color: #000; --bg-paper: #fff; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #555; margin: 0; padding: 15px; direction: rtl; line-height: 1.5; }
+        .page-sheet { max-width: 900px; margin: 0 auto; background: var(--bg-paper); border: 2px solid #000; padding: 25px; box-shadow: 0 0 15px rgba(0,0,0,0.3); }
+        .page-header { text-align: center; font-weight: bold; border-bottom: 2px solid #000; margin-bottom: 15px; padding-bottom: 5px; font-size: 1.4em; }
+        
+        .main-content { display: flex; gap: 20px; border-top: 1px solid #000; padding-top: 10px; }
+        .column { flex: 1; }
+        .right-column { border-left: 2px solid #000; padding-left: 15px; }
+
+        .exercise-container { border: 1px solid #000; padding: 10px; margin-bottom: 15px; background: #fdfdfd; }
+        .solution-title { font-weight: bold; text-decoration: underline; color: #000; margin-bottom: 8px; display: block; }
+        
+        .diagram-box { text-align: center; margin: 20px 0; border: 1px dashed #ccc; padding: 10px; }
+        svg { max-width: 100%; height: auto; }
+
+        @media (max-width: 800px) {
+            .main-content { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-sheet">
+    <div class="page-header">- ٧ -</div>
+
+    <div class="main-content">
+        <div class="column right-column">
+            <div class="exercise-container">
+                <strong>[٣] إذا كانت ل = { ٢، ٣، ٤، ٥ } ، ع علاقة على المجموعة ل حيث ع = { (أ، ب) : أ، ب ∈ ل ، أ + ب عدداً أولياً } فهل ع علاقة متعدية؟ ولماذا؟ ارسم المخطط السهمي والبياني لـ ع.</strong>
+            </div>
+
+            <span class="solution-title">* الحل: *</span>
+            ع = { (٢، ٣)، (٢، ٥)، (٣، ٢)، (٣، ٤)، (٤، ٣)، (٥، ٢) } فنجد:<br>
+            <strong>ع لا تمثل علاقة متعدية لعدم توفر شرط التعدي فمثلاً نجد:</strong><br>
+            (٣، ٢) ∈ ع ، (٢، ٣) ∈ ع ولكن (٣، ٣) ∉ ع نكتفي بذلك.
+
+            <div class="diagram-box">
+                <svg width="220" height="140" viewBox="0 0 220 140">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L6,3 z" fill="black"/>
+                        </marker>
+                    </defs>
+                    <circle cx="30" cy="70" r="4"/><text x="15" y="75">٢</text>
+                    <circle cx="110" cy="25" r="4"/><text x="105" y="15">٣</text>
+                    <circle cx="190" cy="70" r="4"/><text x="200" y="75">٤</text>
+                    <circle cx="110" cy="115" r="4"/><text x="105" y="135">٥</text>
+                    
+                    <path d="M35 65 Q70 35 105 25" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M105 30 Q70 55 35 70" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M115 30 Q150 45 185 65" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M185 70 Q150 85 115 30" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M35 75 Q70 100 105 115" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M105 115 Q70 105 35 75" stroke="black" fill="none" marker-end="url(#arrow)"/>
+                </svg>
+                <div style="font-weight: bold;">تمثيل سهمي لـ ع</div>
+            </div>
+
+            <div class="diagram-box">
+                <svg width="200" height="200" viewBox="0 0 120 120">
+                    <line x1="20" y1="110" x2="20" y2="10" stroke="black" stroke-width="1.2"/>
+                    <line x1="20" y1="110" x2="110" y2="110" stroke="black" stroke-width="1.2"/>
+                    
+                    <text x="10" y="112" font-size="7">٠</text>
+                    <text x="40" y="118" font-size="7">٢</text><text x="60" y="118" font-size="7">٣</text><text x="80" y="118" font-size="7">٤</text><text x="100" y="118" font-size="7">٥</text>
+                    <text x="10" y="92" font-size="7">٢</text><text x="10" y="72" font-size="7">٣</text><text x="10" y="52" font-size="7">٤</text><text x="10" y="32" font-size="7">٥</text>
+                    
+                    <circle cx="40" cy="70" r="2.5" fill="black"/> <circle cx="40" cy="30" r="2.5" fill="black"/> <circle cx="60" cy="90" r="2.5" fill="black"/> <circle cx="60" cy="50" r="2.5" fill="black"/> <circle cx="80" cy="70" r="2.5" fill="black"/> <circle cx="100" cy="90" r="2.5" fill="black"/> <text x="110" y="105" font-size="9" font-weight="bold">ل</text>
+                    <text x="5" y="15" font-size="9" font-weight="bold">ل</text>
+                </svg>
+                <div style="font-weight: bold;">تمثيل بياني لـ ع</div>
+            </div>
+
+            <div class="exercise-container">
+                <strong>[٥] إذا كانت م = { -٢، -١، ٠، ١، ٢ } ، ع علاقة على المجموعة م حيث ع = { (أ، ب) : أ² = ب² ، أ، ب ∈ م } هل ع علاقة متعدية؟ ولماذا؟</strong>
+            </div>
+            <span class="solution-title">* الحل: *</span>
+            ع تعني مجموعة كل الأزواج المرتبة التي مربع مسقطها الأول يساوي مربع مسقطها الثاني أي |أ| = |ب| م × م :- <br>
+            ع = { (-٢،-٢)، (-٢، ٢)، (-١،-١)، (-١، ١)، (٠، ٠)، (١،-١)، (١، ١)، (٢،-٢)، (٢، ٢) }<br>
+            <strong>فنجد: ع علاقة متعدية على م لتحقق شرط التعدي لجميع الحالات، لنأخذ مثلاً :-</strong><br>
+            (-١، ١) ∈ ع ، (١، -١) ∈ ع فنجد (-١، -١) ∈ ع ... إلخ.
+
+            <div class="exercise-container">
+                <strong>[٦] إذا كانت س = { ٢، ٣، ٥ } اكتب العلاقات التالية على س:<br> أ) الانعكاسية ، ب) المتناظرة ، جـ) المتعدية<br> د) ليست انعكاسية ، هـ) ليست متناظرة ، و) ليست متعدية.</strong>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="exercise-container">
+                <strong>[٤] أي العلاقات التالية انعكاسية، متناظرة، متعدية اذكر السبب:<br> أ) علاقة (≥) على المجموعة ص = { -١، ٠، ١، ٢ }<br> ب) علاقة (( يقسم )) على مجموعة الأعداد الصحيحة.</strong>
+            </div>
+            <span class="solution-title">* الحل: *</span>
+            أ) ع₁ = { (أ، ب) : أ ≥ ب ، أ، ب ∈ ص } علماً بأن ع ⊂ ص × ص.<br>
+            (١) <strong>ع₁ علاقة انعكاسية</strong> لأن كل عنصر من ص يكون أكبر أو يساوي نفسه أي أن: لكل أ ∈ ص فإن أ ≥ أ.<br>
+            بمعنى أن (أ، أ) ∈ ع₁ ، فمثلاً (-١، -١) ∈ ع₁ ، (٠، ٠) ∈ ع₁ ... إلخ.<br>
+            (٢) <strong>ع₁ علاقة غير متناظرة</strong> لتوفر أزواج مرتبة مختلفة المسقطين من الشكل (أ، ب) وعدم توفر (ب، أ).<br>
+            فمثلاً نجد: (٠، -١) ∈ ع₁ ولكن (-١، ٠) ∉ ع₁.<br>
+            (٣) <strong>ع₁ علاقة متعدية</strong> لأنه إذا كان أ ≥ ب ، وكان ب ≥ جـ فإن أ ≥ جـ لكل أ، ب، جـ ∈ ص.<br>
+            تحقيق عددي: إذا كان ١ ≥ ٠ ، وكان ٠ ≥ -١ فإن ١ ≥ -١.<br>
+            أي: (١، ٠) ∈ ع₁ ، (٠، -١) ∈ ع₁ فإن (١، -١) ∈ ع₁.<br>
+
+            ب) ع₂ = { (أ، ب) : أ، ب ∈ ص ، أ يقسم ب } فنجد:<br>
+            (١) <strong>ع₂ علاقة غير انعكاسية</strong> لأن صفر ∈ ص وصفر لا يقسم نفسه.<br>
+            (٢) <strong>ع₂ علاقة غير متناظرة</strong> لأن:<br> إذا كان أ يقسم ب فلا يمكن أن يكون ب يقسم أ.<br>
+            تحقيق عددي: لنأخذ مثلاً ٢، ٤ ∈ ص فنجد: ٢ يقسم ٤ ولكن ٤ لا يقسم ٢.<br>
+            (٣) <strong>ع₂ علاقة متعدية</strong> لأن لكل أ، ب، جـ ∈ ص نجد :-<br> إذا كان أ يقسم ب ، ب يقسم جـ فإن أ يقسم جـ.<br>
+            تحقيق عددي: لنأخذ مثلاً ٢، ٤، ٨ ∈ ص فنجد: ٢ يقسم ٤ ، ٤ يقسم ٨ فيكون ٢ يقسم ٨.<br>
+
+            <div class="exercise-container" style="margin-top: 20px;">
+                <strong>[٧] إذا كانت ص = { ٠، -١، ١، -٢، ٢ } وهذه العلاقة ع على المجموعة ص حيث ع = { (أ، ب) : |أ| + ب = ٠ ، أ، ب ∈ ص } هل ع انعكاسية، متناظرة، متعدية؟</strong>
+            </div>
+            <span class="solution-title">* الحل: *</span>
+            ع = { (٠، ٠)، (١، -١)، (-١، -١)، (٢، -٢)، (-٢، -٢) } وهذه العلاقة:<br>
+            أ) <strong>غير انعكاسية</strong> لعدم ارتباط كل عنصر من ص مع نفسه (مثلاً ١ لا يرتبط مع ١).<br>
+            ب) <strong>متناظرة</strong> لأن توفر (١، -١) فتوفر معه (-١، ١) أو العكس.<br>
+            جـ) <strong>غير متعدية</strong> لعدم تحقق شرط التعدي فمثلاً نجد:<br> (١، -١) ∈ ع ، (-١، -١) ∈ ع ولكن (١، ١) ∉ ع.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

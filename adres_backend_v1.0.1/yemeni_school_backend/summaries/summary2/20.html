@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 20</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: 'Amiri', serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 100vh;
+            aspect-ratio: 0.707;
+            background-color: white;
+            position: relative;
+            padding: 2vmin 2vmin 3.5vmin 2vmin;
+            /* Extra bottom padding for footer */
+            display: flex;
+            flex-direction: column;
+            border: 0.5vmin double black;
+        }
+
+        /* Inner Frame */
+        .inner-frame {
+            border: 0.2vmin solid black;
+            padding: 2vmin;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header-box {
+            background-color: #d9e1f2;
+            border: 0.3vmin solid black;
+            text-align: center;
+            padding: 1.5vmin;
+            margin-bottom: 2vmin;
+            font-weight: bold;
+            font-size: 2.5vmin;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 1.5vmin 0 1vmin 0;
+            display: block;
+            font-size: 2vmin;
+        }
+
+        /* Paragraphs */
+        .content-text {
+            line-height: 1.6;
+            margin: 0.8vmin 0;
+            font-size: 1.8vmin;
+        }
+
+        .content-text.center {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content-text.indent {
+            padding-right: 4vmin;
+        }
+
+        /* Rule Container */
+        .rule-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vmin;
+            margin: 2vmin 0;
+        }
+
+        .rule-box {
+            border: 0.3vmin solid black;
+            border-radius: 1.5vmin;
+            padding: 1vmin 3vmin;
+            font-weight: bold;
+            font-size: 2vmin;
+        }
+
+        /* Exercise Label */
+        .exercise-label {
+            border: 0.3vmin solid black;
+            padding: 0.5vmin 2vmin;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1vmin;
+            background-color: #f2f2f2;
+            font-size: 2vmin;
+        }
+
+        .exercise-content {
+            border-top: 0.3vmin solid black;
+            padding-top: 1.5vmin;
+            margin-top: 2vmin;
+        }
+
+        /* Writing Lines */
+        .writing-line {
+            border-bottom: 0.2vmin dotted black;
+            height: 3vmin;
+            margin-bottom: 0.5vmin;
+        }
+
+        /* Superscript */
+        sup {
+            font-size: 1.2vmin;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1vmin;
+            border-top: 0.2vmin solid black;
+            width: 100%;
+        }
+
+        .footer-right {
+            width: 25%;
+            text-align: right;
+            font-size: 1.5vmin;
+            font-weight: bold;
+        }
+
+        .footer-center {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.8vmin;
+        }
+
+        .footer-left {
+            width: 25%;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="inner-frame">
+
+            <!-- Header -->
+            <div class="header-box">
+                الدرس الخامس: التطبيق.
+            </div>
+
+            <!-- Introduction -->
+            <p class="content-text center">
+                التطبيق مسمى أتى من العلاقات بين المجموعات، فكل تطبيق يعتبر علاقة لكن ليس كل علاقة تمثل تطبيق.
+            </p>
+
+            <!-- Concept -->
+            <span class="section-header">مفهوم التطبيق:</span>
+            <p class="content-text">
+                التطبيق من المجموعة س إلى المجموعة ص هو العلاقة التي تربط <b><u>كل</u></b> عنصر من س بعنصر <b><u>واحد
+                        فقط</u></b> من ص.
+            </p>
+
+            <!-- Components -->
+            <span class="section-header">مكونات التطبيق:</span>
+            <p class="content-text">
+                ⇐ <b>مجال التطبيق:</b> يسمى بالمنطلق فينطلق سهم المخطط السهمي منه ليس إليه ومكانه في الأزواج المرتبة في
+                المسقط الأول.
+            </p>
+            <p class="content-text">
+                ⇐ <b>المجال المقابل للتطبيق:</b> يسمى بالمستقر فيستقر سهم المخطط السهمي إليه.
+            </p>
+            <p class="content-text">
+                ⇐ <b>مدى التطبيق:</b> هو مجموعة صور عناصر المجال ومكانه في الأزواج المرتبة في المسقط الثاني.
+            </p>
+            <p class="content-text">
+                ⇐ <b>قاعدة التطبيق:</b> هي العلاقة التي تربط كل عنصر من المجال بصورته في المجال المقابل.
+            </p>
+
+            <!-- Rule Expression -->
+            <p class="content-text">
+                يعبر عن قاعدة التطبيق ت : م ← ل بصورتين فإذا اعتبرنا أن ( أ ) هو عنصر من مجال التطبيق، ٢ أ هي صورته
+                فنعبر عنه في القاعدة كالتالي:
+            </p>
+
+            <div class="rule-container">
+                <div class="rule-box">ت ( أ ) = ٢ أ</div>
+                <span style="font-size: 2vmin;">أو</span>
+                <div class="rule-box">أ ← ٢ أ</div>
+            </div>
+
+            <!-- Notes -->
+            <p class="content-text">
+                <b><u>ملاحظة:</u></b> - يعتبر المدى مجموعة جزئية من المجال المقابل ولا يساويه إلا في بعض الحالات.
+            </p>
+            <p class="content-text indent">
+                - قد يساوي المدى المجال أو قد يكون جزء منه في حالة أن التطبيق من مجموعة إلى نفسها.
+            </p>
+            <p class="content-text indent">
+                - يمثل التطبيق دائماً كأزواج مرتبة.
+            </p>
+
+            <!-- Exercise 1 -->
+            <div class="exercise-content">
+                <div class="exercise-label">تدريب (١):</div>
+                <p class="content-text">
+                    إذا كانت س = { ١ ، ٢ ، ٣ ، ٥ } ، فبين أياً من العلاقات على س تمثل علاقة تطبيق مع ذكر السبب:
+                </p>
+
+                <p class="content-text">١. ع<sup>١</sup> = { (١، ٢) ، (٢، ٢) ، (٢، ٣) ، (٥، ٢) }.</p>
+                <div class="writing-line"></div>
+
+                <p class="content-text">٢. ع<sup>٢</sup> علاقة يساوي على المجموعة س.</p>
+                <div class="writing-line"></div>
+
+                <p class="content-text">٣. ع<sup>٣</sup> علاقة أكبر من على المجموعة س.</p>
+                <div class="writing-line"></div>
+
+                <p class="content-text">٤. ع<sup>٤</sup> = { (١، ٢) ، (٢، ٢) ، (٣، ٢) ، (٥، ٣) }.</p>
+                <div class="writing-line"></div>
+            </div>
+
+            <!-- Exercise 2 -->
+            <div style="margin-top: 3vmin;">
+                <div class="exercise-label">تدريب (٢):</div>
+                <p class="content-text">
+                    من خلال التدريب السابق حدد ما يلي لما يمثل منها تطبيق، ثم مثل كل تطبيق بالمخطط السهمي والرسم
+                    البياني:
+                </p>
+                <p class="content-text">
+                    ١. عناصر المجال. &nbsp; ٢. عناصر المجال المقابل. &nbsp; ٣. عناصر المدى. &nbsp; ٤. قاعدة التطبيق.
+                </p>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-right">إعداد: هلا المولجي</div>
+                <div class="footer-center">- 20 -</div>
+                <div class="footer-left"></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

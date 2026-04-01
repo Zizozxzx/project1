@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>صفحة 62 - اختبار الرياضيات التفاعلي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 2px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-blue {
+            background-color: #d9e1f2;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+            table-layout: fixed;
+        }
+
+        .tf-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            vertical-align: middle;
+            font-size: 1.2em;
+        }
+
+        .tf-table td:nth-child(1) {
+            /* Number column (Right) */
+            width: 45px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        .tf-table td:nth-child(2) {
+            /* Math Statement (Middle) */
+            text-align: center;
+        }
+
+        .tf-table td:nth-child(3) {
+            /* Circles (Left) */
+            width: 100px;
+            text-align: center;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 4px;
+            flex-shrink: 0;
+        }
+
+        .fraction span:first-child {
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 4px;
+            margin-bottom: 1px;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .circle {
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.selected-correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle.selected-wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        .question-box {
+            background-color: #fff;
+            padding: 8px;
+            font-size: 1.2em;
+            border: 1px solid var(--border-color);
+            margin-top: 10px;
+            text-align: right;
+            overflow-x: auto;
+        }
+
+        .choice-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .choice-table td:hover {
+            background-color: #f9f9f9;
+        }
+
+        .choice-table td.correct {
+            background-color: #d4edda !important;
+        }
+
+        .choice-table td.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        .footer {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0;
+            font-size: 1em;
+            margin-top: auto;
+        }
+
+        .page-num {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 600px) {
+            .tf-table td {
+                font-size: 0.9em;
+                word-break: break-all;
+            }
+
+            .fraction {
+                font-size: 0.8em;
+            }
+
+            .circle {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+            <div class="header-blue">أسئلة على الدرس بطريقة الأتمتة</div>
+
+            <div
+                style="display: flex; justify-content: space-between; font-weight: bold; padding: 0 10px 10px 10px; border-bottom: 2px solid #eee;">
+                <span style="font-size: 1.25em;">ظلل الإجابة الصحيحة فيما يلي:</span>
+                <span
+                    style="width: 100px; text-align: center; display: flex; justify-content: space-around; font-size: 1.25em;">
+                    <span>صح</span>
+                    <span>خطأ</span>
+                </span>
+            </div>
+
+            <table class="tf-table">
+                <!-- Q1 -->
+                <tr>
+                    <td>١.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>٣ س</span><span>س + ١</span></div> -
+                        <div class="fraction"><span>٢ س - ١</span><span>س + ١</span></div> +
+                        <div class="fraction"><span>س - ١</span><span>س + ١</span></div> = ٠
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q2 -->
+                <tr>
+                    <td>٢.</td>
+                    <td style="text-align: right;">
+                        جمع <div class="fraction"><span>٤ س - ٦</span><span>س<sup>٢</sup> - س + ١</span></div> مع
+                        <div class="fraction"><span>٢ س<sup>٢</sup> - س - ٣</span><span>س + ١</span></div> يساوي
+                        <div class="fraction"><span>٢ ( س - ٣ )</span><span>س<sup>٢</sup> - س + ١</span></div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q3 -->
+                <tr>
+                    <td>٣.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>س - ٢</span><span>س<sup>٢</sup> - ٩</span></div> ×
+                        <div class="fraction"><span>س<sup>٢</sup> - ٦ س + ٩</span><span>س - ٢</span></div> +
+                        <div class="fraction"><span>٣</span><span>س + ٢</span></div> =
+                        <div class="fraction"><span>٢ س + ٣</span><span>( س + ٣ )( س + ٢ )</span></div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q4 -->
+                <tr>
+                    <td>٤.</td>
+                    <td style="text-align: right;">
+                        إذا طرحنا <div class="fraction"><span>٢١</span><span>س<sup>٢</sup> - ٤</span></div> من
+                        <div class="fraction"><span>س - ٤</span><span>س<sup>٢</sup> - ٢ س</span></div> ، فإن الناتج
+                        سيكون
+                        <div class="fraction"><span>٣</span><span>س + ٢</span></div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q5 -->
+                <tr>
+                    <td>٥.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>٦</span><span>س + ٢</span></div> +
+                        <div class="fraction"><span>س - ٤</span><span>س + ٢</span></div> = صفر
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q6 -->
+                <tr>
+                    <td>٦.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>٥</span><span>س</span></div> -
+                        <div class="fraction"><span>٥</span><span>١٠ س</span></div> = صفر
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q7 -->
+                <tr>
+                    <td>٧.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>١</span><span>س - ٢</span></div> -
+                        <div class="fraction"><span>١</span><span>س + ٢</span></div> =
+                        <div class="fraction"><span>٢ س</span><span>س<sup>٢</sup> - ٤</span></div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q8 -->
+                <tr>
+                    <td>٨.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>س<sup>٢</sup> - ٦ س</span><span>س<sup>٢</sup> - ٣٦</span></div> -
+                        <div class="fraction"><span>٦</span><span>س + ٦</span></div> = ١
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q9 -->
+                <tr>
+                    <td>٩.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>١</span><span>ن ل</span></div> -
+                        <div class="fraction"><span>١</span><span>ن<sup>٢</sup> ل</span></div> =
+                        <div class="fraction"><span>ن - ١</span><span>ن<sup>٢</sup> ل</span></div>
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Q10 -->
+                <tr>
+                    <td>١٠.</td>
+                    <td dir="ltr">
+                        <div class="fraction"><span>س<sup>٣</sup> - س<sup>٢</sup> + س - ١</span><span>س<sup>٢</sup> -
+                                ١</span></div> -
+                        <div class="fraction"><span>٢</span><span>س + ١</span></div> = س - ١
+                    </td>
+                    <td>
+                        <div class="circle-group">
+                            <div class="circle" onclick="toggleCircle(this, 'correct')"></div>
+                            <div class="circle" onclick="toggleCircle(this, 'wrong')"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="header-blue" style="margin-top: 10px;">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <!-- MCQ 1 -->
+            <div class="question-box">
+                ١. <div class="fraction"><span>س - ١</span><span>س<sup>٢</sup> - ٢ س + ١</span></div> -
+                <div class="fraction"><span>س + ١</span><span>س<sup>٢</sup> - ٣ س + ٢</span></div> = .......... :
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. <div class="fraction"><span>٣</span><span>( س - ١ )( س - ٢
+                                )</span></div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٣. <div class="fraction"><span>-١</span><span>( س - ١ )( س -
+                                ٢ )</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td onclick="checkChoice(this, true)">٢. <div class="fraction"><span>-٣</span><span>( س - ١ )( س - ٢
+                                )</span></div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٤. <div class="fraction"><span>١</span><span>( س - ١ )( س - ٢
+                                )</span></div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- MCQ 2 -->
+            <div class="question-box">
+                ٢. <div class="fraction"><span>١</span><span>س + ٥</span></div> -
+                <div class="fraction"><span>١</span><span>( س + ٥ )<sup>٢</sup></span></div> = .......... :
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. صفر.</td>
+                    <td onclick="checkChoice(this, true)">٣. <div class="fraction"><span>س + ٤</span><span>( س + ٥
+                                )<sup>٢</sup></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td onclick="checkChoice(this, false)">٢. <div class="fraction"><span>-١</span><span>س + ٥</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٤. <div class="fraction"><span>-١</span><span>( س + ٥
+                                )<sup>٢</sup></span></div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- MCQ 3 -->
+            <div class="question-box">
+                ٣. <div class="fraction"><span>- ١٠</span><span>س<sup>٢</sup> - ٢٥</span></div> +
+                <div class="fraction"><span>١</span><span>س - ٥</span></div> = .......... :
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. س - ٥.</td>
+                    <td onclick="checkChoice(this, false)">٣. - س - ٥.</td>
+                </tr>
+                <tr>
+                    <td onclick="checkChoice(this, true)">٢. <div class="fraction"><span>١</span><span>س + ٥</span>
+                        </div>
+                    </td>
+                    <td onclick="checkChoice(this, false)">٤. ١٠ س - ٥.</td>
+                </tr>
+            </table>
+
+            <!-- MCQ 4 -->
+            <div class="question-box">
+                ٤.
+                <div class="fraction"><span>٢</span><span>س - ٤</span></div> ×
+                <div class="fraction"><span>س<sup>٢</sup> - ١٦</span><span>س + ٤</span></div> -
+                <div class="fraction"><span>س<sup>٢</sup> - ٥ س</span><span>س - ٥</span></div> = .......... :
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, true)">١. ٢ + س.</td>
+                    <td onclick="checkChoice(this, false)">٣. ٢ - س.</td>
+                </tr>
+                <tr>
+                    <td onclick="checkChoice(this, false)">٢. - ٢ - س.</td>
+                    <td onclick="checkChoice(this, false)">٤. ٢ + ٣ س.</td>
+                </tr>
+            </table>
+
+            <!-- MCQ 5 -->
+            <div class="question-box">
+                ٥.
+                <div class="fraction"><span>٣ س ص</span><span>س - ٣</span></div> ÷
+                <div class="fraction"><span>س + ٣</span><span>س<sup>٢</sup> - ٩</span></div> +
+                <div class="fraction"><span>ص ( س<sup>٢</sup> - ٣ س )</span><span>س + ٣</span></div> = .......... :
+            </div>
+            <table class="choice-table">
+                <tr>
+                    <td onclick="checkChoice(this, false)">١. ٢ س ص.</td>
+                    <td onclick="checkChoice(this, true)">٣. ٢ س ص ( س + ٣ ).</td>
+                </tr>
+                <tr>
+                    <td onclick="checkChoice(this, false)">٢. - ٢ س ص.</td>
+                    <td onclick="checkChoice(this, false)">٤. - ٢ س ص ( س + ٣ ).</td>
+                </tr>
+            </table>
+
+            <div class="footer">إعداد: هلا المولجي</div>
+            <div class="page-num">- ٦٢ -</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCircle(el, type) {
+            const group = el.parentElement;
+            group.querySelectorAll('.circle').forEach(c => {
+                c.classList.remove('selected-correct', 'selected-wrong');
+            });
+            if (type === 'correct') {
+                el.classList.add('selected-correct');
+            } else {
+                el.classList.add('selected-wrong');
+            }
+        }
+
+        function checkChoice(el, isCorrect) {
+            const row = el.closest('table').querySelectorAll('td');
+            row.forEach(cell => {
+                cell.classList.remove('correct', 'wrong');
+            });
+            if (isCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

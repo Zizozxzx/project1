@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة 50 - تنسيق دقيق</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+        :root {
+            --correct-bg: #28a745;
+            --wrong-bg: #dc3545;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;background-color: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 8px;
+            table-layout: fixed;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+            font-size: 1rem;
+        }
+
+        /* المربع الصغير جداً حول رقم الخيار */
+        .num-box {
+            display: inline-block;
+            border: 1px solid #000;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            background-color: #f0f0f0;
+            margin-left: 8px;
+            border-radius: 2px;
+        }
+
+        b {
+            font-size: 1.4rem;
+            font-family: 'Amiri', serif;
+        }
+
+        .choice-cell {
+            cursor: pointer;
+            transition: 0.2s;
+            position: relative;
+        }
+
+        /* حالات التفاعل */
+        .correct-pick {
+            background-color: var(--correct-bg) !important;
+            color: #fff !important;
+        }
+
+        .wrong-pick {
+            background-color: var(--wrong-bg) !important;
+            color: #fff !important;
+        }
+
+        .correct-pick .num-box,
+        .wrong-pick .num-box {
+            border-color: #fff;
+            background: transparent;
+            color: #fff;
+        }
+
+        .section-title {
+            background-color: #dce6f1;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+            border: 2px solid #000;
+            border-bottom: none;
+            font-size: 1.2rem;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            border-bottom: 1px solid #000;
+            display: block;
+            padding: 0 4px;
+        }
+
+        .fraction .bottom {
+            display: block;
+        }
+
+        .footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <table>
+            <tr data-ans="false">
+                <td style="width: 80%;">٩. لكي يكون المقدار س<sup>ن</sup> + ١ مجموع مكعبين، فإن قيمة ن = ٤.</td>
+                <td class="choice-cell" onclick="handleTF(this, true)" style="text-align:center; width:50px;">صح<br>
+                    <div class="circle"></div>
+                </td>
+                <td class="choice-cell" onclick="handleTF(this, false)" style="text-align:center; width:50px;">خطأ<br>
+                    <div class="circle"></div>
+                </td>
+            </tr>
+            <tr data-ans="true">
+                <td>١<b>٠</b>. لكي يكون المقدار ص<sup>٩</sup> + م فرق بين مكعبين، فإن قيمة م = - ٢٧.</td>
+                <td class="choice-cell" onclick="handleTF(this, true)" style="text-align:center;">
+                    <div class="circle"></div>
+                </td>
+                <td class="choice-cell" onclick="handleTF(this, false)" style="text-align:center;">
+                    <div class="circle"></div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-title">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+        <table>
+            <tr>
+                <td colspan="2">١. أي مما يلي يسمى مجموع مكعبين ................. :</td>
+            </tr>
+            <tr data-q="q1" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( س + ١ )<sup>٣</sup></td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>س<sup>٣</sup> - ٨</td>
+            </tr>
+            <tr data-q="q1" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>( ١٢ )<sup>٣</sup> + ( ١١
+                    )<sup>٣</sup></td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>س + ٢</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٢. أي مما يلي عامل من عوامل المقدار ( ص<sup>١٢</sup> - ١ ) :</td>
+            </tr>
+            <tr data-q="q2" data-correct="1">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( ص<sup>٤</sup> + ١ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>( ص<sup>٤</sup> - ١ )</td>
+            </tr>
+            <tr data-q="q2" data-correct="1">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>( ص<sup>٨</sup> -
+                    ص<sup>٤</sup> + ١ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>( ص<sup>٤</sup> -
+                    ص<sup>٢</sup> + ١ )</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٣. يتحلل المقدار س<sup>٤</sup> + س إلى ................. :</td>
+            </tr>
+            <tr data-q="q3" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( س + ١ ) ( س<sup>٢</sup>
+                    - س + ١ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>س ( س - ١ ) (
+                    س<sup>٢</sup> - س + ١ )</td>
+            </tr>
+            <tr data-q="q3" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>س ( س + ١ ) (
+                    س<sup>٢</sup> - س + ١ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>س ( س + ١ ) (
+                    س<sup>٢</sup> + س + ١ )</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٤. يتحلل المقدار ١٦ س<sup>٤</sup> + <div class="fraction"><span
+                            class="top">٢</span><span class="bottom">٢٧</span></div> س ص<sup>٣</sup> إلى .......... :
+                </td>
+            </tr>
+            <tr data-q="q4" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>س ( ٢ س + <div
+                        class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> ص ) ( ٤
+                    س<sup>٢</sup> - <div class="fraction"><span class="top">٢</span><span class="bottom">٣</span></div>
+                    س ص + <div class="fraction"><span class="top">١</span><span class="bottom">٩</span></div>
+                    ص<sup>٢</sup> )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>٢ س ( ٢ س + <div
+                        class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> ص ) ( ٤
+                    س<sup>٢</sup> - <div class="fraction"><span class="top">٢</span><span class="bottom">٣</span></div>
+                    س ص + <div class="fraction"><span class="top">١</span><span class="bottom">٩</span></div>
+                    ص<sup>٢</sup> )</td>
+            </tr>
+            <tr data-q="q4" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>س ( ٢ س - <div
+                        class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> ص ) ( ٤
+                    س<sup>٢</sup> - <div class="fraction"><span class="top">٢</span><span class="bottom">٣</span></div>
+                    س ص + <div class="fraction"><span class="top">١</span><span class="bottom">٩</span></div>
+                    ص<sup>٢</sup> )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>( ٢ س + <div
+                        class="fraction"><span class="top">١</span><span class="bottom">٣</span></div> ص ) ( ٤
+                    س<sup>٢</sup> - <div class="fraction"><span class="top">٢</span><span class="bottom">٣</span></div>
+                    س ص + <div class="fraction"><span class="top">١</span><span class="bottom">٩</span></div>
+                    ص<sup>٢</sup> )</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٥. ( ع<sup>٦</sup> - ٨ ) ÷ ( ع<sup>٤</sup> + ٢ ع<sup>٢</sup> + ٤ ) = ........... :</td>
+            </tr>
+            <tr data-q="q5" data-correct="4">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( ع - ٢ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>( ع<sup>٢</sup> + ٢ ع + ٤
+                    )</td>
+            </tr>
+            <tr data-q="q5" data-correct="4">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>( ع + ٢ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>( ع<sup>٢</sup> - ٢ ع + ٤
+                    )</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٦. <b>٠</b>,٢١٦ س<sup>٣</sup> - ١٢٥ = ( <b>٠</b>,٦ س - ٥ ) × .......... :</td>
+            </tr>
+            <tr data-q="q6" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( ٣٦ س<sup>٢</sup> +
+                    <b>٠</b>,٦ س + ٢٥ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>( <b>٠</b>,٣٦
+                    س<sup>٢</sup> + ٣ س + ٢٥ )</td>
+            </tr>
+            <tr data-q="q6" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>( <b>٠</b>,٣٦
+                    س<sup>٢</sup> + <b>٠</b>,٦ س + ٢٥ )</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>( <b>٠</b>,٣٦
+                    س<sup>٢</sup> - ٣ س + ٢٥ )</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٧. إذا كان ( أ - ٦٤ ل<sup>٣</sup> ) أحد عوامله ( ٢٥ + ٤<b>٠</b> ل + ١٦ ل<sup>٢</sup> )،
+                    فإن قيمة أ = .......... :</td>
+            </tr>
+            <tr data-q="q7" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>٥</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>١٢٥</td>
+            </tr>
+            <tr data-q="q7" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>- ٥</td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>- ١٢٥</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٨. أحد المقادير التالية لا تمثل فرق بين مكعبين ....... :</td>
+            </tr>
+            <tr data-q="q8" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>١ - ( س + ٣ )<sup>٣</sup>
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>( ص - ١ )<sup>٣</sup> -
+                    ١<b>٠</b><b>٠</b><b>٠</b></td>
+            </tr>
+            <tr data-q="q8" data-correct="2">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>٣٢ - ل<sup>٣</sup></td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>ص<sup>٣</sup> + ١</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">٩. أحد ما يلي يمثل مجموع مكعبين ............... :</td>
+            </tr>
+            <tr data-q="q9" data-correct="1">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>( ص + ٣ )<sup>٣</sup></td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>س<sup>٢</sup> +
+                    ص<sup>٢</sup></td>
+            </tr>
+            <tr data-q="q9" data-correct="1">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>( أ + ٤ )<sup>٣</sup> - ١
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>٣٢ + ٢٣</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">١<b>٠</b>. أحد الشروط التالية لا يعتبر من شروط الفرق بين مكعبين ........... :</td>
+            </tr>
+            <tr data-q="q10" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 1)"><span class="num-box">١</span>يتكون من حدين.</td>
+                <td class="choice-cell" onclick="hMCQ(this, 3)"><span class="num-box">٣</span>أس المتغيرات فيه يقبل
+                    القسمة على ٢.</td>
+            </tr>
+            <tr data-q="q10" data-correct="3">
+                <td class="choice-cell" onclick="hMCQ(this, 2)"><span class="num-box">٢</span>العلامة بين الحدين ( - ).
+                </td>
+                <td class="choice-cell" onclick="hMCQ(this, 4)"><span class="num-box">٤</span>الحد الأول والثاني مكعب.
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-title" style="background-color: #f2dbdb;">أسئلة وزارية</div>
+        <table>
+            <tr data-ans="true">
+                <td style="width: 80%;">١. ( س - ٢ ) أحد عوامل المقدار س<sup>٣</sup> - ٨.</td>
+                <td class="choice-cell" onclick="handleTF(this, true)" style="text-align:center; width:50px;">صح<br>
+                    <div class="circle"></div>
+                </td>
+                <td class="choice-cell" onclick="handleTF(this, false)" style="text-align:center; width:50px;">خطأ<br>
+                    <div class="circle"></div>
+                </td>
+            </tr>
+            <tr data-ans="true">
+                <td>٢. س<sup>٣</sup> - <b>٠</b>,<b>٠</b>٢٧ ص<sup>٣</sup> = ( س - <b>٠</b>,٣ ص ) ( س<sup>٢</sup> +
+                    <b>٠</b>,٣ س ص + <b>٠</b>,<b>٠</b>٩ ص<sup>٢</sup> ).</td>
+                <td class="choice-cell" onclick="handleTF(this, true)" style="text-align:center;">
+                    <div class="circle"></div>
+                </td>
+                <td class="choice-cell" onclick="handleTF(this, false)" style="text-align:center;">
+                    <div class="circle"></div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٤٩ -</div>
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+        // تفاعل الصح والخطأ
+        function handleTF(el, userVal) {
+            const row = el.closest('tr');
+            const correct = row.getAttribute('data-ans') === 'true';
+            row.querySelectorAll('.choice-cell').forEach(c => c.classList.remove('correct-pick', 'wrong-pick'));
+            if (userVal === correct) el.classList.add('correct-pick');
+            else el.classList.add('wrong-pick');
+        }
+
+        // تفاعل الاختيارات (MCQ) - يمسح اللون القديم ويظهر الجديد فقط
+        function hMCQ(el, clickedIdx) {
+            const row = el.closest('tr');
+            const qID = row.getAttribute('data-q');
+            const correctIdx = row.getAttribute('data-correct');
+
+            // مسح الألوان من جميع الخيارات التابعة لهذا السؤال (سواء في نفس الصف أو الصف التالي)
+            document.querySelectorAll(`tr[data-q="${qID}"] .choice-cell`).forEach(cell => {
+                cell.classList.remove('correct-pick', 'wrong-pick');
+            });
+
+            // تلوين الخيار المختار حالياً
+            if (clickedIdx == correctIdx) el.classList.add('correct-pick');
+            else el.classList.add('wrong-pick');
+        }
+    </script>
+</body>
+
+</html>

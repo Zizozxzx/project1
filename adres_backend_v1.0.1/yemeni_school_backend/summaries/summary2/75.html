@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٥</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #2196F3;
+            --success-color: #4CAF50;
+            --error-color: #F44336;
+            --text-color: #333;
+            --bg-color: #FAFAFA;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #ECEFF1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Drill 4 Styles */
+        .drill-section {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .drill-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .dotted-lines {
+            border-top: 2px dotted #999;
+            margin-top: 25px;
+            height: 20px;
+        }
+
+        .drill-input-container {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drill-input {
+            padding: 5px 10px;
+            font-family: 'Amiri', serif;
+            font-size: 1.1em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .check-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Amiri', serif;
+            font-size: 1em;
+        }
+
+        .check-btn:hover {
+            opacity: 0.9;
+        }
+
+        .feedback-msg {
+            font-weight: bold;
+            display: none;
+        }
+
+        /* MCQs Headers */
+        .section-header {
+            background: #90CAF9;
+            color: #0D47A1;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.4em;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px solid #1976D2;
+        }
+
+        /* Table Styles */
+        .mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .mcq-table th {
+            background-color: #B0BEC5;
+            padding: 8px;
+            border: 1px solid #78909C;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .mcq-table td {
+            border: 1px solid #78909C;
+            padding: 5px 10px;
+            vertical-align: middle;
+        }
+
+        .mcq-table tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        .q-text {
+            text-align: right;
+            width: 75%;
+        }
+
+        .option-cell {
+            text-align: center;
+            width: 12.5%;
+        }
+
+        .option-circle {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .option-circle:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+        .option-circle.correct {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .option-circle.correct::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+        }
+
+        .option-circle.incorrect {
+            background-color: var(--error-color);
+            border-color: var(--error-color);
+        }
+
+        .option-circle.incorrect::after {
+            content: '✕';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+        }
+
+        /* MCQ Section 2 */
+        .mcq-section-2 {
+            margin-top: 30px;
+            background-color: #E3F2FD;
+            padding: 5px;
+            border: 1px solid #2196F3;
+        }
+
+        .mcq-row {
+            display: flex;
+            border-bottom: 1px solid #90CAF9;
+            padding: 10px;
+            background: white;
+        }
+
+        .mcq-row:last-child {
+            border-bottom: none;
+        }
+
+        .mcq-number {
+            font-weight: bold;
+            margin-left: 10px;
+            min-width: 20px;
+        }
+
+        .mcq-content {
+            flex-grow: 1;
+        }
+
+        .mcq-question {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .mcq-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .mcq-option:hover {
+            background: #f5f5f5;
+            border-color: #ddd;
+        }
+
+        .mcq-option.correct {
+            background: #E8F5E9;
+            border-color: var(--success-color);
+            color: #2E7D32;
+        }
+
+        .mcq-option.incorrect {
+            background: #FFEBEE;
+            border-color: var(--error-color);
+            color: #C62828;
+        }
+
+        .opt-num {
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: start;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+                        /* explicit fixes for layout squishing */
+            .mcq-options {
+                flex-direction: column !important;
+            }
+            .mcq-opt {
+                border-left: none !important;
+                border-bottom: 1px solid var(--border-col) !important;
+                justify-content: right !important;
+                padding: 10px 15px !important;
+            }
+            .mcq-opt:last-child {
+                border-bottom: none !important;
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Drill 4 Section -->
+        <div class="drill-section">
+            <div>
+                <span class="drill-title">تدريب (٤):</span>
+                <strong>في نظام المعادلات س - ص = ٥ ، س + ص = ١١ ، ما قيمة س<sup>٢</sup> - ص<sup>٢</sup> ؟</strong>
+            </div>
+            <div class="drill-input-container">
+                <input type="number" id="drill4-input" class="drill-input" placeholder="الناتج">
+                <button class="check-btn" onclick="checkDrill4()">تحقق</button>
+                <span id="drill4-feedback" class="feedback-msg"></span>
+            </div>
+            <div class="dotted-lines"></div>
+            <div class="dotted-lines"></div>
+        </div>
+
+        <!-- Automation Questions Header -->
+        <div class="section-header">
+            أسئلة على الدرس بطريقة الأتمتة
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+            <strong>ظلل الإجابة الصحيحة فيما يلي:</strong>
+            <div style="font-size: 0.9em;">صح &nbsp;&nbsp; خطأ</div>
+        </div>
+
+        <!-- True/False Table -->
+        <table class="mcq-table" id="tf-table">
+            <thead>
+                <tr>
+                    <th class="q-text" style="text-align: center;">السؤال</th>
+                    <th class="option-cell">صح</th>
+                    <th class="option-cell">خطأ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Q1: True -->
+                <tr data-answer="true">
+                    <td class="q-text">١. الغرض من نظام معادلات الدرجة الأولى ذات متغيرين إيجاد مجموعة الحل المشتركة.
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q2: True -->
+                <tr data-answer="true">
+                    <td class="q-text">٢. مجموعة الحل المشتركة للمعادلتين: س = ص ، س + ٢ص = ٣ هي {( ١ ، ١ )}.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q3: False -->
+                <tr data-answer="false">
+                    <td class="q-text">٣. مستقيما المعادلتين: س - ص = ٥ ، ٤س + ٢ص = ٢ متطابقان.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q4: False -->
+                <tr data-answer="false">
+                    <td class="q-text">٤. إذا كانا مستقيما معادلتين الدرجة الأولى ذات متغيرين متوازيين، فإن مجموعة الحل
+                        المشتركة حل وحيد.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q5: False -->
+                <tr data-answer="false">
+                    <td class="q-text">٥. إذا كانا مستقيما معادلتين الدرجة الأولى ذات متغيرين متقاطعين، فإن مجموعة الحل
+                        المشتركة مجموعة خالية.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q6: False -->
+                <tr data-answer="false">
+                    <td class="q-text">٦. الزوج المرتب الذي يحقق المعادلتين: ص = ١ - س ، س - ٢ص = ٠ هو ( -١ ، ٠ ).</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q7: True -->
+                <tr data-answer="true">
+                    <td class="q-text">٧. مستقيما المعادلتين: ص - ١ = ٥ ، س - ١ = ٠ مستقيمان متقاطعين.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q8: False -->
+                <tr data-answer="false">
+                    <td class="q-text">٨. مجموعة الحل المشتركة للمعادلتين: س + ٢ص = ٠ ، ٢ص = ١ - س عدد لا نهائي من
+                        الحلول.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q9: True -->
+                <tr data-answer="true">
+                    <td class="q-text">٩. للمعادلتين: ٣ص + ٢س = ٧ ، س - ص = ٦ مجموعة حل مشتركة = {( ٥ ، -١ )}.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+                <!-- Q10: True -->
+                <tr data-answer="true">
+                    <td class="q-text">١٠. إذا كان مستقيما معادلتين من الدرجة الأولى ذات متغيرين منطبقين، فإن مجموعة
+                        الحل المشتركة لا نهائي من الحلول.</td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, true)"></div>
+                    </td>
+                    <td class="option-cell">
+                        <div class="option-circle" onclick="checkTF(this, false)"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Secondary Header -->
+        <div class="section-header" style="margin-top: 20px; font-size: 1.2em; padding: 5px;">
+            ظلل الإجابة الصحيحة فيما يلي:
+        </div>
+
+        <!-- MCQ Section -->
+        <div class="mcq-section-2">
+
+            <!-- Q1: Answer 4 -->
+            <div class="mcq-row">
+                <div class="mcq-number">١</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">مجموعة الحل المشتركة للمعادلتين: س = ١ ، ص - س = ٤ تساوي ............:
+                    </div>
+                    <div class="mcq-options" data-correct="4">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> {( ٢ ، ٤ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> {( ٣ ، ١ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> {( ١ ، ١ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> {( ١ ، ٥ )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2: Answer 4 -->
+            <div class="mcq-row">
+                <div class="mcq-number">٢</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">للمعادلتين: ٣س - ٥ص = ٠ ، ٣س - ٥ص = ٢٠ ، مستقيمان ............:</div>
+                    <div class="mcq-options" data-correct="4">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> متقاطعان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> منطبقان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> متعامدان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> متوازيان.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3: Answer 1 (6, -3) -->
+            <div class="mcq-row">
+                <div class="mcq-number">٣</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">الزوج المرتب الذي يحقق المعادلتين: ص + ٦ = ½ س ، ٠,٥س + ص = ٠ هو
+                        ............:</div>
+                    <div class="mcq-options" data-correct="1">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> ( ٦ ، -٣ )
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> ( ٦ ، ٣ )
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> ( -٦ ، -٣ )
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> ( -٦ ، -٣ )
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4: Answer 1 -->
+            <div class="mcq-row">
+                <div class="mcq-number">٤</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">للمعادلتين: ٣س + ٢ص = ٠ ، ٦س - ٥ص = ٢٠ ، مستقيمان ............:</div>
+                    <div class="mcq-options" data-correct="1">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> متقاطعان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> منطبقان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> متعامدان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> متوازيان.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5: Answer 3 -->
+            <div class="mcq-row">
+                <div class="mcq-number">٥</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">للمعادلتين: ٦س - ٤ص = ٠ ، ٣س - ٢ص = ٠ ، مستقيمان ............:</div>
+                    <div class="mcq-options" data-correct="3">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> متقاطعان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> منطبقان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> متعامدان.
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> متوازيان.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6: Answer 2 -->
+            <div class="mcq-row">
+                <div class="mcq-number">٦</div>
+                <div class="mcq-content">
+                    <div class="mcq-question">مجموعة الحل المشتركة للمعادلتين: ٢س - ٤ = ٢ص ، ٣س + ص = ١٠ تساوي
+                        ............:</div>
+                    <div class="mcq-options" data-correct="2">
+                        <div class="mcq-option" onclick="checkMCQ(this, 1)"><span class="opt-num">١</span> {( -٣ ، -١ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 3)"><span class="opt-num">٣</span> {( ٣ ، ١ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 2)"><span class="opt-num">٢</span> {( ٣ ، ١ )}
+                        </div>
+                        <div class="mcq-option" onclick="checkMCQ(this, 4)"><span class="opt-num">٤</span> {( ٣ ، -١ )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٥ -</div>
+        </footer>
+
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // Drill 4 Check
+        function checkDrill4() {
+            const input = document.getElementById('drill4-input');
+            const feedback = document.getElementById('drill4-feedback');
+            const val = input.value.trim();
+
+            if (val === '55' || val === '٥٥') {
+                feedback.textContent = 'أحسنت! إجابة صحيحة';
+                feedback.style.color = 'var(--success-color)';
+                feedback.style.display = 'inline';
+                input.style.borderColor = 'var(--success-color)';
+            } else {
+                feedback.textContent = 'حاول مرة أخرى';
+                feedback.style.color = 'var(--error-color)';
+                feedback.style.display = 'inline';
+                input.style.borderColor = 'var(--error-color)';
+            }
+        }
+
+        // True/False Check
+        function checkTF(element, isTrueCol) {
+            // Find parent row
+            const row = element.closest('tr');
+            const correctAnswer = row.getAttribute('data-answer') === 'true'; // string comparison
+
+            // Reset siblings
+            const circles = row.querySelectorAll('.option-circle');
+            circles.forEach(c => {
+                c.classList.remove('correct', 'incorrect');
+            });
+
+            // Logic: 
+            // If correctAnswer is true, and clicked 'True' (isTrueCol=true) -> Correct
+            // If correctAnswer is false, and clicked 'False' (isTrueCol=false) -> Correct
+            // Otherwise Incorrect
+
+            if (isTrueCol === correctAnswer) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+            }
+        }
+
+        // MCQ Check
+        function checkMCQ(element, selectedOption) {
+            const parent = element.closest('.mcq-options');
+            const correctOption = parseInt(parent.getAttribute('data-correct'));
+
+            // Reset siblings
+            const options = parent.querySelectorAll('.mcq-option');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+
+            if (selectedOption === correctOption) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - صفحة ٣٤</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --table-header-bg: #fbe5d6;
+            --border-color: #000;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            /* أقرب لخط الملازم */
+            background-color: #555;
+            /* خلفية داكنة لإظهار حدود الصفحة */
+            margin: 0;
+            padding: 20px 10px;
+            font-size: 16px;
+        }
+
+        .page-container {
+            background-color: #fff;
+            border: 4px double var(--border-color);
+            /* إطار مزدوج كما في الصورة */
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            position: relative;
+            box-sizing: border-box;
+            min-height: 1100px;
+            /* إضافة العلامة المائية في الخلفية */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.03)" font-size="20" transform="rotate(-45 50 50)">المولجي</text></svg>');
+        }
+
+        .outer-border {
+            border: 1px solid #000;
+            padding: 5px;
+            height: 100%;
+        }
+
+        .section-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-row {
+            margin: 12px 0;
+            line-height: 1.8;
+            color: #000;
+        }
+
+        .underline {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 10px 5px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            font-weight: bold;
+        }
+
+        .notes-section {
+            border-top: 1px solid #000;
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+
+        .bullet-list {
+            list-style-type: none;
+            padding-right: 15px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-right: 20px;
+        }
+
+        .bullet-list li::before {
+            content: "●";
+            position: absolute;
+            right: 0;
+            font-size: 12px;
+            top: 2px;
+        }
+
+        .exercise-title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.1em;
+            background: #eee;
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .exercise-item {
+            margin: 25px 0;
+            font-weight: bold;
+        }
+
+        .dots-line {
+            display: inline-block;
+            width: 100%;
+            border-bottom: 2px dotted #000;
+            margin-top: 10px;
+            height: 5px;
+        }
+
+        sup {
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .footer-page {
+            text-align: center;
+            margin-top: 50px;
+            font-weight: bold;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .author {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* تحسينات العرض على الهاتف */
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+
+            .page-container {
+                padding: 15px;
+                border-width: 2px;
+            }
+
+            td {
+                font-size: 0.8em;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="section-header">التحليل بإخراج العامل المشترك الأكبر</div>
+
+        <div class="info-row">
+            <span class="underline">مفهوم العامل المشترك الأكبر:</span> هو حد جبري يقسم جميع الحدود، ويرمز له بالرمز ((
+            ع . م . أ )).
+        </div>
+
+        <div class="info-row">
+            <span class="underline">الخاصية المستخدمة للتحليل:</span> خاصية التوزيع.
+        </div>
+
+        <div class="info-row"><span class="underline">القاعدة:</span></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">العامل المشترك الأكبر</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 33.33%;">المعاملات</td>
+                    <td style="width: 33.33%;">المتغيرات</td>
+                    <td style="width: 33.33%;">الأقواس</td>
+                </tr>
+                <tr style="height: 60px;">
+                    <td>نأخذ المعاملات المشتركة بأقل تكرار.</td>
+                    <td>نأخذ المتغيرات المشتركة بأصغر أس.</td>
+                    <td>نأخذ القوس المشترك بأصغر أس.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-row">
+            <strong>ملاحظات:</strong><br>
+            • إذا لم يوجد أي شيء مشترك بين الحدود فإن ع . م . أ = الواحد الصحيح.<br>
+            • إذا احتوت جميع الحدود على إشارة السالب فيتم إخراجها كعامل مشترك.
+        </div>
+
+        <div class="section-header" style="margin-top: 30px;">تحليل الفرق بين مربعين</div>
+
+        <div class="info-row">
+            <span class="underline">مفهوم تحليل الفرق بين كميتين مربعتين:</span> هو حاصل ضرب مجموع الكميتين في الفرق
+            بينهما.
+        </div>
+
+        <div class="info-row">
+            <span class="underline">القاعدة:</span>
+            <span dir="ltr"> س<sup>٢</sup> - ص<sup>٢</sup> = ( س + ص ) ( س - ص ) </span>
+        </div>
+
+        <div class="info-row">
+            <span class="underline">الشروط:</span><br>
+            ١) يتكون من حدين جبريين.<br>
+            ٢) الحد الأول والثاني كمية مربعة.<br>
+            ٣) العلامة بين الحدين هي علامة الفرق ( - ).<br>
+            ٤) الأرقام المربعة دليل عليه وهي: ١ ، ٤ ، ٩ ، ١٦ ، ٢٥ ......
+        </div>
+
+        <div class="notes-section">
+            <h3 style="text-decoration: underline; margin-bottom: 10px;">ملاحظات هامة:</h3>
+            <ul class="bullet-list">
+                <li>في قاعدة تحليل الفرق بين مربعين لا يهم ترتيب القوسين لأن الضرب إبدالي ( ٣ × ٤ = ٤ × ٣ )، فنبدأ بقوس
+                    الجمع أو بقوس الطرح.</li>
+                <li>صور لأقواس تحليل الفرق بين مربعين: ( + ) ( - ) أو ( - ) ( + ) أو ( ± ) أو ( ∓ ).</li>
+                <li>أحياناً المقدار يحتاج إلى استخراج العامل المشترك أولاً ثم نحلل بالفرق بين مربعين.</li>
+                <li>قبل البدء بتطبيق القاعدة، نحول الأعداد إلى قيم تربيعية، مثلاً: ٤ ← ٢<sup>٢</sup>.</li>
+                <li>لا يوجد تحليل لمجموع مربعين، فنكتبه كما هو، مثلاً: س<sup>٢</sup> + ٤.</li>
+                <li>المقدار ( س - ٢ )<sup>٢</sup> لا يسمى فرقاً بين مربعين.</li>
+                <li>نادراً ما نحول الأعداد غير المربعة إلى قيم تربيعية فتحلل لجذور، مثلاً: ( س<sup>٢</sup> - ٧ ) = ( س +
+                    √٧ ) ( س - √٧ ).</li>
+            </ul>
+        </div>
+
+        <div class="notes-section">
+            <div class="exercise-title">تدريب (١): حدد العامل المشترك الأكبر لما يلي:</div>
+
+            <div class="exercise-item">
+                ١) ١٢ &nbsp;،&nbsp; ٣ &nbsp;،&nbsp; ٣٠ &nbsp;،&nbsp; ١٨ <br>
+                ع . م . أ = <span class="dots-line"></span>
+            </div>
+
+            <div class="exercise-item">
+                ٢) ل<sup>٣</sup> س ع<sup>٢</sup> &nbsp;،&nbsp; ل<sup>٥</sup> س<sup>٤</sup> ع &nbsp;،&nbsp; ل<sup>٤</sup>
+                س<sup>٢</sup> ع <br>
+                ع . م . أ = <span class="dots-line"></span>
+            </div>
+
+            <div class="exercise-item">
+                ٣) ( س + ١ )<sup>٢</sup> &nbsp;،&nbsp; ( س - ١ ) ( س + ١ ) &nbsp;،&nbsp; ( ٢ س + ١ ) ( س + ١
+                )<sup>٣</sup> ( س - ١ ) <br>
+                ع . م . أ = <span class="dots-line"></span>
+            </div>
+        </div>
+
+        <div class="footer-page">- ٣٤ -</div>
+        <div class="author">إعداد: هلا المولجي</div>
+        <div style="clear: both;"></div>
+    </div>
+
+</body>
+
+</html>

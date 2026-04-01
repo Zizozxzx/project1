@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 45</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:36px 55px 150px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:3px;
+    background:#12a7db;
+    margin-bottom:16px;
+}
+
+/* رأس الصفحة */
+.header{
+    font-size:18px;
+    margin-bottom:22px;
+}
+
+/* الفقرات */
+p{
+    font-size:20px;
+    line-height:2.15;
+    letter-spacing:0.2px;
+    word-spacing:3px;
+    margin:16px 0;
+}
+
+/* تمييز الكلمات */
+.highlight{
+    color:#12a7db;
+}
+
+/* الأشكال */
+.figure{
+    text-align:center;
+    margin:20px 0 8px;
+}
+.figure-label{
+    font-size:18px;
+    margin-top:6px;
+}
+
+/* ===== التذييل (دقيق جدًا) ===== */
+.footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    left:0;
+    text-align:center;
+}
+
+.footer-line-wrapper{
+    position:relative;
+    width:100%;
+    height:46px;
+    margin-bottom:10px;
+}
+
+.footer-line{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#12a7db;
+    transform:translateY(-50%);
+    z-index:1;
+}
+
+.page-number{
+    position:relative;
+    display:inline-block;
+    padding:6px 28px;
+    background:#fff;
+    border:4px solid #12a7db;
+    border-radius:50%;
+    font-size:22px;
+    line-height:1;
+    z-index:2;
+}
+
+.footer-link{
+    font-size:18px;
+    color:#0000cc;
+    margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">المجموعات والعلاقات</div>
+
+<p>
+وهذه المجموعة الجزئية من الأعداد الحقيقية،
+تسمى <span class="highlight">( فترة مغلقة )</span>،
+ونكتبها بالصورة:
+<span class="highlight">[ −٣ ، ٢ ]</span>
+</p>
+
+<p>
+★ ب = { س : س ∈ ح ، −٣ ≤ س ≤ ٢ } .
+</p>
+
+<p>
+هي مجموعة الأعداد الحقيقية المحصورة فقط بين العددين −٣ ، ٢
+وتمثل على خط الأعداد في الشكل (١ − ٣٧) :
+</p>
+
+<div class="figure">
+<svg width="640" height="120">
+    <line x1="40" y1="60" x2="600" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="600,60 588,54 588,66" fill="#000"/>
+
+    <!-- القطعة -->
+    <line x1="200" y1="60" x2="440" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="200" cy="60" r="6" fill="#12a7db"/>
+    <circle cx="440" cy="60" r="6" fill="#12a7db"/>
+
+    <!-- الأعداد -->
+    <text x="185" y="90" font-size="16">−٣</text>
+    <text x="430" y="90" font-size="16">٢</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٧)</div>
+</div>
+
+<p>
+يلاحظ أن العددين −٣ ، ٢ ينتميان إلى المجموعة ب،
+وهذه المجموعة الجزئية من الأعداد الحقيقية تسمى
+<span class="highlight">( فترة مفتوحة )</span>،
+ونكتبها بالصورة:
+<span class="highlight">] −٣ ، ٢ [</span>
+</p>
+
+<p>
+★ ج = { س : س ∈ ح ، −٣ &lt; س &lt; ٢ } .
+</p>
+
+<p>
+هي مجموعة الأعداد الحقيقية التي تتكون من العددين −٣ ، ٢
+والأعداد المحصورة بينهما،
+وتمثل على خط الأعداد كما في الشكل (١ − ٣٨) :
+</p>
+
+<div class="figure">
+<svg width="640" height="120">
+    <line x1="40" y1="60" x2="600" y2="60" stroke="#000" stroke-width="2"/>
+    <polygon points="40,60 52,54 52,66" fill="#000"/>
+    <polygon points="600,60 588,54 588,66" fill="#000"/>
+
+    <!-- القطعة -->
+    <line x1="200" y1="60" x2="440" y2="60" stroke="#12a7db" stroke-width="6"/>
+    <circle cx="200" cy="60" r="6" fill="#fff" stroke="#12a7db" stroke-width="3"/>
+    <circle cx="440" cy="60" r="6" fill="#fff" stroke="#12a7db" stroke-width="3"/>
+
+    <!-- الأعداد -->
+    <text x="185" y="90" font-size="16">−٣</text>
+    <text x="430" y="90" font-size="16">٢</text>
+</svg>
+<div class="figure-label">شكل (١ − ٣٨)</div>
+</div>
+
+<p>
+وهذه المجموعة الجزئية من الأعداد الحقيقية تسمى
+<span class="highlight">( فترة نصف مغلقة )</span>
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+
+    <div class="footer-line-wrapper">
+        <div class="footer-line"></div>
+        <div class="page-number">٤٥</div>
+    </div>
+
+    <div class="footer-link">
+        http://www.e-learning-moe.edu.ye/
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>

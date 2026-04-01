@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 49 - المعلم المثالي</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #f0f0f0; margin: 0; padding: 5px; line-height: 1.4; color: #000; }
+        .page-container { max-width: 900px; background: #fff; margin: auto; padding: 20px; border: 2px solid #000; position: relative; min-height: 1000px; }
+        .page-num { text-align: center; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 10px; padding-bottom: 5px; }
+        
+        /* تقسيم الصفحة إلى عمودين كما في الصورة */
+        .main-content { display: flex; gap: 20px; border-top: 1px solid #000; padding-top: 10px; }
+        .right-col { flex: 1.2; border-left: 1px solid #000; padding-left: 15px; }
+        .left-col { flex: 1; padding-right: 5px; }
+
+        .title-box { text-align: center; border: 2px solid #000; padding: 5px 15px; margin: 10px auto; width: fit-content; font-weight: bold; font-size: 1.2em; }
+        .sub-title { text-decoration: underline; font-weight: bold; margin: 10px 0; display: block; }
+        .math-block { margin: 10px 0; }
+        .solution-title { font-weight: bold; text-decoration: underline; margin-left: 5px; }
+        
+        /* تنسيق الكسور والمقص */
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; font-size: 0.9em; }
+        .fraction .top { border-bottom: 1px solid #000; display: block; padding: 0 3px; }
+        .fraction .bottom { display: block; padding: 0 3px; }
+        
+        .scissors { display: flex; align-items: center; margin: 10px 0; font-weight: bold; font-size: 1.1em; }
+        .scissors-svg { width: 60px; height: 40px; margin: 0 10px; }
+        
+        .check-box { border-top: 2px dashed #000; border-bottom: 2px dashed #000; padding: 5px 0; margin: 10px 0; }
+        .note-item { margin-bottom: 8px; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-num">— ٤٩ —</div>
+
+    <div class="main-content">
+        <div class="right-col">
+            <div class="math-block">
+                [٢] ٢ س - ٤ = ٢ ص ، ٣ س + ص = ١١ <br>
+                <u>* الحــــل *</u> <br>
+                ٢ س - ٤ = ٢ ص &larr; (١) ، ٣ س + ص = ١١ &larr; (٢) <br>
+                من (١) بالقسمة على ٢ نجد : س - ٢ = ص &larr; (٣) <br>
+                بجمع (٣) ، (٢) نجد : ٤ س = ١٣ ومنها س = <div class="fraction"><span class="top">١٣</span><span class="bottom">٤</span></div> <br>
+                ومن (٣) نجد ص = <div class="fraction"><span class="top">١٣</span><span class="bottom">٤</span></div> - ٢ ومنها ص = <div class="fraction"><span class="top">٥</span><span class="bottom">٤</span></div> <br>
+                ∴ مجموعة الحل = { ( <div class="fraction"><span class="top">١٣</span><span class="bottom">٤</span></div> ، <div class="fraction"><span class="top">٥</span><span class="bottom">٤</span></div> ) } <br>
+                <u>التحقق :</u> من (٢) الطرف الأيمن = ٣ × <div class="fraction"><span class="top">١٣</span><span class="bottom">٤</span></div> + <div class="fraction"><span class="top">٥</span><span class="bottom">٤</span></div> = <div class="fraction"><span class="top">٣٩ + ٥</span><span class="bottom">٤</span></div> = <div class="fraction"><span class="top">٤٤</span><span class="bottom">٤</span></div> = ١١ الأيسر
+            </div>
+
+            <div class="check-box">
+                [٣] س - <div class="fraction"><span class="top">٢ ص + ١</span><span class="bottom">٤</span></div> = ٠ ، ص + <div class="fraction"><span class="top">س + ١</span><span class="bottom">٣</span></div> = ٤ <br>
+                <u>* الحــــل *</u> <br>
+                س - <div class="fraction"><span class="top">٢ ص + ١</span><span class="bottom">٤</span></div> = ٠ (١) ، ص + <div class="fraction"><span class="top">س + ١</span><span class="bottom">٣</span></div> = ٤ (٢) <br>
+                بضرب (١) في ٤ ونضرب المعادلة (٢) في ٣ نحصل على <br>
+                ٤ س - ٢ ص - ١ = ٠ ومنها ٤ س - ٢ ص = ١ &larr; (٣) <br>
+                ٣ ص + س + ١ = ١٢ ومنها ٣ ص + س = ١١ &larr; (٤) <br>
+                بجمع (٣) ، (٤) نجد : ٥ س = ٨ ومنها <mark>س = ٢</mark> <br>
+                نعوض في (٣) نجد : ٤ (٢) - ٢ ص = ١ &larr; ٨ - ٣ = ٢ ص ومنها <mark>ص = ١</mark> <br>
+                ∴ مجموعة الحل = { ( ٢ ، ١ ) } <br>
+                <u>التحقق :</u> من (٣) الأيمن = ٤ (٢) - ٣ = ٧ الأيسر .
+            </div>
+
+            <div class="title-box">معادلات الدرجة الثانية في متغير واحد</div>
+            
+            <p><u>الصورة العامة لمعادلة الدرجة الثانية ذات متغير واحد هي :</u><br>
+            أ س² + ب س + جـ = ٠ ، أ ≠ ٠ ، أ ، ب ، جـ ∋ ح <br>
+            حيث أ يسمى معامل س² ، ب معامل س ، جـ الحد الثابت (حد مطلق)</p>
+
+            <span class="sub-title">* طرق حل معادلة من الدرجة الثانية في متغير واحد :</span>
+            <p><u>أولاً : طريقة التحليل :</u> تتم هذه الطريقة بتحويل المعادلة إلى عاملين من الدرجة الأولى على صورة عوامل مضروبة تمكننا من إيجاد قيم المتغير وذلك بوضع كل عامل يساوي الصفر ويحل كمعادلة من الدرجة الأولى .</p>
+
+            <div class="math-block">
+                <u>مثال :</u> أوجد مجموعة حل المعادلة : س² + ٣ س - ٤ = ٠ <br>
+                <u>* الحل *</u> تذكر كيف كنا نحلل مقدار من الدرجة الثانية <br>
+                س² + ٣ س - ٤ = ( س + ٤ ) ( س - ١ ) = ٠ <br>
+                وحيث الطرف الأيسر = ٠ <br>
+                ∴ إما س + ٤ = ٠ ومنها <mark>س = -٤</mark> <br>
+                أو س - ١ = ٠ ومنها <mark>س = ١</mark> <br>
+                قيم المتغير س نسميها جذور (حلول) المعادلة <br>
+                ∴ مجموعة الحل = { -٤ ، ١ } <br>
+                <u>التحقق :</u> عندما س = -٤ يكون : <br>
+                الطرف الأيمن = (-٤)² + ٣ (-٤) - ٤ <br>
+                = ١٦ - ١٢ - ٤ = ٠ الأيسر <br>
+                وعندما س = ١ يكون : <br>
+                الطرف الأيمن = (١)² + ٣ (١) - ٤ <br>
+                = ٤ - ٤ = ٠ الأيسر
+            </div>
+        </div>
+
+        <div class="left-col">
+            <div class="title-box" style="font-size: 0.9em;">ملاحظات هامة :</div>
+            <div class="note-item">١) إذا كان س متغير حقيقي ، أ عدد حقيقي موجب وكان س² = أ فإن الجذر التربيعي للمتغير س يكون مساوياً ± √أ <br> أي س² = أ فإن س = ± √أ</div>
+            
+            <div class="note-item">٢) لحل معادلة من الدرجة الثانية في متغير واحد بإكمال المربع نميز ما يلي :-</div>
+            
+            <div class="note-item"><u>أولاً :</u> إذا كان معامل س² = ١ نتبع ما يلي :- <br>
+            أ ) نجعل معامل س² = ١ وذلك بقسمة كل حد من حدود المعادلة على معامل س² . <br>
+            ب ) ننقل الحد المطلق (الثابت) إلى الطرف الآخر بإشارة مخالفة . <br>
+            جـ ) نجعل الطرف الأيمن للمعادلة مربعاً كاملاً وذلك بإضافة مربع نصف معامل س ( <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × معامل س )² إلى الطرفين . <br>
+            د ) نأخذ الجذر التربيعي للطرفين فنجد جذور ( حلول ) المعادلة بالنسبة لذلك المتغير .</div>
+
+            <div class="note-item"><u>ثانياً :</u> إذا كان معامل س² ≠ ١ فإننا نتبع نفس الخطوات السابقة في أولاً من (ب) إلى (د) راجع تلك الخطوات في حل التمارين من رقم (٧) إلى رقم (١٢) .</div>
+
+            <hr style="border: 1px solid #000;">
+
+            <div class="title-box" style="font-size: 0.8em;">٣ : ٣ حل تمارين ومسائل الكتاب المدرسي ص ١٤٥ على معادلات الدرجة الثانية في متغير واحد بالتحليل وإكمال المربع</div>
+
+            <u>حل المعادلات الآتية :</u>
+            <div class="math-block">
+                [١] س² - ١٦ = ٠ <br>
+                <u>* الحــــل *</u> <br>
+                نحلل الطرف الأيمن كفرق بين مربعين <br>
+                ( س - ٤ ) ( س + ٤ ) = ٠ <br>
+                إما س - ٤ = ٠ ومنها س = ٤ أو س + ٤ = ٠ ومنها س = -٤ <br>
+                مجموعة الحل = { ٤ ، -٤ }
+            </div>
+
+            <div class="math-block">
+                [٢] ٥ ص² - ٢٠ ص = ٠ <br>
+                <u>* الحــــل *</u> <br>
+                ٥ ص² - ٢٠ ص = ٠ نأخذ مشترك ٥ ص من الطرف الأيمن <br>
+                ٥ ص ( ص - ٤ ) = ٠ <br>
+                إما ٥ ص = ٠ ومنها ص = <div class="fraction"><span class="top">٠</span><span class="bottom">٥</span></div> = ٠ أي ص = ٠ <br>
+                أو ص - ٤ = ٠ ومنها ص = ٤ <br>
+                مجموعة الحل = { ٠ ، ٤ }
+            </div>
+
+            <div class="math-block">
+                [٣] س² - ١٦ س + ٦٣ = ٠ <br>
+                <u>* الحــــل *</u> <br>
+                س² - ١٦ س + ٦٣ = ٠ <br>
+                ( س - ٩ ) ( س - ٧ ) = ٠ <br>
+                إما س - ٩ = ٠ ومنها س = ٩ أو س - ٧ = ٠ ومنها س = ٧ <br>
+                مجموعة الحل = { ٩ ، ٧ }
+                <div class="scissors">
+                    س <svg class="scissors-svg"><line x1="0" y1="0" x2="60" y2="40" stroke="black"/><line x1="0" y1="40" x2="60" y2="0" stroke="black"/></svg> -٩ <br>
+                    س &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -٧
+                </div>
+            </div>
+
+            <div class="math-block">
+                [٤] ٣ س² - ٢٣ س + ٢٠ = ٠ <br>
+                <u>* الحــــل *</u> <br>
+                ( ٣ س - ٢٠ ) ( س - ١ ) = ٠ <br>
+                <div class="scissors">
+                    ٣ س <svg class="scissors-svg"><line x1="0" y1="0" x2="60" y2="40" stroke="black"/><line x1="0" y1="40" x2="60" y2="0" stroke="black"/></svg> -٢٠ <br>
+                    س &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -١
+                </div>
+                إما ٣ س - ٢٠ = ٠ ومنها ٣ س = ٢٠ ومنها س = <div class="fraction"><span class="top">٢٠</span><span class="bottom">٣</span></div> <br>
+                أو س - ١ = ٠ ومنها س = ١ <br>
+                مجموعة الحل = { <div class="fraction"><span class="top">٢٠</span><span class="bottom">٣</span></div> ، ١ }
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

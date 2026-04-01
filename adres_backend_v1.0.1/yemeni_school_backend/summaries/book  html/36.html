@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 40</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:36px 55px 120px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:3px;
+    background:#12a7db;
+    margin-bottom:12px;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    margin-bottom:18px;
+}
+
+/* الفقرات */
+p{
+    font-size:20px;
+    line-height:2.1;
+    letter-spacing:0.2px;
+    word-spacing:3px;
+    margin:16px 0;
+}
+
+/* العنوان داخل إطار */
+.section-box{
+    width:360px;
+    margin:30px auto 25px;
+    border:3px solid #222;
+    border-radius:22px;
+    padding:10px 0;
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    color:#12a7db;
+}
+
+/* خطوط الأعداد */
+.number-line{
+    margin:25px auto 10px;
+    width:600px;
+    position:relative;
+}
+.line{
+    height:2px;
+    background:#000;
+    position:relative;
+}
+.arrow-right::after{
+    content:"";
+    position:absolute;
+    left:-10px;
+    top:-5px;
+    border:6px solid transparent;
+    border-right-color:#000;
+}
+.arrow-left::after{
+    content:"";
+    position:absolute;
+    right:-10px;
+    top:-5px;
+    border:6px solid transparent;
+    border-left-color:#000;
+}
+
+/* التدريجات */
+.ticks{
+    display:flex;
+    justify-content:space-between;
+    margin-top:-6px;
+}
+.tick{
+    position:relative;
+    text-align:center;
+    font-size:18px;
+}
+.tick::before{
+    content:"";
+    display:block;
+    width:2px;
+    height:10px;
+    background:#000;
+    margin:0 auto 4px;
+}
+
+/* اسم الشكل */
+.figure-label{
+    text-align:center;
+    font-size:18px;
+    margin-top:6px;
+}
+
+/* التذييل */
+.footer-area{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    left:0;
+    text-align:center;
+}
+.footer-line{
+    height:3px;
+    background:#12a7db;
+    margin:6px 0;
+}
+.page-number{
+    display:inline-block;
+    width:54px;
+    height:36px;
+    border:3px solid #12a7db;
+    border-radius:50%;
+    font-size:22px;
+    line-height:30px;
+    margin:8px 0;
+}
+.footer-link{
+    font-size:18px;
+    color:#0000cc;
+    margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+    <div>الوحدة الأولى</div>
+</div>
+
+<p>
+<strong>[١٠]</strong>
+أيُّ العلاقات التالية المعرفة على س = { ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ } تمثّل تطبيقًا؟
+اذكر السبب.
+</p>
+
+<p>
+ع = { (١ ، ٦) ، (٢ ، ٥) ، (٣ ، ٤) ، (٤ ، ٣) ، (٥ ، ٢) ، (٦ ، ١) } ،
+</p>
+
+<p>
+ع = { ( أ ، ب ) : أ ∈ س ، ب ∈ س ، أ = ٢ب } ،
+</p>
+
+<p>
+ع = { ( أ ، ب ) : أ ∈ س ، ب ∈ س ، أ = ٧ − ب } .
+</p>
+
+<p>
+ثم ارسم بيانيًا فقط العلاقات التي تمثّل تطبيقًا.
+</p>
+
+<div class="section-box">
+١ : ٦ مجموعة الأعداد الحقيقية
+</div>
+
+<p>
+تعرّفت فيما سبق على ثلاث مجموعات من الأعداد هي :
+مجموعة الأعداد الطبيعية ط = { ٠ ، ١ ، ٢ ، ٣ ، … } ،
+وتمثيلها على خط الأعداد في الشكل (١ – ٣٠) :
+</p>
+
+<div class="number-line">
+    <div class="line arrow-right"></div>
+    <div class="ticks">
+        <div class="tick">٠</div>
+        <div class="tick">١</div>
+        <div class="tick">٢</div>
+        <div class="tick">٣</div>
+        <div class="tick">٤</div>
+    </div>
+</div>
+<div class="figure-label">شكل (١ – ٣٠)</div>
+
+<p>
+ومجموعة الأعداد الصحيحة :
+ص = { … ، −٣ ، −٢ ، −١ ، ٠ ، ١ ، ٢ ، ٣ ، … } ،
+وتمثيلها على خط الأعداد في الشكل (١ – ٣١) :
+</p>
+
+<div class="number-line">
+    <div class="line arrow-left arrow-right"></div>
+    <div class="ticks">
+        <div class="tick">−٤</div>
+        <div class="tick">−٣</div>
+        <div class="tick">−٢</div>
+        <div class="tick">−١</div>
+        <div class="tick">٠</div>
+        <div class="tick">١</div>
+        <div class="tick">٢</div>
+        <div class="tick">٣</div>
+        <div class="tick">٤</div>
+    </div>
+</div>
+<div class="figure-label">شكل (١ – ٣١)</div>
+
+<p>
+ومجموعة الأعداد النسبية (ن) =
+{ أ / ب : أ ، ب ∈ ص ، ب ≠ ٠ } ،
+وتمثيلها على خط الأعداد في الشكل (١ – ٣٢) .
+</p>
+
+<div class="footer-area">
+    <div class="footer-line"></div>
+    <div class="page-number">٤٠</div>
+    <div class="footer-line"></div>
+    <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

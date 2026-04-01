@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل تمارين ومسائل الكتاب المدرسي - التطبيق</title>
+    <style>
+        :root {
+            --primary-color: #000;
+            --bg-color: #fff;
+            --border-color: #000;
+            --font-family: 'Arial', sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.5;
+            color: var(--primary-color);
+        }
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        .page-num {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 0 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+        }
+        .title-box {
+            display: inline-block;
+            border: 2px solid #000;
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .section {
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .q-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .solution-block {
+            margin-top: 5px;
+        }
+        .sol-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .diagram-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .diagram-item {
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .svg-box {
+            border: 1px solid #eee;
+            padding: 5px;
+            background: #fff;
+        }
+        .math-v {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+        @media (max-width: 800px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-header">
+        <div class="page-num">12</div>
+        <div class="title-box">5:1 حل تمارين ومسائل الكتاب المدرسي ص38-40 على التطبيق</div>
+    </div>
+
+    <div class="content-grid">
+        <!-- Right Column -->
+        <div class="column">
+            <div class="section">
+                <div class="q-title">[1] أي العلاقات في الأشكال التالية تمثل تطبيقاً؟ اذكر السبب؟</div>
+                <div class="diagram-group">
+                    <!-- 1-28 a -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="80" height="90" viewBox="0 0 80 90">
+                                <rect x="5" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <rect x="55" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <text x="15" y="12" text-anchor="middle" font-size="8">س</text>
+                                <text x="65" y="12" text-anchor="middle" font-size="8">ص</text>
+                                <circle cx="15" cy="30" r="1.5"/> <text x="8" y="33" font-size="7">أ</text>
+                                <circle cx="15" cy="45" r="1.5"/> <text x="8" y="48" font-size="7">ب</text>
+                                <circle cx="15" cy="60" r="1.5"/> <text x="8" y="63" font-size="7">ج</text>
+                                <circle cx="65" cy="30" r="1.5"/> <text x="70" y="33" font-size="7">1</text>
+                                <circle cx="65" cy="45" r="1.5"/> <text x="70" y="48" font-size="7">2</text>
+                                <circle cx="65" cy="60" r="1.5"/> <text x="70" y="63" font-size="7">3</text>
+                                <line x1="17" y1="30" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="45" x2="63" y2="45" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="45" x2="63" y2="60" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="60" x2="63" y2="60" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-28 أ) ع1</div>
+                    </div>
+                    <!-- 1-28 b -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="80" height="90" viewBox="0 0 80 90">
+                                <rect x="5" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <rect x="55" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <text x="15" y="12" text-anchor="middle" font-size="8">ك</text>
+                                <text x="65" y="12" text-anchor="middle" font-size="8">ل</text>
+                                <circle cx="15" cy="30" r="1.5"/> <text x="8" y="33" font-size="7">7</text>
+                                <circle cx="15" cy="45" r="1.5"/> <text x="8" y="48" font-size="7">8</text>
+                                <circle cx="15" cy="60" r="1.5"/> <text x="8" y="63" font-size="7">9</text>
+                                <circle cx="65" cy="30" r="1.5"/> <text x="70" y="33" font-size="7">أ</text>
+                                <circle cx="65" cy="45" r="1.5"/> <text x="70" y="48" font-size="7">ب</text>
+                                <circle cx="65" cy="60" r="1.5"/> <text x="70" y="63" font-size="7">ج</text>
+                                <line x1="17" y1="30" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="45" x2="63" y2="45" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="60" x2="63" y2="60" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-28 ب) ع2</div>
+                    </div>
+                    <!-- 1-28 c -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="80" height="90" viewBox="0 0 80 90">
+                                <rect x="5" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <rect x="55" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <text x="15" y="12" text-anchor="middle" font-size="8">س</text>
+                                <text x="65" y="12" text-anchor="middle" font-size="8">ص</text>
+                                <circle cx="15" cy="25" r="1.5"/> <text x="8" y="28" font-size="7">1</text>
+                                <circle cx="15" cy="38" r="1.5"/> <text x="8" y="41" font-size="7">2</text>
+                                <circle cx="15" cy="51" r="1.5"/> <text x="8" y="54" font-size="7">3</text>
+                                <circle cx="15" cy="64" r="1.5"/> <text x="8" y="67" font-size="7">4</text>
+                                <circle cx="65" cy="30" r="1.5"/> <text x="70" y="33" font-size="7">أ</text>
+                                <circle cx="65" cy="50" r="1.5"/> <text x="70" y="53" font-size="7">ب</text>
+                                <line x1="17" y1="25" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="38" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="51" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="51" x2="63" y2="50" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-28 ج) ع3</div>
+                    </div>
+                    <!-- 1-28 d -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="80" height="90" viewBox="0 0 80 90">
+                                <rect x="5" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <rect x="55" y="15" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                <text x="15" y="12" text-anchor="middle" font-size="8">س</text>
+                                <text x="65" y="12" text-anchor="middle" font-size="8">ص</text>
+                                <circle cx="15" cy="30" r="1.5"/> <text x="8" y="33" font-size="7">أ</text>
+                                <circle cx="15" cy="45" r="1.5"/> <text x="8" y="48" font-size="7">ب</text>
+                                <circle cx="15" cy="60" r="1.5"/> <text x="8" y="63" font-size="7">ج</text>
+                                <circle cx="65" cy="30" r="1.5"/> <text x="70" y="33" font-size="7">أ</text>
+                                <circle cx="65" cy="45" r="1.5"/> <text x="70" y="48" font-size="7">ب</text>
+                                <circle cx="65" cy="60" r="1.5"/> <text x="70" y="63" font-size="7">ج</text>
+                                <line x1="17" y1="30" x2="63" y2="30" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="45" x2="63" y2="45" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="17" y1="60" x2="63" y2="60" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-28 د) ع4</div>
+                    </div>
+                </div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    (1) ع1 لا تمثل تطبيقاً لأن العنصر ب من س يرتبط بعنصرين من ص هما 2، 3.<br>
+                    (2) ع2 تمثل تطبيقاً من ك إلى ل لأن كل عنصر من ك يرتبط بعنصر واحد فقط من ل.<br>
+                    (3) ع3 لا تمثل تطبيقاً لأن العنصر 4 من س لم يرتبط بأي عنصر من ص كما أن العنصر 3 من س يرتبط بأكثر من عنصر من ص.<br>
+                    (4) ع4 تمثل تطبيقاً من س إلى ص لأن كل عنصر من س يرتبط بعنصر واحد فقط من ص.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="q-title">[2] إذا كانت س = { أ، ب، ج } ، ص = { 0، 1 } بين أياً من العلاقات التالية تمثل تطبيقاً من س إلى ص؟ اذكر السبب.</div>
+                <div>
+                    1) ع1 = { (أ، 0)، (ب، 1)، (ج، 1) }<br>
+                    2) ع2 = { (ج، 0)، (ب، 1)، (ج، 1) }<br>
+                    3) ع3 = { (أ، 0)، (ب، 1)، (أ، 1)، (ج، 0) }<br>
+                    4) ع4 = { (أ، 0)، (ب، 0)، (ج، 0) }<br>
+                    5) ع5 = { (أ، 1)، (ج، 1) }
+                </div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    1) ع1 تطبيق لأن كل عنصر من س يرتبط بعنصر واحد فقط من ص.<br>
+                    2) ع2 لا تمثل تطبيق لأن العنصر أ من س لم يرتبط بأي عنصر من ص.<br>
+                    3) ع3 لا تمثل تطبيقاً لأن العنصر أ من س يرتبط بعنصرين من ص.<br>
+                    4) ع4 تطبيق لأن كل عنصر من س يرتبط بعنصر واحد فقط من ص.<br>
+                    5) ع5 ليست تطبيقاً لأن العنصر ب من س لم يرتبط بأي عنصر من ص.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="q-title">[3] في السؤال رقم (2) عين المجال والمجال المقابل للتطبيقات، ثم مثلها سهمياً وبيانياً.</div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    المجال س = { أ، ب، ج } المجال المقابل ص = { 0، 1 }
+                    <div class="diagram-group">
+                        <div class="diagram-item">
+                            <div class="svg-box">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <rect x="10" y="10" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                    <rect x="50" y="10" width="20" height="60" fill="none" stroke="black" rx="3"/>
+                                    <text x="20" y="25" text-anchor="middle" font-size="8">أ</text>
+                                    <text x="20" y="45" text-anchor="middle" font-size="8">ب</text>
+                                    <text x="20" y="65" text-anchor="middle" font-size="8">ج</text>
+                                    <text x="60" y="30" text-anchor="middle" font-size="8">0</text>
+                                    <text x="60" y="55" text-anchor="middle" font-size="8">1</text>
+                                    <line x1="30" y1="22" x2="50" y2="27" stroke="black" marker-end="url(#arrow)"/>
+                                    <line x1="30" y1="42" x2="50" y2="52" stroke="black" marker-end="url(#arrow)"/>
+                                    <line x1="30" y1="62" x2="50" y2="52" stroke="black" marker-end="url(#arrow)"/>
+                                </svg>
+                            </div>
+                            <div>تمثيل سهمي لـ ع1</div>
+                        </div>
+                        <div class="diagram-item">
+                            <div class="svg-box">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <line x1="15" y1="65" x2="75" y2="65" stroke="black"/>
+                                    <line x1="15" y1="65" x2="15" y2="5" stroke="black"/>
+                                    <text x="77" y="68" font-size="7">س</text>
+                                    <text x="10" y="8" font-size="7">ص</text>
+                                    <text x="30" y="73" font-size="7">أ</text>
+                                    <text x="45" y="73" font-size="7">ب</text>
+                                    <text x="60" y="73" font-size="7">ج</text>
+                                    <text x="8" y="50" font-size="7">0</text>
+                                    <text x="8" y="30" font-size="7">1</text>
+                                    <circle cx="30" cy="50" r="1.5" fill="black"/>
+                                    <circle cx="45" cy="30" r="1.5" fill="black"/>
+                                    <circle cx="60" cy="30" r="1.5" fill="black"/>
+                                </svg>
+                            </div>
+                            <div>تمثيل بياني لـ ع1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Column -->
+        <div class="column">
+            <div class="section">
+                <div class="q-title">[4] إذا كانت م = { 4، 5، 6 } ، ل = { 6، 8، 10، 12 }</div>
+                <div>وكان ت : م &rarr; ل معرفاً بالقاعدة ت(أ) = 2أ - 2</div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    ت(4) = 6، ت(5) = 8، ت(6) = 10<br>
+                    المدى = { 6، 8، 10 }<br>
+                    ت = { (4، 6)، (5، 8)، (6، 10) }
+                    <div class="diagram-group">
+                        <div class="diagram-item">
+                            <div class="svg-box">
+                                <svg width="80" height="100" viewBox="0 0 80 100">
+                                    <rect x="10" y="15" width="20" height="75" fill="none" stroke="black" rx="3"/>
+                                    <rect x="50" y="15" width="20" height="75" fill="none" stroke="black" rx="3"/>
+                                    <text x="20" y="35" text-anchor="middle" font-size="8">4</text>
+                                    <text x="20" y="55" text-anchor="middle" font-size="8">5</text>
+                                    <text x="20" y="75" text-anchor="middle" font-size="8">6</text>
+                                    <text x="60" y="30" text-anchor="middle" font-size="8">6</text>
+                                    <text x="60" y="45" text-anchor="middle" font-size="8">8</text>
+                                    <text x="60" y="60" text-anchor="middle" font-size="8">10</text>
+                                    <text x="60" y="75" text-anchor="middle" font-size="8">12</text>
+                                    <line x1="30" y1="32" x2="50" y2="27" stroke="black" marker-end="url(#arrow)"/>
+                                    <line x1="30" y1="52" x2="50" y2="42" stroke="black" marker-end="url(#arrow)"/>
+                                    <line x1="30" y1="72" x2="50" y2="57" stroke="black" marker-end="url(#arrow)"/>
+                                </svg>
+                            </div>
+                            <div>تمثيل سهمي</div>
+                        </div>
+                        <div class="diagram-item">
+                            <div class="svg-box">
+                                <svg width="100" height="100" viewBox="0 0 100 100">
+                                    <line x1="20" y1="80" x2="90" y2="80" stroke="black"/>
+                                    <line x1="20" y1="80" x2="20" y2="10" stroke="black"/>
+                                    <text x="35" y="88" font-size="7">4</text>
+                                    <text x="55" y="88" font-size="7">5</text>
+                                    <text x="75" y="88" font-size="7">6</text>
+                                    <text x="10" y="60" font-size="7">6</text>
+                                    <text x="10" y="45" font-size="7">8</text>
+                                    <text x="5" y="30" font-size="7">10</text>
+                                    <circle cx="35" cy="60" r="1.5" fill="black"/>
+                                    <circle cx="55" cy="45" r="1.5" fill="black"/>
+                                    <circle cx="75" cy="30" r="1.5" fill="black"/>
+                                    <line x1="35" y1="80" x2="35" y2="60" stroke="gray" stroke-dasharray="2,2"/>
+                                    <line x1="20" y1="60" x2="35" y2="60" stroke="gray" stroke-dasharray="2,2"/>
+                                </svg>
+                            </div>
+                            <div>تمثيل بياني</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="q-title">[5] لتكن س = { 1، 2، 3، 4 } ، ص = { 15، 30، 45، 60، 75، 90 }</div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    أ) مخطط العلاقة ع البياني:<br>
+                    <div class="diagram-group">
+                        <div class="diagram-item">
+                            <div class="svg-box">
+                                <svg width="120" height="100" viewBox="0 0 120 100">
+                                    <line x1="20" y1="80" x2="110" y2="80" stroke="black"/>
+                                    <line x1="20" y1="80" x2="20" y2="10" stroke="black"/>
+                                    <text x="30" y="88" font-size="6">1</text>
+                                    <text x="45" y="88" font-size="6">2</text>
+                                    <text x="60" y="88" font-size="6">3</text>
+                                    <text x="75" y="88" font-size="6">4</text>
+                                    <text x="10" y="70" font-size="6">15</text>
+                                    <text x="10" y="55" font-size="6">30</text>
+                                    <text x="10" y="40" font-size="6">45</text>
+                                    <circle cx="30" cy="70" r="1.5" fill="black"/>
+                                    <circle cx="45" cy="55" r="1.5" fill="black"/>
+                                    <circle cx="60" cy="55" r="1.5" fill="black"/>
+                                    <circle cx="60" cy="40" r="1.5" fill="black"/>
+                                    <circle cx="75" cy="40" r="1.5" fill="black"/>
+                                </svg>
+                            </div>
+                            <div>تمثيل بياني لـ ع</div>
+                        </div>
+                    </div>
+                    ب) ع لا تمثل تطبيقاً لأن العنصران 3، 4 من س يرتبطان بعنصرين من ص.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="q-title">[6] المخططات السهمية التالية تمثل تطبيقاً، لماذا؟ عين قاعدة ومدى هذه التطبيقات.</div>
+                <div class="diagram-group">
+                    <!-- 1-29 a -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="70" height="80" viewBox="0 0 70 80">
+                                <rect x="5" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <rect x="45" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <text x="12" y="25" text-anchor="middle" font-size="7">1</text>
+                                <text x="12" y="40" text-anchor="middle" font-size="7">2</text>
+                                <text x="12" y="55" text-anchor="middle" font-size="7">3</text>
+                                <text x="52" y="25" text-anchor="middle" font-size="7">5</text>
+                                <text x="52" y="40" text-anchor="middle" font-size="7">7</text>
+                                <text x="52" y="55" text-anchor="middle" font-size="7">9</text>
+                                <line x1="20" y1="22" x2="45" y2="22" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="37" x2="45" y2="37" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="52" x2="45" y2="52" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-29 أ)</div>
+                    </div>
+                    <!-- 1-29 b -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="70" height="80" viewBox="0 0 70 80">
+                                <rect x="5" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <rect x="45" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <text x="12" y="25" text-anchor="middle" font-size="7">1</text>
+                                <text x="12" y="40" text-anchor="middle" font-size="7">2</text>
+                                <text x="12" y="55" text-anchor="middle" font-size="7">-2</text>
+                                <text x="52" y="25" text-anchor="middle" font-size="7">1</text>
+                                <text x="52" y="40" text-anchor="middle" font-size="7">4</text>
+                                <line x1="20" y1="22" x2="45" y2="22" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="37" x2="45" y2="37" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="52" x2="45" y2="37" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-29 ب)</div>
+                    </div>
+                    <!-- 1-29 c -->
+                    <div class="diagram-item">
+                        <div class="svg-box">
+                            <svg width="70" height="80" viewBox="0 0 70 80">
+                                <rect x="5" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <rect x="45" y="10" width="15" height="60" fill="none" stroke="black" rx="2"/>
+                                <text x="12" y="25" text-anchor="middle" font-size="7">2</text>
+                                <text x="12" y="40" text-anchor="middle" font-size="7">4</text>
+                                <text x="12" y="55" text-anchor="middle" font-size="7">6</text>
+                                <text x="52" y="25" text-anchor="middle" font-size="7">1</text>
+                                <text x="52" y="40" text-anchor="middle" font-size="7">2</text>
+                                <text x="52" y="55" text-anchor="middle" font-size="7">3</text>
+                                <line x1="20" y1="22" x2="45" y2="22" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="37" x2="45" y2="37" stroke="black" marker-end="url(#arrow)"/>
+                                <line x1="20" y1="52" x2="45" y2="52" stroke="black" marker-end="url(#arrow)"/>
+                            </svg>
+                        </div>
+                        <div>شكل (1-29 ج)</div>
+                    </div>
+                </div>
+                <div class="solution-block">
+                    <span class="sol-tag">* الحل:</span><br>
+                    (1) الشكل (1-29 أ) تطبيق قاعدته ت(أ) = 2أ + 3، المدى = { 5، 7، 9 }<br>
+                    (2) الشكل (1-29 ب) تطبيق قاعدته ت(أ) = أ<sup>2</sup>، المدى = { 1، 4 }<br>
+                    (3) الشكل (1-29 ج) تطبيق قاعدته ت(أ) = 1/2 أ، المدى = { 1، 2، 3 }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<svg width="0" height="0">
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+        </marker>
+    </defs>
+</svg>
+
+</body>
+</html>

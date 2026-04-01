@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٥ - تدريبات وأتمتة القطاع الدائري</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Exercise Section */
+        .exercise-header {
+            border: 2px solid #000;
+            padding: 5px 15px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.25em;
+            display: inline-block;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+
+        .exercise-text {
+            flex: 1;
+            line-height: 1.8;
+        }
+
+        .dotted-line {
+            border-bottom: 1.5px dotted #000;
+            margin: 10px 0;
+            min-height: 22px;
+        }
+
+        /* Automation Section Header */
+        .automation-header {
+            background-color: #8faadc;
+            border: 2.5px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+            font-size: 1.3em;
+            font-family: 'Aref Ruqaa', serif;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        /* T/F Table */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 1.5px solid #000;
+            font-size: 0.95em;
+        }
+
+        .tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Styles */
+        .mcq-container {
+            border: 2.5px solid #000;
+            margin-bottom: 10px;
+        }
+
+        .mcq-question {
+            background-color: #f2f2f2;
+            padding: 6px 15px;
+            border-bottom: 2.5px solid #000;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .opt-item {
+            padding: 6px 15px;
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .opt-item:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .opt-item.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1.2px solid #000;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.2px solid #000;
+            padding: 0 3px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 3px;
+            line-height: 1.2;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opt-item {
+                border-left: 1.5px solid #000;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="exercise-header">تدريب(١):</div>
+
+            <div class="diagram-container">
+                <div class="exercise-text">
+                    من خلال الشكل المجاور احسب التالي حيث ( ط = ٢٢ / ٧ ):
+                    <br>١) طول القوس الصغير.
+                    <span style="display:inline-block; width:150px;"></span> ٢) طول القوس الكبير.
+                    <br>٣) محيط القطاع الدائري الصغير.
+                    <span style="display:inline-block; width:150px;"></span> ٤) مساحة القطاع الدائري الكبير.
+
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                    <div class="dotted-line"></div>
+                </div>
+                <div style="text-align: center; padding-top: 20px;">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle cx="70" cy="70" r="60" fill="none" stroke="black" stroke-width="1.5" />
+                        <circle cx="70" cy="70" r="2.5" fill="black" />
+                        <text x="60" y="65" font-family="Amiri" font-size="16">م</text>
+
+                        <line x1="70" y1="70" x2="70" y2="10" stroke="black" stroke-width="1.3" />
+                        <line x1="70" y1="70" x2="122" y2="100" stroke="black" stroke-width="1.3" />
+
+                        <text x="65" y="8" font-family="Amiri" font-size="16">أ</text>
+                        <text x="125" y="105" font-family="Amiri" font-size="16">ب</text>
+
+                        <text x="75" y="45" font-family="Amiri" font-size="14">١٢٠°</text>
+                        <text x="90" y="80" font-family="Amiri" font-size="14">٧سم</text>
+
+                        <path d="M70,30 A40,40 0 0,1 105,90" fill="none" stroke="black" stroke-width="1"
+                            stroke-dasharray="3,2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="automation-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+            <div
+                style="background-color: #d9e1f2; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px; display: flex; justify-content: space-between;">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <table class="tf-table">
+                <tr data-answer="false">
+                    <td class="col-num">١</td>
+                    <td>القطاع الدائري يمكن أن يحدد بأكبر وتر في الدائرة.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٢</td>
+                    <td>طول قوس الدائرة يساوي درجة قياس الزاوية المركزية المقابلة له.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٣</td>
+                    <td>القطاع الدائري الكبير يحدد بزاوية مركزية منعكسة.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٤</td>
+                    <td>محيط القطاع الدائري = نق + طول القوس.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٥</td>
+                    <td>إذا كانت م دائرة فيها: نق = ٥ سم، ط = ٣.١٤ ، س = ٣٠°، فإن محيط القطاع الدائري الصغير = ٨٠.٥ سم.
+                    </td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٦</td>
+                    <td>إذا كانت م دائرة فيها: نق = ٧ سم، ط = ٢٢ / ٧ ، س = ٢٧٠°، فإن طول القوس الصغير = ١١ سم.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٧</td>
+                    <td>مساحة القطاع الدائري = <span class="fraction"><span class="top">س</span><span
+                                class="bottom">٣٦٠</span></span> × ط نق.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٨</td>
+                    <td>الزاوية المركزية المحددة للقطاع الدائري = <span class="fraction"><span class="top">طول
+                                القوس</span><span class="bottom">ط نق</span></span> × ١٨٠.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٩</td>
+                    <td><span class="fraction"><span class="top">طول القوس</span><span class="bottom">ط نق</span></span>
+                        = <span class="fraction"><span class="top">س</span><span class="bottom">١٨٠</span></span>.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٠</td>
+                    <td><span class="fraction"><span class="top">مساحة القطاع الدائري</span><span class="bottom">مساحة
+                                الدائرة</span></span> = <span class="fraction"><span class="top">س</span><span
+                                class="bottom">٣٦٠</span></span>.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div
+                style="background-color: #d9e1f2; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.95em; margin-bottom: -1px;">
+                ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">١ . يحدد القطاع الدائري بنصفي قطرين و ..................... :</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>وتر.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>قطر.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>قوس.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>زاوية محيطية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٢ . يحدد القطاع الدائري الصغير بزاوية مركزية:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div> &lt; ٩٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div> &gt; ١٨٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div> &lt; ٩٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div> &lt; ١٨٠°.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٣ . يحدد القطاع الدائري الكبير بزاوية مركزية:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div> &gt; ٩٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div> &gt; ١٨٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div> &lt; ٩٠°.
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div> &lt; ١٨٠°.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-container">
+                <div class="mcq-question">٤ . طول القوس المرسوم في نصف دائرة يساوي ............. نق:</div>
+                <div class="options-grid">
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div> ٢ π
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div> π
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div> π / ٢
+                    </div>
+                    <div class="opt-item" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div> ٢ / π
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٥ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

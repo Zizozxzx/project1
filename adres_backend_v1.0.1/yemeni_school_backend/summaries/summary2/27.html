@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملزمة – صفحة 27</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --header-bg: #dbe4ef;
+        }
+
+        /* Reset and Box Sizing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f0f0f0;
+            color: #000;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vmin;
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 950px;
+            aspect-ratio: 0.7;
+            background: var(--bg-color);
+            border: 0.5vmin double var(--border-color);
+            padding: 1.5vmin;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Headers */
+        .section-header-box {
+            background-color: var(--header-bg);
+            border: 0.2vmin solid #000;
+            padding: 0.5vmin;
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 0.5vmin;
+            font-size: 2vmin;
+            flex-shrink: 0;
+        }
+
+        .ministry-title {
+            text-align: center;
+            font-size: 2.5vmin;
+            font-weight: bold;
+            margin: 1vmin 0 0.5vmin 0;
+            font-family: 'Amiri', serif;
+            text-shadow: 0.1vmin 0.1vmin 0 #ccc;
+            flex-shrink: 0;
+        }
+
+        /* Table Styles - Flexbox approach for table to allow scrolling if needed internally or fitting */
+        .table-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            /* Allow internal scroll if absolutely necessary, but try to fit */
+            min-height: 0;
+            /* Crucial for flex nested scroll */
+            margin-bottom: 0.5vmin;
+        }
+
+        .quiz-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.8vmin;
+            /* Small font to fit */
+        }
+
+        .quiz-table th,
+        .quiz-table td {
+            border: 0.15vmin solid #000;
+            padding: 0.3vmin;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* Question Row */
+        .q-row td {
+            background-color: #fff;
+            text-align: right;
+            padding-right: 1vmin;
+            font-weight: bold;
+        }
+
+        .q-row .q-num {
+            text-align: center;
+            width: 4vmin;
+            background: #f0f0f0;
+            font-weight: bold;
+            border-bottom: 0.15vmin solid #000;
+        }
+
+        /* Options Row */
+        .opt-row td {
+            width: 20%;
+            background-color: #fff;
+        }
+
+        /* Header Row */
+        .quiz-table thead th {
+            background-color: #efefef;
+            font-weight: bold;
+            height: 3vmin;
+        }
+
+        /* Helpers */
+        .ltr-math {
+            direction: ltr;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .root {
+            white-space: nowrap;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .radicand {
+            text-decoration: overline;
+            display: inline-block;
+            padding-top: 0.1vmin;
+        }
+
+        /* SVG */
+        .number-line {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 1vmin;
+            overflow: visible;
+            width: 100%;
+            max-width: 25vmin;
+            /* Limit width */
+            height: auto;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5vmin;
+            font-weight: bold;
+            font-size: 1.8vmin;
+            flex-shrink: 0;
+            padding-top: 0.5vmin;
+            border-top: 0.1vmin solid #eee;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Top Header -->
+        <div class="section-header-box">
+            ظلل الإجابة الصحيحة فيما يلي:
+        </div>
+
+        <div class="table-container">
+            <table class="quiz-table">
+                <thead>
+                    <tr>
+                        <th style="width:4vmin">م</th>
+                        <th colspan="4" style="text-align: right; padding-right:1vmin;">السؤال</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Q1 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">١</td>
+                        <td colspan="4">أياً من التالي يمثل عدد غير نسبي .................:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) -٠,٣</td>
+                        <td>٢) ٣,١١٢</td>
+                        <td>٣) <span class="ltr-math"><span class="root">&radic;<span
+                                        class="radicand">٣</span></span></span></td>
+                        <td>٤) ٠,١٤١</td>
+                    </tr>
+
+                    <!-- Q2 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٢</td>
+                        <td colspan="4">أياً من التالي يمثل عدد نسبي .................:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) ١,٢٣٤٢...</td>
+                        <td>٢) <span class="ltr-math"><span class="root">&radic;<span
+                                        class="radicand">٢٣</span></span></span></td>
+                        <td>٣) <span class="ltr-math">&pi;</span></td>
+                        <td>٤) -١٢,٣</td>
+                    </tr>
+
+                    <!-- Q3 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٣</td>
+                        <td colspan="4">الفترة التي تمثل المجموعة <span class="ltr-math">{ س : س &isin; ح ، -٣ &le; س
+                                &lt; ٣
+                                }</span> هي:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">[ -٣ ، ٣ ]</span></td>
+                        <td>٢) <span class="ltr-math">] -٣ ، ٣ ]</span></td>
+                        <td>٣) <span class="ltr-math">[ -٣ ، ٣ [</span></td>
+                        <td>٤) <span class="ltr-math">] -٣ ، ٣ [</span></td>
+                    </tr>
+
+                    <!-- Q4 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٤</td>
+                        <td colspan="4">إذا كانت <span class="ltr-math">س &ni; { س : س &isin; ح ، -٣ &le; س &le; ١٢
+                                }</span>
+                            ، فإن قيمة س قد تكون ............:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) ٠,١٢</td>
+                        <td>٢) ٠,١٣</td>
+                        <td>٣) -٠,٣</td>
+                        <td>٤) -٠,٤</td>
+                    </tr>
+
+                    <!-- Q5 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٥</td>
+                        <td colspan="4">إذا كانت <span class="ltr-math">[ أ ، ب ] &sub; { س : س &isin; ح ، -٣ &le; س
+                                &le; ١٢
+                                }</span> ، فإن [ أ ، ب ] قد تكون ............:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">[ -١ ، ١٤ ]</span></td>
+                        <td>٢) <span class="ltr-math">[ -٢ ، ١٢ ]</span></td>
+                        <td>٣) <span class="ltr-math">[ ١ ، ١٤ ]</span></td>
+                        <td>٤) <span class="ltr-math">[ ٢ ، ١٢.٥ ]</span></td>
+                    </tr>
+
+                    <!-- Q6 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٦</td>
+                        <td colspan="4"
+                            style="text-align: right; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                            <span>من خلال الشكل المجاور، الفترة الممثلة على خط الأعداد هي ...............:</span>
+                            <div style="flex-shrink: 0;">
+                                <svg class="number-line" viewBox="0 0 300 40">
+                                    <line x1="10" y1="25" x2="290" y2="25" stroke="black" stroke-width="1.5" />
+                                    <polygon points="10,25 16,22 16,28" fill="black" />
+                                    <polygon points="290,25 284,22 284,28" fill="black" />
+
+                                    <line x1="80" y1="20" x2="80" y2="30" stroke="black" stroke-width="1" />
+                                    <text x="80" y="38" font-size="12" text-anchor="middle"
+                                        font-family="Arial">-٢٢</text>
+
+                                    <g stroke="#007bff" stroke-width="2" fill="none">
+                                        <line x1="80" y1="15" x2="280" y2="15" />
+                                        <polygon points="280,15 272,11 272,19" fill="#007bff" stroke="none" />
+                                        <circle cx="80" cy="15" r="3" fill="#007bff" stroke="#007bff" />
+                                    </g>
+                                </svg>
+                                <div style="font-size:1.5vmin; color:#666; text-align: center;">* السهم يتجه من -٢٢
+                                    لليمين (+ ∞)</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">] -٢٢ ، &infin; + [</span></td>
+                        <td>٢) <span class="ltr-math">[ -٢٢ ، &infin; + [</span></td>
+                        <td>٣) <span class="ltr-math">] &infin; - ، ٢٢ ]</span></td>
+                        <td>٤) <span class="ltr-math">[ &infin; - ، ٢٢ ]</span></td>
+                    </tr>
+
+                    <!-- Q7 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٧</td>
+                        <td colspan="4"
+                            style="text-align: right; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                            <span>من خلال الشكل المجاور، الفترة الممثلة على خط الأعداد هي ...............:</span>
+                            <svg class="number-line" viewBox="0 0 300 40">
+                                <line x1="10" y1="25" x2="290" y2="25" stroke="black" stroke-width="1.5" />
+                                <polygon points="10,25 16,22 16,28" fill="black" />
+                                <polygon points="290,25 284,22 284,28" fill="black" />
+
+                                <line x1="80" y1="20" x2="80" y2="30" stroke="black" stroke-width="1" /> <text x="80"
+                                    y="38" font-size="12" text-anchor="middle">-٣</text>
+                                <line x1="200" y1="20" x2="200" y2="30" stroke="black" stroke-width="1" /> <text x="200"
+                                    y="38" font-size="12" text-anchor="middle">١٣</text>
+
+                                <g stroke="#007bff" stroke-width="2" fill="none">
+                                    <line x1="80" y1="15" x2="200" y2="15" />
+                                    <circle cx="80" cy="15" r="3" fill="white" stroke="#007bff" />
+                                    <circle cx="200" cy="15" r="3" fill="#007bff" stroke="#007bff" />
+                                </g>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">] -٣ ، ١٣ ]</span></td>
+                        <td>٢) <span class="ltr-math">] -٣ ، ١٣ [</span></td>
+                        <td>٣) <span class="ltr-math">[ -٣ ، ١٣ [</span></td>
+                        <td>٤) <span class="ltr-math">[ -٣ ، ١٣ ]</span></td>
+                    </tr>
+
+                    <!-- Q8 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٨</td>
+                        <td colspan="4">أحد الأعداد التالية ينتمي إلى جميع مجموعات الأعداد ( ط ، ص ، ن ، ح ) .........:
+                        </td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) ١,٢</td>
+                        <td>٢) <span class="ltr-math"><span class="root">&radic;<span
+                                        class="radicand">٢-</span></span></span></td>
+                        <td>٣) ٣</td>
+                        <td>٤) <span class="ltr-math"><span class="root">&radic;<span
+                                        class="radicand">١١</span></span></span></td>
+                    </tr>
+
+                    <!-- Q9 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">٩</td>
+                        <td colspan="4">مجموعة الأعداد الحقيقية المحصورة بين ٩ و ١١ تمثل بفترة .................:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) محددة ومغلقة.</td>
+                        <td>٢) محددة ومفتوحة.</td>
+                        <td>٣) غير محددة ومغلقة من طرف.</td>
+                        <td>٤) غير محددة ومفتوحة.</td>
+                    </tr>
+
+                    <!-- Q10 -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">١٠</td>
+                        <td colspan="4">مجموعة الأعداد الحقيقية الأكبر من ٢٢ تمثل بفترة .........:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) محددة ومغلقة.</td>
+                        <td>٢) محددة ومفتوحة.</td>
+                        <td>٣) غير محددة ومغلقة من طرف.</td>
+                        <td>٤) غير محددة ومفتوحة.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Ministry Questions -->
+            <h2 class="ministry-title">أسئلة وزارية</h2>
+            <div class="section-header-box">
+                ظلل الإجابة الصحيحة فيما يلي:
+            </div>
+
+            <table class="quiz-table">
+                <thead>
+                    <tr>
+                        <th style="width:4vmin">م</th>
+                        <th colspan="4" style="text-align: right; padding-right:1vmin;">السؤال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- A -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">أ</td>
+                        <td colspan="4"
+                            style="text-align: right; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                            <span>الشكل المجاور، يمثل الفترة ...............:</span>
+                            <svg class="number-line" viewBox="0 0 300 40">
+                                <line x1="10" y1="25" x2="290" y2="25" stroke="black" stroke-width="1.5" />
+                                <polygon points="10,25 16,22 16,28" fill="black" />
+                                <polygon points="290,25 284,22 284,28" fill="black" />
+
+                                <line x1="80" y1="20" x2="80" y2="30" stroke="black" stroke-width="1" />
+                                <text x="80" y="38" font-size="12" text-anchor="middle">٠</text>
+
+                                <g stroke="#007bff" stroke-width="2" fill="none">
+                                    <line x1="80" y1="15" x2="280" y2="15" />
+                                    <polygon points="280,15 272,11 272,19" fill="#007bff" stroke="none" />
+                                    <circle cx="80" cy="15" r="3" fill="#007bff" stroke="#007bff" />
+                                </g>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">[ ٠ ، &infin; + [</span></td>
+                        <td>٢) <span class="ltr-math">] ٠ ، &infin; + [</span></td>
+                        <td>٣) <span class="ltr-math">] &infin; - ، ٠ [</span></td>
+                        <td>٤) <span class="ltr-math">[ &infin; - ، ٠ [</span></td>
+                    </tr>
+
+                    <!-- B -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">ب</td>
+                        <td colspan="4">العدد ٣ ينتمي إلى الفترة ............:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">[ ٣ ، ٥ ]</span></td>
+                        <td>٢) <span class="ltr-math">] ٠ ، ٣ [</span></td>
+                        <td>٣) <span class="ltr-math">[ -٣ ، ٣ [</span></td>
+                        <td>٤) <span class="ltr-math">[ ٢ ، ٥ ]</span></td>
+                    </tr>
+
+                    <!-- C -->
+                    <tr class="q-row">
+                        <td class="q-num" rowspan="2">ج</td>
+                        <td colspan="4">المجموعة <span class="ltr-math">{ س : س &isin; ح ، س &ge; -٣ }</span> ، تمثل
+                            كفترة
+                            .............:</td>
+                    </tr>
+                    <tr class="opt-row">
+                        <td>١) <span class="ltr-math">[ -٣ ، &infin; + [</span></td>
+                        <td>٢) <span class="ltr-math">[ -٢ ، &infin; - [</span></td>
+                        <td>٣) <span class="ltr-math">[ -٣ ، &infin; - [</span></td>
+                        <td>٤) <span class="ltr-math">] -٣ ، &infin; + ]</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٢٧ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

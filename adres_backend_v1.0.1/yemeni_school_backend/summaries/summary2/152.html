@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٥٢</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #dae3f3;
+            --header-blue: #8faae0;
+            --header-dark: #4472c4;
+            --page-bg: #f0f0f0;
+            --border-color: #000;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            border: 2px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .lesson-header {
+            background-color: var(--header-blue);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            padding: 10px;
+            border: 2px solid #000;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .intro-list {
+            list-style-type: none;
+            /* Custom bullets */
+            padding-right: 20px;
+        }
+
+        .intro-list li::before {
+            content: "✓";
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .steps-box {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Drill Headers */
+        .drill-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .drill-icon {
+            background-color: #ddd;
+            border: 1px solid #000;
+            padding: 2px 8px;
+            margin-left: 10px;
+            font-family: 'Aref Ruqaa', serif;
+        }
+
+        /* Table Styles */
+        .drill-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .drill-table th,
+        .drill-table td {
+            border: 1px solid #777;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .drill-table th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .drill-table td:first-child {
+            text-align: right;
+            width: 35%;
+        }
+
+        /* Input fields for table */
+        .table-input {
+            width: 90%;
+            border: none;
+            border-bottom: 1px dotted #999;
+            background: transparent;
+            font-family: 'Amiri', serif;
+            font-size: 1em;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .table-input:focus {
+            outline: none;
+            border-bottom: 2px solid var(--header-dark);
+        }
+
+        /* Lined Area for Drill 2 */
+        .lined-area {
+            width: 100%;
+            min-height: 300px;
+            background-image: repeating-linear-gradient(transparent, transparent 39px, #ccc 40px);
+            line-height: 40px;
+            margin-top: 20px;
+            padding-top: 5px;
+            position: relative;
+        }
+
+        .lined-input {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: transparent;
+            border: none;
+            line-height: 40px;
+            font-family: 'Amiri', serif;
+            font-size: 1.2em;
+            padding: 0 10px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        .lined-input:focus {
+            outline: none;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 10em;
+            color: rgba(0, 0, 0, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1em;
+            font-weight: bold;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <div class="watermark">هلا المولجي</div>
+
+        <!-- Header -->
+        <div class="lesson-header">الدرس الرابع: مسائل تطبيقية</div>
+
+        <!-- Intro -->
+        <div class="intro-text">
+            <ul>
+                <li>في هذا الدرس سيتم حل المسائل التطبيقية التي تؤول إلى أحد أنواع المعادلات المأخوذة سابقاً، وهي:
+                    <ul class="intro-list">
+                        <li>معادلة الدرجة الأولى في متغير واحد.</li>
+                        <li>معادلة الدرجة الأولى في متغيرين.</li>
+                        <li>معادلة الدرجة الثانية في متغير واحد.</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 10px;">الخطوات اللازمة لحل المسائل التطبيقية:
+                    <ol style="list-style-type: arabic-indic; padding-right: 20px;">
+                        <li>تكوين المعادلة.</li>
+                        <li>حل المعادلة بإحدى الطرق المختلفة التي سبق دراستها.</li>
+                        <li>التأكد من صحة تكوين المعادلة.</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Drill 1 -->
+        <div class="drill-header">
+            <span class="drill-icon">تدريب (١)</span>: كون المعادلات المناسبة لما يلي:
+        </div>
+
+        <table class="drill-table">
+            <thead>
+                <tr>
+                    <th>المسألة</th>
+                    <th>المعادلات المطلوبة لإيجاد المجاهيل</th>
+                    <th>عدد المعادلات</th>
+                    <th>نوعها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ثمن كتاب ومجلة ٧٥ ريالاً</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+                <tr>
+                    <td>ثمن كتاب ومجلة ١٠٠ ريالاً، وثمن المجلة يقل عن ثمن الكتاب بمبلغ ٤٥ ريالاً.</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+                <tr>
+                    <td>مستطيل محيطه ٧٤ سم، يزيد طوله عن عرضه بمقدار ٧ سم.</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+                <tr>
+                    <td>ثمن قلمين وأربع مساطر يساوي ١٠٠ ريالاً.</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+                <tr>
+                    <td>قياس زاوية يساوي ثلاثة أمثال قياس مكملتها</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+                <tr>
+                    <td>الفرق بين عددين يساوي ٧، وحاصل ضربهما يساوي ١٤٤.</td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                    <td><input class="table-input" type="text" placeholder="..."></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Drill 2 -->
+        <div class="drill-header">
+            <span class="drill-icon">تدريب (٢)</span>: في روضة كان عدد البنات يزيد عن عدد الأولاد بمقدار ١٠ ، وإذا زاد
+            عدد البنات واحدة سيكون عدد البنات ضعف عدد الأولاد، فأوجد عدد كلاً من البنات والأولاد.
+        </div>
+
+        <div class="lined-area">
+            <!-- Utilizing contenteditable div instead of textarea for better line alignment visual -->
+            <div style="width:100%; height:100%; outline:none;" contenteditable="true"></div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ١٥٢ -</div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

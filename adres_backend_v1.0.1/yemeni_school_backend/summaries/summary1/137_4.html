@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٤٨ - المعلم المثالي</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background-color: #f4f4f4; margin: 0; padding: 10px; color: #000; line-height: 1.6; }
+        .page-container { max-width: 900px; margin: auto; background: #fff; border: 2px solid #000; padding: 25px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+        .header-page { text-align: center; font-weight: bold; font-size: 1.3em; border-bottom: 2px solid #000; margin-bottom: 20px; padding-bottom: 5px; }
+        .main-content { display: flex; gap: 30px; }
+        .column { flex: 1; display: flex; flex-direction: column; }
+        .right-col { order: 1; border-left: 1px solid #000; padding-left: 20px; }
+        .left-col { order: 2; }
+        .title-bold { font-weight: bold; text-decoration: underline; display: block; margin-top: 5px; }
+        .math-section { margin-bottom: 20px; font-size: 1.1em; }
+        .dashed-separator { border-top: 1px dashed #000; margin: 20px 0; }
+        
+        /* تنسيق الجدول ليكون مطابقاً للصورة */
+        .math-table { border-collapse: collapse; margin: 10px auto; width: 90%; text-align: center; }
+        .math-table td { border: 1px solid #000; padding: 5px; min-width: 30px; }
+        .table-label { font-size: 0.9em; margin-bottom: 5px; }
+
+        .graph-container { text-align: center; margin: 20px 0; position: relative; }
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 3px; }
+        .fraction .top { border-bottom: 1px solid #000; display: block; padding: 0 5px; }
+        .fraction .bottom { display: block; padding: 0 5px; }
+        .boxed { border: 1px solid #000; padding: 2px 8px; display: inline-block; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; }
+            .right-col { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-page">ـ ٤٨ ـ</div>
+
+    <div class="main-content">
+        <div class="column right-col">
+            <div class="math-section">
+                [٦] س + ص = ٥ ، س = ٣ - ص<br>
+                <span class="title-bold">* الحل *</span><br>
+                س + ص = ٥ ← (١) ومنها ص = ٥ - س ، نكون<br>
+                جدول القيم للمعادلة وترسم المستقيم من قيم الجدول (١)
+                
+                <table class="math-table">
+                    <tr>
+                        <td>س</td><td>٠</td><td>١</td><td>(س،ص)</td>
+                    </tr>
+                    <tr>
+                        <td>ص = ٥ - س</td><td>٥</td><td>٤</td><td>(٠،٥)،(١،٤)</td>
+                    </tr>
+                </table>
+                <div style="text-align:center; font-size:0.9em;">جدول (١)</div>
+            </div>
+
+            <div class="math-section">
+                ص = ٣ - س نكون جدول القيم للمعادلة ونرسم المستقيم (٢) فمن الشكل (٦) نجد أن المستقيمان لا يتقاطعان بأي نقطة .<br>
+                ∴ مجموعة الحل = ∅<br>
+                ويقال أن المستقيمان متوازيان<br>
+                تحقق بنفسك بأخذ أي زوج مرتب ستجده لا يحقق صحة المعادلتين .
+                
+                <table class="math-table">
+                    <tr>
+                        <td>س</td><td>٠</td><td>١</td><td>(س،ص)</td>
+                    </tr>
+                    <tr>
+                        <td>ص = ٣ - س</td><td>٣</td><td>٢</td><td>(٠،٣)،(١،٢)</td>
+                    </tr>
+                </table>
+                <div style="text-align:center; font-size:0.9em;">جدول (٢)</div>
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <line x1="20" y1="110" x2="200" y2="110" stroke="black" stroke-width="1.2"/>
+                    <line x1="110" y1="20" x2="110" y2="200" stroke="black" stroke-width="1.2"/>
+                    <text x="205" y="115" font-size="12">س</text>
+                    <text x="105" y="15" font-size="12">ص</text>
+                    <line x1="40" y1="50" x2="170" y2="180" stroke="black" stroke-width="2"/>
+                    <line x1="70" y1="50" x2="200" y2="180" stroke="black" stroke-width="2"/>
+                    <text x="80" y="210" font-weight="bold">شكل (٦) مجموعة الحل=∅</text>
+                </svg>
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-section">
+                [٧] ٢س + ص = ٧ ، ٦س = ٢١ - ٣ص<br>
+                <span class="title-bold">* الحل *</span><br>
+                ٢س + ص = ٧ ومنها ص = ٧ - ٢س ، نرسم مستقيم هذه المعادلة من جدول قيم تلك المعادلة .<br>
+                ٦س = ٢١ - ٣ص أي ٣ص = ٢١ - ٦س نقسم كل حد على ٣<br>
+                ∴ ص = ٧ - ٢س ومنها ص = ٧ - ٢س
+                
+                <table class="math-table">
+                    <tr>
+                        <td>س</td><td>٣</td><td>٢</td><td>(س،ص)</td>
+                    </tr>
+                    <tr>
+                        <td>ص = ٧ - ٢س</td><td>١</td><td>٣</td><td>(٣،١)،(٢،٣)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="200" viewBox="0 0 220 200">
+                    <line x1="20" y1="160" x2="200" y2="160" stroke="black" stroke-width="1.2"/>
+                    <line x1="70" y1="20" x2="70" y2="180" stroke="black" stroke-width="1.2"/>
+                    <line x1="40" y1="20" x2="180" y2="170" stroke="black" stroke-width="2.5"/>
+                    <circle cx="155" cy="140" r="3" fill="black"/> <text x="160" y="150" font-size="11">(٣،١)</text>
+                    <circle cx="115" cy="100" r="3" fill="black"/> <text x="120" y="90" font-size="11">(٢،٣)</text>
+                    <text x="100" y="195" font-weight="bold">شكل (٧)</text>
+                </svg>
+            </div>
+            <div class="math-section">
+                تلاحظ أن المعادلتان متكافئتان بالتالي مستقيمي المعادلتين منطبقان أي مجموعة الحل مجموعة لا نهائية من الحلول .
+            </div>
+        </div>
+
+        <div class="column left-col">
+            <div class="math-section">
+                [٨] ٣س - ص = ٤ ، ص = ٣س - ١<br>
+                <span class="title-bold">* الحل *</span><br>
+                ٣س - ص = ٤ ← (١) ومنها ص = ٣س - ٤ نكون جدولها<br>
+                ص = ٣س - ١ ← (٢) نكون جدولها ثم نرسم المستقيمين الممثلين للمعادلتين كما في الشكل (٨)
+                
+                <div class="table-label">المعادلة (١):</div>
+                <table class="math-table">
+                    <tr>
+                        <td>س</td><td>١</td><td>٢</td><td>(س،ص)</td>
+                    </tr>
+                    <tr>
+                        <td>ص = ٣س - ٤</td><td>-١</td><td>٢</td><td>(١،-١)،(٢،٢)</td>
+                    </tr>
+                </table>
+
+                <div class="table-label">المعادلة (٢):</div>
+                <table class="math-table">
+                    <tr>
+                        <td>س</td><td>٠</td><td>١</td><td>(س،ص)</td>
+                    </tr>
+                    <tr>
+                        <td>ص = ٣س - ١</td><td>-١</td><td>٢</td><td>(٠،-١)،(١،٢)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="graph-container">
+                <svg width="220" height="200" viewBox="0 0 220 200">
+                    <line x1="20" y1="100" x2="200" y2="100" stroke="black"/>
+                    <line x1="100" y1="20" x2="100" y2="180" stroke="black"/>
+                    <line x1="120" y1="20" x2="170" y2="180" stroke="black" stroke-width="1.8"/>
+                    <line x1="140" y1="20" x2="190" y2="180" stroke="black" stroke-width="1.8"/>
+                    <text x="100" y="195" font-weight="bold">شكل (٨)</text>
+                </svg>
+            </div>
+
+            <div class="math-section">
+                ∴ من الشكل المستقيمان لا يتقاطعان فهما متوازيان ∴ مجموعة الحل = ∅<br>
+                <span class="title-bold">التحقق:</span> لنتختار الزوج المرتب ( ٠ ، -١ ) ونجري التعويض في أي من المعادلتين ستجده لا يحقق صحة المعادلتين معاً .<br>
+                فإذا أجرينا التعويض في المعادلة (٢) سنجد :<br>
+                الطرف الأيمن = ص والطرف الأيسر = ٣س - ١<br>
+                .. عند ص = -١ ، س = ١ يكون الأيمن ص = -١<br>
+                الأيسر = ٣ × ١ - ١ = ٢ ≠ -١<br>
+                بالمثل إذا اخذنا الزوج ( ١ ، ٢ ) وعوضنا في (١) نجد :<br>
+                الأيمن = ٣ × ١ - ٢ = ١ ≠ ٤ ≠ الأيسر .
+            </div>
+
+            <div class="dashed-separator"></div>
+
+            <div class="math-section">
+                <span class="title-bold" style="text-decoration:none">رابعاً : حل أنظمة المعادلت التالية وتحقق من صحة الحل :</span>
+                [١] <div class="fraction"><span class="top">س</span><span class="bottom">٣</span></div> + <div class="fraction"><span class="top">ص</span><span class="bottom">٢</span></div> = ٣ ، <div class="fraction"><span class="top">س</span><span class="bottom">٦</span></div> + ص = <div class="fraction"><span class="top">١١</span><span class="bottom">٢</span></div><br>
+                <span class="title-bold">* الحل *</span><br>
+                <div class="fraction"><span class="top">س</span><span class="bottom">٣</span></div> + <div class="fraction"><span class="top">ص</span><span class="bottom">٢</span></div> = ٣ ← (١) ، <div class="fraction"><span class="top">س</span><span class="bottom">٦</span></div> + ص = <div class="fraction"><span class="top">١١</span><span class="bottom">٢</span></div> ← (٢)<br>
+                نضرب المعادلة (١) × ٦ والمعادلة (٢) × ٦ فنجد :<br>
+                ٢س + ٣ص = ١٨ ← (٣) ، س + ٦ص = ٣٣ ← (٤) ومنها :<br>
+                س = ٣٣ - ٦ص ← (٥) نعوض من (٥) في (٣) فنجد :<br>
+                ٢ ( ٣٣ - ٦ص ) + ٣ص = ١٨<br>
+                ٦٦ - ١٢ص + ٣ص = ١٨ ومنها -٩ص = -٤٨<br>
+                إذن <span class="boxed">ص = ٤</span> نعوض في (٥) نجد : <span class="boxed">س = ٣</span><br>
+                ∴ مجموعة الحل = { ( ٣ ، ٤ ) }<br>
+                <span class="title-bold">التحقق:</span> من (٣) الأيمن = ٢ × ٣ + ٣ × ٤ = ٦ + ١٢ = ١٨ = الأيسر #
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

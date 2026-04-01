@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧١</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #2196F3;
+            --light-blue: #E3F2FD;
+            --primary-orange: #FF9800;
+            --light-orange: #FFF3E0;
+            --success: #2E7D32;
+            --error: #C62828;
+            --text-dark: #333;
+            --border-color: #555;
+        }
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .a4-page {
+            background-color: white;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            padding: 15mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: right;
+        }
+
+        .question-block {
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .q-number {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0 10px;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .option {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 6px;
+            gap: 12px;
+            background-color: #fff;
+        }
+
+        .option:hover {
+            background-color: #f5f5f5;
+            border-color: var(--primary-blue);
+        }
+
+        .option.selected {
+            background-color: #e3f2fd;
+            border-color: var(--primary-blue);
+        }
+
+        .option.correct {
+            border-color: var(--success) !important;
+            background-color: #e8f5e9 !important;
+        }
+
+        .option.incorrect {
+            border-color: var(--error) !important;
+            background-color: #ffebee !important;
+        }
+
+        .option-label {
+            background: #eee;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.9em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .bubble-shading {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: 0.2s;
+        }
+
+        .option.selected .bubble-shading {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .option.correct .bubble-shading {
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+
+        .option.incorrect .bubble-shading {
+            background-color: var(--error);
+            border-color: var(--error);
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 0.85em;
+            line-height: 1.1;
+            margin: 0 4px;
+        }
+
+        .fraction-top {
+            border-bottom: 1px solid currentColor;
+            padding: 0 4px;
+        }
+
+        .fraction-bottom {
+            padding: 0 4px;
+        }
+
+        .quote-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-text {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 2.2em;
+            color: #444;
+            line-height: 1.8;
+            max-width: 80%;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8em;
+            color: rgba(0, 0, 0, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            color: #777;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .a4-page {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="a4-page">
+        <div class="watermark">هلا المولجي</div>
+
+        <!-- Question ب -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">ب</span>
+                <div>إذا كان ( م ، -٢ ) أحد حلول المعادلة ٣ س - ٥ ص = ١ ، فإن م = ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="4">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>٣</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>١</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>-١</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>-٣</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question ج -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">ج</span>
+                <div>إذا كانت س = ٣ ، في المعادلة ص - س = -٣ ، فإن قيمة ص = ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="1">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>صفر</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>-٦</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>١</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>٣</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question د -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">د</span>
+                <div>إحدى النقاط لا تمثل حلاً للمعادلة ٢ س + ٣ ص = ٥ ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="3">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>( ٤ ، -١ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>( -٢ ، ١ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>( -٢ ، ٣ )</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>( <span class="fraction"><span class="fraction-top">٣</span><span
+                                class="fraction-bottom">٢</span></span> ، <span class="fraction"><span
+                                class="fraction-top">٢</span><span class="fraction-bottom">٣</span></span> )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question و -->
+        <div class="question-block">
+            <div class="question-text">
+                <span class="q-number">و</span>
+                <div>إذا كان ( ٣ ، م ) أحد حلول المعادلة ٢ س - ٣ ص = ٣ ، فإن قيمة م = ........... :</div>
+            </div>
+            <div class="options-grid" data-correct="1">
+                <div class="option" onclick="selectMcq(this, 1)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">١</span>
+                    <span>١</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 3)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٣</span>
+                    <span>٣</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 2)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٢</span>
+                    <span>٢</span>
+                </div>
+                <div class="option" onclick="selectMcq(this, 4)">
+                    <span class="bubble-shading"></span>
+                    <span class="option-label">٤</span>
+                    <span>-١</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-section">
+            <div class="quote-text">
+                "أجمل ما بدا مجهدك من قمم تصل إلى أعلى القمم"
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧١ -</div>
+        </footer>
+    </div>
+
+    <script>
+        function selectMcq(element, choice) {
+            const parent = element.parentElement;
+            const correct = parseInt(parent.dataset.correct);
+            const options = parent.querySelectorAll('.option');
+
+            options.forEach(opt => opt.classList.remove('selected', 'correct', 'incorrect'));
+            element.classList.add('selected');
+
+            if (choice === correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+                // Show correct answer
+                options.forEach(opt => {
+                    const labelSpan = opt.querySelector('.option-label');
+                    if (labelSpan) {
+                        // Manual mapping of Arabic digits
+                        const arabicToNum = { '١': 1, '٢': 2, '٣': 3, '٤': 4 };
+                        const label = arabicToNum[labelSpan.innerText] || parseInt(labelSpan.innerText);
+                        if (label === correct) {
+                            opt.classList.add('correct');
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

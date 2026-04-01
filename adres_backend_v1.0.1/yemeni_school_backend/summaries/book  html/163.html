@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبرهنة (١)</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:900px;
+  min-height:1250px;
+  margin:0 auto;
+  padding:0 48px 140px;
+  box-sizing:border-box;
+  position:relative;
+  font-size:20px;
+  line-height:2.15;
+}
+
+/* خط علوي */
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-top:20px;
+}
+
+/* رأس الصفحة */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:14px 0 24px;
+}
+.unit{
+  font-size:18px;
+}
+.logo{
+  font-size:14px;
+}
+
+/* عنوان المبرهنة */
+.theorem-title{
+  color:#00a6df;
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+/* صندوق المبرهنة */
+.box{
+  background:#dff4ff;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:18px 22px;
+  font-size:22px;
+  text-align:center;
+  margin-bottom:28px;
+}
+
+/* الرسم */
+.diagram{
+  margin:20px 0;
+}
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* كسور */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+}
+.frac > span{
+  display:block;
+  padding:0 6px;
+}
+.frac .top{
+  border-bottom:2px solid #000;
+}
+
+/* التذييل */
+.footer{
+  position:absolute;
+  bottom:20px;
+  left:48px;
+  right:48px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-num{
+  position:absolute;
+  right:0;
+  top:-28px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:6px 18px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  margin-top:18px;
+  font-size:15px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{padding:0 18px 140px;font-size:18px;line-height:2;}
+  .footer{left:18px;right:18px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+  <div class="theorem-title">مبرهنة (١)</div>
+  <div class="unit">الوحدة الرابعة</div>
+</div>
+
+<div class="box">
+مربع ضلع قائم في مثلث يساوي حاصل ضرب الوتر في مسقط هذا الضلع على الوتر.
+</div>
+
+<p><strong>المعطيات:</strong> أ ب ج مثلث قائم الزاوية في أ ، أ س ⟂ ب ج .</p>
+<p>[ انظر الشكل (٤ – ٢) ]</p>
+
+<div class="diagram">
+<svg viewBox="0 0 420 220">
+  <line x1="40" y1="180" x2="380" y2="180" stroke="#000" stroke-width="2"/>
+  <line x1="40" y1="180" x2="210" y2="40" stroke="#000" stroke-width="2"/>
+  <line x1="210" y1="40" x2="380" y2="180" stroke="#000" stroke-width="2"/>
+  <line x1="210" y1="40" x2="210" y2="180" stroke="#000" stroke-width="2"/>
+  <rect x="196" y="40" width="14" height="14" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <rect x="196" y="166" width="14" height="14" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <text x="200" y="30" font-size="18">أ</text>
+  <text x="30" y="190" font-size="18">ج</text>
+  <text x="385" y="190" font-size="18">ب</text>
+  <text x="200" y="200" font-size="18">س</text>
+</svg>
+<p style="text-align:center;">شكل (٤ – ٢)</p>
+</div>
+
+<p><strong>المطلوب:</strong> إثبات أن :</p>
+
+<p>
+(١) | أ ب |<sup>٢</sup> = | ب ج | × | ب س |
+</p>
+
+<p>
+(٢) | أ ج |<sup>٢</sup> = | ب ج | × | ج س |
+</p>
+
+<p><strong>البرهان:</strong></p>
+
+<p>
+(١) △ ب أ ج ، △ ب س أ فيهما ∠ ب مشتركة ، و ∠ أ = ∠ س ( كلٌّ منهما قائمة ) ،
+إذن المثلثان متشابهان وينتج من التشابه أن :
+</p>
+
+<p style="text-align:center;">
+<span class="frac">
+  <span class="top">| ب س |</span>
+  <span>| أ ب |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span>| ب ج |</span>
+</span>
+</p>
+
+<p style="text-align:center;">
+ومنها | أ ب |<sup>٢</sup> = | ب ج | × | ب س |
+</p>
+
+<p>
+(٢) وبالمثل يتشابه المثلثان ج أ ب ، ج س أ وينتج أن :
+</p>
+
+<p style="text-align:center;">
+| أ ج |<sup>٢</sup> = | ب ج | × | ج س |
+</p>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-num">١٦٦</div>
+  </div>
+  <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

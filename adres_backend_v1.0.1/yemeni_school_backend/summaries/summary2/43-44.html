@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الأول: كتابة المجموعة بالصفة المميزة</title>
+    <style>
+        /* General Reset and Font Setup for Responsiveness */
+        body {
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+            /* Base font size for responsiveness */
+        }
+
+        /* Page Container - Now fluid and responsive */
+        .page-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        /* Header Title */
+        .header-title {
+            text-align: center;
+            font-size: 1.5em;
+            /* Responsive font size */
+            font-weight: bold;
+            padding: 10px 0;
+            border: 2px solid #000;
+            margin-bottom: 15px;
+        }
+
+        /* Main Content Table */
+        .main-content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+
+        .main-content-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: right;
+            vertical-align: top;
+            line-height: 1.6;
+            word-wrap: break-word;
+            /* Ensure text wraps */
+        }
+
+        /* Table Headers/Section Titles */
+        .main-content-table .section-header {
+            background-color: #cceeff;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+
+        /* Content Rows */
+        .main-content-table .content-row-body {
+            font-size: 1em;
+            padding: 15px 10px;
+        }
+
+        .list-item {
+            margin-bottom: 8px;
+            list-style-type: none;
+            padding-right: 0;
+        }
+
+        .example {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Diagram for Symbolic Notation - Responsive adjustments */
+        .diagram-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .diagram-flex-row-1 {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .diagram-flex-row-1 .curly-brace {
+            font-size: 2em;
+            vertical-align: middle;
+        }
+
+        /* Simplified Arrow/Connector */
+        .diagram-flex-row-1 .arrow-line {
+            display: none;
+            /* Hide complex arrow for simplicity in responsive view */
+        }
+
+        .diagram-flex-row-2 {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow wrapping on small screens */
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            margin-top: 20px;
+            gap: 10px;
+            /* Spacing between boxes */
+        }
+
+        .diagram-flex-row-2 .box-wrapper {
+            width: 30%;
+            /* Fixed width for three boxes in a row */
+            min-width: 120px;
+            /* Minimum width to prevent crushing */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: static;
+            /* Remove absolute positioning for flow */
+        }
+
+        .diagram-box {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.8em;
+            background-color: #f0f0f0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+
+        /* Hide complex connectors for responsive view */
+        .diagram-flex-row-2 .box-wrapper::before,
+        .diagram-flex-row-2 .box-wrapper::after {
+            display: none;
+        }
+
+        /* Exercises */
+        .exercise-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .exercise-list,
+        .exercise-list-2 {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .exercise-list li,
+        .exercise-list-2 li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1em;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            display: inline-block;
+            width: 60%;
+            /* Adjusted for responsiveness */
+            margin-right: 5px;
+            word-wrap: break-word;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .page-number {
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Watermark (Optional, but present in the image) */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8em;
+            /* Responsive font size */
+            color: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            z-index: -1;
+            white-space: nowrap;
+        }
+
+        /* Media Query for smaller screens (e.g., mobile) */
+        @media (max-width: 600px) {
+            .page-container {
+                width: 100%;
+                margin: 0 auto;
+                padding: 10px;
+                border: none;
+                /* Remove border on small screens */
+            }
+
+            .diagram-flex-row-2 {
+                flex-direction: column;
+                /* Stack boxes vertically */
+                gap: 5px;
+            }
+
+            .diagram-flex-row-2 .box-wrapper {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .dotted-line {
+                display: block;
+                /* Dotted line takes full width below text */
+                width: 100%;
+                margin-top: 5px;
+            }
+
+            .watermark {
+                font-size: 5em;
+            }
+        }
+
+        /* New Utilities */
+        .text-center-mb-1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .list-alpha-right {
+            list-style-type: none;
+            padding-right: 0;
+            margin-right: 20px;
+        }
+
+        .mt-0 {
+            margin-top: 0;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Watermark simulation -->
+        <div class="watermark">
+            نموذج
+        </div>
+
+        <div class="header-title">
+            الدرس الأول: كتابة المجموعة بالصفة المميزة
+        </div>
+
+        <p class="text-center-mb-1">
+            يتم كتابة المجموعة بطرق مختلفة والتي تتمثل في التالي:
+        </p>
+
+        <table class="main-content-table">
+            <tr>
+                <td colspan="2" class="section-header">طريقة السرد</td>
+            </tr>
+            <tr class="content-row">
+                <td colspan="2" class="content-row-body">
+                    <p class="mt-0">كتابة المجموعة بطريقة السرد تتمثل بعدة شروط هي:</p>
+                    <ol class="list-alpha-right">
+                        <li class="list-item">أ. كتابة اسم المجموعة بالرموز الكبيرة مثل: س، ص، ع، ش، هـ، ح، ع.</li>
+                        <li class="list-item">ب. كتابة ( = ) ثم حاصرتين ( { } ).</li>
+                        <li class="list-item">ج. كتابة العناصر بين الحاصرتين ووضع فاصلة بين كل عنصر ( ، ).</li>
+                        <li class="list-item">د. لا يشترط ترتيب العناصر، والتكرار لها ممنوع.</li>
+                    </ol>
+                    <p class="example">مثال على ذلك : أ = { ي ، م ، ن }.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="section-header">طريقة الصفة المميزة لفظياً</td>
+            </tr>
+            <tr class="content-row">
+                <td colspan="2" class="content-row-body">
+                    <p class="mt-0">كتابة المجموعة بطريقة الصفة المميزة لفظياً تتمثل في كتابة الصفة المشتركة لجميع عناصر
+                        المجموعة مثل:</p>
+                    <ul class="list-alpha-right">
+                        <li class="list-item">٢، ٣، ٥، ٧،... ← الصفة المشتركة بينها هي أنها أعداد طبيعية أولية.</li>
+                        <li class="list-item">شمال، شرق، غرب، جنوب ← الصفة المشتركة بينها هي أنها تمثل الجهات الأربع
+                            الأصلية.</li>
+                    </ul>
+                    <p class="example">مثال على ذلك : ل هي مجموعة الأعداد الصحيحة المحصورة بين ٢ و ١٢.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="section-header">طريقة الصفة المميزة رمزياً</td>
+            </tr>
+            <tr class="content-row">
+                <td colspan="2" class="content-row-body">
+                    <p class="mt-0">كتابة المجموعة بطريقة السرد تتمثل في الصيغة التالية:</p>
+                    <div class="diagram-flex">
+                        <div class="diagram-flex-row-1">
+                            <span class="set-notation-symbolic">
+                                أ = <span class="curly-brace">{</span> أ : أ عدد زوجي طبيعي ، أ &lt; ٨ <span
+                                    class="curly-brace">}</span>
+                            </span>
+                        </div>
+                        <div class="diagram-flex-row-2">
+                            <div class="box-wrapper">
+                                <div class="diagram-box">رمز المجموعة</div>
+                            </div>
+                            <div class="box-wrapper">
+                                <div class="diagram-box">رمز لأي عنصر في المجموعة</div>
+                            </div>
+                            <div class="box-wrapper">
+                                <div class="diagram-box">الصفة المشتركة بين عناصر</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="exercise-title">
+            تدريب (١)
+        </div>
+        <ul class="exercise-list">
+            <li>
+                <span class="bold">• اكتب ما يلي بطريقة السرد:</span>
+            </li>
+            <li>
+                <span class="bold">١. س</span> هي مجموعة الأعداد الطبيعية المحصورة بين ٣ و ١٢. <span
+                    class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٢. ص</span> هي مجموعة الحواس الخمس. <span class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٣. ح</span> هي مجموعة الأعداد الصحيحة الأولية الأكبر من ٢. <span
+                    class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٤. ل</span> هي مجموعة عوامل العدد ١٦. <span class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٥. ع</span> هي مجموعة أحرف كلمة هلال. <span class="dotted-line"></span>
+            </li>
+        </ul>
+
+        <div class="exercise-title">
+            تدريب (٢)
+        </div>
+        <ul class="exercise-list-2">
+            <li>
+                <span class="bold">• اكتب ما يلي بطريقة الصفة المميزة رمزياً:</span>
+            </li>
+            <li>
+                <span class="bold">١. س = { ٩ ، ١٨ ، ٢٧ ، ... }</span> <span class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٢. ص = { أ ، ح ، م ، د }</span> <span class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٣. ح هي مجموعة أرقام العدد ١٢٣٢.</span> <span class="dotted-line"></span>
+            </li>
+            <li>
+                <span class="bold">٤. ل = { (٠ ، ٠) ، (١ ، ١) ، (٢ ، ٢) ، ... }</span> <span class="dotted-line"></span>
+            </li>
+        </ul>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span class="page-number">- ٣ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

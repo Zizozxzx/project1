@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - التاسع</title>
+    <style>
+        :root {
+            --primary-blue: #d9e2f3;
+            --light-orange: #fbe5d6;
+            --border-color: #333;
+            --correct-color: #4caf50;
+            --wrong-color: #f44336;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 100%;
+            max-width: 850px;
+            border: 3px solid var(--border-color);
+            padding: 5px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .inner-border {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        .main-header {
+            background-color: #4472c4;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.4rem;
+            text-decoration: underline;
+        }
+
+        .section-bar {
+            background-color: var(--primary-blue);
+            padding: 5px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #777;
+            margin-bottom: 5px;
+        }
+
+        .tf-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 6px 0;
+            gap: 10px;
+        }
+
+        .question-text {
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .bubbles-group {
+            display: flex;
+            gap: 20px;
+            min-width: 100px;
+            justify-content: center;
+            border-right: 1px solid #ccc;
+            padding-right: 10px;
+        }
+
+        .bubble {
+            width: 22px;
+            height: 22px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .bubble.correct {
+            background-color: var(--correct-color) !important;
+            border-color: var(--correct-color);
+        }
+
+        .bubble.wrong {
+            background-color: var(--wrong-color) !important;
+            border-color: var(--wrong-color);
+        }
+
+        /* الاختيارات */
+        .mcq-block {
+            margin: 15px 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .mcq-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .option-item {
+            border: 1px solid #999;
+            padding: 4px 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .option-num {
+            font-weight: bold;
+            border-left: 1px solid #999;
+            padding-left: 10px;
+            margin-left: 10px;
+            min-width: 20px;
+        }
+
+        .option-item.correct {
+            background-color: var(--correct-color);
+            color: white;
+        }
+
+        .option-item.wrong {
+            background-color: var(--wrong-color);
+            color: white;
+        }
+
+        .ministerial-title {
+            background-color: var(--light-orange);
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            border: 1px solid #777;
+        }
+
+        .footer {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+
+        .page-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+        }
+
+        sup {
+            font-size: 0.7rem;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+                        /* explicit fixes for layout squishing */
+            .mcq-options {
+                flex-direction: column !important;
+            }
+            .mcq-opt {
+                border-left: none !important;
+                border-bottom: 1px solid var(--border-col) !important;
+                justify-content: right !important;
+                padding: 10px 15px !important;
+            }
+            .mcq-opt:last-child {
+                border-bottom: none !important;
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="inner-border">
+
+            <div class="main-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+            <div class="section-bar">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <span>صح&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خطأ</span>
+            </div>
+
+            <div id="section1">
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">١. يحلل المقدار أ<sup>٢</sup> ب<sup>٢</sup> - ١ - أ + ب إلى ( ب - ١ ) [
+                        أ<sup>٢</sup> ( ب + ١ ) + ١ ].</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="false">
+                    <span class="question-text">٢. ( ٢ س<sup>٤</sup> + ١٢ س + ٩ - ٤ ص<sup>٢</sup> ) = ( ٢ س + ٣ ) ( ٢ س
+                        + ٣ + ٤ ص ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٣. ٢٥ س<sup>٢</sup> + ٤٠ س ص + ١٦ ص<sup>٢</sup> + ٥ س + ٤ ص = ( ٥ س + ٤
+                        ص ) ( ٥ س + ٤ ص + ١ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="false">
+                    <span class="question-text">٤. التحليل بالتجميع يستخدم للمقادير الجبرية الثنائية.</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="false">
+                    <span class="question-text">٥. يحلل المقدار ٢ س<sup>٣</sup> ( س + ٣ ) - ١٨ س<sup>٢</sup> - ٥٤ س إلى
+                        س ( س + ٣ ) ( ٢ س<sup>٢</sup> - ١٨ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٦. س<sup>٦</sup> - س<sup>٤</sup> - س<sup>٢</sup> + ١ = ( س<sup>٢</sup> -
+                        ١ )<sup>٢</sup> ( س<sup>٢</sup> + ١ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="false">
+                    <span class="question-text">٧. ( ١ - ٣ س ) = ( ٣ س - ١ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٨. ( ١٦ س<sup>٢</sup> - ٤ ) = - ( ٤ - ١٦ س<sup>٢</sup> ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٩. ( ٣ س + ٤ ص ) = ( ٤ ص + ٣ س ) = - ( - ٤ ص - ٣ س ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">١٠. يحلل المقدار ٤ ص<sup>٢</sup> + ٢٠ ص ع + ٢٥ ع<sup>٢</sup> - ٩ إلى
+                        أبسط صورة ( ٢ ص + ٥ ع )<sup>٢</sup> - ٩.</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-bar">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-block">
+                <p>١. إذا كان س<sup>٣</sup> + أ س<sup>٢</sup> + س + ٢ = ( س + ٢ ) ( س<sup>٢</sup> + ١ ) ، فإن قيمة أ =
+                    ... :</p>
+                <div class="mcq-options">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> -٢</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٣</span> -١</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٢</span> ٢</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ١</div>
+                </div>
+            </div>
+
+            <div class="mcq-block">
+                <p>٢. إذا كان ( س - ٤ ) ( ل + س<sup>٢</sup> ) = س<sup>٣</sup> - ٤ س<sup>٢</sup> + ٣ س - ١٢ ، فإن قيمة ل
+                    = ... :</p>
+                <div class="mcq-options">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> -٩</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span> ٩</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> -٣</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ٣</div>
+                </div>
+            </div>
+
+            <div class="mcq-block">
+                <p>٣. ( س<sup>٢</sup> + ٧ س - ٣ س - ٢١ ) = ( ................... ) × ( س - ٧ ) = ................. :</p>
+                <div class="mcq-options">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> س - ٧
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span> س + ٧
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> س + ٣
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> س - ٣
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-block">
+                <p>٤. ( ٤ ع - ١ ) ( ٤ ع + ٣ ) = ................. :</p>
+                <div class="mcq-options">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> ٤
+                        ع<sup>٢</sup> + ٣ ع + ٤ ع + ٣</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span> ٤
+                        ع<sup>٢</sup> + ٨ ع + ٤ ع - ٣</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> ٤
+                        ع<sup>٢</sup> + ٣ ع - ٤ ع + ٣</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ٤
+                        ع<sup>٢</sup> + ٤ ع<sup>٢</sup> - ٤ ع - ٣</div>
+                </div>
+            </div>
+
+            <div class="mcq-block">
+                <p>٥. عدد الحدود الناتجة من ( س + ١ )<sup>٢</sup> ( س + ٣ ) تساوي ................. :</p>
+                <div class="mcq-options">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> ٣ حدود.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٣</span> ٥ حدود.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٢</span> ٤ حدود.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ٦ حدود.
+                    </div>
+                </div>
+            </div>
+
+            <div class="ministerial-title">أسئلة وزارية</div>
+            <div class="section-bar">
+                <span>ضع (صح) أو (خطأ) فيما يلي:</span>
+                <span>صح&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خطأ</span>
+            </div>
+
+            <div id="section3">
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">١. س<sup>٣</sup> + س<sup>٢</sup> - ٢ س - ٢ = ( س + ١ ) ( س<sup>٢</sup> -
+                        ٢ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٢. ( ١ + ٢ س + س<sup>٢</sup> - س<sup>٤</sup> ) = ( ١ + س + س<sup>٢</sup>
+                        ) ( ١ + س - س<sup>٢</sup> ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٣. يحلل المقدار أ س + ب س + أ ص + ب ص إلى ( أ + ب ) ( س + ص ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٤. س<sup>٢</sup> ( س<sup>٢</sup> + ١ ) + س<sup>٢</sup> + ١ = (
+                        س<sup>٢</sup> + ١ )<sup>٢</sup>.</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٥. س ( س + أ ) + س + أ = ( س + ١ ) ( س + أ ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+                <div class="tf-row" data-ans="true">
+                    <span class="question-text">٦. س<sup>٢</sup> + ( أ + ب ) س + أ ب = ( س + أ ) ( س + ب ).</span>
+                    <div class="bubbles-group">
+                        <div class="bubble" onclick="checkTF(this, true)"></div>
+                        <div class="bubble" onclick="checkTF(this, false)"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                ابتسم، فقدرتك الكثير مما ينسى غيرك أن يملكه
+            </div>
+
+            <div class="page-info">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٥٢ -</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function checkTF(element, userChoice) {
+            const row = element.closest('.tf-row');
+            const correct = row.getAttribute('data-ans') === 'true';
+            const bubbles = row.querySelectorAll('.bubble');
+
+            bubbles.forEach(b => b.classList.remove('correct', 'wrong'));
+
+            if (userChoice === correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        function checkMCQ(element, isCorrect) {
+            const container = element.closest('.mcq-options');
+            const options = container.querySelectorAll('.option-item');
+
+            options.forEach(opt => opt.classList.remove('correct', 'wrong'));
+
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

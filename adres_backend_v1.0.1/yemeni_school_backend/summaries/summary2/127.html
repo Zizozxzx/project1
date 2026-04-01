@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢٧ - تطبيقات الزاوية المماسية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .analysis-box {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .analysis-text {
+            flex: 1;
+            font-size: 0.9em;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .check-list li {
+            margin-bottom: 2px;
+        }
+
+        .check-list li::before {
+            content: "✓ ";
+            font-weight: bold;
+        }
+
+        /* Theorem Results */
+        .results-section {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .res-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .res-content {
+            border: 1.5px dashed #000;
+            padding: 5px 15px;
+            flex: 1;
+            text-align: center;
+            background-color: #fcfcfc;
+            font-size: 0.95em;
+        }
+
+        .arrow {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .usage-list {
+            margin-bottom: 15px;
+            padding-right: 20px;
+        }
+
+        /* Drill Section */
+        .drill-box {
+            border: 1.5px solid #000;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+
+        .input-dotted {
+            border: none;
+            border-bottom: 1px dotted #000;
+            width: 95%;
+            margin-top: 5px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        /* Automation Table */
+        .automation-header {
+            background-color: #8faadc;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.25em;
+            font-family: var(--font-calligraphy);
+            margin-bottom: -1px;
+        }
+
+        .tf-subheader {
+            background-color: #fce4d6;
+            border: 1.5px solid #000;
+            padding: 4px 12px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 4px 8px;
+            font-size: 0.88em;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 30px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-circles {
+            width: 80px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .circle {
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="analysis-box">
+                <div class="analysis-text">
+                    <span style="font-weight: bold; text-decoration: underline;">من خلال الشكل المجاور:</span>
+                    <ul class="check-list" style="margin-top: 5px;">
+                        <li>ب نقطة التماس.</li>
+                        <li>د ب ، ب هـ وترا التماس.</li>
+                        <li>الزاويتان (د ب جـ)، (هـ ب أ) زوايا مماسية.</li>
+                        <li>ق ⦣ ( د ب جـ ) = ق ⦣ ( د هـ ب ).</li>
+                        <li>ق ⦣ ( هـ ب أ ) = ق ⦣ ( هـ د ب ).</li>
+                    </ul>
+                </div>
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                    <!-- Chord triangle -->
+                    <polygon points="20,70 80,70 50,20" fill="none" stroke="black" stroke-width="1" />
+                    <!-- Tangent line -->
+                    <line x1="10" y1="90" x2="90" y2="90" stroke="black" stroke-width="1.2" />
+                    <text x="45" y="98" font-family="Amiri" font-size="10">ب</text>
+                </svg>
+            </div>
+
+            <div class="results-section">
+                <div class="res-item">
+                    <span class="arrow">⬅</span>
+                    <div class="res-content">إذا رسم مستقيم من إحدى نهايتي وتر يصنع معه زاوية تساوي بالقياس الزاوية
+                        المحيطية المقابلة للوتر من الجهة الأخرى كان ذلك المستقيم مماساً للدائرة.</div>
+                </div>
+                <div class="res-item">
+                    <span class="arrow">⬅</span>
+                    <div class="res-content">قياس الزاوية المماسية يساوي نصف قياس الزاوية المركزية المقابلة لوتر التماس.
+                    </div>
+                </div>
+            </div>
+
+            <span style="font-weight: bold; text-decoration: underline; margin-bottom: 5px; display: block;">استخدامات
+                المبرهنات:</span>
+            <ul class="usage-list">
+                <li>إيجاد زوايا مجهولة.</li>
+                <li>إثبات حالات تطابق المثلثات.</li>
+                <li>إثبات أنواع المثلثات.</li>
+                <li>إثبات التوازي.</li>
+            </ul>
+
+            <div class="drill-box">
+                <span style="font-weight: bold; text-decoration: underline;">تدريب ٥: أ ب، أ جـ وتران متطابقان في دائرة،
+                    أثبت أن أ هـ // ب جـ، حيث أ هـ مماساً للدائرة.</span>
+                <div style="margin-top: 10px;">
+                    <input type="text" class="input-dotted"
+                        placeholder="................................................................">
+                    <input type="text" class="input-dotted"
+                        placeholder="................................................................">
+                    <input type="text" class="input-dotted"
+                        placeholder="................................................................">
+                    <input type="text" class="input-dotted"
+                        placeholder="................................................................">
+                </div>
+            </div>
+
+            <div class="automation-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="tf-subheader">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 30px; padding-left: 5px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+            <table class="tf-table">
+                <tr data-answer="false">
+                    <td class="col-num">١</td>
+                    <td>الزاوية بين مماس الدائرة ونصف القطر المار بنقطة التماس = ١٨٠.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٢</td>
+                    <td>النقطة بين مماس الدائرة والدائرة تسمى بنقطة التماس.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٣</td>
+                    <td>عدد المماسات المرسومة من نقطة التماس عدد لا نهائي.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٤</td>
+                    <td>إذا كانت الزاوية بين مماس الدائرة ومستقيم يمر من نقطة التماس = ٩٠، فإن هذا المستقيم يمر بمركز
+                        الدائرة.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">٥</td>
+                    <td>إذا رسم مماسان لدائرة من نقطة خارجها، وكانت الزاوية المركزية المحددة بمركز الدائرة ونقاط التماس
+                        = ١٢٠، فإن قياس الزاوية المحصورة بين المماسين = ٦٠.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٦</td>
+                    <td>ينتج عن المماسين المتطابقين المرسومان من نقطة خارج الدائرة مثلثين مختلفين.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٧</td>
+                    <td>إذا كان قياس الزاوية المماسية = ٤٠، فإن قياس الزاوية المركزية المشتركة معها في القوس = ٤٠.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٨</td>
+                    <td>عدد الأعمدة النازلة على مماس الدائرة على نقطة التماس عدد لا نهائي.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٩</td>
+                    <td>الزاوية الخارجة عن الشكل الرباعي ناتجة عن امتداد نصف قطر الدائرة.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٠</td>
+                    <td>كلما زاد طول نصف القطر كلما زاد طول المماس.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١١</td>
+                    <td>عدد الأعمدة المرسومة على نصف قطر الدائرة من نقطة على محيط الدائرة عمود واحد.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٢</td>
+                    <td>المستقيم الواصل من مركز الدائرة إلى نقطة خارجها حيث رسم منها مماسان للدائرة ينصف الزاوية المحددة
+                        بهما.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٦ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

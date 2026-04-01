@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبرهنة (٣)</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:900px;
+  min-height:1350px;
+  margin:0 auto;
+  padding:0 48px 160px;
+  box-sizing:border-box;
+  position:relative;
+  font-size:20px;
+  line-height:2.15;
+}
+
+/* الخط العلوي */
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-top:20px;
+}
+
+/* رأس الصفحة */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:14px 0 26px;
+}
+.unit{
+  font-size:18px;
+}
+
+/* كسور */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+}
+.frac > span{
+  display:block;
+  padding:0 6px;
+}
+.frac .top{
+  border-bottom:2px solid #000;
+}
+
+/* صندوق المبرهنة */
+.theorem-box{
+  background:#dff4ff;
+  border:2px solid #000;
+  border-radius:16px;
+  padding:18px 26px;
+  font-size:22px;
+  text-align:center;
+  margin:18px 0 28px;
+}
+
+/* عنوان مبرهنة */
+.theorem-title{
+  color:#00a6df;
+  font-size:20px;
+  margin:14px 0 6px;
+}
+
+/* الرسم */
+.diagram{
+  margin:22px 0;
+}
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* التذييل */
+.footer{
+  position:absolute;
+  bottom:20px;
+  left:48px;
+  right:48px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-num{
+  position:absolute;
+  right:0;
+  top:-28px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:6px 18px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  margin-top:18px;
+  font-size:15px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{padding:0 18px 160px;font-size:18px;line-height:2;}
+  .footer{left:18px;right:18px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+  <div>حساب المثلثات</div>
+  <div class="unit">الوحدة الرابعة</div>
+</div>
+
+<p style="text-align:center;">
+| س ل |<sup>2</sup> = | ص ل | × | ل ع | &nbsp; ( مبرهنة ٢ )
+</p>
+
+<p style="text-align:center;">
+٩ × ١٦ =
+</p>
+
+<p style="text-align:center;">
+| س ل | = √( ٩ × ١٦ ) = ٣ × ٤
+</p>
+
+<p style="text-align:center;">
+= ١٢ سم
+</p>
+
+<div class="theorem-title">مبرهنة (٣) <span style="font-size:18px;">( مبرهنة فيثاغورس )</span></div>
+
+<div class="theorem-box">
+في المثلث القائم الزاوية ، مربع الوتر يساوي مجموع مربعي الضلعين الآخرين .
+</div>
+
+<p><strong>المعطيات :</strong> أ ب ج مثلث قائم الزاوية في أ ،</p>
+<p>شكل (٤ – ٤)</p>
+
+<p><strong>المطلوب :</strong> إثبات أن :</p>
+
+<p style="text-align:center;">
+| أ ب |<sup>2</sup> + | أ ج |<sup>2</sup> = | ب ج |<sup>2</sup>
+</p>
+
+<p><strong>العمل :</strong> ننشئ أ س ⟂ ب ج .</p>
+
+<p><strong>البرهان :</strong> ∠ أ قائمة ، أ س ⟂ ب ج .</p>
+
+<p style="margin-right:30px;">
+مبرهنة (١) :<br>
+{ (١) &nbsp; | أ ب |<sup>2</sup> = | ب ج | × | ب س | <br>
+&nbsp; (٢) &nbsp; | أ ج |<sup>2</sup> = | ب ج | × | س ج | }
+</p>
+
+<p>
+بجمع (١) ، (٢) نحصل على :
+</p>
+
+<p style="text-align:center;">
+| أ ب |<sup>2</sup> + | أ ج |<sup>2</sup>
+= | ب ج | × ( | ب س | + | س ج | )
+</p>
+
+<p style="text-align:center;">
+= | ب ج | × | ب ج |
+</p>
+
+<p style="text-align:center;">
+= | ب ج |<sup>2</sup>
+</p>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-num">١٦٨</div>
+  </div>
+  <div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</div>
+</body>
+</html>

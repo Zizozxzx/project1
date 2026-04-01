@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٨١ - ١٨٢</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .col-tf-circles {
+            width: 100px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Section */
+        .mcq-section-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: right;
+            padding: 8px 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .mcq-box {
+            border: 1.5px solid #000;
+            margin-bottom: 4px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 4px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .option-item {
+            border-left: 1.5px solid #000;
+            border-bottom: 1px solid #ccc;
+            padding: 4px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:nth-child(even) {
+            border-left: none;
+        }
+
+        .option-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .option-num {
+            background-color: #d9e1f2;
+            border: 1px solid #000;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 0.85em;
+        }
+
+        .option-item.correct {
+            background-color: #d4edda;
+        }
+
+        .option-item.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Math Styling - High Fidelity Arabic Roots */
+        .math-root {
+            display: inline-flex;
+            align-items: flex-start;
+            vertical-align: middle;
+            flex-direction: row-reverse;
+            margin: 0 2px;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 4px;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
+
+        .root-symbol {
+            margin-right: -2px;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            font-family: var(--font-main);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-item:nth-child(even) {
+                border-left: 1.5px solid #000;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Title Header for TF -->
+            <div
+                style="background-color: #d9e1f2; border: 1.5px solid #000; padding: 4px 10px; font-weight: bold; font-size: 0.9em; margin-bottom: -1px; display: flex; justify-content: space-between;">
+                <span>أسئلة على الدرس بطريقة الأتمتة</span>
+                <div style="display: flex; gap: 40px; padding-left: 12px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+
+            <!-- T/F Table -->
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-num">١٣</td>
+                    <td>إذا كان المثلث القائم متساوي الساقين، وكانت فيه س زاوية حادة فإن جا س = جتا س .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٤</td>
+                    <td>إذا كان المثلث القائم متساوي الساقين، وكانت فيه ص زاوية حادة فإن ظا ص = ١ .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٥</td>
+                    <td>أ ب جـ د مستطيل فيه | أ د | = ٢٠ سم ، | د جـ | = ١٥ ، فإن جا ( ب أ جـ ) = ٤ / ٥ .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٦</td>
+                    <td>جا س + جتا س = ١ .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١٧</td>
+                    <td>
+                        <span class="math-root">
+                            <span class="root-content">جا<sup>٢</sup> ھـ + جتا<sup>٢</sup> ھـ</span>
+                            <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        =
+                        <span class="math-root">
+                            <span class="root-content">جا<sup>٢</sup> ھـ</span>
+                            <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        +
+                        <span class="math-root">
+                            <span class="root-content">جتا<sup>٢</sup> ھـ</span>
+                            <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                    </td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٨</td>
+                    <td>( جا<sup>٢</sup> س - ظا<sup>٢</sup> س + جتا<sup>٢</sup> س ) ÷ ( ١ - ظا<sup>٢</sup> س ) = ١ .
+                    </td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٩</td>
+                    <td>( ١ - جا<sup>٢</sup> ھـ ) = جتا<sup>٢</sup> ھـ .</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">٢٠</td>
+                    <td>جا<sup>٢</sup> ھـ + جا ھـ جتا<sup>٢</sup> ھـ = جا ھـ</td>
+                    <td class="col-tf-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- MCQ Section -->
+            <div class="mcq-section-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <!-- Q1 -->
+            <div class="mcq-box">
+                <div class="question-text">١. س ص ع مثلث قائم الزاوية في ع، | س ص | = ٤ سم، | س ع | = ٢ سم، جا س =
+                    ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div>
+                        <span class="fraction">
+                            <span class="top">
+                                <span class="math-root">
+                                    <span class="root-content">٣</span>
+                                    <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="bottom">٢</span>
+                        </span>
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div>
+                        <span class="fraction">
+                            <span class="top">
+                                <span class="math-root">
+                                    <span class="root-content">٣</span>
+                                    <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="bottom">٢</span>
+                        </span>
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> ١ / ٢
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ١ ، ٣
+                        معاً.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="mcq-box">
+                <div class="question-text">٢. س ص ع مثلث قائم الزاوية في ع، | س ص | = ٤ سم، | س ع | = ٢ سم، جتا س =
+                    ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div>
+                        <span class="fraction">
+                            <span class="top">
+                                <span class="math-root">
+                                    <span class="root-content">٣</span>
+                                    <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="bottom">٢</span>
+                        </span>
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٣</div>
+                        <span class="fraction">
+                            <span class="top">
+                                <span class="math-root">
+                                    <span class="root-content">٣</span>
+                                    <svg class="root-symbol" width="10" height="20" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="bottom">٢</span>
+                        </span>
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٢</div> ١ / ٢
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ١ .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="mcq-box">
+                <div class="question-text">٣. إذا كانت جتا<sup>٢</sup> ھـ = ٤ جا<sup>٢</sup> ھـ ، فإن ظا ھـ =
+                    ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ٤ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div> ١ / ٤ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> ١ / ٢ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ٢ .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="mcq-box">
+                <div class="question-text">٤. جا س = ٠,٣ ، جتا س، فإن ظا س = ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ١ / ٠,٣ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div> ١ / ٣ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> ٠,٠٣ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ٣ .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="mcq-box">
+                <div class="question-text">٥. جا<sup>٢</sup> ھـ - جتا<sup>٢</sup> ھـ = ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ١ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٣</div> -١ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٢</div> ١ - ٢
+                        جتا<sup>٢</sup> ھـ
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ٢ + ١
+                        جتا<sup>٢</sup> ھـ
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="mcq-box">
+                <div class="question-text">٦. - جا<sup>٢</sup> ھـ - جتا<sup>٢</sup> ھـ = ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ١ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div> -١ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> ١ - ٢
+                        جتا<sup>٢</sup> ھـ
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ٢ + ١
+                        جتا<sup>٢</sup> ھـ
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="mcq-box">
+                <div class="question-text">٧. جا ٢٧° = ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> جتا ٢٧°
+                        جا ٢٧° .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div> جتا ٢٧° ظا
+                        ٢٧° .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> جتا ٢٧° /
+                        ظا ٢٧° .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ظا ٢٧° /
+                        جتا ٢٧° .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="mcq-box">
+                <div class="question-text">٨. (جا س + جتا س)<sup>٢</sup> + (جا س - جتا س)<sup>٢</sup> = ........... :
+                </div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ١ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٣</div> ٢ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> ٠ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> -٢ .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="mcq-box">
+                <div class="question-text">٩. إذا كان ظا س = ٣ / ٤ ، فإن الوتر يساوي ........... :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> ٣ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٣</div> ٤ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٢</div> ٥ .
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٤</div> ٢ .
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="mcq-box">
+                <div class="question-text">١٠. العلاقة بين طول المقابل وطول المجاور لأي زاوية هي :</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">١</div> علاقة
+                        أكبر من.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٣</div> علاقة
+                        أصغر من.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, false)">
+                        <div class="option-num">٢</div> علاقة
+                        يساوي.
+                    </div>
+                    <div class="option-item" onclick="checkMCQ(this, true)">
+                        <div class="option-num">٤</div> لا توجد
+                        علاقة.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٩٣ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+
+            if (userClick === answer) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('wrong');
+            }
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.option-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+
+</body>
+
+</html>

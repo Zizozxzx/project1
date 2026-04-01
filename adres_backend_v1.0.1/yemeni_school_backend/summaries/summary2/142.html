@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٤٢</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #8faae0;
+            --header-border: #4472c4;
+            --page-bg: #ECEFF1;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 20px 40px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Helpers */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            line-height: 1.1;
+            padding: 0 2px;
+        }
+
+        .fraction .bottom {
+            display: block;
+            line-height: 1.1;
+            padding: 0 2px;
+        }
+
+        .arabic-root {
+            display: inline-flex;
+            align-items: flex-start;
+            vertical-align: middle;
+            direction: rtl;
+        }
+
+        .arabic-root .root-tick {
+            width: 14px;
+            height: 24px;
+            flex-shrink: 0;
+            transform: translateY(2px);
+        }
+
+        .arabic-root .root-content {
+            border-top: 2px solid #000;
+            padding: 2px 2px 0 2px;
+            margin-right: -1px;
+            margin-top: 5px;
+        }
+
+        sup {
+            font-size: 0.7em;
+        }
+
+        .section-header {
+            background-color: var(--primary-blue);
+            border: 2px solid var(--header-border);
+            text-align: center;
+            padding: 8px;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.25em;
+            font-weight: bold;
+            margin: 20px 0 15px 0;
+        }
+
+        .law-box {
+            border: 2px solid #555;
+            padding: 15px;
+            text-align: center;
+            margin: 10px 0;
+            background: #fdfdfd;
+        }
+
+        .law-formula {
+            font-size: 1.5em;
+            font-weight: bold;
+            direction: rtl;
+            background: #eef;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .info-list {
+            padding-right: 20px;
+            font-size: 1.1em;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+        }
+
+        .cases-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 2px solid #000;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cases-table th {
+            background-color: #fce4d6;
+            border-bottom: 2px solid #000;
+            border-left: 1px solid #000;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .cases-table th:last-child {
+            border-left: none;
+        }
+
+        .cases-table td {
+            border-left: 1px solid #000;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .cases-table td:last-child {
+            border-left: none;
+        }
+
+        /* Drill Table */
+        .drill-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .drill-table th {
+            background-color: #f8cbad;
+            border: 1px solid #000;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+        .drill-table td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .drill-input {
+            width: 90%;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-family: 'Amiri', serif;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .drill-input.correct {
+            background-color: #dfffdf;
+            border-color: #4CAF50;
+        }
+
+        .drill-input.incorrect {
+            background-color: #ffdfdf;
+            border-color: #F44336;
+        }
+
+        .check-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Amiri', serif;
+            font-size: 1.1em;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <div style="font-weight: bold; color: #555; margin-bottom: 15px;">تابع تدريب (أ):</div>
+        <div style="margin-bottom: 20px; font-size: 1.1em;">
+            ٤) ( ل - ١ ) ( ل + ٤ ) = ٠ .....................................................................
+            <br><br>
+            ٥) ص<sup>٢</sup> - ص - ١ = ٠ ، علماً بأن <span class="arabic-root"><span class="root-tick"><svg
+                        viewBox="0 0 14 24" style="width:100%; height:100%; display:block;">
+                        <path d="M12 12 L7 22 L1 3" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></span><span class="root-content">٥</span></span> = ٢,٢٤
+            ...........................................
+            <br><br>
+            ٦) س<sup>٢</sup> - ٣٦ = ٠ .....................................................................
+            <br><br>
+            ٧) ل<sup>٢</sup> + ١ = ٠ .....................................................................
+        </div>
+
+        <div class="section-header">
+            ثانياً: حل معادلات الدرجة الثانية في متغير واحد بطريقة القانون العام
+        </div>
+
+        <ul class="info-list">
+            <li>القانون العام لحل أي معادلة من الدرجة الثانية في متغير واحد ( أ س<sup>٢</sup> + ب س + جـ = ٠ ) هو:</li>
+        </ul>
+
+        <div class="law-box">
+            <div class="law-formula">
+                س =
+                <div class="fraction">
+                    <span class="top">-ب &plusmn; <span class="arabic-root"><span class="root-tick"><svg
+                                    viewBox="0 0 14 24" style="width:100%; height:100%; display:block;">
+                                    <path d="M12 12 L7 22 L1 3" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></span><span class="root-content">ب<sup>٢</sup> - ٤ أ جـ</span></span></span>
+                    <span class="bottom">٢ أ</span>
+                </div>
+                =
+                <div class="fraction">
+                    <span class="top">-ب &plusmn; <span class="arabic-root"><span class="root-tick"><svg
+                                    viewBox="0 0 14 24" style="width:100%; height:100%; display:block;">
+                                    <path d="M12 12 L7 22 L1 3" fill="none" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></span><span class="root-content">&Delta;</span></span></span>
+                    <span class="bottom">٢ أ</span>
+                </div>
+            </div>
+        </div>
+
+        <ul class="info-list">
+            <li>حيث أن &Delta; = ب<sup>٢</sup> - ٤ أ جـ يسمى المميز.</li>
+        </ul>
+
+        <table class="cases-table">
+            <thead>
+                <tr>
+                    <th>إذا كان &Delta; > الصفر</th>
+                    <th>إذا كان &Delta; = الصفر</th>
+                    <th>إذا كان &Delta; < الصفر</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>للمعادلة حلال حقيقيان غير متساويين.</td>
+                    <td>للمعادلة حلال حقيقيان متساويان.</td>
+                    <td>للمعادلة حلال غير حقيقيان (مستحيلة الحل في ح).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Drill B -->
+        <div style="font-weight: bold; border: 2px solid #555; padding: 0; margin-top:20px;">
+            <div
+                style="background-color: #e0e0e0; padding: 5px 10px; border-bottom: 2px solid #555; font-family: 'Aref Ruqaa', serif;">
+                تدريب (ب): أوجد المميز للمعادلات التالية، ثم حدد حالة مجموعة الحل لكل معادلة:
+            </div>
+
+            <table class="drill-table" id="drillB">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">المعادلة</th>
+                        <th style="width: 20%;">قيم ( أ ، ب ، جـ ) (مثال: ١، -٤، ٤)</th>
+                        <th style="width: 15%;">المميز (دلتا)</th>
+                        <th style="width: 40%;">حالة مجموعة الحل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1 -->
+                    <tr data-a="1" data-b="-4" data-c="4" data-delta="0">
+                        <td dir="ltr">س<sup>٢</sup> - ٤ س + ٤ = ٠</td>
+                        <td><input type="text" class="drill-input input-coeffs" placeholder="أ، ب، جـ"></td>
+                        <td><input type="text" class="drill-input input-delta" placeholder="قيمة دلتا"></td>
+                        <td>
+                            <select class="drill-input input-case">
+                                <option value="">اختر الحالة...</option>
+                                <option value="real_equal">حقيقيان متساويان</option>
+                                <option value="real_diff">حقيقيان مختلفان</option>
+                                <option value="imaginary">غير حقيقيان / مستحيلة</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <!-- 2s^2 + 3s = -1 -> 2s^2 + 3s + 1 = 0 -->
+                    <tr data-a="2" data-b="3" data-c="1" data-delta="1">
+                        <td dir="ltr">٢ س<sup>٢</sup> + ٣ س = - ١</td>
+                        <td><input type="text" class="drill-input input-coeffs"></td>
+                        <td><input type="text" class="drill-input input-delta"></td>
+                        <td>
+                            <select class="drill-input input-case">
+                                <option value="">اختر الحالة...</option>
+                                <option value="real_equal">حقيقيان متساويان</option>
+                                <option value="real_diff">حقيقيان مختلفان</option>
+                                <option value="imaginary">غير حقيقيان / مستحيلة</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- Row 3 -->
+                    <!-- s^2 + 3 = 0 -> a=1, b=0, c=3. Delta = 0 - 12 = -12 -->
+                    <tr data-a="1" data-b="0" data-c="3" data-delta="-12">
+                        <td dir="ltr">س<sup>٢</sup> + ٣ = ٠</td>
+                        <td><input type="text" class="drill-input input-coeffs"></td>
+                        <td><input type="text" class="drill-input input-delta"></td>
+                        <td>
+                            <select class="drill-input input-case">
+                                <option value="">اختر الحالة...</option>
+                                <option value="real_equal">حقيقيان متساويان</option>
+                                <option value="real_diff">حقيقيان مختلفان</option>
+                                <option value="imaginary">غير حقيقيان / مستحيلة</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- Row 4 -->
+                    <!-- s^2 - 5 = 0 -> a=1, b=0, c=-5. Delta = 0 - (-20) = 20 -->
+                    <tr data-a="1" data-b="0" data-c="-5" data-delta="20">
+                        <td dir="ltr">س<sup>٢</sup> - ٥ = ٠</td>
+                        <td><input type="text" class="drill-input input-coeffs"></td>
+                        <td><input type="text" class="drill-input input-delta"></td>
+                        <td>
+                            <select class="drill-input input-case">
+                                <option value="">اختر الحالة...</option>
+                                <option value="real_equal">حقيقيان متساويان</option>
+                                <option value="real_diff">حقيقيان مختلفان</option>
+                                <option value="imaginary">غير حقيقيان / مستحيلة</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align:center;">
+            <button class="check-btn" onclick="checkDrillB()">تحقق من الإجابات</button>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ١٤٢ -</div>
+        </footer>
+
+    </div>
+
+    <script>
+        function checkDrillB() {
+            const rows = document.querySelectorAll('#drillB tbody tr');
+
+            rows.forEach(row => {
+                const targetA = row.getAttribute('data-a');
+                const targetB = row.getAttribute('data-b');
+                const targetC = row.getAttribute('data-c');
+                const targetDelta = parseInt(row.getAttribute('data-delta'));
+
+                // 1. Check Coeffs Input (Flexible check)
+                // Expected format: "1, -4, 4" or "1 -4 4" etc.
+                const coeffInput = row.querySelector('.input-coeffs');
+                const coeffVal = coeffInput.value.trim();
+                // Simple validation: check if it contains the numbers
+                if (checkCoeffsString(coeffVal, targetA, targetB, targetC)) {
+                    coeffInput.classList.add('correct');
+                    coeffInput.classList.remove('incorrect');
+                } else {
+                    coeffInput.classList.add('incorrect');
+                    coeffInput.classList.remove('correct');
+                }
+
+                // 2. Check Delta
+                const deltaInput = row.querySelector('.input-delta');
+                const deltaVal = parseInt(toEnglishDigits(deltaInput.value.trim()));
+                if (deltaVal === targetDelta) {
+                    deltaInput.classList.add('correct');
+                    deltaInput.classList.remove('incorrect');
+                } else {
+                    deltaInput.classList.add('incorrect');
+                    deltaInput.classList.remove('correct');
+                }
+
+                // 3. Check Case
+                const caseInput = row.querySelector('.input-case');
+                const caseVal = caseInput.value;
+                let isCorrectCase = false;
+
+                if (targetDelta === 0 && caseVal === 'real_equal') isCorrectCase = true;
+                else if (targetDelta > 0 && caseVal === 'real_diff') isCorrectCase = true;
+                else if (targetDelta < 0 && caseVal === 'imaginary') isCorrectCase = true;
+
+                if (isCorrectCase) {
+                    caseInput.classList.add('correct');
+                    caseInput.classList.remove('incorrect');
+                } else {
+                    caseInput.classList.add('incorrect');
+                    caseInput.classList.remove('correct');
+                }
+            });
+        }
+
+        // Helper to check if string contains a, b, c in rough order
+        function checkCoeffsString(str, a, b, c) {
+            // Rough check: Normalize delimiters, split, check values
+            let s = toEnglishDigits(str).replace(/[،,]/g, ' ').replace(/\s+/g, ' ');
+            let parts = s.split(' ');
+            // We expect 3 numbers. 
+            // This is a naive check.
+            // Better: Just check if the string contains the target numbers? No, might overlap.
+            // Let's assume user types "1 0 -5".
+            // Filter out empty
+            parts = parts.filter(p => p.length > 0);
+            if (parts.length < 3) return false;
+
+            return (parts[0] == a && parts[1] == b && parts[2] == c);
+        }
+
+        function toEnglishDigits(str) {
+            return str.replace(/[٠-٩]/g, d => "0123456789"["٠١٢٣٤٥٦٧٨٩".indexOf(d)]);
+        }
+    </script>
+</body>
+
+</html>

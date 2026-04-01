@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٤٦ - رياضيات تاسع</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #dce6f1;
+            --border-col: #000;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --wrong-bg: #f8d7da;
+            --wrong-border: #dc3545;
+            --ministry-header-bg: #9cc2e5;
+            /* A bit darker blue for ministry section header */
+        }
+
+        body {
+            font-family: 'Amiri', 'Tajawal', serif;
+            background-color: #555;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sheet-container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;
+            min-height: 297mm;
+            /* Strict A4 width */
+            border: 2px solid var(--border-col);
+            padding: 10mm;
+            /* Reduced padding */
+            /* Approx standard margin */
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Common Utils */
+        .frac {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .frac .num {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        .frac .den {
+            display: block;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        .sqrt-box {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .radical {
+            font-size: 1.2em;
+            line-height: 1;
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+
+        .radicand {
+            border-top: 1px solid #000;
+            padding-top: 3px;
+            margin-right: -2px;
+        }
+
+        /* Main Table Styling */
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            /* Drastic reduction */
+            margin-bottom: 5px;
+            border: 1px solid var(--border-col);
+        }
+
+        .main-table td {
+            border: 1px solid var(--border-col);
+            padding: 2px 4px;
+            /* Compact padding */
+            vertical-align: middle;
+        }
+
+        .q-header-cell {
+            background-color: #fff;
+            font-weight: bold;
+            text-align: right;
+            border-bottom: 1px solid var(--border-col);
+            padding: 2px 5px !important;
+        }
+
+        .q-header-cell {
+            background-color: #fff;
+            font-weight: bold;
+            text-align: right;
+            border-bottom: 2px solid var(--border-col);
+        }
+
+        .num-col {
+            width: 30px;
+            text-align: center;
+            background-color: #fff;
+            font-weight: bold;
+        }
+
+        .opt-col {
+            width: 45%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .opt-col:hover {
+            background-color: #f0f0f0;
+        }
+
+
+
+        .ministry-header {
+            background-color: var(--ministry-header-bg);
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border-bottom: 1px solid var(--border-col);
+            font-family: 'Reem Kufi', sans-serif;
+            text-shadow: 1px 1px 0 #fff;
+        }
+
+        .tf-header {
+            background-color: #f2dbdb;
+            /* Light pinkish bg from image */
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-col);
+        }
+
+        .tf-header-right {
+            flex-grow: 1;
+        }
+
+        .tf-header-left {
+            width: 80px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .ministry-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+
+        .ministry-table td {
+            border: 1px solid var(--border-col);
+            padding: 4px;
+            /* Compact padding */
+            vertical-align: middle;
+        }
+
+        .ministry-q-col {
+            text-align: right;
+        }
+
+        .tf-bubbles-col {
+            width: 80px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .bubble {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+            margin: 0 3px;
+            vertical-align: middle;
+        }
+
+        .bubble:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Quote Styling */
+        .quote-box {
+            text-align: center;
+            margin-top: auto;
+            /* Push to bottom */
+            margin-bottom: 20px;
+            font-family: 'Reem Kufi', 'Amiri', serif;
+            font-size: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Background watermark like graphic - stylized W */
+        .bg-watermark {
+            position: absolute;
+            top: 50%;
+            /* Adjusted center */
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 15rem;
+            color: rgba(200, 200, 200, 0.2);
+            z-index: 0;
+            pointer-events: none;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 10;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Interactive States */
+        .correct {
+            background-color: var(--correct-bg) !important;
+        }
+
+        .wrong {
+            background-color: var(--wrong-bg) !important;
+        }
+
+        /* Specific adjustments for input fields in image */
+        .fill-blanks {
+            display: inline-block;
+            min-width: 50px;
+            border-bottom: 1px dotted #000;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .page,
+            .a4-page,
+            .page-container,
+            .container,
+            .sheet-container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+                /* Allow scrolling for oversized horizontal content */
+            }
+
+            .inner-border,
+            .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important;
+            }
+
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+
+            /* Page 46 specific fixes */
+            .main-table tr {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .main-table td.q-header-cell {
+                width: 100%;
+                border-bottom: 2px solid var(--border-col) !important;
+            }
+
+            .main-table td {
+                display: flex;
+                align-items: center;
+                border: 1px solid var(--border-col);
+                box-sizing: border-box;
+            }
+
+            .main-table td.num-col {
+                width: 15%;
+                justify-content: center;
+            }
+
+            .main-table td.opt-col {
+                width: 85%;
+                padding: 8px 5px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet-container">
+        <!-- Background stylized Arabic letter 'Waw' or logo approximation -->
+        <div class="bg-watermark">واجباتي</div>
+
+        <table class="main-table">
+            <!-- Q5 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">٥. أياً من المقادير التالية لا نستخدم لتحليلها إكمال المربع
+                    ...........:</td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">س<sup>٢</sup> + ١٠ س - ١ .</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">٤ س<sup>٢</sup> + ٤ س + ١ .</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">ص<sup>٤</sup> - ٥ ص<sup>٢</sup> + ١ .</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">ل<sup>٢</sup> + ١ .</td>
+            </tr>
+
+            <!-- Q6 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">٦. أياً من المقادير التالية نستخدم لتحليلها إكمال المربع
+                    ...........:</td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">س<sup>٢</sup> + ٢ س + ١ .</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">س<sup>٢</sup> - ٢ <span class="sqrt-box"><span
+                            class="radical">√</span><span class="radicand">٦</span></span> س + ٦ .</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">(س + ١)<sup>٢</sup>.</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">س<sup>٢</sup> - ٣ س + ١ .</td>
+            </tr>
+
+            <!-- Q7 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">٧. أحد الأسباب التالية لا يعتبر من أسباب إكمال المربع ...........:
+                </td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث سالب</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث مفقود.</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الأوسط لا يحقق الشرط.</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">الحد الأول والثاني مربع كامل والحد الأوسط يحقق الشرط.
+                </td>
+            </tr>
+
+            <!-- Q8 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">٨. السبب في إكمال المقدار س<sup>٢</sup> + ٤ إلى مربع كامل هو
+                    ........:</td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">الحد الأوسط مفقود.</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الأوسط لا يحقق الشرط.</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث مفقود.</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث سالب.</td>
+            </tr>
+
+            <!-- Q9 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">٩. السبب في إكمال المقدار ل<sup>٢</sup> + ٣ ل + ٩ إلى مربع كامل هو
+                    ...........:</td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الأوسط مفقود.</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">الحد الأوسط لا يحقق الشرط.</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث مفقود.</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث سالب.</td>
+            </tr>
+
+            <!-- Q10 -->
+            <tr>
+                <td colspan="4" class="q-header-cell">١٠. السبب في إكمال المقدار ن<sup>٢</sup> + ٣ ن - ١٦ إلى مربع كامل
+                    هو ...........:</td>
+            </tr>
+            <tr>
+                <td class="num-col">١</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الأوسط مفقود.</td>
+                <td class="num-col">٣</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الأوسط لا يحقق الشرط.</td>
+            </tr>
+            <tr>
+                <td class="num-col">٢</td>
+                <td class="opt-col" onclick="checkOpt(this, false)">الحد الثالث مفقود.</td>
+                <td class="num-col">٤</td>
+                <td class="opt-col" onclick="checkOpt(this, true)">الحد الثالث سالب.</td>
+            </tr>
+        </table>
+
+        <div class="ministry-section">
+            <div class="ministry-header">أسئلة وزارية</div>
+            <div class="tf-header">
+                <span class="tf-header-right">ظلل الإجابة الصحيحة فيما يلي:</span>
+                <span class="tf-header-left">
+                    <span>صح</span>
+                    <span>خطأ</span>
+                </span>
+            </div>
+            <table class="ministry-table">
+                <tr>
+                    <td class="ministry-q-col">١. لتحليل المقدار س<sup>٢</sup> - ٢ س - ٧ بإكمال المربع نضيف ونطرح ٤.
+                    </td>
+                    <td class="tf-bubbles-col">
+                        <span class="bubble" onclick="checkTF(this, false)"></span>
+                        <span class="bubble" onclick="checkTF(this, true)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ministry-q-col">٢. لإكمال المقدار س<sup>٢</sup> + ١٤ س إلى مربع كامل نضيف إليه ٣٦.</td>
+                    <td class="tf-bubbles-col">
+                        <span class="bubble" onclick="checkTF(this, false)"></span>
+                        <span class="bubble" onclick="checkTF(this, true)"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="quote-box">
+            ستجبني ما زرعت يوماً فلا تجعل ما زرعت يباباً..
+        </div>
+
+        <div class="footer">- ٤٦ -</div>
+        <div class="watermark">إعداد: هلا المولجي</div>
+
+    </div>
+
+    <script>
+        function checkOpt(element, isCorrect) {
+            // Remove styles from siblings
+            let parentRow = element.parentElement;
+            let containerTable = parentRow.parentElement; // Tbody
+
+            // This logic is slightly complex because options are in different cells/rows for the same question.
+            // But here, the user just clicks and wants feedback. 
+            // We can just simple toggle color for the clicked cell.
+            // Ideally we clear other options for the same question, but identifying "same question" 
+            // requires traversing rows. For simplicity given the task, self-check is fine.
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                element.classList.remove('wrong');
+            } else {
+                element.classList.add('wrong');
+                element.classList.remove('correct');
+            }
+        }
+
+        function checkTF(element, isWinningMove) {
+            let parent = element.parentElement;
+            let bubbles = parent.getElementsByClassName('bubble');
+
+            for (let b of bubbles) {
+                b.style.backgroundColor = '#fff';
+            }
+
+            if (isWinningMove) {
+                element.style.backgroundColor = 'var(--correct-bg)';
+                // element.style.borderColor = 'var(--correct-border)';
+            } else {
+                element.style.backgroundColor = 'var(--wrong-bg)';
+                // element.style.borderColor = 'var(--wrong-border)';
+            }
+        }
+    </script>
+</body>
+
+</html>

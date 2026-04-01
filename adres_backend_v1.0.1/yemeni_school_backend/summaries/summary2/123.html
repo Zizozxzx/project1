@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢٣ - الأسئلة الوزارية للرباعي الدائري</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 1.5px solid #000;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 4px 8px;
+            font-size: 0.9em;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 25px;
+            text-align: center;
+            background-color: var(--alt-bg);
+            font-weight: bold;
+        }
+
+        .col-circles {
+            width: 80px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .circle {
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ Container */
+        .ministerial-header {
+            background-color: #8faadc;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 4px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: -1px;
+        }
+
+        .sub-header {
+            background-color: #fce4d6;
+            border: 1.5px solid #000;
+            padding: 3px 12px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+
+        .mcq-item {
+            border: 1.5px solid #000;
+            margin-bottom: 4px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 3px 10px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.92em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .opt-box {
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            padding: 3px 10px;
+            cursor: pointer;
+            font-size: 0.88em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .opt-box:nth-child(even) {
+            border-left: none;
+        }
+
+        .opt-box:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .opt-box.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-box.wrong {
+            background-color: #f8d7da;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1.2px solid #000;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75em;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opt-box {
+                border-left: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <table class="tf-table">
+                <tr data-answer="false">
+                    <td class="col-num">١٠</td>
+                    <td>قياس الزاوية الخارجة عن الشكل الرباعي تساوي قياس الزاوية المجاورة للزاوية المقابلة لها.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-num">١١</td>
+                    <td>إذا كان أ ب جـ د شكل رباعي دائري، وكانت ق ⦣ ( أ ) = ٨٠، فإن قياس الزاوية الناتجة عن امتداد ب جـ
+                        = ١٠٠.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-num">١٢</td>
+                    <td>إذا كان أ ب جـ د شكل رباعي دائري، وكانت الزاوية ( أ ، جـ ) زوايا قائمة، فإن أ ب // جـ د.</td>
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="ministerial-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-item">
+                <div class="question-text">١. الزاوية الناتجة عن امتداد ضلع لمضلع فتكون محصورة بينه وبين الضلع المجاور
+                    تسمى:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>الزاوية المركزية له.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>الزاوية الخارجة عنه.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>الزاوية المركزية المنعكسة له.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>الزاوية المحيطية له.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٢. يكون الشكل الرباعي الدائري في الدائرة زوايا:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>محيطية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>مركزية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>خارجية.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>داخلية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٣. إذا كان س ص ع هـ شكل رباعي، ليكون شكل رباعي دائري لا بد أن يكون
+                    ............. = ١٨٠:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>ق ⦣ ( س ) + ق ⦣ ( ص ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>ق ⦣ ( س ) + ق ⦣ ( ع ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>ق ⦣ ( ص ) + ق ⦣ ( ع ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>ق ⦣ ( س ) + ق ⦣ ( م ).
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٤. الشكل الرباعي الدائري عدد الرؤوس التي تنتمي إلى الدائرة:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>رأس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>رأسان.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>ثلاثة رؤوس.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>أربعة رؤوس.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٥. عدد الزوايا الخارجة عن الشكل الرباعي:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٤.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>٨.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٦.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٢٤.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">
+                    <span>٦. من خلال الشكل المجاور: ق ⦣ ( أ د هـ ) :</span>
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                        <polygon points="20,20 80,15 90,75 15,65" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="90" y1="75" x2="115" y2="90" stroke="black" stroke-width="1" />
+                        <text x="50" y="85" font-family="Amiri" font-size="10">١١٢°</text>
+                    </svg>
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>١١٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٦٨.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٠٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٨٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٧. من خلال الفقرة السابقة: ق ⦣ ( أ د جـ ) :</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>١١٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٦٨.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٠٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٨٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٨. إذا كان أ ب جـ مثلث متساوي الساقين | أ ب | = | أ جـ |، س نقطة على أ ب، ص
+                    نقطة على أ جـ وكان الشكل ب جـ ص س رباعي دائري فإن:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>أ س // أ ص.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>س ب // ص جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>أ ب // أ جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>س ص // ب جـ.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٩. من خلال الفقرة السابقة: إذا كان ق ⦣ ( أ س ص ) = ٦٠ ، فإن ق ⦣ ( ص جـ ب ) =
+                    .............:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>١٢٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٧٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١١٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١٠. من خلال الشكل في الفقرة (٦): ق ⦣ ( أ ) + ق ⦣ ( جـ ) = .............:
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٦٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٩٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٣٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٤</div>١٨٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٢ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-box').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

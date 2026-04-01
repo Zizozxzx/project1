@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 50</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        .left-column {
+            order: 2;
+        }
+        .math-text {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            position: relative;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px;
+        }
+        .fraction span { display: block; padding: 0 3px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+        
+        /* تنسيق رسمة المقص X */
+        .x-diagram {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            margin: 10px 20px;
+        }
+        .x-labels {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 60px;
+            font-weight: bold;
+        }
+        
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٥٠ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="math-text">
+                | ٥ | ٧ س² + ١٤ س - ٦ = ٩ - ٢ س <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                أولاً : نحول المعادلة إلى الصورة العامة أ س² + ب س + جـ = ٠ <br>
+                ∴ ٧ س² + ١٤ س - ٦ - ٩ + ٢ س = ٠ <br>
+                ٧ س² + ١٦ س - ١٥ = ٠ <br>
+                ثانياً : نحلل الطرف الأيمن <br>
+                
+                <div class="x-diagram">
+                    <div class="x-labels">
+                        <span>س</span>
+                        <span>٧ س</span>
+                    </div>
+                    <svg width="60" height="60" style="margin: 0 10px;">
+                        <line x1="0" y1="0" x2="60" y2="60" stroke="black" stroke-width="1.5" />
+                        <line x1="0" y1="60" x2="60" y2="0" stroke="black" stroke-width="1.5" />
+                    </svg>
+                    <div class="x-labels">
+                        <span>+ ٣</span>
+                        <span>- ٥</span>
+                    </div>
+                </div>
+                <br>
+                
+                ∴ ( س + ٣ ) ( ٧ س - ٥ ) = ٠ <br>
+                إما س + ٣ = ٠ ومنها س = -٣ <br>
+                أو ٧ س - ٥ = ٠ ومنها ٧ س = ٥ بالقسمة على ٧ نجد : س = <span class="fraction"><span>٥</span><span class="bottom">٧</span></span> <br>
+                مجموعة الحل = { -٣ ، <span class="fraction"><span>٥</span><span class="bottom">٧</span></span> }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٦ | ( س + ١ ) ( س - ٢ ) = ٢ + ١٠ س - ٣ س² <br>
+                <span class="solution-tag">* الحل *</span> نفك الطرف الأيمن ثم نحول المعادلة إلى الصورة العامة <br>
+                ∴ س ( س - ٢ ) + ١ ( س - ٢ ) = ٢ + ١٠ س - ٣ س² <br>
+                س² - ٢ س + س - ٢ = ٢ + ١٠ س - ٣ س² <br>
+                س² - س - ٢ = ٢ + ١٠ س - ٣ س² <br>
+                ٣ س² - ١١ س - ٤ = ٠ نحلل الطرف الأيمن <br>
+                ∴ ( ٣ س + ١ ) ( س - ٤ ) = ٠ <br>
+                إما ٣ س + ١ = ٠ ومنها ٣ س = -١ ومنها س = - <span class="fraction"><span>١</span><span class="bottom">٣</span></span> <br>
+                أو س - ٤ = ٠ ومنها س = ٤ <br>
+                مجموعة الحل = { - <span class="fraction"><span>١</span><span class="bottom">٣</span></span> ، ٤ }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٧ | ص² - ص - ١ = ٠ علماً بأن √٥ ≈ ٢.٢٤ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                هنا واضح أنه لا يمكن إجراء التحليل المباشر لعدم وجود عاملين لعدد ( -١ ) حاصل ضربهما = -١ وجمعهم = -١ لذلك نلجأ إلى تحليل الطرف الأيمن بإكمال المربع كالتالي : <br>
+                أ ) ننقل الحد المطلق -١ إلى الطرف الأيسر <br>
+                ص² - ص = ١ ومنها ص² - ص = ١ <br>
+                ب) نضيف مربع نصف معامل ص ( <span class="fraction"><span>١</span><span class="bottom">٢</span></span> × -١ )² = <span class="fraction"><span>١</span><span class="bottom">٤</span></span> إلى الطرفين <br>
+                حيث ( <span class="fraction"><span>١</span><span class="bottom">٢</span></span> × -١ )² = ( - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = <span class="fraction"><span>١</span><span class="bottom">٤</span></span> بالنسبة للمعادلة <br>
+                ص² - ص + <span class="fraction"><span>١</span><span class="bottom">٤</span></span> = ١ + <span class="fraction"><span>١</span><span class="bottom">٤</span></span> <br>
+                مربع كامل ص² - ص + <span class="fraction"><span>١</span><span class="bottom">٤</span></span> = <span class="fraction"><span>٤ + ١</span><span class="bottom">٤</span></span> نوحد المقامات ومنها <br>
+                ( ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = <span class="fraction"><span>٥</span><span class="bottom">٤</span></span> <br>
+                جـ) نأخذ الجذر التربيعي للطرفين أي: √( ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = ± √<span class="fraction"><span>٥</span><span class="bottom">٤</span></span> بأخذ الجذر <br>
+                ∴ ( ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> ) = ± <span class="fraction"><span>√٥</span><span class="bottom">٢</span></span> <br>
+                ∴ ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = ± <span class="fraction"><span>٢.٢٤</span><span class="bottom">٢</span></span> <br>
+                إما ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = <span class="fraction"><span>٢.٢٤</span><span class="bottom">٢</span></span> ومنها ص = <span class="fraction"><span>١</span><span class="bottom">٢</span></span> + <span class="fraction"><span>٢.٢٤</span><span class="bottom">٢</span></span> أي ص = <span class="fraction"><span>٣.٢٤</span><span class="bottom">٢</span></span> <br>
+                ∴ ص = <span class="fraction"><span>٣.٢٤</span><span class="bottom">٢</span></span> ومنها ص = ١.٦٢ <br>
+                أو ص - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = - <span class="fraction"><span>٢.٢٤</span><span class="bottom">٢</span></span> ومنها ص = <span class="fraction"><span>١ - ٢.٢٤</span><span class="bottom">٢</span></span> <br>
+                ∴ ص = <span class="fraction"><span>-١.٢٤</span><span class="bottom">٢</span></span> ومنها ص = -٠.٦٢ <br>
+                مجموعة الحل = { ١.٦٢ ، -٠.٦٢ }
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                | ٨ | ٤ ع² - ٤ ع - ٣ = ٠ علماً بأن √٧ ≈ ٢.٦٥ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                نكمل المربع كالتالي : <br>
+                أ) ٤ ع² - ٤ ع = ٣ ومنها ٤ ع² - ٤ ع = ٣ <br>
+                نأخذ مشترك العدد ٢ من الطرف الأيمن <br>
+                ∴ ٢ ( ٢ ع² - ٢ ع ) = ٣ نكمل المربع للطرف الأيمن وذلك بإضافة ( <span class="fraction"><span>١</span><span class="bottom">٢</span></span> × -١ )² = <span class="fraction"><span>١</span><span class="bottom">٤</span></span> ثم نطرح <span class="fraction"><span>١</span><span class="bottom">٤</span></span> <br>
+                ∴ ٢ ( ع² - ع + <span class="fraction"><span>١</span><span class="bottom">٤</span></span> - <span class="fraction"><span>١</span><span class="bottom">٤</span></span> ) = ٣ <br>
+                ∴ ٢ ( ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² - ٢ × <span class="fraction"><span>١</span><span class="bottom">٤</span></span> = ٣ ومنها ٢ ( ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = ٣ <br>
+                ∴ ٢ ( ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = ٣ + <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = <span class="fraction"><span>٧</span><span class="bottom">٢</span></span> يضرب طرفي المعادلة في <span class="fraction"><span>١</span><span class="bottom">٢</span></span> نجد : <br>
+                ( ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = <span class="fraction"><span>٧</span><span class="bottom">٢</span></span> × <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = <span class="fraction"><span>٧</span><span class="bottom">٤</span></span> <br>
+                ∴ ( ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> )² = <span class="fraction"><span>٧</span><span class="bottom">٤</span></span> نأخذ الجذر التربيعي للطرفين <br>
+                ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = ± √<span class="fraction"><span>٧</span><span class="bottom">٤</span></span> وحيث √٧ ≈ ٢.٦٥ <br>
+                ∴ ع - <span class="fraction"><span>١</span><span class="bottom">٢</span></span> = ± <span class="fraction"><span>٢.٦٥</span><span class="bottom">٢</span></span> ومنها ع = <span class="fraction"><span>١ ± ٢.٦٥</span><span class="bottom">٢</span></span> <br>
+                إما ع = <span class="fraction"><span>١ + ٢.٦٥</span><span class="bottom">٢</span></span> = <span class="fraction"><span>٣.٦٥</span><span class="bottom">٢</span></span> أي ع = ١.٨٢٥ <br>
+                أو ع = <span class="fraction"><span>١ - ٢.٦٥</span><span class="bottom">٢</span></span> = - <span class="fraction"><span>١.٦٥</span><span class="bottom">٢</span></span> أي ع = -٠.٨٢٥ <br>
+                مجموعة الحل = { ١.٨٢٥ ، -٠.٨٢٥ }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٩ | ٣ س² - ٨ س + ٢ = ٠ علماً بأن √١٠ ≈ ٣.١٦ <br>
+                <span class="solution-tag">* الحل *</span> <br>
+                ٣ س² - ٨ س = -٢ ومنها ٣ س² - ٨ س = -٢ بالقسمة على ٣ <br>
+                س² - <span class="fraction"><span>٨</span><span class="bottom">٣</span></span> س = - <span class="fraction"><span>٢</span><span class="bottom">٣</span></span> نكمل المربع بإضافة مربع نصف معامل س للطرفين <br>
+                وهو : ( <span class="fraction"><span>١</span><span class="bottom">٢</span></span> × - <span class="fraction"><span>٨</span><span class="bottom">٣</span></span> )² = ( - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> )² = <span class="fraction"><span>١٦</span><span class="bottom">٩</span></span> <br>
+                س² - <span class="fraction"><span>٨</span><span class="bottom">٣</span></span> س + <span class="fraction"><span>١٦</span><span class="bottom">٩</span></span> = - <span class="fraction"><span>٢</span><span class="bottom">٣</span></span> + <span class="fraction"><span>١٦</span><span class="bottom">٩</span></span> نوحد المقامات <br>
+                مربع كامل ( س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> )² = <span class="fraction"><span>-٦ + ١٦</span><span class="bottom">٩</span></span> نوحد المقامات <br>
+                ∴ ( س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> )² = <span class="fraction"><span>١٠</span><span class="bottom">٩</span></span> ومنها ( س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> ) = ± √<span class="fraction"><span>١٠</span><span class="bottom">٩</span></span> نأخذ الجذر <br>
+                ( س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> ) = ± <span class="fraction"><span>√١٠</span><span class="bottom">٣</span></span> حيث √١٠ ≈ ٣.١٦ <br>
+                إما س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> = <span class="fraction"><span>٣.١٦</span><span class="bottom">٣</span></span> ومنها س = <span class="fraction"><span>٤ + ٣.١٦</span><span class="bottom">٣</span></span> ومنها س = <span class="fraction"><span>٧.١٦</span><span class="bottom">٣</span></span> = ٢.٣٨ <br>
+                أو س - <span class="fraction"><span>٤</span><span class="bottom">٣</span></span> = - <span class="fraction"><span>٣.١٦</span><span class="bottom">٣</span></span> ومنها س = <span class="fraction"><span>٤ - ٣.١٦</span><span class="bottom">٣</span></span> ومنها س = <span class="fraction"><span>٠.٨٤</span><span class="bottom">٣</span></span> = ٠.٢٨ <br>
+                مجموعة الحل = { ٢.٣٨ ، ٠.٢٨ }
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

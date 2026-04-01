@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٤٧ - رياضيات تاسع</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #dce6f1;
+            --table-header-bg: #f9dcb3;
+            --border-col: #000;
+        }
+
+        body {
+            font-family: 'Amiri', 'Tajawal', serif;
+            background-color: #555;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sheet-container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;
+            min-height: 297mm;
+            border: 2px solid var(--border-col);
+            padding: 10mm;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .page-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-col);
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-family: 'Reem Kufi', sans-serif;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .content-section ul {
+            list-style-type: none;
+            padding-right: 15px;
+            margin: 0;
+        }
+
+        .content-section li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .bullet {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Comparison Table */
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            /* Restore standard readable size */
+        }
+
+        .comp-table th,
+        .comp-table td {
+            border: 1px solid var(--border-col);
+            padding: 8px;
+            /* Comfortable padding */
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .comp-table th {
+            background-color: var(--table-header-bg);
+            font-weight: bold;
+        }
+
+        .row-header {
+            background-color: var(--table-header-bg);
+            font-weight: bold;
+            width: 15%;
+            /* Reasonable width */
+        }
+
+        /* Formula Diagrams */
+        .eq-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: row;
+            /* Standard RTL flow */
+            flex-wrap: nowrap;
+            /* FORCE SINGLE LINE */
+            white-space: nowrap;
+            /* Prevent text wrap */
+            margin-top: 10px;
+            gap: 2px;
+            /* Reduce gap to fit */
+            width: 100%;
+        }
+
+        .eq-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .eq-term {
+            font-size: 1rem;
+            font-weight: bold;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1px;
+        }
+
+        .eq-arrow {
+            font-size: 1rem;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .eq-label {
+            border: 1.5px solid #000;
+            /* THICKER BORDER for visibility */
+            background-color: #fff;
+            padding: 2px;
+            font-size: 0.65rem;
+            width: 45px;
+            /* Compact width */
+            text-align: center;
+            line-height: 1.1;
+            white-space: normal;
+            /* Allow text inside box to wrap if needed */
+        }
+
+        /* Math Utils */
+        .frac {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.8em;
+            margin: 0 2px;
+        }
+
+        .frac .num {
+            border-bottom: 1px solid #000;
+            display: block;
+        }
+
+        .frac .den {
+            display: block;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .page,
+            .a4-page,
+            .page-container,
+            .container,
+            .sheet-container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+                /* Allow scrolling for oversized horizontal content */
+            }
+
+            .inner-border,
+            .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important;
+            }
+
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+
+            /* Page 47 Specific Fixes (Card Layout for Vertical Mobile) */
+            .comp-table thead {
+                display: none;
+            }
+
+            .comp-table,
+            .comp-table tbody,
+            .comp-table tr,
+            .comp-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .comp-table tr {
+                margin-bottom: 20px;
+                border: 2px solid var(--border-col);
+                background-color: #fff;
+            }
+
+            .comp-table td {
+                text-align: right !important;
+                padding: 10px 15px;
+                border: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .comp-table td:last-child {
+                border-bottom: none;
+            }
+
+            .comp-table td.row-header {
+                background-color: var(--table-header-bg);
+                text-align: center !important;
+                font-weight: bold;
+                font-size: 1.1rem;
+                border-bottom: 2px solid var(--border-col);
+                padding: 10px;
+            }
+
+            .comp-table tr td:nth-child(2)::before {
+                content: "\25A0  الفرق بين مربعين:";
+                display: block;
+                font-weight: bold;
+                color: #c0392b;
+                margin-bottom: 8px;
+                font-size: 1.05rem;
+            }
+
+            .comp-table tr td:nth-child(3)::before {
+                content: "\25A0  الفرق بين مكعبين:";
+                display: block;
+                font-weight: bold;
+                color: #2980b9;
+                margin-bottom: 8px;
+                font-size: 1.05rem;
+            }
+
+            .comp-table tr td:nth-child(4)::before {
+                content: "\25A0  مجموع مكعبين:";
+                display: block;
+                font-weight: bold;
+                color: #27ae60;
+                margin-bottom: 8px;
+                font-size: 1.05rem;
+            }
+
+            .eq-row {
+                flex-wrap: wrap !important;
+                white-space: normal !important;
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+
+            .eq-group {
+                margin-bottom: 5px;
+            }
+
+            .eq-label {
+                width: auto;
+                padding: 3px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sheet-container">
+
+        <div class="page-header">
+            الدرس الرابع: مجموع مكعبين والفرق بينهما.
+        </div>
+
+        <div class="content-section">
+            <ul>
+                <li><span class="bullet">●</span> <b>الكميات المكعبة:</b>
+                    <br>١. في المعاملات: هي كميات عند كتابتها بالصورة الأسية، أسها يقبل القسمة على ٣.
+                    <br>&nbsp;&nbsp;&nbsp; ومن الأعداد المكعبة والتي يمكن تحويلها إلى قيم تكعيبية: ١ ، ٨ ، ٢٧ ، ٦٤ ، ١٢٥
+                    ، ... ، ١٠٠٠ ، ....
+                    <br>&nbsp;&nbsp;&nbsp; وقد توجد أعداد مكعبة ومربعة في نفس الوقت مثل: ١ ، ٦٤.
+                </li>
+                <li>٢. في المتغيرات والأقواس: هي كميات أسها يقبل القسمة على ٣.</li>
+                <li><span class="bullet">●</span> <b>في هذا الدرس سيتم إكمال تحليل المقدار الثنائي على شكلين من
+                        التحليلات:</b>
+                    <ul style="margin-right: 20px; list-style-type: check;">
+                        <li>✓ مجموع مكعبين.</li>
+                        <li>✓ الفرق بين مكعبين.</li>
+                    </ul>
+                </li>
+                <li><span class="bullet">●</span> <b>تنويه مهم:</b> قبل البدء باستخدام هذين التحليلين، لا بد من البحث عن
+                    العامل المشترك الأكبر " إن وجد ".</li>
+            </ul>
+        </div>
+
+        <div
+            style="background-color: #eee; border: 1px solid #000; padding: 5px; margin-bottom: 10px; font-weight: bold; text-align: center; font-size: 0.9rem;">
+            سيتم توضيح ذلك في الجدول التالي الذي يوضح المقارنة بينهما إضافة إلى ذلك تحليل الفرق بين مربعين:
+        </div>
+
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th class="row-header">وجه المقارنة</th>
+                    <th style="width: 25%">الفرق بين مربعين</th>
+                    <th style="width: 35%">الفرق بين مكعبين</th>
+                    <th style="width: 35%">مجموع مكعبين</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Conditions -->
+                <tr>
+                    <td class="row-header">الشروط</td>
+                    <td style="text-align: right;">
+                        ١. يتكون من حدين.<br>
+                        ٢. الحدين كميات مربعة.<br>
+                        ٣. العلامة بين الحدين ( - ).
+                    </td>
+                    <td style="text-align: right;">
+                        ١. يتكون من حدين.<br>
+                        ٢. الحدين كميات مكعبة.<br>
+                        ٣. العلامة بين الحدين ( - ).
+                    </td>
+                    <td style="text-align: right;">
+                        ١. يتكون من حدين.<br>
+                        ٢. الحدين كميات مكعبة.<br>
+                        ٣. العلامة بين الحدين ( + ).
+                    </td>
+                </tr>
+                <!-- Verbal Rule -->
+                <tr>
+                    <td class="row-header">قاعدة التحليل<br>لفظياً</td>
+                    <td>يحلل إلى قوسين متشابهين<br>لكن يختلفان في إشارة<br>الوسط.</td>
+                    <td>يحلل إلى قوسين الأول صغير له نفسه<br>إشارة المقدار والآخر كبير أوسطه يخالف<br>في الإشارة
+                        إشارة
+                        المقدار.</td>
+                    <td>يحلل إلى قوسين الأول صغير له نفسه<br>إشارة المقدار والآخر كبير أوسطه<br>يخالف في الإشارة
+                        إشارة
+                        المقدار.</td>
+                </tr>
+                <!-- Symbolic Rule -->
+                <tr>
+                    <td class="row-header">قاعدة التحليل<br>رمزياً</td>
+
+                    <!-- Sq Diff -->
+                    <td>
+                        <div style="font-weight: bold; margin-bottom: 10px;">س<sup>٢</sup> - ص<sup>٢</sup> =</div>
+
+                        <!-- (س - ص) (س + ص) -->
+                        <!-- Flow is RTL: Right Element First -->
+                        <div class="eq-row">
+                            <div class="eq-term">(</div>
+
+                            <div class="eq-group">
+                                <div class="eq-term">س</div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">الحد الأول</div>
+                            </div>
+
+                            <div class="eq-term">-</div>
+
+                            <div class="eq-group">
+                                <div class="eq-term">ص</div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">الحد الثاني</div>
+                            </div>
+
+                            <div class="eq-term">) (س + ص)</div>
+                        </div>
+                    </td>
+
+                    <!-- Cube Diff -->
+                    <td>
+                        <div style="font-weight: bold; margin-bottom: 10px;">س<sup>٣</sup> - ص<sup>٣</sup> = (س - ص)
+                            ...
+                        </div>
+
+                        <div class="eq-row">
+                            <div class="eq-term">(</div>
+
+                            <!-- s^2 -->
+                            <div class="eq-group">
+                                <div class="eq-term">س<sup>٢</sup></div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">مربع الحد الأول</div>
+                            </div>
+
+                            <div class="eq-term">+</div>
+
+                            <!-- s sad -->
+                            <div class="eq-group">
+                                <div class="eq-term">س ص</div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">الأول في الثاني إشارته دائماً عكس</div>
+                            </div>
+
+                            <div class="eq-term">+</div>
+
+                            <!-- sad^2 -->
+                            <div class="eq-group">
+                                <div class="eq-term">ص<sup>٢</sup></div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">مربع الحد الثاني إشارته دائماً موجب</div>
+                            </div>
+                            <div class="eq-term">)</div>
+                        </div>
+                    </td>
+
+                    <!-- Sum Cube -->
+                    <td>
+                        <div style="font-weight: bold; margin-bottom: 10px;">س<sup>٣</sup> + ص<sup>٣</sup> = (س + ص)
+                            ...
+                        </div>
+
+                        <div class="eq-row">
+                            <div class="eq-term">(</div>
+
+                            <!-- s^2 -->
+                            <div class="eq-group">
+                                <div class="eq-term">س<sup>٢</sup></div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">مربع الحد الأول</div>
+                            </div>
+
+                            <div class="eq-term">-</div>
+
+                            <!-- s sad -->
+                            <div class="eq-group">
+                                <div class="eq-term">س ص</div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">الأول في الثاني عكس إشارة المقدار</div>
+                            </div>
+
+                            <div class="eq-term">+</div>
+
+                            <!-- sad^2 -->
+                            <div class="eq-group">
+                                <div class="eq-term">ص<sup>٢</sup></div>
+                                <div class="eq-arrow">↑</div>
+                                <div class="eq-label">مربع الحد الثاني إشارته دائماً موجب</div>
+                            </div>
+                            <div class="eq-term">)</div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Examples -->
+                <tr>
+                    <td class="row-header">أمثلة</td>
+                    <td dir="ltr" style="text-align: right;">
+                        <div style="direction: rtl;">
+                            ل<sup>٢</sup> - ٣٦<br>
+                            ٠,١٦ س<sup>٤</sup> - ١<br>
+                            <div class="frac"><span class="num">٩</span><span class="den">٤</span></div> - ٨١
+                            ص<sup>٢</sup><br>
+                            ( ١ - أ )<sup>٢</sup> - ١
+                        </div>
+                    </td>
+                    <td>
+                        <div style="direction: rtl;">
+                            ل<sup>٣</sup> - ٨<br>
+                            ٠,٠٦٤ س<sup>٣</sup> - ١<br>
+                            <div class="frac"><span class="num">٢٧</span><span class="den">٨</span></div> -
+                            ص<sup>٣</sup><br>
+                            ( ١ - ل )<sup>٣</sup> - ١
+                        </div>
+                    </td>
+                    <td>
+                        <div style="direction: rtl;">
+                            ل<sup>٣</sup> + ٨<br>
+                            ٠,٠٦٤ س<sup>٣</sup> + ١<br>
+                            <div class="frac"><span class="num">٢٧</span><span class="den">٨</span></div> +
+                            ص<sup>٣</sup><br>
+                            ( ١ - ل )<sup>٣</sup> + ١
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="content-section">
+            <b>ملاحظات:</b>
+            <ol>
+                <li>إذا أتى المقدار يمكن تحليله كفرق بين مربعين أو فرق بين مكعبين يستحسن تحليله كفرق بين مربعين.</li>
+                <li>أحياناً نحتاج إلى استخدام التحليل بالعامل المشترك ثم يظهر لنا تحليل المقدار الثنائي أنواعه.</li>
+                <li>قد نحلل المقدار ثم يظهر لنا تحليل مرة أخرى.</li>
+                <li>نلاحظ أن القوس الكبير في قاعدة التحليل يشبه المربع الكامل لكن حده الأوسط لم يضرب في ٢.</li>
+                <li>فكرة إيجاد السؤال من الجواب ، مثل:</li>
+            </ol>
+            <div style="margin-right: 20px;">
+                ✓ ( س + ٣ ) ( س<sup>٢</sup> - ٣ س + ٩ ) : نلاحظ أنه قوس صغير وقوس كبير، فيعني ذلك أن قاعدة التكعيب، وما
+                يحدد إشارة أنه مجموع مكعبين أو فرق بين مكعبين هي إشارة القوس الصغير.<br>
+                ✓ ٢ ( س + ٣ ) ( س<sup>٢</sup> - ٣ س + ٩ ) : نلاحظ وجود عامل مشترك، فيتم كتابة قوس التكعيب ثم ضربه في
+                العامل المشترك.
+            </div>
+        </div>
+
+        <div class="footer">- ٤٧ -</div>
+        <div class="watermark">إعداد: هلا المولجي</div>
+
+    </div>
+
+</body>
+
+</html>

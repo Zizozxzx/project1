@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٣٤ - ختام الوحدة الخامسة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* T/F Table */
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #000;
+            margin-bottom: 10px;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 4px 10px;
+            font-size: 0.88em;
+            vertical-align: middle;
+        }
+
+        .col-circles {
+            width: 70px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .circle {
+            width: 15px;
+            height: 15px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* MCQ */
+        .ministerial-header {
+            background-color: #8faadc;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 3px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: -1px;
+        }
+
+        .mcq-item {
+            border: 1.5px solid #000;
+            margin-bottom: 4px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 3px 10px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .opt-box {
+            border-left: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            padding: 2px 10px;
+            cursor: pointer;
+            font-size: 0.88em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .opt-box.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-box.wrong {
+            background-color: #f8d7da;
+        }
+
+        .opt-num {
+            background-color: #d9e1f2;
+            border: 1px solid #000;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75em;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <table class="tf-table">
+                <tr data-answer="true">
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                    <td>٨. إذا كان م١، م٢ مركزي دائرتين، | م١ م٢ | = ٤ سم، وكان نق١ = ٢ سم، نق٢ = ٣ سم، فإن الدائرتين
+                        متقاطعتان.</td>
+                </tr>
+                <tr data-answer="false">
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                    <td>٩. نقطة التماس لدائرتين متماستـين تصنع زاوية قائمة مع مركزي الدائرتين.</td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                    <td>١٠. الوتر المشترك بين دائرتين يصنع زاوية قائمة مع خط المركزين.</td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                    <td>١١. عدد المماسات المشتركة بين الدائرتين المتداخلتين = صفر.</td>
+                </tr>
+                <tr data-answer="true">
+                    <td class="col-circles">
+                        <div class="circle-group">
+                            <div class="circle" onclick="checkTF(this, true)"></div>
+                            <div class="circle" onclick="checkTF(this, false)"></div>
+                        </div>
+                    </td>
+                    <td>١٢. عدد الأوتار المشتركة للدائرتين المنطبقتين عدد لا نهائي من الأوتار.</td>
+                </tr>
+            </table>
+
+            <div class="ministerial-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-item">
+                <div class="question-text">١. إذا كان م١، م٢ مركزي دائرتين، وكان نق١ = ٥ سم، نق٢ = ١٠ سم، فإذا كانت
+                    الدائرتان متماستان من الداخل، فإن | م١ م٢ | = ....سم:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>١٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>١٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٢٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٢. الوتر المشترك يكون ............. خط المركزين:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>عمودي على.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>موازي لـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>منطبق على.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>كل ما سبق ذكره صحيح.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٣. عدد المماسات لدائرتين متماستـين من الخارج عدد مماساتها المشتركة =
+                    ..........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>صفر.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٢.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٢</div>٣.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٤.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٤. إذا كان م١، م٢ مركزي دائرتين، وكان نق١ = ٥ سم، نق٢ = ١٠ سم، فإذا كانت
+                    الدائرتان متماستان من الخارج، فإن | م١ م٢ | = ....سم:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>١٠.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>١٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٢٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٥. إذا كان م١، م٢ مركزي دائرتين، وكان نق١ = ٥ سم، نق٢ = ١٠ سم، فإذا كانت
+                    الدائرتان متحدتا المركز، فإن | م١ م٢ | = ....سم:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>صفر.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٥.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>١٠.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text" style="display: flex; align-items: center; justify-content: space-between;">
+                    <span>٦. من خلال الشكل المجاور: ق ⦣ ( د هـ جـ ) =:</span>
+                    <svg width="100" height="60" viewBox="0 0 120 70">
+                        <circle cx="40" cy="35" r="30" fill="none" stroke="black" stroke-width="1.2" />
+                        <circle cx="80" cy="35" r="30" fill="none" stroke="black" stroke-width="1.2" />
+                        <line x1="60" y1="12" x2="60" y2="58" stroke="black" stroke-width="1.2" />
+                        <text x="5" y="38" font-family="Amiri" font-size="8">د</text>
+                        <text x="110" y="38" font-family="Amiri" font-size="8">جـ</text>
+                    </svg>
+                </div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>ق ⦣ ( د هـ ب ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>ق ⦣ ( م ن جـ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>ق ⦣ ( ن م جـ ).
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>ق ⦣ ( د جـ هـ ).
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">٧. من خلال الفقرة السابقة: و م قطعة مستقيمة عمودية على ........:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">١</div>د جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٣</div>هـ جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>ب جـ.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>د هـ.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcq-item">
+                <div class="question-text">١٠. من خلال الفقرة (٦): إذا كان | ب جـ | = ٧ سم، فإن | ب و | = .....سم:</div>
+                <div class="options-grid">
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">١</div>٤.٥ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, true)">
+                        <div class="opt-num">٣</div>٣.٥ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٢</div>١٤ سم.
+                    </div>
+                    <div class="opt-box" onclick="checkMCQ(this, false)">
+                        <div class="opt-num">٤</div>٧ سم.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٣٣ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTF(el, userClick) {
+            const row = el.closest('tr');
+            const answer = row.getAttribute('data-answer') === 'true';
+            const circles = row.querySelectorAll('.circle');
+            circles.forEach(c => c.classList.remove('active', 'correct', 'wrong'));
+            el.classList.add('active');
+            if (userClick === answer) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+        function checkMCQ(el, isCorrect) {
+            const grid = el.parentElement;
+            grid.querySelectorAll('.opt-box').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            if (isCorrect) el.classList.add('correct');
+            else el.classList.add('wrong');
+        }
+    </script>
+</body>
+
+</html>

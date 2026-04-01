@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - صفحة 7 - حل التمارين والعلاقات</title>
+    <style>
+        :root { --main-border: #000; --bg-light: #fefefe; --header-bg: #e9e9e9; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #333; margin: 0; padding: 10px; color: #000; line-height: 1.4; }
+        .page-container { max-width: 950px; margin: 0 auto; background: #fff; border: 2px solid var(--main-border); padding: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.5); position: relative; }
+        .page-num { text-align: center; font-weight: bold; font-size: 1.2em; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; }
+        
+        /* نظام الأعمدة المتجاوب */
+        .content-wrapper { display: flex; gap: 20px; border-top: 1px solid #000; padding-top: 10px; }
+        .column { flex: 1; min-width: 0; }
+        .right-col { border-left: 1px solid #000; padding-left: 15px; }
+
+        @media (max-width: 800px) {
+            .content-wrapper { flex-direction: column; }
+            .right-col { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+
+        /* تنسيق العناوين والمربعات */
+        .box-title { border: 2px solid #000; background: var(--header-bg); text-align: center; font-weight: bold; padding: 5px; margin: 10px 0; font-size: 1.1em; }
+        .exercise-item { border: 1px dashed #444; padding: 8px; margin: 10px 0; background: #fdfdfd; }
+        .solution-section { margin: 10px 0; font-size: 0.95em; }
+        .important-note { background: #f9f9f9; border-right: 4px solid #000; padding: 5px 10px; margin: 10px 0; }
+        
+        /* تنسيق الرسومات */
+        .diagram-container { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 10px; margin: 15px 0; }
+        .diagram-box { border: 1px solid #ccc; padding: 5px; text-align: center; flex: 1; min-width: 140px; }
+        svg { width: 100%; height: auto; max-width: 150px; }
+        .label { font-size: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-num">- ٧ -</div>
+
+    <div class="content-wrapper">
+        <div class="column right-col">
+            <div class="solution-section">
+                <strong>جـ) ع₃ خواصها:</strong> (١) ليست انعكاسية بوضوح لعدم ارتباط كل عنصر من س مع نفسه. <br>
+                (٢) غير متناظرة لتوفر (٢، ٦) ∈ ع₃ وعدم توفر (٦، ٢). <br>
+                (٣) غير متعدية لأن (٢، ٦) ∈ ع₃ ، (٦، ١) ∈ ع₃ ولكن (٢، ١) ∉ ع₃. <br>
+                ∴ من (١)، (٢)، (٣) ع₃ لا تمثل علاقة تكافؤ.
+            </div>
+
+            <div class="box-title">تمرين محلول</div>
+            <p><strong>إذا كانت ص = { -١ ، ٠ ، ١ } وكانت ع علاقة على ص معرفة كالتالي: <br> ع = { (أ، ب) : أ² = ب ، أ، ب ∈ ص } فهل ع علاقة تكافؤ على ص؟</strong></p>
+            <div class="important-note">
+                <strong>* الحل: *</strong><br>
+                ع عبارة عن مجموعة الأزواج المرتبة التي مسقطها الثاني هو مربع المسقط الأول لكل زوج مرتب :-<br>
+                ع = { (٠، ٠) ، (-١، ١) ، (١، ١) } ومنها نجد :-<br>
+                * ع ليست علاقة انعكاسية لأن -١ ∈ ص ولكن (-١، -١) ∉ ع.<br>
+                * ع علاقة غير متناظرة لأن (-١، ١) ∈ ع ولكن (١، -١) ∉ ع.<br>
+                * ع علاقة متعدية لأن (-١، ١) ∈ ع ، (١، ١) ∈ ع نجد (-١، ١) ∈ ع .<br>
+                <strong>∴ ع ليست علاقة تكافؤ لأنها علاقة متعدية فقط.</strong>
+            </div>
+
+            <div class="box-title">تمرين محلول</div>
+            <p><strong>إذا كانت س = { ٢ ، ٣ ، ٤ } وكانت ع علاقة على س معرفة كالتالي :- <br> ع = { (س، ص) : س، ص ∈ س ، س + ص = عدداً زوجياً } </strong></p>
+            <p><strong>المطلوب: (أ) أوجد س × س (ب) اكتب عناصر ع ثم ارسم مخططها السهمي والبياني (جـ) بين إن كانت ع علاقة تكافؤ أم لا مبرراً جوابك.</strong></p>
+            
+            <div class="solution-section">
+                <strong>* الحل: *</strong><br>
+                عدد عناصر س = ٣ فإن عدد الأزواج المرتبة = ٣ × ٣ = ٩ أزواج.<br>
+                أ) س × س = { (٢، ٢)، (٢، ٣)، (٢، ٤)، (٣، ٢)، (٣، ٣)، (٣، ٤)، (٤، ٢)، (٤، ٣)، (٤، ٤) }.<br>
+                ونعلم أن كل علاقة هي جزئية أو تساوي س × س. ونعلم أن العدد يكون زوجياً إذا كان يقبل القسمة على ٢ حيث أن العلاقة ع تعني مجموعة كل الأزواج المرتبة التي يكون فيها مجموع مسقطي كل زوج مرتب هو عدد زوجي.<br>
+                ب) ع = { (٢، ٢) ، (٢، ٤) ، (٣، ٣) ، (٤، ٢) ، (٤، ٤) } ⊂ س × س.
+            </div>
+
+            <div class="diagram-container">
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 80">
+                        <circle cx="20" cy="50" r="4"/><text x="18" y="42" font-size="8">٢</text>
+                        <circle cx="50" cy="20" r="4"/><text x="48" y="12" font-size="8">٣</text>
+                        <circle cx="80" cy="50" r="4"/><text x="78" y="42" font-size="8">٤</text>
+                        <path d="M24 50 Q50 65 76 50" fill="none" stroke="black" marker-end="url(#arr)"/>
+                        <path d="M76 48 Q50 35 24 48" fill="none" stroke="black" marker-end="url(#arr)"/>
+                        <circle cx="20" cy="50" r="8" fill="none" stroke="black"/>
+                        <circle cx="50" cy="20" r="8" fill="none" stroke="black"/>
+                        <circle cx="80" cy="50" r="8" fill="none" stroke="black"/>
+                        <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z"/></marker></defs>
+                    </svg>
+                    <div class="label">تمثيل سهمي لـ ع</div>
+                </div>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 80">
+                        <line x1="20" y1="10" x2="20" y2="70" stroke="black"/><line x1="20" y1="70" x2="90" y2="70" stroke="black"/>
+                        <circle cx="35" cy="55" r="2"/><circle cx="75" cy="55" r="2"/><circle cx="55" cy="35" r="2"/><circle cx="35" cy="15" r="2"/><circle cx="75" cy="15" r="2"/>
+                        <text x="32" y="78" font-size="7">٢</text><text x="52" y="78" font-size="7">٣</text><text x="72" y="78" font-size="7">٤</text>
+                    </svg>
+                    <div class="label">تمثيل بياني لـ ع</div>
+                </div>
+            </div>
+            <p><strong>جـ) من (١)، (٢)، (٣) ع علاقة تكافؤ.</strong></p>
+        </div>
+
+        <div class="column">
+            <div class="box-title">١ : ٣ حل تمارين ومسائل الكتاب المدرسي ص ٢٣-٢٤ على العلاقة المتعدية</div>
+            
+            <div class="exercise-item">
+                <strong>[١] إذا كانت ك = { ١ ، ٢ ، ٣ } ، فبين نوع العلاقات التالية على ك من حيث كونها متعدية أو ليست متعدية ، فذكر السبب.</strong><br>
+                ع₁ = { (١، ١)، (٢، ٣)، (٣، ٢)، (٢، ٢) } ، ع₂ = { (١، ٢)، (٢، ٣)، (١، ٣) }<br>
+                ع₃ = { (٢، ١)، (١، ٢) } ، ع₄ = { (٣، ١) } ، ع₅ = ك × ك
+            </div>
+
+            <div class="solution-section">
+                <strong>* الحل: *</strong><br>
+                * <strong>ع₁ علاقة متعدية</strong> لأن شرط التعدي محقق لجميع الحالات :-<br>
+                حيث نجد: (٢، ٣) ∈ ع₁ ، (٣، ٢) ∈ ع₁ فإن (٢، ٢) ∈ ع₁.<br>
+                وأيضاً نجد: (٣، ٢) ∈ ع₁ ، (٢، ٣) ∈ ع₁ فإن (٣، ٣) ∈ ع₁ (يوجد نقص في المعطيات الأصلية ولكن الشرط يتبع التحليل).<br>
+                * <strong>ع₂ علاقة متعدية</strong> لأن (١، ٢) ∈ ع₂ ، (٢، ٣) ∈ ع₂ فإن (١، ٣) ∈ ع₂.<br>
+                * <strong>ع₃ ليست متعدية</strong> لأن (٢، ١) ∈ ع₃ ، (١، ٢) ∈ ع₃ ولكن (٢، ٢) ∉ ع₃.<br>
+                * <strong>ع₄ علاقة متعدية</strong> لأنها تتكون من زوج مرتب واحد فقط.<br>
+                * <strong>ع₅ = ك × ك علاقة متعدية</strong> لتحقق شرط التعدي لجميع الحالات.
+            </div>
+
+            <div class="exercise-item">
+                <strong>[٢] أي العلاقات الموضحة بالمخططات السهمية [ الشكل ١-١٥ أ، ب، جـ، د ] متعدية؟ ولماذا؟</strong>
+            </div>
+
+            <div class="diagram-container">
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 60">
+                        <circle cx="25" cy="30" r="3"/><circle cx="75" cy="30" r="3"/>
+                        <path d="M28 28 Q50 15 72 28" fill="none" stroke="black" marker-end="url(#arr)"/>
+                        <path d="M72 32 Q50 45 28 32" fill="none" stroke="black" marker-end="url(#arr)"/>
+                        <circle cx="25" cy="30" r="7" fill="none" stroke="black"/>
+                        <circle cx="75" cy="30" r="7" fill="none" stroke="black"/>
+                    </svg>
+                    <div class="label">شكل (١ - ١٥ أ)</div>
+                </div>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 60">
+                        <circle cx="20" cy="45" r="3"/><circle cx="50" cy="15" r="3"/><circle cx="80" cy="45" r="3"/>
+                        <line x1="23" y1="42" x2="47" y2="18" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="53" y1="18" x2="77" y2="42" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="23" y1="45" x2="77" y2="45" stroke="black" marker-end="url(#arr)"/>
+                    </svg>
+                    <div class="label">شكل (١ - ١٥ ب)</div>
+                </div>
+            </div>
+
+            <div class="diagram-container">
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 60">
+                        <circle cx="20" cy="45" r="3"/><circle cx="50" cy="15" r="3"/><circle cx="80" cy="45" r="3"/>
+                        <line x1="23" y1="42" x2="47" y2="18" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="53" y1="18" x2="77" y2="42" stroke="black" marker-end="url(#arr)"/>
+                        <circle cx="50" cy="15" r="7" fill="none" stroke="black"/>
+                    </svg>
+                    <div class="label">شكل (١ - ١٥ جـ)</div>
+                </div>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 100 60">
+                        <circle cx="20" cy="45" r="3"/><circle cx="50" cy="15" r="3"/><circle cx="80" cy="45" r="3"/>
+                        <line x1="23" y1="42" x2="47" y2="18" stroke="black" marker-end="url(#arr)"/>
+                        <line x1="23" y1="45" x2="77" y2="45" stroke="black" marker-end="url(#arr)"/>
+                    </svg>
+                    <div class="label">شكل (١ - ١٥ د)</div>
+                </div>
+            </div>
+
+            <div class="solution-section" style="font-size: 0.85em;">
+                ١) الشكل (١-١٥ أ) يمثل علاقة متعدية وذلك لتوفر الزوجين المرتبين (أ، ب)، (ب، أ) فتوفر معهما (أ، أ) و (ب، ب).<br>
+                ٢) الشكل (١-١٥ ب) يمثل علاقة متعدية وذلك لتوفر (أ، ب) و (ب، جـ) فتوفر معهما (أ، جـ).<br>
+                ٣) الشكل (١-١٥ جـ) <strong>لا يمثل</strong> علاقة متعدية وذلك لتوفر (ب، أ) و (أ، د) وعدم توفر (ب، د).<br>
+                ٤) الشكل (١-١٥ د) يمثل علاقة متعدية وذلك لتوفر (أ، ب) و (ب، جـ) فتوفر معهما (أ، جـ).
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

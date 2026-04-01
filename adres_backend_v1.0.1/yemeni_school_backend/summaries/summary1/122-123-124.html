@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام المعادلات من الدرجة الأولى - صفحة 43</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 10px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .header-box {
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .definition-section {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 15px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* تصميم العمود الأيمن (طريقة المقابلة) */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        /* تصميم العمود الأيسر (طريقة التعويض) */
+        .left-column {
+            order: 2;
+        }
+        .method-title {
+            background-color: #f0f0f0;
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .step-item {
+            margin-bottom: 10px;
+        }
+        .math-item {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .highlight-box {
+            border: 1px solid #000;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 5px;
+        }
+        .fraction span { display: block; padding: 0 5px; }
+        .fraction .bottom { border-top: 1px solid #000; }
+
+        .footer-note {
+            border: 1px solid #00ff00;
+            color: #ff0000;
+            text-align: center;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+
+        /* تنسيق الهواتف: الأيمن يعرض أولاً */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ 43 ـ</div>
+
+    <div class="header-box">نظام المعادلات من الدرجة الأولى في متغيرين (مجهولين)</div>
+
+    <div class="definition-section">
+        نظام المعادلتين من الدرجة الأولى ذات المتغيرين القابل للحل يتكون من حلين حل جبري وآخر بياني :-<br>
+        <strong>الحل الجبري :</strong> هو مجموعة الحل المشترك للمعادلتين الناتج من تقاطع مجموعة حل المعادلة الأولى مع مجموعة حل المعادلة الثانية .<br>
+        <strong>الحل البياني :</strong> هو الحل الناتج عن مستقيمين متقاطعين في نقطة واحدة هي نقطة تقاطع المستقيمين الممثلين لبياني المعادلتين .
+    </div>
+
+    <div class="header-box">حل نظام معادلتين من الدرجة الأولى في متغيرين جبرياً</div>
+
+    <div class="definition-section">
+        الصورة العامة للنظام معادلتين من الدرجة الأولى في متغيرين هي :<br>
+        أ<sub>1</sub> س + ب<sub>1</sub> ص = جـ<sub>1</sub> &larr; (1) ، أ<sub>2</sub> س + ب<sub>2</sub> ص = جـ<sub>2</sub> &larr; (2) حيث أ<sub>1</sub> ، أ<sub>2</sub> هي معاملات المتغير س<br>
+        ، ب<sub>1</sub> ، ب<sub>2</sub> هي معاملات ص<br>
+        أ<sub>1</sub> ، ب<sub>1</sub> ، جـ<sub>1</sub> ، أ<sub>2</sub> ، ب<sub>2</sub> ، جـ<sub>2</sub> &isin; حـ حيث جـ<sub>1</sub> ، جـ<sub>2</sub> حدود ثابتة (مطلقة) فإن أهم طرق حل معادلتين آنيتين جبرياً هي :
+    </div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="method-title">أولاً : طريقة المقابلة</div>
+            <div class="step-item">
+                نتبع الخطوات التالية :<br>
+                أ) نكتب كلاً من المعادلتين بدلالة أحد المتغيرين أي نحاول إيجاد س بدلالة ص أو ص بدلالة س في كليهما .<br>
+                ب) نضع المساواة بين قيمتي المتغير لنحصل على معادلة في متغير واحد يتم حلها بإيجاد قيمة ذلك المتغير (حسب أيهما أسهل) .<br>
+                جـ) نعوض بقيمة ذلك المتغير في إحدى المعادلتين لنحصل على قيمة المتغير الآخر فتكون مجموعة حل نظام المعادلتين هي مجموعة مكونة من زوج مرتب وحيد يمثل قيمتي المتغيرين الأول والثاني على الترتيب .
+            </div>
+
+            <p><strong>مثال : حل المعادلتين الآتيتين :</strong><br>
+            2 س - ص = 3 ، س + 2 ص = 4</p>
+            
+            <p><span class="solution-tag">* الحل *</span><br>
+            2 س - ص = 3 &larr; (1)<br>
+            س + 2 ص = 4 &larr; (2) (نطبق خطوات الحل)<br>
+            أ) نكتب س بدلالة ص من المعادلتين :<br>
+            من (1) 2 س = ص + 3 ومنها س = <span class="fraction"><span>ص + 3</span><span class="bottom">2</span></span> &larr; (3)<br>
+            ومن (2) س = 4 - 2 ص &larr; (4)<br>
+            ب) نضع المساواة بالنسبة لما يساوي المتغير س في المعادلتين (3) ، (4) :<br>
+            أي : <span class="fraction"><span>ص + 3</span><span class="bottom">2</span></span> = 4 - 2 ص (نحل هذه المعادلة بالنسبة لـ ص)<br>
+            نخلص من الكسر بالضرب × 2<br>
+            &therep; ص + 3 = 8 - 4 ص<br>
+            نجعل المتغيرات في طرف والثوابت في طرف<br>
+            ص + 4 ص = 8 - 3 ومنها 5 ص = 5 بقسمة الطرفين على 5<br>
+            ص = <span class="fraction"><span>5</span><span class="bottom">5</span></span> ومنها <span class="highlight-box">ص = 1</span><br>
+            جـ) نعوض بقيمة ص = 1 في إحدى المعادلتين لتعويض في المعادلة (2) نجد :<br>
+            س + 2 × 1 = 4 ومنها س = 4 - 2 &larr; <span class="highlight-box">أي س = 2</span><br>
+            &therep; مجموعة الحل = { ( س ، ص ) } = <span class="highlight-box">{ ( 2 ، 1 ) }</span>
+            </p>
+        </div>
+
+        <div class="column left-column">
+            <div class="method-title">ثانياً : طريقة التعويض</div>
+            <div class="step-item">
+                نتبع الخطوات التالية :<br>
+                أ) نكتب إحدى المعادلتين بدلالة أحد المتغيرين ليكن المتغير الأول نحصل على معادلة (3) .<br>
+                ب) نعوض عن ما يساويه المتغير الأول من المعادلة (3) في المعادلة (2) فنحصل على قيمة المتغير الثاني .<br>
+                جـ) نعوض عن قيمة المتغير الثاني في المعادلة (3) فنحصل على قيمة المتغير الأول :<br>
+                فتكون مجموعة الحل مكونة من زوج مرتب وحيد مسقطيه قيمتي المتغيرين الأول والثاني على الترتيب .
+            </div>
+
+            <p><strong>مثال : حل المعادلتين الآتيتين :</strong><br>
+            1) 2 س - ص = 3<br>
+            2) س + 2 ص = 4</p>
+
+            <p><span class="solution-tag">* الحل *</span><br>
+            أ) من المعادلة (1) لنكتب ص بدلالة س فنحصل على المعادلة<br>
+            (3) أي ص = 2 س - 3 &larr; (3)<br><br>
+            ب) نعوض عن المتغير ص من المعادلة (3) في المعادلة (2) نجد :<br>
+            س + 2 ( 2 س - 3 ) = 4 ( نحل هذه المعادلة بالنسبة لـ س )<br>
+            س + 4 س - 6 = 4 ومنها 5 س = 10 بالقسمة على 5<br>
+            س = <span class="fraction"><span>10</span><span class="bottom">5</span></span> = 2 ومنها <span class="highlight-box">س = 2</span><br><br>
+            جـ) نعوض بقيمة المتغير س = 2 في المعادلة (3) نجد<br>
+            ص = 2 × 2 - 3 ومنها ص = 4 - 3 <span class="highlight-box">أي ص = 1</span><br>
+            &therep; مجموعة الحل = { ( 2 ، 1 ) }
+            </p>
+
+            <div class="definition-section" style="background-color: #fefefe;">
+                <strong>التحقق :</strong> نعوض في كلا من المعادلتين بقيمتي س ، ص<br>
+                <strong>من (1) الطرف الأيمن = 2 × 2 - 1 = 4 - 1 = 3 = الطرف الأيسر</strong><br>
+                <strong>من (2) الطرف الأيمن = 2 + 2 × 1 = 2 + 2 = 4 = الطرف الأيسر</strong>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

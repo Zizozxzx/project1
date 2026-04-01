@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٧</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #8faae0;
+            /* Header Blue */
+            --header-border: #4472c4;
+            --orange-bg: #f8cbad;
+            --orange-border: #f4b084;
+            --page-bg: #ECEFF1;
+            --text-color: #000;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 20px 40px;
+            border: 3px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Fractions */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 2px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            display: block;
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        .fraction .bottom {
+            display: block;
+            padding: 0 2px;
+            line-height: 1.1;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: top;
+            position: relative;
+            top: -0.3em;
+        }
+
+        /* Headers */
+        .lesson-header {
+            background-color: var(--primary-blue);
+            border: 2px solid var(--header-border);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .section-header {
+            background-color: var(--primary-blue);
+            border: 2px solid var(--header-border);
+            color: #000;
+            text-align: center;
+            padding: 8px;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 0 15px 0;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Lists */
+        .info-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .numbered-list {
+            list-style-type: none;
+            counter-reset: my-counter;
+            padding: 0;
+        }
+
+        .numbered-list li {
+            counter-increment: my-counter;
+            margin-bottom: 8px;
+            padding-right: 25px;
+            position: relative;
+            font-size: 1.05em;
+        }
+
+        .numbered-list li::before {
+            content: counter(my-counter, arabic-indic) ". ";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        /* Flowcharts/Buttons */
+        .method-btn {
+            background-color: var(--orange-bg);
+            border: 1px solid var(--orange-border);
+            padding: 5px 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 0 10px;
+            font-weight: bold;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Drills */
+        .drill-box {
+            border: 2px solid #777;
+            padding: 0;
+            margin: 20px 0;
+            background: #fff;
+        }
+
+        .drill-header-strip {
+            background: #e0e0e0;
+            /* Greyish header in image for Drill 1 */
+            padding: 5px 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #777;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drill-header-text {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.1em;
+        }
+
+        .drill-content {
+            padding: 15px;
+        }
+
+        /* Drill 1 Grid */
+        .eq-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .eq-item {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            direction: ltr;
+            /* Equations look LTR often, but variables are Arabic. Keep RTL but be careful. */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: rtl;
+            font-weight: bold;
+        }
+
+        .eq-item:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+        }
+
+        .eq-item.selected {
+            background: #C8E6C9;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px #4CAF50;
+        }
+
+        .eq-item.wrong {
+            background: #FFCDD2;
+            border-color: #F44336;
+        }
+
+        .drill-footer {
+            background-color: var(--orange-bg);
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-top: 1px solid #777;
+        }
+
+        /* Questions for Drill 2 */
+        .q-row {
+            margin-bottom: 20px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 10px;
+        }
+
+        .q-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding-right: 20px;
+        }
+
+        .q-input {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Amiri', serif;
+            text-align: center;
+        }
+
+        .check-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Amiri', serif;
+        }
+
+        .feedback {
+            margin-right: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: green;
+            display: inline;
+        }
+
+        .feedback.incorrect {
+            color: red;
+            display: inline;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Main Header -->
+        <div class="lesson-header">
+            الدرس الثالث: معادلة الدرجة الثانية في متغير واحد
+        </div>
+
+        <!-- Introduction List -->
+        <ul class="info-list">
+            <li>أخذتم في الصف الثامن معادلة الدرجة الأولى ذات متغير واحد وطريقة حلها، وشروطها كالآتي:
+                <ol class="numbered-list" style="margin-right: 20px; margin-top: 5px;">
+                    <li>أكبر أس فيها = ٢.</li>
+                    <li>لها متغير واحد فقط.</li>
+                    <li>الصورة العامة لها: أ س<sup>٢</sup> + ب س + جـ = ٠.</li>
+                    <li>عدد حلولها = حلين حقيقيين في ح.</li>
+                    <li>طرق حلها: سنقتصر على طريقتين هما:
+                        <br>
+                        <div style="text-align: center; margin-top: 10px;">
+                            <span class="method-btn">طريقة التحليل</span>
+                            <span class="method-btn">طريقة القانون العام</span>
+                        </div>
+                    </li>
+                    <li>قبل حل معادلة الدرجة الثانية ذات متغير ولا بد من جعلها معادلة صفرية أي تساوي الصفر.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <!-- Drill 1 (Training A) -->
+        <div class="drill-box">
+            <div class="drill-header-strip">
+                <span class="drill-header-text">تدريب (أ):</span>
+                <span>ميز معادلة الدرجة الثانية ذات متغير واحد فيما يلي (اضغط على المعادلة الصحيحة):</span>
+            </div>
+
+            <!-- Refined List based on Image layout -->
+
+            <div class="eq-grid">
+                <!-- Refined List based on Image layout -->
+                <div class="eq-item" onclick="toggleSelect(this, true)">س<sup>٢</sup> + ١ = ٣س</div>
+                <div class="eq-item" onclick="toggleSelect(this, true)">٢س<sup>٢</sup> - ١ = ٠</div>
+                <div class="eq-item" onclick="toggleSelect(this, true)">ص<sup>٢</sup> - ٤ = ٠</div>
+                <div class="eq-item" onclick="toggleSelect(this, false)">س - ص = ٤</div>
+
+                <div class="eq-item" onclick="toggleSelect(this, true)">٢س + س<sup>٢</sup> = ٠</div>
+                <div class="eq-item" onclick="toggleSelect(this, false)">ص + ٢ص = ٤</div>
+                <div class="eq-item" onclick="toggleSelect(this, true)">٣ - س = <span class="fraction"><span
+                            class="top">١</span><span class="bottom">س</span></span></div>
+                <div class="eq-item" onclick="toggleSelect(this, false)">ص + ٣س = ٨</div>
+
+                <div class="eq-item" onclick="toggleSelect(this, true)">٤س<sup>٢</sup> = ٢</div>
+            </div>
+
+            <div class="drill-footer">
+                معادلة الدرجة الثانية ذات متغير واحد
+            </div>
+        </div>
+
+        <!-- Section 2 Header -->
+        <div class="section-header">
+            أولاً: حل معادلات الدرجة الثانية في متغير واحد بطريقة التحليل
+        </div>
+
+        <!-- Text Block -->
+        <p style="font-size: 1.1em; line-height: 1.8;">
+            في هذا الدرس سنستخدم طرق التحليل المأخوذة في الوحدة السابقة، وهي:
+        </p>
+        <ol class="numbered-list">
+            <li>التحليل باستخدام الفرق بين مربعين: في هذا التحليل سنحصل على حلين حقيقيين متساويين مختلفي الإشارة
+                والتي
+                هي على الصورة: أ س<sup>٢</sup> - جـ = ٠.</li>
+            <li>التحليل باستخدام المقدار الثلاثي البسيط وغير البسيط: في هذا التحليل سنحصل على حلين حقيقيين مختلفين
+                والتي
+                هي على الصورة: أ س<sup>٢</sup> + ب س + جـ = ٠.</li>
+            <li>التحليل باستخدام المقدار الثلاثي المربع الكامل: في هذا التحليل سنحصل على حلين حقيقيين متساويين
+                متشابهي
+                الإشارة والتي هي على الصورة: أ س<sup>٢</sup> + ب س + جـ = ٠ أو (س + <span
+                    style="display:inline-block; transform: scaleX(-1);">ج</span>)<sup>٢</sup> = ٠.</li>
+            <!-- Root symbol hack or just text -->
+            <li>التحليل باستخدام العامل المشترك الأكبر: في هذا التحليل سيكون أحد الحلول يساوي الصفر، والتي هي على
+                الصورة: أ س<sup>٢</sup> + ب س = ٠.</li>
+            <li>التحليل باستخدام إكمال المربع: في هذا التحليل سنحصل على حلين حقيقيين مختلفين، ونستخدم هذه الطريقة
+                إذا
+                عجزنا عن استخدام التحليلات السابقة، والتي سنستخدمها لاستنتاج الطريقة الثانية.</li>
+        </ol>
+
+        <!-- Note Box -->
+        <div style="background-color: #eee; padding: 10px; border-radius: 8px; margin: 20px 0; border: 2px solid #555;">
+            <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">ملاحظة:</div>
+            <ul style="list-style-type: disc; padding-right: 20px;">
+                <li>ليس كل المعادلات نستطيع حلها باستخدام طريقة التحليل.</li>
+                <li>المعادلة التي على الصورة أ س<sup>٢</sup> + جـ = ٠ ، مستحيلة الحل في ح.</li>
+            </ul>
+        </div>
+
+        <!-- Drill 2 (Training B) -->
+        <div class="drill-box">
+            <div class="drill-header-strip">
+                <span class="drill-header-text">تدريب (أ):</span>
+                <!-- Visual says 'Training A' again? Or maybe B? Let's assume continuation -->
+                <span>أوجد مجموعة حل المعادلات التالية باستخدام طريقة التحليل:</span>
+            </div>
+            <div class="drill-content">
+
+                <!-- Q1 -->
+                <div class="q-row">
+                    <div>١) س<sup>٢</sup> + ٤س = ٠</div>
+                    <div class="q-input-group">
+                        <input type="text" class="q-input" id="q1-input" placeholder="مثال: {٠، -٤}">
+                        <button class="check-btn"
+                            onclick="checkAnswer('q1', ['{0, -4}', '{0,-4}', '{-4, 0}', '{-4,0}', '{٠، -٤}', '{٠،-٤}', '{-٤، ٠}', '{-٤،٠}', '{٠, -٤}', '{-٤, ٠}'])">تحقق</button>
+                        <span id="q1-feedback" class="feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="q-row">
+                    <div>٢) ( ٢ع - ١ )<sup>٢</sup> = ١</div>
+                    <div class="q-input-group">
+                        <input type="text" class="q-input" id="q2-input" placeholder="مجموعة الحل">
+                        <!-- (2z-1)^2 = 1 -> 2z-1=1 or -1 -> 2z=2 or 0 -> z=1 or 0 -->
+                        <button class="check-btn"
+                            onclick="checkAnswer('q2', ['{0, 1}', '{0,1}', '{1, 0}', '{1,0}', '{٠، ١}', '{٠،١}', '{١، ٠}', '{١،٠}', '{٠, ١}', '{١, ٠}'])">تحقق</button>
+                        <span id="q2-feedback" class="feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="q-row">
+                    <div>٣) ص<sup>٢</sup> - ٢ص + ١ = ٠</div>
+                    <div class="q-input-group">
+                        <input type="text" class="q-input" id="q3-input" placeholder="مجموعة الحل">
+                        <!-- (y-1)^2 = 0 -> y=1 -> {1} -->
+                        <button class="check-btn" onclick="checkAnswer('q3', ['{1}', '{١}'])">تحقق</button>
+                        <span id="q3-feedback" class="feedback"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٧ -</div>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleSelect(el, isQuadratic) {
+            // Logic: 
+            // If it is quadratic, toggle 'selected'.
+            // If not, toggle 'wrong'.
+
+            if (isQuadratic) {
+                if (el.classList.contains('selected')) {
+                    el.classList.remove('selected');
+                } else {
+                    el.classList.add('selected');
+                    el.classList.remove('wrong');
+                }
+            } else {
+                if (el.classList.contains('wrong')) {
+                    el.classList.remove('wrong');
+                } else {
+                    el.classList.add('wrong');
+                    el.classList.remove('selected');
+                }
+            }
+        }
+
+        function checkAnswer(id, correctAnswers) {
+            const input = document.getElementById(id + '-input').value.trim();
+            const feedback = document.getElementById(id + '-feedback');
+
+            // Normalize input (replace Arabic commas with English, spaces, brackets)
+            let norm = input.replace(/،/g, ',').replace(/\s/g, '');
+            // Also handle Arabic numerals if needed, but simple string match against variations is safer for now.
+
+            // Basic check
+            let isCorrect = correctAnswers.some(ans => {
+                let normAns = ans.replace(/،/g, ',').replace(/\s/g, '');
+                return norm === normAns;
+            });
+
+            // Allow manual override for Q2 as it is complex (General formula maybe? No, factorization drill)
+            // 4z^2 - z - 1 = 0. Factors? b^2 - 4ac = 1 - 4(4)(-1) = 17. Not perfect square. 
+            // Factory method requested. Maybe I transcribed wrong?
+            // Image: 2) 4 (ain)^2 - (ain) = 1? 
+            // Or maybe 2) (ain)^2 - (ain) = 1?
+            // Let's look closer at crop. "2) 4 ain^2 - ain = 1".
+            // If it's factorization, usually integer roots.
+            // Maybe "4 ain^2 = 1"? -> ain^2 = 1/4 -> ain = +/- 1/2.
+            // Text looks like "4 ain^2 - ain = 1".
+            // If it is solvable by factorization, maybe (4x+?)(x+?)?
+            // Wait, maybe the text is "2 ain^2 - ain = 1"? -> 2z^2 - z - 1 = 0 -> (2z+1)(z-1) = 0 -> z = -1/2, 1.
+            // Visually "4" looks distinctive. "2" looks like "٢". "4" looks like "٤".
+            // It looks like "٤".
+            // Let's leave Q2 open or just generic feedback for now.
+
+            if (isCorrect) {
+                feedback.textContent = "صحيح!";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "حاول مرة أخرى";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+</body>
+
+</html>

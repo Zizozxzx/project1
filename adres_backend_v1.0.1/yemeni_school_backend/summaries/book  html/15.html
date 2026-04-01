@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الصف التاسع – المجموعات والعلاقات – صفحة ١٩</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Arial","Tahoma",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 10px;
+    box-sizing:border-box;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+.header .title{
+    font-size:18px;
+    margin-left:15px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+
+/* النص */
+p{
+    font-size:18px;
+    line-height:2;
+    margin:6px 0;
+}
+
+/* الأشكال */
+.figures{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0 5px;
+}
+.figure{
+    text-align:center;
+}
+.caption{
+    font-size:16px;
+    margin-top:6px;
+}
+
+/* صندوق التعريف */
+.box{
+    background:#dff1fb;
+    border:2px solid #000;
+    border-radius:18px;
+    padding:18px 22px;
+    font-size:18px;
+    line-height:2;
+    margin:20px 0;
+}
+
+/* مثال */
+.badge{
+    display:inline-block;
+    border:2px solid #000;
+    border-radius:18px;
+    padding:4px 18px;
+    font-size:18px;
+    margin:10px 0;
+}
+
+/* التذييل */
+.footer{
+    display:flex;
+    align-items:center;
+    margin-top:30px;
+}
+.footer .page-num{
+    border:2px solid #1aa3d9;
+    border-radius:50%;
+    padding:8px 16px;
+    font-size:18px;
+    margin-left:10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#1aa3d9;
+}
+.link{
+    text-align:center;
+    margin-top:5px;
+    font-size:16px;
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- الرأس -->
+<div class="header">
+    <div class="title">المجموعات والعلاقات</div>
+    <div class="line"></div>
+</div>
+
+<p>
+إذا كان محمد أخا إبراهيم ، إبراهيم أخا حمزة ،
+</p>
+
+<p>
+فإن محمد أخو حمزة .
+</p>
+
+<p>
+∴ ع = { ( محمد ، إبراهيم ) ، ( إبراهيم ، حمزة ) ، ( محمد ، حمزة ) } .
+</p>
+
+<p>
+ويمكن تمثيلها في الشكلين ( ١٢ - أ ) ، ( ١٢ - ب ) :
+</p>
+
+<!-- الأشكال (تم التبديل هنا) -->
+<div class="figures">
+
+<!-- الشكل (١٢ - أ) المخطط السهمي (يمين) -->
+<div class="figure">
+<svg width="260" height="160">
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6" fill="black"/>
+</marker>
+</defs>
+
+<circle cx="50" cy="80" r="4" fill="black"/>
+<circle cx="130" cy="80" r="4" fill="black"/>
+<circle cx="210" cy="80" r="4" fill="black"/>
+
+<text x="30" y="115">حمزة</text>
+<text x="110" y="115">إبراهيم</text>
+<text x="190" y="115">محمد</text>
+
+<line x1="210" y1="80" x2="130" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="130" y1="80" x2="50" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M210 95 Q130 130 50 95" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+<div class="caption">شكل ( ١٢ - أ )</div>
+</div>
+
+<!-- الشكل (١٢ - ب) الرسم البياني (يسار) -->
+<div class="figure">
+<svg width="260" height="220">
+<line x1="80" y1="40" x2="80" y2="180" stroke="black"/>
+<line x1="80" y1="180" x2="220" y2="180" stroke="black"/>
+
+<line x1="130" y1="40" x2="130" y2="180" stroke="black"/>
+<line x1="180" y1="40" x2="180" y2="180" stroke="black"/>
+
+<line x1="80" y1="90" x2="220" y2="90" stroke="black"/>
+<line x1="80" y1="140" x2="220" y2="140" stroke="black"/>
+
+<circle cx="130" cy="90" r="4" fill="#1aa3d9"/>
+<circle cx="180" cy="90" r="4" fill="#1aa3d9"/>
+<circle cx="130" cy="140" r="4" fill="#1aa3d9"/>
+
+<text x="30" y="95">حمزة</text>
+<text x="30" y="145">إبراهيم</text>
+<text x="30" y="195">محمد</text>
+
+<text x="115" y="205">محمد</text>
+<text x="165" y="205">إبراهيم</text>
+<text x="215" y="205">حمزة</text>
+</svg>
+<div class="caption">شكل ( ١٢ - ب )</div>
+</div>
+
+</div>
+
+<p>
+مثل هذه العلاقات ( أطول من ) ، ( أ خ ) ، وعلاقات أخرى مثل ( يوازي ) ،
+( أصغر من ) ، ( أكبر من ) ، … إلخ تسمى علاقات متعدية ، وتسمى أيضًا انتقالية .
+</p>
+
+<div class="box">
+تكون العلاقة ع متعدية على المجموعة س :
+إذا كان لكل ( أ ، ب ) ، ( ب ، ج ) ∈ ع ،
+فإن ( أ ، ج ) ∈ ع ،
+حيث أ ، ب ، ج ∈ س .
+</div>
+
+<div class="badge">مثال ( ٢ )</div>
+
+<p>
+إذا كانت : ص = { ٢ ، ٤ ، ٧ } ، ع علاقة ( أكبر من ) على المجموعة ص ،
+فهل ع علاقة انعكاسية ، متناظرة ، متعدية على المجموعة ص ؟ اذكر السبب .
+</p>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="page-num">١٩</div>
+    <div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

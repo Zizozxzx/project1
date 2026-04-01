@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢٦ - مبرهنات المماسات والزاوية المماسية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --alt-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drill-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            border: 1.5px solid #000;
+            padding: 8px;
+            background-color: #fff;
+        }
+
+        .drill-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-line {
+            border: none;
+            border-bottom: 1px dotted #000;
+            width: 100px;
+            text-align: center;
+            outline: none;
+            font-family: inherit;
+        }
+
+        /* Theorem Box */
+        .mega-theorem-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-family: var(--font-calligraphy);
+        }
+
+        .theorem-box {
+            border: 1.5px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .thm-tag {
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .analysis-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .analysis-list li {
+            margin-bottom: 3px;
+            padding-right: 18px;
+            position: relative;
+        }
+
+        .analysis-list li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        /* Result Boxes with Arrows */
+        .result-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .arrow {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .result-content {
+            border: 1.5px dashed #000;
+            padding: 6px 15px;
+            flex: 1;
+            text-align: center;
+            background-color: #fcfcfc;
+        }
+
+        /* Complex Drill */
+        .complex-drill {
+            border: 1.5px solid #000;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div class="drill-section">
+                    <div style="flex: 1;">
+                        <span class="drill-title">تدريب ٢:</span>
+                        أ. من خلال الشكل المجاور احسب ما يلي:
+                        <br>ق ( ⦣ جـ أ م ) = <input type="text" class="input-line">
+                        <br>ق ( ⦣ جـ أ د ) = <input type="text" class="input-line">
+                        <br>ب. هل جـ د أ مثلث متساوي الساقين؟ لماذا؟
+                        <br><input type="text" class="input-line" style="width: 100%;">
+                    </div>
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="25" cy="50" r="20" fill="none" stroke="black" stroke-width="1" />
+                        <line x1="25" y1="50" x2="80" y2="10" stroke="black" stroke-width="1" />
+                        <line x1="25" y1="50" x2="80" y2="90" stroke="black" stroke-width="1" />
+                    </svg>
+                </div>
+                <div class="drill-section">
+                    <div style="flex: 1;">
+                        <span class="drill-title">تدريب ٣:</span>
+                        من خلال الشكل المجاور هل هـ جـ أ مثلث متساوي الساقين؟ اذكر السبب.
+                        <br><input type="text" class="input-line" style="width: 100%;">
+                        <br><input type="text" class="input-line" style="width: 100%;">
+                    </div>
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="black" stroke-width="1.2" />
+                        <line x1="10" y1="10" x2="90" y2="50" stroke="black" stroke-width="1" />
+                        <line x1="10" y1="90" x2="90" y2="50" stroke="black" stroke-width="1" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="mega-theorem-header">العلاقة بين مماسين لدائرة واحدة مرسومان من نقطة خارجها</div>
+
+            <p style="font-size: 0.95em;">سيتم توضيح هذه العلاقة من خلال: <span
+                    style="font-weight: bold; text-decoration: underline;">مبرهنة ( ١١ ):</span></p>
+
+            <div class="theorem-box">
+                المماسان المرسومان من نقطة خارجها متطابقان.
+                <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٤٧).</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 12px;">
+                <svg width="150" height="80" viewBox="0 0 200 100">
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="black" stroke-width="1.2" />
+                    <circle cx="50" cy="50" r="1.5" fill="black" />
+                    <line x1="50" y1="50" x2="160" y2="50" stroke="black" stroke-width="0.8" stroke-dasharray="2" />
+                    <!-- Tangents -->
+                    <line x1="160" y1="50" x2="55" y2="15" stroke="black" stroke-width="1.2" />
+                    <line x1="160" y1="50" x2="55" y2="85" stroke="black" stroke-width="1.2" />
+                    <text x="165" y="55" font-family="Amiri" font-size="12">أ</text>
+                    <text x="50" y="10" font-family="Amiri" font-size="12">ب</text>
+                    <text x="50" y="98" font-family="Amiri" font-size="12">جـ</text>
+                </svg>
+                <div style="flex: 1; font-size: 0.9em;">
+                    <span style="font-weight: bold; text-decoration: underline;">من خلال الشكل المجاور:</span>
+                    <ul class="analysis-list">
+                        <li>النقطة أ نقطة خارج الدائرة.</li>
+                        <li>أ ب ، أ جـ مماسـان للدائرة مرسومان من النقطة أ.</li>
+                        <li>| أ ب | = | أ جـ |.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <span style="font-weight: bold; font-size: 1em;">نتائج على المبرهنة:</span>
+            <div class="result-item">
+                <span class="arrow">⬅</span>
+                <div class="result-content">المماسان المرسومان من نقطة خارج دائرة يقابلان زاويتين مركزيتين متطابقتين.
+                </div>
+            </div>
+            <div class="result-item">
+                <span class="arrow">⬅</span>
+                <div class="result-content">القطعة المستقيمة الواصلة من مركز الدائرة ونقطة خارجها تنصف الزاوية التي
+                    ضلعاها مماسا الدائرة من تلك النقطة.</div>
+            </div>
+
+            <div class="complex-drill">
+                <svg width="120" height="120" viewBox="0 0 150 150">
+                    <polygon points="75,10 20,130 130,130" fill="none" stroke="black" stroke-width="1.5" />
+                    <circle cx="75" cy="88" r="42" fill="none" stroke="black" stroke-width="1" />
+                    <text x="70" y="5" font-family="Amiri" font-size="12">أ</text>
+                    <text x="10" y="140" font-family="Amiri" font-size="12">ب</text>
+                    <text x="135" y="140" font-family="Amiri" font-size="12">جـ</text>
+                    <!-- Lengths -->
+                    <text x="40" y="50" font-family="Amiri" font-size="10">٣ سم</text>
+                    <text x="100" y="50" font-family="Amiri" font-size="10">٣ سم</text>
+                    <text x="40" y="145" font-family="Amiri" font-size="10">٦ سم</text>
+                    <text x="110" y="145" font-family="Amiri" font-size="10">١ سم</text>
+                </svg>
+                <div style="flex: 1; font-size: 0.9em;">
+                    <span class="drill-title">تدريب ٤: من خلال الشكل المجاور احسب التالي:</span>
+                    ١) ق ( ⦣ هـ م و ) = <input type="text" class="input-line">
+                    <br>٢) | أ د | = <input type="text" class="input-line">
+                    <br>٣) | و جـ | = <input type="text" class="input-line">
+                    <br>٣*) | هـ ب | = <input type="text" class="input-line">
+                    <br>٤) إذا كان ق ( ⦣ هـ م د ) = ١٠٠ ، فإن ق ( ⦣ د م و ) = <input type="text" class="input-line">
+                </div>
+            </div>
+
+            <div class="mega-theorem-header">العلاقة بين الزاوية المحيطية والزاوية المحصورة بين مماس دائرة ووتر</div>
+
+            <p style="font-size: 0.95em;">سيتم توضيح هذه العلاقة من خلال: <span
+                    style="font-weight: bold; text-decoration: underline;">مبرهنة ( ١٢ ):</span></p>
+
+            <div class="theorem-box">
+                قياس الزاوية المحصورة بين المماس والوتر المار بنقطة التماس يساوي قياس الزاوية المحيطية المقابلة لوتر
+                التماس من الجهة الأخرى.
+                <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٤٩).</span>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٥ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional logic for calculation drills
+    </script>
+</body>
+
+</html>

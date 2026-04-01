@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 55</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Amiri","Traditional Arabic",serif;
+}
+
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:36px 55px 150px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+/* الخط العلوي */
+.top-line{
+    height:3px;
+    background:#12a7db;
+    margin-bottom:18px;
+}
+
+/* رأس الصفحة */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+/* الفقرات */
+p{
+    font-size:20px;
+    line-height:2.25;
+    letter-spacing:0.2px;
+    word-spacing:3px;
+    margin:14px 0;
+}
+
+/* الأشكال */
+.figures{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0;
+}
+
+.figure{
+    text-align:center;
+}
+
+.figure-label{
+    font-size:17px;
+    margin-top:6px;
+}
+
+/* ===== التذييل ===== */
+.footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    left:0;
+    text-align:center;
+}
+
+.footer-line-wrapper{
+    position:relative;
+    width:100%;
+    height:46px;
+    margin-bottom:10px;
+}
+
+.footer-line{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#12a7db;
+    transform:translateY(-50%);
+    z-index:1;
+}
+
+.page-number{
+    position:relative;
+    display:inline-block;
+    padding:6px 28px;
+    background:#fff;
+    border:4px solid #12a7db;
+    border-radius:50%;
+    font-size:22px;
+    z-index:2;
+}
+
+.footer-link{
+    font-size:18px;
+    color:#0000cc;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="header">
+    <div>المجموعات والعلاقات</div>
+    <div>الوحدة الأولى</div>
+</div>
+
+<p>
+[١٠] اكتب المجموعات الممثلة بالمناطق المظللة في كل من الأشكال
+(١ − ٥٠ أ ، ب ، ج) التالية :
+</p>
+
+<div class="figures">
+
+<!-- شكل (أ) -->
+<div class="figure">
+<svg width="260" height="180">
+    <defs>
+        <pattern id="hatchBlue" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#12a7db" stroke-width="2"/>
+        </pattern>
+    </defs>
+
+    <rect x="5" y="5" width="250" height="170" fill="url(#hatchBlue)" stroke="#000" stroke-width="2"/>
+    <ellipse cx="110" cy="95" rx="70" ry="45" fill="#fff" stroke="#000" stroke-width="2"/>
+    <ellipse cx="170" cy="95" rx="70" ry="45" fill="none" stroke="#000" stroke-width="2"/>
+
+    <text x="60" y="40">ص</text>
+    <text x="180" y="40">س</text>
+</svg>
+<div class="figure-label">شكل (١ − ٥٠ أ)</div>
+</div>
+
+<!-- شكل (ب) -->
+<div class="figure">
+<svg width="260" height="180">
+    <defs>
+        <pattern id="hatchBlack" width="6" height="6" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="2"/>
+        </pattern>
+    </defs>
+
+    <ellipse cx="110" cy="95" rx="80" ry="50" fill="#fff" stroke="#000" stroke-width="2"/>
+    <ellipse cx="170" cy="95" rx="80" ry="50" fill="url(#hatchBlack)" stroke="#000" stroke-width="2"/>
+
+    <text x="80" y="35">م</text>
+    <text x="190" y="35">ل</text>
+</svg>
+<div class="figure-label">شكل (١ − ٥٠ ب)</div>
+</div>
+
+</div>
+
+<!-- شكل (ج) -->
+<div class="figure">
+<svg width="420" height="200">
+    <defs>
+        <pattern id="hatchGray" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#000" stroke-width="1.5"/>
+        </pattern>
+    </defs>
+
+    <rect x="5" y="5" width="410" height="190" fill="url(#hatchGray)" stroke="#000" stroke-width="2"/>
+    <ellipse cx="210" cy="100" rx="150" ry="55" fill="#fff" stroke="#000" stroke-width="2"/>
+    <text x="330" y="60">ل</text>
+</svg>
+<div class="figure-label">شكل (١ − ٥٠ ج)</div>
+</div>
+
+<p>
+[١١] إذا كانت س = { أ ، ب ، ج ، د } ، ص = { ٣ ، ٥ ، ٧ } ،
+فأوجد س × ص ، ثم مثله بيانيًا .
+</p>
+
+<p>
+[١٢] بيّن أن العلاقة الموضحة بالمخطط السهمي في الشكل (١ − ٥١)
+والمعرفة على المجموعة س = { ١ ، ٣ ، ٥ } ،
+ليست انعكاسية ولا متناظرة ، ولكنها متعدية .
+</p>
+
+<div class="figure">
+<svg width="420" height="140">
+    <rect x="5" y="5" width="410" height="130" fill="none" stroke="#000" stroke-width="2"/>
+
+    <!-- النقاط -->
+    <circle cx="100" cy="70" r="5" fill="#000"/>
+    <text x="92" y="95">٥</text>
+
+    <circle cx="210" cy="70" r="5" fill="#000"/>
+    <text x="202" y="95">٣</text>
+
+    <circle cx="320" cy="70" r="5" fill="#000"/>
+    <text x="312" y="95">١</text>
+
+    <!-- الأسهم -->
+    <path d="M100 65 C80 30,140 30,120 65" fill="none" stroke="#000" stroke-width="2"/>
+    <path d="M210 65 C190 30,250 30,230 65" fill="none" stroke="#000" stroke-width="2"/>
+
+    <path d="M100 75 C200 120,300 120,320 75" fill="none" stroke="#000" stroke-width="2"/>
+    <path d="M210 75 C260 95,300 95,320 75" fill="none" stroke="#000" stroke-width="2"/>
+</svg>
+<div class="figure-label">شكل (١ − ٥١)</div>
+</div>
+
+<!-- التذييل -->
+<div class="footer">
+    <div class="footer-line-wrapper">
+        <div class="footer-line"></div>
+        <div class="page-number">٥٥</div>
+    </div>
+    <div class="footer-link">
+        http://www.e-learning-moe.edu.ye/
+    </div>
+</div>
+
+</div>
+</body>
+</html>

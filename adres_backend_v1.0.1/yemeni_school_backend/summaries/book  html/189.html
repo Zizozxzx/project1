@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار الوحدة</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Arial",sans-serif;
+  color:#000;
+}
+
+.page{
+  max-width:420px;
+  margin:auto;
+  padding:16px 14px 90px;
+}
+
+/* الخط العلوي */
+.top-line{
+  height:4px;
+  background:#1aa6df;
+  margin-bottom:12px;
+}
+
+/* عنوان الاختبار */
+.unit-header{
+  border:3px solid #000;
+  border-radius:18px;
+  padding:6px 16px;
+  font-size:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.unit-header span{
+  color:#1aa6df;
+  font-weight:bold;
+}
+
+/* نص الأسئلة */
+.question{
+  font-size:16px;
+  line-height:1.9;
+  margin:10px 0;
+}
+
+/* كسر */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+}
+.frac > span{
+  display:block;
+  padding:0 4px;
+}
+.frac .top{
+  border-bottom:1.5px solid #000;
+}
+
+/* رسم */
+.figure{
+  margin:14px 0;
+  text-align:center;
+}
+.caption{
+  font-size:14px;
+  margin-top:4px;
+}
+
+/* التذييل */
+.footer{
+  position:relative;
+  margin-top:50px;
+}
+.footer-line{
+  height:4px;
+  background:#1aa6df;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-14px;
+  border:3px solid #1aa6df;
+  border-radius:50%;
+  width:48px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  background:#fff;
+}
+.site{
+  text-align:center;
+  color:#1aa6df;
+  font-size:16px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="top-line"></div>
+
+  <div class="unit-header">
+    <span>٥ : ٤</span>
+    اختبار الوحدة
+  </div>
+
+  <div class="question">
+    ١) في الشكل (٤–٢٢) أ ب ج مثلث قائم الزاوية في ب،
+    ب س ⟂ أ ج ، أوجد |ب س| ، |أ ج| إذا كان:
+    |أ ب| = <span class="frac"><span class="top">٣</span><span>√٧</span></span> سم،
+    |أ س| = ٣ سم،
+    |س ج| = ٧ سم.
+  </div>
+
+  <div class="figure">
+    <svg viewBox="0 0 300 220" width="100%">
+      <!-- أضلاع المثلث -->
+      <line x1="40" y1="180" x2="260" y2="180" stroke="#000" stroke-width="2"/>
+      <line x1="260" y1="180" x2="260" y2="40" stroke="#000" stroke-width="2"/>
+      <line x1="40" y1="180" x2="260" y2="40" stroke="#000" stroke-width="2"/>
+
+      <!-- الارتفاع -->
+      <line x1="170" y1="120" x2="260" y2="180"
+            stroke="#000" stroke-width="2"/>
+
+      <!-- زوايا قائمة -->
+      <rect x="235" y="155" width="20" height="20"
+            fill="none" stroke="#1aa6df" stroke-width="2"/>
+      <rect x="165" y="105" width="18" height="18"
+            fill="none" stroke="#1aa6df" stroke-width="2"/>
+
+      <!-- الرؤوس -->
+      <text x="28" y="195" font-size="16">ج</text>
+      <text x="268" y="195" font-size="16">ب</text>
+      <text x="268" y="35" font-size="16">أ</text>
+      <text x="150" y="115" font-size="16">س</text>
+    </svg>
+    <div class="caption">شكل (٤–٢٢)</div>
+  </div>
+
+  <div class="question">
+    ٢) أثبت أن الأعداد: ١ ، ٢ ، √٥ تمثل أطوال أضلاع مثلث قائم الزاوية.
+  </div>
+
+  <div class="question">
+    ٣) س ص ع مثلث قائم الزاوية في س، فيه |س ص| =
+    <span class="frac"><span class="top">٢</span><span>√١٧</span></span> سم،
+    |ص ع| = ٤ سم، أوجد كلاً من: جا ع ، جتا ع ، ظا ع.
+  </div>
+
+  <div class="question">
+    ٤) إذا كان ظا هـ =
+    <span class="frac"><span class="top">٧</span><span>٣</span></span>
+    حيث هـ زاوية حادة، أوجد كلاً من: جا هـ ، جتا هـ.
+  </div>
+
+  <div class="question">
+    ٥) (أ) احسب قيمة:
+    <span class="frac">
+      <span class="top">ظا ٦٠° − ٢ جتا ٦٠°</span>
+      <span>١ + ظا ٤٥°</span>
+    </span>
+    <br>
+    (ب) أثبت أن:
+    ( جا ٣٠° + جتا ٣٠° )² = ١ + جا ٦٠°.
+  </div>
+
+  <div style="text-align:center;margin:30px 0;">
+    <svg viewBox="0 0 300 120" width="70%">
+      <text x="150" y="90"
+        text-anchor="middle"
+        font-size="60"
+        fill="#1aa6df"
+        font-family="Amiri">
+       تم بحمد الله
+      </text>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line"></div>
+    <div class="page-number">١٩٢</div>
+  </div>
+
+  <div class="site">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+
+</div>
+</body>
+</html>

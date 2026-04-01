@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملزمة – صفحة 28</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --border-color: #000;
+            --bg-color: #fff;
+            --header-bg: #dbe4ef;
+        }
+
+        /* Reset and Box Sizing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            /* Prevent scrolling as requested */
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f0f0f0;
+            color: #000;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vmin;
+            /* Small padding */
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            max-width: 950px;
+            /* Max constraint for desktop */
+            aspect-ratio: 0.7;
+            /* Approximate A4 ratio, optional but keeps shape */
+            background: var(--bg-color);
+            border: 0.5vmin double var(--border-color);
+            padding: 2vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            /* Ensure no internal scroll */
+        }
+
+        /* 
+           Responsive Typography & Spacing 
+           Using 'vmin' ensures it scales based on the smaller dimension (width on mobile),
+           ensuring it fits.
+        */
+
+        .lesson-header {
+            background-color: var(--header-bg);
+            border: 0.2vmin solid #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 3vmin;
+            padding: 1vmin;
+            border-radius: 1vmin;
+            margin-bottom: 1vmin;
+            flex-shrink: 0;
+        }
+
+        /* Text Blocks */
+        p,
+        li,
+        .question-item {
+            font-size: 2.2vmin;
+            /* Scales with screen */
+            line-height: 1.4;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 2.5vmin;
+            margin-top: 1.5vmin;
+            margin-bottom: 0.5vmin;
+            text-decoration: underline;
+            text-underline-offset: 0.5vmin;
+        }
+
+        .sub-title {
+            font-weight: bold;
+            font-size: 2.5vmin;
+            margin-top: 1vmin;
+            margin-bottom: 0.5vmin;
+            border-bottom: 0.2vmin solid #ccc;
+            display: inline-block;
+        }
+
+        ol {
+            padding-right: 4vmin;
+        }
+
+        li {
+            margin-bottom: 0.5vmin;
+        }
+
+        /* Math Styles */
+        .math-inline {
+            direction: ltr;
+            unicode-bidi: embed;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Training Section */
+        .training-box {
+            border-top: 0.3vmin solid #ccc;
+            margin-top: 1vmin;
+            padding-top: 1vmin;
+            flex-grow: 1;
+            /* Take remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .training-header {
+            font-weight: bold;
+            margin-bottom: 1vmin;
+            font-size: 2.2vmin;
+        }
+
+        .question-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* 2 columns to save vertical space */
+            column-gap: 2vmin;
+            row-gap: 0.5vmin;
+            flex-grow: 1;
+            overflow-y: auto;
+            /* Allow scrolling within the question list if it gets too long */
+            padding-bottom: 0.5vmin;
+            /* Small padding for scrollable content */
+        }
+
+        /* Single column for questions if screen is very narrow (portrait phone) 
+           but since height is constrained, we might prefer 2 cols to fit height? 
+           Let's try to fit nicely.
+        */
+        @media (max-aspect-ratio: 0.6) {
+
+            /* Very tall screens (phones) */
+            .question-list {
+                grid-template-columns: 1fr;
+                /* Back to 1 column if too squeezed */
+                row-gap: 0;
+            }
+
+            .question-item {
+                margin-bottom: 0.5vmin;
+            }
+        }
+
+        .question-item {
+            display: flex;
+            align-items: baseline;
+            white-space: nowrap;
+            /* Try to keep on one line */
+        }
+
+        .q-number {
+            font-weight: bold;
+            margin-left: 1vmin;
+            width: 3vmin;
+            flex-shrink: 0;
+        }
+
+        .q-content {
+            flex-grow: 1;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .answer-line {
+            border-bottom: 0.3vmin dotted #000;
+            display: inline-block;
+            flex-grow: 1;
+            margin-right: 1vmin;
+            min-width: 5vmin;
+        }
+
+        /* Fraction support */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 0.5vmin;
+            font-size: 0.8em;
+        }
+
+        .fraction>span {
+            display: block;
+            padding: 0 0.2vmin;
+        }
+
+        .fraction span.numerator {
+            border-bottom: 0.15vmin solid #000;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1vmin;
+            font-weight: bold;
+            font-size: 2vmin;
+            border-top: 0.1vmin solid #eee;
+            padding-top: 0.5vmin;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Header -->
+        <div class="lesson-header">
+            الدرس السابع: التطبيق الخطي
+        </div>
+
+        <!-- Introduction -->
+        <p>
+            تم الأخذ سابقاً تطبيق من المجموعة س إلى نفسها ( <span class="math-inline">ت : س &larr; س</span> )، وهناك
+            تطبيقات تقتصر على مجموعات الأعداد، منها:
+            <span class="math-inline">ت : ط &larr; ط</span> ،
+            <span class="math-inline">ت : ص &larr; ص</span> ،
+            <span class="math-inline">ت : ن &larr; ن</span> ،
+            <span class="math-inline">ت : ح &larr; ح</span> ....
+        </p>
+
+        <!-- Section 1 -->
+        <div class="section-title">التطبيق الخطي:</div>
+
+        <div class="sub-title">شروط التطبيق الخطي:</div>
+        <ol>
+            <li>
+                يجب أن يكون التطبيق تطبيق من ح إلى ح ( <span class="math-inline">ت : ح &larr; ح</span> ).
+            </li>
+            <li>
+                لابد أن تكون قاعدته معادلة من الدرجة الأولى :
+                <strong>ت (س) = أ س + ب</strong> ، حيث أ ، ب <span class="math-inline">&isin;</span> ح.
+            </li>
+        </ol>
+
+        <!-- Section 2 -->
+        <div class="sub-title">ملاحظات على التطبيق الخطي:</div>
+        <ol>
+            <li>
+                التطبيق الخطي من المستحيل أن يأتي بصورة يكون متغيرها: ( كسري ، جذري ، أسي أسه أكبر من ١ ).
+            </li>
+            <li>
+                لا مانع من أن تأتي الأعداد ( الجذرية والكسرية ) في قاعدة التطبيق باعتبارها أعداد حقيقية.
+            </li>
+            <li>
+                يمثل التطبيق الخطي بيانياً كخط مستقيم متصل دائماً، ولا يأتي كمنحنى أو غير ذلك.
+            </li>
+            <li>
+                قد تكون قاعدة التطبيق مساوية لعدد فقط ( <span class="math-inline">ت(س) = ب</span> ).
+            </li>
+        </ol>
+
+        <!-- Training Section -->
+        <div class="training-box">
+            <div class="training-header">
+                <span style="background:#eee; padding:0.5vmin; border:0.1vmin solid #ccc;">تدريب (١):</span>
+                حدد أي القواعد التالية تمثل قاعدة تطبيق خطي ، مع ذكر السبب:
+            </div>
+
+            <div class="question-list">
+
+                <!-- Q1 -->
+                <div class="question-item">
+                    <span class="q-number">١.</span>
+                    <span class="q-content">
+                        ت (ص) = ص + ١ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-item">
+                    <span class="q-number">٢.</span>
+                    <span class="q-content">
+                        ت (س) =
+                        <div class="fraction">
+                            <span class="numerator">٩</span>
+                            <span class="denominator">س</span>
+                        </div>
+                        &times; س - ٢ س :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-item">
+                    <span class="q-number">٣.</span>
+                    <span class="q-content">
+                        ت (س) = ٢٣ - <span class="math-inline">&radic;<span
+                                style="text-decoration:overline;">س</span></span> :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-item">
+                    <span class="q-number">٤.</span>
+                    <span class="q-content">
+                        ت (أ) = <span class="math-inline">&radic;<span style="text-decoration:overline;">٣</span></span>
+                        أ - ٢ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-item">
+                    <span class="q-number">٥.</span>
+                    <span class="q-content">
+                        ت (ع) = ٢ ع<sup style="font-size:0.7em;">٢</sup> + ٢٤ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question-item">
+                    <span class="q-number">٦.</span>
+                    <span class="q-content">
+                        ت (ن) = ١٢ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question-item">
+                    <span class="q-number">٧.</span>
+                    <span class="q-content">
+                        ت (ل) =
+                        <div class="fraction">
+                            <span class="numerator">٣</span>
+                            <span class="denominator">٧</span>
+                        </div>
+                        ل - ١ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question-item">
+                    <span class="q-number">٨.</span>
+                    <span class="q-content">
+                        ت (س) = ٢,٧ :
+                        <span class="answer-line"></span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ٢٨ -</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

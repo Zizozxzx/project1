@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٨٨ - عكس فيثاغورث وأسئلة تفاعلية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Styling */
+        .section-box {
+            border: 1.5px solid #000;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .box-title {
+            font-weight: bold;
+            text-decoration: underline;
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 2px 10px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .theorem-text {
+            border: 1.5px solid #000;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        /* Training section */
+        .drill-row {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .diagram-side {
+            flex: 0 0 150px;
+            text-align: center;
+        }
+
+        .questions-side {
+            flex: 1;
+        }
+
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            height: 22px;
+            margin-bottom: 5px;
+        }
+
+        /* Interactive Table */
+        .automation-header {
+            background-color: #d9e1f2;
+            border: 1.8px solid #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 1.25em;
+            margin-top: 10px;
+        }
+
+        .table-meta {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 5px 15px;
+            margin-top: -2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        th,
+        td {
+            border: 1.5px solid #000;
+            padding: 4px 8px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 30px;
+            text-align: center;
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .col-statement {
+            text-align: right;
+        }
+
+        .col-tf {
+            width: 85px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .circle.correct.active {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.wrong.active {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* Small diagram at bottom */
+        .bottom-diagram {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .math-root {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .root-symbol {
+            margin-left: -2px;
+            vertical-align: middle;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 4px;
+            margin-top: 3px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .drill-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .inner-content {
+                padding: 8px;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Inverse Pythagoras -->
+            <div class="section-box">
+                <span style="font-weight: bold; text-decoration: underline;">عكس مبرهنة فيثاغورث:</span>
+                <div class="theorem-text">
+                    " في أي مثلث، إذا كان مربع أحد أضلاعه يساوي مجموع مربعي الضلعين الآخرين فإن المثلث قائم الزاوية . "
+                </div>
+                <div style="margin-top: 8px;">
+                    <span
+                        style="font-weight: bold; text-decoration: underline; background-color: #eee; padding: 0 5px;">الاستخدام:</span>
+                    تستخدم لإثبات أن المثلث قائم الزاوية، وذلك من خلال أخذ أكبر ضلع واعتباره أنه الوتر وبقية الأضلاع
+                    نعتبرها أضلاع القائمة ثم نطبق قاعدة فيثاغورث فإذا تحققت كان المثلث قائم الزاوية.
+                </div>
+            </div>
+
+            <!-- Drill 3 -->
+            <div class="section-box">
+                <div class="box-title">تدريب (٣):</div>
+                <div>١) من خلال الشكل: لديك المثلث س ص ع ، إذا كان | س ل | = ١٦ سم ، | س ع | = ٢٠ ، فأوجد ما يلي:</div>
+
+                <div class="drill-row">
+                    <div class="diagram-side">
+                        <svg width="150" height="120" viewBox="0 0 150 120">
+                            <path d="M20,100 L140,100 L20,30 Z" fill="none" stroke="black" stroke-width="1.8" />
+                            <line x1="20" y1="100" x2="57" y2="53" stroke="black" stroke-width="1.8" />
+                            <path d="M20,90 L30,90 L30,100" fill="none" stroke="black" stroke-width="1.2" />
+                            <g transform="translate(57, 53) rotate(145)">
+                                <path d="M0,0 L10,0 L10,10" fill="none" stroke="black" stroke-width="1" />
+                            </g>
+                            <text x="5" y="105" font-family="Amiri" font-size="20">ع</text>
+                            <text x="145" y="105" font-family="Amiri" font-size="20">س</text>
+                            <text x="15" y="25" font-family="Amiri" font-size="20">ص</text>
+                            <text x="65" y="48" font-family="Amiri" font-size="20">ل</text>
+                        </svg>
+                    </div>
+                    <div class="questions-side">
+                        <div>٦. | س ص | = .....................................................</div>
+                        <div class="dotted-line"></div>
+                        <div>٧. | ص ع | = .....................................................</div>
+                        <div class="dotted-line"></div>
+                        <div>٨. | ل ص | = .....................................................</div>
+                        <div class="dotted-line"></div>
+                        <div>٩. | ل ع | = .....................................................</div>
+                        <div class="dotted-line"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px;">٢) ارسم المثلث أ ب جـ ثم أثبت أن المثلث قائم الزاوية في جـ إذا كان فيه: |
+                    أ ب | = ١٠ سم ، | ب جـ | = ٦ سم ، | جـ أ | = ٨ سم .</div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+                <div class="dotted-line"></div>
+            </div>
+
+            <!-- Automation Section -->
+            <div class="automation-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="table-meta">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 28px; padding-left: 10px;">
+                    <span>صح</span>
+                    <span>خطأ</span>
+                </div>
+            </div>
+
+            <table>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="col-num">١</td>
+                    <td class="col-statement">العلاقة التي تستخدم لإثبات أن أية أضلاع ثلاثة هي أضلاع مثلث تسمى المتباينة
+                        المثلثية.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="col-num">٢</td>
+                    <td class="col-statement">( ٧ ، ٦ ، ٤ ) تنطبق عليه علاقة المتباينة المثلثية.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="col-num">٣</td>
+                    <td class="col-statement">الوتر أكبر ضلع في المثلث القائم الزاوية.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="col-num">٤</td>
+                    <td class="col-statement">ينزل الارتفاع من رأس مثلث على الضلع المقابل له بزاوية ٦٠ ° .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="col-num">٥</td>
+                    <td class="col-statement">يوجد وتر المثلث في مثلث متساوي الأضلاع.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 6 -->
+                <tr>
+                    <td class="col-num">٦</td>
+                    <td class="col-statement">تحقق مبرهنة فيثاغورث في مثلث قائم الزاوية.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 7 -->
+                <tr>
+                    <td class="col-num">٧</td>
+                    <td class="col-statement">تعتبر ( ١ ، ٣ ، ٥ ) أضلاع مثلث.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 8 -->
+                <tr>
+                    <td class="col-num">٨</td>
+                    <td class="col-statement">في المثلث الحاد الزاوية، مربع الارتفاع يساوي حاصل ضرب جزأي الوتر المحددين
+                        بهذا الارتفاع.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 9 -->
+                <tr>
+                    <td class="col-num">٩</td>
+                    <td class="col-statement">الأطوال ( ٣ سم ، ٥ سم ، ٤ سم ) تحقق مبرهنة فيثاغورث.</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 10 -->
+                <tr>
+                    <td class="col-num">١٠</td>
+                    <td class="col-statement">في المثلث المرسوم أسفل، مسقط ( أ جـ ) هو ( أ ب ) .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 11 -->
+                <tr>
+                    <td class="col-num">١١</td>
+                    <td class="col-statement">في المثلث المرسوم أسفل، الوتر في المثلث ب جـ د هو أ جـ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 12 -->
+                <tr>
+                    <td class="col-num">١٢</td>
+                    <td class="col-statement">في المثلث المرسوم أسفل، | أ ب | = ٦ سم .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 13 -->
+                <tr>
+                    <td class="col-num">١٣</td>
+                    <td class="col-statement">في المثلث المرسوم أسفل، | ب جـ | = ١٠ سم .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 14 -->
+                <tr>
+                    <td class="col-num">١٤</td>
+                    <td class="col-statement">
+                        في المثلث المرسوم أسفل، | ب د | = ٢ <span class="math-root"><span
+                                class="root-content">٥</span><svg class="root-symbol" width="10" height="20"
+                                viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> سم .
+                    </td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this, true)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this, false)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Bottom Diagram -->
+            <div class="bottom-diagram">
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <path d="M40,90 L160,90 L40,20 Z" fill="none" stroke="black" stroke-width="1.8" />
+                    <line x1="100" y1="90" x2="40" y2="20" stroke="black" stroke-width="1" />
+                    <path d="M40,80 L50,80 L50,90" fill="none" stroke="black" stroke-width="1.2" />
+                    <path d="M92,82 L100,82 L100,90" fill="none" stroke="black" stroke-width="1" />
+                    <text x="30" y="95" font-family="Amiri" font-size="16">جـ</text>
+                    <text x="165" y="95" font-family="Amiri" font-size="16">أ</text>
+                    <text x="35" y="15" font-family="Amiri" font-size="16">ب</text>
+                    <text x="100" y="102" font-family="Amiri" font-size="14">د</text>
+                    <text x="60" y="103" font-family="Amiri" font-size="12">٢ سم</text>
+                    <text x="125" y="103" font-family="Amiri" font-size="12">٨ سم</text>
+                </svg>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٨٨ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTF(el, isCorrect) {
+            const group = el.parentElement;
+            group.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>

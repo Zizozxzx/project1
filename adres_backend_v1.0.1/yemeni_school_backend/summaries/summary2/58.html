@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>اختبار الرياضيات التفاعلي - صفحة ٥٨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+        :root {
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --border-color: #000;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 800px;
+            min-height: 100vh;
+            margin: 0 auto;
+            /* سيتم التحكم في الحجم عبر JS */
+        }
+
+        .outer-border {
+            width: 100%;
+            height: 100%;
+            border: 3px solid black;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+        .inner-border {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* تنسيق الجداول */
+        .q-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14pt;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .q-table td {
+            border: 1px solid black;
+            padding: 2px 5px;
+            vertical-align: middle;
+        }
+
+        .q-num {
+            width: 25px;
+            text-align: center;
+            vertical-align: top;
+            background-color: #fff;
+        }
+
+        .opt-num {
+            width: 20px;
+            text-align: center;
+            border-left: 1px solid black !important;
+        }
+
+        .opt-cell {
+            width: 45%;
+        }
+
+        /* تنسيق القسم الوزاري */
+        .mini-header {
+            background-color: #dbe5f1;
+            /* أزرق فاتح */
+            color: black;
+            text-align: center;
+            font-size: 16pt;
+            font-weight: 900;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 3px;
+            margin-top: auto;
+            text-shadow: 1px 1px 0 #fff;
+            font-family: "Traditional Arabic", serif;
+        }
+
+        .mini-subheader {
+            background-color: #fbd5b5;
+            /* برتقالي فاتح */
+            text-align: right;
+            padding: 3px 10px;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+            font-size: 13pt;
+        }
+
+        /* جدول الأسئلة الوزارية */
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .mini-table td {
+            border: 1px solid black;
+            padding: 2px 5px;
+            text-align: right;
+        }
+
+        .mini-q-row {
+            background-color: white;
+        }
+
+        .mini-opt-row td {
+            width: 25%;
+            text-align: right;
+        }
+
+        /* الفوتر */
+        .footer {
+            margin-top: 5px;
+            height: 25px;
+            position: relative;
+            font-size: 11pt;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .page-num {
+            display: inline-block;
+        }
+
+        .author {
+            position: absolute;
+            left: 10px;
+            bottom: 0;
+        }
+
+        /* تحسينات الخطوط والرياضيات */
+        .math-text {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .sheet {
+                margin: 0;
+                transform: none;
+                padding: 10px !important;
+            }
+
+            .inner-border {
+                padding: 10px !important;
+            }
+
+            .math-line,
+            .exercise-row {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                justify-content: flex-start !important;
+            }
+
+            table {
+                table-layout: fixed !important;
+            }
+
+            .q-table td,
+            .mini-table td {
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="page-container" class="page-container">
+        <div class="outer-border">
+            <div class="inner-border">
+
+                <table class="q-table">
+                    <!-- س3 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٣</td>
+                        <td colspan="4">٣. م . م . أ للمقادير ل + ١ ، -٣ ل - ٣ ، ل³ + ١ يساوي ......</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">-٣ ( ل³ + ١ ).</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">( ل³ + ١ ).</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">٣ ( ل³ + ١ ).</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">ل + ١.</td>
+                    </tr>
+
+                    <!-- س4 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٤</td>
+                        <td colspan="4">٤. المقدار ٢ ( س² - ٤ ) يعتبر م . م . أ لجميع المقادير التالية عدا واحد هو:</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">٢ س² - ٨ ، س + ١.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">٢ س² - ٤ ، س + ١.</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">٢ س² - ٨ ، س - ١.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">٢ ( س² - ٤ ) ، س + ١.</td>
+                    </tr>
+
+                    <!-- س5 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٥</td>
+                        <td colspan="4">٥. م . م . أ للمقادير ( س - ١ ) ، ( س + ٣ ) يساوي ............</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">س - ١.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">( س - ١ ) ( س + ٣ ).</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">س + ٣.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">( س + ١ ) ( س + ٣ ).</td>
+                    </tr>
+
+                    <!-- س6 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٦</td>
+                        <td colspan="4">٦. لكي يكون المقدار م س² - ١٦ م . م . أ للمقدارين ٥ س - ٤ ، ٥ س + ٤ ، فإن قيمة م
+                            = :</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">٥.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">٢٥.</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">-٥.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">-٢٥.</td>
+                    </tr>
+
+                    <!-- س7 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٧</td>
+                        <td colspan="4">٧. م . م . أ للحدود الجبرية ٣ س ل ، ٥ م ن يساوي ...........</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">٣ س ل م ن.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">-١٥ س ل ن م.</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">٥ س ل م ن.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">١٥ س ل ن م.</td>
+                    </tr>
+
+                    <!-- س8 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٨</td>
+                        <td colspan="4">٨. م . م . أ للحدود الجبرية ١٢٥ ل² س هـ ، ٢٥ ل هـ⁴ ، - ٥ ل س هـ .........</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">٥ س ل هـ.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">- ٢٥ س ل² هـ⁴.</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">- ٥ س ل هـ.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">- ١٢٥ س ل² هـ⁴.</td>
+                    </tr>
+
+                    <!-- س9 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">٩</td>
+                        <td colspan="4">٩. م . م . أ هو رمز لـ ................</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">العامل المشترك الأكبر.</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">العامل المشترك الأصغر.</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">المضاعف المشترك الأكبر.</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">المضاعف المشترك الأصغر.</td>
+                    </tr>
+
+                    <!-- س10 -->
+                    <tr>
+                        <td class="q-num" rowspan="3">١٠</td>
+                        <td colspan="4">١٠. م . م . أ للمقادير ( س² - س - ٢ ) ، ( س² - ٤ س + ٣ ) يساوي ............</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">١</td>
+                        <td class="opt-cell">( س - ٢ ) ( س² - ٤ س + ٣ ).</td>
+                        <td class="opt-num">٣</td>
+                        <td class="opt-cell">( س + ١ ) ( س + ٣ ).</td>
+                    </tr>
+                    <tr>
+                        <td class="opt-num">٢</td>
+                        <td class="opt-cell">( س + ٢ ) ( س² - ٤ س + ٣ ).</td>
+                        <td class="opt-num">٤</td>
+                        <td class="opt-cell">( س + ١ ) ( س - ٢ ).</td>
+                    </tr>
+                </table>
+
+                <!-- القسم الوزاري -->
+                <div class="mini-header">أسئلة وزارية</div>
+                <div class="mini-subheader">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+                <table class="mini-table">
+                    <!-- أ -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">أ) م . م . أ للمقدارين ( س² - ٩ ) ، ( س + ٣ ) هو ............:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. س² - ٩.</td>
+                        <td>٢. س² + ٩.</td>
+                        <td>٣. س + ٣.</td>
+                        <td>٤. - س - ٣.</td>
+                    </tr>
+                    <!-- ب -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">ب) م . م . أ للمقادير أ² - ب² ، أ - ب ، أ + ب هو ........:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. أ² + ب².</td>
+                        <td>٢. أ² - ب².</td>
+                        <td>٣. (أ + ب)².</td>
+                        <td>٤. (أ - ب)².</td>
+                    </tr>
+                    <!-- ج -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">جـ) م . م . أ للمقادير س + ٣ ، س - ٣ ، س² - ٣ س هو ............:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. س² - ٩.</td>
+                        <td>٢. س ( س - ٣ ).</td>
+                        <td>٣. س ( س² - ٩ ).</td>
+                        <td>٤. س² - ٣ س.</td>
+                    </tr>
+                    <!-- د -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">د) م . م . أ للمقادير ( س² - ٢٥ ) ، ( س + ٥ ) هو ............:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. س + ٥.</td>
+                        <td>٢. س - ٥.</td>
+                        <td>٣. س² + ٢٥.</td>
+                        <td>٤. س² - ٢٥.</td>
+                    </tr>
+                    <!-- هـ -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">هـ) م . م . أ للمقدارين ١٥ س² + ٦ س ، ١٢ س هو ................:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. ١٢ س + ١٥ س².</td>
+                        <td>٢. ١٥ س² + ١٨ س.</td>
+                        <td>٣. ١٢ س ( ٥ س + ٢ ).</td>
+                        <td>٤. ١٢ س ( ٥ س² + ٢ ).</td>
+                    </tr>
+                    <!-- و -->
+                    <tr class="mini-q-row">
+                        <td colspan="4">و) م . م . أ للمقدارين ٤ - س² ، ٢ - س ، ٢ + س هو ................:</td>
+                    </tr>
+                    <tr class="mini-opt-row">
+                        <td>١. س ( ٤ - س² ).</td>
+                        <td>٢. - س ( س² + ٤ ).</td>
+                        <td>٣. س² - ٤.</td>
+                        <td>٤. س ( س - ٢ ).</td>
+                    </tr>
+                </table>
+
+                <!-- الفوتر -->
+                <div class="footer">
+                    <span class="page-num">- ٥٨ -</span>
+                    <span class="author">إعداد: هلا المولجي</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    var scaleH = windowH / targetH;
+    var scale = Math.min(scaleW, scaleH) * 0.95; // 0.95 لهامش بسيط
+
+    // تطبيق التحويل
+    container.style.transform = 'scale(' + scale + ')';
+
+    // تعديل الهوامش لتوسيط العنصر بعد التصغير
+    // لأن transform: scale لا يؤثر على المساحة المحجوزة في الـ DOM بشكل مباشر في بعض الحالات،
+    // لكن مع flexbox التوسيط يتم تلقائياً.
+    }
+
+    // تشغيل عند التحميل وتغيير الحجم
+    window.addEventListener('load', fitPage);
+    window.addEventListener('resize', fitPage);
+    </script>
+
+</body>
+
+</html>

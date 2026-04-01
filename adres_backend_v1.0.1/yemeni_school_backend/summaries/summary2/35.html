@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملزمة الرياضيات - الصف التاسع - صفحة ٣٥</title>
+    <style>
+        :root {
+            --header-bg: #d9e2f3;
+            --table-header-bg: #fbe5d6;
+            --border-color: #000;
+            --correct-color: #28a745;
+            --wrong-color: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #444;
+            margin: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .page-container {
+            background-color: #fff;
+            border: 4px double var(--border-color);
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.04)" font-size="22" font-weight="bold" transform="rotate(-45 75 75)">المولجي</text></svg>');
+        }
+
+        .section-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        /* تنسيق الكسور الرياضية */
+        .fraction {
+            display: inline-flex;
+            vertical-align: middle;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            line-height: 1.1;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 3px;
+        }
+
+        .fraction .bottom {
+            padding: 0 3px;
+        }
+
+        sup {
+            font-size: 0.8em;
+            vertical-align: super;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+
+        .exercise-title {
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin: 20px 0 10px 0;
+        }
+
+        .exercise-item {
+            margin-bottom: 25px;
+            line-height: 2.2;
+        }
+
+        .dots-line {
+            display: inline-block;
+            border-bottom: 1.5px dotted #000;
+            min-width: 120px;
+            height: 10px;
+        }
+
+        /* تنسيق الجداول */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 10px 5px;
+            font-size: 0.95em;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            font-weight: bold;
+        }
+
+        /* الأتمتة التفاعلية */
+        .circle-option {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .circle-option.correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle-option.correct::after {
+            content: "✓";
+            color: white;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            font-weight: bold;
+        }
+
+        .circle-option.wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+        }
+
+        .circle-option.wrong::after {
+            content: "✕";
+            color: white;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            font-weight: bold;
+        }
+
+        .footer-page {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: bold;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .author-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+                font-size: 14px;
+            }
+
+            .page-container {
+                padding: 12px;
+            }
+
+            td {
+                padding: 8px 3px;
+                font-size: 0.85em;
+            }
+
+            .circle-option {
+                width: 20px;
+                height: 20px;
+            }
+
+            .circle-option.correct::after,
+            .circle-option.wrong::after {
+                left: 3px;
+                top: -4px;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="section-header">التحليل في الرياضيات - تمارين صفحة ٣٥</div>
+
+        <div class="exercise-item">
+            <span class="exercise-title">تدريب (٢): أكمل ما يلي باستخدام قاعدة الفرق بين مربعين:</span>
+            ١) ٤ - ١٦ س<sup>٤</sup> = ( ............ + ٤ س<sup>٢</sup> ) ( ............ - ............ ).<br>
+            ٢) ١ - ل<sup>٦</sup> = ( ............ - ............ ) ( ............ + ............ ).<br>
+            ٣) ٠,٦٤ ص<sup>٢</sup> - ١٢١ = ( ............ + ............ ) ( ............ - ١١ ).<br>
+            ٤) (١١)<sup>٢</sup> - (١٢)<sup>٢</sup> = ( ............ - ............ ) ( ............ + ............
+            ).<br>
+            ٥) ٠,١٦ ب<sup>١٢</sup> - <div class="fraction"><span class="top">١</span><span
+                    class="bottom">س<sup>٢</sup></span></div> = ( <div class="fraction"><span class="top">١</span><span
+                    class="bottom">س</span></div> - ............ ) ( ٠,٤ ب<sup>٦</sup> + ............ ).<br>
+            ٦) ( ............ - ............ ) = ( ٤ س + ١ ) ( ............ - ............ ).<br>
+            ٧) ( ............ - ............ ) = ٥ ( س - ٣ ) ( ............ + ............ ).
+        </div>
+
+        <hr>
+
+        <div class="exercise-item">
+            <span class="exercise-title">تدريب (٣): حدد طريقة التحليل في المقادير التالية ثم حللها:</span>
+            ١) ٧ س<sup>٣</sup> - ٣٥ س<sup>٢</sup> <span class="dots-line"></span><br>
+            ٢) ٨ ل<sup>٣</sup> م - ١٨ ل م<sup>٣</sup> <span class="dots-line"></span><br>
+            ٣) ٣ س<sup>٢</sup> - ١٥ س ص + ٢١ ص<sup>٢</sup> <span class="dots-line"></span><br>
+            ٤) (٢٥)<sup>٢</sup> - (١٥)<sup>٢</sup> <span class="dots-line"></span><br>
+            ٥) ٠,١٦ أ<sup>٢</sup> - <div class="fraction"><span class="top">ب<sup>٢</sup></span><span
+                    class="bottom">٩</span></div> <span class="dots-line"></span>
+        </div>
+
+        <div class="section-header">أسئلة على الدرس بطريقة الأتمتة (تفاعلية)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 76%; text-align: right;">ظلل الإجابة الصحيحة فيما يلي:</th>
+                    <th style="width: 12%;">صح</th>
+                    <th style="width: 12%;">خطأ</th>
+                </tr>
+            </thead>
+            <tbody id="quiz">
+            </tbody>
+        </table>
+
+        <div class="footer-page">- ٣٥ -</div>
+        <div class="author-box">
+            <span>إعداد: هلا المولجي</span>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { t: "١. الرمز ( ع . م . أ ) يستخدم للتعبير عن العامل المشترك الأصغر.", a: false },
+            { t: "٢. س<sup>٢</sup> + ٤ ص<sup>٢</sup> يمثل فرق بين مربعين.", a: false },
+            { t: "٣. ( - ٤ + ٩ ل<sup>٢</sup> ) يمثل فرق بين مربعين.", a: true },
+            { t: "٤. إذا كان ( أ س<sup>٢</sup> - ١٦ ) = ( ٣ س + ٤ ) ( ٣ س - ٤ ) ، فإن قيمة أ = ٩.", a: true },
+            { t: "٥. إذا كان ٤ هـ<sup>٢</sup> - ٣٦ = م ( هـ - ٣ ) ( هـ + ٣ ) ، فإن قيمة م = ٤.", a: true },
+            { t: "٦. ع . م . أ للحدود الجبرية ٣ س ، ٤ س ص ، ٤ ص م هو ١٢ س ص م.", a: false },
+            { t: "٧. ع . م . أ لعدة حدود جبرية هو عبارة عن حد جبري يقبل القسمة على جميع هذه الحدود.", a: true },
+            { t: "٨. ( س<sup>٢</sup> - ص<sup>٢</sup> ) = ( س ± ص ).", a: false },
+            { t: "٩. ( ٤ ع<sup>٤</sup> + ١ ) = ( ٢ ع<sup>٢</sup> + ١ ) ( ٢ ع<sup>٢</sup> - ١ ).", a: false },
+            { t: "١٠. ( ٤٩ - هـ<sup>٢</sup> ) = ( ٧ + هـ ) ( ٧ + هـ ).", a: false },
+            { t: "١١. تحليل المقدار الجبري هو كتابته كحاصل ضرب عوامله.", a: true },
+            { t: "١٢. ( ص<sup>٢</sup> - ١ ) ÷ ( ص - ١ ) = ( ص + ١ ).", a: true },
+            { t: "١٣. من عوامل المقدار الجبري ( ٢٥ - ٤ و<sup>٢</sup> ) المقدار ( ٥ - ٢ و ).", a: true },
+            { t: "١٤. ع . م . أ للمقادير الجبرية ( س<sup>٢</sup> - ١ ) ، ( س - ١ ) هو ( س - ١ ).", a: true },
+            { t: "١٥. إذا كان ( ع . م . أ ) للحدود الجبرية ١٢ س ص ل<sup>٣</sup> ، م س<sup>٢</sup> ص ل = ٤ س ص ل ، فإن قيمة م = ١٢.", a: false }
+        ];
+
+        const container = document.getElementById('quiz');
+        questions.forEach((q, i) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td style="text-align: right;">${q.t}</td>
+            <td align="center"><div class="circle-option" onclick="verify(this, true, ${q.a})"></div></td>
+            <td align="center"><div class="circle-option" onclick="verify(this, false, ${q.a})"></div></td>
+        `;
+            container.appendChild(row);
+        });
+
+        function verify(el, choice, correct) {
+            const row = el.closest('tr');
+            row.querySelectorAll('.circle-option').forEach(c => c.className = 'circle-option');
+            el.classList.add(choice === correct ? 'correct' : 'wrong');
+        }
+    </script>
+</body>
+
+</html>

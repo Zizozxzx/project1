@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة 188 – حساب المثلثات</title>
+
+<style>
+body{
+  margin:0;
+  background:#fff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+.page{
+  max-width:760px;
+  margin:auto;
+  padding:20px 16px 36px;
+  box-sizing:border-box;
+  line-height:2.2;
+  font-size:17px;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  font-size:14px;
+}
+.top-line{
+  border-top:3px solid #00a6df;
+  margin:6px 0 14px;
+}
+
+/* جدول */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:10px 0 24px;
+  text-align:center;
+}
+th,td{
+  border:2px solid #000;
+  padding:6px 4px;
+}
+th{
+  background:#bfe6fb;
+  font-weight:bold;
+}
+
+/* كسور */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:3px;
+  padding:0 6px;
+}
+
+/* رسومات */
+.figure{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  margin:16px 0;
+  flex-wrap:wrap;
+}
+.caption{
+  font-size:15px;
+  text-align:center;
+}
+
+/* SVG */
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+/* تذييل */
+.footer{
+  margin-top:32px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+@media(max-width:480px){
+  .page{font-size:16px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="header">
+  <span>حساب المثلثات</span>
+  <span>الوحدة الرابعة</span>
+</div>
+<div class="top-line"></div>
+
+<table>
+<thead>
+<tr>
+<th>|س ص|</th>
+<th>|ص ع|</th>
+<th>|س ع|</th>
+<th>|س ص|² + |ص ع|²</th>
+<th>|س ع|²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>٥</td><td>١٢</td><td>١٣</td><td>١٩٦ = ١٤٤ + ٢٥</td><td>١٦٩</td>
+</tr>
+<tr>
+<td>٨</td><td>١٥</td><td>١٧</td><td></td><td></td>
+</tr>
+<tr>
+<td>٧</td><td>٢٤</td><td>٢٥</td><td></td><td></td>
+</tr>
+<tr>
+<td>١٢</td><td>١٦</td><td>٢٠</td><td></td><td></td>
+</tr>
+<tr>
+<td>٤</td><td>٧٫٥</td><td>٨٫٥</td><td></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<div class="figure">
+  <div>
+<svg viewBox="0 0 200 180">
+  <polygon points="100,10 20,140 180,140" fill="none" stroke="#000" stroke-width="2"/>
+  <line x1="100" y1="10" x2="100" y2="140" stroke="#000" stroke-dasharray="4,4"/>
+  <text x="95" y="8">م</text>
+  <text x="10" y="145">س</text>
+  <text x="182" y="145">ب</text>
+  <text x="95" y="155">ج</text>
+  <text x="40" y="80">٥ سم</text>
+  <text x="125" y="80">٦ سم</text>
+  <text x="85" y="120">٥٠°</text>
+</svg>
+<div class="caption">شكل (٤ – ١٩)</div>
+  </div>
+
+  <div style="flex:1">
+<p>[ ٣ ] الشكل (٤ – ١٩) يمثل شكلاً رباعياً.</p>
+<p>( أ ) بيّن أن المثلث أ ب ج قائم الزاوية في ب.</p>
+<p>( ب ) أوجد مساحة الشكل أ ب ج س.</p>
+  </div>
+</div>
+
+<p>[ ٤ ] س ص ع مثلث متساوي الساقين طول قاعدته ٢٤ سم وارتفاعه ٥ سم. احسب طول كل من ساقيه.</p>
+
+<div class="figure">
+  <div>
+<svg viewBox="0 0 220 140">
+  <polygon points="20,120 200,120 160,40 60,40" fill="none" stroke="#000" stroke-width="2"/>
+  <line x1="160" y1="40" x2="160" y2="120" stroke="#000" stroke-dasharray="4,4"/>
+  <rect x="154" y="114" width="12" height="6" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <text x="10" y="125">ج</text>
+  <text x="202" y="125">ب</text>
+  <text x="55" y="30">س</text>
+  <text x="155" y="30">م</text>
+</svg>
+<div class="caption">شكل (٤ – ٢٠)</div>
+  </div>
+
+  <div style="flex:1">
+<p>[ ٥ ] في الشكل (٤ – ٢٠)، أ ب ج س شبه منحرف فيه:</p>
+<p>| أ ب | = | س ج | = ١٠ سم ، | أ م | = ٨ سم ، | ب ج | = ٢١ سم.</p>
+<p>فأوجد كلاً من | ب هـ | ، | أ هـ | ، | أ س |.</p>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٨٨</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

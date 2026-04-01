@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 44</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1100px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .section-title {
+            text-align: center;
+            font-weight: bold;
+            border: 2px double #000;
+            padding: 5px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        .content-flex {
+            display: flex;
+            gap: 25px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        /* العمود الأيمن يظهر أولاً في الجوال */
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 20px;
+        }
+        .left-column {
+            order: 2;
+        }
+        .math-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .math-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .math-table td, .math-table th {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .highlight-text {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 20px 0;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ٤٤ ـ</div> <div class="content-flex">
+        <div class="column right-column">
+            <div class="section-title">ثالثاً : طريقة الحذف :</div>
+            <div class="math-text">
+                <strong>لإيجاد حل نظام معادلتين من الدرجة الأولى في متغيرين بطريقة الحذف نتبع الخطوات التالية :</strong><br>
+                أ) نضع كل من المعادلتين في الصورة العامة :<br>
+                أ₁ س + ب₁ ص = جـ₁ ، أ₂ س + ب₂ ص = جـ₂<br>
+                ب) نوحد معاملي أحد المتغيرين عن طريق الضرب في عدد مناسب لنتمكن من حذف أحد المتغيرين عند جمع أو طرح المعادلتين معاً كي نحصل على معادلة تحوي متغير واحد .<br>
+                جـ) نحل المعادلة الناتجة من طرح أو جمع المعادلتين معاً لنحصل على قيمة ذلك المتغير الواحد .<br>
+                د) نعوض عن قيمة المتغير في أي من المعادلتين فنحصل على قيمة المتغير الآخر وبذلك نجد مجموعة الحل للمعادلتين .
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                <span class="highlight-text">مثال : حل المعادلتين الآتيتين :</span><br>
+                ١) ٢س - ص = ٣  ← (١)<br>
+                ٢) س + ٢ص = ٤  ← (٢)<br>
+                <span class="highlight-text">* الحل *</span><br>
+                نحاول حذف أحد المتغيرين س أو ص<br>
+                لنحذف المتغير ص لنحصل على س وذلك بضرب طرفي المعادلة (١) في ٢ نحصل على المعادلة (٣)<br>
+                ٤س - ٢ص = ٦ ← (٣)<br>
+                س + ٢ص = ٤ ← (٢)<br>
+                نجمع المعادلتين : نجد : ٥س = ١٠ بالقسمة على ٥<br>
+                ∴ <span style="border: 1px solid #000; padding: 2px;">٥س/٥ = ١٠/٥ ومنها س = ٢</span><br>
+                نعوض بقيمة س = ٢ في أحد المعادلتين لنجد قيمة ص<br>
+                لنعوض في المعادلة (٢) نجد :<br>
+                ٢ + ٢ص = ٤<br>
+                ∴ ٢ص = ٤ - ٢ ومنها ٢ص = ٢ بالقسمة على ٢<br>
+                ∴ <span style="border: 1px solid #000; padding: 2px;">ص = ١</span><br>
+                ∴ مجموعة الحل = { ( ٢ ، ١ ) }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-title">حل نظام معادلتين من الدرجة الأولى في متغيرين بيانياً</div>
+            <div class="math-text">
+                إذا كان نظام المعادلتين قابلاً للحل فإن مجموعة حل المعادلتين بيانياً يكون ناتجاً عن مستقيمين متقاطعين في نقطة واحدة هي نقطة تقاطع المستقيمين .<br>
+                * لإيجاد الحل البياني لنظام معادلتين من الدرجة الأولى في متغيرين نتبع ما يلي :-<br>
+                أ) نأخذ المعادلة الأولى ونجد أحد المتغيرين بدلالة الآخر .<br>
+                ب) نفرض قيم اختيارية للمتغير الآخر لنحصل على قيم المتغير الأول وعلى ضوء ذلك ننشئ جدول القيم ومنه نرسم المستقيم الأول بتوصيل النقاط المتناظرة للمتغيرين .<br>
+                جـ) نعيد الخطوات ( أ ) ، ( ب ) بالنسبة للمعادلة الثانية فنرسم المستقيم الثاني .<br>
+                د) نجد مجموعة الحل بيانياً من النقطة المشتركة للمستقيمين وهي نقطة تقاطع المستقيمين .<br>
+                <span class="highlight-text">ملاحظة :</span> يمكن إيجاد مجموعة الحل بيانياً باستخدام نقاط التقاطع مع المحاور .
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                <span class="highlight-text">مثال : أوجد مجموعة حل المعادلتين الآتيتين بيانياً :</span><br>
+                ٢س - ص = ٣ ← (١)<br>
+                س + ٢ص = ٤ ← (٢)<br>
+                <span class="highlight-text">* الحل *</span><br>
+                أولاً : نمثل مجموعة حل المعادلة ٢س - ص = ٣ بأن نكتب ص بدلالة س أي <span style="border: 1px solid #000; padding: 2px;">ص = ٢س - ٣</span><br>
+                نكون جدول القيم للمعادلة بفرض قيم اختيارية لـ س ومن الجدول نرسم المستقيم الأول بتوصيل النقاط المتناظرة للمتغيرين كما هو موضح في الشكل (١) .
+            </div>
+
+            <table class="math-table">
+                <tr>
+                    <td>س</td>
+                    <td>ص = ٢س - ٣</td>
+                    <td>( س ، ص )</td>
+                </tr>
+                <tr>
+                    <td>٠</td>
+                    <td>-٣</td>
+                    <td>( ٠ ، -٣ )</td>
+                </tr>
+                <tr>
+                    <td>١</td>
+                    <td>-١</td>
+                    <td>( ١ ، -١ )</td>
+                </tr>
+                <tr>
+                    <td>٢</td>
+                    <td>١</td>
+                    <td>( ٢ ، ١ )</td>
+                </tr>
+            </table>
+
+            <div class="math-text">
+                ثانياً : نمثل مجموعة حل المعادلة س + ٢ص = ٤ بأن نكتب ص بدلالة س أي <span style="border: 1px solid #000; padding: 2px;">ص = (٤ - س) / ٢</span><br>
+                نكون جدول القيم للمعادلة بفرض قيم اختيارية لـ س ومن الجدول نرسم المستقيم الثاني بتوصيل النقاط المتناظرة للمتغيرين كما هو موضح في الشكل (١) .
+            </div>
+
+            <table class="math-table">
+                <tr>
+                    <td>س</td>
+                    <td>ص = (٤ - س) / ٢</td>
+                    <td>( س ، ص )</td>
+                </tr>
+                <tr>
+                    <td>٠</td>
+                    <td>٢</td>
+                    <td>( ٠ ، ٢ )</td>
+                </tr>
+                <tr>
+                    <td>-٢</td>
+                    <td>٣</td>
+                    <td>( -٢ ، ٣ )</td>
+                </tr>
+                <tr>
+                    <td>٢</td>
+                    <td>١</td>
+                    <td>( ٢ ، ١ )</td>
+                </tr>
+            </table>
+
+            <div class="diagram-container">
+                <svg width="280" height="280" viewBox="-150 -150 300 300">
+                    <line x1="-130" y1="0" x2="130" y2="0" stroke="black" stroke-width="1.5" /> <line x1="0" y1="-130" x2="0" y2="130" stroke="black" stroke-width="1.5" /> <polygon points="135,0 125,-5 125,5" fill="black" />
+                    <polygon points="-135,0 -125,-5 -125,5" fill="black" />
+                    <polygon points="0,-135 -5,-125 5,-125" fill="black" />
+                    <polygon points="0,135 -5,125 5,125" fill="black" />
+
+                    <text x="120" y="20" font-size="14">س</text>
+                    <text x="10" y="-120" font-size="14">ص</text>
+
+                    <line x1="-50" y1="130" x2="80" y2="-130" stroke="black" stroke-width="1.5" />
+                    <text x="70" y="-110" font-size="12" font-weight="bold">ص = ٢س - ٣</text>
+
+                    <line x1="-130" y1="-55" x2="130" y2="75" stroke="black" stroke-width="1.5" />
+                    <text x="-120" y="-70" font-size="12" font-weight="bold">س + ٢ص = ٤</text>
+
+                    <circle cx="60" cy="-30" r="4" fill="none" stroke="black" stroke-width="2" />
+                    <text x="65" y="-40" font-size="12" font-weight="bold">( ٢ ، ١ )</text>
+
+                    <circle cx="0" cy="90" r="2" fill="black" /> <text x="-35" y="95" font-size="10">( ٠ ، -٣ )</text>
+                    
+                    <circle cx="0" cy="-60" r="2" fill="black" /> <text x="10" y="-65" font-size="10">( ٠ ، ٢ )</text>
+                    
+                    <text x="130" y="100" font-size="12">شكل ( ١ )</text>
+                </svg>
+            </div>
+
+            <div class="math-text">
+                فمن الشكل (١) نجد المستقيمان يتقاطعان في النقطة ( ٢ ، ١ )<br>
+                أي مجموعة الحل = { ( ٢ ، ١ ) }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                <span class="highlight-text">ملاحظات :</span><br>
+                * لحل نظام معادلتين من الدرجة الأولى في متغيرين بيانياً إذا :-<br>
+                (١) كان بيان المعادلتين عبارة عن مستقيمين متوازيين فإن مجموعة الحل = Ø ( مجموعة خالية ) وعند حل المعادلتين جبرياً نحصل على علاقة مستحيلة .<br>
+                (٢) كان بيان المعادلتين عبارة عن مستقيمين متطابقين فإن مجموعة الحل هي مجموعة لا نهائية من الحلول . وعند حل المعادلتين جبرياً نحصل على طرفين متساويين دوماً حيث تكافؤ .<br>
+                <span class="highlight-text">ملاحظة :</span> يقال عن معادلتين بأنهما متكافئتين إذا كان لهما نفس مجموعة الحل .
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

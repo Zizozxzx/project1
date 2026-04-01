@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Textbook - Page 34</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 750px;
+            height: 1050px;
+            padding: 40px 50px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Top Header */
+        .top-header {
+            border-bottom: 2px solid #00adef;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-start;
+            padding-bottom: 2px;
+        }
+
+        .top-header span {
+            font-size: 14px;
+            color: #555;
+            margin-right: 15px;
+        }
+
+        .logo-top {
+            position: absolute;
+            top: 10px;
+            left: 40px;
+            width: 70px;
+        }
+
+        /* Text Content */
+        .content-block {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Mathematical Notation Fixes */
+        .math-inline {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* Example Header */
+        .example-container {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-box {
+            border: 1.5px solid #333;
+            border-radius: 12px;
+            padding: 4px 15px;
+            font-weight: bold;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-title {
+            padding-left: 10px;
+            border-left: 1.5px solid #333;
+            margin-left: 10px;
+        }
+
+        /* Solutions Section */
+        .solution-tag {
+            background-color: #2e2e2e;
+            color: white;
+            padding: 3px 25px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 20px;
+            margin-bottom: 15px;
+            float: left;
+        }
+
+        .solution-body {
+            clear: both;
+            margin-top: 10px;
+        }
+
+        /* Set Notation Alignment */
+        .sets-list {
+            margin-right: 40px;
+            font-size: 21px;
+        }
+
+        /* Footer */
+        .footer-line {
+            position: absolute;
+            bottom: 70px;
+            left: 50px;
+            right: 50px;
+            height: 8px;
+            background-color: #00adef;
+            border-radius: 4px;
+        }
+
+        .page-num-capsule {
+            position: absolute;
+            bottom: 53px;
+            right: 140px;
+            background-color: #fff;
+            border: 3.5px solid #00adef;
+            border-radius: 25px;
+            width: 75px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 22px;
+            z-index: 5;
+        }
+
+        .url-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #0000ee;
+            font-size: 15px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+
+        sub {
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <img src="https://i.imgur.com/your_logo_here.png" alt="e-learning logo" class="logo-top">
+    
+    <div class="top-header">
+        <span>الوحدة الأولى</span>
+    </div>
+
+    <div class="content-block">
+        ع<sub>3</sub> ليست تطبيقاً ، لأن العنصر ب من س ارتبط بعنصرين مختلفين من ص ، هما 1 ، 3 .
+    </div>
+
+    <div class="content-block">
+        ع<sub>4</sub> تطبيق ، لأن كل عنصر من المجال قد ارتبط بعنصر واحد فقط من المجال المقابل .
+    </div>
+
+    <div class="example-container">
+        <div class="example-box">
+            <span class="example-title">مثال ( 2 )</span>
+            <span>إذا كانت س = { 1 ، 2 ، 3 ، 4 } ،</span>
+        </div>
+    </div>
+
+    <div class="content-block">
+        ص = { 0 ، 2 ، 4 ، 6 ، 8 } ، فبيّن أي العلاقات التالية تمثل تطبيقاً من س إلى ص .
+    </div>
+
+    <div class="sets-list">
+        ع<sub>1</sub> = { ( 1 ، 2 ) ، ( 2 ، 2 ) ، ( 3 ، 4 ) ، ( 4 ، 6 ) } ،<br>
+        ع<sub>2</sub> = { ( 1 ، 4 ) ، ( 1 ، 0 ) ، ( 2 ، 4 ) ، ( 3 ، 8 ) } ،<br>
+        ع<sub>3</sub> = { ( 1 ، 2 ) ، ( 3 ، 6 ) ، ( 4 ، 8 ) } ،<br>
+        ع<sub>4</sub> = { ( 1 ، 2 ) ، ( 2 ، 2 ) ، ( 4 ، 4 ) ، ( 3 ، 8 ) } .
+    </div>
+
+    <div style="width: 100%; text-align: left;">
+        <div class="solution-tag">الحل :</div>
+    </div>
+
+    <div class="solution-body">
+        <div class="content-block">
+            ع<sub>1</sub> تطبيق ، لأن كل عنصر في المجال قد ظهر مرة واحدة فقط كمسقط أول في الأزواج المرتبة لهذه العلاقة ، أي أن كل عنصر من س ارتبط بعنصر واحد فقط من عناصر ص .
+        </div>
+
+        <div class="content-block">
+            ع<sub>2</sub> ليست تطبيقاً ، لأن العنصر ( 1 ) في المجال قد ظهر مرتين كمسقط أول في الأزواج المرتبة لهذه العلاقة ، أي أن العنصر ( 1 ) من المجال ارتبط بعنصرين من المجال المقابل هما 4 ، 0 .
+        </div>
+
+        <div class="content-block">
+            ع<sub>3</sub> ليست تطبيقاً ، لأن العنصر ( 2 ) من المجال لم يرتبط بأي عنصر من المجال المقابل .
+        </div>
+
+        <div class="content-block">
+            ع<sub>4</sub> تطبيق ، لأن كل عنصر من المجال قد ارتبط بعنصر واحد فقط من المجال المقابل .
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="page-num-capsule">٣٤</div>
+
+    <a href="http://www.e-learning-moe.edu.ye/" class="url-footer">http://www.e-learning-moe.edu.ye/</a>
+</div>
+
+</body>
+</html>

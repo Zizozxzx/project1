@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 69 - أسئلة على الدرس</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --header-bg: #d9e1f2;
+            --section-bg: #f2f2f2;
+            --border-color: #000;
+            --correct-color: #28a745;
+            --incorrect-color: #dc3545;
+            --selected-color: #007bff;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            display: block;
+        }
+
+        .sheet {
+            background-color: white;
+            width: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            border: 5px double var(--border-color);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-border {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 5px;
+            box-shadow: 2px 2px 0px #888;
+        }
+
+        .sub-header {
+            background-color: #f2f2f2;
+            border: 1px solid #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 0;
+            font-size: 1.1em;
+        }
+
+        /* True/False Table Style */
+        .tf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .tf-table th,
+        .tf-table td {
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        .tf-table .header-row th {
+            text-align: center;
+            background-color: #fff;
+            padding: 2px;
+            font-size: 0.9em;
+        }
+
+        .col-tf {
+            width: 40px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .col-num {
+            width: 30px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .circle {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .circle.selected {
+            background-color: var(--selected-color);
+        }
+
+        .circle.correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .circle.incorrect {
+            background-color: var(--incorrect-color);
+            border-color: var(--incorrect-color);
+        }
+
+        /* MCQ Style */
+        .mcq-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mcq-item {
+            border: 1px solid #000;
+            border-bottom: none;
+            padding: 0;
+        }
+
+        .mcq-item:last-child {
+            border-bottom: 1px solid #000;
+        }
+
+        .mcq-question {
+            padding: 5px 10px;
+            background-color: #fff;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: #fff;
+        }
+
+        .option {
+            padding: 5px 10px;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+
+        .option:nth-child(even) {
+            border-left: none;
+        }
+
+        /* Remove bottom border from the last two options in the grid if there's no more question below */
+        /* But we manually border individual mcq-items anyway */
+
+        .option-num {
+            background-color: #eee;
+            border: 1px solid #000;
+            padding: 0 8px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .option.selected {
+            background-color: #e7f3ff;
+        }
+
+        .option.correct {
+            background-color: #d4edda !important;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da !important;
+        }
+
+        /* Fraction and Math */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 0.9em;
+            margin: 0 4px;
+        }
+
+        .fraction-top {
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+        }
+
+        .fraction-bottom {
+            padding: 0 2px;
+        }
+
+        .footer {
+            text-align: left;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .page-num {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        @media screen and (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option:nth-child(even) {
+                border-left: 1px solid #000;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="sheet">
+        <div class="inner-border">
+
+            <div class="main-header">أسئلة على الدرس بطريقة الأتمتة</div>
+
+            <div class="sub-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <table class="tf-table">
+                <tr class="header-row">
+                    <th class="col-tf">صح</th>
+                    <th class="col-tf">خطأ</th>
+                    <th>السؤال</th>
+                </tr>
+                <!-- Rows 1-15 -->
+                <script>
+                    const tfQuestions = [
+                        "المعادلة س² - 3ص = 7 ، تعتبر معادلة من الدرجة الأولى ذات متغيرين.",
+                        "المعادلة س( 1 + س ص ) = 0 ، لا تعتبر معادلة من الدرجة الأولى ذات متغيرين.",
+                        "تكتب المعادلة 5س - ص + 5 = 0 بدلالة ص بالصورة ص = 5س + 5.",
+                        "يعتبر الزوج المرتب ( -2 ، 1 ) حلاً للمعادلة 2س + 3ص = 5.",
+                        "تسمى معادلة الدرجة الأولى بالمعادلة الخطية.",
+                        "تمثل مجموعة حل معادلة الدرجة الأولى ذات متغيرين على شكل خط منحني في مستوى الإحداثيات.",
+                        "علاقة المعادلة س = ص بمحور الإحداثيات السيني أنها موازية له.",
+                        "لمعادلة الدرجة الأولى التي بالصورة أ س + ب = 0 حل وحيد في ح.",
+                        "لمعادلة الدرجة الأولى ذات متغيرين عدد لا نهائي من الحلول في ح.",
+                        "إذا كان ( 3 ، م ) يمثل حلاً للمعادلة 4ص - س = 1 ، فإن قيمة م = -1.",
+                        "إذا كانت قيمة س = 4 في المعادلة <span class='fraction'><span class='fraction-top'>1</span><span class='fraction-bottom'>2</span></span> ص - س = 2 ، فإن قيمة ص = 36.",
+                        "تعتبر المعادلة س + <span class='fraction'><span class='fraction-top'>1</span><span class='fraction-bottom'>س</span></span> = 3 ، معادلة من الدرجة الأولى ذات متغير.",
+                        "المعادلة س + ص = 4 لها ثلاثة حلول فقط في ح.",
+                        "الزوج المرتب ( 1 ، 0 ) يمثل حلاً للمعادلة س + ص = 1.",
+                        "من حلول المعادلة <span class='fraction'><span class='fraction-top'>س</span><span class='fraction-bottom'>3</span></span> + ص = 5 هو ( 3 ، 4 )."
+                    ];
+
+                    const tfAnswers = [false, true, true, false, true, false, false, true, true, false, false, false, false, true, true];
+
+                    tfQuestions.forEach((q, i) => {
+                        document.write(`
+                            <tr>
+                                <td class="col-tf"><div class="circle" onclick="toggleCircle(this, true, ${tfAnswers[i]})" data-row="${i}" data-val="true"></div></td>
+                                <td class="col-tf"><div class="circle" onclick="toggleCircle(this, false, ${tfAnswers[i]})" data-row="${i}" data-val="false"></div></td>
+                                <td>${i + 1}. ${q}</td>
+                            </tr>
+                        `);
+                    });
+                </script>
+            </table>
+
+            <div class="sub-header">ظلل الإجابة الصحيحة فيما يلي:</div>
+
+            <div class="mcq-section">
+                <!-- Q1 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">1. أحد المعادلات التالية تمثل معادلة من الدرجة الأولى ذات متغير واحد
+                        .......... :</div>
+                    <div class="options-grid" data-correct="2">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> س - ص = 0.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> س² - 1 = 0.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> س + 3س = 4.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> س - ص = 1.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">2. أحد المعادلات التالية تمثل معادلة من الدرجة الأولى ذات متغيرين
+                        .......... :</div>
+                    <div class="options-grid" data-correct="2">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> س + 4ص =
+                            ص².</div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> ص - 1 = 0.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> ص - 4س = 0.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> س + 3 = 0.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">3. عدد حلول معادلة الدرجة الأولى ذات متغيرين .......... :</div>
+                    <div class="options-grid" data-correct="4">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> حل وحيد.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> حلان.</div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> ثلاثة حلول.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> عدد لا
+                            نهائي من الحلول.</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">4. عدد حلول معادلة الدرجة الأولى ذات متغير .......... :</div>
+                    <div class="options-grid" data-correct="1">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> حل وحيد.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> حلان.</div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> ثلاثة حلول.
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> عدد لا
+                            نهائي من الحلول.</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">5. أياً مما يلي يمثل حلاً للمعادلة 1.5 س + 10 ص = 0 .......... :</div>
+                    <div class="options-grid" data-correct="2">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> ( 1 ، 2 ).
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> ( 4 ، 6 ).
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> ( 0 ، 0 ).
+                        </div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> ( -3 ، 5 ).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="mcq-item">
+                    <div class="mcq-question">6. تكتب المعادلة 2 س - ص = 2 ، بدلالة س بالصورة .......... :</div>
+                    <div class="options-grid" data-correct="4">
+                        <div class="option" onclick="checkChoice(this, 1)"><span class="option-num">1</span> ص = 2 ( س -
+                            1 ).</div>
+                        <div class="option" onclick="checkChoice(this, 3)"><span class="option-num">3</span> س = <span
+                                class='fraction'><span class='fraction-top'>ص - 2</span><span
+                                    class='fraction-bottom'>2</span></span>.</div>
+                        <div class="option" onclick="checkChoice(this, 2)"><span class="option-num">2</span> ص = 2 ( 1 -
+                            س ).</div>
+                        <div class="option" onclick="checkChoice(this, 4)"><span class="option-num">4</span> س = <span
+                                class='fraction'><span class='fraction-top'>ص + 2</span><span
+                                    class='fraction-bottom'>2</span></span>.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>إعداد: هلا المولجي</div>
+                <div class="page-num">- ٦٩ -</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleCircle(circle, clickVal, correctVal) {
+            const row = circle.dataset.row;
+            const rowCircles = document.querySelectorAll(`.circle[data-row="${row}"]`);
+
+            rowCircles.forEach(c => {
+                c.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            if (clickVal === correctVal) {
+                circle.classList.add('correct');
+            } else {
+                circle.classList.add('incorrect');
+            }
+        }
+
+        function checkChoice(option, choiceNum) {
+            const grid = option.parentElement;
+            const correctChoice = parseInt(grid.dataset.correct);
+            const options = grid.querySelectorAll('.option');
+
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect', 'selected');
+            });
+
+            if (choiceNum === correctChoice) {
+                option.classList.add('correct');
+            } else {
+                option.classList.add('incorrect');
+                // Optional: show correct one
+                options.forEach(opt => {
+                    const num = parseInt(opt.querySelector('.option-num').textContent);
+                    if (num === correctChoice) opt.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

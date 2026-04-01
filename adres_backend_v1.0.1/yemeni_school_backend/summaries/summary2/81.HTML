@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٨١</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #dae3f3;
+            --header-blue: #4472c4;
+            --page-bg: #f0f0f0;
+            --correct-color: #d4edda;
+            --correct-border: #c3e6cb;
+            --incorrect-color: #f8d7da;
+            --incorrect-border: #f5c6cb;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px 40px 20px 40px;
+            border: 2px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Question Blocks */
+        .q-block {
+            border: 2px solid #000;
+            margin-bottom: -2px;
+            /* Overlap borders */
+        }
+
+        .q-header {
+            background-color: #fff;
+            padding: 8px 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-bottom: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Options Grid */
+        .opts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .opt-cell {
+            padding: 10px 15px;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Number on left, content on right */
+            font-size: 1.1em;
+            transition: background-color 0.2s;
+        }
+
+        .opt-cell:nth-child(2n) {
+            border-left: none;
+            /* Remove left border for last column */
+        }
+
+        .opt-cell:hover {
+            background-color: #f5f5f5;
+        }
+
+        .opt-cell.correct {
+            background-color: var(--correct-color);
+        }
+
+        .opt-cell.incorrect {
+            background-color: var(--incorrect-color);
+        }
+
+        .opt-num {
+            font-weight: bold;
+            color: #555;
+            margin-right: 15px;
+            /* Push away from content */
+            font-size: 0.9em;
+        }
+
+        /* Fractions */
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
+
+        .fraction .top {
+            border-bottom: 2px solid #000;
+            display: block;
+            line-height: 1;
+            padding-bottom: 2px;
+        }
+
+        .fraction .bottom {
+            display: block;
+            line-height: 1;
+            padding-top: 2px;
+        }
+
+        /* Watermark */
+        .watermark-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .bg-watermark {
+            position: absolute;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 12em;
+            color: rgba(0, 0, 0, 0.08);
+            transform: rotate(-35deg);
+            z-index: 1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .quote {
+            z-index: 2;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.8em;
+            text-align: center;
+            margin-top: 50px;
+            color: #000;
+        }
+
+        footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1em;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+
+        <!-- Question H (هـ) -->
+        <!-- Equation: s/2 + 4/s = 3 -->
+        <!-- Sol: s^2 + 8 = 6s -> s^2-6s+8=0 -> (s-4)(s-2)=0 -> {2,4}. Correct -->
+        <div class="q-block" data-correct="1">
+            <div class="q-header">
+                هـ. إذا كان لديك المعادلة
+                <div class="fraction"><span class="top">س</span><span class="bottom">٢</span></div>
+                +
+                <div class="fraction"><span class="top">٤</span><span class="bottom">س</span></div>
+                = ٣ ، فإن م . ح = ..........:
+            </div>
+            <div class="opts-grid">
+                <!-- Row 1 -->
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">{ ٤ ، ٢ } . <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">{ ٣ } . <span class="opt-num">٣</span></div>
+                <!-- Row 2 -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 2)">{ ٣ ، ٢ } . <span
+                        class="opt-num">٢</span></div>
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 4)">{ ٤ ، ٣ } . <span
+                        class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Question W (و) -->
+        <!-- Equation: s^2 - 7s + 10 = 0 -->
+        <!-- Delta = 49 - 40 = 9 -->
+        <div class="q-block" data-correct="2">
+            <div class="q-header">
+                و. المعادلة س<sup>٢</sup> - ٧ س + ١٠ = ٠ ، مميزها ∆ = ..........:
+            </div>
+            <div class="opts-grid">
+                <!-- Row 1 -->
+                <div class="opt-cell" onclick="checkMCQ(this, 1)">٤ . <span class="opt-num">١</span></div>
+                <div class="opt-cell" onclick="checkMCQ(this, 3)">١٦ . <span class="opt-num">٣</span></div>
+                <!-- Row 2 -->
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 2)">٩ . <span
+                        class="opt-num">٢</span></div>
+                <div class="opt-cell" style="border-bottom:none;" onclick="checkMCQ(this, 4)">٢٥ . <span
+                        class="opt-num">٤</span></div>
+            </div>
+        </div>
+
+        <!-- Watermark & Quote -->
+        <div class="watermark-section">
+            <div class="bg-watermark">هلا المولجي</div>
+            <div class="quote">ستكون للأمنيات حقيقة عندما نسعى إليها ...</div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٨١ -</div>
+        </footer>
+
+    </div>
+
+    <script>
+        function checkMCQ(el, optNum) {
+            const block = el.closest('.q-block');
+            const properCorrect = parseInt(block.getAttribute('data-correct'));
+
+            // Allow multiple clicks or clear? Usually clear previous.
+            block.querySelectorAll('.opt-cell').forEach(c => c.classList.remove('correct', 'incorrect'));
+
+            if (optNum === properCorrect) {
+                el.classList.add('correct');
+            } else {
+                el.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+
+</html>

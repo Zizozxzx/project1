@@ -1,0 +1,147 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    /* Premium Dashboard Styling */
+    .summary-dashboard {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+    
+    .summary-card {
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 4px solid #417690;
+        min-width: 200px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .summary-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .summary-card h4 {
+        margin: 0;
+        font-size: 0.85em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        font-weight: 600;
+    }
+    
+    .summary-card .value {
+        font-size: 2.5em;
+        font-weight: 800;
+        color: #2c3e50;
+        margin: 10px 0;
+        line-height: 1;
+    }
+
+    .card-missing {
+        border-top-color: #ff416c !important;
+    }
+
+    .card-missing .value {
+        color: #ff416c !important;
+    }
+
+    /* Premium Buttons Alignment */
+    .object-tools {
+        display: flex;
+        gap: 10px;
+        float: right;
+        margin-top: -45px !important;
+    }
+
+    .object-tools li {
+        height: auto !important;
+    }
+
+    .object-tools li a {
+        border-radius: 10px !important;
+        font-weight: 700 !important;
+        padding: 12px 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        transition: all 0.3s ease !important;
+        color: white !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    }
+
+    .btn-fill {
+        background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) !important;
+    }
+
+    .btn-generate {
+        background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%) !important;
+    }
+
+    .object-tools li a:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2) !important;
+        opacity: 0.95;
+    }
+</style>
+{% endblock %}
+
+{% block object-tools %}
+<ul class="object-tools">
+    <li>
+        <a href="generate-pages/" class="premium-btn btn-generate">
+            📄 إنشاء صفحات فارغة
+        </a>
+    </li>
+    <li>
+        <a href="fill-missing/" class="premium-btn btn-fill">
+            🔥 تعبئة ذكية (Smart Fill)
+        </a>
+    </li>
+    {{ block.super }}
+</ul>
+{% endblock %}
+
+{% block content_title %}
+    <h1>ملخصات الصفحات (Page Summaries)</h1>
+{% endblock %}
+
+{% block result_list %}
+    <div class="summary-dashboard">
+        <div class="summary-card">
+            <h4>إجمالي الملخصات المسجلة</h4>
+            <div class="value">{{ cl.result_count }}</div>
+        </div>
+        
+        {% for t_type, s in summary_stats.items %}
+        <div class="summary-card card-missing" style="cursor: pointer; border-top-color: {% if t_type == 1 %}#417690{% elif t_type == 2 %}#e67e22{% else %}#9b59b6{% endif %} !important;">
+            <h4 style="color: #444;">إحصائيات الملخص {{ t_type }}</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #666; font-size: 0.9em;">⚠️ صفحات ناقصة (لم تنشأ):</span>
+                    <span style="color: #e74c3c; font-size: 1.4em; font-weight: 800;">{{ s.missing }}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #666; font-size: 0.9em;">📝 ملخصات فارغة (بدون صفحات):</span>
+                    <span style="color: #f39c12; font-size: 1.4em; font-weight: 800;">{{ s.empty }}</span>
+                </div>
+            </div>
+            <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 5px;">
+                <small style="color: #3498db; font-weight: 600;" onclick="location.href='missing-list/?type={{ t_type }}'">👀 عرض التفاصيل</small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {{ block.super }}
+{% endblock %}

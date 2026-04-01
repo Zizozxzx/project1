@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تابع المحتويات - رياضيات</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@500;700&display=swap');
+
+        /* ===============================
+           BODY (مصمم للجوال)
+        =============================== */
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===============================
+           PAGE CONTAINER (الحل النهائي)
+        =============================== */
+        .page-container {
+            background-color: white;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(16px, 4vw, 60px);
+            box-sizing: border-box;
+            overflow-x: hidden;
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* ===============================
+           LOGO
+        =============================== */
+        .e-learning-logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 80px;
+            text-align: center;
+        }
+
+        /* ===============================
+           HEADER
+        =============================== */
+        .page-header {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .title-box {
+            display: inline-block;
+            border: 2px solid #333;
+            padding: 5px 45px;
+            border-radius: 40px 40px 10px 10px;
+            font-size: 30px;
+            font-weight: bold;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-line-decoration {
+            width: 200px;
+            height: 12px;
+            border-top: 3px solid #333;
+            border-bottom: 1.5px solid #333;
+            margin: -6px auto 0;
+        }
+
+        /* ===============================
+           TABLE HEADERS
+        =============================== */
+        .table-headers {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+
+        /* ===============================
+           UNIT BAR
+        =============================== */
+        .unit-header-bar {
+            background-color: #F1F9FE;
+            color: #4AB3E1;
+            padding: 12px 20px;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* ===============================
+           CONTENT LIST
+        =============================== */
+        .content-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-row {
+            display: flex;
+            align-items: baseline;
+            margin: 14px 0;
+            font-size: 22px;
+        }
+
+        .content-id {
+            min-width: 55px;
+            text-align: right;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 500;
+        }
+
+        .content-name {
+            padding: 0 12px;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .filler-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted #aaa;
+            margin: 0 10px;
+            position: relative;
+            top: -6px;
+        }
+
+        .page-num-val {
+            min-width: 50px;
+            text-align: center;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* ===============================
+           FOOTER
+        =============================== */
+        .footer-branding {
+            position: absolute;
+            bottom: 45px;
+            left: 50px;
+            width: 90%;
+            display: flex;
+            align-items: center;
+        }
+
+        .blue-bottom-bar {
+            height: 10px;
+            background-color: #4AB3E1;
+            flex-grow: 1;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .page-num-capsule {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #4AB3E1;
+            border-radius: 50%;
+            width: 75px;
+            height: 42px;
+            font-size: 26px;
+            font-weight: bold;
+            background: white;
+            border-left: 20px solid #4AB3E1;
+            border-right: 20px solid #4AB3E1;
+        }
+
+        /* ===============================
+           MOBILE FIX
+        =============================== */
+        @media (max-width: 480px) {
+            .e-learning-logo {
+                left: 10px;
+                top: 10px;
+                width: 60px;
+            }
+            .footer-branding {
+                left: 10px;
+                width: calc(100% - 20px);
+            }
+            .table-headers {
+                font-size: 20px;
+            }
+            .content-row {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <div class="e-learning-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Circle-icons-computer.svg/120px-Circle-icons-computer.svg.png" width="40" style="opacity:0.5;">
+        <div style="font-size:10px;color:#4AB3E1;">e-learning</div>
+    </div>
+
+    <div class="page-header">
+        <div class="title-box">تابع المحتويات</div>
+        <div class="header-line-decoration"></div>
+    </div>
+
+    <div class="table-headers">
+        <span>الموضوع</span>
+        <span>الصفحة</span>
+    </div>
+
+    <ul class="content-list">
+        <li class="content-row"><span class="content-id">7-2</span><span class="content-name">المضاعف المشترك الأصغر</span><span class="filler-dots"></span><span class="page-num-val">99</span></li>
+        <li class="content-row"><span class="content-id">8-2</span><span class="content-name">جمع وطرح الكسور الجبرية</span><span class="filler-dots"></span><span class="page-num-val">102</span></li>
+        <li class="content-row"><span class="content-id">9-2</span><span class="content-name">تمارين ومسائل عامة</span><span class="filler-dots"></span><span class="page-num-val">108</span></li>
+        <li class="content-row"><span class="content-id">10-2</span><span class="content-name">اختبار الوحدة</span><span class="filler-dots"></span><span class="page-num-val">112</span></li>
+    </ul>
+
+    <div class="unit-header-bar">الوحدة الثالثة : المعادلات</div>
+    <ul class="content-list">
+        <li class="content-row"><span class="content-id">1-3</span><span class="content-name">معادلة الدرجة الأولى ذات متغيرين</span><span class="filler-dots"></span><span class="page-num-val">113</span></li>
+        <li class="content-row"><span class="content-id">2-3</span><span class="content-name">نظام المعادلات من الدرجة الأولى في متغيرين</span><span class="filler-dots"></span><span class="page-num-val">125</span></li>
+        <li class="content-row"><span class="content-id">3-3</span><span class="content-name">معادلات الدرجة الثانية في متغير واحد</span><span class="filler-dots"></span><span class="page-num-val">141</span></li>
+        <li class="content-row"><span class="content-id">4-3</span><span class="content-name">مسائل تطبيقية</span><span class="filler-dots"></span><span class="page-num-val">152</span></li>
+        <li class="content-row"><span class="content-id">5-3</span><span class="content-name">تمارين ومسائل عامة</span><span class="filler-dots"></span><span class="page-num-val">160</span></li>
+        <li class="content-row"><span class="content-id">6-3</span><span class="content-name">اختبار الوحدة</span><span class="filler-dots"></span><span class="page-num-val">164</span></li>
+    </ul>
+
+    <div class="unit-header-bar">الوحدة الرابعة : حساب المثلثات</div>
+    <ul class="content-list">
+        <li class="content-row"><span class="content-id">1-4</span><span class="content-name">العلاقات العددية في مثلث قائم الزاوية</span><span class="filler-dots"></span><span class="page-num-val">165</span></li>
+        <li class="content-row"><span class="content-id">2-4</span><span class="content-name">النسب المثلثية للزاوية الحادة</span><span class="filler-dots"></span><span class="page-num-val">173</span></li>
+        <li class="content-row"><span class="content-id">3-4</span><span class="content-name">النسب المثلثية للزوايا : 30ْ ، 60ْ ، 45ْ</span><span class="filler-dots"></span><span class="page-num-val">184</span></li>
+        <li class="content-row"><span class="content-id">4-4</span><span class="content-name">تمارين عامة ومسائل</span><span class="filler-dots"></span><span class="page-num-val">187</span></li>
+        <li class="content-row"><span class="content-id">5-4</span><span class="content-name">اختبار الوحدة</span><span class="filler-dots"></span><span class="page-num-val">192</span></li>
+    </ul>
+
+    <div class="footer-branding">
+        <div class="page-num-capsule">6</div>
+        <div class="blue-bottom-bar"></div>
+    </div>
+
+</div>
+
+</body>
+</html>

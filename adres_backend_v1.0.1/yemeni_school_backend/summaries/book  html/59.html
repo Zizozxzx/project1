@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تحليل المقدار الثلاثي</title>
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    font-family:"Tahoma","Arial",sans-serif;
+    color:#000;
+}
+.page{
+    width:900px;
+    margin:0 auto;
+    padding:20px 40px 80px 40px;
+    position:relative;
+    box-sizing:border-box;
+}
+.top-line{
+    height:4px;
+    background:#00a0e3;
+    margin-bottom:20px;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+.unit{
+    font-size:18px;
+    color:#444;
+}
+.content{
+    font-size:22px;
+    line-height:2;
+}
+.table-wrap{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+    margin:10px 0 20px 0;
+    left: -40px;
+}
+table{
+    border-collapse:collapse;
+    font-size:22px;
+}
+th, td{
+    border:2px solid #000;
+    padding:6px 18px;
+    text-align:center;
+}
+th{
+    background:#bfe8fb;
+}
+.highlight{
+    border:2px solid #00a0e3;
+}
+.box{
+    background:#dff3ff;
+    border:2px solid #8ac8e8;
+    border-radius:12px;
+    padding:15px 20px;
+    margin:20px 0;
+}
+.example-title{
+    display:inline-block;
+   border-color: white;
+    border-radius:25px;
+    padding:6px 18px;
+    margin-top:10px;
+    font-weight:bold;
+    background-color: black;
+    color: white;
+}
+.solution{
+    margin-top:10px;
+}
+.footer-line{
+    height:4px;
+    background:#00a0e3;
+    margin-top:40px;
+}
+.page-num{
+    position:absolute;
+    bottom:10px;
+    left:40px;
+    width:55px;
+    height:55px;
+    border:4px solid #00a0e3;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+    background:#fff;
+}
+.footer{
+    text-align:center;
+    color:#00a0e3;
+    font-size:20px;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="top-line"></div>
+
+    <div class="header">
+        <div class="unit">الوحدة الثانية</div>
+    </div>
+
+    <div class="content">
+
+        حيث الحد الأول : س² = س × س ، الحد المطلق : ٦ ، والجدول المجاور
+        يوضح عوامله المختلفة .
+        <br>
+        أما الحد الأوسط = ٥س
+        <br>
+        ابحث في الجدول عن عاملين للعدد ٦ مجموعهما يساوي معامل س
+        ستجدهما ٢ ، ٣
+        <br>
+        مما سبق نجد أن :
+
+        <div class="table-wrap">
+            <table>
+                <tr>
+                    <th>عوامل العدد ٦</th>
+                    <th>مجموعها</th>
+                </tr>
+                <tr>
+                    <td>١ ، ٦</td>
+                    <td>٧</td>
+                </tr>
+                <tr>
+                    <td>−١ ، −٦</td>
+                    <td>−٧</td>
+                </tr>
+                <tr>
+                    <td class="highlight">٢ ، ٣</td>
+                    <td class="highlight">٥</td>
+                </tr>
+                <tr>
+                    <td>−٢ ، −٣</td>
+                    <td>−٥</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="box">
+            لتحليل المقدار الثلاثي البسيط الذي صورته
+            س² + ب س + ج
+            <br>
+            يُحلل الحد المطلق (ج) إلى عاملين مجموعهما يساوي معامل
+            الحد الأوسط (ب) ، وبصورة عامة فإن :
+            <br>
+            س² + (م + ن) س + م ن = (س + م)(س + ن)
+            <br>
+            حيث م ، ن ∈ ح ، م + ن = ب ، م ن = ج
+        </div>
+
+        <div class="example-title">مثال (١)</div>
+        <br>
+        حلل المقادير الآتية إلى عواملها الأولية :
+        <br>
+        (أ) ص² − ٧ص + ١٠ ،
+        (ب) م² + ٢م − ١٥ ،
+        (ج) هـ² − هـ − ١٢
+         <br>
+        <div class="example-title" style="margin-right:20px;">الحل :</div>
+
+        <div class="solution">
+            (أ) ص² − ٧ص + ١٠ ، فيه :
+            <br>
+            الحد الأول : ص² = ص × ص
+            <br>
+            الحد الأوسط : −٧ص
+            <br>
+            الحد الثالث : ١٠ (موجب) ، عاملاه كلاهما : موجبان أو سالبان .
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="page-num">٦٢</div>
+    <div class="footer">http://www.e-learning-moe.edu.ye/</div>
+
+</div>
+
+</body>
+</html>

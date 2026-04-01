@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٨٤</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --header-bg: #d9e1f2;
+            --table-header: #fce4d6;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .page-header {
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: underline;
+        }
+
+        /* Trig Table */
+        table.trig-values {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table.trig-values th,
+        table.trig-values td {
+            border: 1.5px solid #000;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table.trig-values th {
+            background-color: var(--table-header);
+        }
+
+        .col-trig {
+            background-color: #f9f9f9;
+            width: 100px;
+            font-weight: bold;
+        }
+
+        /* Fraction and Root */
+        .math-root {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .root-symbol {
+            margin-left: -2px;
+            vertical-align: middle;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 4px;
+            margin-top: 3.5px;
+            line-height: 1;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        /* Notes */
+        .note-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .guide-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        .guide-list li {
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        /* Training */
+        .dotted-line {
+            border-bottom: 1px dotted #000;
+            height: 28px;
+            margin-bottom: 5px;
+        }
+
+        /* Automation Table */
+        .automation-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 6px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+
+        table.tf-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.tf-table td {
+            border: 1.5px solid #000;
+            padding: 5px 10px;
+            vertical-align: middle;
+        }
+
+        .col-num {
+            width: 35px;
+            text-align: center;
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .col-tf {
+            width: 85px;
+            text-align: center;
+        }
+
+        .circle-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .circle {
+            width: 17px;
+            height: 17px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .inner-content {
+                padding: 8px;
+            }
+
+            th,
+            td {
+                font-size: 0.85em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="page-header">الدرس الثالث: النسب المثلثية للزوايا: ٣٠° ، ٦٠° ، ٤٥°</div>
+
+            <!-- Trig Table -->
+            <span style="font-weight: bold; margin-bottom: 5px; display: block;">جدول النسب المثلثية للزوايا ٣٠ ، ٦٠ ،
+                ٤٥ :</span>
+            <table class="trig-values">
+                <tr>
+                    <th>الزاوية</th>
+                    <th>٣٠°</th>
+                    <th>٦٠°</th>
+                    <th>٤٥°</th>
+                </tr>
+                <tr>
+                    <td class="col-trig">جا</td>
+                    <td><span class="fraction"><span class="top">١</span><span class="bottom">٢</span></span></td>
+                    <td><span class="fraction"><span class="top"><span class="math-root"><span
+                                        class="root-content">٣</span><svg class="root-symbol" width="8" height="15"
+                                        viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                                    </svg></span></span><span class="bottom">٢</span></span></td>
+                    <td><span class="fraction"><span class="top">١</span><span class="bottom"><span
+                                    class="math-root"><span class="root-content">٢</span><svg class="root-symbol"
+                                        width="8" height="15" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                                    </svg></span></span></span></td>
+                </tr>
+                <tr>
+                    <td class="col-trig">جتا</td>
+                    <td><span class="fraction"><span class="top"><span class="math-root"><span
+                                        class="root-content">٣</span><svg class="root-symbol" width="8" height="15"
+                                        viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                                    </svg></span></span><span class="bottom">٢</span></span></td>
+                    <td><span class="fraction"><span class="top">١</span><span class="bottom">٢</span></span></td>
+                    <td><span class="fraction"><span class="top">١</span><span class="bottom"><span
+                                    class="math-root"><span class="root-content">٢</span><svg class="root-symbol"
+                                        width="8" height="15" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                                    </svg></span></span></span></td>
+                </tr>
+                <tr>
+                    <td class="col-trig">ظا</td>
+                    <td><span class="fraction"><span class="top">١</span><span class="bottom"><span
+                                    class="math-root"><span class="root-content">٣</span><svg class="root-symbol"
+                                        width="8" height="15" viewBox="0 0 10 20">
+                                        <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                                    </svg></span></span></span></td>
+                    <td><span class="math-root"><span class="root-content">٣</span><svg class="root-symbol" width="8"
+                                height="15" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span></td>
+                    <td>١</td>
+                </tr>
+            </table>
+
+            <!-- Notes -->
+            <span class="note-title">ملاحظات هامة جداً:</span>
+            <ul class="guide-list">
+                <li>١. تم استنتاج النسب المثلثية للزاويتين ٣٠° ، ٦٠° من خلال مثلث متساوي الأضلاع طول كل ضلع فيه ٢ وحدة
+                    طول وحيث الارتفاع الذي فيه ينصف ضلعاً فيه وعمودياً عليه.</li>
+                <li>٢. تم استنتاج النسب المثلثية للزاوية ٤٥° من خلال مثلث قائم متساوي الساقين طول كل ضلع فيه وحدة طول
+                    واحدة وحيث.</li>
+                <li>٣. من خلال أولاً وثانياً نستنتج أن:
+                    <ul style="list-style: disc; margin-right: 30px;">
+                        <li>جا ٣٠ = جتا ٦٠ .</li>
+                        <li>جتا ٣٠ = جا ٦٠ .</li>
+                        <li>ظا ٣٠ = ١ / ظا ٦٠ .</li>
+                    </ul>
+                </li>
+                <li>٤. من خلال ثالثاً نستنتج أن: جا ٤٥ = جتا ٤٥ .</li>
+            </ul>
+
+            <!-- Training -->
+            <div style="margin-top: 15px;">
+                <span style="font-weight: bold; text-decoration: underline;">تدريب:</span> أوجد قيمة ما يلي:
+                <div style="margin-right: 30px; margin-top: 5px;">
+                    ١. جا ٦٠ + جتا ٣٠ =
+                    ........................................................................................
+                    <br>٢. ٤ جا ٦٠ + ٣ ظا ٤٥ =
+                    ........................................................................................
+                    <br>٣. جا ٦٠ / جتا ٣٠ =
+                    ........................................................................................
+                    <br>٤. (جا ٦٠ - جتا ٣٠ + ظا ٤٥) ÷ ظا ٦٠ =
+                    .....................................................................
+                </div>
+            </div>
+
+            <!-- Observation Section -->
+            <div style="border: 1.5px solid #000; padding: 10px; margin-top: 15px;">
+                <span class="note-title">ملاحظة:</span>
+                <div style="line-height: 1.5;">
+                    كثيراً ما نجد لدى النسب المثلثية زاوية ( س - ٣٠ ) ، أو ( س - ٩٠ ) أو غيرها من الزوايا بحيث لا تعطى
+                    لنا الزوايا ٣٠ ، ٦٠ ، ٤٥ بصورة مباشرة فلذلك إذا أعطانا قيمة لنسب من النسب المأخوذة للزوايا ٣٠ ، ٦٠ ،
+                    ٤٥ فما علينا سوى مساواة القوس بالزاوية ثم حلها كمعادلة لنجد القيمة المطلوبة.
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-weight: bold; text-decoration: underline;">مثال:</span> إذا كانت ٢ جا ( س - ٤٠ ) =
+                    ١ ، فأوجد قيمة س.
+                    <div style="margin-right: 20px; margin-top: 5px;">
+                        الحل: ٢ جا ( س - ٤٠ ) = ١ بالقسمة على ٢
+                        <br>← جا ( س - ٤٠ ) = <span class="fraction"><span class="top">١</span><span
+                                class="bottom">٢</span></span> نبحث عن زاوية نسبتها المثلثية جا = <span
+                            class="fraction"><span class="top">١</span><span class="bottom">٢</span></span> والتي هي
+                        ٣٠°.
+                        <br>إذن ( س - ٤٠ ) = ٣٠ ، ومنه س = ٣٠ + ٤٠ ← س = ٧٠
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automation Questions -->
+            <div class="automation-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div
+                style="background-color: #f2f2f2; border: 1.5px solid #000; padding: 4px 15px; display: flex; justify-content: space-between; font-weight: bold; margin-bottom: -2px;">
+                <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                <div style="display: flex; gap: 30px; padding-left: 10px;"><span>صح</span><span>خطأ</span></div>
+            </div>
+            <table class="tf-table">
+                <tr>
+                    <td class="col-num">١</td>
+                    <td>جا<sup>٢</sup> ٦٠ = ٩ / ٤ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٢</td>
+                    <td>إذا كانت ٢ جا ( س - ٣٠ ) = <span class="math-root"><span class="root-content">٣</span><svg
+                                class="root-symbol" width="8" height="15" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> ، فإن س = ٦٠ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٣</td>
+                    <td>إذا كانت ٢ جتا ( ١٢٠ - ص ) = <span class="math-root"><span class="root-content">٣</span><svg
+                                class="root-symbol" width="8" height="15" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> ، فإن ص = ٦٠ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٤</td>
+                    <td>إذا كانت ظا ( ٧٠ - ص ) = <span class="math-root"><span class="root-content">٣</span><svg
+                                class="root-symbol" width="8" height="15" viewBox="0 0 10 20">
+                                <path d="M8,2 L5,18 L0,12" fill="none" stroke="black" stroke-width="1.2" />
+                            </svg></span> ، فإن ص = ١٠ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٥</td>
+                    <td>إذا كانت ٢ جتا ( ٢ س ) = ١ ، فإن س = ٦٠ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٦</td>
+                    <td>جا ٣٠ + جتا ٦٠ = ٢ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-num">٧</td>
+                    <td>جا<sup>٢</sup> ٣٠ + جتا<sup>٢</sup> ٦٠ = ١ / ٢ .</td>
+                    <td class="col-tf">
+                        <div class="circle-group">
+                            <div class="circle correct" onclick="toggleTF(this)"></div>
+                            <div class="circle wrong" onclick="toggleTF(this)"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ٩٥ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTF(el) {
+            const group = el.parentElement;
+            group.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - رياضيات تاسع</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.5;
+        }
+        .main-page {
+            max-width: 950px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .header-box {
+            text-align: center;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 5px;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .right-col, .left-col {
+            flex: 1;
+            min-width: 320px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .math-box {
+            border: 1px solid #000;
+            padding: 5px;
+            margin: 5px 0;
+            display: inline-block;
+            width: 95%;
+        }
+        .solution-tag {
+            font-weight: bold;
+            color: #000;
+        }
+        .note-box {
+            border: 1px dashed #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .fraction span { display: block; }
+        .fraction .bottom { border-top: 1px solid #000; }
+
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .right-col, .left-col { width: 100%; min-width: unset; padding: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-page">
+    <div class="header-box">
+        <h3>5) ثالثاً : تحليل المقدار الثلاثي المربع الكامل :</h3>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="right-col">
+            <strong>أولاً : لكي يكون المقدار الثلاثي مربعاً كاملاً يجب أن تتوفر فيه الشروط التالية :</strong>
+            <p>(1) الحدأن الأول والأخير كميتين مربعتين موجبتين .</p>
+            <p>(2) الحد الأوسط يساوي حاصل ضرب الجذر التربيعي للحد الأول × الجذر التربيعي للحد الثالث والإشارة تكون مثل إشارة الحد الأوسط .</p>
+            
+            <strong>ثانياً : تحليل المقدار الثلاثي المربع الكامل يتم بالصورة التالية :</strong>
+            <div class="note-box">
+                ( الجذر التربيعي للحد الأول ± الجذر التربيعي للجذر الثالث )<sup>2</sup><br>
+                وتكون الإشارة بين الحدين مساوية لإشارة الحد الأوسط <br>
+                وبصورة عامة يكون : أ<sup>2</sup> ± 2أب + ب<sup>2</sup> = ( أ ± ب )<sup>2</sup>
+            </div>
+            <p>فمثلاً نجد أن : س<sup>2</sup> - 8س + 16 = ( س - 4 )<sup>2</sup></p>
+
+            <p><span class="solution-tag">مثال :</span> بين أياً من المقدارين الآتيين مربعاً كاملاً :</p>
+            <p>أ) 9أ<sup>2</sup> - 6أب + ب<sup>2</sup> &nbsp;&nbsp;&nbsp;&nbsp; ب) س<sup>2</sup> + 4س - 4</p>
+            <p><span class="solution-tag">* الحل *</span></p>
+            <p>أ) 9أ<sup>2</sup> - 6أب + ب<sup>2</sup> فيه :<br>
+            لحد الأول 9أ<sup>2</sup> جذره التربيعي &radic;9أ<sup>2</sup> = 3أ<br>
+            والحد الثالث ( الأخير ) ب<sup>2</sup> جذره التربيعي = ب<br>
+            الحد الأوسط = - 2 × 3أ × ب = - 6أب</p>
+            <p>∴ المقدار 9أ<sup>2</sup> - 6أب + ب<sup>2</sup> مربعاً كاملاً تحليله هو ( 3أ - ب )<sup>2</sup></p>
+            <p>ب) المقدار : س<sup>2</sup> + 4س - 4 بمجرد النظر نرى أن الحد الثالث فيه ( - 4 ) إشارته سالبة ( كمية غير موجبة ) بالتالي المقدار ليس مربعاً كاملاً .</p>
+
+            <div class="note-box">
+                <strong>ملاحظة :</strong> من العلاقة الحد الأوسط = ± 2 × الجذر التربيعي للحد الأول × الجذر التربيعي للحد الثالث في المقدار الكامل ، فيمكن إيجاد أي حد مجهول فإذا :<br>
+                (1) كان المجهول الحد الأول يكون :<br>
+                الجذر التربيعي للحد الأول = <span class="fraction"><span>الحد الأوسط</span><span class="bottom">± 2 الجذر الثالث</span></span><br>
+                نربع الطرفين نحصل على الحد الأول .<br>
+                (2) كان المجهول الحد الثالث يكون :<br>
+                الجذر التربيعي للحد الثالث = <span class="fraction"><span>الحد الأوسط</span><span class="bottom">± 2 الجذر الأول</span></span><br>
+                نربع الطرفين نحصل على الحد الثالث = مربع الطرف الأيسر .
+            </div>
+
+            <p><strong>فمثلاً :</strong> أكمل المقدار : س<sup>2</sup> - 4س + .... كي يكون مربعاً كاملاً :</p>
+            <p>∵ - 4س = - 2 × جذر الحد الأول × جذر الحد الثالث فإن :</p>
+            <p>جذر الحد الثالث = <span class="fraction"><span>-4س</span><span class="bottom">-2س</span></span> فيكون جذر الحد الثالث = 2 بالتربيع يكون :</p>
+            <p>جذر الحد الثالث = 4 : فيصبح المقدار هو س<sup>2</sup> - 4س + 4</p>
+
+            <div class="header-box">
+                <h4>2:2 حل تمارين ومسائل على المقدار الثلاثي</h4>
+                <small>صـ 72 إلى صـ 73 المقرر الوزاري (الكتاب المدرسي)</small>
+            </div>
+
+            <p>اكمل ما يأتي لتحصل على متساويات صحيحة : ( سنضع الحل مباشرة في الطرف الأيسر )</p>
+            <div class="math-box">|1| س<sup>2</sup> - 3س + 2 = (س - ...)(... - 2) = (س - 1)(س - 2)</div>
+            <div class="math-box">|2| أ<sup>2</sup> + 6أ + 5 = (أ + ...)(... + 1) = (أ + 5)(أ + 1)</div>
+            <div class="math-box">|3| س<sup>2</sup> + س - 30 = (س - ...)(س + ...) = (س - 5)(س + 6)</div>
+            <div class="math-box">|4| م<sup>2</sup> + 7م هـ + 10هـ<sup>2</sup> = (م + ...)(م + ...) = (م + 5هـ)(م + 2هـ)</div>
+            <div class="math-box">|5| ل<sup>2</sup> - 9ل م - 10م<sup>2</sup> = (ل + ...)(ل - ...) = (ل + م)(ل - 10م)</div>
+            <div class="math-box">|6| 3س<sup>2</sup> + 4س - 4 = (3س - ...)(... + 2) = (3س - 2)(س + 2)</div>
+        </div>
+
+        <div class="left-col">
+            <strong>حلل المقادير فيما يلي :</strong>
+            <div class="math-box">|8| م<sup>2</sup> + 10م - 11 = (م + 11)(م - 1)</div>
+            <div class="math-box">|9| أ<sup>2</sup> + 8أ + 15 = (أ + 3)(أ + 5)</div>
+            <div class="math-box">|10| ع<sup>2</sup> + 13ع - 30 = (ع + 15)(ع - 2)</div>
+            <div class="math-box">|11| ب<sup>2</sup> - 25ب جـ + 24جـ<sup>2</sup> = (ب - 24جـ)(ب - جـ)</div>
+            <div class="math-box">|12| أ<sup>2</sup> - 10أب - 24ب<sup>2</sup> = (أ - 12ب)(أ + 2ب)</div>
+            <div class="math-box">|13| س<sup>2</sup> - 3س ص - 10ص<sup>2</sup> = (س - 5ص)(س + 2ص)</div>
+            <div class="math-box">|14| ل<sup>2</sup> + 5ل م + 4م<sup>2</sup> = (ل + 4م)(ل + م)</div>
+            <div class="math-box">|15| هـ<sup>2</sup> - 20هـ م + 100م<sup>2</sup> = (هـ - 10م)(هـ - 10م)</div>
+            <div class="math-box">|16| م<sup>2</sup> + 7م + 3 = (م + 1)(م + 3)</div>
+            <div class="math-box">|17| 3س<sup>2</sup> - 16س + 5 = (3س - 1)(س - 5)</div>
+            <div class="math-box">|18| 2ل<sup>2</sup> - 8ل م - 5م<sup>2</sup> = (2ل - 5م)(ل + م)</div>
+            <div class="math-box">|19| 6هـ<sup>2</sup> + 7هـ و - 3و<sup>2</sup> = (2هـ + 3و)(3هـ - و)</div>
+            <div class="math-box">|20| 4ع<sup>2</sup> + 19ع - 5 = (4ع - 1)(ع + 5)</div>
+            <div class="math-box">|21| 12ب - 85 + ب<sup>2</sup> = ب<sup>2</sup> + 12ب - 85 [رتبنا الحدود]<br>= (ب + 17)(ب - 5)</div>
+            <div class="math-box">|22| ل<sup>2</sup> - 30م<sup>2</sup> - 7ل م = ل<sup>2</sup> - 7ل م - 30م<sup>2</sup> [رتبنا الحدود]<br>= (ل - 10م)(ل + 3م)</div>
+            <div class="math-box">|23| 4س<sup>2</sup> + 20س + 25 = (2س + 5)<sup>2</sup> [مربع كامل]</div>
+            <div class="math-box">|24| 4س<sup>2</sup> ص<sup>2</sup> + 28س ص + 49 = (2س ص + 7)<sup>2</sup> [مربع كامل]</div>
+            <div class="math-box">|25| 1/4 س<sup>2</sup> - 3س + 9 = (1/2 س - 3)<sup>2</sup> [مربع كامل]</div>
+            <div class="math-box">|26| أ<sup>2</sup> - &radic;5أ + 5 = (أ - &radic;5)<sup>2</sup> [مربع كامل]</div>
+            <div class="math-box">|27| ل<sup>2</sup> - 2/3 ل م + 1/9 م<sup>2</sup> = (ل - 1/3 م)<sup>2</sup> [مربع كامل]</div>
+            <div class="math-box">|28| ب<sup>2</sup> + 20ب جـ + 100جـ<sup>2</sup> = (ب + 10جـ)<sup>2</sup></div>
+            <div class="math-box">|29| 3س<sup>2</sup> - 24س + 45 = 3(س<sup>2</sup> - 8س + 15) [أخذنا مشترك 3]<br>= 3(س - 3)(س - 5)</div>
+            <div class="math-box">|30| 15س<sup>2</sup> - 14س ص + 3ص<sup>2</sup> = (3س - ص)(5س - 3ص)</div>
+            <div class="math-box">|31| 0.25أ<sup>2</sup> + أب + ب<sup>2</sup> = (0.5أ + ب)<sup>2</sup></div>
+
+            <p><strong>|32| قطعة أرض مربعة الشكل مساحتها (س<sup>2</sup> + 14س + 49) متراً مربعاً أوجد طول هذه القطعة بدلالة س .</strong></p>
+            <p><span class="solution-tag">* الحل *</span> تعلم أن مساحة المربع = طول الضلع × نفسه فإذا فرضنا طول القطعة المربعة = ل فإن ل × ل = ل<sup>2</sup> نضع للمساواة بين الطرفين بالتعويض بقيمة مساحة القطعة</p>
+            <p>∴ (س<sup>2</sup> + 14س + 49) = ل<sup>2</sup> [ الطرف الأيمن مربع كامل ]</p>
+            <p>∴ (س + 7)<sup>2</sup> = ل<sup>2</sup> "بأخذ الجذر التربيعي للطرفين"</p>
+            <p>∴ س + 7 = ل أي أن طول القطعة المربعة = <span class="math-box" style="width: auto;">س + 7</span></p>
+
+            <p><strong>|33| حديقة أطفال مربعة الشكل مساحتها (س<sup>2</sup> + 24س + 144) متراً مربعاً . أوجد طول هذه الحديقة بدلالة س إذا علمت أن طول الحديقة 165 م فما قيمة س ؟</strong></p>
+            <p><span class="solution-tag">* الحل *</span><br>
+            "المساحة = (طول الحديقة × نفسه)"<br>
+            أي المساحة = (طول ضلع الحديقة المربعة)<sup>2</sup> [نعوض بقيمة المساحة]<br>
+            ∴ (طول ضلع الحديقة المربعة)<sup>2</sup> = (س<sup>2</sup> + 24س + 144) [مربع كامل]<br>
+            ∴ (طول ضلع الحديقة المربعة)<sup>2</sup> = (س + 12)<sup>2</sup> "بأخذ الجذر التربيعي"<br>
+            ∴ طول الحديقة المربعة = س + 12<br>
+            وعندما طول الحديقة = 165 م فإن<br>
+            س + 12 = 165 ومنها س = 165 - 12<br>
+            ومنها نجد أن س = <span class="math-box" style="width: auto;">153 م</span></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدرس الخامس: التحليل بالتجميع</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* إعدادات أساسية لضمان عدم خروج الإطارات */
+        * {
+            box-sizing: border-box;
+            /* أهم سطر لحل مشكلة الحجم الزائد */
+        }
+
+        :root {
+            --bg-color: #f4f4f4;
+            --sheet-bg: #ffffff;
+            --header-blue: #daeef3;
+            --answer-color: #008000;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                margin: 0;
+            }
+
+            .sheet-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                min-height: 100vh;
+                /* ملء الصفحة عند الطباعة */
+                border: none;
+            }
+
+            .hint-text {
+                display: none !important;
+            }
+
+            .answer-content {
+                display: none !important;
+            }
+
+            .dotted-line {
+                border-bottom: 2px dotted #000 !important;
+                background: none !important;
+            }
+
+            /* إجبار المتصفح على طباعة الخلفيات الملونة (للمربع الأزرق) */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .sheet-container {
+            background-color: var(--sheet-bg);
+            width: 100%;
+            max-width: 794px;
+            /* عرض A4 */
+            min-height: 1123px;
+            /* ارتفاع A4 */
+            /* جعل الحاوية فليكس لضمان تمدد الإطارات الداخلية بشكل صحيح */
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            /* هامش بسيط جداً من الخارج */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* الإطار المزدوج الخارجي */
+        .outer-border {
+            border: 4px double #000;
+            flex: 1;
+            /* يتمدد ليملأ المساحة المتاحة دون زيادة */
+            display: flex;
+            flex-direction: column;
+            padding: 3px;
+            /* مسافة بين الإطار المزدوج والإطار الفردي */
+        }
+
+        /* الإطار الفردي الداخلي */
+        .inner-border {
+            border: 1px solid #000;
+            flex: 1;
+            /* يتمدد ليملأ المساحة المتاحة */
+            padding: 30px 40px;
+            /* حشوة داخلية للنصوص */
+            position: relative;
+        }
+
+        /* بقية التنسيقات (نفس السابقة مع تحسينات طفيفة) */
+        .header-box {
+            background-color: var(--header-blue);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+            /* ظل خفيف للصندوق */
+        }
+
+        h1 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin: 0;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-decoration: underline;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        ul.arrows {
+            list-style: none;
+            padding-right: 20px;
+        }
+
+        ul.arrows li {
+            position: relative;
+        }
+
+        ul.arrows li::before {
+            content: "⬅";
+            position: absolute;
+            right: -25px;
+            font-weight: bold;
+        }
+
+        ol.nums {
+            list-style: none;
+            counter-reset: my-counter;
+            padding-right: 0;
+        }
+
+        ol.nums li {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 8px;
+        }
+
+        ol.nums li::before {
+            content: counter(my-counter, arabic-indic) ".";
+            counter-increment: my-counter;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            direction: ltr;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .training-section {
+            border-top: 2px solid #aaa;
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        .training-title {
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .question-row {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .q-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .dotted-line {
+            width: 100%;
+            min-height: 35px;
+            /* ارتفاع أدنى للسطر */
+            border-bottom: 2px dotted #000;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .dotted-line:hover {
+            background-color: #f0f8ff;
+        }
+
+        .answer-content {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--answer-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+            direction: ltr;
+        }
+
+        .answer-content.show {
+            opacity: 1;
+        }
+
+        .hint-text {
+            font-size: 0.7rem;
+            color: #dc3545;
+            position: absolute;
+            left: 0;
+            top: -15px;
+            font-family: 'Cairo';
+        }
+
+        .footer {
+            margin-top: auto;
+            /* يدفع الفوتر للأسفل دائماً */
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .num-ar {
+            font-family: 'Tajawal', sans-serif;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="sheet-container">
+        <div class="outer-border">
+            <div class="inner-border">
+
+                <div class="header-box">
+                    <h1>الدرس الخامس: التحليل بالتجميع.</h1>
+                </div>
+
+                <p style="text-align: center; font-weight: bold;">في هذا الدرس سيتم التعرف على كيفية تحليل المقادير التي
+                    تحتوي على أكثر من ثلاثة حدود.</p>
+
+                <h2>مفهوم التحليل بالتجميع:</h2>
+                <p>هو طريقة تستخدم لتحليل المقادير الأكثر من ثلاثة حدود.</p>
+
+                <h2>أسباب استخدام التحليل بالتجميع:</h2>
+                <ul class="arrows">
+                    <li>عدد حدود المقدار أكثر من ثلاثة.</li>
+                    <li>يصعب تحليلها مباشرة بالطرق المأخوذة سابقاً.</li>
+                </ul>
+
+                <h2>خطوات التحليل بالتجميع:</h2>
+                <ol class="nums">
+                    <li>
+                        أ) في المقادير الرباعية، نأخذ حدين مع حدين (ركزوا إنكم تأخذوا الحد مع إشارته)، ولابد أن يظهر
+                        بينهما قوس مشترك بعد التحليل فإن لم نجد قوس مشترك، نحاول ترتيب المقدار مرة أخرى، فإن لم نجد قوس
+                        مشترك، نأخذ ثلاثة حدود مع حد ثم يتكون لنا فرق بين مربعين.<br>
+                        ب) في المقادير الخماسية نأخذ ثلاثة حدود معاً ( نكون مقدار ثلاثي من الأنواع المأخوذة ) وحدين
+                        معاً.
+                    </li>
+                    <li>نضع بين التجميعين علامة ( + ).</li>
+                    <li>نحلل كل قوس بطريقة مناسبة من خلال الطرق المأخوذة سابقاً.</li>
+                    <li>نأخذ القوس المشترك بين التجميعين كعامل مشترك أكبر " إن وجد ".</li>
+                    <li>لا بد من تبسيط الحل الأخير بترتيبه وجمع الحدود التي يمكن جمعها معاً.</li>
+                </ol>
+
+                <h2>ملاحظة:</h2>
+                <ol class="nums">
+                    <li>عند تجميع قوسين ( ) ± ( )، إذا كانت الإشارة بينهما سالبة لا بد من تغيير إشارة القوس الثاني.</li>
+                    <li>
+                        أحياناً قد يظهر القوس المشترك مختلف في الإشارة، لذلك نسحب السالب عامل مشترك كي نغير الإشارة<br>
+                        مثلاً: <span class="math">-س + ١ = - ( س - ١ )</span>.
+                    </li>
+                    <li>أحياناً يصعب تحليل المقادير الرباعية لذلك تتحلل بأخذ ثلاثة حدود معاً وناتج التحليل لها مع الحد
+                        الرابع.</li>
+                </ol>
+
+                <div class="training-section">
+                    <div class="training-title">تدريب (١):</div> <span style="font-weight: bold;">حلل المقادير
+                        التالية:</span>
+
+                    <div class="question-row">
+                        <div class="q-text">
+                            <span class="num-ar">٥.</span>&nbsp;
+                            <span class="math">س<sup>٢</sup> + أ س + ب س + أ ب .</span>
+                        </div>
+                        <div class="dotted-line" onclick="toggleAnswer(this)">
+                            <span class="hint-text">(اضغط لرؤية الحل)</span>
+                            <span class="answer-content">( س + أ ) ( س + ب )</span>
+                        </div>
+                        <div class="dotted-line" style="border:none; height: 10px;"></div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-text">
+                            <span class="num-ar">٦.</span>&nbsp;
+                            <span class="math">س<sup>٢</sup> - ٤ س + ٢ ل س - ٤ ل + ٤ .</span>
+                        </div>
+                        <div class="dotted-line" onclick="toggleAnswer(this)">
+                            <span class="hint-text">(اضغط لرؤية الحل)</span>
+                            <span class="answer-content">( س - ٢ ) ( س - ٢ + ٢ل )</span>
+                        </div>
+                        <div class="dotted-line" style="margin-top: 10px;"></div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-text">
+                            <span class="num-ar">٧.</span>&nbsp;
+                            <span class="math">( ٢ أ + ب )<sup>٢</sup> - ٨ أ - ٤ ب .</span>
+                        </div>
+                        <div class="dotted-line" onclick="toggleAnswer(this)">
+                            <span class="hint-text">(اضغط لرؤية الحل)</span>
+                            <span class="answer-content">( ٢ أ + ب ) ( ٢ أ + ب - ٤ )</span>
+                        </div>
+                        <div class="dotted-line" style="margin-top: 10px;"></div>
+                    </div>
+
+                </div>
+
+                <div class="training-section" style="border: none;">
+                    <div class="training-title">تدريب (٢):</div>
+
+                    <div class="question-row">
+                        <div class="q-text">
+                            حلل المقدار: <span class="math">س<sup>١٣</sup> + س<sup>٧</sup> + س<sup>٦</sup> + ١ .</span>
+                        </div>
+                        <div class="dotted-line" onclick="toggleAnswer(this)">
+                            <span class="hint-text">(اضغط لرؤية الحل)</span>
+                            <span class="answer-content">( س<sup>٦</sup> + ١ ) ( س<sup>٧</sup> + ١ )</span>
+                        </div>
+                        <div class="dotted-line" style="margin-top: 10px;"></div>
+                        <div class="dotted-line" style="margin-top: 10px;"></div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div>إعداد: هلا المولجي</div>
+                    <div>- ٥١ -</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answerSpan = element.querySelector('.answer-content');
+            const hintSpan = element.querySelector('.hint-text');
+
+            if (answerSpan) {
+                answerSpan.classList.toggle('show');
+                if (answerSpan.classList.contains('show')) {
+                    hintSpan.style.display = 'none';
+                } else {
+                    hintSpan.style.display = 'block';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

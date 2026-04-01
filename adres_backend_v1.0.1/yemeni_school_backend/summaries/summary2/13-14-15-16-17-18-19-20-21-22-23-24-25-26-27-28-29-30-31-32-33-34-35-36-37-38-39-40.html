@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٠</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.4vmin;
+            padding: 2vmin;
+            box-shadow: var(--box-shadow);
+        }
+
+        .section-box {
+            border: 2px solid var(--border-color);
+            margin-bottom: 2vmin;
+            padding: 1.5vmin;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .head-title {
+            font-weight: bold;
+            background: #eee;
+            padding: 0.2vmin;
+            margin-bottom: 0.5vmin;
+        }
+
+        .eq-row {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2vmin;
+            margin-bottom: 0.5vmin;
+            direction: ltr;
+        }
+
+        /* LTR for math */
+        .eq-label {
+            font-weight: bold;
+            margin-left: auto;
+            direction: rtl;
+        }
+
+        /* Arabic text */
+
+        .venn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1vmin;
+            margin-top: 1vmin;
+            margin-bottom: 1vmin;
+        }
+
+        .venn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .venn-input {
+            border-bottom: 1px dotted #000;
+            width: 80%;
+            height: 1.5vmin;
+            margin-top: 0.5vmin;
+        }
+
+        /* MCQ Table */
+        .mcq-table {
+            border: 2px solid #000;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mcq-header {
+            background-color: var(--header-bg);
+            font-weight: bold;
+            text-align: right;
+            padding: 1vmin;
+            border-bottom: 2px solid #000;
+            font-family: var(--ui-font);
+        }
+
+        .grid-row {
+            display: grid;
+            grid-template-columns: 3vmin 3vmin 3vmin 1fr;
+            border-bottom: 1px solid #000;
+            align-items: center;
+            height: 3vmin;
+        }
+
+        .cell {
+            border-left: 1px solid #000;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.5vmin;
+        }
+
+        .cell:last-child {
+            border-left: none;
+            justify-content: flex-start;
+        }
+
+        .bubble {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        /* SVG Patterns */
+        svg {
+            overflow: visible;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Exercise A -->
+        <div class="section-box">
+            <div class="head-title">تدريب (أ): اكتب القانون المكافئ لما يلي من خلال استخدام قانوني دي مورجان:</div>
+            <div class="direction-ltr padding-left-2">
+                <div class="margin-bottom-05">(سَ ∩ صَ)َ = .....................................................</div>
+                <div class="margin-bottom-05">(سَ ∪ صَ)َ = .....................................................</div>
+                <div class="margin-bottom-05">(سَ ∩ ص)َ = .....................................................</div>
+                <div class="margin-bottom-05">(س ∪ صَ)َ = .....................................................</div>
+                <div class="margin-bottom-05">(س ∪ ص )َ = .....................................................</div>
+            </div>
+        </div>
+
+        <!-- Exercise B (Venn Diagrams) -->
+        <div class="section-box">
+            <div class="head-title">تدريب (ب): اكتب ما تمثله الأشكال التالية:</div>
+
+            <defs>
+                <pattern id="hatchBlue" width="4" height="4" patternTransform="rotate(45 0 0)"
+                    patternUnits="userSpaceOnUse">
+                    <rect width="2" height="4" fill="#6699ff" />
+                </pattern>
+            </defs>
+
+            <div class="venn-grid">
+                <!-- Row 1 -->
+                <div class="venn-wrapper">
+                    <!-- Intersection Shaded -->
+                    <svg width="100" height="60" viewBox="0 0 100 60">
+                        <circle cx="35" cy="30" r="25" fill="none" stroke="black" />
+                        <circle cx="65" cy="30" r="25" fill="none" stroke="black" />
+                        <path d="M 65,30 A 25 25 0 0 0 47.3 12.3 A 25 25 0 0 0 47.3 47.7 A 25 25 1 0 0 65 30"
+                            fill="none" /> <!-- Clipping mock -->
+                        <!-- Actually simpler to just draw intersection -->
+                        <path d="M 47.3,12.3 A 25 25 0 0 1 52.7 12.3" stroke="none" fill="none" />
+                        <!-- Intersection Path -->
+                        <path d="M 46,11 A 25 25 0 0 1 54,11 L 54,49 A 25 25 0 0 1 46,49 Z" fill="url(#hatchBlue)"
+                            opacity="0.5" />
+                        <!-- Correct Intersection Area -->
+                        <path d="M 65,30 A 25 25 0 0 0 47.3 12.3 A 25 25 0 0 1 47.3 47.7 A 25 25 0 0 0 65 30 Z"
+                            fill="url(#hatchBlue)" />
+                        <path d="M 35,30 A 25 25 0 0 1 52.7 12.3 A 25 25 0 0 0 52.7 47.7 A 25 25 0 0 1 35 30 Z"
+                            fill="url(#hatchBlue)" />
+                        <!-- Redraw outlines -->
+                        <circle cx="35" cy="30" r="25" fill="none" stroke="black" />
+                        <circle cx="65" cy="30" r="25" fill="none" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <!-- Center Shaded (Difference?) -->
+                    <svg width="100" height="60" viewBox="0 0 100 60">
+                        <circle cx="35" cy="30" r="25" fill="none" stroke="black" />
+                        <circle cx="65" cy="30" r="25" fill="none" stroke="black" />
+                        <path d="M 47.3,12.3 A 25 25 0 0 1 52.7 12.3 L 52.7 47.7 A 25 25 0 0 1 47.3 47.7 Z"
+                            fill="url(#hatchBlue)" /> <!-- Mockup -->
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <!-- Union Shaded -->
+                    <svg width="100" height="60" viewBox="0 0 100 60">
+                        <circle cx="35" cy="30" r="25" fill="url(#hatchBlue)" stroke="black" />
+                        <circle cx="65" cy="30" r="25" fill="url(#hatchBlue)" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <!-- Row 2 (Rectangles) -->
+                <div class="venn-wrapper">
+                    <svg width="120" height="60" viewBox="0 0 120 60">
+                        <rect x="0" y="0" width="120" height="60" rx="5" fill="url(#hatchBlue)" stroke="black" />
+                        <circle cx="40" cy="30" r="18" fill="white" stroke="black" />
+                        <circle cx="80" cy="30" r="18" fill="white" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <!-- 3 Circles -->
+                    <svg width="100" height="60" viewBox="0 0 100 60">
+                        <circle cx="35" cy="25" r="18" fill="none" stroke="black" />
+                        <circle cx="65" cy="25" r="18" fill="none" stroke="black" />
+                        <circle cx="50" cy="45" r="18" fill="none" stroke="black" />
+                        <!-- Shade one part -->
+                        <circle cx="65" cy="25" r="18" fill="url(#hatchBlue)" stroke="none" opacity="0.5" />
+                        <circle cx="65" cy="25" r="18" fill="none" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <!-- Only intersection not shaded -->
+                    <svg width="100" height="60" viewBox="0 0 100 60">
+                        <circle cx="35" cy="30" r="25" fill="url(#hatchBlue)" stroke="black" />
+                        <circle cx="65" cy="30" r="25" fill="url(#hatchBlue)" stroke="black" />
+                        <!-- White Intersection -->
+                        <path d="M 65,30 A 25 25 0 0 0 47.3 12.3 A 25 25 0 0 1 47.3 47.7 A 25 25 0 0 0 65 30 Z"
+                            fill="white" />
+                        <path d="M 35,30 A 25 25 0 0 1 52.7 12.3 A 25 25 0 0 0 52.7 47.7 A 25 25 0 0 1 35 30 Z"
+                            fill="white" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="venn-wrapper">
+                    <!-- Everything shaded -->
+                    <svg width="120" height="60" viewBox="0 0 120 60">
+                        <rect x="0" y="0" width="120" height="60" rx="5" fill="url(#hatchBlue)" stroke="black" />
+                        <circle cx="40" cy="30" r="18" fill="none" stroke="black" />
+                        <circle cx="80" cy="30" r="18" fill="none" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <svg width="120" height="60" viewBox="0 0 120 60">
+                        <rect x="0" y="0" width="120" height="60" rx="5" fill="url(#hatchBlue)" stroke="black" />
+                        <circle cx="40" cy="25" r="15" fill="white" stroke="black" />
+                        <circle cx="80" cy="25" r="15" fill="white" stroke="black" />
+                        <circle cx="60" cy="45" r="15" fill="white" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+                <div class="venn-wrapper">
+                    <svg width="120" height="60" viewBox="0 0 120 60">
+                        <rect x="0" y="0" width="120" height="60" rx="5" fill="white" stroke="black" />
+                        <circle cx="40" cy="30" r="20" fill="none" stroke="black" />
+                        <circle cx="80" cy="30" r="20" fill="none" stroke="black" />
+                    </svg>
+                    <div class="venn-input"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MCQ Section -->
+        <div class="mcq-table">
+            <div class="mcq-header">أسئلة على الدرس بطريقة الأتمتة</div>
+            <div class="mcq-header-grid">
+                <div class="cell cell-center-bold">صح</div>
+                <div class="cell cell-center-bold">خطأ</div>
+                <div class="cell cell-end-pad">ظلل الإجابة الصحيحة فيما يلي:</div>
+            </div>
+
+            <!-- Questions -->
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">١.</div>
+                <div class="cell">سَ = { أ : أ ∊ س ، أ ∉ ش }.</div> <!-- Trick question -->
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٢.</div>
+                <div class="cell">{ ٣ ، ٢ ، ٥ } / { ٥ ، ٧ ، ٨ ، ١٠ } = { ٣ ، ٢ }.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٣.</div>
+                <div class="cell">( { ٣ ، ٩ } ∩ { ٧ ، ٨ } ) / { ٣ ، ٩ ، ٨ ، ٧ } = ∅.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٤.</div>
+                <div class="cell">إذا كانت ش = { ٥ ، ٦ ، ٧ }، فإن ∅َ = { ٥ ، ٦ ، ٧ }.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٥.</div>
+                <div class="cell">شَ = ش.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٦.</div>
+                <div class="cell">( س ∩ ص" )َ = ( صَ ∪ صَ ).</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٧.</div>
+                <div class="cell">( س / ص ) ∩ سَ ! = س.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٨.</div>
+                <div class="cell">شَ ! / أَ ! = أ.</div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">٩.</div>
+                <div class="cell">الشكل المجاور ، يمثل س / ش. <svg width="20" height="15" viewBox="0 0 20 15"
+                        class="venn-svg-border">
+                        <path d="M0 0 H20 V15 H0 Z" fill="url(#hatchBlue)" />
+                    </svg></div>
+            </div>
+            <div class="grid-row">
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="cell">١٠.</div>
+                <div class="cell">∅ / س ~ س.</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٠ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

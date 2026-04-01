@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ١٨٣</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+            --header-bg: #d9e1f2;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top MCQs */
+        .mcq-box {
+            border: 1.5px solid #000;
+            margin-bottom: 5px;
+        }
+
+        .question-text {
+            background-color: #f2f2f2;
+            padding: 4px 12px;
+            border-bottom: 1.5px solid #000;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .option-item {
+            border-left: 1.5px solid #000;
+            border-bottom: 1px solid #ccc;
+            padding: 4px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:nth-child(even) {
+            border-left: none;
+        }
+
+        .option-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .option-num {
+            font-weight: bold;
+            margin-left: 10px;
+            min-width: 20px;
+        }
+
+        .option-item.correct {
+            background-color: #d4edda !important;
+        }
+
+        .option-item.wrong {
+            background-color: #f8d7da !important;
+        }
+
+        /* Ministerial Section Header */
+        .ministerial-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 6px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin: 10px 0 5px 0;
+            text-decoration: underline;
+        }
+
+        /* T/F Style */
+        .tf-min-box {
+            border: 1.5px solid #000;
+            margin-bottom: 5px;
+        }
+
+        .tf-header {
+            background-color: #f9d8c4;
+            border-bottom: 1.5px solid #000;
+            padding: 4px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tf-row {
+            display: flex;
+            align-items: center;
+            padding: 5px 15px;
+        }
+
+        .circle-group {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+
+        .circle {
+            width: 17px;
+            height: 17px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circle.active.correct {
+            background-color: var(--correct-clr);
+            border-color: var(--correct-clr);
+        }
+
+        .circle.active.wrong {
+            background-color: var(--wrong-clr);
+            border-color: var(--wrong-clr);
+        }
+
+        /* Ministerial MCQ Table Style */
+        .min-mcq-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 8px;
+            border: 1.5px solid #000;
+        }
+
+        .min-mcq-table td {
+            border: 1.5px solid #000;
+            padding: 4px 10px;
+        }
+
+        .min-mcq-statement {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .options-row-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 100%;
+        }
+
+        .opt-cell {
+            padding: 4px;
+            text-align: center;
+            border-left: 1.5px solid #000;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .opt-cell:last-child {
+            border-left: none;
+        }
+
+        .opt-cell.correct {
+            background-color: #d4edda;
+        }
+
+        .opt-cell.wrong {
+            background-color: #f8d7da;
+        }
+
+        /* Fraction styling */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1px solid #000;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            font-family: var(--font-main);
+        }
+
+        /* Quote */
+        .quote-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .quote-text {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2.2em;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .options-row-4 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .opt-cell:nth-child(even) {
+                border-left: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <!-- Top Questions 11-13 -->
+            <div class="mcq-box">
+                <div class="question-text">١١. لأي زاويتين حادتين في نفس المثلث القائم فإن:</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> جا
+                        (الزاوية الأولى) = جا (الزاوية الثانية).</div>
+                    <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span> جا
+                        (الزاوية الأولى) = جتا (الزاوية الثانية).</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> ظا
+                        (الزاوية الأولى) = ظا (الزاوية الثانية).</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span> ظا
+                        (الزاوية الأولى) = مقلوب ظا (الزاوية الثانية).</div>
+                </div>
+            </div>
+
+            <div class="mcq-box">
+                <div class="question-text">١٢. إذا كانت الزاوية حادة في مثلث قائم، فإن:</div>
+                <div class="options-grid">
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span> جا
+                        الزاوية > صفر.</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٣</span> جتا
+                        الزاوية > صفر.</div>
+                    <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span> -١ < جا
+                            الزاوية < ١.</div>
+                            <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٤</span>
+                                صفر < جتا الزاوية < ١.</div>
+                            </div>
+                    </div>
+
+                    <div class="mcq-box">
+                        <div class="question-text">١٣. النسب المثلثية لأي زاوية حادة مهما تغير طول المقابل والمجاور
+                            والوتر:</div>
+                        <div class="options-grid">
+                            <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">١</span>
+                                متغيرة.</div>
+                            <div class="option-item" onclick="checkMCQ(this, true)"><span class="option-num">٣</span>
+                                ثابتة.</div>
+                            <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٢</span>
+                                مختلفة.</div>
+                            <div class="option-item" onclick="checkMCQ(this, false)"><span class="option-num">٤</span>
+                                متباينة.</div>
+                        </div>
+                    </div>
+
+                    <!-- Ministerial Questions Header -->
+                    <div class="ministerial-header">أسئلة وزارية</div>
+
+                    <!-- T/F Ministerial 1 -->
+                    <div class="tf-min-box">
+                        <div class="tf-header">
+                            <span>ظلل الإجابة الصحيحة فيما يلي:</span>
+                            <div style="display: flex; gap: 20px; padding-left: 5px;"><span>صح</span><span>خطأ</span>
+                            </div>
+                        </div>
+                        <div class="tf-row">
+                            <div class="circle-group">
+                                <div class="circle correct" onclick="toggleTF(this)"></div>
+                                <div class="circle wrong" onclick="toggleTF(this)"></div>
+                            </div>
+                            <div style="flex: 1; display: flex; align-items: center; justify-content: space-between;">
+                                <span>١ . في الشكل المقابل : &nbsp;&nbsp; ظا س = <span class="fraction"><span
+                                            class="top">| ص ع |</span><span class="bottom">| س ع |</span></span></span>
+                                <svg width="60" height="40" viewBox="0 0 60 40">
+                                    <path d="M10,35 L50,35 L10,10 Z" fill="none" stroke="black" stroke-width="1" />
+                                    <path d="M10,30 L15,30 L15,35" fill="none" stroke="black" stroke-width="0.8" />
+                                    <text x="2" y="38" font-family="Amiri" font-size="10">ع</text>
+                                    <text x="52" y="38" font-family="Amiri" font-size="10">س</text>
+                                    <text x="8" y="8" font-family="Amiri" font-size="10">ص</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCQ Ministerial a-f -->
+                    <div
+                        style="background-color: #f2f2f2; border: 1.5px solid #000; padding: 4px 15px; font-weight: bold; margin-bottom: -1px;">
+                        ظلل الإجابة الصحيحة فيما يلي:</div>
+
+                    <!-- MQ a -->
+                    <table class="min-mcq-table">
+                        <tr class="min-mcq-statement">
+                            <td>أ . جا<sup>٢</sup> (٧٢) + جتا<sup>٢</sup> (٧٢) يساوي:</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0;">
+                                <div class="options-row-4">
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">١ . ١</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . ٢</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . ٣</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . ٧٢</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- MQ b -->
+                    <table class="min-mcq-table">
+                        <tr class="min-mcq-statement">
+                            <td>ب . إذا كان جا س = ٤ جتا س، فإن ظا س = ........، حيث س زاوية حادة في مثلث قائم:</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0;">
+                                <div class="options-row-4">
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . ٨</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . ٠,٨</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . ٢</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٤ . ٤</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- MQ c -->
+                    <table class="min-mcq-table">
+                        <tr class="min-mcq-statement">
+                            <td>ج . نسبة الضلع المجاور إلى الوتر لزاوية حادة ھـ في مثلث قائم هي:</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0;">
+                                <div class="options-row-4">
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">١ . جا ھـ</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">٢ . جتا ھـ</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . ظا ھـ</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . <span
+                                            class="fraction"><span class="top">جتا ھـ</span><span class="bottom">جا
+                                                ھـ</span></span></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- MQ d -->
+                    <table class="min-mcq-table">
+                        <tr class="min-mcq-statement">
+                            <td>د . جا جـ ÷ ظا جـ = .......:</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0;">
+                                <div class="options-row-4">
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">١ . جتا جـ</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . حتا<sup>٢</sup> جـ .
+                                    </div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . جا جـ جتا جـ</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . ٢ جا جـ</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- MQ e -->
+                    <table class="min-mcq-table">
+                        <tr class="min-mcq-statement">
+                            <td style="display: flex; align-items: center; justify-content: space-between;">
+                                <span>و . في الشكل المرسوم جانباً قيمة جتا ھـ = ......... :</span>
+                                <svg width="100" height="60" viewBox="0 0 100 60">
+                                    <path d="M10,50 L80,50 L10,10 Z" fill="none" stroke="black" stroke-width="1.5" />
+                                    <path d="M10,42 L18,42 L18,50" fill="none" stroke="black" stroke-width="0.8" />
+                                    <text x="35" y="58" font-family="Amiri" font-size="12">٨ سم</text>
+                                    <text x="82" y="55" font-family="Amiri" font-size="12">١٠ سم</text>
+                                    <text x="12" y="30" font-family="Amiri" font-size="12">٦ سم</text>
+                                    <text x="65" y="45" font-family="Amiri" font-size="20">ھـ</text>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0;">
+                                <div class="options-row-4">
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, true)">١ . ٣ / ٥</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٢ . ٤ / ٥</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٣ . ٣ / ٤</div>
+                                    <div class="opt-cell" onclick="checkMinMCQ(this, false)">٤ . ٥ / ٣</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Quote -->
+                    <div class="quote-box">
+                        <div class="quote-text">لا يهم أن تتأخر بالوصول، المهم أن تصل...</div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                        <span>إعداد: هلا المولجي</span>
+                        <span>- ٩٤ -</span>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function toggleTF(el) {
+                    const group = el.parentElement;
+                    group.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+                    el.classList.add('active');
+                }
+
+                function checkMCQ(el, isCorrect) {
+                    const grid = el.parentElement;
+                    grid.querySelectorAll('.option-item').forEach(opt => opt.classList.remove('correct', 'wrong'));
+                    if (isCorrect) el.classList.add('correct');
+                    else el.classList.add('wrong');
+                }
+
+                function checkMinMCQ(el, isCorrect) {
+                    const row = el.parentElement;
+                    row.querySelectorAll('.opt-cell').forEach(opt => opt.classList.remove('correct', 'wrong'));
+                    if (isCorrect) el.classList.add('correct');
+                    else el.classList.add('wrong');
+                }
+            </script>
+
+</body>
+
+</html>

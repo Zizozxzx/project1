@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>رياضيات الصف التاسع – صفحة 10</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== إعدادات عامة ===== */
+body{
+  margin:0;
+  background:#fff;
+  font-family:'Amiri', serif;
+  color:#000;
+}
+
+.page{
+  width:92%;
+  margin:auto;
+  padding:28px 10px 95px;
+  position:relative;
+  box-sizing:border-box;
+}
+
+/* ===== الرأس العلوي ===== */
+.top-header{
+  position:relative;
+  margin-bottom:22px;
+}
+
+.unit-text{
+  position:absolute;
+  right:0;
+  top:-4px;
+  background:#fff;
+  padding-left:8px;
+  font-size:16px;
+  z-index:2;
+}
+
+.top-line{
+  height:3px;
+  background:#1da1f2;
+  margin-top:16px;
+}
+
+/* ===== النص ===== */
+p{
+  font-size:18px;
+  line-height:2.05;
+  margin:6px 0;
+}
+
+.math{
+  font-size:18px;
+  margin:6px 22px;
+}
+
+/* ===== صندوق عنوان الدرس ===== */
+.lesson-box{
+  margin:32px 0 18px;
+  border:3px solid #000;
+  border-radius:42px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.lesson-text{
+  flex:1;
+  font-size:20px;
+  font-weight:bold;
+  color:#1da1f2;
+  text-align:center;
+}
+
+.lesson-separator{
+  width:2px;
+  height:34px;
+  background:#000;
+}
+
+.lesson-index{
+  font-size:18px;
+  color:#1da1f2;
+  white-space:nowrap;
+}
+
+/* ===== عنوان فرعي ===== */
+.sub-title{
+  font-size:19px;
+  font-weight:bold;
+  color:#1da1f2;
+  margin:14px 0 6px;
+}
+
+/* ===== شكل فن ===== */
+.venn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:22px 0 6px;
+  position:relative;
+}
+
+.circle{
+  width:140px;
+  height:140px;
+  border:2px solid #000;
+  border-radius:50%;
+  position:relative;
+  background:#fff;
+}
+
+.circle.left{ margin-left:-35px; }
+.circle.right{ margin-right:-35px; }
+
+.label{
+  position:absolute;
+  top:-24px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:16px;
+  font-weight:bold;
+}
+
+.dot{
+  position:absolute;
+  font-size:17px;
+}
+
+/* ص فقط */
+.d1{ top:30px; right:50px; }
+.d2{ top:65px; right:65px; }
+.d3{ top:95px; right:50px; }
+
+/* التقاطع */
+.d4{ top:45px; left:35px; }
+.d5{ top:80px; left:35px; }
+
+/* س فقط */
+.d6{ top:30px; left:50px; }
+.d7{ top:65px; left:65px; }
+.d8{ top:95px; left:50px; }
+
+.figure{
+  text-align:center;
+  font-size:16px;
+  margin:6px 0 18px;
+}
+
+/* ===== أسفل الصفحة ===== */
+.bottom-area{
+  position:absolute;
+  bottom:14px;
+  right:0;
+  left:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.bottom-line{
+  flex:1;
+  height:3px;
+  background:#1da1f2;
+}
+
+.page-number{
+  width:46px;
+  height:46px;
+  border:3px solid #1da1f2;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:bold;
+  background:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- الرأس -->
+  <div class="top-header">
+    <span class="unit-text">الوحدة الأولى</span>
+    <div class="top-line"></div>
+  </div>
+
+  <!-- الأسئلة -->
+  <p><b>[٦]</b> إذا كانت س = { ٤ ، ٥ ، ٦ } ، ص = { ١ ، ٢ ، ٣ } اكتب أولًا بطريقة السرد، ثم بالصفة المميزة كلاً من:</p>
+  <p>(أ) س ∩ ص &nbsp;&nbsp; (ب) س ∪ ص &nbsp;&nbsp; (ج) س × ص</p>
+
+  <p><b>[٧]</b> ضع علامة (✓) أمام العبارة الصحيحة، وعلامة (×) أمام العبارة الخاطئة فيما يلي:</p>
+  <div class="math">(أ) ℕ ⊂ ℤ</div>
+  <div class="math">(ب) { −٥ ، ٣ } ⊂ { م : م ∈ ℤ }</div>
+  <div class="math">(ج) { س : س ∈ ص ، س ≤ ٥ } ⊂ ص</div>
+
+  <!-- عنوان الدرس -->
+  <div class="lesson-box">
+    <div class="lesson-text">مجموعة الفرق والمجموعة المتممة</div>
+    <div class="lesson-separator"></div>
+    <div class="lesson-index">١ : ٢</div>
+  </div>
+
+  <p>
+    سبق أن تعلمت عمليتين على المجموعات هما التقاطع والاتحاد، وفي هذا الدرس
+    تتعلم عملية الفرق بين مجموعتين، وعملية متممة مجموعة وتدرس أيضًا قانوني دي مورجان.
+  </p>
+
+  <div class="sub-title">أولًا : الفرق بين مجموعتين</div>
+
+  <p>انظر الشكل (١ - ٢) تلاحظ أنه يمثل المجموعتين:</p>
+  <div class="math">س = { ٤ ، ٥ ، ٦ ، ٧ ، ٨ }</div>
+  <div class="math">ص = { ١ ، ٢ ، ٣ ، ٤ ، ٥ }</div>
+
+  <!-- شكل فن -->
+  <div class="venn">
+    <div class="circle left">
+      <span class="label">ص</span>
+      <span class="dot d1">١</span>
+      <span class="dot d2">٢</span>
+      <span class="dot d3">٣</span>
+      <span class="dot d4">٤</span>
+      <span class="dot d5">٥</span>
+    </div>
+
+    <div class="circle right">
+      <span class="label">س</span>
+      <span class="dot d6">٦</span>
+      <span class="dot d7">٧</span>
+      <span class="dot d8">٨</span>
+    </div>
+  </div>
+
+  <div class="figure">شكل (١ - ٢)</div>
+
+  <!-- الأسفل -->
+  <div class="bottom-area">
+    <div class="bottom-line"></div>
+    <div class="page-number">١٠</div>
+  </div>
+
+</div>
+
+</body>
+</html>

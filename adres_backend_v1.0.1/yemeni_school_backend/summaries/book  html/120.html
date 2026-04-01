@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المعادلات – شكل (٣-٤)</title>
+
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+.page{
+    max-width:1000px;
+    margin:auto;
+    padding:20px 40px 160px;
+    position:relative;
+}
+.top-line{
+    height:4px;
+    background:#00a0df;
+    margin-bottom:18px;
+}
+.text{
+    font-size:20px;
+    line-height:2.6;
+    margin-bottom:10px;
+}
+.table-box{
+    margin:20px auto;
+    width:85%;
+    border:2px solid #000;
+}
+.table-title{
+    background:#dff3ff;
+    text-align:center;
+    font-size:22px;
+    padding:8px 0;
+    border-bottom:2px solid #000;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:20px;
+}
+th, td{
+    border:2px solid #000;
+    text-align:center;
+    padding:10px 6px;
+}
+th{
+    background:#dff3ff;
+}
+.graph-container{
+    margin:30px auto;
+    width:100%;
+    max-width:700px;
+}
+.footer-line{
+    position:absolute;
+    bottom:40px;
+    right:40px;
+    left:40px;
+    height:4px;
+    background:#00a0df;
+}
+.page-number{
+    position:absolute;
+    bottom:15px;
+    left:40px;
+    width:60px;
+    height:60px;
+    border:3px solid #00a0df;
+    border-radius:50%;
+    text-align:center;
+    line-height:54px;
+    font-size:22px;
+    font-weight:bold;
+    background:#fff;
+}
+.footer-link{
+    position:absolute;
+    bottom:-35px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#1a5fb4;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="text">
+٢س + ص = ٣ &nbsp;&nbsp;&nbsp; نكتب المعادلة بدلالة س :
+</div>
+<div class="text">
+ص = ٣ − ٢س
+</div>
+
+<div class="text">ننشئ جدول القيم على النحو التالي :</div>
+
+<div class="table-box">
+    <div class="table-title">ص = ٣ − ٢س</div>
+    <table>
+        <tr>
+            <th>س</th>
+            <th>ص</th>
+            <th>( س ، ص )</th>
+        </tr>
+        <tr>
+            <td>−١</td>
+            <td>٥</td>
+            <td>( −١ ، ٥ )</td>
+        </tr>
+        <tr>
+            <td>٠</td>
+            <td>٣</td>
+            <td>( ٠ ، ٣ )</td>
+        </tr>
+        <tr>
+            <td>١</td>
+            <td>١</td>
+            <td>( ١ ، ١ )</td>
+        </tr>
+    </table>
+</div>
+
+<div class="text">
+نمثل الأزواج المرتبة في المستوى كما في الشكل (٣-٤)
+</div>
+
+<!-- الرسم البياني مرسوم SVG -->
+<div class="graph-container">
+<svg viewBox="-220 -220 440 440" width="100%" height="420"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <!-- شبكة -->
+    <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0 L0 0 0 20" fill="none" stroke="#ccc" stroke-width="0.5"/>
+        </pattern>
+    </defs>
+    <rect x="-220" y="-220" width="440" height="440" fill="url(#grid)"/>
+
+    <!-- المحاور -->
+    <line x1="-220" y1="0" x2="220" y2="0" stroke="#000" stroke-width="2"/>
+    <line x1="0" y1="-220" x2="0" y2="220" stroke="#000" stroke-width="2"/>
+
+    <!-- أسهم -->
+    <polygon points="220,0 210,-6 210,6" fill="#000"/>
+    <polygon points="-220,0 -210,-6 -210,6" fill="#000"/>
+    <polygon points="0,-220 -6,-210 6,-210" fill="#000"/>
+    <polygon points="0,220 -6,210 6,210" fill="#000"/>
+
+    <!-- تسميات -->
+    <text x="205" y="-10" font-size="16">س</text>
+    <text x="-210" y="-10" font-size="16">سـ</text>
+    <text x="8" y="-205" font-size="16">ص</text>
+    <text x="8" y="215" font-size="16">صـ</text>
+
+    <!-- المستقيم ص = ٣ − ٢س -->
+    <line x1="-120" y1="120" x2="120" y2="-120"
+          stroke="#00a0df" stroke-width="3"/>
+
+    <!-- أسهم المستقيم -->
+    <polygon points="120,-120 110,-110 110,-130" fill="#00a0df"/>
+    <polygon points="-120,120 -110,110 -110,130" fill="#00a0df"/>
+
+    <!-- النقاط -->
+    <circle cx="-40" cy="100" r="5" fill="#00a0df"/>
+    <circle cx="0" cy="60" r="5" fill="#00a0df"/>
+    <circle cx="40" cy="20" r="5" fill="#00a0df"/>
+
+    <!-- تسميات النقاط -->
+    <text x="-70" y="100" font-size="14">( −١ ، ٥ )</text>
+    <text x="6" y="58" font-size="14">( ٠ ، ٣ )</text>
+    <text x="45" y="18" font-size="14">( ١ ، ١ )</text>
+
+</svg>
+</div>
+
+<div class="text" style="text-align:center;">شكل (٣-٤)</div>
+
+<div class="footer-line"></div>
+<div class="page-number">١٢٣</div>
+<div class="footer-link">http://www.e-learning-moe.edu.ye/</div>
+
+</div>
+</body>
+</html>

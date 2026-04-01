@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة 13</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.5;
+            color: #000;
+        }
+        .main-container {
+            max-width: 1000px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 15px;
+        }
+        .page-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-bottom: 2px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .content-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        .right-column {
+            order: 1;
+            border-left: 1px solid #000;
+            padding-left: 15px;
+        }
+        .left-column {
+            order: 2;
+        }
+        .math-text {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .solution-tag {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .divider {
+            border-top: 1px dashed #000;
+            margin: 15px 0;
+        }
+        .mapping-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 20px 0;
+        }
+        .set-box {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 60px;
+            text-align: center;
+        }
+
+        /* تنسيق الهواتف */
+        @media (max-width: 768px) {
+            .content-flex { flex-direction: column; }
+            .right-column { border-left: none; border-bottom: 2px solid #000; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="page-header">ـ ١٣ ـ</div>
+
+    <div class="content-flex">
+        <div class="column right-column">
+            <div class="math-text">
+                | ٧ | لتكن ك = { ١ ، ٢ ، ٣ ، ٤ } ، ل = { ٢ ، ٣ ، ٦ ، ١١ ، ١٨ } <br>
+                وكان ت : ك ← ل معرفاً بالقاعدة أ ← أ² + ٢ فأوجد <br>
+                صورة كل عنصر ، ثم أوجد مدى التطبيق . <br>
+                <span class="solution-tag">* الحل : *</span> <br>
+                ∵ قاعدة التطبيق هي ت ( أ ) = أ² + ٢ حيث أ ∈ ك <br>
+                وناتج ت ( أ ) ∈ ل فنجد :- <br>
+                ت(١) = ١² + ٢ = ٣ ، ت(٢) = ٢² + ٢ = ٦ ، ت(٣) = ٣² + ٢ = ١١ ، ت(٤) = ٤² + ٢ = ١٨ <br>
+                ∴ المدى = مجموعة صور عناصر المجال . <br>
+                ∴ المدى = { ٣ ، ٦ ، ١١ ، ١٨ }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٨ | ت تطبيق مجاله س = { ٠ ، ٥ ، ١٠ ، ١٥ } ومجاله <br>
+                المقابل ط ( ط مجموعة الأعداد الطبيعية ) وقاعدته هي <br>
+                أ ← أ + ١٠ <br>
+                أ) أوجد مدى التطبيق ( ب ) أكتب التطبيق كأزواج مرتبة . <br>
+                <span class="solution-tag">* الحل : *</span> <br>
+                ∵ ت : س ← ط حيث ت ( أ ) = أ + ١٠ ، أ ∈ س وناتج <br>
+                ت ( أ ) ∈ ط <br>
+                .. عندما أ = ٠ ∈ س فإن ت (٠) = ٠ + ١٠ = ١٠ ∈ ط <br>
+                وعندما أ = ٥ ∈ س فإن ت (٥) = ٥ + ١٠ = ١٥ ∈ ط <br>
+                وهكذا فإن ت (١٠) = ٢٠ ، ت (١٥) = ٢٥ فيكون : <br>
+                أ) المدى = { ١٠ ، ١٥ ، ٢٠ ، ٢٥ } <br>
+                ب) ت = { (٠ ، ١٠) ، (٥ ، ١٥) ، (١٠ ، ٢٠) ، (١٥ ، ٢٥) }
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="math-text">
+                | ٩ | ت تطبيق مجاله س = { ٠ ، ١ ، ٢ ، ٣ ، -١ ، -٢ } ومجاله <br>
+                المقابل ص ، معرفاً بالقاعدة أ ← أ² - ٢ <br>
+                أ) اكتب التطبيق كأزواج مرتبة ثم أوجد مداه . <br>
+                ب) أرسم المخطط السهمي للتطبيق . <br>
+                <span class="solution-tag">* الحل : *</span> <br>
+                نجد صورة كل عنصر من س كعنصر في ص بالتعويض في <br>
+                قاعدة التطبيق فنجد :- <br>
+                ت(٠) = -٢ ، ت(١) = -١ ، ت(٢) = ٢ ، ت(-١) = -١ ، ت(-٢) = ٢ <br>
+                ∴ المدى = { -٢ ، -١ ، ٢ } <br>
+                ب) الشكل المقابل يمثل المخطط السهمي علماً بأن ص هي <br>
+                مجموعة الأعداد الصحيحة .
+                
+                <div class="diagram-container">
+                    <svg width="200" height="250" viewBox="0 0 200 250">
+                        <rect x="20" y="20" width="50" height="210" fill="none" stroke="black" />
+                        <rect x="130" y="20" width="50" height="210" fill="none" stroke="black" />
+                        <text x="35" y="15">س</text>
+                        <text x="145" y="15">ص</text>
+                        
+                        <text x="35" y="45">صفر</text>
+                        <text x="40" y="80">١</text>
+                        <text x="40" y="115">٢</text>
+                        <text x="40" y="150">٣</text>
+                        <text x="35" y="185">-١</text>
+                        <text x="35" y="220">-٢</text>
+
+                        <text x="150" y="45">...</text>
+                        <text x="145" y="70">-٣</text>
+                        <text x="145" y="95">-٢</text>
+                        <text x="145" y="120">-١</text>
+                        <text x="145" y="145">صفر</text>
+                        <text x="150" y="170">١</text>
+                        <text x="150" y="195">٢</text>
+                        <text x="150" y="220">٣</text>
+                        <text x="150" y="240">...</text>
+
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orientation="auto">
+                                <path d="M0,0 L0,6 L9,3 z" fill="black" />
+                            </marker>
+                        </defs>
+                        <line x1="70" y1="40" x2="130" y2="90" stroke="black" marker-end="url(#arrow)" /> <line x1="70" y1="75" x2="130" y2="115" stroke="black" marker-end="url(#arrow)" /> <line x1="70" y1="110" x2="130" y2="190" stroke="black" marker-end="url(#arrow)" /> <line x1="70" y1="180" x2="130" y2="115" stroke="black" marker-end="url(#arrow)" /> <line x1="70" y1="215" x2="130" y2="190" stroke="black" marker-end="url(#arrow)" /> </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="column left-column">
+            <div class="math-text">
+                | ١٠ | أي العلاقات التالية المعرفة على س = { ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ } <br>
+                تمثل تطبيقاً ؟ اذكر السبب . <br>
+                ع₁ = { (١ ، ٦) ، (٢ ، ٥) ، (٣ ، ٤) ، (٤ ، ٣) ، (٥ ، ٢) ، (٦ ، ١) } <br>
+                ع₂ = { ( أ ، ب ) : أ ، ب ∈ س ، أ + ب = ٢ } <br>
+                ع₃ = { ( أ ، ب ) : أ ، ب ∈ س ، أ + ب = ٧ } <br>
+                ارسم بيانياً فقط العلاقات التي تمثل تطبيقاً . <br>
+                <span class="solution-tag">* الحل : *</span> <br>
+                لاحظ أن المجال = المجال المقابل = س <br>
+                ع₁ تمثل تطبيقاً لأن كل عنصر من س (المجال) يرتبط بعنصر <br>
+                واحد فقط من المجال المقابل (س) . <br>
+                ع₁ = { (١ ، ٦) ، (٢ ، ٥) ، (٣ ، ٤) ، (٤ ، ٣) ، (٥ ، ٢) ، (٦ ، ١) } <br>
+                ع₂ لا تمثل تطبيقاً لأن العناصر ١ ، ٣ ، ٤ ، ٥ ، ٦ س لم ترتبط بأي <br>
+                عنصر من س ( المجال المقابل ) <br>
+                ع₃ تمثل تطبيقاً من س إلى س لأن كل عنصر من <br>
+                المجال (س) يرتبط بعنصر واحد فقط من المجال المقابل س <br>
+                ع₃ = { (١ ، ٦) ، (٢ ، ٥) ، (٣ ، ٤) ، (٤ ، ٣) ، (٥ ، ٢) ، (٦ ، ١) }
+            </div>
+
+            <div class="math-text" style="font-weight: bold; text-align: center;">التمثيل البياني للتطبيق :</div>
+
+            <div class="diagram-container">
+                <svg width="220" height="180" viewBox="0 0 220 180">
+                    <text x="200" y="175">س</text>
+                    <text x="10" y="20">ص</text>
+                    <line x1="30" y1="20" x2="30" y2="160" stroke="black" stroke-width="1.5" />
+                    <line x1="30" y1="160" x2="200" y2="160" stroke="black" stroke-width="1.5" />
+                    <style>.grid { stroke: #ccc; stroke-dasharray: 2; }</style>
+                    <line x1="30" y1="140" x2="200" y2="140" class="grid" />
+                    <line x1="30" y1="120" x2="200" y2="120" class="grid" />
+                    <line x1="30" y1="100" x2="200" y2="100" class="grid" />
+                    <line x1="30" y1="80" x2="200" y2="80" class="grid" />
+                    <line x1="30" y1="60" x2="200" y2="60" class="grid" />
+                    <line x1="30" y1="40" x2="200" y2="40" class="grid" />
+                    
+                    <line x1="55" y1="160" x2="55" y2="20" class="grid" />
+                    <line x1="80" y1="160" x2="80" y2="20" class="grid" />
+                    <line x1="105" y1="160" x2="105" y2="20" class="grid" />
+                    <line x1="130" y1="160" x2="130" y2="20" class="grid" />
+                    <line x1="155" y1="160" x2="155" y2="20" class="grid" />
+                    <line x1="180" y1="160" x2="180" y2="20" class="grid" />
+
+                    <text x="15" y="145">١</text><text x="15" y="125">٢</text><text x="15" y="105">٣</text>
+                    <text x="15" y="85">٤</text><text x="15" y="65">٥</text><text x="15" y="45">٦</text>
+                    <text x="50" y="175">١</text><text x="75" y="175">٢</text><text x="100" y="175">٣</text>
+                    <text x="125" y="175">٤</text><text x="150" y="175">٥</text><text x="175" y="175">٦</text>
+                    <text x="205" y="100">ع₁</text>
+
+                    <circle cx="55" cy="40" r="3" fill="black" /> <circle cx="80" cy="60" r="3" fill="black" /> <circle cx="105" cy="80" r="3" fill="black" /> <circle cx="130" cy="100" r="3" fill="black" /> <circle cx="155" cy="120" r="3" fill="black" /> <circle cx="180" cy="140" r="3" fill="black" /> </svg>
+            </div>
+
+            <div class="diagram-container">
+                <svg width="220" height="180" viewBox="0 0 220 180">
+                    <text x="200" y="175">س</text>
+                    <text x="10" y="20">ص</text>
+                    <line x1="30" y1="20" x2="30" y2="160" stroke="black" stroke-width="1.5" />
+                    <line x1="30" y1="160" x2="200" y2="160" stroke="black" stroke-width="1.5" />
+                    
+                    <line x1="30" y1="140" x2="200" y2="140" class="grid" />
+                    <line x1="30" y1="120" x2="200" y2="120" class="grid" />
+                    <line x1="30" y1="100" x2="200" y2="100" class="grid" />
+                    <line x1="30" y1="80" x2="200" y2="80" class="grid" />
+                    <line x1="30" y1="60" x2="200" y2="60" class="grid" />
+                    <line x1="30" y1="40" x2="200" y2="40" class="grid" />
+                    
+                    <line x1="55" y1="160" x2="55" y2="20" class="grid" />
+                    <line x1="80" y1="160" x2="80" y2="20" class="grid" />
+                    <line x1="105" y1="160" x2="105" y2="20" class="grid" />
+                    <line x1="130" y1="160" x2="130" y2="20" class="grid" />
+                    <line x1="155" y1="160" x2="155" y2="20" class="grid" />
+                    <line x1="180" y1="160" x2="180" y2="20" class="grid" />
+
+                    <text x="15" y="145">١</text><text x="15" y="125">٢</text><text x="15" y="105">٣</text>
+                    <text x="15" y="85">٤</text><text x="15" y="65">٥</text><text x="15" y="45">٦</text>
+                    <text x="50" y="175">١</text><text x="75" y="175">٢</text><text x="100" y="175">٣</text>
+                    <text x="125" y="175">٤</text><text x="150" y="175">٥</text><text x="175" y="175">٦</text>
+                    <text x="205" y="100">ع₃</text>
+
+                    <circle cx="55" cy="40" r="3" fill="black" /> 
+                    <circle cx="80" cy="60" r="3" fill="black" /> 
+                    <circle cx="105" cy="80" r="3" fill="black" /> 
+                    <circle cx="130" cy="100" r="3" fill="black" /> 
+                    <circle cx="155" cy="120" r="3" fill="black" /> 
+                    <circle cx="180" cy="140" r="3" fill="black" /> 
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

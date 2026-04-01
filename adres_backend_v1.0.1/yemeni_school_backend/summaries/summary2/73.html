@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رياضيات - الصف التاسع - صفحة ٧٣</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --primary-yellow: #ffeb3b;
+            --light-yellow: #fffde7;
+            --primary-orange: #ff9800;
+            --light-blue: #e3f2fd;
+            --border-color: #555;
+        }
+
+        body {
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .a4-page {
+            background-color: white;
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;min-height: 297mm;
+            padding: 10mm 15mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: right;
+        }
+
+        .training-header {
+            background-color: #ffd8b1;
+            border: 1px solid #ff8c00;
+            padding: 5px 15px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .problem-statement {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .equation-pair {
+            margin: 10px 40px;
+            line-height: 1.8;
+            font-family: 'Amiri', serif;
+        }
+
+        .solve-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .solve-table th {
+            background-color: #ffd8b1;
+            border: 1px solid #777;
+            padding: 8px;
+            font-family: 'Cairo', sans-serif;
+            width: 33.33%;
+        }
+
+        .solve-table td {
+            border: 1px solid #777;
+            height: 350px;
+            /* Large space for writing */
+            vertical-align: top;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .section-box {
+            background-color: #ffce00;
+            padding: 8px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 20px auto;
+            align-self: center;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 1px solid #888;
+            text-align: center;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 20px;
+        }
+
+        .steps-list li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .step-num {
+            font-weight: bold;
+        }
+
+        .cases-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .case-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .case-title {
+            background-color: #b8cde5;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #99b;
+        }
+
+        .case-description {
+            background-color: #fbd6b1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            text-align: center;
+            border: 1px solid #d4a373;
+            width: 100%;
+            margin-bottom: 10px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .case-graph {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8em;
+            color: rgba(0, 0, 0, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="a4-page">
+        <div class="watermark">هلا المولجي</div>
+
+        <div class="training-header">تدريب (١):</div>
+
+        <div class="problem-statement">
+            حل المعادلتين التاليتين آنياً بطرق الحل جبرياً ( التعويض ، المقابلة ، الحذف ):
+            <div class="equation-pair">
+                ٢ س - ص = ٥ ........................... ( ١ ) <br>
+                س + ٣ ص + ١ = ٠ .................... ( ٢ )
+            </div>
+        </div>
+
+        <table class="solve-table">
+            <thead>
+                <tr>
+                    <th>طريقة التعويض</th>
+                    <th>طريقة المقابلة</th>
+                    <th>طريقة الحذف</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-box">
+            طريقة حل معادلتين من الدرجة الأولى ذات متغيرين بيانياً
+        </div>
+
+        <div style="font-weight: bold; margin-bottom: 10px;">خطوات الحل بيانياً:</div>
+        <ul class="steps-list">
+            <li><span class="step-num">١ .</span><span>نكتب كلاً من المعادلتين بدلالة أحد المتغيرين.</span></li>
+            <li><span class="step-num">٢ .</span><span>نختار قيم للمتغيرين في كلاً من المعادلتين ونضع كلاً منها في
+                    جدولين، ثم نعوض بها لإيجاد قيمة المتغير الآخر.</span></li>
+            <li><span class="step-num">٣ .</span><span>نمثل المعادلتين في مستوى إحداثي واحد، بحيث يكون لكل معادلة مستقيم
+                    في المستوى.</span></li>
+            <li><span class="step-num">٤ .</span><span>نحدد الحل المشترك للمعادلتين.</span></li>
+        </ul>
+
+        <div class="section-box">
+            حالات حل معادلتين من الدرجة الأولى ذات متغيرين بيانياً
+        </div>
+
+        <div class="cases-container">
+            <!-- Case 1 -->
+            <div class="case-box">
+                <div class="case-title">مستقيمين متقاطعين</div>
+                <div class="case-description">
+                    مجموعة الحل المشتركة: <br> حل وحيد فقط.
+                </div>
+                <div class="case-graph">
+                    <svg width="100" height="100" viewBox="-7 -7 14 14">
+                        <defs>
+                            <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="5"
+                                orient="auto-start-reverse" viewBox="0 0 10 10">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#555" />
+                            </marker>
+                            <marker id="arrow-blue" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#2196F3" />
+                            </marker>
+                            <marker id="arrow-red" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#F44336" />
+                            </marker>
+                        </defs>
+                        <!-- Axes with arrows -->
+                        <line x1="-6.5" y1="0" x2="6.5" y2="0" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                        <line x1="0" y1="6.5" x2="0" y2="-6.5" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow)" marker-end="url(#arrow)" />
+
+                        <!-- Lines intersecting at (3, 4) -> SVG(3, -4) -->
+                        <line x1="1" y1="-2" x2="5" y2="-6" stroke="#2196F3" stroke-width="0.2"
+                            marker-start="url(#arrow-blue)" marker-end="url(#arrow-blue)" />
+                        <line x1="2" y1="-5.5" x2="4" y2="-2.5" stroke="#F44336" stroke-width="0.2"
+                            marker-start="url(#arrow-red)" marker-end="url(#arrow-red)" />
+
+                        <!-- Intersection Point at (3, 4) -> SVG(3, -4) -->
+                        <circle cx="3" cy="-4" r="0.3" fill="#E91E63" stroke="white" stroke-width="0.1" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Case 2 -->
+            <div class="case-box">
+                <div class="case-title">مستقيمين متوازيين</div>
+                <div class="case-description">
+                    مجموعة الحل المشتركة: <br> لا يوجد حل مشترك، أي أنها مجموعة خالية أو ∅.
+                </div>
+                <div class="case-graph">
+                    <svg width="100" height="100" viewBox="-7 -7 14 14">
+                        <defs>
+                            <marker id="arrow2" markerWidth="8" markerHeight="8" refX="5" refY="5"
+                                orient="auto-start-reverse" viewBox="0 0 10 10">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#555" />
+                            </marker>
+                            <marker id="arrow-blue2" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#2196F3" />
+                            </marker>
+                            <marker id="arrow-red2" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#F44336" />
+                            </marker>
+                        </defs>
+                        <!-- Axes with arrows -->
+                        <line x1="-6.5" y1="0" x2="6.5" y2="0" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow2)" marker-end="url(#arrow2)" />
+                        <line x1="0" y1="6.5" x2="0" y2="-6.5" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow2)" marker-end="url(#arrow2)" />
+
+                        <!-- Parallel segments: Blue and Red for differentiation -->
+                        <line x1="-2" y1="-1" x2="5" y2="-1" stroke="#2196F3" stroke-width="0.2"
+                            marker-start="url(#arrow-blue2)" marker-end="url(#arrow-blue2)" />
+                        <line x1="-1" y1="-4" x2="4" y2="-2" stroke="#F44336" stroke-width="0.2"
+                            marker-start="url(#arrow-red2)" marker-end="url(#arrow-red2)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Case 3 -->
+            <div class="case-box">
+                <div class="case-title">مستقيمين منطبقين</div>
+                <div class="case-description">
+                    مجموعة الحل المشتركة: <br> جميع الحلول المشتركة، أي أنها عدد لا نهائي من الحلول.
+                </div>
+                <div class="case-graph">
+                    <svg width="100" height="100" viewBox="-7 -7 14 14">
+                        <defs>
+                            <marker id="arrow3" markerWidth="8" markerHeight="8" refX="5" refY="5"
+                                orient="auto-start-reverse" viewBox="0 0 10 10">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#555" />
+                            </marker>
+                            <marker id="arrow-blue3" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#2196F3" />
+                            </marker>
+                            <marker id="arrow-red3" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                orient="auto-start-reverse" viewBox="0 0 10 6">
+                                <path d="M 0 0 L 10 3 L 0 6 z" fill="#F44336" />
+                            </marker>
+                        </defs>
+                        <!-- Axes with arrows -->
+                        <line x1="-6.5" y1="0" x2="6.5" y2="0" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow3)" marker-end="url(#arrow3)" />
+                        <line x1="0" y1="6.5" x2="0" y2="-6.5" stroke="#333" stroke-width="0.08"
+                            marker-start="url(#arrow3)" marker-end="url(#arrow3)" />
+
+                        <!-- Coincident vertical segments at x=1 -->
+                        <!-- Line 1: Blue -->
+                        <line x1="1" y1="6" x2="1" y2="-6" stroke="#2196F3" stroke-width="0.4"
+                            marker-start="url(#arrow-blue3)" marker-end="url(#arrow-blue3)" />
+                        <!-- Line 2: Red dashed with arrows "inside" the blue ones -->
+                        <line x1="1" y1="4.5" x2="1" y2="-4.5" stroke="#F44336" stroke-width="0.1"
+                            marker-start="url(#arrow-red3)" marker-end="url(#arrow-red3)" stroke-dasharray="0.3 0.3"
+                            opacity="0.9" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>إعداد: هلا المولجي</div>
+            <div>- ٧٣ -</div>
+        </footer>
+    </div>
+</body>
+
+</html>

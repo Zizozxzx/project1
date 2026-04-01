@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حساب المثلثات – مثال (١)</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:740px;              /* حجم متوسط مناسب للجوال */
+  margin:auto;
+  padding:20px 18px 26px;
+  font-size:17px;
+  line-height:2.1;              /* توزيع الطول على الفقرات */
+  box-sizing:border-box;
+}
+
+/* الخط العلوي */
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:14px;
+}
+
+/* العناوين الصغيرة */
+.badge{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:2px 10px;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+/* فقرات */
+p{
+  margin:10px 0;
+}
+
+/* الحل */
+.solution{
+  display:inline-block;
+  border:2px solid #000;
+  border-radius:18px;
+  padding:6px 18px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+/* الكسور */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  margin:0 4px;
+}
+.frac .top{
+  display:block;
+  padding:0 6px;
+}
+.frac .bottom{
+  display:block;
+  border-top:2px solid #000;
+  margin-top:3px;
+  padding:0 6px;
+}
+
+/* المعادلات */
+.eq{
+  margin:14px 0;
+}
+
+/* الرسم */
+.diagram{
+  margin:14px 0 18px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+/* صندوق التعريف */
+.box{
+  background:#dff2fb;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:14px 16px;
+  margin:20px 0;
+  font-weight:bold;
+}
+
+/* التذييل */
+.footer{
+  margin-top:20px;
+}
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-22px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{
+    font-size:16px;
+    padding:18px 14px 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<div class="badge">مثال (١)</div>
+<p>من الشكل (٤ – ٩) :</p>
+
+<p>أوجد كلاً من جا ب ، جا ج .</p>
+
+<div class="diagram">
+<svg width="280" height="180" viewBox="0 0 280 180">
+  <!-- القاعدة -->
+  <line x1="30" y1="140" x2="250" y2="140" stroke="#000" stroke-width="2"/>
+  <!-- الضلع الأيسر -->
+  <line x1="30" y1="140" x2="130" y2="40" stroke="#000" stroke-width="2"/>
+  <!-- الضلع الأيمن -->
+  <line x1="130" y1="40" x2="250" y2="140" stroke="#000" stroke-width="2"/>
+  <!-- زاوية قائمة -->
+  <rect x="122" y="48" width="14" height="14" fill="none" stroke="#00a6df" stroke-width="2"/>
+  <!-- التسميات -->
+  <text x="20" y="150" font-size="15">ج</text>
+  <text x="252" y="150" font-size="15">ب</text>
+  <text x="126" y="30" font-size="15">أ</text>
+  <text x="80" y="90" font-size="15">٣ سم</text>
+  <text x="180" y="95" font-size="15">٤ سم</text>
+  <text x="135" y="158" font-size="15">٥ سم</text>
+  <text x="100" y="168" font-size="14">(شكل ٤ – ٩)</text>
+</svg>
+</div>
+
+<div class="solution">الحل :</div>
+
+<div class="eq">
+جا ب =
+<span class="frac">
+  <span class="top">| أ ج |</span>
+  <span class="bottom">| أ ب |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">٣</span>
+  <span class="bottom">٥</span>
+</span>
+</div>
+
+<div class="eq">
+جا ج =
+<span class="frac">
+  <span class="top">| أ ب |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">٤</span>
+  <span class="bottom">٥</span>
+</span>
+</div>
+
+<p><strong>جيب تمام الزاوية :</strong></p>
+
+<p>
+في الشكل (٤ – ١٠) تلاحظ من تشابه المثلثات :
+أ ب ج ، س هـ ج ، م هـ ج ، أن :
+</p>
+
+<div class="eq">
+<span class="frac">
+  <span class="top">| ب ج |</span>
+  <span class="bottom">| أ ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| هـ ج |</span>
+  <span class="bottom">| س ج |</span>
+</span>
+=
+<span class="frac">
+  <span class="top">| هـ د |</span>
+  <span class="bottom">| م ج |</span>
+</span>
+</div>
+
+<p>
+وهذا يعني أن نسبة طول الضلع المجاور للزاوية ج في مثلث قائم الزاوية
+إلى طول الوتر في المثلث نفسه هي نسبة ثابتة .
+</p>
+
+<div class="box">
+جيب تمام الزاوية الحادة ج في مثلث قائم الزاوية هو نسبة طول الضلع
+المجاور للزاوية إلى طول وتر المثلث ، ونرمز له بالرمز ( جتا ج ) .
+</div>
+
+<div class="footer">
+  <div class="footer-line">
+    <div class="page-number">١٧٦</div>
+  </div>
+  <div class="footer-link">
+    http://www.e-learning-moe.edu.ye/
+  </div>
+</div>
+
+</div>
+</body>
+</html>

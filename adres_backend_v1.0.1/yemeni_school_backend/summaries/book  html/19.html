@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة كتاب الرياضيات - ٢٣</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .page-container {
+            background-color: white;
+            width: 800px;
+            padding: 50px 60px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            min-height: 1100px;
+        }
+
+        /* الخط العلوي */
+        .header-line {
+            border-bottom: 2px solid #4dbde0;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* عنوان التمرين */
+        .exercise-title-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .exercise-title {
+            background-color: #5dbce3;
+            border: 2px solid #000;
+            padding: 5px 40px;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .exercise-title h2 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        /* التنسيقات العامة للنصوص */
+        p, .question-text {
+            font-size: 20px;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .math-block {
+            padding-right: 30px;
+            font-size: 21px;
+            line-height: 2;
+        }
+
+        /* شبكة الأشكال */
+        .diagrams-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .diagram-item {
+            border: 1px solid #000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .diagram-svg {
+            width: 100%;
+            height: 140px;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* تذييل الصفحة */
+        .footer {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-line {
+            height: 8px;
+            background-color: #4dbde0;
+            flex-grow: 1;
+        }
+
+        .page-number {
+            border: 3px solid #4dbde0;
+            border-radius: 40px 0 0 40px;
+            padding: 5px 25px;
+            font-size: 24px;
+            font-weight: bold;
+            background: white;
+            margin-right: -2px;
+            z-index: 2;
+        }
+
+        .web-link {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            color: #0000ee;
+        }
+
+        sub { font-size: 0.7em; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-line">المجموعات والعلاقات</div>
+
+    <div class="exercise-title-container">
+        <div class="exercise-title">
+            <h2>تمارين ومسائل</h2>
+        </div>
+    </div>
+
+    <div class="question-text">
+        [ ١ ] إذا كانت ك = { ١ ، ٢ ، ٣ } ، فبيّن نوع العلاقات التالية على ك من حيث كونها متعدية أو ليست متعدية ، اذكر السبب .
+    </div>
+
+    <div class="math-block">
+        ع<sub>١</sub> = { (١ ، ١) ، (٢ ، ٢) ، (٢ ، ٣) ، (١ ، ٢) ، (١ ، ٣) }<br>
+        ع<sub>٢</sub> = { (١ ، ١) ، (١ ، ٢) ، (٣ ، ٣) ، (١ ، ٣) }<br>
+        ع<sub>٣</sub> = { (١ ، ٢) ، (٢ ، ١) } ، ع<sub>٤</sub> = { (٢ ، ٣) ، (٢ ، ٢) }<br>
+        ع<sub>٥</sub> = { (١ ، ٣) } ، ع<sub>٦</sub> = ك × ك
+    </div>
+
+    <div class="question-text">
+        [ ٢ ] أي العلاقات الموضحة بالمخططات السهمية [ الأشكال (١ - ١٥ أ ، ب ، جـ ، ء) ] متعدية ؟ لماذا؟
+    </div>
+
+    <div class="diagrams-grid">
+        <div class="diagram-item">
+            <svg class="diagram-svg" viewBox="0 0 200 100">
+                <circle cx="50" cy="50" r="4" fill="black" />
+                <circle cx="150" cy="50" r="4" fill="black" />
+                <text x="50" y="70" font-family="Amiri" font-size="16">د</text>
+                <text x="150" y="70" font-family="Amiri" font-size="16">جـ</text>
+                <path d="M 55 45 Q 100 20 145 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 145 55 Q 100 80 55 55" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 45 45 Q 30 20 45 35" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orientation="auto" markerUnits="strokeWidth">
+                      <path d="M0,0 L0,6 L9,3 z" fill="black" />
+                    </marker>
+                </defs>
+            </svg>
+            <div class="caption">شكل ( ١ - ١٥ ب )</div>
+        </div>
+
+        <div class="diagram-item">
+            <svg class="diagram-svg" viewBox="0 0 200 100">
+                <circle cx="40" cy="50" r="4" fill="black" />
+                <circle cx="100" cy="50" r="4" fill="black" />
+                <circle cx="160" cy="50" r="4" fill="black" />
+                <text x="40" y="75" font-family="Amiri" font-size="16">جـ</text>
+                <text x="100" y="75" font-family="Amiri" font-size="16">ب</text>
+                <text x="160" y="75" font-family="Amiri" font-size="16">أ</text>
+                <path d="M 155 45 Q 130 25 105 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 95 45 Q 70 25 45 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 155 40 Q 100 -10 45 40" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 165 45 Q 180 20 165 35" stroke="black" fill="none" marker-end="url(#arrow)" />
+            </svg>
+            <div class="caption">شكل ( ١ - ١٥ أ )</div>
+        </div>
+
+        <div class="diagram-item">
+            <svg class="diagram-svg" viewBox="0 0 200 100">
+                <circle cx="30" cy="50" r="4" fill="black" />
+                <circle cx="100" cy="50" r="4" fill="black" />
+                <circle cx="170" cy="50" r="4" fill="black" />
+                <text x="30" y="75" font-family="Amiri" font-size="16">جـ</text>
+                <text x="100" y="75" font-family="Amiri" font-size="16">ب</text>
+                <text x="170" y="30" font-family="Amiri" font-size="16">أ</text>
+                <path d="M 165 50 L 105 50" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 95 50 L 35 50" stroke="black" fill="none" marker-end="url(#arrow)" />
+            </svg>
+            <div class="caption">شكل ( ١ - ١٥ ء )</div>
+        </div>
+
+        <div class="diagram-item">
+            <svg class="diagram-svg" viewBox="0 0 200 100">
+                <circle cx="20" cy="50" r="3" fill="black" />
+                <circle cx="70" cy="50" r="3" fill="black" />
+                <circle cx="120" cy="50" r="3" fill="black" />
+                <circle cx="170" cy="50" r="3" fill="black" />
+                <text x="20" y="70" font-family="Amiri" font-size="14">د</text>
+                <text x="70" y="70" font-family="Amiri" font-size="14">جـ</text>
+                <text x="120" y="70" font-family="Amiri" font-size="14">ب</text>
+                <text x="170" y="70" font-family="Amiri" font-size="14">أ</text>
+                <path d="M 165 45 Q 145 35 125 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 125 55 Q 145 65 165 55" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 115 45 Q 95 35 75 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+                <path d="M 165 35 Q 95 0 25 45" stroke="black" fill="none" marker-end="url(#arrow)" />
+            </svg>
+            <div class="caption">شكل ( ١ - ١٥ جـ )</div>
+        </div>
+    </div>
+
+    <div class="question-text">
+        [ ٣ ] إذا كانت : ل = { ٢ ، ٣ ، ٤ ، ٥ } ، ع علاقة على المجموعة ل ، حيث<br>
+        ع = { ( أ ، ب ) : أ ، ب ∈ ل ، أ + ب عدداً فردياً } ،<br>
+        فهل ع علاقة متعدية ؟ ولماذا ؟<br>
+
+        ارسم المخطط السهمي لهذه العلاقة والمخطط البياني .
+    </div>
+
+    <br><br>
+    <div class="footer">
+        <div class="page-number">٢٣</div>
+        <div class="footer-line"></div>
+    </div>
+
+    <div class="web-link">http://www.e-learning-moe.edu.ye/</div>
+</div>
+
+</body>
+</html>

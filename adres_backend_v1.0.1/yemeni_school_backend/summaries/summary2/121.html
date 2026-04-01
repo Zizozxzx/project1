@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١٢١ - الشكل الرباعي الدائري</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --box-bg: #f9f9f9;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lesson-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 6px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            font-size: 1.3em;
+            font-family: var(--font-calligraphy);
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .concepts-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .concepts-list li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-right: 18px;
+        }
+
+        .concepts-list li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .term {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .theorem-box {
+            border: 1.5px solid #000;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .theorem-tag {
+            font-weight: bold;
+            color: #000;
+            display: block;
+            margin-bottom: 4px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+        }
+
+        /* Drills Layout */
+        .drills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .drill-item {
+            border: 1.5px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .input-line {
+            border: none;
+            border-bottom: 1.2px dotted #000;
+            width: 90%;
+            margin-top: 5px;
+            text-align: center;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .complex-drill {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .drill-sub-box {
+            border: 1.5px solid #000;
+            padding: 8px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .drills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .complex-drill {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="lesson-header">الدرس السابع: الشكل الرباعي الدائري</div>
+
+            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <span class="section-title">مفاهيم هامة:</span>
+                    <ul class="concepts-list">
+                        <li><span class="term">المضلع الدائري:</span> هو مضلع تقع جميع رؤوسه على محيط الدائرة أي أن
+                            رؤوسه تنتمي لدائرة واحدة.</li>
+                        <li><span class="term">الشكل الرباعي الدائري:</span> هو شكل رباعي تقع جميع رؤوسه على محيط
+                            الدائرة كما في الشكل المجاور.</li>
+                        <li><span class="term">الزاوية الخارجة عن الشكل الرباعي الدائري:</span> هي زاوية ناتجة عن امتداد
+                            أحد أضلاع الشكل الرباعي وتكون محصورة بين هذا الضلع والضلع المجاور.</li>
+                    </ul>
+                </div>
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="1.2" />
+                    <polygon points="25,25 75,20 85,75 25,85" fill="none" stroke="black" stroke-width="1.2" />
+                    <text x="45" y="55" font-family="Amiri" font-size="12">م</text>
+                </svg>
+            </div>
+
+            <div
+                style="background-color: #f2f2f2; border: 1.5px solid #000; padding: 5px 12px; margin-bottom: 15px; border-radius: 4px;">
+                <span class="term">ملاحظة:</span> ١. من خلال ما تم أخذه في الصف السابع، مجموع قياس زوايا الشكل الرباعي =
+                ٣٦٠° وذلك من خلال القانون ( ن - ٢ ) × ١٨٠° ، حيث ن عدد أضلاع المضلع.
+                <br>٢. من خلال الشكل: ⦣ ( أ ) و ⦣ ( جـ ) زاويتان متقابلتان وكذلك ⦣ ( ب ) و ⦣ ( د ).
+            </div>
+
+            <div
+                style="border: 2px solid #000; padding: 10px; margin-bottom: 15px; background-color: #fff; text-align: center;">
+                <span
+                    style="font-weight: bold; text-decoration: underline; font-size: 1.1em; display: block; margin-bottom: 8px;">مبرهنات
+                    هامة على الشكل الرباعي الدائري</span>
+
+                <div class="theorem-box">
+                    <span class="theorem-tag">مبرهنة ( ٨ ):</span>
+                    مجموع قياس الزاويتين المتقابلتين في الشكل الرباعي الدائري تساوي ١٨٠°.
+                    <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٣٧).</span>
+                </div>
+
+                <div class="theorem-box" style="border-style: dashed;">
+                    <span class="theorem-tag">عكس مبرهنة ( ٨ ):</span>
+                    يكون الشكل رباعياً دائرياً إذا كان مجموع قياس كل زاويتين متقابلتين يساوي ١٨٠°.
+                    <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٣٩).</span>
+                </div>
+            </div>
+
+            <span class="section-title">تدريب ١: من خلال الأشكال التالية ميز الشكل الرباعي الدائري:</span>
+            <div class="drills-grid">
+                <div class="drill-item">
+                    <svg width="70" height="70" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="35" fill="none" stroke="black" stroke-width="1" />
+                        <polygon points="20,20 60,20 70,60 20,60" fill="none" stroke="black" stroke-width="1" />
+                    </svg>
+                    <input type="text" class="input-line" placeholder="........">
+                </div>
+                <div class="drill-item">
+                    <svg width="70" height="70" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="35" fill="none" stroke="black" stroke-width="1"
+                            stroke-dasharray="2" />
+                        <polygon points="15,40 40,15 65,40 40,65" fill="none" stroke="black" stroke-width="1" />
+                    </svg>
+                    <input type="text" class="input-line" placeholder="........">
+                </div>
+                <div class="drill-item">
+                    <svg width="70" height="70" viewBox="0 0 80 80">
+                        <rect x="20" y="20" width="40" height="40" fill="none" stroke="black" stroke-width="1.2" />
+                    </svg>
+                    <input type="text" class="input-line" placeholder="........">
+                </div>
+                <div class="drill-item">
+                    <svg width="70" height="70" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="35" fill="none" stroke="black" stroke-width="1" />
+                        <rect x="25" y="25" width="30" height="30" fill="none" stroke="black" stroke-width="1.2" />
+                    </svg>
+                    <input type="text" class="input-line" placeholder="........">
+                </div>
+            </div>
+
+            <div class="complex-drill">
+                <div class="drill-sub-box">
+                    <span class="section-title">تدريب ٢: من خلال الشكل المجاور احسب ما يلي:</span>
+                    <div style="display: flex; gap: 10px; align-items: center; margin-top: 5px;">
+                        <svg width="100" height="100" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="black" stroke-width="1.2" />
+                            <polygon points="30,30 90,30 100,90 20,90" fill="none" stroke="black" stroke-width="1" />
+                            <line x1="30" y1="30" x2="100" y2="90" stroke="black" stroke-width="0.8" />
+                        </svg>
+                        <div style="font-size: 0.9em;">
+                            ق ( ⦣ ب أ د ) = <input type="text"
+                                style="width: 40px; border:none; border-bottom:1px solid #000;">
+                            <br>ق ( ⦣ أ ب د ) = <input type="text"
+                                style="width: 40px; border:none; border-bottom:1px solid #000;">
+                        </div>
+                    </div>
+                </div>
+                <div class="drill-sub-box">
+                    <span class="section-title">تدريب ٣: من خلال الشكل المجاور هل الشكل رباعي دائري؟ اذكر السبب.</span>
+                    <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 5px;">
+                        <svg width="100" height="80" viewBox="0 0 120 80">
+                            <polygon points="20,10 100,10 110,60 10,60" fill="none" stroke="black" stroke-width="1.2" />
+                            <text x="50" y="30" font-family="Amiri" font-size="10">١١٠°</text>
+                            <text x="50" y="60" font-family="Amiri" font-size="10">٧٠°</text>
+                        </svg>
+                        <input type="text" class="input-line" placeholder="السبب: .................................">
+                    </div>
+                </div>
+            </div>
+
+            <div style="border: 2px solid #000; padding: 10px; background-color: #fff;">
+                <span
+                    style="font-weight: bold; text-decoration: underline; font-size: 1.15em; display: block; border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 8px; text-align: center;">الزاوية
+                    الخارجة عن الشكل الرباعي الدائري</span>
+                <p style="font-size: 0.95em;">سيتم توضيح هذه العلاقة مع هذه الزاوية من خلال: <span
+                        style="font-weight: bold; text-decoration: underline;">مبرهنة ( ٩ ):</span></p>
+
+                <div
+                    style="border: 1.5px dashed #000; padding: 12px; text-align: center; background-color: #f9f9f9; border-radius: 8px;">
+                    الزاوية الخارجة عن الشكل الرباعي الدائري تساوي الزاوية المقابلة للزاوية المجاورة لها.
+                    <br><span style="font-size: 0.85em; color: #555;">(الإثبات: ص ٤١).</span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١٢٠ -</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

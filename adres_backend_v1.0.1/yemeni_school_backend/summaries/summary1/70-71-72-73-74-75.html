@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة 25 - التحليل بإكمال المربع</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #f4f4f4; margin: 0; padding: 10px; line-height: 1.5; color: #000; }
+        .page-container { max-width: 900px; background: #fff; margin: auto; padding: 20px; border: 2px solid #000; }
+        .page-num { text-align: center; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 10px; padding-bottom: 5px; }
+        
+        /* التنسيق الأساسي للأعمدة */
+        .main-content { display: flex; gap: 20px; border-top: 1px solid #000; padding-top: 10px; }
+        .right-col { flex: 1.1; border-left: 1px solid #000; padding-left: 15px; }
+        .left-col { flex: 1; padding-right: 5px; }
+
+        /* تعديل للجوالات: عرض النصف الأيمن ثم الأيسر تحت بعض */
+        @media (max-width: 768px) {
+            .main-content { flex-direction: column; }
+            .right-col { border-left: none; border-bottom: 2px solid #000; padding-left: 0; padding-bottom: 20px; margin-bottom: 20px; }
+            .left-col { padding-right: 0; }
+        }
+
+        .title-box { text-align: center; border: 2px solid #000; padding: 5px 15px; margin: 10px auto; width: fit-content; font-weight: bold; font-size: 1.3em; background: #eee; }
+        .sub-title { font-weight: bold; text-decoration: underline; display: block; margin: 10px 0; }
+        
+        .math-block { margin: 12px 0; white-space: pre-wrap; }
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; }
+        .fraction .top { border-bottom: 1px solid #000; display: block; padding: 0 3px; }
+        .fraction .bottom { display: block; padding: 0 3px; }
+        
+        .note-bubble { border: 1px solid #000; border-radius: 50px; padding: 5px 15px; display: inline-block; margin: 10px 0; }
+        hr { border: 0; border-top: 1px dashed #000; margin: 15px 0; }
+        .highlight { background-color: #f9f9f9; padding: 5px; border-right: 3px solid #000; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="page-num">— ٢٥ —</div>
+
+    <div class="main-content">
+        <div class="right-col">
+            <div class="title-box">التحليل بإكمال المربع</div>
+            
+            <div class="highlight">
+                <strong>عزيزي الطالب : عند تحليل أي مقدار بإكمال المربع يجب أن تكون على علم بما يلي :-</strong>
+            </div>
+
+            <div class="math-block">
+                <strong>[١] تحليل المقدار الثلاثي المربع الكامل الذي صورته العامة :</strong>
+                أ² ± ٢ أ ب + ب² = ( أ ± ب )²
+                فمثلاً : س² - ٦ س + ٩ = ( س - ٣ )²
+            </div>
+
+            <div class="math-block">
+                <strong>[٢] لإكمال المقدار س² + ب س الذي معامل حده الأول واحد إلى مربع كامل نضيف إليه مربع نصف معامل س أي (<div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × ب)²</strong>
+                بينما لتحليل المقدار س² + ب س باستخدام طريقة إكمال المربع نضيف مربع نصف معامل س ثم نطرحه للمحافظة على قيمة المقدار
+                <u>مثال ١ :</u> أكمل المقدار : س² - ٦ س إلى مربع كامل .
+                <u>مثال ٢ :</u> حلل المقدار س² + ٨ س بإكمال المربع .
+                <u>* الحل *</u>
+                حل (١) " معامل س = -٦ " فإن نصف معامل س = <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × (-٦) = -٣
+                بالتالي (-٣)² = ٩ أي مربع نصف معامل س = ( <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × -٦ )² = ٩
+                ∴ المقدار يصبح : س² - ٦ س + ٩ = ( س - ٣ )² مربع كامل .
+                حل (٢) بإضافة مربع نصف معامل س ثم نطرحه نحصل على مقدار على صورة فرق بين مربعين يمكن تحليله أي نضيف ونطرح ( <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × ٨ )² = ١٦
+                س² + ٨ س = س² + ٨ س + ١٦ - ١٦ = ( س + ٤ )² - ١٦
+                = [ ( س + ٤ ) - ٤ ] [ ( س + ٤ ) + ٤ ]
+                = ( س + ٨ ) ( س ) = س ( س + ٨ )
+                يمكن تحليل المقدار بالطرق السابقة بأخذ مشترك س
+                أي : س² + ٨ س = س ( س + ٨ )
+            </div>
+
+            <div class="math-block">
+                <strong>[٣] عند تحليل المقدار الثلاثي بإكمال المربع نضيف ونطرح مربع نصف معامل س فيؤول المقدار الأصلي إلى مقدار على صورة فرق بين مربعين .</strong>
+                مثال : حلل المقدار : س² + ٤ س - ٥ بالطرق المعتادة سابقاً ثم حلله مرة أخرى بطريقة إكمال المربع .
+                س² + ٤ س - ٥ = ( س + ٥ ) ( س - ١ ) #
+                وبطريقة إكمال المربع نضيف ونطرح (<div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> × ٤)² = (٢)² = ٤
+                فيكون : س² + ٤ س - ٥ = س² + ٤ س + ٤ - ٥ - ٤ = ( س + ٢ )² - ٩
+                يحلل على صورة فرق بين مربعين = [ ( س + ٢ ) + ٣ ] [ ( س + ٢ ) - ٣ ]
+                = ( س + ٥ ) ( س - ١ ) #
+            </div>
+
+            <div class="math-block">
+                <strong>[٤] عندما تصادفنا مقادير كل من حديها الأول والأخير مربعاً كاملاً ولا يمكن تحليلهما بالطرق السابقة نلجأ إلى تحليلهما بطريقة إكمال المربع وذلك بإضافة وطرح الحد الأوسط الذي يكون مع الحدين الأول والأخير مقداراً ثلاثياً مربعاً كاملاً بالتالي يؤول المقدار الأصلي إلى مقدار على صورة فرق بين مربعين يمكن تحليله (علماً بأن الحد الأوسط = ± ٢ √جذر الأول × جذر الأخير)</strong>
+            </div>
+        </div>
+
+        <div class="left-col">
+            <div class="math-block" style="border: 1px solid #000; padding: 5px;">
+                أي المقدار ليس مربعاً كاملاً فلكي نجري التحليل تستخدم طريقة إكمال المربع بإضافة وطرح الحد الأوسط بحيث نجعل المقدار يؤول إلى فرق بين مربعين :
+                ∴ س⁴ - ٣ س² + ٩ = س⁴ + ٦ س² + ٩ - ٦ س² - ٣ س²
+                = س⁴ + ٦ س² + ٩ - ٩ س²
+                يحلل على صورة فرق بين مربعين :
+                ∴ المقدار س⁴ - ٣ س² + ٩ = ( س² + ٣ )² - ٩ س²
+                = [ ( س² + ٣ ) + ٣ س ] [ ( س² + ٣ ) - ٣ س ]
+                = ( س² + ٣ س + ٣ ) ( س² - ٣ س + ٣ )
+            </div>
+
+            <div class="math-block">
+                (٢) " الحد الأول والأخير مربعاً كاملاً بالتالي نضيف ونطرح الحد الأوسط = ± ٢ × جذر الأول × جذر الأخير
+                ∴ الحد الأوسط = ± ٢ × جذر ٨١ أ⁴ × جذر ١٤٤ ب⁴
+                = ± ٢ × ٩ أ² × ١٢ ب² = ± ٢١٦ أ² ب²
+                لنجعل المقدار الثلاثي مربعاً كاملاً :
+                = ( ٩ أ² + ١٢ ب² )² - ١٤٤ ب⁴
+                يحلل على صورة فرق بين مربعين :
+                = [ ( ٩ أ² + ٨ ب² ) + ١٢ أ ب ] [ ( ٩ أ² + ٨ ب² ) - ١٢ أ ب ]
+                يفك الأقواس الكبيرة ثم نرتب الحدود
+                = ( ٩ أ² + ١٢ أ ب + ٨ ب² ) ( ٩ أ² - ١٢ أ ب + ٨ ب² )
+            </div>
+
+            <div class="note-bubble">
+                ملاحظة : تذكر دائماً تحليل قانون الفرق بين كميتين :
+                ( أ² - ب² ) = ( أ + ب ) ( أ - ب ) #
+            </div>
+
+            <div class="title-box" style="font-size: 1.1em;">٣ : ٢ حل تمارين ومسائل الكتاب المدرسي ص ٧٩ إلى ٨١ على التحليل بإكمال المربع</div>
+
+            <div class="math-block">
+                <strong>[١] أكمل كل مقدار فيما يأتي إلى مربع كامل : ( الحل مباشرة )</strong>
+                <u>ملاحظة :</u> لإكمال المقدار س² + ب س إلى مربع كامل نضيف مربع نصف معامل س ونكتب :
+                س² + ب س = س² + ب س + ( <div class="fraction"><span class="top">ب</span><span class="bottom">٢</span></div> )² = ( س + <div class="fraction"><span class="top">ب</span><span class="bottom">٢</span></div> )²
+                (١) ب² + ٤ ب = ب² + ٤ ب + ( <div class="fraction"><span class="top">٤</span><span class="bottom">٢</span></div> )² = ( ب + ٢ )²
+                (٢) س² - ١٠ س = س² - ١٠ س + ( <div class="fraction"><span class="top">١٠</span><span class="bottom">٢</span></div> )² = ( س - ٥ )²
+                (٣) أ² ب² - ١٢ أ ب = أ² ب² - ١٢ أ ب + ( <div class="fraction"><span class="top">١٢</span><span class="bottom">٢</span></div> )² = ( أ ب - ٦ )²
+                (٤) م⁴ + م² + <div class="fraction"><span class="top">١</span><span class="bottom">٤</span></div> = م⁴ + م² + ( <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> )² = ( م² + <div class="fraction"><span class="top">١</span><span class="bottom">٢</span></div> )²
+                (٥) ل⁴ + ٨١ واضح هنا المقدار ليس من الشكل س² + ب س لذلك نجد الحد الأوسط .
+                الحدان الأول والأخير مربعان كاملان فإن :
+                الحد الأوسط = ± ٢ × جذر ل⁴ × جذر ٨١ = ± ١٨ ل²
+                ∴ ل⁴ + ٨١ = ل⁴ ± ١٨ ل² + ٨١
+                = ( ل² ± ٩ )² حسب تحليل المربع الكامل
+                (٦) ل² - ٣ ل = ل² - ٣ ل + ( <div class="fraction"><span class="top">٣</span><span class="bottom">٢</span></div> )² = ( ل - <div class="fraction"><span class="top">٣</span><span class="bottom">٢</span></div> )²
+                (٧) ص² + ٦ ص = ص² + ٦ ص + ( <div class="fraction"><span class="top">٦</span><span class="bottom">٢</span></div> )² = ( ص + ٣ )²
+                (٨) ع⁴ + ٨ ع² + ١٦ = ع⁴ + ٨ ع² + ( <div class="fraction"><span class="top">٨</span><span class="bottom">٢</span></div> )² = ( ع² + ٤ )²
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

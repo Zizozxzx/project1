@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المجموعات والعلاقات - الحل</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#fff;
+    color:#000;
+}
+.header{
+    display:flex;
+    align-items:center;
+    padding:20px 40px 10px;
+}
+.header .title{
+    margin-right:auto;
+    font-size:16px;
+}
+.header .line{
+    flex:1;
+    height:3px;
+    background:#00a0e3;
+    margin:0 15px;
+}
+.container{
+    padding:0 40px;
+}
+.solution{
+    display:inline-block;
+    background:#000;
+    color:#fff;
+    padding:6px 25px;
+    border-radius:30px;
+    font-size:18px;
+    margin:15px 0;
+}
+.text{
+    font-size:17px;
+    line-height:1.9;
+    margin:8px 0;
+}
+.blue{
+    color:#008bd2;
+    font-weight:bold;
+}
+.figure{
+    text-align:center;
+    margin:20px 0;
+}
+.figure-title{
+    margin-top:6px;
+}
+.footer{
+    display:flex;
+    align-items:center;
+    margin:30px 40px 10px;
+}
+.footer .line{
+    flex:1;
+    height:3px;
+    background:#00a0e3;
+}
+.page{
+    border:2px solid #00a0e3;
+    border-radius:50%;
+    padding:8px 14px;
+    margin-right:10px;
+}
+.definition{
+    background:#dff1fb;
+    border:2px solid #000;
+    border-radius:15px;
+    padding:20px;
+    margin:25px 0;
+    font-size:17px;
+}
+.link{
+    text-align:center;
+    color:#0066cc;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- الرأس -->
+<div class="header">
+    <div class="title">الوحدة الأولى</div>
+    <div class="line"></div>
+</div>
+
+<div class="container">
+
+<!-- الحل -->
+<div class="solution">الحل</div>
+
+<!-- (أ) -->
+<div class="text">
+(أ) س / ص = { ١٤ ، ١٢ ، ١٠ ، ٨ } / { ٨ ، ٦ ، ٤ ، ٢ }
+</div>
+
+<!-- شكل 1-5 -->
+<div class="figure">
+<svg width="360" height="200">
+<defs>
+<pattern id="vHatch1" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="3" y1="0" x2="3" y2="6" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+
+<!-- ص -->
+<circle cx="140" cy="100" r="70" fill="none" stroke="black" stroke-width="2"/>
+<!-- س -->
+<circle cx="220" cy="100" r="70" fill="url(#vHatch1)" stroke="black" stroke-width="2"/>
+
+<text x="120" y="25">ص</text>
+<text x="235" y="25">س</text>
+
+<!-- ص فقط -->
+<text x="105" y="75">١٠</text>
+<text x="95" y="105">١٢</text>
+<text x="115" y="135">١٤</text>
+
+<!-- التقاطع -->
+<text x="180" y="110">٨</text>
+
+<!-- س فقط -->
+<text x="245" y="80">٢</text>
+<text x="260" y="110">٤</text>
+<text x="245" y="140">٦</text>
+</svg>
+<div class="figure-title">شكل (١-٥)</div>
+</div>
+
+<div class="text">
+{ م : م ∈ س ، م ∉ ص } =
+</div>
+
+<div class="text">
+{ ٢ ، ٤ ، ٦ }
+</div>
+
+<div class="text">
+وتمثلها المنطقة المظللة في الشكل (١-٥).
+</div>
+
+<!-- (ب) -->
+<div class="text">
+(ب) ص / س = { ٨ ، ٦ ، ٤ ، ٢ } / { ١٤ ، ١٢ ، ١٠ ، ٨ }
+</div>
+
+<!-- شكل 1-6 -->
+<div class="figure">
+<svg width="360" height="200">
+<defs>
+<pattern id="vHatch2" width="6" height="6" patternUnits="userSpaceOnUse">
+<line x1="3" y1="0" x2="3" y2="6" stroke="black" stroke-width="1"/>
+</pattern>
+</defs>
+
+<!-- ص -->
+<circle cx="140" cy="100" r="70" fill="url(#vHatch2)" stroke="black" stroke-width="2"/>
+<!-- س -->
+<circle cx="220" cy="100" r="70" fill="none" stroke="black" stroke-width="2"/>
+
+<text x="120" y="25">ص</text>
+<text x="235" y="25">س</text>
+
+<!-- ص فقط -->
+<text x="105" y="75">١٠</text>
+<text x="95" y="105">١٢</text>
+<text x="115" y="135">١٤</text>
+
+<!-- التقاطع -->
+<text x="180" y="110">٨</text>
+
+<!-- س فقط -->
+<text x="245" y="80">٢</text>
+<text x="260" y="110">٤</text>
+<text x="245" y="140">٦</text>
+</svg>
+<div class="figure-title">شكل (١-٦)</div>
+</div>
+
+<div class="text">
+قارن بين س / ص ، ص / س ماذا تلاحظ؟
+</div>
+
+<!-- المجموعة المتممة -->
+<div class="text blue">
+ثانيًا : المجموعة المتممة
+</div>
+
+<div class="text">
+غالبًا نرمز للمجموعة الشاملة بالرمز ( ش )، فإذا كانت ش هي مجموعة
+طلبة فصلك، وكانت س هي مجموعة طلبة فصلك المشتركين في الإذاعة
+المدرسية، فإن مجموعة طلبة فصلك غير المشتركين في الإذاعة المدرسية
+تسمى متممة المجموعة س.
+</div>
+
+<div class="definition">
+المجموعة المتممة للمجموعة س هي مجموعة العناصر التي تنتمي إلى ش
+ولا تنتمي إلى س، ويرمز لها بالرمز <b>س̄</b>، أي أن:<br><br>
+{ م : م ∈ ش ، م ∉ س } = س̄
+</div>
+
+</div>
+
+<!-- التذييل -->
+<div class="footer">
+<div class="page">١٢</div>
+<div class="line"></div>
+</div>
+
+<div class="link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</body>
+</html>

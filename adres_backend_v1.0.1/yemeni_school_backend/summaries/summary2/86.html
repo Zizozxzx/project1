@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ٨٦ - العلاقات العددية في مثلث قائم</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --border-width: 1.5px;
+            --font-main: 'Amiri', serif;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .page-header {
+            background-color: #d9e1f2;
+            border: 1.5px solid #000;
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 12px;
+            display: block;
+            width: fit-content;
+            font-size: 1.2em;
+        }
+
+        /* Lists */
+        .guide-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .li-num {
+            font-weight: bold;
+            margin-left: 8px;
+            display: inline-block;
+            min-width: 25px;
+        }
+
+        /* Diagrams and Content side by side */
+        .content-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .diagram-container {
+            flex: 0 0 180px;
+            text-align: center;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        /* Math Styling - High Precision */
+        .math-group {
+            display: inline-flex;
+            align-items: center;
+            direction: rtl;
+            gap: 4px;
+        }
+
+        /* Arabic Style Root */
+        .arabic-root {
+            display: inline-flex;
+            align-items: flex-start;
+            position: relative;
+            margin-left: 5px;
+            padding-right: 15px;
+            /* Space for the root hook on the right */
+        }
+
+        .arabic-root::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 2px;
+            bottom: -2px;
+            width: 100%;
+            border-top: 1.5px solid #000;
+        }
+
+        /* The root symbol hook at the right end */
+        .root-hook {
+            position: absolute;
+            right: 0;
+            top: 0px;
+            height: 100%;
+            width: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Custom SVG Root for exact fidelity */
+        .math-root {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .root-symbol {
+            margin-left: -2px;
+            vertical-align: middle;
+        }
+
+        .root-content {
+            border-top: 1.5px solid #000;
+            padding: 0 5px;
+            margin-top: 3px;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 8px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.5px solid #000;
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        .fraction .bottom {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
+        .theorem-box {
+            border: 1.5px solid #000;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            background-color: #fff;
+            font-size: 1.1em;
+        }
+
+        .mini-header {
+            font-weight: bold;
+            background-color: #f2f2f2;
+            border: 1.5px solid #000;
+            padding: 6px 15px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0 0 0;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .author-name {
+            font-size: 1em;
+        }
+
+        .page-number {
+            font-size: 1.1em;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            font-family: var(--font-main);
+        }
+
+        @media (max-width: 650px) {
+            .content-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .diagram-container {
+                flex: 0 0 auto;
+                margin-bottom: 20px;
+            }
+
+            .inner-content {
+                padding: 12px;
+            }
+
+            .page-sheet {
+                padding: 5px;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+            <!-- Main Header -->
+            <div class="page-header">
+                الدرس الأول: العلاقات العددية في مثلث قائم
+            </div>
+
+            <!-- Section 1 -->
+            <div class="section">
+                <span class="section-title">تذكر أن:</span>
+                <div style="margin-bottom: 12px;">أخذتم في الصف الثامن بعض القواعد الخاصة بالمثلث والعلاقة بين أضلاعه
+                    وهي كالتالي:</div>
+                <ul class="guide-list">
+                    <li><span class="li-num">٣.</span> للمثلث ثلاثة أضلاع وثلاث زوايا.</li>
+                    <li><span class="li-num">٤.</span> لكي نقول عن أية ثلاثة أضلاع أنها أضلاع مثلث فلا بد من تحقق علاقة
+                        تسمى المتباينة المثلثية والتي تنص على:
+                        <div style="text-align: center; margin: 15px 0;">
+                            <span style="font-weight: bold; text-decoration: underline;">" مجموع طولي أي ضلعين في مثلث
+                                أكبر من الضلع الثالث "</span>
+                        </div>
+                    </li>
+                    <li><span class="li-num">٥.</span> الضلع الأكبر يقابل الزاوية الكبرى والضلع الأصغر يقابل الزاوية
+                        الصغرى.</li>
+                    <li><span class="li-num">٦.</span> الزاوية الكبرى تقابل الضلع الأكبر والزاوية الصغرى تقابل الضلع
+                        الأصغر.</li>
+                    <li><span class="li-num">٧.</span> مجموع زوايا المثلث تساوي ١٨٠°.</li>
+                    <li><span class="li-num">٨.</span> القطعة المستقيمة الواصلة من رأس المثلث إلى منتصف الضلع المقابل له
+                        تسمى منصف المثلث.</li>
+                    <li><span class="li-num">٩.</span> القطعة المستقيمة النازلة من رأس المثلث عمودية على الضلع المقابل
+                        له تسمى ارتفاع المثلث.</li>
+                    <li><span class="li-num">١٠.</span> من أنواع المثلثات: أ) المثلث الحاد الزاوية. ب) المثلث القائم
+                        الزاوية. ج) المثلث المنفرج الزاوية.</li>
+                    <li><span class="li-num">١١.</span> <span
+                            style="font-weight: bold; text-decoration: underline;">معلومة هامة:</span> وتر المثلث لا
+                        يوجد إلا في مثلث قائم الزاوية (يقابل الزاوية القائمة " ٩٠° ").</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section">
+                <span class="section-title">نبدأ بدرسنا يا عباقرة:</span>
+                <div class="content-row">
+                    <div class="diagram-container">
+                        <svg width="160" height="130" viewBox="0 0 160 130">
+                            <path d="M20,110 L150,110 L20,20 Z" fill="none" stroke="black" stroke-width="2" />
+                            <line x1="20" y1="110" x2="61" y2="51" stroke="black" stroke-width="2" />
+                            <path d="M20,100 L30,100 L30,110" fill="none" stroke="black" stroke-width="1.2" />
+                            <g transform="translate(61, 51) rotate(145)">
+                                <path d="M0,0 L10,0 L10,10" fill="none" stroke="black" stroke-width="1.2" />
+                            </g>
+                            <text x="5" y="115" font-family="Amiri" font-size="20">ب</text>
+                            <text x="150" y="115" font-family="Amiri" font-size="20">جـ</text>
+                            <text x="15" y="15" font-family="Amiri" font-size="20">أ</text>
+                            <text x="70" y="45" font-family="Amiri" font-size="20">د</text>
+                        </svg>
+                    </div>
+                    <div class="text-content">
+                        <ul class="guide-list">
+                            <li>• من خلال الشكل سنسمى أضلاع المثلث:<br>المثلث ب أ جـ مثلث قائم في ب فيه:</li>
+                            <li><span class="li-num">٦.</span> | أ ب | ، | جـ ب | ضلعا القائمة.</li>
+                            <li><span class="li-num">٧.</span> | أ جـ | الوتر.</li>
+                            <li><span class="li-num">٨.</span> | أ د | مسقط | أ ب | على الوتر.</li>
+                            <li><span class="li-num">٩.</span> | جـ د | مسقط | جـ ب | على الوتر.</li>
+                            <li><span class="li-num">١٠.</span> | د ب | ارتفاع في المثلث أ ب جـ.</li>
+                            <li><span class="li-num">١١.</span> | جـ د | ، | د أ | جزأي الوتر.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+                <span class="section-title">أهم المبرهنات في هذا الدرس:</span>
+                <div class="mini-header">
+                    مبرهنة (١): <span style="font-weight: normal; font-size: 0.9em;">(تم إثبات المبرهنة من خلال استخدام
+                        حالات تشابه المثلثات)، ص ١٦٦:</span>
+                </div>
+                <div class="theorem-box">
+                    " مربع ضلع قائم في مثلث يساوي حاصل ضرب الوتر في مسقط ذلك الضلع على الوتر. "
+                </div>
+
+                <div class="content-row">
+                    <div class="diagram-container">
+                        <svg width="160" height="130" viewBox="0 0 160 130">
+                            <path d="M20,110 L150,110 L20,20 Z" fill="none" stroke="black" stroke-width="2" />
+                            <line x1="20" y1="110" x2="61" y2="51" stroke="black" stroke-width="2" />
+                            <path d="M20,100 L30,100 L30,110" fill="none" stroke="black" stroke-width="1.2" />
+                            <g transform="translate(61, 51) rotate(145)">
+                                <path d="M0,0 L10,0 L10,10" fill="none" stroke="black" stroke-width="1.2" />
+                            </g>
+                            <text x="5" y="115" font-family="Amiri" font-size="20">ب</text>
+                            <text x="150" y="115" font-family="Amiri" font-size="20">جـ</text>
+                            <text x="15" y="15" font-family="Amiri" font-size="20">أ</text>
+                            <text x="70" y="45" font-family="Amiri" font-size="20">د</text>
+                        </svg>
+                    </div>
+                    <div class="text-content">
+                        <ul class="guide-list" style="margin-top: -10px;">
+                            <li>• من خلال الشكل يمكننا أن نعبر عن المبرهنة كالتالي:</li>
+                            <li>
+                                ١. | أ ب |<sup>٢</sup> = | أ جـ | × | أ د | ، أي أن: | أ ب | =
+                                <span class="math-root">
+                                    <span class="root-content">| أ جـ | × | أ د |</span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                            <li>
+                                ٢. | جـ ب |<sup>٢</sup> = | أ جـ | × | جـ د | ، أي أن: | جـ ب | =
+                                <span class="math-root">
+                                    <span class="root-content">| أ جـ | × | جـ د |</span>
+                                    <svg class="root-symbol" width="12" height="22" viewBox="0 0 12 22">
+                                        <path d="M10,2 L6,22 L0,15" fill="none" stroke="black" stroke-width="1.5" />
+                                    </svg>
+                                </span>
+                            </li>
+                            <li style="margin-top: 20px;">• من خلال هذه المبرهنة يمكننا استنتاج التالي:</li>
+                            <li style="display: flex; align-items: center; flex-wrap: wrap;">
+                                ١. | أ جـ | = <span class="fraction"><span class="top">| أ ب |<sup>٢</sup></span><span
+                                        class="bottom">| أ د |</span></span> أو | أ جـ | = <span class="fraction"><span
+                                        class="top">| جـ ب |<sup>٢</sup></span><span class="bottom">| جـ د
+                                        |</span></span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-top: 10px;">
+                                ٢. | أ د | = <span class="fraction"><span class="top">| أ ب |<sup>٢</sup></span><span
+                                        class="bottom">| أ جـ |</span></span> .
+                            </li>
+                            <li style="display: flex; align-items: center; margin-top: 10px;">
+                                ٣. | جـ د | = <span class="fraction"><span class="top">| جـ ب |<sup>٢</sup></span><span
+                                        class="bottom">| أ جـ |</span></span> .
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <div class="author-name">إعداد: هلا المولجي</div>
+                <div class="page-number">- ٨٦ -</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

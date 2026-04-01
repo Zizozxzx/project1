@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حساب المثلثات – صفحة 173</title>
+
+<style>
+body{
+  margin:0;
+  background:#fff;
+  font-family:"Amiri","Times New Roman",serif;
+  color:#000;
+}
+
+.page{
+  max-width:720px;
+  margin:auto;
+  padding:14px 18px 8px;
+  font-size:17px;
+  line-height:1.9;
+}
+
+.top-line{
+  border-top:3px solid #00a6df;
+  margin-bottom:8px;
+}
+
+p{ margin:4px 0; }
+
+.section-title{
+  display:inline-block;
+  background:#dff2ff;
+  border:3px solid #000;
+  border-radius:22px;
+  padding:6px 18px;
+  font-weight:bold;
+  font-size:18px;
+  margin:10px 0 12px;
+}
+
+/* الكسور */
+.frac{
+  display:inline-block;
+  text-align:center;
+  vertical-align:middle;
+}
+.frac span{ display:block; }
+.frac .bottom{
+  border-top:2px solid #000;
+}
+
+/* الرسومات */
+.figure{
+  display:flex;
+  justify-content:center;
+  margin:10px 0;
+}
+
+svg{
+  width:280px;
+  max-width:100%;
+  height:auto;
+}
+
+/* التذييل */
+.footer-line{
+  border-top:3px solid #00a6df;
+  position:relative;
+  margin-top:6px;
+}
+.page-number{
+  position:absolute;
+  right:0;
+  top:-20px;
+  border:3px solid #00a6df;
+  border-radius:50%;
+  padding:4px 12px;
+  background:#fff;
+  font-weight:bold;
+}
+.footer-link{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+  color:#1a5fd9;
+}
+
+/* الجوال */
+@media(max-width:480px){
+  .page{ font-size:16px; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="top-line"></div>
+
+<p>
+إذا كان ع هو أكبر الأضلاع ، أثبت أن حاصل ضرب هذه الأطوال بأي عدد موجب هي أيضًا أطوال أضلاع مثلث قائم الزاوية .
+</p>
+
+<p>
+[٦] أ ب ج مثلث قائم الزاوية في م ومتساوي الساقين ، فيه | أ ب | = | أ ج | = س ، أوجد بدلالة س طول الوتر في هذا المثلث .
+</p>
+
+<p>
+[٧] مثلث متساوي الأضلاع طول ضلعه ل ، احسب ارتفاعه بدلالة ل .
+</p>
+
+<div style="text-align:center;">
+  <div class="section-title">٤ : ٢ النسب المثلثية للزاوية الحادة</div>
+</div>
+
+<p>في الشكل ( ٤ – ٧ ) :</p>
+
+<p>أ ب ج مثلث قائم الزاوية في ب .</p>
+
+<!-- ===== رسم SVG حقيقي ===== -->
+<div class="figure">
+<svg viewBox="0 0 300 180">
+
+  <!-- أضلاع المثلث -->
+  <line x1="40" y1="140" x2="260" y2="140" stroke="black" stroke-width="2"/>
+  <line x1="40" y1="140" x2="200" y2="40" stroke="black" stroke-width="2"/>
+  <line x1="200" y1="40" x2="260" y2="140" stroke="black" stroke-width="2"/>
+
+  <!-- زاوية قائمة -->
+  <rect x="248" y="128" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+
+  <!-- الارتفاع -->
+  <line x1="200" y1="40" x2="200" y2="140" stroke="#00a6df" stroke-width="2"/>
+
+  <!-- زاوية قائمة عند القدم -->
+  <rect x="194" y="128" width="12" height="12" fill="none" stroke="#00a6df" stroke-width="2"/>
+
+  <!-- التسميات -->
+  <text x="30" y="150" font-size="14">ج</text>
+  <text x="265" y="150" font-size="14">ب</text>
+  <text x="200" y="30" font-size="14">أ</text>
+  <text x="190" y="155" font-size="14">س</text>
+
+</svg>
+</div>
+
+<p>
+أنشأنا العمودين م هـ ، م و على الضلع ب ج .
+</p>
+
+<p>
+المثلثان أ ب ج ، س هـ ج متشابهان .
+</p>
+
+<p>
+ونتيجة لهذا التشابه ، نحصل على :
+</p>
+
+<div class="footer-line">
+  <div class="page-number">١٧٣</div>
+</div>
+
+<div class="footer-link">
+http://www.e-learning-moe.edu.ye/
+</div>
+
+</div>
+</body>
+</html>

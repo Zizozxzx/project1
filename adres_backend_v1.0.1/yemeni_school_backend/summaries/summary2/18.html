@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورقة عمل رياضيات - الصف التاسع - صفحة ١٨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .page-container {
+            font-size: 1.35vmin;
+        }
+
+        .mcq-section {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #000;
+            overflow: hidden;
+            margin-bottom: 0.5vmin;
+        }
+
+        .head-row {
+            border-bottom: 1px solid #000;
+            padding: 0.2vmin 1vmin;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        .opt-row {
+            display: grid;
+            grid-template-columns: 2.5vmin 1fr 2.5vmin 1fr;
+            border-bottom: 1px solid #000;
+        }
+
+        .cell-num {
+            background: #eee;
+            font-weight: bold;
+            border-left: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cell-txt {
+            border-left: 1px solid #000;
+            display: flex;
+            align-items: center;
+            padding: 0 0.5vmin;
+        }
+
+        .cell-txt:last-child {
+            border-left: none;
+        }
+
+        .viz-header {
+            background-color: #e6c5ae;
+            font-weight: bold;
+            padding: 0.5vmin;
+            text-align: center;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            margin-top: auto;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 3vmin 3vmin 1fr;
+            border-bottom: 1px solid #000;
+            height: 2.8vmin;
+        }
+
+        .b-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #000;
+        }
+
+        .bubble {
+            width: 1.8vmin;
+            height: 1.8vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        /* Graph Grid Styles */
+        .graph-grid {
+            width: 8vmin;
+            height: 8vmin;
+            border: 1px solid #000;
+            margin-right: auto;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .no-border-top {
+            border-top: none;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .margin-0-2 {
+            margin: 0 2vmin;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .page, .a4-page, .page-container, .container {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important; /* Allow scrolling for oversized horizontal content */
+            }
+            .inner-border, .section-box {
+                padding: 5px !important;
+                max-width: 100%;
+            }
+            td {
+                font-size: 14px;
+                padding: 4px;
+            }
+            .options-grid {
+                grid-template-columns: 35px 1fr !important;
+            }
+            .options-row td {
+                font-size: 13px;
+                padding: 4px;
+            }
+            .circle {
+                width: 15px;
+                height: 15px;
+            }
+            /* Specific fix for diagrams with fixed absolute positioning like in page 40 */
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                /* Add a bit of bottom padding so the absolutely positioned elements don't get clipped by the scrollbar */
+                padding-bottom: 30px !important; 
+            }
+            .diagram-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* To ensure table equations fit */
+            table {
+                word-wrap: break-word;
+                table-layout: auto;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- Main MCQ list -->
+        <div class="mcq-section flex-grow">
+
+            <div class="head-row">٢. العلاقة { (٠ ، ٠) ، (١ ، ١) ، (٢ ، ٢) ... } على ط تعتبر علاقة .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">انعكاسية ومتناظرة فقط.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">متناظرة ومتعدية فقط.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">متعدية فقط.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">تكافؤ.</div>
+            </div>
+
+            <div class="head-row">٣. إذا كانت ع = { (أ ، ب) : أ + ب = ٦ ، أ ، ب ∋ ط } ، فإن ع تمثل علاقة على ط علاقة
+                .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">انعكاسية.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">متناظرة.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">متعدية.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">تكافؤ.</div>
+            </div>
+
+            <div class="head-row">٤. أحد العلاقات التالية تمثل علاقة تكافؤ على مجموعات الأعداد .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">علاقة أكبر من.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">علاقة أصغر من.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">علاقة يوازي.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">علاقة تقاطع.</div>
+            </div>
+
+            <div class="head-row">٥. أحد العلاقات التالية لا تمثل علاقة تكافؤ .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">علاقة التشابه على مجموعة الأشكال الهندسية.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">علاقة التوازي على مجموعة المستقيمات.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">علاقة التطابق على مجموعة الأشكال الهندسية.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">علاقة يقسم على مجموعة الأعداد.</div>
+            </div>
+
+            <div class="head-row">٦. أحد العلاقات التالية تمثل تكافؤ على س = { ٣ ، ٤ ، ١ } .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">{ (١ ، ١) }.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">{ (٣ ، ٤) }.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">{ (أ ، ب) : أ ≥ ب ، أ ، ب ∋ س }.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">{ (أ ، ب) : أ = ب ، أ ، ب ∋ س }.</div>
+            </div>
+
+            <div class="head-row">٧. إذا كانت ع = { (أ ، ب) ، (٢ ، ٢) ، (١ ، ٢) ، (٢ ، ١) } لكي تكون علاقة تكافؤ على س =
+                { ١ ، ٢ } ، فإن (أ ، ب) =..:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">( ١ ، ٢ ).</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">( ٢ ، ١ ).</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">( ١ ، ١ ).</div>
+                <div class="cell-num">٤</div>
+                <div class="opt-txt">( ٢ ، ٢ ).</div>
+            </div>
+
+            <div class="head-row">٨. العلاقة { (٠ ، ٠) } تمثل علاقة تكافؤ على المجموعة ......... :</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">{ ١ ، ٠ ، ٢ }.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">{ ١ ، ٤ ، ٠ }.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">{ ٧ ، ٠ ، ١ }.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">{ ٠ }.</div>
+            </div>
+
+            <div class="head-row">٩. علاقة يقسم تمثل علاقة الانعكاسية على المجموعة .........:</div>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">{ ٠ ، ٢ ، ١ }.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">ط.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">{ ١ ، ٢ ، ٣ ، ٠ }.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">مجموعة الاعداد المحصورة بين ٩ و ٢٠.</div>
+            </div>
+
+            <div>١٠. من خلال الشكل المجاور ، العلاقة ع تمثل علاقة .........:</div>
+            <svg viewBox="0 0 60 60" class="graph-grid bg-white p-1 border-black">
+                <path d="M10 10h40M10 25h40M10 40h40 M10 10v30M25 10v30M40 10v30" stroke="#ccc" stroke-width="1"
+                    fill="none" />
+                <circle cx="10" cy="40" r="2.5" fill="black" />
+                <circle cx="25" cy="25" r="2.5" fill="black" />
+                <circle cx="40" cy="10" r="2.5" fill="black" />
+            </svg>
+            <div class="opt-row">
+                <div class="cell-num">١</div>
+                <div class="cell-txt">انعكاسية.</div>
+                <div class="cell-num">٣</div>
+                <div class="cell-txt">متماثلة.</div>
+            </div>
+            <div class="opt-row">
+                <div class="cell-num">٢</div>
+                <div class="cell-txt">انتقالية.</div>
+                <div class="cell-num">٤</div>
+                <div class="cell-txt">تكافؤ.</div>
+            </div>
+
+        </div>
+
+        <div class="viz-header">أسئلة وزارية على درس ( العلاقة المتعدية وعلاقة التكافؤ )</div>
+
+        <div class="mcq-section no-border-top">
+            <div class="bottom-grid bg-ddd">
+                <div class="b-cell bold">صح</div>
+                <div class="b-cell bold">خطأ</div>
+                <div class="b-cell b-cell-end">ظلل
+                    الإجابة الصحيحة فيما يلي:</div>
+            </div>
+
+            <div class="bottom-grid">
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell b-cell-start">١. إذا
+                    كانت س = { ١ ، ٢ } ، ع = { (١ ، ٢) ، (٢ ، ١) } ، فإن ع علاقة تكافؤ س.</div>
+            </div>
+            <div class="bottom-grid">
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell b-cell-start">٢. إذا
+                    كانت المجموعة س = { أ ، ب ، جـ } فإن العلاقة <svg width="20" height="10" viewBox="0 0 20 10"
+                        class="margin-0-2">
+                        <ellipse cx="10" cy="5" rx="8" ry="4" stroke="black" fill="none" />
+                    </svg> تكافؤ على س.</div>
+            </div>
+            <div class="bottom-grid">
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell b-cell-start">٣. إذا
+                    كانت س = { ١٠ ، ١ ، ٢ } ، فإن ع = { (أ ، أ) : أ ∋ س } علاقة تكافؤ س.</div>
+            </div>
+            <div class="bottom-grid">
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell b-cell-start">٤. علاقة
+                    " يوازي " على مجموعة المستقيمات تمثل علاقة تكافؤ.</div>
+            </div>
+            <div class="bottom-grid">
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell">
+                    <div class="bubble"></div>
+                </div>
+                <div class="b-cell b-cell-start">٥. ٢.٥ جا
+                    ٤٥ جتا ٤٥ = ١ .</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <span>إعداد: هلا المولجي</span>
+            <span>- ١٨ -</span>
+        </div>
+    </div>
+</body>
+
+</html>

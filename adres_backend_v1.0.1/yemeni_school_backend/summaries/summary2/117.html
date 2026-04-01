@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ١١٧ - الزاوية المحيطية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #000;
+            --bg-page: #fff;
+            --font-main: 'Amiri', serif;
+            --font-calligraphy: 'Aref Ruqaa', serif;
+            --header-bg: #8faadc;
+            --theorem-bg: #f9f9f9;
+            --correct-clr: #2ecc71;
+            --wrong-clr: #e74c3c;
+        }
+
+        body {
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-sheet {
+            background-color: var(--bg-page);
+            width: 100%;
+            max-width: 850px;
+            min-height: 1100px;
+            padding: 4mm;
+            box-sizing: border-box;
+            border: 4px double #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-content {
+            border: 2px solid #000;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lesson-header {
+            background-color: var(--header-bg);
+            border: 2px solid #000;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.25em;
+            font-family: var(--font-calligraphy);
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.15em;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* Concepts List */
+        .concepts-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .concepts-list li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .concepts-list li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .term {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Cases Layout */
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .case-box {
+            border: 1.5px solid #000;
+            border-radius: 12px;
+            padding: 8px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .case-text {
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Theorems Boxes */
+        .theorems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .theorem-box {
+            border: 2px dashed #000;
+            padding: 10px;
+            background-color: #f2f2f2;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        .theorem-tag {
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Drill Section */
+        .drill-box {
+            border: 1.5px solid #000;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #fff;
+        }
+
+        .drill-flex {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .drill-questions {
+            flex: 1;
+        }
+
+        .q-item {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .dotted-input {
+            border: none;
+            border-bottom: 1.5px dotted #000;
+            width: 140px;
+            outline: none;
+            text-align: center;
+            font-family: var(--font-main);
+            font-size: 1em;
+            transition: 0.2s;
+        }
+
+        .dotted-input.correct {
+            background-color: #d4edda;
+            border-bottom-color: var(--correct-clr);
+        }
+
+        .dotted-input.wrong {
+            background-color: #f8d7da;
+            border-bottom-color: var(--wrong-clr);
+        }
+
+        /* General Math Symbols */
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .fraction .top {
+            border-bottom: 1.2px solid #000;
+            padding: 0 3px;
+            line-height: 1;
+        }
+
+        .fraction .bottom {
+            padding: 0 3px;
+            line-height: 1.2;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 650px) {
+
+            .cases-container,
+            .theorems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drill-flex {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 5px !important;
+            }
+            .page, .a4-page, .page-container, .container, .page-sheet, .sheet {
+                padding: 10px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-width: 1px !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+            }
+            .inner-border, .section-box, .inner-content {
+                padding: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            td, th {
+                font-size: 14px !important;
+                padding: 4px !important;
+            }
+            .options-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .circle {
+                width: 15px !important;
+                height: 15px !important;
+            }
+            .diagram-container {
+                overflow-x: auto !important;
+                max-width: 100% !important;
+                padding-bottom: 20px !important;
+            }
+            .diagram-container svg, .diagram-svg svg {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            table {
+                word-wrap: break-word !important;
+                table-layout: auto !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="page-sheet">
+        <div class="inner-content">
+
+            <div class="lesson-header">الدرس السادس: الزاوية المحيطية "أكثر أسئلة الهندسة في الاختبار منه"</div>
+
+            <div class="section-title">مفاهيم هامة:</div>
+            <ul class="concepts-list">
+                <li><span class="term">الزاوية المحيطية:</span> هي الزاوية التي يقطع ضلعاها قوساً من الدائرة، ورأسها
+                    نقطة على محيط الدائرة.</li>
+                <li><span class="term">قوس الزاوية المحيطية:</span> هو القوس المقابل للزاوية المحيطية.</li>
+                <li><span class="term">القوس المنعكس للزاوية المحيطية:</span> هو القوس المعكوس للزاوية المحيطية.</li>
+            </ul>
+
+            <!-- Main Diagram side by side with concepts or below -->
+            <div style="text-align: center; margin-bottom: 15px;">
+                <svg width="150" height="150" viewBox="0 0 150 150">
+                    <circle cx="75" cy="75" r="60" fill="none" stroke="black" stroke-width="1.5" />
+                    <circle cx="75" cy="75" r="2" fill="black" />
+                    <!-- Inscribed Angle -->
+                    <line x1="15" y1="75" x2="115" y2="35" stroke="black" stroke-width="1.5" />
+                    <line x1="15" y1="75" x2="115" y2="115" stroke="black" stroke-width="1.5" />
+                    <!-- Labels -->
+                    <text x="5" y="80" font-family="Amiri" font-size="14">ر</text>
+                    <text x="120" y="35" font-family="Amiri" font-size="14">أ</text>
+                    <text x="120" y="125" font-family="Amiri" font-size="14">ب</text>
+                    <text x="75" y="70" font-family="Amiri" font-size="14">م</text>
+                    <!-- Arc marking -->
+                    <path d="M 115 35 A 60 60 0 0 1 115 115" fill="none" stroke="black" stroke-width="2" />
+                    <text x="135" y="75" font-family="Amiri" font-size="12">القوس</text>
+                </svg>
+            </div>
+
+            <div class="section-title"
+                style="background-color: #f2f2f2; width: 100%; text-align: center; padding: 4px 0; border: 1.5px solid #000; border-radius: 8px;">
+                حالات مركز الدائرة مع الزاوية المحيطية:</div>
+
+            <div class="cases-container">
+                <div class="case-box">
+                    <div class="case-text">مركز الدائرة خارج الزاوية المحيطية.</div>
+                    <svg width="120" height="100" viewBox="0 0 120 100">
+                        <circle cx="60" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                        <circle cx="60" cy="50" r="1.5" fill="black" />
+                        <text x="62" y="48" font-family="Amiri" font-size="10">م</text>
+                        <!-- Angle -->
+                        <line x1="25" y1="75" x2="95" y2="85" stroke="black" stroke-width="1.2" />
+                        <line x1="25" y1="75" x2="95" y2="65" stroke="black" stroke-width="1.2" />
+                    </svg>
+                </div>
+                <div class="case-box">
+                    <div class="case-text">مركز الدائرة على الزاوية المحيطية.</div>
+                    <svg width="120" height="100" viewBox="0 0 120 100">
+                        <circle cx="60" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                        <circle cx="60" cy="50" r="1.5" fill="black" />
+                        <text x="62" y="48" font-family="Amiri" font-size="10">م</text>
+                        <!-- Angle -->
+                        <line x1="20" y1="50" x2="100" y2="50" stroke="black" stroke-width="1.2" />
+                        <line x1="20" y1="50" x2="60" y2="10" stroke="black" stroke-width="1.2" />
+                    </svg>
+                </div>
+                <div class="case-box">
+                    <div class="case-text">مركز الدائرة داخل الزاوية المحيطية.</div>
+                    <svg width="120" height="100" viewBox="0 0 120 100">
+                        <circle cx="60" cy="50" r="40" fill="none" stroke="black" stroke-width="1.2" />
+                        <circle cx="60" cy="50" r="1.5" fill="black" />
+                        <text x="62" y="48" font-family="Amiri" font-size="10">م</text>
+                        <!-- Angle -->
+                        <line x1="25" y1="75" x2="95" y2="25" stroke="black" stroke-width="1.2" />
+                        <line x1="25" y1="75" x2="40" y2="10" stroke="black" stroke-width="1.2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="section-title"
+                style="text-align: center; width: 100%; display: block; margin-bottom: 12px; font-family: var(--font-calligraphy); font-size: 1.3em;">
+                علاقة الزاوية المحيطية بالزاوية المركزية والقوس المقابل لها:</div>
+
+            <div class="theorems-grid">
+                <div class="theorem-box">
+                    <span class="theorem-tag">مبرهنة (١٠):</span>
+                    قياس الزاوية المحيطية يساوي نصف قياس الزاوية المركزية المشتركة معها في القوس.
+                    <br><br>
+                    أي أن: الزاوية المحيطية = <span class="fraction"><span class="top">١</span><span
+                            class="bottom">٢</span></span> الزاوية المركزية
+                </div>
+                <div class="theorem-box">
+                    <span class="theorem-tag">مبرهنة (١١):</span>
+                    قياس الزاوية المحيطية يساوي نصف قياس القوس المقابل.
+                    <br><br>
+                    أي أن: الزاوية المحيطية = <span class="fraction"><span class="top">١</span><span
+                            class="bottom">٢</span></span> القوس المقابل
+                </div>
+            </div>
+
+            <div class="section-title">ملاحظات على المبرهنات:</div>
+            <div style="line-height: 1.6; margin-bottom: 15px; font-size: 0.95em;">
+                ١. قياس الزاوية المركزية = ٢ × قياس الزاوية المحيطية المشتركة معها بالقوس أي تساوي الضعف.
+                <br>٢. قياس القوس = ٢ × قياس الزاوية المحيطية المقابلة له أي يساوي الضعف.
+                <br>٣. قد تأتي تعبيرات معينة للتعبير عن قياس الزاوية المحيطية مثلاً: الزاوية المحيطية المرسومة في ثلث
+                دائرة أو ربع دائرة أو سدس دائرة وهكذا. فنستخدم القانون التالي لإيجاد الزاوية المعبرة عن هذا التعبير:
+                <br> ( ١ - ن ) × ١٨٠ ، حيث ن هي لفظ التعبير.
+                <br>٤. يختلف لفظ التعبير للزاوية المحيطية المرسومة <span
+                    style="font-weight: bold; text-decoration: underline;">في</span> أو <span
+                    style="font-weight: bold; text-decoration: underline;">على</span> الدائرة، مثلاً في ربع الدائرة =
+                ١٣٥، أما المرسومة <span style="font-weight: bold; text-decoration: underline;">على</span> ربع الدائرة =
+                ٤٥.
+            </div>
+
+            <div class="drill-box">
+                <div class="section-title">تدريب ١: من خلال الشكل المجاور أجب عن التالي:</div>
+                <div class="drill-flex">
+                    <div class="drill-questions">
+                        <div class="q-item">١) ق ( ⦣ أ جـ ب ) = <input type="text" class="dotted-input"
+                                placeholder=".................." oninput="validate(this, '١/٢ ق(أ م ب)')"></div>
+                        <div class="q-item">٢) ق ( ⦣ أ د ب ) = <input type="text" class="dotted-input"
+                                placeholder=".................." oninput="validate(this, '١/٢ ق(أ م ب)')"></div>
+                        <div class="q-item">٣) قياس القوس الصغير ( أ ب ) = <input type="text" class="dotted-input"
+                                placeholder=".................." oninput="validate(this, 'ق(أ م ب)')"></div>
+                        <div class="q-item">٤) قياس القوس الكبير ( أ ب ) = <input type="text" class="dotted-input"
+                                placeholder=".................." oninput="validate(this, '٣٦٠ - ق(أ م ب)')"></div>
+                    </div>
+                    <svg width="200" height="180" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="65" fill="none" stroke="black" stroke-width="1.5" />
+                        <circle cx="75" cy="75" r="2" fill="black" />
+                        <text x="77" y="70" font-family="Amiri" font-size="12">م</text>
+                        <!-- Central Angle -->
+                        <line x1="75" y1="75" x2="30" y2="30" stroke="black" stroke-width="1.2" />
+                        <line x1="75" y1="75" x2="120" y2="30" stroke="black" stroke-width="1.2" />
+                        <!-- Inscribed Angles -->
+                        <line x1="40" y1="135" x2="30" y2="30" stroke="black" stroke-width="1.2" />
+                        <line x1="40" y1="135" x2="120" y2="30" stroke="black" stroke-width="1.2" />
+                        <line x1="110" y1="135" x2="30" y2="30" stroke="black" stroke-width="1.2" />
+                        <line x1="110" y1="135" x2="120" y2="30" stroke="black" stroke-width="1.2" />
+                        <!-- Labels -->
+                        <text x="20" y="25" font-family="Amiri" font-size="12">أ</text>
+                        <text x="125" y="25" font-family="Amiri" font-size="12">ب</text>
+                        <text x="35" y="145" font-family="Amiri" font-size="12">جـ</text>
+                        <text x="110" y="145" font-family="Amiri" font-size="12">د</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>إعداد: هلا المولجي</span>
+                <span>- ١١٦ -</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validate(el, answer) {
+            const val = el.value.trim().replace(/\s/g, '');
+            const target = answer.replace(/\s/g, '');
+            if (val === '') {
+                el.classList.remove('correct', 'wrong');
+                return;
+            }
+            // Simple check for logic (can be expanded)
+            if (val.includes('١/٢') || val.includes('نصف') || val.includes('360')) {
+                // If the user is on the right track or matches exactly
+                if (val === target) {
+                    el.classList.add('correct');
+                    el.classList.remove('wrong');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

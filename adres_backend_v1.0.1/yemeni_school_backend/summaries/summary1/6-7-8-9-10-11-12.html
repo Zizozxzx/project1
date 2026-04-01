@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم المثالي - صفحة ٣ كاملة</title>
+    <style>
+        :root { --border-col: #000; --bg-gray: #eee; }
+        body { font-family: 'Arial', sans-serif; background-color: #f0f0f0; margin: 0; padding: 5px; direction: rtl; }
+        .page { background: #fff; max-width: 900px; margin: 0 auto; border: 4px double var(--border-col); padding: 15px; position: relative; }
+        .header-top { text-align: center; border-bottom: 1px solid #000; margin-bottom: 10px; font-weight: bold; }
+        .title-box { border: 2px solid #000; text-align: center; padding: 5px; font-weight: bold; font-size: 18px; background: var(--bg-gray); margin: 10px 0; }
+        
+        /* صناديق الشرح كاملة */
+        .definition { border: 1px solid #000; padding: 8px; margin-bottom: 8px; line-height: 1.6; font-size: 14px; }
+        .definition strong { text-decoration: underline; }
+
+        /* تنسيق الأعمدة */
+        .content-container { display: flex; gap: 15px; }
+        .col { flex: 1; }
+        .separator { text-align: center; margin: 10px 0; border-top: 1px dashed #000; padding-top: 5px; font-weight: bold; }
+        
+        /* تنسيق الـ 6 دوائر المعدل */
+        .venn-row-6 { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 15px 0; gap: 15px; }
+        .pair-item { text-align: center; width: 120px; }
+        .venn-fig-pair { position: relative; width: 100px; height: 65px; margin: 0 auto; }
+        .circle-part { position: absolute; width: 60px; height: 60px; border: 1px solid #000; border-radius: 50%; display: flex; align-items: center; background: #fff; font-size: 13px; }
+        .c-1 { right: 0; z-index: 1; justify-content: flex-start; padding-right: 12px; }
+        .c-2 { left: 0; z-index: 0; justify-content: flex-end; padding-left: 12px; }
+        .overlap-text { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; font-weight: bold; font-size: 12px; background: white; border-radius: 50%; padding: 2px; }
+        .shaded-part { background: repeating-linear-gradient(45deg, #ddd, #ddd 2px, #fff 2px, #fff 4px); -webkit-mask-image: radial-gradient(circle at 115% 50%, transparent 42%, black 43%); mask-image: radial-gradient(circle at 115% 50%, transparent 42%, black 43%); }
+
+        /* تعديل شكل 1-9 */
+        .box-sh { border: 1px solid #000; width: 180px; height: 110px; position: relative; display: flex; align-items: center; justify-content: center; margin: 15px auto; background: #fff; }
+        .sh-circles-wrap { display: flex; align-items: center; justify-content: center; }
+        .sh-c-circle { width: 60px; height: 60px; border: 1px solid #000; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; margin: 0 -12px; background: rgba(255,255,255,0.7); }
+        .sh-mid-num { z-index: 10; font-weight: bold; font-size: 11px; background: #fff; margin: 0 -5px; padding: 2px; }
+
+        .q-num { border: 1px solid #000; padding: 0 4px; font-weight: bold; }
+        .sol { font-weight: bold; text-decoration: underline; display: block; margin-top: 5px; }
+
+        @media (max-width: 768px) { .content-container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header-top">ـ ٣ ـ</div>
+    
+    <div class="title-box">الفرق بين مجموعتين ومتممة ( مكملة ) مجموعة</div>
+
+    <div class="definition">
+        ( ١ ) <strong>الفرق بين مجموعتين :</strong> الفرق بين مجموعتين س ، ص هو مجموعة مكونة من مجموعة العناصر التي تنتمي إلى س ولا تنتمي إلى ص ونرمز لها بالرمز س / ص ونكتب س / ص = { أ : أ ∈ س ، أ ∉ ص } .
+    </div>
+
+    <div class="definition">
+        ( ٢ ) <strong>متممة ( مكملة ) مجموعة :</strong> إذا كانت ش هي المجموعة الشاملة فإن متممة المجموعة س هي مجموعة العناصر التي تنتمي إلى المجموعة الشاملة ش ولا تنتمي إلى س ويرمز لها بالرمز س' ونكتب ذلك : س' = ش / س أي أن س' = { س : س ∈ ش ، س ∉ س } .
+    </div>
+
+    <div class="definition">
+        ( ٣ ) <strong>متممة متممة المجموعة :</strong> هي المجموعة س نفسها أي ( س' )' = س .
+    </div>
+
+    <div class="definition">
+        ( ٤ ) <strong>قانوني دي مورجان هما :</strong> ١) ( س ∪ ص )' = س' ∩ ص' &nbsp;&nbsp; ٢) ( س ∩ ص )' = س' ∪ ص' .
+    </div>
+
+    <div class="title-box" style="font-size: 15px;">حل تمارين ومسائل الكتاب المدرسي صـ ١٥ ــــ ١٦</div>
+
+    <div class="content-container">
+        <div class="col">
+            <div class="question">
+                <span class="q-num">[١]</span> إذا كانت : أ = { ٢ ، ٣ } ، ب = { ٣ ، ٤ } ، جـ = { ٤ ، ٥ } <br>
+                أوجد كلاً مما يلي ومثله بأشكال فن : أولاً : أ / ب ، ثانياً : ب / جـ ، ثالثاً : جـ / ب
+                <span class="sol">* الحل: *</span>
+                أولاً: أ / ب = { ٢ } ، ثانياً: ب / جـ = { ٣ } ، ثالثاً: جـ / ب = { ٥ }
+                
+                <div class="venn-row-6">
+                    <div class="pair-item">
+                        <div class="venn-fig-pair">
+                            <div class="circle-part c-1 shaded-part">٢</div>
+                            <div class="overlap-text">٣</div>
+                            <div class="circle-part c-2">٤</div>
+                        </div>
+                        <small>أ / ب</small>
+                    </div>
+
+                    <div class="pair-item">
+                        <div class="venn-fig-pair">
+                            <div class="circle-part c-1 shaded-part">٣</div>
+                            <div class="overlap-text">٤</div>
+                            <div class="circle-part c-2">٥</div>
+                        </div>
+                        <small>ب / جـ</small>
+                    </div>
+
+                    <div class="pair-item">
+                        <div class="venn-fig-pair">
+                            <div class="circle-part c-1 shaded-part">٥</div>
+                            <div class="overlap-text">٤</div>
+                            <div class="circle-part c-2">٣</div>
+                        </div>
+                        <small>جـ / ب</small>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="separator">**************************</div>
+
+            <div class="question">
+                <span class="q-num">[٤]</span> مستعيناً بالشكل (١-٩) أوجد كلاً مما يلي :-
+                <div class="box-sh">
+                    <span style="position:absolute; top:2px; right:5px; font-weight:bold;">ش</span>
+                    <div class="sh-circles-wrap">
+                        <div class="sh-c-circle">س<br>١٤، ١٨</div>
+                        <div class="sh-mid-num">١٣</div>
+                        <div class="sh-c-circle">ص<br>١٥، ١٦</div>
+                    </div>
+
+                    <span style="position:absolute; bottom:5px; left:10px; font-size:10px;">١٢، ١٧، ١٩</span>
+                </div>
+                <span class="sol">* الحل : *</span>
+                أ) ش = { ١٢، ١٣، ١٤، ١٥، ١٦، ١٧، ١٨، ١٩ } <br>
+                ب) ص' = { ١٢، ١٤، ١٧، ١٨، ١٩ } <br>
+                جـ) ( س ∩ ص )' = { ١٢، ١٤، ١٥، ١٦، ١٧، ١٨، ١٩ } <br>
+                د) ( س ∪ ص )' = { ١٢، ١٧، ١٩ } <br>
+                هـ) ش / س = { ١٢، ١٥، ١٦، ١٧، ١٩ }
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="question">
+                <span class="sol">* حل رقم ٣ : *</span>
+                نعلم أن مجموعة الأرقام في النظام العشري هي : <br>
+                ش = { ٠ ، ١ ، ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ ، ٩ } <br>
+                لذلك فإن متممة مجموعة أرقام العدد ٢٩٩٧٣٥ هي المجموعة { ٠ ، ١ ، ٤ ، ٦ ، ٨ }
+            </div>
+
+            <div class="separator">**************************</div>
+
+            <div class="question">
+                <span class="q-num">[٢]</span> إذا كانت س = { ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ } ، ص = { ٤ ، ٨ ، ٣ } <br>
+                فأوجد : أ) س / ص &nbsp; ب) ص / س &nbsp; جـ) ( س / ص ) ∪ ص <br>
+                د) ( س / ص ) ∩ ص &nbsp; هـ) ( ص / س ) ∪ س &nbsp; و) ( ص / س ) ∩ س
+                <span class="sol">* الحل: *</span>
+                أ) س / ص = { ٢ ، ٥ ، ٦ ، ٧ } <br>
+                ب) ص / س = { ٨ } <br>
+                جـ) { ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ } <br>
+                د) ∅ ، هـ) { ٢ ، ٣ ، ٤ ، ٥ ، ٦ ، ٧ ، ٨ } ، و) ∅
+            </div>
+
+            <div class="separator">**************************</div>
+
+            <div class="question">
+                <span class="q-num">[٥]</span> إذا كانت ش = { أ : أ ∈ ط ، أ < ٩ } <br>
+                س = { ب : ب عامل من عوامل العدد ٦ } ، ص = { ١ ، ٢ ، ٧ } <br>
+                اكتب ش ، س بطريقة السرد ثم أوجد : <br>
+                أ) س' &nbsp; ب) ص' &nbsp; جـ) س' ∪ ص' &nbsp; د) ( س ∩ ص )'
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
