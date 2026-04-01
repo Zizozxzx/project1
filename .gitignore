@@ -1,0 +1,14 @@
+# Environment variables - never commit these
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+db.sqlite3
+
+# Flutter build
+adres_flutter_v1.0.1/build/
