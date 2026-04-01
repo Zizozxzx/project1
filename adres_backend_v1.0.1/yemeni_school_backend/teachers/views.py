@@ -6,7 +6,7 @@ from .serializers import TeacherSerializer
 
 
 class TeacherLoginAPIView(APIView):
-    """POST /api/teachers/login/ - مصادقة المعلم"""
+    """POST /api/teachers/login/"""
 
     def post(self, request):
         teacher_id = request.data.get('teacher_id', '').strip()
@@ -19,9 +19,10 @@ class TeacherLoginAPIView(APIView):
             )
 
         try:
-            teacher = Teacher.objects.get(teacher_id=teacher_id, password=password)
-            serializer = TeacherSerializer(teacher)
-            return Response(serializer.data)
+            teacher = Teacher.objects.get(teacher_id=teacher_id)
+            if not teacher.check_password(password):
+                raise Teacher.DoesNotExist
+            return Response(TeacherSerializer(teacher).data)
         except Teacher.DoesNotExist:
             return Response(
                 {'error': 'بيانات الدخول غير صحيحة'},

@@ -15,6 +15,7 @@ class BookScreen extends StatefulWidget {
   final String termName;
   final String bookId;
   final int startPage;
+  final int totalPages;
 
   const BookScreen({
     super.key,
@@ -22,6 +23,7 @@ class BookScreen extends StatefulWidget {
     required this.termName,
     required this.bookId,
     this.startPage = 1,
+    this.totalPages = 192,
   });
 
   @override
@@ -40,8 +42,6 @@ class _BookScreenState extends State<BookScreen> {
 
   bool _hasNext = false;
   bool _hasPrev = false;
-
-  final int totalPages = 192;
 
   // ===== تتبع التقدم الحقيقي =====
   DateTime? _pageArrivalTime;   // وقت فتح الصفحة الحالية
@@ -125,7 +125,7 @@ class _BookScreenState extends State<BookScreen> {
       ProgressLocalService.addReadingTime(
         bookId: widget.bookId,
         seconds: elapsed,
-        totalPages: totalPages,
+        totalPages: widget.totalPages,
       );
       _pageArrivalTime = DateTime.now(); // إعادة الضبط
     }
@@ -143,7 +143,7 @@ class _BookScreenState extends State<BookScreen> {
     ProgressLocalService.recordPageOpened(
       bookId: widget.bookId,
       page: page,
-      totalPages: totalPages,
+      totalPages: widget.totalPages,
     );
     ReadingStateLocalService.addOpenedPage(
       bookId: widget.bookId,
@@ -164,25 +164,22 @@ class _BookScreenState extends State<BookScreen> {
   }
 
   String _summaryUrl(int type, int page) {
-    return '${AppConfig.backendBaseUrl}/api/summary-html/?book=1&page=$_currentPage&type=$type&summary_page=$page';
+    return '${AppConfig.backendBaseUrl}/api/summary-html/?book=${widget.bookId}&page=$_currentPage&type=$type&summary_page=$page';
   }
 
   // ===== التنقل =====
 
-  Future<void> _checkSummaryNavigation() async {
-    final nextUrl = _summaryUrl(_currentSummaryType, _summaryPage + 1);
-    final prevUrl = _summaryUrl(_currentSummaryType, _summaryPage - 1);
+  // يقرأ window.totalPages من الـ WebView بعد تحميل الملخص
+  Future<void> _updateSummaryNavigation() async {
     try {
-      final next = await http
-          .get(Uri.parse(nextUrl))
-          .timeout(const Duration(seconds: 5));
-      final prev = await http
-          .get(Uri.parse(prevUrl))
-          .timeout(const Duration(seconds: 5));
-      if (mounted) {
+      final result = await _summaryController.runJavaScriptReturningResult(
+        'window.totalPages || 0',
+      );
+      final total = int.tryParse(result.toString()) ?? 0;
+      if (mounted && total > 0) {
         setState(() {
-          _hasNext = next.statusCode == 200;
-          _hasPrev = prev.statusCode == 200;
+          _hasNext = _summaryPage < total;
+          _hasPrev = _summaryPage > 1;
         });
       }
     } catch (_) {}
@@ -190,12 +187,15 @@ class _BookScreenState extends State<BookScreen> {
 
   void _loadSummary() {
     final url = _summaryUrl(_currentSummaryType, _summaryPage);
-    _summaryController.loadRequest(Uri.parse(url));
-    _checkSummaryNavigation();
+    _summaryController
+      ..setNavigationDelegate(NavigationDelegate(
+        onPageFinished: (_) => _updateSummaryNavigation(),
+      ))
+      ..loadRequest(Uri.parse(url));
   }
 
   void _goToNextPage() {
-    if (_currentPage < totalPages) {
+    if (_currentPage < widget.totalPages) {
       _flushCurrentPageProgress();
       setState(() => _currentPage++);
       _bookController.loadRequest(Uri.parse(_pageUrl(_currentPage)));
@@ -235,7 +235,7 @@ class _BookScreenState extends State<BookScreen> {
             onPressed: () {
               final page = int.tryParse(controller.text.trim()) ?? 0;
               Navigator.pop(context);
-              if (page >= 1 && page <= totalPages) {
+              if (page >= 1 && page <= widget.totalPages) {
                 _flushCurrentPageProgress();
                 setState(() => _currentPage = page);
                 _bookController.loadRequest(Uri.parse(_pageUrl(page)));
@@ -435,6 +435,7 @@ class _BookScreenState extends State<BookScreen> {
       builder: (_) => _AIResultSheet(
         text: text,
         isSelected: isSelected,
+        subject: widget.subjectName,
       ),
     );
   }
@@ -574,7 +575,7 @@ class _BookScreenState extends State<BookScreen> {
                     child: GestureDetector(
                       onTap: _goToPageDialog,
                       child: Text(
-                        '$_currentPage / $totalPages',
+                        '$_currentPage / ${widget.totalPages}',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
@@ -608,13 +609,13 @@ class _BookScreenState extends State<BookScreen> {
                 IconButton(
                   icon: const Icon(Icons.chevron_right),
                   onPressed:
-                      _currentPage < totalPages ? _goToNextPage : null,
+                      _currentPage < widget.totalPages ? _goToNextPage : null,
                 ),
               ],
             ),
             const SizedBox(height: 4),
             LinearProgressIndicator(
-              value: _currentPage / totalPages,
+              value: _currentPage / widget.totalPages,
               minHeight: 4,
               borderRadius: BorderRadius.circular(4),
             ),
@@ -666,8 +667,13 @@ class _BookScreenState extends State<BookScreen> {
 class _AIResultSheet extends StatefulWidget {
   final String text;
   final bool isSelected;
+  final String subject;
 
-  const _AIResultSheet({required this.text, required this.isSelected});
+  const _AIResultSheet({
+    required this.text,
+    required this.isSelected,
+    this.subject = 'الرياضيات',
+  });
 
   @override
   State<_AIResultSheet> createState() => _AIResultSheetState();
@@ -686,8 +692,8 @@ class _AIResultSheetState extends State<_AIResultSheet> {
   Future<void> _fetchAIResult() async {
     setState(() => _loading = true);
     final result = widget.isSelected
-        ? await AIService.explainText(widget.text)
-        : await AIService.explainFullPage(widget.text);
+        ? await AIService.explainText(widget.text, subject: widget.subject)
+        : await AIService.explainFullPage(widget.text, subject: widget.subject);
     if (mounted) {
       setState(() {
         _result = result;

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from .ai_views import ai_explain_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,6 +9,6 @@ urlpatterns = [
     path('api/', include('students.urls')),
     path('api/', include('parents.urls')),
     path('api/', include('teachers.urls')),
-    # صفحات الكتب بدون /api/ prefix (للتوافق مع Flutter)
+    path('api/ai/explain/', ai_explain_view, name='ai-explain'),
     path('', include('curriculum.urls')),
 ]

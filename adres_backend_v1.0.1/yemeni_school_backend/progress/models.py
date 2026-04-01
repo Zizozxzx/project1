@@ -13,7 +13,6 @@ class Progress(models.Model):
         null=True,
         blank=True,
     )
-    # للتوافق مع الكود القديم (academic_id مباشرة)
     academic_id = models.CharField(max_length=20, verbose_name="الرقم الأكاديمي", db_index=True)
     book = models.ForeignKey(
         Book,
@@ -29,7 +28,6 @@ class Progress(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="آخر تحديث")
 
     class Meta:
-        # ضمان سجل واحد لكل طالب/كتاب
         unique_together = ('academic_id', 'book')
         verbose_name = "تقدم الطالب"
         verbose_name_plural = "تقدم الطلاب"
@@ -43,9 +41,8 @@ class Progress(models.Model):
     def save(self, *args, **kwargs):
         # ربط الطالب تلقائياً من الـ academic_id
         if not self.student_id and self.academic_id:
-            from students.models import Student as St
             try:
-                self.student = St.objects.get(academic_id=self.academic_id)
-            except St.DoesNotExist:
+                self.student = Student.objects.get(academic_id=self.academic_id)
+            except Student.DoesNotExist:
                 pass
         super().save(*args, **kwargs)

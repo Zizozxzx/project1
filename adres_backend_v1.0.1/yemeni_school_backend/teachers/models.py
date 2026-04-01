@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password, check_password
 from django.db import models
 
 
@@ -8,6 +9,12 @@ class Teacher(models.Model):
     subject = models.CharField(max_length=100, verbose_name="المادة")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password(raw_password, self.password)
+
     def __str__(self):
         return f"{self.full_name} ({self.teacher_id})"
 
@@ -17,7 +24,6 @@ class Teacher(models.Model):
 
 
 class TeacherClass(models.Model):
-    """ربط المعلم بالشعب الدراسية"""
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='classes')
     class_id = models.CharField(max_length=50, verbose_name="معرف الشعبة")
     class_name = models.CharField(max_length=100, verbose_name="اسم الشعبة")
