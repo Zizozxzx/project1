@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.adres.admin.app-mergeDebugResources-39:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/home/zizo/.gradle/caches/8.12/transforms/29452df810c0f4d13432a0d241be36d7/transformed/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

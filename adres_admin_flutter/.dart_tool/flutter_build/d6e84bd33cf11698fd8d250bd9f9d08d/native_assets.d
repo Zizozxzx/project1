@@ -1,0 +1,1 @@
+ /home/zizo/my/tech/7/project1/adres_admin_flutter/.dart_tool/flutter_build/d6e84bd33cf11698fd8d250bd9f9d08d/native_assets.yaml: 
